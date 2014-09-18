@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A654BFF-51B3-4560-B9B6-9197493FB1FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAF.Framework.Controls</RootNamespace>
+    <AssemblyName>SAF.Framework.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\SAF.DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\SAF.Key\StrongKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoSizeLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BackstageViewLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Entities\sysRegInfo.cs" />
+    <Compile Include="FileUpgradeHelper.cs" />
+    <Compile Include="fmFileUpgrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmFileUpgrade.Designer.cs">
+      <DependentUpon>fmFileUpgrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmRegister.Designer.cs">
+      <DependentUpon>fmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSearchControl\GridSearchEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridSearchControl\GridSearchEditSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridSearchControl\GridSearchEditSearchControl.Designer.cs">
+      <DependentUpon>GridSearchEditSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridSearchControl\RepositoryItemGridSearchEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IBaseUserControl.cs" />
+    <Compile Include="ObjectHelper.cs" />
+    <Compile Include="PageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PageControl.Designer.cs">
+      <DependentUpon>PageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressService\fmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressService\fmProgress.designer.cs">
+      <DependentUpon>fmProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressService\ProgressProxy.cs" />
+    <Compile Include="ProgressService\ProgressService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryControl.Designer.cs">
+      <DependentUpon>QueryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryControlHelper.cs" />
+    <Compile Include="RegInfoHelper.cs" />
+    <Compile Include="SplashScreen\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen\SplashScreen.designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIController.cs" />
+    <Compile Include="ViewConfig\QueryConfig.cs" />
+    <Compile Include="ViewConfig\QueryField.cs" />
+    <Compile Include="ViewConfig\QuickQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fmFileUpgrade.resx">
+      <DependentUpon>fmFileUpgrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmRegister.resx">
+      <DependentUpon>fmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridSearchControl\GridSearchEditSearchControl.resx">
+      <DependentUpon>GridSearchEditSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageControl.resx">
+      <DependentUpon>PageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressService\fmProgress.resx">
+      <DependentUpon>fmProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryControl.resx">
+      <DependentUpon>QueryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.EntityFramework\SAF.EntityFramework.csproj">
+      <Project>{2f6a089c-dd0b-47af-b44d-ea510f2b4376}</Project>
+      <Name>SAF.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Search_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Search_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnFirstPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnLastPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnNextPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnPrevPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_Closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_Opened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoToPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewViaWizard_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewViaWizard_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Action_Tools_16x16.png" />
+    <None Include="Resources\JodenSoft.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,38 @@
+﻿using DevExpress.XtraBars.Ribbon;
+using SAF.Foundation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace SAF.Framework
+{
+    /// <summary>
+    /// Shell接口
+    /// </summary>
+    public interface IShell : IShellBase
+    {
+        /// <summary>
+        /// 视图
+        /// </summary>
+        Form View { get; }
+        /// <summary>
+        /// 主菜单
+        /// </summary>
+        RibbonControl RibbonControl { get; }
+        /// <summary>
+        /// 合并菜单
+        /// </summary>
+        /// <param name="childRibbon"></param>
+        void MergeRibbon(RibbonControl childRibbon);
+        /// <summary>
+        /// 取消合并菜单
+        /// </summary>
+        void UnMergeRibbon();
+        /// <summary>
+        /// 初始化一些特殊的组件,此方法需由接口主动调用
+        /// </summary>
+        void InitComponent();
+    }
+}

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{113580E5-EFE6-443D-9D36-6D7E822BED33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorEngine", "RazorEngine\RazorEngine.csproj", "{D268F86D-2DAB-4329-A75F-3BCF6D5BCDC4}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{113580E5-EFE6-443D-9D36-6D7E822BED33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113580E5-EFE6-443D-9D36-6D7E822BED33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113580E5-EFE6-443D-9D36-6D7E822BED33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113580E5-EFE6-443D-9D36-6D7E822BED33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D268F86D-2DAB-4329-A75F-3BCF6D5BCDC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D268F86D-2DAB-4329-A75F-3BCF6D5BCDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D268F86D-2DAB-4329-A75F-3BCF6D5BCDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D268F86D-2DAB-4329-A75F-3BCF6D5BCDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

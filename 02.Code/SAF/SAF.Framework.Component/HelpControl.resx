@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="galleryControlClient2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="galleryControlClient2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 10000</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient2.Name" xml:space="preserve">
+    <value>galleryControlClient2</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.GalleryControlClient, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient2.Parent" xml:space="preserve">
+    <value>galleryControl2</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="galleryControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryItem1.Caption" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="galleryItem1.Description" xml:space="preserve">
+    <value>获取最新可用更新</value>
+  </data>
+  <data name="galleryControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 174</value>
+  </data>
+  <data name="galleryControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 46</value>
+  </data>
+  <data name="galleryControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="galleryControl2.Text" xml:space="preserve">
+    <value>galleryControl2</value>
+  </data>
+  <data name="&gt;&gt;galleryControl2.Name" xml:space="preserve">
+    <value>galleryControl2</value>
+  </data>
+  <data name="&gt;&gt;galleryControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.GalleryControl, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;galleryControl2.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;galleryControl2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblSetTool.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v14.1" name="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lblSetTool.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v14.1">
+    <value>None</value>
+  </data>
+  <data name="lblSetTool.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblSetTool.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 142</value>
+  </data>
+  <data name="lblSetTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 32</value>
+  </data>
+  <data name="lblSetTool.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblSetTool.Text" xml:space="preserve">
+    <value>设置 Simplified Applicaton Framework 的工具</value>
+  </data>
+  <data name="&gt;&gt;lblSetTool.Name" xml:space="preserve">
+    <value>lblSetTool</value>
+  </data>
+  <data name="&gt;&gt;lblSetTool.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.BackstageViewLabel, SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+  <data name="&gt;&gt;lblSetTool.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;lblSetTool.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="galleryControlClient1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="galleryControlClient1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 10000</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient1.Name" xml:space="preserve">
+    <value>galleryControlClient1</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.GalleryControlClient, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient1.Parent" xml:space="preserve">
+    <value>galleryControl1</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="galleryControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="galleryItem2.Caption" xml:space="preserve">
+    <value>在线帮助</value>
+  </data>
+  <data name="galleryItem2.Description" xml:space="preserve">
+    <value>在线获取帮助或查阅在线帮助文档</value>
+  </data>
+  <data name="galleryItem3.Caption" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
+  <data name="galleryItem3.Description" xml:space="preserve">
+    <value>联系我们以便于我们为您提供更及时、更优质的服务</value>
+  </data>
+  <data name="galleryControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 52</value>
+  </data>
+  <data name="galleryControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 90</value>
+  </data>
+  <data name="galleryControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="galleryControl1.Text" xml:space="preserve">
+    <value>galleryControl1</value>
+  </data>
+  <data name="&gt;&gt;galleryControl1.Name" xml:space="preserve">
+    <value>galleryControl1</value>
+  </data>
+  <data name="&gt;&gt;galleryControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.GalleryControl, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;galleryControl1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;galleryControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="backstageViewLabel1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="backstageViewLabel1.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v14.1">
+    <value>None</value>
+  </data>
+  <data name="backstageViewLabel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="backstageViewLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="backstageViewLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 32</value>
+  </data>
+  <data name="backstageViewLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="backstageViewLabel1.Text" xml:space="preserve">
+    <value>支持</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel1.Name" xml:space="preserve">
+    <value>backstageViewLabel1</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel1.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.BackstageViewLabel, SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="splitContainer1.Panel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblProductId.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="lblProductId.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblProductId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 267</value>
+  </data>
+  <data name="lblProductId.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 5, 0, 0</value>
+  </data>
+  <data name="lblProductId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 20</value>
+  </data>
+  <data name="lblProductId.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lblProductId.Text" xml:space="preserve">
+    <value>产品ID：00000-000-000000-00001</value>
+  </data>
+  <data name="&gt;&gt;lblProductId.Name" xml:space="preserve">
+    <value>lblProductId</value>
+  </data>
+  <data name="&gt;&gt;lblProductId.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblProductId.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblProductId.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblAboutBox.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Underline</value>
+  </data>
+  <data name="lblAboutBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblAboutBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 242</value>
+  </data>
+  <data name="lblAboutBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 5, 0, 5</value>
+  </data>
+  <data name="lblAboutBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 25</value>
+  </data>
+  <data name="lblAboutBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblAboutBox.Text" xml:space="preserve">
+    <value>其他版本或版权信息</value>
+  </data>
+  <data name="&gt;&gt;lblAboutBox.Name" xml:space="preserve">
+    <value>lblAboutBox</value>
+  </data>
+  <data name="&gt;&gt;lblAboutBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblAboutBox.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblAboutBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblInfo.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="lblInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 222</value>
+  </data>
+  <data name="lblInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 5, 0, 0</value>
+  </data>
+  <data name="lblInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 20</value>
+  </data>
+  <data name="lblInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="lblInfo.Text" xml:space="preserve">
+    <value>Simplified Application Framework</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Name" xml:space="preserve">
+    <value>lblInfo</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblAbout.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblAbout.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v14.1">
+    <value>None</value>
+  </data>
+  <data name="lblAbout.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblAbout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 187</value>
+  </data>
+  <data name="lblAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>442, 35</value>
+  </data>
+  <data name="lblAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblAbout.Text" xml:space="preserve">
+    <value>关于 Simplified Application Framework</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Name" xml:space="preserve">
+    <value>lblAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.BackstageViewLabel, SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblProductKey.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Underline</value>
+  </data>
+  <data name="lblProductKey.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblProductKey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 157</value>
+  </data>
+  <data name="lblProductKey.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 10, 0, 5</value>
+  </data>
+  <data name="lblProductKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 30</value>
+  </data>
+  <data name="lblProductKey.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblProductKey.Text" xml:space="preserve">
+    <value>输入或更改产品密钥</value>
+  </data>
+  <data name="&gt;&gt;lblProductKey.Name" xml:space="preserve">
+    <value>lblProductKey</value>
+  </data>
+  <data name="&gt;&gt;lblProductKey.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblProductKey.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblProductKey.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblProductInclude.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblProductInclude.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 136</value>
+  </data>
+  <data name="lblProductInclude.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 5, 0, 0</value>
+  </data>
+  <data name="lblProductInclude.Size" type="System.Drawing.Size, System.Drawing">
+    <value>442, 21</value>
+  </data>
+  <data name="lblProductInclude.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lblProductInclude.Text" xml:space="preserve">
+    <value>本产品包含：Simplified Application Framework.</value>
+  </data>
+  <data name="&gt;&gt;lblProductInclude.Name" xml:space="preserve">
+    <value>lblProductInclude</value>
+  </data>
+  <data name="&gt;&gt;lblProductInclude.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.AutoSizeLabelControl, SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+  <data name="&gt;&gt;lblProductInclude.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblProductInclude.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblProductName.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="lblProductName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblProductName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 115</value>
+  </data>
+  <data name="lblProductName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 0, 0, 0</value>
+  </data>
+  <data name="lblProductName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 21</value>
+  </data>
+  <data name="lblProductName.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblProductName.Text" xml:space="preserve">
+    <value>Simplified Applicaton Framework</value>
+  </data>
+  <data name="&gt;&gt;lblProductName.Name" xml:space="preserve">
+    <value>lblProductName</value>
+  </data>
+  <data name="&gt;&gt;lblProductName.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblProductName.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;lblProductName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="backstageViewLabel3.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="backstageViewLabel3.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v14.1">
+    <value>None</value>
+  </data>
+  <data name="backstageViewLabel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="backstageViewLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 80</value>
+  </data>
+  <data name="backstageViewLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>442, 35</value>
+  </data>
+  <data name="backstageViewLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="backstageViewLabel3.Text" xml:space="preserve">
+    <value>激活的产品</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel3.Name" xml:space="preserve">
+    <value>backstageViewLabel3</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel3.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.BackstageViewLabel, SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel3.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;backstageViewLabel3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelControl1.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="picLogo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="picLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="picLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 70</value>
+  </data>
+  <data name="picLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="picLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Name" xml:space="preserve">
+    <value>picLogo</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Parent" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;picLogo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="panelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>442, 70</value>
+  </data>
+  <data name="panelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Name" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Parent" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panelControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 0</value>
+  </data>
+  <data name="panelControl2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="panelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>462, 395</value>
+  </data>
+  <data name="panelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;panelControl2.Name" xml:space="preserve">
+    <value>panelControl2</value>
+  </data>
+  <data name="&gt;&gt;panelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelControl2.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;panelControl2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelControl4.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v14.1">
+    <value>None</value>
+  </data>
+  <data name="labelControl4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="labelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="labelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>4, 395</value>
+  </data>
+  <data name="labelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Name" xml:space="preserve">
+    <value>labelControl4</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 395</value>
+  </data>
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>450</value>
+  </data>
+  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="galleryControlClient3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="galleryControlClient3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient3.Name" xml:space="preserve">
+    <value>galleryControlClient3</value>
+  </data>
+  <data name="&gt;&gt;galleryControlClient3.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.GalleryControlClient, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="HelpControl.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 14</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 395</value>
+  </data>
+  <data name="&gt;&gt;galleryControlGallery1.Name" xml:space="preserve">
+    <value>galleryControlGallery1</value>
+  </data>
+  <data name="&gt;&gt;galleryControlGallery1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.Gallery.GalleryControlGallery, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;galleryControlGallery2.Name" xml:space="preserve">
+    <value>galleryControlGallery2</value>
+  </data>
+  <data name="&gt;&gt;galleryControlGallery2.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Ribbon.Gallery.GalleryControlGallery, DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>HelpControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>SAF.Framework.Controls.BaseBackstageViewTabItem, SAF.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</value>
+  </data>
+</root>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96513691-2B18-4101-BDEB-81130D83189D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAF.SystemModule</RootNamespace>
+    <AssemblyName>SAF.SystemModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\SAF.Output\Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\SAF.Key\StrongKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SAF.DLL\SAF.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="sysBillTypeRightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysBillTypeRightView.Designer.cs">
+      <DependentUpon>sysBillTypeRightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysBillTypeRightViewViewModel.cs" />
+    <Compile Include="sysDataRoleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysDataRoleView.Designer.cs">
+      <DependentUpon>sysDataRoleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysDataRoleViewViewModel.cs" />
+    <Compile Include="sysFileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysFileView.Designer.cs">
+      <DependentUpon>sysFileView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="sysFileViewViewModel.cs" />
+    <Compile Include="sysMenuView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysMenuView.Designer.cs">
+      <DependentUpon>sysMenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysMenuViewViewModel.cs" />
+    <Compile Include="sysRoleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysRoleView.Designer.cs">
+      <DependentUpon>sysRoleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysRoleViewViewModel.cs" />
+    <Compile Include="sysTableColumnView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysTableColumnView.Designer.cs">
+      <DependentUpon>sysTableColumnView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysTableColumnViewViewModel.cs" />
+    <Compile Include="SystemModuleInfo.cs" />
+    <Compile Include="sysOrganizationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysOrganizationView.Designer.cs">
+      <DependentUpon>sysOrganizationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysOrganizationViewViewModel.cs" />
+    <Compile Include="sysUserDataRole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysUserDataRole.Designer.cs">
+      <DependentUpon>sysUserDataRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysUserDataRoleViewModel.cs" />
+    <Compile Include="sysUserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysUserView.Designer.cs">
+      <DependentUpon>sysUserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysUserViewViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
+      <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
+      <Name>SAF.Framework.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework\SAF.Framework.csproj">
+      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
+      <Name>SAF.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntities.csproj">
+      <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
+      <Name>SAF.SystemEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysBillTypeRightView.resx">
+      <DependentUpon>sysBillTypeRightView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysDataRoleView.resx">
+      <DependentUpon>sysDataRoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysFileView.resx">
+      <DependentUpon>sysFileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysMenuView.resx">
+      <DependentUpon>sysMenuView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysOrganizationView.resx">
+      <DependentUpon>sysOrganizationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysRoleView.resx">
+      <DependentUpon>sysRoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysTableColumnView.resx">
+      <DependentUpon>sysTableColumnView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysUserDataRole.resx">
+      <DependentUpon>sysUserDataRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysUserView.resx">
+      <DependentUpon>sysUserView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysDataRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysFile.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenu.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenuParam.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysOrganization.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysRoleMenu.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysTableColumn.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysUser.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysUserRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.Tables.datasource" />
+    <None Include="Resources\Action_PublishEntity_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

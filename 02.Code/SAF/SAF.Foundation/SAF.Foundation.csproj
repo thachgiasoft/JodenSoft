@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71BD2E40-AFA5-4714-A291-77DDF32CED7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAF.Foundation</RootNamespace>
+    <AssemblyName>SAF.Foundation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\SAF.DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\SAF.Key\StrongKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComponentModel\ApplicationConfigHelper.cs" />
+    <Compile Include="EditStatus.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Interfaces\IShellBase.cs" />
+    <Compile Include="Interfaces\ISubProductInfo.cs" />
+    <Compile Include="LoadAssemblyProxyObject.cs" />
+    <Compile Include="RefreshMode.cs" />
+    <Compile Include="Security\RegisterHelper.cs" />
+    <Compile Include="ServiceModel\ApplicationService.cs" />
+    <Compile Include="AssemblyInfoHelper.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="MetaAttributes\BusinessObjectAttribute.cs" />
+    <Compile Include="MetaAttributes\IsBusinessModuleAttribute.cs" />
+    <Compile Include="ComponentModel\AutoWaitCursor.cs" />
+    <Compile Include="Cache\CacheService.cs" />
+    <Compile Include="Cache\DefaultCacheStrategy.cs" />
+    <Compile Include="Cache\ICacheStrategy.cs" />
+    <Compile Include="ComponentModel\ColorHelper.cs" />
+    <Compile Include="ComponentModel\CompositionHelper.cs" />
+    <Compile Include="ComponentModel\FileDialogHelper.cs" />
+    <Compile Include="ComponentModel\FileSize.cs" />
+    <Compile Include="ComponentModel\StringHelper.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Security\AESHelper.cs" />
+    <Compile Include="Security\SHA1Helper.cs" />
+    <Compile Include="ServiceModel\FileDragDropManager.cs" />
+    <Compile Include="ServiceModel\ServiceManager.cs" />
+    <Compile Include="Exceptions\FieldNotFoundException.cs" />
+    <Compile Include="Exceptions\NoMarkedException.cs" />
+    <Compile Include="Exceptions\OutOfRangeException.cs" />
+    <Compile Include="Extensions\ByteExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentModel\NotificationObject.cs" />
+    <Compile Include="ComponentModel\PropertySupport.cs" />
+    <Compile Include="Reflection\DynamicMethodHandlerFactory.cs" />
+    <Compile Include="Reflection\MethodCaller.cs" />
+    <Compile Include="Exceptions\ServiceNotFoundException.cs" />
+    <Compile Include="ServiceModel\LoggingService\DebugTextWriter.cs" />
+    <Compile Include="ServiceModel\LoggingService\ILoggingService.cs" />
+    <Compile Include="ServiceModel\LoggingService\TextWriterLoggingService.cs" />
+    <Compile Include="ServiceModel\MessageService\MessageBoxMessageService.cs" />
+    <Compile Include="ServiceModel\MessageService\IMessageService.cs" />
+    <Compile Include="ServiceModel\LoggingService\LoggingService.cs" />
+    <Compile Include="ServiceModel\MessageService\MessageService.cs" />
+    <Compile Include="ServiceModel\RegistryService\RegistryService.cs" />
+    <Compile Include="ComponentModel\UserConfigHelper.cs" />
+    <Compile Include="ComponentModel\Comparison.cs" />
+    <Compile Include="ComponentModel\Equality.cs" />
+    <Compile Include="ComponentModel\HardwareInfo.cs" />
+    <Compile Include="ComponentModel\MoneyHelper.cs" />
+    <Compile Include="ComponentModel\StringCompress.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ServiceModel\IObjectContainer.cs" />
+    <Compile Include="ServiceModel\ObjectContainer.cs" />
+    <Compile Include="Exceptions\CoreException.cs" />
+    <Compile Include="EventArgs\NotifyMessageEventArgs.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\AttributeExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interop\NativeMethods.cs" />
+    <Compile Include="ComponentModel\ObjectCloner.cs" />
+    <Compile Include="ComponentModel\PathHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ComponentModel\RandomString.cs" />
+    <Compile Include="Security\DESHelper.cs" />
+    <Compile Include="Security\MD5Helper.cs" />
+    <Compile Include="ServiceModel\ThreadSafeServiceContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saf_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saf_png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultUserPicture.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
