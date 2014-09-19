@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using SAF.Framework.ViewModel;
 using SAF.Framework.Controls.ViewConfig;
+using SAF.SystemEntities;
 
 namespace SAF.CommonConfig
 {
-    public class sysCommonBillConfigViewViewModel : MasterDetailViewViewModel<TIndexEntity, TMainEntity, TDetailEntity>
+    public class sysCommonBillConfigViewViewModel : MasterDetailViewViewModel<sysCommonBillHdr, sysCommonBillHdr, sysCommonBillHdrField>
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {

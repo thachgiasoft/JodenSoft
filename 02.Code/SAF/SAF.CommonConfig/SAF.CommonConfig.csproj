@@ -96,6 +96,10 @@
       <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
       <Name>SAF.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntities.csproj">
+      <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
+      <Name>SAF.SystemEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

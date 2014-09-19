@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SAF.Framework.ViewModel;
-using SAF.CommonConfig.Entities;
 using SAF.Framework.Controls.ViewConfig;
+using SAF.SystemEntities;
 
 namespace SAF.CommonConfig
 {
