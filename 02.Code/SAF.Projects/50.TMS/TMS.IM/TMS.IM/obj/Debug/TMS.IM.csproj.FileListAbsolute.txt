@@ -1,0 +1,9 @@
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.csprojResolveAssemblyReference.cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Output\Client\TMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Output\Client\TMS.IM.pdb
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.imStoreInOutTypeView.resources
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.ImStoreView.resources
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.csproj.GenerateResource.Cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.dll.licenses
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.TMS\TMS.IM\TMS.IM\obj\Debug\TMS.IM.pdb

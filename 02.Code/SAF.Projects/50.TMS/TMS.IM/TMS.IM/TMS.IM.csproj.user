@@ -4,4 +4,8 @@
     <StartAction>Program</StartAction>
     <StartProgram>D:\MyWorkSpaces\JodenSoft\02.Code\SAF.Output\Client\SAF.Client.exe</StartProgram>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>
+    </ReferencePath>
+  </PropertyGroup>
 </Project>
