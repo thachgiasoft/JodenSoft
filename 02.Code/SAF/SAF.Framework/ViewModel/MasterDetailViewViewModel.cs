@@ -39,7 +39,7 @@ namespace SAF.Framework.ViewModel
         {
             base.OnInit();
 
-            this.MainEntitySet.ChildEntitySets.Add(this.detailEntitySet);
+            this.MainEntitySet.ChildEntitySets.Add(this.DetailEntitySet);
         }
 
 

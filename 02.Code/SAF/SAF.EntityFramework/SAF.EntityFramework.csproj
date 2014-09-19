@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
+    <Compile Include="EntitySet\EntitySetBaseCollection.cs" />
     <Compile Include="Extensions\ApplicationContext.cs" />
     <Compile Include="Extensions\CacheKey.cs" />
     <Compile Include="Data\Database.cs" />

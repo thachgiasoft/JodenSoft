@@ -19,7 +19,7 @@ namespace SAF.EntityFramework
         protected DataTable _table = null;
         private BindingSource _bindingSource = null;
 
-        private IList<IEntitySetBase> _childEntitySets = new List<IEntitySetBase>();
+        private EntitySetBaseCollection _childEntitySets = new EntitySetBaseCollection();
         private string _connectionName = string.Empty;
 
         #region Page
@@ -154,7 +154,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// ChildEntitySets
         /// </summary>
-        public IList<IEntitySetBase> ChildEntitySets
+        public EntitySetBaseCollection ChildEntitySets
         {
             get { return this._childEntitySets; }
         }

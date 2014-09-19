@@ -38,7 +38,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 子实体集
         /// </summary>
-        IList<IEntitySetBase> ChildEntitySets { get; }
+        EntitySetBaseCollection ChildEntitySets { get; }
 
         /// <summary>
         /// 
