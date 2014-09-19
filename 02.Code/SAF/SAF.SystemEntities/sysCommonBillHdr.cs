@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.CommonConfig.Entities
+namespace SAF.SystemEntities
 {
-    public class sysCommonBillDtl : Entity<sysCommonBillDtl>
+    public class sysCommonBillHdr : Entity<sysCommonBillHdr>
     {
         protected override void OnInit()
         {
             base.OnInit();
 
-            this.DbTableName = "sysCommonBillDtl";
+            this.DbTableName = "sysCommonBillHdr";
             this.PrimaryKey = "Iden";
         }
 

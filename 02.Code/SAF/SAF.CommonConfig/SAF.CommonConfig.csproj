@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
-    <PropertyGroup>
+  <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\SAF.Key\StrongKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
@@ -59,11 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonConfigInfo.cs" />
-    <Compile Include="Entities\sysCommonBillDtl.cs" />
-    <Compile Include="Entities\sysCommonBillDtlField.cs" />
-    <Compile Include="Entities\sysCommonBillHdrField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\sysCommonBillHdr.cs" />
+    <Compile Include="sysCommonBillConfigView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysCommonBillConfigView.Designer.cs">
+      <DependentUpon>sysCommonBillConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysCommonBillConfigViewViewModel.cs" />
     <Compile Include="sysCommonBillView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="sysCommonBillConfigView.resx">
+      <DependentUpon>sysCommonBillConfigView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysCommonBillView.resx">
       <DependentUpon>sysCommonBillView.cs</DependentUpon>
     </EmbeddedResource>

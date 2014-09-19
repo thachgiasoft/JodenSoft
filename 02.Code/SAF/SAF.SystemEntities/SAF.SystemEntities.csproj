@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sysBusinessView.cs" />
     <Compile Include="sysBusinessViewParam.cs" />
+    <Compile Include="sysCommonBillDtl.cs" />
+    <Compile Include="sysCommonBillDtlField.cs" />
+    <Compile Include="sysCommonBillHdr.cs" />
+    <Compile Include="sysCommonBillHdrField.cs" />
     <Compile Include="sysDataRole.cs" />
     <Compile Include="sysFile.cs" />
     <Compile Include="sysMenu.cs" />
