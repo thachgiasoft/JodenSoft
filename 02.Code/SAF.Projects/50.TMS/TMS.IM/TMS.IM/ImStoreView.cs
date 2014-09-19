@@ -9,9 +9,11 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Framework.Controls;
+using SAF.Foundation.MetaAttributes;
 
 namespace TMS.IM
 {
+    [BusinessObject("ImStoreView")]
     public partial class ImStoreView : SingleView
     {
         public ImStoreView()
