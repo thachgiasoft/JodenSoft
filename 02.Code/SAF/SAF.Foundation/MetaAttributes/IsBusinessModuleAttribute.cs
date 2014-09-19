@@ -6,7 +6,7 @@ using System.Text;
 namespace SAF.Foundation.MetaAttributes
 {
     /// <summary>
-    /// 标记程序集是否是业务模块,如果不是业务模块将不反射其内部类型
+    /// 标记程序集是否是业务模块,如果不是业务模块将不拼装到容器内
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false, Inherited = false)]
     public class IsBusinessModuleAttribute : Attribute

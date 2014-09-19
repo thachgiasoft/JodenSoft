@@ -164,11 +164,13 @@ namespace SAF.SystemModule
 
                     if (obj.LoadAssembly(fileName))
                     {
-                        if (!listFile.Contains(Path.GetFileName(fileName)) && obj.IsBusinessModule())
+                        if (!listFile.Contains(Path.GetFileName(fileName)))
                         {
-                            listFile.Add(Path.GetFileName(fileName));
-
                             var types = obj.GetAllTypeMarked<BusinessObjectAttribute>();
+
+                            if (types.Count > 0)
+                                listFile.Add(Path.GetFileName(fileName));
+
                             foreach (Type item in types)
                             {
                                 var list = item.GetAllPropertyMarked<ViewParamAttribute>();
