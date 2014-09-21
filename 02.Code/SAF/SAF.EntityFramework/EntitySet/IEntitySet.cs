@@ -47,23 +47,5 @@ namespace SAF.EntityFramework
         /// <param name="rowStates"></param>
         /// <returns></returns>
         new EntitySet<TEntity> GetChanges(DataRowState rowStates);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        new EntitySet<TEntity> GetModifiedData();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        new EntitySet<TEntity> GetAddedData();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        new EntitySet<TEntity> GetDeletedData();
     }
 }

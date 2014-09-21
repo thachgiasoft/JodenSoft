@@ -14,11 +14,6 @@ namespace SAF.EntityFramework
     [Serializable]
     public abstract class EntityBase : DisposableObject, IEntityBase
     {
-        public static readonly string CreatedByField = "CreatedBy";
-        public static readonly string CreatedOnField = "CreatedOn";
-        public static readonly string ModifiedByField = "ModifiedBy";
-        public static readonly string ModifiedOnField = "ModifiedOn";
-        public static readonly string VersionNumberField = "VersionNumber";
         /// <summary>
         /// 数据库表名
         /// </summary>
@@ -166,11 +161,11 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 
         /// </summary>
-        public EntityState EntityState
+        public DataRowState EntityState
         {
             get
             {
-                return EntityStateConverter.DataRowStateToEntityState(this.DataRowView.Row.RowState);
+                return this.DataRowView==null?DataRowState.Unchanged: this.DataRowView.Row.RowState;
             }
         }
         /// <summary>

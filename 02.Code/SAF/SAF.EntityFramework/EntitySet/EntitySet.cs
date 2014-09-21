@@ -289,7 +289,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 保存更改.如果实体集挂载了缓存器,则将更新脚本写入缓存器;否则直接更新数据库.
         /// </summary>
-        public override void SaveChanges(EntityState entityState = EntityState.None)
+        public override void SaveChanges(DataRowState entityState = DataRowState.Unchanged)
         {
             var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable, entityState);
             if (list.Count <= 0) return;
@@ -411,60 +411,13 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public EntitySet<TEntity> GetModifiedData()
-        {
-            return GetChanges(DataRowState.Modified);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public EntitySet<TEntity> GetAddedData()
-        {
-            return GetChanges(DataRowState.Added);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public EntitySet<TEntity> GetDeletedData()
-        {
-            return GetChanges(DataRowState.Deleted);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="rowStates"></param>
         /// <returns></returns>
         protected override IEntitySetBase DoGetChanges(DataRowState rowStates)
         {
             return GetChanges(rowStates);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected override IEntitySetBase DoGetModifiedData()
-        {
-            return GetModifiedData();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected override IEntitySetBase DoGetAddedData()
-        {
-            return GetAddedData();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected override IEntitySetBase DoGetDeletedData()
-        {
-            return GetDeletedData();
-        }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -496,20 +449,20 @@ namespace SAF.EntityFramework
                 if (newobj.FieldIsExists(newobj.PrimaryKeyName))
                     newobj.SetFieldValue(newobj.PrimaryKeyName, null);
 
-                if (newobj.FieldIsExists(EntityBase.CreatedByField))
-                    newobj.SetFieldValue(EntityBase.CreatedByField, null);
+                if (newobj.FieldIsExists(EntityFields.CreatedBy))
+                    newobj.SetFieldValue(EntityFields.CreatedBy, null);
 
-                if (newobj.FieldIsExists(EntityBase.CreatedOnField))
-                    newobj.SetFieldValue(EntityBase.CreatedOnField, null);
+                if (newobj.FieldIsExists(EntityFields.CreatedOn))
+                    newobj.SetFieldValue(EntityFields.CreatedOn, null);
 
-                if (newobj.FieldIsExists(EntityBase.ModifiedByField))
-                    newobj.SetFieldValue(EntityBase.ModifiedByField, null);
+                if (newobj.FieldIsExists(EntityFields.ModifiedBy))
+                    newobj.SetFieldValue(EntityFields.ModifiedBy, null);
 
-                if (newobj.FieldIsExists(EntityBase.ModifiedOnField))
-                    newobj.SetFieldValue(EntityBase.ModifiedOnField, null);
+                if (newobj.FieldIsExists(EntityFields.ModifiedOn))
+                    newobj.SetFieldValue(EntityFields.ModifiedOn, null);
 
-                if (newobj.FieldIsExists(EntityBase.VersionNumberField))
-                    newobj.SetFieldValue(EntityBase.VersionNumberField, null);
+                if (newobj.FieldIsExists(EntityFields.VersionNumber))
+                    newobj.SetFieldValue(EntityFields.VersionNumber, null);
             }
         }
     }

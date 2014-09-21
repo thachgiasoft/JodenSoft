@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
+    <Compile Include="EntitySet\EntityConsts.cs" />
     <Compile Include="EntitySet\EntitySetBaseCollection.cs" />
     <Compile Include="Extensions\ApplicationContext.cs" />
     <Compile Include="Extensions\CacheKey.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="EntitySet\EntitySetBase.cs" />
     <Compile Include="EntitySet\EntitySetEnumerator.cs" />
     <Compile Include="EntitySet\EntitySetEventArgs.cs" />
-    <Compile Include="EntitySet\EntityState.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="EntitySet\IEntity.cs" />
     <Compile Include="EntitySet\IEntityBase.cs" />

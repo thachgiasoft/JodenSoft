@@ -23,7 +23,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 实体状态
         /// </summary>
-        EntityState EntityState { get; }
+        DataRowState EntityState { get; }
         /// <summary>
         /// 给字段赋值
         /// </summary>

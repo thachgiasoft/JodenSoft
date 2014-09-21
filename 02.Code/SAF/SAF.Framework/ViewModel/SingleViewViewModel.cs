@@ -3,6 +3,7 @@ using SAF.Foundation;
 using SAF.Framework.Controls.ViewConfig;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -285,14 +286,16 @@ namespace SAF.Framework.ViewModel
         protected virtual void OnApplySave()
         {
             //新增的数据先存主表
-            this.MainEntitySet.SaveChanges(EntityState.Added | EntityState.Modified);
+            this.MainEntitySet.SaveChanges(DataRowState.Added);
+            this.MainEntitySet.SaveChanges(DataRowState.Modified);
 
             //保存明细新增数据
             foreach (var child in this.MainEntitySet.ChildEntitySets)
             {
                 if (!child.IsReadOnly)
                 {
-                    child.SaveChanges(EntityState.Added | EntityState.Modified);
+                    child.SaveChanges(DataRowState.Added);
+                    child.SaveChanges(DataRowState.Modified);
                 }
             }
 
@@ -301,10 +304,10 @@ namespace SAF.Framework.ViewModel
             {
                 if (!child.IsReadOnly)
                 {
-                    child.SaveChanges(EntityState.Deleted);
+                    child.SaveChanges(DataRowState.Deleted);
                 }
             }
-            this.MainEntitySet.SaveChanges(EntityState.Deleted);
+            this.MainEntitySet.SaveChanges(DataRowState.Deleted);
 
         }
 

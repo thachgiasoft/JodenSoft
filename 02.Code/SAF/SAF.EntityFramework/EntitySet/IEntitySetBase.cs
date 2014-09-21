@@ -112,7 +112,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 如果有缓存器,则生成SQL脚本提交到缓存器;否则直接提交到数据库
         /// </summary>
-        void SaveChanges(EntityState entityState = EntityState.None);
+        void SaveChanges(DataRowState entityState = DataRowState.Unchanged);
         /// <summary>
         /// 删除当前实体
         /// </summary>
@@ -145,22 +145,6 @@ namespace SAF.EntityFramework
         /// <param name="rowStates"></param>
         /// <returns></returns>
         IEntitySetBase GetChanges(DataRowState rowStates);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase GetModifiedData();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase GetAddedData();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase GetDeletedData();
-
         /// <summary>
         /// 判断字段是否存在
         /// </summary>

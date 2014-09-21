@@ -25,7 +25,7 @@ namespace SAF.EntityFramework
         /// <param name="dbTableName"></param>
         /// <param name="table"></param>
         /// <returns></returns>
-        public static List<SqlCommandObject> GeneratorCommand(string connectionName, string dbTableName, DataTable table, EntityState entityState)
+        public static List<SqlCommandObject> GeneratorCommand(string connectionName, string dbTableName, DataTable table, DataRowState state)
         {
             if (connectionName.IsEmpty())
                 throw new Exception("GeneratorCommand方法中的connectionName为空.");
@@ -40,8 +40,6 @@ namespace SAF.EntityFramework
             DeleteCommandGenerator deleteCommandGenerator = new DeleteCommandGenerator();
             UpdateCommandGenerator updateCommandGenerator = new UpdateCommandGenerator();
 
-            DataRowState state = EntityStateConverter.EntityStateToDataRowState(entityState);
-
             SqlCommandObject cmd = null;
             if (table != null)
             {
@@ -54,6 +52,7 @@ namespace SAF.EntityFramework
                 {
                     dtChanges = table.GetChanges(state);
                 }
+
                 if (dtChanges == null) return cmds;
 
                 foreach (DataRow dr in dtChanges.Rows)

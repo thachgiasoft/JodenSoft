@@ -73,7 +73,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 保存更改.如果实体集挂载了缓存器,则将更新脚本写入缓存器;否则直接更新数据库.
         /// </summary>
-        public abstract void SaveChanges(EntityState entityState = EntityState.None);
+        public abstract void SaveChanges(DataRowState entityState = DataRowState.Unchanged);
         /// <summary>
         /// 删除当前行
         /// </summary>
@@ -502,48 +502,6 @@ namespace SAF.EntityFramework
         /// <param name="rowStates"></param>
         /// <returns></returns>
         protected abstract IEntitySetBase DoGetChanges(DataRowState rowStates);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase IEntitySetBase.GetModifiedData()
-        {
-            return DoGetModifiedData();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected abstract IEntitySetBase DoGetModifiedData();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase IEntitySetBase.GetAddedData()
-        {
-            return DoGetAddedData();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected abstract IEntitySetBase DoGetAddedData();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IEntitySetBase IEntitySetBase.GetDeletedData()
-        {
-            return DoGetDeletedData();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        protected abstract IEntitySetBase DoGetDeletedData();
 
         /// <summary>
         /// 结束编辑,提交数据
