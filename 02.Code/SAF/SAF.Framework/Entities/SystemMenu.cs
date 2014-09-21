@@ -12,7 +12,7 @@ namespace SAF.Framework.Controls.Entities
         public sysMenu()
         {
             this.DbTableName = "SystemMenu";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden
