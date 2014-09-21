@@ -112,7 +112,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 如果有缓存器,则生成SQL脚本提交到缓存器;否则直接提交到数据库
         /// </summary>
-        void SaveChanges();
+        void SaveChanges(EntityState entityState = EntityState.None);
         /// <summary>
         /// 删除当前实体
         /// </summary>
@@ -179,6 +179,10 @@ namespace SAF.EntityFramework
         /// <param name="fieldName"></param>
         /// <returns></returns>
         Type FieldDataType(string fieldName);
+        /// <summary>
+        /// 提交自上次调用 System.Data.DataTable.AcceptChanges() 以来对该表进行的所有更改。
+        /// </summary>
+        void AcceptChanges();
 
     }
 }

@@ -34,10 +34,10 @@ namespace SAF.Framework.View
 
             var count = this.ViewModel.DetailEntitySet.Count;
 
-            UIController.RefreshControl(this.btnDtlAddNew, this.IsEdit);
-            UIController.RefreshControl(this.btnDtlDelete, this.IsEdit && count > 0);
-            UIController.RefreshControl(this.btnDtlCopy, this.IsEdit && count > 0);
-            UIController.RefreshControl(this.btnDtlImport, this.IsEdit);
+            UIController.RefreshControl(this.btnDtlAddNew, this.IsEdit || this.IsAddNew);
+            UIController.RefreshControl(this.btnDtlDelete, (this.IsEdit || this.IsAddNew) && count > 0);
+            UIController.RefreshControl(this.btnDtlCopy, (this.IsEdit || this.IsAddNew) && count > 0);
+            UIController.RefreshControl(this.btnDtlImport, (this.IsEdit || this.IsAddNew));
         }
 
         #region dtl button Actions
@@ -45,7 +45,6 @@ namespace SAF.Framework.View
         private void btnDtlAddNew_Click(object sender, EventArgs e)
         {
             OnDetailAddNew();
-
             OnRefreshDetailToolBar();
         }
 
@@ -60,7 +59,7 @@ namespace SAF.Framework.View
             OnDetailCopy();
             OnRefreshDetailToolBar();
         }
-        
+
         #endregion
 
 

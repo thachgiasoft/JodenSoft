@@ -206,6 +206,12 @@ namespace SAF.Framework.ViewModel
                 this.IndexEntitySet.AddNew();
                 this.MainEntitySet.AddNew();
 
+                foreach (var child in this.MainEntitySet.ChildEntitySets)
+                {
+                    if (!child.IsReadOnly)
+                        child.Clear();
+                }
+
                 this.SyncIndexEntitySet();
             }
             finally
@@ -232,7 +238,6 @@ namespace SAF.Framework.ViewModel
             try
             {
                 OnDelete();
-
                 Save();
                 this.EditStatus = EditStatus.Browse;
             }
@@ -241,7 +246,6 @@ namespace SAF.Framework.ViewModel
                 this.IndexEntitySet.IsBusy = false;
                 this.MainEntitySet.IsBusy = false;
             }
-
         }
 
         protected virtual void OnDelete()
@@ -251,6 +255,12 @@ namespace SAF.Framework.ViewModel
 
             if (this.mainEntitySet.CurrentEntity != null)
                 this.MainEntitySet.DeleteCurrent();
+
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
+            {
+                if (!child.IsReadOnly)
+                    child.DeleteCurrent();
+            }
         }
 
         public void Cancel()
@@ -261,13 +271,41 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnCancel()
         {
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
+            {
+                if (!child.IsReadOnly)
+                    child.Cancel();
+            }
+
             this.MainEntitySet.Cancel();
+
             this.IndexEntitySet.Cancel();
         }
 
         protected virtual void OnApplySave()
         {
-            this.MainEntitySet.SaveChanges();
+            //新增的数据先存主表
+            this.MainEntitySet.SaveChanges(EntityState.Added | EntityState.Modified);
+
+            //保存明细新增数据
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
+            {
+                if (!child.IsReadOnly)
+                {
+                    child.SaveChanges(EntityState.Added | EntityState.Modified);
+                }
+            }
+
+            //删除时先存明细表
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
+            {
+                if (!child.IsReadOnly)
+                {
+                    child.SaveChanges(EntityState.Deleted);
+                }
+            }
+            this.MainEntitySet.SaveChanges(EntityState.Deleted);
+
         }
 
         public void SyncIndexEntitySet()
@@ -288,6 +326,13 @@ namespace SAF.Framework.ViewModel
             {
                 this.IndexEntitySet.AcceptChanges();
                 this.MainEntitySet.AcceptChanges();
+                foreach (var child in this.MainEntitySet.ChildEntitySets)
+                {
+                    if (!child.IsReadOnly)
+                    {
+                        child.AcceptChanges();
+                    }
+                }
             }
         }
 
@@ -295,6 +340,13 @@ namespace SAF.Framework.ViewModel
         {
             this.IndexEntitySet.EndEdit();
             this.MainEntitySet.EndEdit();
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
+            {
+                if (!child.IsReadOnly)
+                {
+                    child.EndEdit();
+                }
+            }
 
             OnEndEdit();
         }

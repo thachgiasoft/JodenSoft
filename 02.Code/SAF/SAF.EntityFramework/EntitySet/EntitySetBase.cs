@@ -73,7 +73,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 保存更改.如果实体集挂载了缓存器,则将更新脚本写入缓存器;否则直接更新数据库.
         /// </summary>
-        public abstract void SaveChanges();
+        public abstract void SaveChanges(EntityState entityState = EntityState.None);
         /// <summary>
         /// 删除当前行
         /// </summary>
@@ -418,11 +418,6 @@ namespace SAF.EntityFramework
         public void Cancel()
         {
             RejectChanges();
-            foreach (var child in this.ChildEntitySets)
-            {
-                if (!child.IsReadOnly)
-                    child.Cancel();
-            }
         }
 
         /// <summary>

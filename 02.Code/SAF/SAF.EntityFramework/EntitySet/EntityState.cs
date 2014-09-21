@@ -37,14 +37,9 @@ namespace SAF.EntityFramework
     /// <summary>
     /// 实体状态转换类
     /// </summary>
-    internal static class EntityStateConverter
+    public static class EntityStateConverter
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="state"></param>
-        /// <returns></returns>
-        internal static EntityState DataRowStateToEntityState(DataRowState state)
+        public static EntityState DataRowStateToEntityState(DataRowState state)
         {
             switch (state)
             {
@@ -60,6 +55,23 @@ namespace SAF.EntityFramework
                     return EntityState.Unchanged;
                 default:
                     return EntityState.None;
+            }
+        }
+
+        public static DataRowState EntityStateToDataRowState(EntityState state)
+        {
+            switch (state)
+            {
+                case EntityState.Added:
+                    return DataRowState.Added;
+                case EntityState.Deleted:
+                    return DataRowState.Deleted;
+                case EntityState.Modified:
+                    return DataRowState.Modified;
+                case EntityState.Unchanged:
+                    return DataRowState.Unchanged;
+                default:
+                    return DataRowState.Unchanged;
             }
         }
     }

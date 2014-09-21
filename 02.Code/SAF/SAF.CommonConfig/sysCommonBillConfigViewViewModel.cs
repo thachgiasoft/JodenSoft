@@ -12,12 +12,17 @@ namespace SAF.CommonConfig
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            base.OnQuery(sCondition, parameterValues);
+            //base.OnQuery(sCondition, parameterValues);
+
+            this.IndexEntitySet.Query("select * from sysCommonBillHdr");
         }
 
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
+
+            this.MainEntitySet.Query("select * from sysCommonBillHdr");
+            this.DetailEntitySet.Query("select * from sysCommonBillHdr");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)

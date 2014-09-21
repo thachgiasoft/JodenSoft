@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SAF.Foundation;
 
 namespace SAF.Framework.ViewModel
 {
@@ -27,7 +28,6 @@ namespace SAF.Framework.ViewModel
             }
         }
 
-
         IEntitySetBase IMasterDetailViewViewModel.DetailEntitySet
         {
             get { return this.DetailEntitySet; }
@@ -51,7 +51,6 @@ namespace SAF.Framework.ViewModel
         {
             this.DetailEntitySet.DeleteCurrent();
         }
-
 
         public void DetailCopy()
         {

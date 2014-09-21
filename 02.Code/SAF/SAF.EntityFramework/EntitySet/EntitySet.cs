@@ -226,11 +226,6 @@ namespace SAF.EntityFramework
                 {
                     DeleteEntity(this.CurrentEntity);
                 }
-
-                foreach (var item in this.ChildEntitySets)
-                {
-                    item.DeleteCurrent();
-                }
             }
             finally
             {
@@ -294,9 +289,9 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 保存更改.如果实体集挂载了缓存器,则将更新脚本写入缓存器;否则直接更新数据库.
         /// </summary>
-        public override void SaveChanges()
+        public override void SaveChanges(EntityState entityState = EntityState.None)
         {
-            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable);
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable, entityState);
             if (list.Count <= 0) return;
             try
             {

@@ -20,6 +20,15 @@ namespace SAF.CommonConfig
             InitializeComponent();
         }
 
+        protected override void OnInitBinding()
+        {
+            base.OnInitBinding();
+            if (this.ViewModel != null)
+            {
+                this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
+            }
+        }
+
         protected override IBaseViewViewModel OnCreateViewModel()
         {
             return new sysCommonBillConfigViewViewModel();
@@ -27,7 +36,7 @@ namespace SAF.CommonConfig
 
         public new sysCommonBillConfigViewViewModel ViewModel
         {
-            get { return this.ViewModel as sysCommonBillConfigViewViewModel; }
+            get { return base.ViewModel as sysCommonBillConfigViewViewModel; }
         }
 
     }

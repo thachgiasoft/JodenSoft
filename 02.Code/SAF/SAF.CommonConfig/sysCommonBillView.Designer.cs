@@ -50,15 +50,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
+            this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // pcMain
             // 
             this.pcMain.Size = new System.Drawing.Size(827, 26);
+            // 
+            // splitRight
+            // 
+            this.splitRight.Size = new System.Drawing.Size(544, 268);
             // 
             // sysCommonBillView
             // 
@@ -87,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
