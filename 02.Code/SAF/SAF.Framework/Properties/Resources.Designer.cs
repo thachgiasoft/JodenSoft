@@ -83,6 +83,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Clear_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Clear_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Clear_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Clear_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Close_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
@@ -96,6 +116,26 @@ namespace SAF.Framework.Properties {
         internal static System.Drawing.Bitmap Action_Close_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Close_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Copy_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Copy_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Copy_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Copy_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +196,26 @@ namespace SAF.Framework.Properties {
         internal static System.Drawing.Bitmap Action_Export_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Export_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_ImportData_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ImportData_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_ImportData_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ImportData_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

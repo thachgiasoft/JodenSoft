@@ -26,6 +26,13 @@ namespace SAF.Framework.Controls
 
             label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。", Environment.NewLine, GetYearString(), AssemblyInfoHelper.Company);
             label1.Text += "{0}保留所有权利。".FormatEx(Environment.NewLine);
+
+#if DEBUG
+            this.picHS.Image = Properties.Resources.HSImage;
+#else
+            this.picHS.Image = Properties.Resources.JodenSoft;
+#endif
+
         }
 
         int GetYearString()

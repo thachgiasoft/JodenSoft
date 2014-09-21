@@ -144,10 +144,22 @@ namespace SAF.Framework.View
         /// </summary>
         public void RefreshUI()
         {
-            OnRefreshMenuAndToolBar();
+            OnRefreshRibbonMenu();
+
+            OnRefreshCustomRibbonMenu();
+
+            OnRefreshDetailToolBar();
+
             OnRefreshUI();
 
             FocusFirstEditControl();
+        }
+        /// <summary>
+        /// 刷新明细的工具栏
+        /// </summary>
+        protected virtual void OnRefreshDetailToolBar()
+        {
+
         }
         /// <summary>
         /// 刷新界面控件
@@ -157,17 +169,17 @@ namespace SAF.Framework.View
 
         }
         /// <summary>
-        /// 刷新菜单和工具栏
+        /// 刷新菜单
         /// </summary>
-        protected virtual void OnRefreshMenuAndToolBar()
+        protected virtual void OnRefreshRibbonMenu()
         {
-            RefreshCustomRibbonMenu();
+
         }
 
         /// <summary>
         /// 刷新自定义按钮
         /// </summary>
-        protected virtual void RefreshCustomRibbonMenu()
+        protected virtual void OnRefreshCustomRibbonMenu()
         {
             if (this.GroupCustom != null)
             {

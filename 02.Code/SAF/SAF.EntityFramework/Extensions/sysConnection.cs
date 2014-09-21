@@ -14,7 +14,7 @@ namespace SAF.EntityFramework
         public sysConnection()
         {
             DbTableName = "sysConnection";
-            PrimaryKey = "Iden";
+            PrimaryKeyName = "Iden";
         }
         /// <summary>
         /// 主键

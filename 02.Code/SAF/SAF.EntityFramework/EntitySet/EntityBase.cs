@@ -14,20 +14,26 @@ namespace SAF.EntityFramework
     [Serializable]
     public abstract class EntityBase : DisposableObject, IEntityBase
     {
+        public static readonly string CreatedByField = "CreatedBy";
+        public static readonly string CreatedOnField = "CreatedOn";
+        public static readonly string ModifiedByField = "ModifiedBy";
+        public static readonly string ModifiedOnField = "ModifiedOn";
+        public static readonly string VersionNumberField = "VersionNumber";
         /// <summary>
         /// 数据库表名
         /// </summary>
         public virtual string DbTableName { get; set; }
 
-        private string _PrimaryKey = "Iden";
+        private string _PrimaryKeyName = "Iden";
         /// <summary>
-        /// 数据库表的主键
+        /// 数据库表的主键名称
         /// </summary>
-        public virtual string PrimaryKey
+        public virtual string PrimaryKeyName
         {
-            get { return _PrimaryKey; }
-            set { _PrimaryKey = value; }
+            get { return _PrimaryKeyName; }
+            set { _PrimaryKeyName = value; }
         }
+
         /// <summary>
         /// 对应数据集的行
         /// </summary>
@@ -225,7 +231,7 @@ namespace SAF.EntityFramework
             if (string.IsNullOrWhiteSpace(fieldName))
                 throw new NullReferenceException("FieldIsExists: fieldName Is Null Or WhiteSpace.");
 
-            if (this.DataRowView == null || this.DataRowView.Row==null|| this.DataRowView.Row.Table == null)
+            if (this.DataRowView == null || this.DataRowView.Row == null || this.DataRowView.Row.Table == null)
                 return false;
             return this.DataRowView.Row.Table.Columns.Contains(fieldName);
         }

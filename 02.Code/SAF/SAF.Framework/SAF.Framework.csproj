@@ -228,6 +228,12 @@
     <None Include="Resources\Action_Export_32x32.png" />
     <None Include="Resources\Action_Edit_16x16.png" />
     <None Include="Resources\Action_Close_16x16.png" />
+    <None Include="Resources\Action_Clear_16x16.png" />
+    <None Include="Resources\Action_Clear_32x32.png" />
+    <None Include="Resources\Action_Copy_16x16.png" />
+    <None Include="Resources\Action_Copy_32x32.png" />
+    <None Include="Resources\Action_ImportData_32x32.png" />
+    <None Include="Resources\Action_ImportData_16x16.png" />
     <Content Include="Resources\Action_New_16x16.png" />
     <Content Include="Resources\Action_New_32x32.png" />
     <None Include="Resources\Action_Refresh_32x32.png" />

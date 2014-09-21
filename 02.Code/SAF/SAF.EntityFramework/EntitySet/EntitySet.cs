@@ -329,10 +329,10 @@ namespace SAF.EntityFramework
             if (this.CurrentEntity == null)
                 return int.MinValue;
 
-            var key = innerEntity.PrimaryKey;
-            if (key.IsEmpty())
+            var keyName = innerEntity.PrimaryKeyName;
+            if (keyName.IsEmpty())
                 throw new Exception("实体中未标记主键字段.");
-            return this.CurrentEntity.GetFieldValue(key, int.MinValue);
+            return this.CurrentEntity.GetFieldValue(keyName, int.MinValue);
         }
 
         /// <summary>
@@ -488,6 +488,34 @@ namespace SAF.EntityFramework
         {
             string fieldName = EntityHelper.GetFieldName(propertyLambdaExpression);
             return this.FieldIsExists(fieldName);
+        }
+
+        public void AddNewByCurrent()
+        {
+            var oldObj = this.CurrentEntity;
+            var newobj = this.AddNew();
+            if (oldObj != null)
+            {
+                newobj.Copy(oldObj);
+
+                if (newobj.FieldIsExists(newobj.PrimaryKeyName))
+                    newobj.SetFieldValue(newobj.PrimaryKeyName, null);
+
+                if (newobj.FieldIsExists(EntityBase.CreatedByField))
+                    newobj.SetFieldValue(EntityBase.CreatedByField, null);
+
+                if (newobj.FieldIsExists(EntityBase.CreatedOnField))
+                    newobj.SetFieldValue(EntityBase.CreatedOnField, null);
+
+                if (newobj.FieldIsExists(EntityBase.ModifiedByField))
+                    newobj.SetFieldValue(EntityBase.ModifiedByField, null);
+
+                if (newobj.FieldIsExists(EntityBase.ModifiedOnField))
+                    newobj.SetFieldValue(EntityBase.ModifiedOnField, null);
+
+                if (newobj.FieldIsExists(EntityBase.VersionNumberField))
+                    newobj.SetFieldValue(EntityBase.VersionNumberField, null);
+            }
         }
     }
 }

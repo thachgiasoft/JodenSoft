@@ -13,7 +13,7 @@ namespace SAF.SystemEntities
             base.OnInit();
 
             this.DbTableName = "sysCommonBillDtl";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden

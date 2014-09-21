@@ -15,7 +15,7 @@ namespace SAF.SystemEntities
             base.OnInit();
 
             this.DbTableName = "sysBusinessView";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden

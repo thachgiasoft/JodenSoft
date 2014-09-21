@@ -13,7 +13,7 @@ namespace SAF.SystemEntities
             base.OnInit();
 
             this.DbTableName = "sysMenuParam";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden

@@ -15,7 +15,7 @@ namespace SAF.EntityFramework
         public sysUser()
         {
             this.DbTableName = "sysUser";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
         /// <summary>
         /// 用户Iden

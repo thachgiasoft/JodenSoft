@@ -60,7 +60,9 @@ namespace SAF.Client
             OnInitialize();
 
 #if DEBUG
-            this.Text += " - DEBUG";
+            this.Text = "DIP - DEBUG";
+#else
+            this.Text = "SAF";
 #endif
 
             this.Shown += Shell_Shown;

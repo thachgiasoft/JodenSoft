@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.pnlDtlToolbar = new DevExpress.XtraEditors.PanelControl();
+            this.btnDtlImport = new DevExpress.XtraEditors.DropDownButton();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
+            this.btnDtlCopy = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDtlCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlAddNew = new DevExpress.XtraEditors.SimpleButton();
-            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDetail = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -58,6 +59,7 @@
             this.pageDtl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).BeginInit();
             this.pnlDtlToolbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,8 +132,9 @@
             // 
             // pnlDtlToolbar
             // 
+            this.pnlDtlToolbar.Controls.Add(this.btnDtlImport);
+            this.pnlDtlToolbar.Controls.Add(this.btnDtlCopy);
             this.pnlDtlToolbar.Controls.Add(this.btnDtlDelete);
-            this.pnlDtlToolbar.Controls.Add(this.btnDtlCancel);
             this.pnlDtlToolbar.Controls.Add(this.btnDtlAddNew);
             this.pnlDtlToolbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDtlToolbar.Location = new System.Drawing.Point(0, 0);
@@ -139,32 +142,48 @@
             this.pnlDtlToolbar.Size = new System.Drawing.Size(538, 29);
             this.pnlDtlToolbar.TabIndex = 0;
             // 
+            // btnDtlImport
+            // 
+            this.btnDtlImport.DropDownControl = this.pmuImportDetail;
+            this.btnDtlImport.Image = global::SAF.Framework.Properties.Resources.Action_ImportData_16x16;
+            this.btnDtlImport.Location = new System.Drawing.Point(215, 3);
+            this.btnDtlImport.MenuManager = this.ribbonMain;
+            this.btnDtlImport.Name = "btnDtlImport";
+            this.btnDtlImport.Size = new System.Drawing.Size(81, 23);
+            this.btnDtlImport.TabIndex = 4;
+            this.btnDtlImport.Text = "导入";
+            // 
+            // pmuImportDetail
+            // 
+            this.pmuImportDetail.Name = "pmuImportDetail";
+            this.pmuImportDetail.Ribbon = this.ribbonMain;
+            // 
+            // btnDtlCopy
+            // 
+            this.btnDtlCopy.Image = global::SAF.Framework.Properties.Resources.Action_Copy_16x16;
+            this.btnDtlCopy.Location = new System.Drawing.Point(70, 3);
+            this.btnDtlCopy.Name = "btnDtlCopy";
+            this.btnDtlCopy.Size = new System.Drawing.Size(62, 23);
+            this.btnDtlCopy.TabIndex = 3;
+            this.btnDtlCopy.Text = "复制";
+            this.btnDtlCopy.Click += new System.EventHandler(this.btnDtlCopy_Click);
+            // 
             // btnDtlDelete
             // 
             this.btnDtlDelete.Image = global::SAF.Framework.Properties.Resources.Action_Delete_16x16;
-            this.btnDtlDelete.Location = new System.Drawing.Point(67, 3);
+            this.btnDtlDelete.Location = new System.Drawing.Point(137, 3);
             this.btnDtlDelete.Name = "btnDtlDelete";
-            this.btnDtlDelete.Size = new System.Drawing.Size(60, 23);
+            this.btnDtlDelete.Size = new System.Drawing.Size(62, 23);
             this.btnDtlDelete.TabIndex = 2;
             this.btnDtlDelete.Text = "删除";
             this.btnDtlDelete.Click += new System.EventHandler(this.btnDtlDelete_Click);
-            // 
-            // btnDtlCancel
-            // 
-            this.btnDtlCancel.Image = global::SAF.Framework.Properties.Resources.Action_Cancel_16x16;
-            this.btnDtlCancel.Location = new System.Drawing.Point(130, 3);
-            this.btnDtlCancel.Name = "btnDtlCancel";
-            this.btnDtlCancel.Size = new System.Drawing.Size(60, 23);
-            this.btnDtlCancel.TabIndex = 1;
-            this.btnDtlCancel.Text = "取消";
-            this.btnDtlCancel.Click += new System.EventHandler(this.btnDtlCancel_Click);
             // 
             // btnDtlAddNew
             // 
             this.btnDtlAddNew.Image = global::SAF.Framework.Properties.Resources.Action_New_16x16;
             this.btnDtlAddNew.Location = new System.Drawing.Point(4, 3);
             this.btnDtlAddNew.Name = "btnDtlAddNew";
-            this.btnDtlAddNew.Size = new System.Drawing.Size(60, 23);
+            this.btnDtlAddNew.Size = new System.Drawing.Size(62, 23);
             this.btnDtlAddNew.TabIndex = 0;
             this.btnDtlAddNew.Text = "新增";
             this.btnDtlAddNew.Click += new System.EventHandler(this.btnDtlAddNew_Click);
@@ -196,6 +215,7 @@
             this.pageDtl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).EndInit();
             this.pnlDtlToolbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,9 +228,11 @@
         protected DevExpress.XtraTab.XtraTabPage pageDtl;
         protected DevExpress.XtraEditors.PanelControl pnlDtlToolbar;
         protected DevExpress.XtraEditors.SimpleButton btnDtlDelete;
-        protected DevExpress.XtraEditors.SimpleButton btnDtlCancel;
         protected DevExpress.XtraEditors.SimpleButton btnDtlAddNew;
         protected System.Windows.Forms.BindingSource bsDetail;
+        protected DevExpress.XtraEditors.SimpleButton btnDtlCopy;
+        private DevExpress.XtraEditors.DropDownButton btnDtlImport;
+        private DevExpress.XtraBars.PopupMenu pmuImportDetail;
 
 
 

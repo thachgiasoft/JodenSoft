@@ -9,5 +9,11 @@ namespace SAF.Framework.ViewModel
     public interface IMasterDetailViewViewModel : ISingleViewViewModel
     {
         IEntitySetBase DetailEntitySet { get; }
+
+        void DetailAddNew();
+
+        void DetailDelete();
+
+        void DetailCopy();
     }
 }

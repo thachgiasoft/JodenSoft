@@ -42,7 +42,20 @@ namespace SAF.Framework.ViewModel
             this.MainEntitySet.ChildEntitySets.Add(this.DetailEntitySet);
         }
 
+        public void DetailAddNew()
+        {
+            this.DetailEntitySet.AddNew();
+        }
+
+        public void DetailDelete()
+        {
+            this.DetailEntitySet.DeleteCurrent();
+        }
 
 
+        public void DetailCopy()
+        {
+            this.DetailEntitySet.AddNewByCurrent();
+        }
     }
 }

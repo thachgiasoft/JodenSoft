@@ -369,9 +369,9 @@ namespace SAF.Framework.View
             get { return this.ViewModel == null ? false : this.ViewModel.EditStatus == EditStatus.Edit; }
         }
 
-        protected override void OnRefreshMenuAndToolBar()
+        protected override void OnRefreshRibbonMenu()
         {
-            base.OnRefreshMenuAndToolBar();
+            base.OnRefreshRibbonMenu();
             if (ViewModel == null) return;
 
             int count = this.ViewModel.MainEntitySet.Count;

@@ -26,60 +26,64 @@ namespace SAF.Framework.View
             get { return base.ViewModel as IMasterDetailViewViewModel; }
         }
 
-        protected override void OnRefreshUI()
+        protected override void OnRefreshDetailToolBar()
         {
-            base.OnRefreshUI();
+            base.OnRefreshDetailToolBar();
+
             if (this.ViewModel == null) return;
-
-            var isBrowse = ViewModel.EditStatus == EditStatus.Browse;
-
-            var isEditing = ViewModel.EditStatus.In(EditStatus.AddNew, EditStatus.Edit);
 
             var count = this.ViewModel.DetailEntitySet.Count;
 
-            UIController.RefreshControl(this.btnDtlAddNew, isEditing);
-            UIController.RefreshControl(this.btnDtlDelete, isEditing && count > 0);
-            UIController.RefreshControl(this.btnDtlCancel, isEditing && count > 0);
+            UIController.RefreshControl(this.btnDtlAddNew, this.IsEdit);
+            UIController.RefreshControl(this.btnDtlDelete, this.IsEdit && count > 0);
+            UIController.RefreshControl(this.btnDtlCopy, this.IsEdit && count > 0);
+            UIController.RefreshControl(this.btnDtlImport, this.IsEdit);
         }
 
-        #region button Actions
+        #region dtl button Actions
 
         private void btnDtlAddNew_Click(object sender, EventArgs e)
         {
-            OnDtlAddNew();
+            OnDetailAddNew();
+
+            OnRefreshDetailToolBar();
         }
 
         private void btnDtlDelete_Click(object sender, EventArgs e)
         {
-            OnDtlDelete();
+            OnDetailDelete();
+            OnRefreshDetailToolBar();
         }
 
-        private void btnDtlCancel_Click(object sender, EventArgs e)
+        private void btnDtlCopy_Click(object sender, EventArgs e)
         {
-            OnDtlCancel();
+            OnDetailCopy();
+            OnRefreshDetailToolBar();
+        }
+        
+        #endregion
+
+
+        #region Dtl Actions
+
+        protected virtual void OnDetailAddNew()
+        {
+            this.ViewModel.DetailAddNew();
+        }
+
+        protected virtual void OnDetailDelete()
+        {
+            this.ViewModel.DetailDelete();
+        }
+
+        protected virtual void OnDetailCopy()
+        {
+            this.ViewModel.DetailCopy();
         }
 
         #endregion
 
 
-        #region Actions
-
-        protected virtual void OnDtlAddNew()
-        {
-
-        }
-
-        protected virtual void OnDtlDelete()
-        {
-
-        }
-
-        protected virtual void OnDtlCancel()
-        {
-
-        }
-
-        #endregion
 
     }
 }

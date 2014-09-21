@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.txtMessage = new System.Windows.Forms.Label();
-            this.picHS = new System.Windows.Forms.PictureBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.picHS)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picHS = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHS)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMessage
@@ -50,17 +50,6 @@
             this.txtMessage.Size = new System.Drawing.Size(405, 15);
             this.txtMessage.TabIndex = 5;
             this.txtMessage.Text = "正在初始化系统...";
-            // 
-            // picHS
-            // 
-            this.picHS.BackColor = System.Drawing.Color.Transparent;
-            this.picHS.Image = global::SAF.Framework.Controls.Properties.Resources.JodenSoft;
-            this.picHS.Location = new System.Drawing.Point(16, 38);
-            this.picHS.Name = "picHS";
-            this.picHS.Size = new System.Drawing.Size(408, 100);
-            this.picHS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picHS.TabIndex = 6;
-            this.picHS.TabStop = false;
             // 
             // panelControl1
             // 
@@ -79,17 +68,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(444, 520);
             this.panelControl1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // marqueeProgressBarControl1
             // 
@@ -112,6 +90,28 @@
             this.panel1.Size = new System.Drawing.Size(409, 75);
             this.panel1.TabIndex = 9;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // picHS
+            // 
+            this.picHS.BackColor = System.Drawing.Color.Transparent;
+            this.picHS.Image = global::SAF.Framework.Controls.Properties.Resources.HSImage;
+            this.picHS.Location = new System.Drawing.Point(16, 38);
+            this.picHS.Name = "picHS";
+            this.picHS.Size = new System.Drawing.Size(411, 100);
+            this.picHS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picHS.TabIndex = 6;
+            this.picHS.TabStop = false;
+            // 
             // SplashScreen
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -130,13 +130,13 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSplash";
-            ((System.ComponentModel.ISupportInitialize)(this.picHS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHS)).EndInit();
             this.ResumeLayout(false);
 
         }

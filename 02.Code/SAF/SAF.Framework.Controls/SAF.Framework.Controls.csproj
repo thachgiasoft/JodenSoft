@@ -213,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Action_Tools_16x16.png" />
+    <None Include="Resources\HSImage.png" />
     <None Include="Resources\JodenSoft.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

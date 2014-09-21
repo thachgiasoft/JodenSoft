@@ -12,6 +12,17 @@ namespace SAF.Foundation
         /// 主产品名称
         /// </summary>
         public const string ProductName = "Simplified Application Framework";
+
+#if DEBUG
+        /// <summary>
+        /// 程序集版权
+        /// </summary>
+        public const string Copyright = "Copyright (c) 2013-{0} 上海环思信息技术有限公司";
+        /// <summary>
+        /// 程序开发公司
+        /// </summary>
+        public const string Company = "上海环思信息技术有限公司";
+#else
         /// <summary>
         /// 程序集版权
         /// </summary>
@@ -20,6 +31,8 @@ namespace SAF.Foundation
         /// 程序开发公司
         /// </summary>
         public const string Company = "苏州聚达信息服务咨询有限公司";
+#endif
+
         /// <summary>
         /// 程序集版本号
         /// </summary>

@@ -12,7 +12,7 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
             this.DbTableName = "sysRole";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden
