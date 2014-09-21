@@ -51,6 +51,11 @@ namespace SAF.EntityFramework
         /// </summary>
         /// <returns></returns>
         List<SqlCommandObject> ToList();
+        /// <summary>
+        /// 重置起始值
+        /// </summary>
+        void Reset();
+
     }
 
     /// <summary>
@@ -68,6 +73,7 @@ namespace SAF.EntityFramework
         public ExecuteCache(string connectionName)
         {
             this.connectionName = connectionName;
+            Reset();
         }
         /// <summary>
         /// 
@@ -113,6 +119,7 @@ namespace SAF.EntityFramework
         public void Clear()
         {
             this.sqlObjects.Clear();
+            this.Reset();
         }
         /// <summary>
         /// 
@@ -122,19 +129,32 @@ namespace SAF.EntityFramework
         {
             return this.sqlObjects.OrderBy(p => p.GroupId).ToList();
         }
+
+        private int _SystemGroupId = 0;
         /// <summary>
-        /// 
+        /// 每取一次值递增1
         /// </summary>
         public int SystemGroupId
         {
-            get { return 1000; }
+            get { return _SystemGroupId++; }
         }
+
+        private int _UserGroupId = 0;
         /// <summary>
-        /// 
+        /// 每取一次值递增1
         /// </summary>
         public int UserGroupId
         {
-            get { return 50000; }
+            get { return _UserGroupId++; }
+        }
+
+        /// <summary>
+        /// 重置起始值
+        /// </summary>
+        public void Reset()
+        {
+            _SystemGroupId = 1000;
+            _UserGroupId = 100000;
         }
     }
 }

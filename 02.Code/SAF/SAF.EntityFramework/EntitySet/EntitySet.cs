@@ -417,7 +417,7 @@ namespace SAF.EntityFramework
         {
             return GetChanges(rowStates);
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
