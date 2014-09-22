@@ -156,6 +156,7 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
 
         internal void SaveCheckNodes(List<DevExpress.XtraTreeList.Nodes.TreeListNode> list)
         {
+            //TODO:脚本删除所有 
             this.RoleMenuEntitySet.DeleteAll();
             foreach (TreeListNode item in list)
             {

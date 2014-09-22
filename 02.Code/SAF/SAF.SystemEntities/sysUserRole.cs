@@ -22,10 +22,17 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
-        //TODO:添加其他字段
+        public int UserId
+        {
+            get { return base.GetFieldValue<int>(P => P.UserId); }
+            set { base.SetFieldValue(P => P.UserId, value); }
+        }
 
-
-
+        public int RoleId
+        {
+            get { return base.GetFieldValue<int>(P => P.RoleId); }
+            set { base.SetFieldValue(P => P.RoleId, value); }
+        }
 
         public int? CreatedBy
         {

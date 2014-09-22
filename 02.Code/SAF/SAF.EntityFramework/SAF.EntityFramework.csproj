@@ -56,7 +56,7 @@
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />
     <Compile Include="EntitySet\EntitySetBaseCollection.cs" />
-    <Compile Include="Extensions\ApplicationContext.cs" />
+    <Compile Include="Extensions\ConfigContext.cs" />
     <Compile Include="Extensions\CacheKey.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="DataPortal.cs" />

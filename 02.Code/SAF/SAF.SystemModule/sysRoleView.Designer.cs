@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysRoleView));
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -45,8 +44,8 @@
             this.pageRoleMenu = new DevExpress.XtraTab.XtraTabPage();
             this.treeMenu = new DevExpress.XtraTreeList.TreeList();
             this.colName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.bsMenu = new System.Windows.Forms.BindingSource(this.components);
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.bsMenu = new System.Windows.Forms.BindingSource();
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();

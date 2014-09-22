@@ -202,6 +202,12 @@
     <None Include="Properties\DataSources\SAF.SystemEntities.Tables.datasource" />
     <None Include="Resources\Action_PublishEntity_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_ResetPassword_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_ResetPassword_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

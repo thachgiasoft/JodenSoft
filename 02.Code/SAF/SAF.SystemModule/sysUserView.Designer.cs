@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageUserRole = new DevExpress.XtraTab.XtraTabPage();
-            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.treeRole = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.bsRole = new System.Windows.Forms.BindingSource(this.components);
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
@@ -73,10 +73,10 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
+            this.tcDtl.SuspendLayout();
             this.pageUserRole.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
@@ -140,7 +140,7 @@
             this.lcMain.Controls.Add(this.txtUserFullName);
             this.lcMain.Controls.Add(this.txtUserNo);
             this.lcMain.Controls.Add(this.txtUserId);
-            this.lcMain.Size = new System.Drawing.Size(607, 85);
+            this.lcMain.Size = new System.Drawing.Size(607, 113);
             // 
             // lcgMain
             // 
@@ -153,57 +153,65 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8});
-            this.lcgMain.Size = new System.Drawing.Size(607, 85);
+            this.lcgMain.Size = new System.Drawing.Size(607, 113);
             // 
             // splitRight
             // 
-            this.splitRight.Panel2.Controls.Add(this.xtraTabControl1);
+            this.splitRight.Panel2.Controls.Add(this.tcDtl);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
             this.splitRight.Size = new System.Drawing.Size(613, 276);
-            this.splitRight.SplitterPosition = 91;
+            this.splitRight.SplitterPosition = 119;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(613, 91);
+            this.tcMain.Size = new System.Drawing.Size(613, 119);
             // 
             // pageMain
             // 
-            this.pageMain.Size = new System.Drawing.Size(607, 85);
+            this.pageMain.Size = new System.Drawing.Size(607, 113);
             // 
-            // xtraTabControl1
+            // tcDtl
             // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.pageUserRole;
-            this.xtraTabControl1.Size = new System.Drawing.Size(613, 180);
-            this.xtraTabControl1.TabIndex = 0;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tcDtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcDtl.Location = new System.Drawing.Point(0, 0);
+            this.tcDtl.Name = "tcDtl";
+            this.tcDtl.SelectedTabPage = this.pageUserRole;
+            this.tcDtl.Size = new System.Drawing.Size(613, 152);
+            this.tcDtl.TabIndex = 0;
+            this.tcDtl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageUserRole});
             // 
             // pageUserRole
             // 
-            this.pageUserRole.Controls.Add(this.treeList1);
+            this.pageUserRole.Controls.Add(this.treeRole);
             this.pageUserRole.Name = "pageUserRole";
-            this.pageUserRole.Size = new System.Drawing.Size(607, 151);
+            this.pageUserRole.Size = new System.Drawing.Size(607, 123);
             this.pageUserRole.Text = "用户所属系统角色";
             // 
-            // treeList1
+            // treeRole
             // 
-            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeRole.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colName});
-            this.treeList1.DataSource = this.bsRole;
-            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeList1.Location = new System.Drawing.Point(0, 0);
-            this.treeList1.Name = "treeList1";
-            this.treeList1.Size = new System.Drawing.Size(607, 151);
-            this.treeList1.TabIndex = 0;
+            this.treeRole.DataSource = this.bsRole;
+            this.treeRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeRole.KeyFieldName = "Iden";
+            this.treeRole.Location = new System.Drawing.Point(0, 0);
+            this.treeRole.Name = "treeRole";
+            this.treeRole.OptionsView.ShowCheckBoxes = true;
+            this.treeRole.OptionsView.ShowColumns = false;
+            this.treeRole.OptionsView.ShowHorzLines = false;
+            this.treeRole.OptionsView.ShowIndicator = false;
+            this.treeRole.OptionsView.ShowVertLines = false;
+            this.treeRole.ParentFieldName = "ParentId";
+            this.treeRole.Size = new System.Drawing.Size(607, 123);
+            this.treeRole.TabIndex = 0;
             // 
             // colName
             // 
             this.colName.Caption = "角色名称";
             this.colName.FieldName = "Name";
+            this.colName.MinWidth = 32;
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
@@ -367,10 +375,11 @@
             // 
             // txtMemo
             // 
+            this.txtMemo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
             this.txtMemo.Location = new System.Drawing.Point(54, 50);
             this.txtMemo.MenuManager = this.ribbonMain;
             this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(551, 33);
+            this.txtMemo.Size = new System.Drawing.Size(551, 61);
             this.txtMemo.StyleController = this.lcMain;
             this.txtMemo.TabIndex = 9;
             this.txtMemo.UseOptimizedRendering = true;
@@ -381,7 +390,7 @@
             this.layoutControlItem6.CustomizationFormText = "备注";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(607, 37);
+            this.layoutControlItem6.Size = new System.Drawing.Size(607, 65);
             this.layoutControlItem6.Text = "备注";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -410,6 +419,7 @@
             // 
             // chkIsSystem
             // 
+            this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
             this.chkIsSystem.Location = new System.Drawing.Point(528, 26);
             this.chkIsSystem.MenuManager = this.ribbonMain;
             this.chkIsSystem.Name = "chkIsSystem";
@@ -454,10 +464,10 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
+            this.tcDtl.ResumeLayout(false);
             this.pageUserRole.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
@@ -484,12 +494,12 @@
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabControl tcDtl;
         private DevExpress.XtraTab.XtraTabPage pageUserRole;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private System.Windows.Forms.BindingSource bsRole;
-        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.TreeList treeRole;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
         private DevExpress.XtraGrid.Columns.GridColumn colUserName;

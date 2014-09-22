@@ -20,6 +20,8 @@ namespace SAF.SystemModule
         public sysRoleView()
         {
             InitializeComponent();
+
+            this.treeMenu.BeforeCheckNode += treeMenu_BeforeCheckNode;
         }
 
         protected override Framework.ViewModel.IBaseViewViewModel OnCreateViewModel()
@@ -42,7 +44,6 @@ namespace SAF.SystemModule
 
             this.AccessFocusControl = this.txtIden;
 
-            this.treeMenu.BeforeCheckNode += treeMenu_BeforeCheckNode;
         }
 
         void treeMenu_BeforeCheckNode(object sender, DevExpress.XtraTreeList.CheckNodeEventArgs e)

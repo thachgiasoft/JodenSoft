@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Configuration;
 using System.Collections.Specialized;
+using SAF.Foundation.Security;
 
 namespace SAF.EntityFramework
 {
@@ -108,6 +109,17 @@ namespace SAF.EntityFramework
 
         #endregion
 
-
+        public static string DefaultPassword
+        {
+            get
+            {
+                var password = ConfigurationManager.AppSettings["DefaultPassword"];
+                if (!string.IsNullOrEmpty(password))
+                {
+                    return SHA1Helper.Hash(password.ToString());
+                }
+                return SHA1Helper.Hash("1");
+            }
+        }
     }
 }
