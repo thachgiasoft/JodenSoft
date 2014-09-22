@@ -531,12 +531,12 @@
             this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemGridLookUpEdit1.DataSource = this.bsinventory;
-            this.repositoryItemGridLookUpEdit1.DisplayMember = "存货编码";
+            this.repositoryItemGridLookUpEdit1.DisplayMember = "CInvCode";
             this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
             this.repositoryItemGridLookUpEdit1.NullText = "";
             this.repositoryItemGridLookUpEdit1.NullValuePromptShowForEmptyValue = true;
             this.repositoryItemGridLookUpEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.repositoryItemGridLookUpEdit1.ValueMember = "存货编码";
+            this.repositoryItemGridLookUpEdit1.ValueMember = "CInvCode";
             this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
             // 
             // bsinventory

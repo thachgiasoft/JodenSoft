@@ -17,6 +17,7 @@ using SAF.Foundation.ServiceModel;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using SAF.Foundation;
+using DevExpress.XtraEditors;
 
 namespace JNHT_ProdSys
 {
@@ -81,7 +82,8 @@ namespace JNHT_ProdSys
 
                // EntitySet<bomChild> bomchildEntity = new EntitySet<bomChild>();
                 this.ViewModel.DetailEntitySet.Query("select * from bomChild where BomId='{0}' and BomChildId='{1}'".FormatEx(this.txtbomid.Text, this.txtbomchildid.Text));
-                bsDetail.DataSource = this.ViewModel.DetailEntitySet;
+                //bsDetail.DataSource = this.ViewModel.DetailEntitySet.DefaultView;
+                this.ViewModel.DetailEntitySet.SetBindingSource(bsDetail);
             }
         }
 
@@ -92,28 +94,63 @@ namespace JNHT_ProdSys
                 MessageService.ShowMessage("请选择零部件!");
                 return;
             }
+
             base.OnAddNew();
+           // grvdetail.OptionsBehavior.ReadOnly = false;
+           
         }
 
-        protected override void OnDtlAddNew()
+        protected override void OnDetailAddNew()
         {
-            //base.OnDtlAddNew();
+            base.OnDetailAddNew();
             this.ViewModel.DetailEntitySet.AddNew();
+        }
+      
+            
             //bomChild bc = new bomChild();
             //bc.BomChildId = txtbomchildid.Text.Trim();
             //bc.BomId = txtbomid.Text.Trim();
-            this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
-            this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+            //this.ViewModel.DetailEntitySet.CurrentEntity.Iden = IdenGenerator.NewIden(this.ViewModel.DetailEntitySet.CurrentEntity.DbTableName);
             //this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
-            
-           
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+            //this.ViewModel.DetailEntitySet.CurrentEntity.CInvCode = "zk";
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
+
+           // this.ViewModel.DetailEntitySet.SaveChanges();
            
 
-        }
         protected override void OnSave()
         {
             base.OnSave();
             this.ViewModel.DetailEntitySet.SaveChanges();
+        }
+
+        private void repositoryItemGridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+           var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            if (objinventory == null)
+            {
+                MessageBox.Show("存货不存在");
+                return;
+            }
+            //(this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvCode = objinventory.CInvCode;            
+            //(this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvName = objinventory.存货名称;
+           // (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CComUnitCode = objinventory.单位;
+
+        }
+
+        private void repositoryItemGridLookUpEdit1_Click(object sender, EventArgs e)
+        {
+            //if (gridView1.ActiveEditor.EditValue.ToString() == "System.Object")
+            //{
+            //    var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            //    if (objinventory == null)
+            //    {
+            //        MessageBox.Show("存货不存在");
+            //        return;
+            //    }
+            //    gridView1.ActiveEditor.EditValue = objinventory.存货编码;
+            //}
         }
 
     }

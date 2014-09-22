@@ -13,7 +13,7 @@ namespace JNHT_ProdSys
             base.OnInit();
 
             this.DbTableName = "jd_v_inventory";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden
@@ -23,10 +23,10 @@ namespace JNHT_ProdSys
         }
 
         //TODO:添加其他字段
-        public string 存货编码
+        public string CInvCode
         {
-            get { return base.GetFieldValue<string>(P => P.存货编码); }
-            set { base.SetFieldValue(P => P.存货编码, value); }
+            get { return base.GetFieldValue<string>(P => P.CInvCode); }
+            set { base.SetFieldValue(P => P.CInvCode, value); }
         }
 
         public string  存货名称

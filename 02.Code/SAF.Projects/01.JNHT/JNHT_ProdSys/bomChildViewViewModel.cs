@@ -33,9 +33,9 @@ namespace JNHT_ProdSys
 
             this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId),BomChildStyle 
             from  bomParent with(nolock) where BomId='{0}' ".FormatEx(bomId));
-           
-            
-            jd_v_inventory.Query("select 存货编码,存货名称2,单位 from jd_v_inventory");
+
+
+            jd_v_inventory.Query("select Iden,CInvCode,存货名称,存货名称2,单位,现存量  from jd_v_inventory");
             
             
         }
@@ -55,5 +55,15 @@ namespace JNHT_ProdSys
             queryConfig.QuickQuery.QueryFields.Add(new QueryField("BomId", "产品区分号"));
         }
 
+        protected override void OnInitEvents()
+        {
+           // base.OnInitEvents();
+           // this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
+        }
+
+        void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<bomChild> e)
+        {
+           // e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+        }
     }
 }

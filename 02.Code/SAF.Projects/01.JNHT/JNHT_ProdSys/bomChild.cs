@@ -13,7 +13,7 @@ namespace JNHT_ProdSys
             base.OnInit();
 
             this.DbTableName = "bomChild";
-            this.PrimaryKey = "Iden";
+            this.PrimaryKeyName = "Iden";
         }
 
         public int Iden
