@@ -8,9 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
+using SAF.Foundation.MetaAttributes;
 
 namespace SAF.SystemModule
 {
+    [BusinessObject("用户数据权限")]
     public partial class sysUserDataRole : SingleView
     {
         public sysUserDataRole()

@@ -1,6 +1,6 @@
 ﻿namespace SAF.SystemModule
 {
-    partial class sysBillTypeRightView
+    partial class sysBillTypeView
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -66,11 +66,11 @@
             // 
             this.splitRight.Size = new System.Drawing.Size(544, 268);
             // 
-            // sysBillTypeRightView
+            // sysBillTypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "sysBillTypeRightView";
+            this.Name = "sysBillTypeView";
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);

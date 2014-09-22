@@ -65,13 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileHelper.cs" />
-    <Compile Include="sysBillTypeRightView.cs">
+    <Compile Include="sysBillTypeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="sysBillTypeRightView.Designer.cs">
-      <DependentUpon>sysBillTypeRightView.cs</DependentUpon>
+    <Compile Include="sysBillTypeView.Designer.cs">
+      <DependentUpon>sysBillTypeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="sysBillTypeRightViewViewModel.cs" />
+    <Compile Include="sysBillTypeViewViewModel.cs" />
     <Compile Include="sysDataRoleView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,8 +160,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="sysBillTypeRightView.resx">
-      <DependentUpon>sysBillTypeRightView.cs</DependentUpon>
+    <EmbeddedResource Include="sysBillTypeView.resx">
+      <DependentUpon>sysBillTypeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysDataRoleView.resx">
       <DependentUpon>sysDataRoleView.cs</DependentUpon>

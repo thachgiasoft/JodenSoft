@@ -8,24 +8,26 @@ using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
+using SAF.Foundation.MetaAttributes;
 
 namespace SAF.SystemModule
 {
-    public partial class sysBillTypeRightView : MasterDetailView
+    [BusinessObject("单据类型")]
+    public partial class sysBillTypeView : MasterDetailView
     {
-        public sysBillTypeRightView()
+        public sysBillTypeView()
         {
             InitializeComponent();
         }
 
         protected override IBaseViewViewModel OnCreateViewModel()
         {
-            return new sysBillTypeRightViewViewModel();
+            return new sysBillTypeViewViewModel();
         }
 
-        public new sysBillTypeRightViewViewModel ViewModel
+        public new sysBillTypeViewViewModel ViewModel
         {
-            get { return this.ViewModel as sysBillTypeRightViewViewModel; }
+            get { return this.ViewModel as sysBillTypeViewViewModel; }
         }
 
     }

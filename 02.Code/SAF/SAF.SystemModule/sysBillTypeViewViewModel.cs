@@ -8,7 +8,7 @@ using SAF.SystemEntities;
 
 namespace SAF.SystemModule
 {
-    public class sysBillTypeRightViewViewModel : MasterDetailViewViewModel<sysRole, sysRole, sysRole>
+    public class sysBillTypeViewViewModel : MasterDetailViewViewModel<sysRole, sysRole, sysRole>
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
