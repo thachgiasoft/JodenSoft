@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.pnlDtlToolbar = new DevExpress.XtraEditors.PanelControl();
             this.btnDtlImport = new DevExpress.XtraEditors.DropDownButton();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnDtlCopy = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlAddNew = new DevExpress.XtraEditors.SimpleButton();
-            this.bsDetail = new System.Windows.Forms.BindingSource();
+            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -152,6 +153,7 @@
             this.btnDtlImport.Size = new System.Drawing.Size(81, 23);
             this.btnDtlImport.TabIndex = 4;
             this.btnDtlImport.Text = "导入";
+            this.btnDtlImport.Click += new System.EventHandler(this.btnDtlImport_Click);
             // 
             // pmuImportDetail
             // 

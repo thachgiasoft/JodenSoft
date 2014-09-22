@@ -60,8 +60,12 @@ namespace SAF.Framework.View
             OnRefreshDetailToolBar();
         }
 
-        #endregion
+        private void btnDtlImport_Click(object sender, EventArgs e)
+        {
+            OnDetailImport();
+        }
 
+        #endregion
 
         #region Dtl Actions
 
@@ -80,9 +84,11 @@ namespace SAF.Framework.View
             this.ViewModel.DetailCopy();
         }
 
+        protected virtual void OnDetailImport()
+        {
+
+        }
         #endregion
-
-
 
     }
 }
