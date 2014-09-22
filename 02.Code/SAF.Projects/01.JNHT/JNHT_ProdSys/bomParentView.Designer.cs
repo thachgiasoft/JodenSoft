@@ -162,6 +162,7 @@
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.MaxItemId = 14;
             this.ribbonMain.Size = new System.Drawing.Size(1122, 145);
+            this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
@@ -256,6 +257,7 @@
             this.colBomId});
             this.grvMainIndex.GridControl = this.grdMainIndex;
             this.grvMainIndex.Name = "grvMainIndex";
+            this.grvMainIndex.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvMainIndex_RowClick);
             this.grvMainIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvMainIndex_FocusedRowChanged);
             // 
             // colBomId

@@ -118,11 +118,11 @@ namespace JNHT_ProdSys
 
         protected override void OnDetailAddNew()
         {
-            //base.OnDetailAddNew();
-            ////this.ViewModel.DetailEntitySet.AddNew();
-            
-            //this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
-            //this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+            base.OnDetailAddNew();
+            //this.ViewModel.DetailEntitySet.AddNew();
+
+            this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
+            this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
            
         }
       
@@ -199,11 +199,11 @@ namespace JNHT_ProdSys
 
         private void grvdetail_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            base.OnDetailAddNew();
-            //this.ViewModel.DetailEntitySet.AddNew();
+            //base.OnDetailAddNew();
+            ////this.ViewModel.DetailEntitySet.AddNew();
 
-            this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
-            this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
         }
     }
 }

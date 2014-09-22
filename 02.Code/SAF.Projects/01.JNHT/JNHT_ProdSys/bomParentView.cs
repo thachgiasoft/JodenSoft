@@ -169,6 +169,11 @@ namespace JNHT_ProdSys
             }
         }
 
+        private void grvMainIndex_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            this.IndexRowChange();
+        }
+
         //private void grvIndex_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         //{
         //    //if (sender != null)
