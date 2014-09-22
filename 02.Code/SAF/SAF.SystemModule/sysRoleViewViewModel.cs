@@ -20,10 +20,7 @@ namespace SAF.SystemModule
             get
             {
                 if (_RoleMenuEntitySet == null)
-                {
-                    _RoleMenuEntitySet = new EntitySet<sysRoleMenu>(this.ExecuteCache);
-                    _MenuEntitySet.PageSize = 0;
-                }
+                    _RoleMenuEntitySet = new EntitySet<sysRoleMenu>(this.ExecuteCache, 0);
                 return _RoleMenuEntitySet;
             }
         }
@@ -58,7 +55,7 @@ ORDER BY [ParentId],[MenuOrder] ";
         {
             base.OnQuery(condition, parameterValues);
 
-            const string sql = @"SELECT Iden,[Name], [IsSystem] FROM [dbo].[sysRole] WITH(nolock) WHERE [IsDeleted]=0 AND {0}";
+            const string sql = @"SELECT Iden,[Name], [IsSystem], [IsAdministrator] FROM [dbo].[sysRole] WITH(nolock) WHERE [IsDeleted]=0 AND {0}";
             this.IndexEntitySet.Query(sql.FormatEx(condition));
         }
 
@@ -81,6 +78,7 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
         {
             base.OnInitQueryConfig(queryConfig);
             queryConfig.QuickQuery.QueryFields.Add(new QueryField("Name", "角色名称"));
+            queryConfig.QuickQuery.QueryFields.Add(new QueryField("Iden", "角色Id"));
         }
 
         protected override void OnInitEvents()
@@ -109,13 +107,13 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
         {
             var canDelete = true;
             var roleName = string.Empty;
-            if (this.IndexEntitySet.CurrentEntity != null)
+            if (this.MainEntitySet.CurrentEntity != null)
             {
-                if (this.IndexEntitySet.CurrentEntity.IsSystem)
+                if (this.MainEntitySet.CurrentEntity.IsSystem)
                 {
                     canDelete = false;
                 }
-                roleName = this.IndexEntitySet.CurrentEntity.Name;
+                roleName = this.MainEntitySet.CurrentEntity.Name;
             }
             if (!canDelete)
             {
@@ -129,13 +127,13 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
         {
             var canEdit = true;
             var roleName = string.Empty;
-            if (this.IndexEntitySet.CurrentEntity != null)
+            if (this.MainEntitySet.CurrentEntity != null)
             {
-                if (this.IndexEntitySet.CurrentEntity.IsSystem)
+                if (this.MainEntitySet.CurrentEntity.IsSystem)
                 {
                     canEdit = false;
                 }
-                roleName = this.IndexEntitySet.CurrentEntity.Name;
+                roleName = this.MainEntitySet.CurrentEntity.Name;
             }
             if (!canEdit)
             {
@@ -156,8 +154,9 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
 
         internal void SaveCheckNodes(List<DevExpress.XtraTreeList.Nodes.TreeListNode> list)
         {
-            //TODO:脚本删除所有 
-            this.RoleMenuEntitySet.DeleteAll();
+            this.RoleMenuEntitySet.Clear();
+            this.RoleMenuEntitySet.AcceptChanges();
+            this.ExecuteCache.Execute(0, "delete sysRoleMenu where RoleId=:RoleId", this.MainEntitySet.CurrentKey);
             foreach (TreeListNode item in list)
             {
                 if (item.GetValue("BusinessViewId").IsNotEmpty())

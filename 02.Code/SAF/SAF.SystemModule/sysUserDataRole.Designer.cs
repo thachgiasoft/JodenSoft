@@ -44,31 +44,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
+            this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(754, 26);
-            // 
-            // lcMain
-            // 
-            this.lcMain.Size = new System.Drawing.Size(462, 228);
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.Size = new System.Drawing.Size(462, 228);
-            // 
-            // tcMain
-            // 
-            this.tcMain.SelectedTabPage = this.pageMain;
-            // 
-            // pageMain
-            // 
-            this.pageMain.Size = new System.Drawing.Size(462, 228);
+            this.pcMain.Size = new System.Drawing.Size(763, 26);
             // 
             // sysUserDataRole
             // 
@@ -91,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

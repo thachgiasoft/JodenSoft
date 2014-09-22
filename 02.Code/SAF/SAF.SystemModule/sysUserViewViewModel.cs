@@ -50,7 +50,7 @@ namespace SAF.SystemModule
         {
             base.OnQuery(sCondition, parameterValues);
 
-            string sql = "SELECT [Iden],[UserName],[UserFullName] FROM [dbo].[sysUser] WITH(nolock) where ({0})".FormatEx(sCondition);
+            string sql = "SELECT [Iden],[UserName],[UserFullName] FROM [dbo].[sysUser] WITH(nolock) WHERE [IsDeleted]=0 AND ({0})".FormatEx(sCondition);
             this.IndexEntitySet.Query(sql);
         }
 
@@ -115,7 +115,7 @@ order by Iden";
         {
             this.UserRoleEntitySet.Clear();
             this.UserRoleEntitySet.AcceptChanges();
-            this.UserRoleEntitySet.ExecuteCache.Execute(0, "delete sysUserRole where UserId=:UserId", this.MainEntitySet.CurrentKey);
+            this.ExecuteCache.Execute(0, "delete sysUserRole where UserId=:UserId", this.MainEntitySet.CurrentKey);
             foreach (TreeListNode item in list)
             {
                 if (item.GetValue("Iden").IsNotEmpty())

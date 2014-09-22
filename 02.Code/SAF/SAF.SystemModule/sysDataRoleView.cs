@@ -43,6 +43,7 @@ namespace SAF.SystemModule
             base.OnRefreshUI();
 
             UIController.RefreshControl(this.txtIden, false);
+            UIController.RefreshControl(this.chkIsSystem, false);
         }
 
         protected override void OnInitConfig()

@@ -26,6 +26,8 @@ namespace SAF.SystemModule
 
             this.treeRole.BeforeCheckNode += treeRole_BeforeCheckNode;
             this.grvIndex.FocusedRowChanged += grvIndex_FocusedRowChanged;
+
+            this.AccessFocusControl = this.txtUserNo;
         }
 
         void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

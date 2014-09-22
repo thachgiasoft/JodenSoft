@@ -42,7 +42,7 @@ namespace SAF.SystemModule
             base.OnInitConfig();
             UIController.SetupGridControl(this.grdIndex);
 
-            this.AccessFocusControl = this.txtIden;
+            this.AccessFocusControl = this.txtName;
 
         }
 
@@ -57,13 +57,14 @@ namespace SAF.SystemModule
             base.OnRefreshUI();
 
             UIController.RefreshControl(this.txtIden, false);
+            UIController.RefreshControl(this.chkIsSystem, false);
+            UIController.RefreshControl(this.chkIsAdministrator, false);
 
             UIController.SetupTreelist(this.treeMenu);
-
             this.treeMenu.Enabled = true;
             this.treeMenu.OptionsBehavior.Editable = false;
 
-
+            this.grvIndex.BestFitColumns();
         }
 
         protected override void OnInitBinding()

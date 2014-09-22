@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysRoleView));
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -44,8 +45,13 @@
             this.pageRoleMenu = new DevExpress.XtraTab.XtraTabPage();
             this.treeMenu = new DevExpress.XtraTreeList.TreeList();
             this.colName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.bsMenu = new System.Windows.Forms.BindingSource();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
+            this.bsMenu = new System.Windows.Forms.BindingSource(this.components);
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.chkIsAdministrator = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chkIsSystem = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colIsAdministrator = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -78,6 +84,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsAdministrator.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -103,33 +113,37 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.chkIsSystem);
+            this.lcMain.Controls.Add(this.chkIsAdministrator);
             this.lcMain.Controls.Add(this.txtRemark);
             this.lcMain.Controls.Add(this.txtIden);
             this.lcMain.Controls.Add(this.txtName);
-            this.lcMain.Size = new System.Drawing.Size(474, 69);
+            this.lcMain.Size = new System.Drawing.Size(474, 108);
             // 
             // lcgMain
             // 
             this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
+            this.layoutControlItem3,
             this.layoutControlItem2,
-            this.layoutControlItem3});
-            this.lcgMain.Size = new System.Drawing.Size(474, 69);
+            this.layoutControlItem5,
+            this.layoutControlItem4});
+            this.lcgMain.Size = new System.Drawing.Size(474, 108);
             // 
             // splitRight
             // 
             this.splitRight.Panel2.Controls.Add(this.xtraTabControl1);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.SplitterPosition = 75;
+            this.splitRight.SplitterPosition = 114;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(480, 75);
+            this.tcMain.Size = new System.Drawing.Size(480, 114);
             // 
             // pageMain
             // 
-            this.pageMain.Size = new System.Drawing.Size(474, 69);
+            this.pageMain.Size = new System.Drawing.Size(474, 108);
             // 
             // grdIndex
             // 
@@ -150,9 +164,12 @@
             this.grvIndex.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIden,
             this.colName,
-            this.colIsSystem});
+            this.colIsSystem,
+            this.colIsAdministrator});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
+            this.grvIndex.OptionsBehavior.Editable = false;
+            this.grvIndex.OptionsView.ColumnAutoWidth = false;
             this.grvIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvIndex_FocusedRowChanged);
             // 
             // colIden
@@ -173,11 +190,12 @@
             // 
             // colIsSystem
             // 
-            this.colIsSystem.Caption = "系统角色";
+            this.colIsSystem.Caption = "是否系统角色";
             this.colIsSystem.FieldName = "IsSystem";
             this.colIsSystem.Name = "colIsSystem";
             this.colIsSystem.Visible = true;
             this.colIsSystem.VisibleIndex = 2;
+            this.colIsSystem.Width = 85;
             // 
             // txtName
             // 
@@ -185,7 +203,7 @@
             this.txtName.Location = new System.Drawing.Point(54, 2);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(243, 20);
+            this.txtName.Size = new System.Drawing.Size(418, 20);
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 4;
             // 
@@ -195,14 +213,14 @@
             this.layoutControlItem1.CustomizationFormText = "角色名称";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(299, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(474, 24);
             this.layoutControlItem1.Text = "角色名称";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(353, 2);
+            this.txtIden.Location = new System.Drawing.Point(54, 26);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
             this.txtIden.Size = new System.Drawing.Size(119, 20);
@@ -213,7 +231,7 @@
             // 
             this.layoutControlItem2.Control = this.txtIden;
             this.layoutControlItem2.CustomizationFormText = "角色ID";
-            this.layoutControlItem2.Location = new System.Drawing.Point(299, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(175, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(175, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -225,10 +243,10 @@
             // txtRemark
             // 
             this.txtRemark.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
-            this.txtRemark.Location = new System.Drawing.Point(54, 26);
+            this.txtRemark.Location = new System.Drawing.Point(54, 50);
             this.txtRemark.MenuManager = this.ribbonMain;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(418, 41);
+            this.txtRemark.Size = new System.Drawing.Size(418, 56);
             this.txtRemark.StyleController = this.lcMain;
             this.txtRemark.TabIndex = 6;
             this.txtRemark.UseOptimizedRendering = true;
@@ -237,9 +255,9 @@
             // 
             this.layoutControlItem3.Control = this.txtRemark;
             this.layoutControlItem3.CustomizationFormText = "备注";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(474, 45);
+            this.layoutControlItem3.Size = new System.Drawing.Size(474, 60);
             this.layoutControlItem3.Text = "备注";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -249,7 +267,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.pageRoleMenu;
-            this.xtraTabControl1.Size = new System.Drawing.Size(480, 187);
+            this.xtraTabControl1.Size = new System.Drawing.Size(480, 148);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageRoleMenu});
@@ -259,7 +277,7 @@
             this.pageRoleMenu.Controls.Add(this.treeMenu);
             this.pageRoleMenu.Name = "pageRoleMenu";
             this.pageRoleMenu.Padding = new System.Windows.Forms.Padding(2);
-            this.pageRoleMenu.Size = new System.Drawing.Size(474, 158);
+            this.pageRoleMenu.Size = new System.Drawing.Size(474, 119);
             this.pageRoleMenu.Text = "角色菜单";
             // 
             // treeMenu
@@ -277,7 +295,7 @@
             this.treeMenu.OptionsView.ShowIndicator = false;
             this.treeMenu.OptionsView.ShowVertLines = false;
             this.treeMenu.SelectImageList = this.imageCollectionTreeList;
-            this.treeMenu.Size = new System.Drawing.Size(470, 154);
+            this.treeMenu.Size = new System.Drawing.Size(470, 115);
             this.treeMenu.TabIndex = 0;
             this.treeMenu.GetSelectImage += new DevExpress.XtraTreeList.GetSelectImageEventHandler(this.treeMenu_GetSelectImage);
             // 
@@ -301,6 +319,63 @@
             this.imageCollectionTreeList.Images.SetKeyName(0, "BO_Folder_Closed.png");
             this.imageCollectionTreeList.Images.SetKeyName(1, "BO_Folder_Opened.png");
             this.imageCollectionTreeList.Images.SetKeyName(2, "forms.png");
+            // 
+            // chkIsAdministrator
+            // 
+            this.chkIsAdministrator.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsAdministrator", true));
+            this.chkIsAdministrator.Location = new System.Drawing.Point(177, 26);
+            this.chkIsAdministrator.MenuManager = this.ribbonMain;
+            this.chkIsAdministrator.Name = "chkIsAdministrator";
+            this.chkIsAdministrator.Properties.Caption = "是否系统管理员";
+            this.chkIsAdministrator.Size = new System.Drawing.Size(124, 19);
+            this.chkIsAdministrator.StyleController = this.lcMain;
+            this.chkIsAdministrator.TabIndex = 8;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.chkIsAdministrator;
+            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
+            this.layoutControlItem5.Location = new System.Drawing.Point(175, 24);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(128, 23);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(128, 23);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(128, 24);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.Text = "layoutControlItem5";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextToControlDistance = 0;
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // chkIsSystem
+            // 
+            this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
+            this.chkIsSystem.Location = new System.Drawing.Point(305, 26);
+            this.chkIsSystem.MenuManager = this.ribbonMain;
+            this.chkIsSystem.Name = "chkIsSystem";
+            this.chkIsSystem.Properties.Caption = "是否系统角色";
+            this.chkIsSystem.Size = new System.Drawing.Size(167, 19);
+            this.chkIsSystem.StyleController = this.lcMain;
+            this.chkIsSystem.TabIndex = 9;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.chkIsSystem;
+            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
+            this.layoutControlItem4.Location = new System.Drawing.Point(303, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(171, 24);
+            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextToControlDistance = 0;
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // colIsAdministrator
+            // 
+            this.colIsAdministrator.Caption = "是否系统管理员";
+            this.colIsAdministrator.FieldName = "IsAdministrator";
+            this.colIsAdministrator.Name = "colIsAdministrator";
+            this.colIsAdministrator.Visible = true;
+            this.colIsAdministrator.VisibleIndex = 3;
             // 
             // sysRoleView
             // 
@@ -339,6 +414,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsAdministrator.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +442,10 @@
         private System.Windows.Forms.BindingSource bsMenu;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colName1;
         private DevExpress.Utils.ImageCollection imageCollectionTreeList;
+        private DevExpress.XtraEditors.CheckEdit chkIsAdministrator;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.CheckEdit chkIsSystem;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsAdministrator;
     }
 }

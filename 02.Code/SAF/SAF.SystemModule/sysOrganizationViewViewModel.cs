@@ -32,6 +32,14 @@ namespace SAF.SystemModule
 
         #endregion
 
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+
+            this.MainEntitySet.PageSize = 0;
+            this.IndexEntitySet.PageSize = 0;
+        }
+
         protected override void OnInitEvents()
         {
             base.OnInitEvents();
@@ -60,12 +68,31 @@ namespace SAF.SystemModule
             base.OnQuery(sCondition, parameterValues);
 
             string sql = @"
-SELECT Iden,Name,[ParentId] 
-FROM [dbo].[sysOrganization] WITH(NOLOCK)
-WHERE [IsDeleted]=0 and {0}
-ORDER BY [ParentId]".FormatEx(sCondition);
+;WITH tree AS 
+(
+    SELECT Iden,ParentId
+    FROM [dbo].sysOrganization with(nolock)
+    WHERE [IsDeleted]=0 and {0}
+    UNION ALL
+    SELECT b.Iden,b.ParentId
+    FROM [tree] a 
+    JOIN [dbo].sysOrganization b with(nolock)  ON a.[ParentId]=b.[Iden]
+)
+
+SELECT a.*
+FROM dbo.sysOrganization a WITH(NOLOCK)
+JOIN (SELECT DISTINCT * FROM tree) b ON a.Iden=b.Iden
+ORDER BY a.[ParentId]".FormatEx(sCondition);
 
             this.IndexEntitySet.Query(sql, parameterValues);
+        }
+
+        protected override void OnInitQueryConfig(Framework.Controls.ViewConfig.QueryConfig queryConfig)
+        {
+            base.OnInitQueryConfig(queryConfig);
+
+            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Name", "组织"));
+            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Iden", "组织Id"));
         }
 
         protected override void OnQueryChild(object key)
@@ -116,20 +143,20 @@ DECLARE @result TABLE
     Iden INT
 )
 
-;WITH result AS
+;WITH result2 AS
 (
     SELECT Iden,ParentId ,[Level]=1
     FROM dbo.[sysOrganization] WITH(NOLOCK)
     WHERE Iden IN ({0})
     UNION ALL
     SELECT b.Iden,b.ParentId,iLevel=[Level]+1
-    FROM result a
+    FROM result2 a
     JOIN dbo.[sysOrganization] b  WITH(NOLOCK) ON b.ParentId=a.Iden
 )
 
 INSERT @temp ( Iden)
 SELECT Iden
-FROM result
+FROM result2
 ORDER BY [Level],Iden
 
 INSERT @result ([Iden])

@@ -30,8 +30,7 @@ namespace SAF.SystemModule
         {
             base.OnQuery(sCondition, parameterValues);
 
-            const string sql = @"
-SELECT Iden,[Name],[IsSystem] FROM [dbo].[sysDataRole] WITH(NOLOCK) WHERE [IsDeleted]=0 and {0}";
+            const string sql = @"SELECT Iden,[Name],[IsSystem] FROM [dbo].[sysDataRole] WITH(NOLOCK) WHERE [IsDeleted]=0 and {0}";
             this.IndexEntitySet.Query(sql.FormatEx(sCondition));
         }
 
@@ -46,7 +45,8 @@ SELECT Iden,[Name],[IsSystem] FROM [dbo].[sysDataRole] WITH(NOLOCK) WHERE [IsDel
         {
             base.OnInitQueryConfig(queryConfig);
 
-            queryConfig.QuickQuery.QueryFields.Add(new QueryField("Name", "角色名称"));
+            queryConfig.QuickQuery.QueryFields.Add(new QueryField("Name", "角色"));
+            queryConfig.QuickQuery.QueryFields.Add(new QueryField("Iden", "角色Id"));
         }
 
         protected override bool OnAllowDelete()
