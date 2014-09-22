@@ -27,6 +27,10 @@ namespace SAF.CommonConfig
             {
                 this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
             }
+
+            this.gluUsers.DataSource = this.ViewModel.User.DefaultView;
+            this.gluUsers.DisplayMember="UserName";
+            this.gluUsers.ValueMember = "Iden";
         }
 
         protected override IBaseViewViewModel OnCreateViewModel()

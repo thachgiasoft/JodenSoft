@@ -34,16 +34,8 @@
             this.grdDtl = new DevExpress.XtraGrid.GridControl();
             this.grvDtl = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedBy1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedOn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colModifiedBy1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colModifiedOn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colVersionNumber1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDbTableName1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrimaryKeyName1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDataRowView1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEntitySet1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEntityState1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gluUsers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -71,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDtl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -134,6 +128,8 @@
             this.colIden});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
+            this.grvIndex.OptionsBehavior.Editable = false;
+            this.grvIndex.OptionsView.ColumnAutoWidth = false;
             // 
             // colIden
             // 
@@ -151,6 +147,8 @@
             this.grdDtl.MainView = this.grvDtl;
             this.grdDtl.MenuManager = this.ribbonMain;
             this.grdDtl.Name = "grdDtl";
+            this.grdDtl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gluUsers});
             this.grdDtl.Size = new System.Drawing.Size(538, 167);
             this.grdDtl.TabIndex = 1;
             this.grdDtl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -159,99 +157,34 @@
             // grvDtl
             // 
             this.grvDtl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colIden1,
-            this.colCreatedBy1,
-            this.colCreatedOn1,
-            this.colModifiedBy1,
-            this.colModifiedOn1,
-            this.colVersionNumber1,
-            this.colDbTableName1,
-            this.colPrimaryKeyName1,
-            this.colDataRowView1,
-            this.colEntitySet1,
-            this.colEntityState1});
+            this.colIden1});
             this.grvDtl.GridControl = this.grdDtl;
             this.grvDtl.Name = "grvDtl";
+            this.grvDtl.OptionsView.ColumnAutoWidth = false;
             // 
             // colIden1
             // 
+            this.colIden1.ColumnEdit = this.gluUsers;
             this.colIden1.FieldName = "Iden";
             this.colIden1.Name = "colIden1";
             this.colIden1.Visible = true;
             this.colIden1.VisibleIndex = 0;
+            this.colIden1.Width = 134;
             // 
-            // colCreatedBy1
+            // gluUsers
             // 
-            this.colCreatedBy1.FieldName = "CreatedBy";
-            this.colCreatedBy1.Name = "colCreatedBy1";
-            this.colCreatedBy1.Visible = true;
-            this.colCreatedBy1.VisibleIndex = 1;
+            this.gluUsers.AutoHeight = false;
+            this.gluUsers.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gluUsers.Name = "gluUsers";
+            this.gluUsers.View = this.repositoryItemGridLookUpEdit1View;
             // 
-            // colCreatedOn1
+            // repositoryItemGridLookUpEdit1View
             // 
-            this.colCreatedOn1.FieldName = "CreatedOn";
-            this.colCreatedOn1.Name = "colCreatedOn1";
-            this.colCreatedOn1.Visible = true;
-            this.colCreatedOn1.VisibleIndex = 2;
-            // 
-            // colModifiedBy1
-            // 
-            this.colModifiedBy1.FieldName = "ModifiedBy";
-            this.colModifiedBy1.Name = "colModifiedBy1";
-            this.colModifiedBy1.Visible = true;
-            this.colModifiedBy1.VisibleIndex = 3;
-            // 
-            // colModifiedOn1
-            // 
-            this.colModifiedOn1.FieldName = "ModifiedOn";
-            this.colModifiedOn1.Name = "colModifiedOn1";
-            this.colModifiedOn1.Visible = true;
-            this.colModifiedOn1.VisibleIndex = 4;
-            // 
-            // colVersionNumber1
-            // 
-            this.colVersionNumber1.FieldName = "VersionNumber";
-            this.colVersionNumber1.Name = "colVersionNumber1";
-            this.colVersionNumber1.OptionsColumn.ReadOnly = true;
-            this.colVersionNumber1.Visible = true;
-            this.colVersionNumber1.VisibleIndex = 5;
-            // 
-            // colDbTableName1
-            // 
-            this.colDbTableName1.FieldName = "DbTableName";
-            this.colDbTableName1.Name = "colDbTableName1";
-            this.colDbTableName1.Visible = true;
-            this.colDbTableName1.VisibleIndex = 6;
-            // 
-            // colPrimaryKeyName1
-            // 
-            this.colPrimaryKeyName1.FieldName = "PrimaryKeyName";
-            this.colPrimaryKeyName1.Name = "colPrimaryKeyName1";
-            this.colPrimaryKeyName1.Visible = true;
-            this.colPrimaryKeyName1.VisibleIndex = 7;
-            // 
-            // colDataRowView1
-            // 
-            this.colDataRowView1.FieldName = "DataRowView";
-            this.colDataRowView1.Name = "colDataRowView1";
-            this.colDataRowView1.Visible = true;
-            this.colDataRowView1.VisibleIndex = 8;
-            // 
-            // colEntitySet1
-            // 
-            this.colEntitySet1.FieldName = "EntitySet";
-            this.colEntitySet1.Name = "colEntitySet1";
-            this.colEntitySet1.OptionsColumn.ReadOnly = true;
-            this.colEntitySet1.Visible = true;
-            this.colEntitySet1.VisibleIndex = 9;
-            // 
-            // colEntityState1
-            // 
-            this.colEntityState1.FieldName = "EntityState";
-            this.colEntityState1.Name = "colEntityState1";
-            this.colEntityState1.OptionsColumn.ReadOnly = true;
-            this.colEntityState1.Visible = true;
-            this.colEntityState1.VisibleIndex = 10;
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // sysCommonBillConfigView
             // 
@@ -286,6 +219,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDtl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,18 +231,10 @@
         private DevExpress.XtraGrid.GridControl grdDtl;
         private DevExpress.XtraGrid.Views.Grid.GridView grvDtl;
         private DevExpress.XtraGrid.Columns.GridColumn colIden1;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedBy1;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedOn1;
-        private DevExpress.XtraGrid.Columns.GridColumn colModifiedBy1;
-        private DevExpress.XtraGrid.Columns.GridColumn colModifiedOn1;
-        private DevExpress.XtraGrid.Columns.GridColumn colVersionNumber1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDbTableName1;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrimaryKeyName1;
-        private DevExpress.XtraGrid.Columns.GridColumn colDataRowView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colEntitySet1;
-        private DevExpress.XtraGrid.Columns.GridColumn colEntityState1;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit gluUsers;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
     }
 }
