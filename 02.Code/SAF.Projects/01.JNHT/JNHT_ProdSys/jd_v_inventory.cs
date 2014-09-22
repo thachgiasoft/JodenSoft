@@ -16,17 +16,17 @@ namespace JNHT_ProdSys
             this.PrimaryKeyName = "Iden";
         }
 
-        public int Iden
+        public long Iden
         {
-            get { return base.GetFieldValue<int>(P => P.Iden); }
+            get { return base.GetFieldValue<long>(P => P.Iden); }
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
         //TODO:添加其他字段
-        public string CInvCode
+        public string 存货编码
         {
-            get { return base.GetFieldValue<string>(P => P.CInvCode); }
-            set { base.SetFieldValue(P => P.CInvCode, value); }
+            get { return base.GetFieldValue<string>(P => P.存货编码); }
+            set { base.SetFieldValue(P => P.存货编码, value); }
         }
 
         public string  存货名称

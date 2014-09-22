@@ -54,22 +54,24 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bsinventory = new System.Windows.Forms.BindingSource(this.components);
+            this.bsdep = new System.Windows.Forms.BindingSource(this.components);
             this.grddetail = new DevExpress.XtraGrid.GridControl();
             this.grvdetail = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.NoPicCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NoPicName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CInvCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.bsinventory = new System.Windows.Forms.BindingSource(this.components);
+            this.colNoPicCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoPicName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCInvCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gluCinvcode = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.CInvName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SingleQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.CComUnitCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ProcQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FeedStd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.OpDep = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ReMark = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bsdep = new System.Windows.Forms.BindingSource(this.components);
+            this.colCInvName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gluCinvName = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCComUnitCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSingleQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProcQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFeedStd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOpDep = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReMark = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -112,12 +114,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsdep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grddetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluCinvcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsdep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluCinvName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -459,6 +463,10 @@
             this.layoutControlItem3.Text = "零部件名称";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
+            // bsinventory
+            // 
+            this.bsinventory.DataSource = typeof(JNHT_ProdSys.jd_v_inventory);
+            // 
             // grddetail
             // 
             this.grddetail.Cursor = System.Windows.Forms.Cursors.Default;
@@ -469,7 +477,8 @@
             this.grddetail.MenuManager = this.ribbonMain;
             this.grddetail.Name = "grddetail";
             this.grddetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemGridLookUpEdit1});
+            this.gluCinvcode,
+            this.gluCinvName});
             this.grddetail.Size = new System.Drawing.Size(698, 98);
             this.grddetail.TabIndex = 1;
             this.grddetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -478,70 +487,68 @@
             // grvdetail
             // 
             this.grvdetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.NoPicCode,
-            this.NoPicName,
-            this.CInvCode,
-            this.CInvName,
-            this.SingleQty,
-            this.CComUnitCode,
-            this.ProcQty,
-            this.FeedStd,
-            this.OpDep,
-            this.ReMark});
+            this.colNoPicCode,
+            this.colNoPicName,
+            this.colCInvCode,
+            this.colCInvName,
+            this.colCComUnitCode,
+            this.colSingleQty,
+            this.colProcQty,
+            this.colFeedStd,
+            this.colOpDep,
+            this.colReMark});
             this.grvdetail.GridControl = this.grddetail;
-            this.grvdetail.IndicatorWidth = 50;
             this.grvdetail.Name = "grvdetail";
             this.grvdetail.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.grvdetail.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grvdetail.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.grvdetail.OptionsView.ColumnAutoWidth = false;
             this.grvdetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.grvdetail.OptionsView.ShowDetailButtons = false;
-            this.grvdetail.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grvdetail.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvdetail_InitNewRow);
             // 
-            // NoPicCode
+            // colNoPicCode
             // 
-            this.NoPicCode.Caption = "无图代号";
-            this.NoPicCode.FieldName = "NoPicCode";
-            this.NoPicCode.Name = "NoPicCode";
-            this.NoPicCode.Visible = true;
-            this.NoPicCode.VisibleIndex = 0;
-            this.NoPicCode.Width = 67;
+            this.colNoPicCode.Caption = "无图代号";
+            this.colNoPicCode.FieldName = "NoPicCode";
+            this.colNoPicCode.Name = "colNoPicCode";
+            this.colNoPicCode.Visible = true;
+            this.colNoPicCode.VisibleIndex = 0;
+            this.colNoPicCode.Width = 95;
             // 
-            // NoPicName
+            // colNoPicName
             // 
-            this.NoPicName.Caption = "无图名称";
-            this.NoPicName.FieldName = "NoPicName";
-            this.NoPicName.Name = "NoPicName";
-            this.NoPicName.Visible = true;
-            this.NoPicName.VisibleIndex = 1;
-            this.NoPicName.Width = 67;
+            this.colNoPicName.Caption = "无图名称";
+            this.colNoPicName.FieldName = "NoPicName";
+            this.colNoPicName.Name = "colNoPicName";
+            this.colNoPicName.Visible = true;
+            this.colNoPicName.VisibleIndex = 1;
+            this.colNoPicName.Width = 91;
             // 
-            // CInvCode
+            // colCInvCode
             // 
-            this.CInvCode.Caption = "存货编码";
-            this.CInvCode.ColumnEdit = this.repositoryItemGridLookUpEdit1;
-            this.CInvCode.FieldName = "CInvCode";
-            this.CInvCode.Name = "CInvCode";
-            this.CInvCode.Visible = true;
-            this.CInvCode.VisibleIndex = 2;
-            this.CInvCode.Width = 91;
+            this.colCInvCode.Caption = "存货编码";
+            this.colCInvCode.ColumnEdit = this.gluCinvcode;
+            this.colCInvCode.FieldName = "CInvCode";
+            this.colCInvCode.Name = "colCInvCode";
+            this.colCInvCode.Visible = true;
+            this.colCInvCode.VisibleIndex = 2;
+            this.colCInvCode.Width = 90;
             // 
-            // repositoryItemGridLookUpEdit1
+            // gluCinvcode
             // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.gluCinvcode.AutoHeight = false;
+            this.gluCinvcode.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.gluCinvcode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit1.DataSource = this.bsinventory;
-            this.repositoryItemGridLookUpEdit1.DisplayMember = "CInvCode";
-            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
-            this.repositoryItemGridLookUpEdit1.NullText = "";
-            this.repositoryItemGridLookUpEdit1.NullValuePromptShowForEmptyValue = true;
-            this.repositoryItemGridLookUpEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.repositoryItemGridLookUpEdit1.ValueMember = "CInvCode";
-            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            // 
-            // bsinventory
-            // 
-            this.bsinventory.DataSource = typeof(JNHT_ProdSys.jd_v_inventory);
+            this.gluCinvcode.Name = "gluCinvcode";
+            this.gluCinvcode.NullText = "";
+            this.gluCinvcode.NullValuePrompt = "存货编码必输";
+            this.gluCinvcode.NullValuePromptShowForEmptyValue = true;
+            this.gluCinvcode.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Simple;
+            this.gluCinvcode.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.gluCinvcode.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
+            this.gluCinvcode.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.gluCinvcode.View = this.repositoryItemGridLookUpEdit1View;
+            this.gluCinvcode.EditValueChanged += new System.EventHandler(this.gluCinvcode_EditValueChanged);
             // 
             // repositoryItemGridLookUpEdit1View
             // 
@@ -550,68 +557,90 @@
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // CInvName
+            // colCInvName
             // 
-            this.CInvName.Caption = "存货名称";
-            this.CInvName.FieldName = "CInvName";
-            this.CInvName.Name = "CInvName";
-            this.CInvName.Visible = true;
-            this.CInvName.VisibleIndex = 3;
-            this.CInvName.Width = 155;
+            this.colCInvName.Caption = "存货名称";
+            this.colCInvName.ColumnEdit = this.gluCinvName;
+            this.colCInvName.FieldName = "CInvName";
+            this.colCInvName.Name = "colCInvName";
+            this.colCInvName.Visible = true;
+            this.colCInvName.VisibleIndex = 3;
+            this.colCInvName.Width = 169;
             // 
-            // SingleQty
+            // gluCinvName
             // 
-            this.SingleQty.Caption = "单台数量";
-            this.SingleQty.FieldName = "SingleQty";
-            this.SingleQty.Name = "SingleQty";
-            this.SingleQty.Visible = true;
-            this.SingleQty.VisibleIndex = 4;
-            this.SingleQty.Width = 65;
+            this.gluCinvName.AutoHeight = false;
+            this.gluCinvName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gluCinvName.Name = "gluCinvName";
+            this.gluCinvName.NullText = "";
+            this.gluCinvName.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Simple;
+            this.gluCinvName.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.gluCinvName.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
+            this.gluCinvName.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.gluCinvName.View = this.gridView1;
+            this.gluCinvName.EditValueChanged += new System.EventHandler(this.gluCinvName_EditValueChanged);
             // 
-            // CComUnitCode
+            // gridView1
             // 
-            this.CComUnitCode.Caption = "计量单位";
-            this.CComUnitCode.FieldName = "CComUnitCode";
-            this.CComUnitCode.Name = "CComUnitCode";
-            this.CComUnitCode.Visible = true;
-            this.CComUnitCode.VisibleIndex = 5;
-            this.CComUnitCode.Width = 43;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // ProcQty
+            // colCComUnitCode
             // 
-            this.ProcQty.Caption = "工艺定额";
-            this.ProcQty.FieldName = "ProcQty";
-            this.ProcQty.Name = "ProcQty";
-            this.ProcQty.Visible = true;
-            this.ProcQty.VisibleIndex = 6;
-            this.ProcQty.Width = 43;
+            this.colCComUnitCode.Caption = "单位";
+            this.colCComUnitCode.FieldName = "CComUnitCode";
+            this.colCComUnitCode.Name = "colCComUnitCode";
+            this.colCComUnitCode.Visible = true;
+            this.colCComUnitCode.VisibleIndex = 4;
+            this.colCComUnitCode.Width = 44;
             // 
-            // FeedStd
+            // colSingleQty
             // 
-            this.FeedStd.Caption = "下料尺寸";
-            this.FeedStd.FieldName = "FeedStd";
-            this.FeedStd.Name = "FeedStd";
-            this.FeedStd.Visible = true;
-            this.FeedStd.VisibleIndex = 7;
-            this.FeedStd.Width = 43;
+            this.colSingleQty.Caption = "单个用量";
+            this.colSingleQty.FieldName = "SingleQty";
+            this.colSingleQty.Name = "colSingleQty";
+            this.colSingleQty.Visible = true;
+            this.colSingleQty.VisibleIndex = 5;
+            this.colSingleQty.Width = 68;
             // 
-            // OpDep
+            // colProcQty
             // 
-            this.OpDep.Caption = "使用单位";
-            this.OpDep.FieldName = "OpDep";
-            this.OpDep.Name = "OpDep";
-            this.OpDep.Visible = true;
-            this.OpDep.VisibleIndex = 8;
-            this.OpDep.Width = 43;
+            this.colProcQty.Caption = "工艺定额";
+            this.colProcQty.FieldName = "ProcQty";
+            this.colProcQty.Name = "colProcQty";
+            this.colProcQty.Visible = true;
+            this.colProcQty.VisibleIndex = 6;
+            this.colProcQty.Width = 68;
             // 
-            // ReMark
+            // colFeedStd
             // 
-            this.ReMark.Caption = "备注";
-            this.ReMark.FieldName = "ReMark";
-            this.ReMark.Name = "ReMark";
-            this.ReMark.Visible = true;
-            this.ReMark.VisibleIndex = 9;
-            this.ReMark.Width = 55;
+            this.colFeedStd.Caption = "下料尺寸";
+            this.colFeedStd.FieldName = "FeedStd";
+            this.colFeedStd.Name = "colFeedStd";
+            this.colFeedStd.Visible = true;
+            this.colFeedStd.VisibleIndex = 7;
+            this.colFeedStd.Width = 81;
+            // 
+            // colOpDep
+            // 
+            this.colOpDep.Caption = "使用单位";
+            this.colOpDep.FieldName = "OpDep";
+            this.colOpDep.Name = "colOpDep";
+            this.colOpDep.Visible = true;
+            this.colOpDep.VisibleIndex = 8;
+            this.colOpDep.Width = 68;
+            // 
+            // colReMark
+            // 
+            this.colReMark.Caption = "备注";
+            this.colReMark.FieldName = "ReMark";
+            this.colReMark.Name = "colReMark";
+            this.colReMark.Visible = true;
+            this.colReMark.VisibleIndex = 9;
+            this.colReMark.Width = 79;
             // 
             // bomChildView
             // 
@@ -661,12 +690,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsdep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grddetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluCinvcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsdep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluCinvName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,21 +729,23 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraGrid.GridControl grddetail;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvdetail;
-        private DevExpress.XtraGrid.Columns.GridColumn NoPicCode;
-        private DevExpress.XtraGrid.Columns.GridColumn NoPicName;
-        private DevExpress.XtraGrid.Columns.GridColumn CInvCode;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit1;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
-        private DevExpress.XtraGrid.Columns.GridColumn CInvName;
-        private DevExpress.XtraGrid.Columns.GridColumn SingleQty;
-        private DevExpress.XtraGrid.Columns.GridColumn CComUnitCode;
-        private DevExpress.XtraGrid.Columns.GridColumn ProcQty;
-        private DevExpress.XtraGrid.Columns.GridColumn FeedStd;
-        private DevExpress.XtraGrid.Columns.GridColumn OpDep;
-        private DevExpress.XtraGrid.Columns.GridColumn ReMark;
         private System.Windows.Forms.BindingSource bsinventory;
         private System.Windows.Forms.BindingSource bsdep;
+        private DevExpress.XtraGrid.GridControl grddetail;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvdetail;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoPicCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoPicName;
+        private DevExpress.XtraGrid.Columns.GridColumn colCInvCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colCInvName;
+        private DevExpress.XtraGrid.Columns.GridColumn colCComUnitCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colSingleQty;
+        private DevExpress.XtraGrid.Columns.GridColumn colProcQty;
+        private DevExpress.XtraGrid.Columns.GridColumn colFeedStd;
+        private DevExpress.XtraGrid.Columns.GridColumn colOpDep;
+        private DevExpress.XtraGrid.Columns.GridColumn colReMark;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit gluCinvcode;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit gluCinvName;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

@@ -13,7 +13,7 @@ namespace JNHT_ProdSys
     public class bomChildViewViewModel : MasterDetailViewViewModel<bomParent, bomParent, bomChild>
     {
          private EntitySet<jd_v_inventory> _jd_v_inventory = null;
-        public EntitySet<jd_v_inventory> jd_v_inventory
+        public EntitySet<jd_v_inventory> jd_v_inventoryEntity
         {
             get
             {
@@ -34,12 +34,14 @@ namespace JNHT_ProdSys
             this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId),BomChildStyle 
             from  bomParent with(nolock) where BomId='{0}' ".FormatEx(bomId));
 
+            this.DetailEntitySet.Query("select * from bomChild with(nolock)");
 
-            jd_v_inventory.Query("select Iden,CInvCode,存货名称,存货名称2,单位,现存量  from jd_v_inventory");
+            jd_v_inventoryEntity.Query("select Iden,存货编码,存货名称,单位,现存量  from jd_v_inventory");
             
             
         }
 
+        
         protected override void OnQueryChild(object key)
         {
             //base.OnQueryChild(key);
@@ -58,12 +60,12 @@ namespace JNHT_ProdSys
         protected override void OnInitEvents()
         {
            // base.OnInitEvents();
-           // this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
+            this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
         }
 
         void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<bomChild> e)
         {
-           // e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
     }
 }

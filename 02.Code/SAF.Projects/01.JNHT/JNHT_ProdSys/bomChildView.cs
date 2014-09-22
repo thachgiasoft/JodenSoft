@@ -44,7 +44,20 @@ namespace JNHT_ProdSys
         {
             base.OnInitBinding();
             this.ViewModel.IndexEntitySet.SetBindingSource(bsIndex);
-            this.ViewModel.jd_v_inventory.SetBindingSource(bsinventory);
+
+            //this.ViewModel.jd_v_inventory.SetBindingSource(bsinventory);
+            if (this.ViewModel != null)
+            {
+                this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
+            }
+
+            this.gluCinvcode.DataSource = this.ViewModel.jd_v_inventoryEntity.DefaultView;
+            gluCinvcode.DisplayMember = "存货编码";
+            gluCinvcode.ValueMember = "存货编码";
+
+            this.gluCinvName.DataSource = this.ViewModel.jd_v_inventoryEntity.DefaultView;
+            gluCinvName.DisplayMember = "存货名称";
+            gluCinvName.ValueMember = "存货名称";
             bindTree();
 
             
@@ -82,7 +95,7 @@ namespace JNHT_ProdSys
 
                // EntitySet<bomChild> bomchildEntity = new EntitySet<bomChild>();
                 this.ViewModel.DetailEntitySet.Query("select * from bomChild where BomId='{0}' and BomChildId='{1}'".FormatEx(this.txtbomid.Text, this.txtbomchildid.Text));
-                //bsDetail.DataSource = this.ViewModel.DetailEntitySet.DefaultView;
+                bsDetail.DataSource = this.ViewModel.DetailEntitySet.DefaultView;
                 this.ViewModel.DetailEntitySet.SetBindingSource(bsDetail);
             }
         }
@@ -95,17 +108,25 @@ namespace JNHT_ProdSys
                 return;
             }
 
-            base.OnAddNew();
-           // grvdetail.OptionsBehavior.ReadOnly = false;
+           // base.OnAddNew();
+            //pnlDtlToolbar. = true;
+           // this.ViewModel.DetailEntitySet.IsBusy = true;
+            this.ViewModel.EditStatus = EditStatus.AddNew;
+            grvdetail.OptionsBehavior.ReadOnly = false;
            
         }
 
         protected override void OnDetailAddNew()
         {
-            base.OnDetailAddNew();
-            this.ViewModel.DetailEntitySet.AddNew();
+            //base.OnDetailAddNew();
+            ////this.ViewModel.DetailEntitySet.AddNew();
+            
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
+            //this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+           
         }
       
+        
             
             //bomChild bc = new bomChild();
             //bc.BomChildId = txtbomchildid.Text.Trim();
@@ -121,37 +142,68 @@ namespace JNHT_ProdSys
 
         protected override void OnSave()
         {
+           // entityPack();
+            
             base.OnSave();
             this.ViewModel.DetailEntitySet.SaveChanges();
         }
 
-        private void repositoryItemGridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+
+        #region 参照存货编码后带出存货名称
+        private void gluCinvcode_EditValueChanged(object sender, EventArgs e)
         {
-           var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            var grid = sender as GridLookUpEdit;
+
+           //方法一:适用于不同实体集
+            var drv = grid.GetSelectedDataRow() as DataRowView;
+            var objinventory = this.ViewModel.jd_v_inventoryEntity.FirstOrDefault(p => p.Iden == Convert.ToInt64(drv["Iden"]));
+
+            //方法二:适合与同一实体集
+            //var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            //var drv = grid.GetSelectedDataRow() as DataRowView;
+            //var objinventory = this.ViewModel.jd_v_inventoryEntity.CreateEntity(drv);
+
+            if (objinventory == null)
+            {
+                MessageBox.Show("存货不存在");
+                return;
+            }          
+            (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvName = objinventory.存货名称;
+            (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CComUnitCode = objinventory.单位;
+        } 
+        #endregion
+
+        #region 参照存货名称后带出存货编码
+        private void gluCinvName_EditValueChanged(object sender, EventArgs e)
+        {
+            var grid = sender as GridLookUpEdit;
+
+            //方法一:适用于不同实体集
+            var drv = grid.GetSelectedDataRow() as DataRowView;
+            var objinventory = this.ViewModel.jd_v_inventoryEntity.FirstOrDefault(p => p.Iden == Convert.ToInt64(drv["Iden"]));
+
+            //方法二:适合与同一实体集
+            //var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            //var drv = grid.GetSelectedDataRow() as DataRowView;
+            //var objinventory = this.ViewModel.jd_v_inventoryEntity.CreateEntity(drv);
+
             if (objinventory == null)
             {
                 MessageBox.Show("存货不存在");
                 return;
             }
-            //(this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvCode = objinventory.CInvCode;            
-            //(this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvName = objinventory.存货名称;
-           // (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CComUnitCode = objinventory.单位;
-
+            (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CInvCode = objinventory.存货编码;
+            (this.ViewModel.DetailEntitySet.CurrentEntity as bomChild).CComUnitCode = objinventory.单位;
         }
+        #endregion
 
-        private void repositoryItemGridLookUpEdit1_Click(object sender, EventArgs e)
+        private void grvdetail_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            //if (gridView1.ActiveEditor.EditValue.ToString() == "System.Object")
-            //{
-            //    var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
-            //    if (objinventory == null)
-            //    {
-            //        MessageBox.Show("存货不存在");
-            //        return;
-            //    }
-            //    gridView1.ActiveEditor.EditValue = objinventory.存货编码;
-            //}
-        }
+            base.OnDetailAddNew();
+            //this.ViewModel.DetailEntitySet.AddNew();
 
+            this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
+            this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+        }
     }
 }
