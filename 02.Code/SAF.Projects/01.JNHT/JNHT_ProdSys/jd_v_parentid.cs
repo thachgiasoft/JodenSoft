@@ -29,6 +29,11 @@ namespace JNHT_ProdSys
             set { base.SetFieldValue(P => P.产品代号, value); }
         }
 
+        public string 产品名称
+        {
+            get { return base.GetFieldValue<string>(P => P.产品名称); }
+            set { base.SetFieldValue(P => P.产品名称, value); }
+        }
 
         #region 创建人&创建时间&修改人&修改时间&版本号
 

@@ -33,7 +33,7 @@ namespace JNHT_ProdSys
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  Iden , WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose  FROM  woOrder where Iden='{0}'".FormatEx(key));
-            this.jd_v_parentidEntity.Query("select  Iden,产品代号  from jd_v_parentid");
+            this.jd_v_parentidEntity.Query("select  Iden,产品代号,产品名称  from jd_v_parentid");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)

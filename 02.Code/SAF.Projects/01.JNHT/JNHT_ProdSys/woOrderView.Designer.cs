@@ -234,6 +234,8 @@
             // Qty
             // 
             this.Qty.Caption = "数量";
+            this.Qty.DisplayFormat.FormatString = "F0";
+            this.Qty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Qty.FieldName = "Qty";
             this.Qty.Name = "Qty";
             this.Qty.Visible = true;
@@ -308,7 +310,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luparentid.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "Iden", 48, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品代号", "产品代号", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品代号", "产品代号", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品名称", "产品名称")});
             this.luparentid.Properties.DataSource = this.bsProd;
             this.luparentid.Properties.DisplayMember = "产品代号";
             this.luparentid.Properties.DropDownRows = 100;
@@ -317,6 +320,7 @@
             this.luparentid.Size = new System.Drawing.Size(312, 20);
             this.luparentid.StyleController = this.lcMain;
             this.luparentid.TabIndex = 6;
+           
             // 
             // layoutControlItem3
             // 
@@ -361,6 +365,8 @@
             this.spdqty.Name = "spdqty";
             this.spdqty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spdqty.Properties.IsFloatValue = false;
+            this.spdqty.Properties.Mask.EditMask = "N00";
             this.spdqty.Size = new System.Drawing.Size(312, 20);
             this.spdqty.StyleController = this.lcMain;
             this.spdqty.TabIndex = 8;
