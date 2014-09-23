@@ -44,45 +44,29 @@ namespace TMS.IM
         /// 绑定Lookup
         /// </summary>
         private void BoundData()
-          {
-             
-              DataSet ds = new DataSet();
-              DataTable dt = new DataTable();
-              ds.Tables.Add(dt);
-              dt.Columns.Add("Caption");
-              dt.Columns.Add("Value");
-              DataRow row1 = dt.NewRow();
-              row1["Caption"] = "正向";
-              row1["Value"] = "+";
-              DataRow row2 = dt.NewRow();
-              row2["Caption"] = "反向";
-              row2["Value"] = "-";
-              if (ds != null)
-              {
-                  int rows = ds.Tables[0].Rows.Count;
-
-                  lookUp.EditValue = "Value";
-                  lookUp.Properties.ValueMember = "Value";
-                  lookUp.Properties.DisplayMember = "Caption";
-                  lookUp.Properties.DataSource = ds.Tables[0];
-  
-                 //填充列
-                  lookUp.Properties.PopulateColumns();
-   
-                 //设置列属性
-                  //lookUpEdit1.Properties.Columns[0].Visible = false;
-                  lookUp.Properties.Columns[1].Caption = "出入库方向";
-                  lookUp.Properties.Columns[2].Caption = "方向标号";
-                  lookUp.Properties.Columns[1].Width = 60;
-                  lookUp.Properties.Columns[2].Width = 30;
-   
-                 //控制选择项的总宽度
-                  lookUp.Properties.PopupWidth = 100;
-   
-                 //选择第一项
-                  lookUp.ItemIndex = 0; 
-              }
+          {   
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Value");
+            dt.Columns.Add("Caption");
+            dt.Rows.Add(new object[] { "+", "正向标识" });
+            dt.Rows.Add(new object[] { "-", "反向标识" });
+            this.lookUp.Properties.DataSource = dt;
+            lookUp.Properties.Columns.Clear();
+            lookUp.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Caption", 100, "方向标号"));
+            lookUp.Properties.DisplayMember = "Caption";
+            lookUp.Properties.ValueMember = "Value";
+            lookUp.Properties.NullText = null;   
           }
+
+        private void lookUp_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            IndexRowChange();
+        }
 
 
         

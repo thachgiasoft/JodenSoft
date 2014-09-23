@@ -75,6 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="imInStockOperationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="imInStockOperationView.Designer.cs">
+      <DependentUpon>imInStockOperationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="imInStockOperationViewViewModel.cs" />
     <Compile Include="imStoreInOutTypeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="imInStockOperationView.resx">
+      <DependentUpon>imInStockOperationView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="imStoreInOutTypeView.resx">
       <DependentUpon>imStoreInOutTypeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,15 +111,23 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\imInStockOperationView.datasource" />
+    <None Include="Properties\DataSources\imInStockOperationViewViewModel.datasource" />
+    <None Include="Properties\DataSources\imStoreInOutTypeView.datasource" />
+    <None Include="Properties\DataSources\imStoreInOutTypeViewViewModel.datasource" />
+    <None Include="Properties\DataSources\ImStoreView1.datasource" />
+    <None Include="Properties\DataSources\ImStoreViewViewModel.datasource" />
+    <None Include="Properties\DataSources\TMS.Entities.imInOutStockRoomOperationDtl.datasource" />
+    <None Include="Properties\DataSources\TMS.Entities.imInOutStockRoomOperationHdr.datasource" />
+    <None Include="Properties\DataSources\TMS.Entities.imStore1.datasource" />
+    <None Include="Properties\DataSources\TMS.Entities.imStoreInOutType.datasource" />
+    <None Include="StrongKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\TMS.Entities\TMS.Entities.csproj">
       <Project>{7523227b-e0d5-4fd8-a143-c52625d16882}</Project>
       <Name>TMS.Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\TMS.Entities.imStore1.datasource" />
-    <None Include="Properties\DataSources\TMS.Entities.imStoreInOutType.datasource" />
-    <None Include="StrongKey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
