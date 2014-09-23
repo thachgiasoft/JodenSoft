@@ -88,6 +88,7 @@
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
     <Compile Include="Interfaces\IAction.cs" />
+    <Compile Include="Interfaces\IDataCooperation.cs" />
     <Compile Include="Interfaces\IShell.cs" />
     <Compile Include="Interfaces\RibbonMenuCommand.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -220,6 +221,8 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Action_SendToAudit_32x32.png" />
+    <None Include="Resources\Action_SendToAudit_16x16.png" />
     <None Include="Resources\Icon_Tree_16x16.png" />
     <None Include="Resources\Icon_Form_32x32.png" />
     <None Include="Resources\Icon_Form_16x16.png" />
@@ -234,10 +237,14 @@
     <None Include="Resources\Action_Copy_32x32.png" />
     <None Include="Resources\Action_ImportData_32x32.png" />
     <None Include="Resources\Action_ImportData_16x16.png" />
+    <None Include="Resources\Action_Approvel_32x32.png" />
+    <None Include="Resources\Action_Approvel_16x16.png" />
     <Content Include="Resources\Action_New_16x16.png" />
     <Content Include="Resources\Action_New_32x32.png" />
     <None Include="Resources\Action_Refresh_32x32.png" />
     <None Include="Resources\Action_Refresh_16x16.png" />
+    <None Include="Resources\Action_Reject_16x16.png" />
+    <None Include="Resources\Action_Reject_32x32.png" />
     <Content Include="Resources\Action_SaveAs_16x16.png" />
     <Content Include="Resources\Action_SaveAs_32x32.png" />
     <Content Include="Resources\Action_Save_16x16.png" />

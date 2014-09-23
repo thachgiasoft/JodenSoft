@@ -339,6 +339,40 @@ namespace SAF.Framework.ViewModel
             }
         }
 
+        public void SendToAudit()
+        {
+            OnSendToAudit();
+            this.EditStatus = EditStatus.Browse;
+        }
+
+        protected virtual void OnSendToAudit()
+        {
+
+        }
+        
+        public void Approval()
+        {
+            OnApproval();
+            this.EditStatus = EditStatus.Browse;
+        }
+
+        protected virtual void OnApproval()
+        {
+
+        }
+
+        public void Reject()
+        {
+            OnReject();
+            this.EditStatus = EditStatus.Browse;
+        }
+
+
+        protected virtual void OnReject()
+        {
+
+        }
+
         public void EndEdit()
         {
             this.IndexEntitySet.EndEdit();
@@ -378,5 +412,7 @@ namespace SAF.Framework.ViewModel
         {
             return true;
         }
+        
+        
     }
 }

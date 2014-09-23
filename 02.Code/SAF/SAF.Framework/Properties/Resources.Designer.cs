@@ -63,6 +63,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Approvel_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Approvel_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Approvel_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Approvel_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Cancel_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
@@ -303,6 +323,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Reject_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Reject_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Reject_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Reject_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Save_16x16", resourceCulture);
@@ -346,6 +386,26 @@ namespace SAF.Framework.Properties {
         internal static System.Drawing.Bitmap Action_Search_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Search_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_SendToAudit_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SendToAudit_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_SendToAudit_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SendToAudit_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

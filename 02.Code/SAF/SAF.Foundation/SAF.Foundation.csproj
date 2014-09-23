@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditAction.cs" />
+    <Compile Include="AuditState.cs" />
     <Compile Include="ComponentModel\ApplicationConfigHelper.cs" />
     <Compile Include="EditStatus.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />

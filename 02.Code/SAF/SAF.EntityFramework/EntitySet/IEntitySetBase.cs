@@ -114,6 +114,10 @@ namespace SAF.EntityFramework
         /// </summary>
         void SaveChanges(DataRowState entityState = DataRowState.Unchanged);
         /// <summary>
+        /// 忽略缓存器,直接提交到数据库
+        /// </summary>
+        void SubmitToDatabase();
+        /// <summary>
         /// 删除当前实体
         /// </summary>
         void DeleteCurrent();

@@ -37,9 +37,10 @@
             this.bbiCancel = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExitView = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSend = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiAudit = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiApprove = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
             this.pmuReport = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiReject = new DevExpress.XtraBars.BarButtonItem();
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupCooperation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -89,10 +90,11 @@
             this.bbiCancel,
             this.bbiExitView,
             this.bbiSend,
-            this.bbiAudit,
-            this.bbiPreview});
+            this.bbiApprove,
+            this.bbiPreview,
+            this.bbiReject});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 13;
+            this.ribbonMain.MaxItemId = 14;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.systemPage});
@@ -153,13 +155,17 @@
             // 
             this.bbiSend.Caption = "送审";
             this.bbiSend.Id = 10;
+            this.bbiSend.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_SendToAudit_32x32;
             this.bbiSend.Name = "bbiSend";
+            this.bbiSend.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSend_ItemClick);
             // 
-            // bbiAudit
+            // bbiApprove
             // 
-            this.bbiAudit.Caption = "审核";
-            this.bbiAudit.Id = 11;
-            this.bbiAudit.Name = "bbiAudit";
+            this.bbiApprove.Caption = "通过";
+            this.bbiApprove.Id = 11;
+            this.bbiApprove.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Approvel_32x32;
+            this.bbiApprove.Name = "bbiApprove";
+            this.bbiApprove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiApprove_ItemClick);
             // 
             // bbiPreview
             // 
@@ -174,6 +180,14 @@
             // 
             this.pmuReport.Name = "pmuReport";
             this.pmuReport.Ribbon = this.ribbonMain;
+            // 
+            // bbiReject
+            // 
+            this.bbiReject.Caption = "驳回";
+            this.bbiReject.Id = 13;
+            this.bbiReject.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Reject_32x32;
+            this.bbiReject.Name = "bbiReject";
+            this.bbiReject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReject_ItemClick);
             // 
             // systemPage
             // 
@@ -203,7 +217,8 @@
             // 
             this.groupCooperation.AllowTextClipping = false;
             this.groupCooperation.ItemLinks.Add(this.bbiSend);
-            this.groupCooperation.ItemLinks.Add(this.bbiAudit);
+            this.groupCooperation.ItemLinks.Add(this.bbiApprove);
+            this.groupCooperation.ItemLinks.Add(this.bbiReject);
             this.groupCooperation.MergeOrder = 20;
             this.groupCooperation.Name = "groupCooperation";
             this.groupCooperation.ShowCaptionButton = false;
@@ -408,11 +423,12 @@
         protected DevExpress.XtraTab.XtraTabControl tcMain;
         protected DevExpress.XtraTab.XtraTabPage pageMain;
         protected DevExpress.XtraBars.BarButtonItem bbiSend;
-        protected DevExpress.XtraBars.BarButtonItem bbiAudit;
+        protected DevExpress.XtraBars.BarButtonItem bbiApprove;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCooperation;
         protected DevExpress.XtraBars.BarButtonItem bbiPreview;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupReport;
         protected DevExpress.XtraBars.PopupMenu pmuReport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCustom;
+        private DevExpress.XtraBars.BarButtonItem bbiReject;
     }
 }

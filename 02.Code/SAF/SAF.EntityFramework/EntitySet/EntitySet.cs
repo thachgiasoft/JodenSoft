@@ -316,6 +316,23 @@ namespace SAF.EntityFramework
             }
         }
         /// <summary>
+        /// 忽略缓存器,直接提交到数据库
+        /// </summary>
+        public override void SubmitToDatabase()
+        {
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable, DataRowState.Unchanged);
+            if (list.Count <= 0) return;
+            try
+            {
+                DataPortal.ExecuteNonQueryByTransaction(this.ConnectionName, list);
+                AcceptChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>

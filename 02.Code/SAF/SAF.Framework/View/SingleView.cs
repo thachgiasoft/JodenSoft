@@ -87,6 +87,22 @@ namespace SAF.Framework.View
         {
             Delete();
         }
+
+        private void bbiSend_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SendToAudit();
+        }
+
+        private void bbiApprove_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Approval();
+        }
+
+        private void bbiReject_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Reject();
+        }
+
         private void bbiExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Close();
@@ -212,6 +228,30 @@ namespace SAF.Framework.View
         {
             OnReverseSelect();
         }
+        /// <summary>
+        /// 送审
+        /// </summary>
+        public void SendToAudit()
+        {
+            OnSendToAudit();
+            RefreshUI();
+        }
+        /// <summary>
+        /// 通过
+        /// </summary>
+        public void Approval()
+        {
+            OnApproval();
+            RefreshUI();
+        }
+        /// <summary>
+        /// 驳回
+        /// </summary>
+        public void Reject()
+        {
+            OnReject();
+            RefreshUI();
+        }
 
         #endregion
 
@@ -296,6 +336,74 @@ namespace SAF.Framework.View
             var key = ViewModel.IndexEntitySet.CurrentKey;
 
             ViewModel.QueryChild(key);
+        }
+        /// <summary>
+        /// 送审
+        /// </summary>
+        protected virtual void OnSendToAudit()
+        {
+            if (ViewModel == null) return;
+
+            if (this.IsAddNew || this.IsEdit)
+            {
+                MessageService.ShowError("编辑模式下不能送审单据,请先提交数据或撤消更改.");
+                return;
+            }
+
+            try
+            {
+                ViewModel.SendToAudit();
+                MessageService.ShowMessage("送审成功.");
+            }
+            catch (Exception ex)
+            {
+                MessageService.ShowException(ex, "送审失败!");
+            }
+
+        }
+        /// <summary>
+        /// 通过
+        /// </summary>
+        protected virtual void OnApproval()
+        {
+            if (ViewModel == null) return;
+
+            if (this.IsAddNew || this.IsEdit)
+            {
+                MessageService.ShowError("编辑模式下不能审批单据,请先提交数据或撤消更改.");
+                return;
+            }
+            try
+            {
+                ViewModel.Approval();
+                MessageService.ShowMessage("审批成功.");
+            }
+            catch (Exception ex)
+            {
+                MessageService.ShowException(ex, "审批失败!");
+            }
+        }
+        /// <summary>
+        /// 驳回
+        /// </summary>
+        protected virtual void OnReject()
+        {
+            if (ViewModel == null) return;
+
+            if (this.IsAddNew || this.IsEdit)
+            {
+                MessageService.ShowError("编辑模式下不能驳回单据,请先提交数据或撤消更改.");
+                return;
+            }
+            try
+            {
+                ViewModel.Reject();
+                MessageService.ShowMessage("驳回成功.");
+            }
+            catch (Exception ex)
+            {
+                MessageService.ShowException(ex, "驳回失败!");
+            }
         }
 
         #endregion
@@ -382,6 +490,9 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiCancel, IsAddNew || IsEdit);
             UIController.RefreshControl(this.bbiSave, IsAddNew || IsEdit);
 
+            UIController.RefreshControl(this.bbiSend, false);
+            UIController.RefreshControl(this.bbiApprove, false);
+            UIController.RefreshControl(this.bbiReject, false);
         }
 
         protected override void OnRefreshUI()

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SAF.Framework.View
 {
-    public interface ISingleView : IBusinessView, IDataEdit, IDataAdvancedSearch, IDataSelect
+    public interface ISingleView : IBusinessView, IDataEdit, IDataAdvancedSearch, IDataSelect, IDataCooperation
     {
         void IndexRowChange();
     }

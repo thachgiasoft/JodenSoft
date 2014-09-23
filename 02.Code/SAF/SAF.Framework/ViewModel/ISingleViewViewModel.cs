@@ -24,6 +24,13 @@ namespace SAF.Framework.ViewModel
         void Cancel();
         void Save();
 
+        void SendToAudit();
+        void Approval();
+        void Reject();
+
+        /// <summary>
+        /// 保存后事件
+        /// </summary>
         event EventHandler<AfterSaveEventArgs> AfterSave;
         /// <summary>
         /// 结束编辑
@@ -33,5 +40,6 @@ namespace SAF.Framework.ViewModel
         /// 查询配置
         /// </summary>
         QueryConfig QueryConfig { get; }
+
     }
 }
