@@ -26,6 +26,7 @@ namespace SAF.EntityFramework
             {
                 throw new ArgumentNullException("name");
             }
+            name = name.Trim();
             if (name[0] != this.ParameterToken)
             {
                 return name.Insert(0, new string(this.ParameterToken, 1));

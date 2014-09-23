@@ -41,7 +41,7 @@ namespace SAF.EntityFramework
 
         protected virtual string BuildParameterName(string name)
         {
-            return name;
+            return name.IsEmpty() ? string.Empty : name.Trim();
         }
         /// <summary>
         /// 
@@ -228,11 +228,10 @@ namespace SAF.EntityFramework
                     result.Add(param);
             }
 
-            string cmdText = command.CommandText;
+            string cmdText = command.CommandText.Replace(":", this.BuildParameterName("p_"));
             for (int i = 0; i < result.Count; i++)
             {
-                var paramName = this.BuildParameterName(result[i].Remove(0, 1)) + "_p" + i.ToString();
-                cmdText = cmdText.Replace(result[i], paramName);
+                var paramName = this.BuildParameterName("p_" + result[i].Remove(0, 1));
                 command.Parameters.Add(this.CreateParameter(paramName, null));
             }
             command.CommandText = cmdText;
