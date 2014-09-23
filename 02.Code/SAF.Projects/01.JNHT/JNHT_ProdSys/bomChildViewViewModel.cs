@@ -22,21 +22,16 @@ namespace JNHT_ProdSys
                 return _jd_v_inventory;
             }
         }
-      
+        string bomId = "";
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
            // base.OnQuery(sCondition, parameterValues);
             IndexEntitySet.Query(@"SELECT distinct Iden=0, BomId  from bomParent with(nolock) where ({0})".FormatEx(sCondition));//
-            var bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
+             //bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
 
             //this.bomEntity.Query("select Iden,BomParentId,BomChildId,BomChildDesc,UseQty  from bomparent with(nolock) where BomId='{0}' ".FormatEx(bomId));
 
-            this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId),BomChildStyle 
-            from  bomParent with(nolock) where BomId='{0}' ".FormatEx(bomId));
-
-            this.DetailEntitySet.Query("select * from bomChild with(nolock)");
-
-            jd_v_inventoryEntity.Query("select Iden,存货编码,存货名称,单位,现存量  from jd_v_inventory");
+           
             
             
         }
@@ -45,10 +40,16 @@ namespace JNHT_ProdSys
         protected override void OnQueryChild(object key)
         {
             //base.OnQueryChild(key);
-            //var bomId = this.MainEntitySet.CurrentEntity == null ? string.Empty : this.MainEntitySet.CurrentEntity.BomId;
+            bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
             //var bomChildId = this.MainEntitySet.CurrentEntity == null ? string.Empty : this.MainEntitySet.CurrentEntity.BomChildId;
 
             //this.DetailEntitySet.Query("select * from bomchild where bomid='{0}' and bomChildid='{1}'".FormatEx(bomId,bomChildId));
+            this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId),BomChildStyle 
+            from  bomParent with(nolock) where BomId='{0}' ".FormatEx(bomId));
+
+            this.DetailEntitySet.Query("select * from bomChild with(nolock)");
+
+            jd_v_inventoryEntity.Query("select Iden,存货编码,存货名称,单位,现存量  from jd_v_inventory");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -60,12 +61,12 @@ namespace JNHT_ProdSys
         protected override void OnInitEvents()
         {
            // base.OnInitEvents();
-            this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
+           // this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
         }
 
-        void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<bomChild> e)
-        {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
-        }
+        //void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<bomChild> e)
+        //{
+        //    e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+        //}
     }
 }

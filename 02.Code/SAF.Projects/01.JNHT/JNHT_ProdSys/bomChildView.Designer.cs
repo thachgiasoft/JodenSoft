@@ -57,6 +57,8 @@
             this.bsinventory = new System.Windows.Forms.BindingSource(this.components);
             this.bsdep = new System.Windows.Forms.BindingSource(this.components);
             this.grddetail = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsbtnniantie = new System.Windows.Forms.ToolStripMenuItem();
             this.grvdetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNoPicCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoPicName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,6 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsdep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grddetail)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvdetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCinvcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
@@ -139,6 +142,15 @@
             // pnlDtlToolbar
             // 
             this.pnlDtlToolbar.Size = new System.Drawing.Size(698, 29);
+            // 
+            // btnDtlDelete
+            // 
+            this.btnDtlDelete.Size = new System.Drawing.Size(72, 23);
+            this.btnDtlDelete.Text = "删除行";
+            // 
+            // btnDtlAddNew
+            // 
+            this.btnDtlAddNew.Text = "新增行";
             // 
             // bsDetail
             // 
@@ -241,7 +253,9 @@
             this.BomId});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
+            this.grvIndex.OptionsBehavior.Editable = false;
             this.grvIndex.OptionsBehavior.ReadOnly = true;
+            this.grvIndex.Click += new System.EventHandler(this.grvIndex_Click);
             // 
             // BomId
             // 
@@ -317,7 +331,7 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Icon_Form_32x32.png");
+            this.imageList1.Images.SetKeyName(0, "inverse.png");
             // 
             // panelControl1
             // 
@@ -469,6 +483,7 @@
             // 
             // grddetail
             // 
+            this.grddetail.ContextMenuStrip = this.contextMenuStrip1;
             this.grddetail.Cursor = System.Windows.Forms.Cursors.Default;
             this.grddetail.DataSource = this.bsDetail;
             this.grddetail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -483,6 +498,20 @@
             this.grddetail.TabIndex = 1;
             this.grddetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvdetail});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtnniantie});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            // 
+            // tsbtnniantie
+            // 
+            this.tsbtnniantie.Name = "tsbtnniantie";
+            this.tsbtnniantie.Size = new System.Drawing.Size(100, 22);
+            this.tsbtnniantie.Text = "粘帖";
+            this.tsbtnniantie.Click += new System.EventHandler(this.tsbtnniantie_Click);
             // 
             // grvdetail
             // 
@@ -499,11 +528,10 @@
             this.colReMark});
             this.grvdetail.GridControl = this.grddetail;
             this.grvdetail.Name = "grvdetail";
-            this.grvdetail.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.grvdetail.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.grvdetail.OptionsView.ColumnAutoWidth = false;
-            this.grvdetail.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.grvdetail.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvdetail_InitNewRow);
+           
+            this.grvdetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grvdetail_KeyDown);
             // 
             // colNoPicCode
             // 
@@ -648,6 +676,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "bomChildView";
             this.Size = new System.Drawing.Size(1202, 476);
+            this.Controls.SetChildIndex(this.ribbonMain, 0);
+            this.Controls.SetChildIndex(this.pnlQueryControl, 0);
+            this.Controls.SetChildIndex(this.pnlPageControl, 0);
+            this.Controls.SetChildIndex(this.splitMain, 0);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
@@ -693,6 +725,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsinventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsdep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grddetail)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvdetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCinvcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
@@ -747,5 +780,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit gluCinvName;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsbtnniantie;
     }
 }
