@@ -60,7 +60,7 @@ namespace SAF.Framework.View
                 foreach (var entity in es)
                 {
                     if (entity.GetFieldValue<string>("Value").IsNotEmpty())
-                        this.AddViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
+                        this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
                 }
             }
         }
@@ -335,7 +335,7 @@ namespace SAF.Framework.View
         public virtual string BillTypeId
         {
             get { return this.GetViewParam("BillTypeId"); }
-            set { this.AddViewParam("BillTypeId", value); }
+            set { this.SetViewParam("BillTypeId", value); }
         }
 
         protected virtual string CalcCondition(string condition)
@@ -357,7 +357,7 @@ namespace SAF.Framework.View
         /// </summary>
         /// <param name="name"></param>
         /// <param name="value"></param>
-        public virtual void AddViewParam(string name, string value)
+        public virtual void SetViewParam(string name, string value)
         {
             if (this.viewParams.ContainsKey(name))
                 this.viewParams[name] = value;
