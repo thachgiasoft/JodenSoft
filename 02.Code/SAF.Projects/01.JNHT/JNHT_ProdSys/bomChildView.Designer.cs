@@ -73,6 +73,8 @@
             this.colProcQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFeedStd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOpDep = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gluDep = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colReMark = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
@@ -125,6 +127,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCinvName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluDep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -493,7 +497,8 @@
             this.grddetail.Name = "grddetail";
             this.grddetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.gluCinvcode,
-            this.gluCinvName});
+            this.gluCinvName,
+            this.gluDep});
             this.grddetail.Size = new System.Drawing.Size(698, 98);
             this.grddetail.TabIndex = 1;
             this.grddetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -530,7 +535,6 @@
             this.grvdetail.Name = "grvdetail";
             this.grvdetail.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.grvdetail.OptionsView.ColumnAutoWidth = false;
-           
             this.grvdetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grvdetail_KeyDown);
             // 
             // colNoPicCode
@@ -598,6 +602,7 @@
             // gluCinvName
             // 
             this.gluCinvName.AutoHeight = false;
+            this.gluCinvName.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.gluCinvName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.gluCinvName.Name = "gluCinvName";
@@ -655,11 +660,31 @@
             // colOpDep
             // 
             this.colOpDep.Caption = "使用单位";
+            this.colOpDep.ColumnEdit = this.gluDep;
             this.colOpDep.FieldName = "OpDep";
             this.colOpDep.Name = "colOpDep";
             this.colOpDep.Visible = true;
             this.colOpDep.VisibleIndex = 8;
             this.colOpDep.Width = 68;
+            // 
+            // gluDep
+            // 
+            this.gluDep.AutoHeight = false;
+            this.gluDep.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.gluDep.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gluDep.Name = "gluDep";
+            this.gluDep.NullText = "";
+            this.gluDep.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
+            this.gluDep.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.gluDep.View = this.gridView2;
+            // 
+            // gridView2
+            // 
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // colReMark
             // 
@@ -731,6 +756,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluCinvName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gluDep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -782,5 +809,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsbtnniantie;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit gluDep;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
     }
 }

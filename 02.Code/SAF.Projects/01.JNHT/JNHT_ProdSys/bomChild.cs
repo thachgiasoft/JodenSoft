@@ -87,17 +87,6 @@ namespace JNHT_ProdSys
             set { base.SetFieldValue(P => P.OpDep, value); }
         }
 
-        public DateTime CreateDate
-        {
-            get { return base.GetFieldValue<DateTime>(P => P.CreateDate); }
-            set { base.SetFieldValue(P => P.CreateDate, value); }
-        }
-
-        public string CreateUser
-        {
-            get { return base.GetFieldValue<string>(P => P.CreateUser); }
-            set { base.SetFieldValue(P => P.CreateUser, value); }
-        }
 
         public DateTime RelsDate
         {
@@ -105,9 +94,9 @@ namespace JNHT_ProdSys
             set { base.SetFieldValue(P => P.RelsDate, value); }
         }
 
-        public string RelsUser
+        public int RelsUser
         {
-            get { return base.GetFieldValue<string>(P => P.RelsUser); }
+            get { return base.GetFieldValue<int>(P => P.RelsUser); }
             set { base.SetFieldValue(P => P.RelsUser, value); }
         }
 
@@ -117,6 +106,11 @@ namespace JNHT_ProdSys
             set { base.SetFieldValue(P => P.ReMark, value); }
         }
 
+        public string EditStatus
+        {
+            get { return base.GetFieldValue<string>(P => P.EditStatus); }
+            set { base.SetFieldValue(P => P.EditStatus, value); }
+        }
         public string Cdefine1
         {
             get { return base.GetFieldValue<string>(P => P.Cdefine1); }

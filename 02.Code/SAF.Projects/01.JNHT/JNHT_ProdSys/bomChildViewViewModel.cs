@@ -6,7 +6,7 @@ using SAF.Framework.ViewModel;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
-
+using SAF.SystemEntities;
 
 namespace JNHT_ProdSys
 {
@@ -22,13 +22,25 @@ namespace JNHT_ProdSys
                 return _jd_v_inventory;
             }
         }
+
+        private EntitySet<sysOrganization> _sysOrganizationEntity = null;
+        public EntitySet<sysOrganization> sysOrganizationEntity
+        {
+            get
+            {
+                if (_sysOrganizationEntity == null)
+                    _sysOrganizationEntity = new EntitySet<sysOrganization>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                return _sysOrganizationEntity;
+            }
+        }
+
         string bomId = "";
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
            // base.OnQuery(sCondition, parameterValues);
             IndexEntitySet.Query(@"SELECT distinct Iden=0, BomId  from bomParent with(nolock) where ({0})".FormatEx(sCondition));//
              //bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
-
+            
             //this.bomEntity.Query("select Iden,BomParentId,BomChildId,BomChildDesc,UseQty  from bomparent with(nolock) where BomId='{0}' ".FormatEx(bomId));
 
            
@@ -50,6 +62,7 @@ namespace JNHT_ProdSys
             this.DetailEntitySet.Query("select * from bomChild with(nolock)");
 
             jd_v_inventoryEntity.Query("select Iden,存货编码,存货名称,单位,现存量  from jd_v_inventory");
+            sysOrganizationEntity.Query("SELECT Name as 部门名称 FROM  dbo.sysOrganization WHERE IsDeleted=0");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)

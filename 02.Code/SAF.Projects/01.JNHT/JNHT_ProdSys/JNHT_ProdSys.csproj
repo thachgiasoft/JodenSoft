@@ -69,6 +69,14 @@
     <Reference Include="SAF.Framework.Services">
       <HintPath>..\..\..\SAF.DLL\SAF.Framework.Services.dll</HintPath>
     </Reference>
+    <Reference Include="SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SAF.Output\Client\SAF.SystemEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.SystemModule, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SAF.Output\Client\SAF.SystemModule.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -107,6 +115,7 @@
       <DependentUpon>BomTreeList.cs</DependentUpon>
     </Compile>
     <Compile Include="jd_v_inventory.cs" />
+    <Compile Include="jd_v_parentid.cs" />
     <Compile Include="Method\ExcelUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -114,6 +123,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="woOrder.cs" />
+    <Compile Include="woOrderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="woOrderView.Designer.cs">
+      <DependentUpon>woOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="woOrderViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="bomChildView.resx">
@@ -130,6 +147,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="woOrderView.resx">
+      <DependentUpon>woOrderView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -141,10 +161,14 @@
     <None Include="Properties\DataSources\bomParentViewViewModel.datasource" />
     <None Include="Properties\DataSources\BomTreeList.datasource" />
     <None Include="Properties\DataSources\jd_v_inventory.datasource" />
+    <None Include="Properties\DataSources\jd_v_parentid.datasource" />
     <None Include="Properties\DataSources\JNHT_ProdSys.Method.ExcelUtil.datasource" />
     <None Include="Properties\DataSources\JNHT_ProdSys.Properties.Resources.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\woOrder.datasource" />
+    <None Include="Properties\DataSources\woOrderView.datasource" />
+    <None Include="Properties\DataSources\woOrderViewViewModel.datasource" />
     <None Include="Resources\Action_ImportData_32x32.png" />
   </ItemGroup>
   <ItemGroup>

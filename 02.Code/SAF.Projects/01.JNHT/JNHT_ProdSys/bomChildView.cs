@@ -58,6 +58,10 @@ namespace JNHT_ProdSys
             this.gluCinvName.DataSource = this.ViewModel.jd_v_inventoryEntity.DefaultView;
             gluCinvName.DisplayMember = "存货名称";
             gluCinvName.ValueMember = "存货名称";
+
+            this.gluDep.DataSource = this.ViewModel.sysOrganizationEntity.DefaultView;
+            gluDep.DisplayMember = "部门名称";
+            gluDep.ValueMember = "部门名称";
             bindTree();
 
 
@@ -69,6 +73,8 @@ namespace JNHT_ProdSys
             //EntitySet<jd_v_inventory> jd_v_inventory = new EntitySet<jd_v_inventory>();
             //jd_v_inventory.Query("select * from jd_v_inventory");
             // bsinventory.DataSource = jd_v_inventory.DefaultView;
+
+            //去除
             this.bbiDelete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
         private void bindTree()
@@ -123,11 +129,10 @@ namespace JNHT_ProdSys
             this.ViewModel.DetailEntitySet.CurrentEntity.Iden = IdenGenerator.NewIden(this.ViewModel.DetailEntitySet.CurrentEntity.DbTableName);
             this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
             this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
-            this.ViewModel.DetailEntitySet.CurrentEntity.CreateUser = Session.Current.UserName;
-            this.ViewModel.DetailEntitySet.CurrentEntity.CreateDate = DateTime.Today;
-
-
-        }
+            this.ViewModel.DetailEntitySet.CurrentEntity.CreatedBy = Session.Current.UserId;
+            this.ViewModel.DetailEntitySet.CurrentEntity.CreatedOn = DateTime.Today;
+            this.ViewModel.DetailEntitySet.CurrentEntity.EditStatus = "草稿";
+         }
 
 
 
@@ -251,7 +256,9 @@ namespace JNHT_ProdSys
             this.ViewModel.DetailEntitySet.CurrentEntity.Iden = IdenGenerator.NewIden(this.ViewModel.DetailEntitySet.CurrentEntity.DbTableName);
             this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
             this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
-            this.ViewModel.DetailEntitySet.CurrentEntity.CreateUser =
+            this.ViewModel.DetailEntitySet.CurrentEntity.CreatedBy = Session.Current.UserId;
+            this.ViewModel.DetailEntitySet.CurrentEntity.CreatedOn = DateTime.Today;
+            this.ViewModel.DetailEntitySet.CurrentEntity.EditStatus = "草稿";
             this.ViewModel.DetailEntitySet.CurrentEntity.NoPicCode = vals[0];
             this.ViewModel.DetailEntitySet.CurrentEntity.NoPicName = vals[1];
             this.ViewModel.DetailEntitySet.CurrentEntity.CInvCode = vals[2];
