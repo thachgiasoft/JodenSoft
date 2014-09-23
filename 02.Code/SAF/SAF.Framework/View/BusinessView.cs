@@ -33,10 +33,7 @@ namespace SAF.Framework.View
         {
             return new BusinessViewViewModel();
         }
-
-       
-
-        
+               
 
     }
 }
