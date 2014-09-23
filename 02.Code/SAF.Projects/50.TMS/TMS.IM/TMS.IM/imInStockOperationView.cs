@@ -9,13 +9,12 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Framework;
-
+using SAF.Foundation.MetaAttributes;
 namespace TMS.IM
 {
+    [BusinessObject("imInStockOperationView")]
     public partial class imInStockOperationView : MasterDetailView
     {
-
-   
 
         [ViewParam("InOutStoreParam")]
         public int iStoreID

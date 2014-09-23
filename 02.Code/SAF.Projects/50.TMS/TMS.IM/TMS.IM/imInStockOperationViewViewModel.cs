@@ -12,6 +12,7 @@ namespace TMS.IM
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
+            this.IndexEntitySet.Query("SELECT * FROM imInOutStockRoomOperationHdr A WITH(NOLOCK) WHERE ({0})".FormatEx(sCondition));
         }
 
         protected override void OnInitEvents()
@@ -33,12 +34,14 @@ namespace TMS.IM
             //throw new System.NotImplementedException();
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.sCreator = Session.Current.UserName;
-            e.CurrentEntity.sBillNo = BillNoGenerator.NewBillNo(29,true,"","");
+            e.CurrentEntity.sBillNo = BillNoGenerator.NewBillNo(27,true,"","");
         }
 
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
+            this.MainEntitySet.Query("SELECT *FROM dbo.imInOutStockRoomOperationHdr A WITH(NOLOCK) WHERE Iden=:Iden", key);
+            this.DetailEntitySet.Query("SELECT * FROM dbo.imInOutStockRoomOperationDtl A WITH(NOLOCK) WHERE HdrID=:HdrID", key);
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
