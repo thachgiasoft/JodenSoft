@@ -20,9 +20,9 @@ BEGIN
 	delete sysBillNo
     insert into sysBillNo([BillNoType],[IdenLength],[ResetType],[Separator],[Prefix],[YearFormat],
                                     [MonthFormat],[DayFormat],[Midfix],[CurrentIden],[CurrentDate],[Suffix])
-    values('sdOrderNo',4,'month','','sd','yy','mm','dd','',0,getdate(),'')
+    values('sdOrderNo',4,'month','-','SD','yy','mm','dd','',0,getdate(),'')
   
-    exec sysGenerateBillNo 'sdOrderNo2','','',1
+    exec sysGenerateBillNo 'sdOrderNo','XX','',1
   
 */
 
@@ -34,9 +34,7 @@ BEGIN
 	RETURN
 END
 
-SET  TRANSACTION  ISOLATION  LEVEL  SERIALIZABLE  
-
-DECLARE    @Now DATETIME 
+DECLARE  @Now DATETIME 
         ,@IdenLength INT 
         ,@ResetType VARCHAR(50) 
         ,@Separator VARCHAR(50)
@@ -50,6 +48,8 @@ DECLARE    @Now DATETIME
         ,@CurrentDate DATETIME 
         ,@Suffix VARCHAR(50)    
         ,@DateStr VARCHAR(50);
+
+SET  TRANSACTION  ISOLATION  LEVEL  SERIALIZABLE  
 
 BEGIN TRAN
     
@@ -99,14 +99,13 @@ END
 SET @BillNo= @prefix 
     + @separator
     + @DynamicContent 
-    + CASE  @DynamicContent WHEN  '' THEN  '' ELSE  @separator END 
+    + CASE @DynamicContent WHEN '' THEN '' ELSE @separator END 
     + @datestr
-    + CASE  @datestr WHEN  '' THEN  '' ELSE  @separator END 
+    + CASE @datestr WHEN '' THEN '' ELSE @separator END 
     + @midfix 
-    + CASE  @midfix WHEN  '' THEN  '' ELSE  @separator END 
-    + right( REPLICATE('0',@IdenLength)
-                +CAST(@CurrentIdenFirstback+1 AS VARCHAR(50)),@IdenLength)
-    + CASE  @suffix WHEN  '' THEN  '' ELSE  @separator END 
+    + CASE @midfix WHEN '' THEN '' ELSE @separator END 
+    + RIGHT(REPLICATE('0', @IdenLength) + CAST(@CurrentIdenFirstback+1 AS VARCHAR(50)), @IdenLength)
+    + CASE @suffix WHEN '' THEN '' ELSE @separator END 
     + @suffix
 
 UPDATE sysBillNo 
