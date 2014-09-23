@@ -303,6 +303,7 @@ namespace SAF.Framework.View
                     if (_viewModel != null)
                     {
                         _viewModel.UniqueId = this.UniqueId;
+                        _viewModel.View = this;
                     }
                 }
                 return _viewModel;

@@ -1,4 +1,5 @@
 ﻿using SAF.Foundation;
+using SAF.Framework.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace SAF.Framework.ViewModel
         /// 
         /// </summary>
         int UniqueId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        BaseView View { get; }
         /// <summary>
         /// 
         /// </summary>

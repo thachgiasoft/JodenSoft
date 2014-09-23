@@ -1,4 +1,5 @@
 ﻿using SAF.Foundation;
+using SAF.Framework.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace SAF.Framework.ViewModel
         /// 
         /// </summary>
         public int UniqueId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public BaseView View { get; set; }
 
         private EditStatus _editStatus = EditStatus.Browse;
         /// <summary>
