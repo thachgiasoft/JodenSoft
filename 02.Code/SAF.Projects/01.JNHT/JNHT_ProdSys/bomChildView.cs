@@ -129,6 +129,7 @@ namespace JNHT_ProdSys
             this.ViewModel.DetailEntitySet.CurrentEntity.Iden = IdenGenerator.NewIden(this.ViewModel.DetailEntitySet.CurrentEntity.DbTableName);
             this.ViewModel.DetailEntitySet.CurrentEntity.BomId = txtbomid.Text.Trim();
             this.ViewModel.DetailEntitySet.CurrentEntity.BomChildId = txtbomchildid.Text.Trim();
+            this.ViewModel.DetailEntitySet.CurrentEntity.BomChildName = txtbomchilddesc.Text.Trim();
             this.ViewModel.DetailEntitySet.CurrentEntity.CreatedBy = Session.Current.UserId;
             this.ViewModel.DetailEntitySet.CurrentEntity.CreatedOn = DateTime.Today;
             this.ViewModel.DetailEntitySet.CurrentEntity.EditStatus = "草稿";

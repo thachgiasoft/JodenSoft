@@ -22,18 +22,52 @@ namespace JNHT_ProdSys
                 return _jd_v_parentidEntity;
             }
         }
+        private EntitySet<woDetail> _woDetailEntity = null;
+        public EntitySet<woDetail> woDetailEntity
+        {
+            get
+            {
+                if (_woDetailEntity == null)
+                    _woDetailEntity = new EntitySet<woDetail>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                return _woDetailEntity;
+            }
+        }
+        private EntitySet<bomParent> _bomParentEntity = null;
+        public EntitySet<bomParent> bomParentEntity
+        {
+            get
+            {
+                if (_bomParentEntity == null)
+                    _bomParentEntity = new EntitySet<bomParent>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                return _bomParentEntity;
+            }
+        }
+        private EntitySet<bomChild> _bomChildEntity = null;
+        public EntitySet<bomChild> bomChildEntity
+        {
+            get
+            {
+                if (_bomChildEntity == null)
+                    _bomChildEntity = new EntitySet<bomChild>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                return _bomChildEntity;
+            }
+        }
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
-            this.IndexEntitySet.Query("SELECT  Iden , WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose FROM  woOrder where ({0})".FormatEx(sCondition));
+            this.IndexEntitySet.Query("SELECT  Iden ,BomId, WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose FROM  woOrder where ({0})".FormatEx(sCondition));
+            this.woDetailEntity.Query("select * from wodetail with(nolock) where 1=0");
 
         }
 
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
-            this.MainEntitySet.Query("SELECT  Iden , WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose  FROM  woOrder where Iden='{0}'".FormatEx(key));
-            this.jd_v_parentidEntity.Query("select  Iden,产品代号,产品名称  from jd_v_parentid");
+            this.MainEntitySet.Query("SELECT  Iden ,BomId, WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose  FROM  woOrder where Iden='{0}'".FormatEx(key));
+            this.jd_v_parentidEntity.Query("select  Iden,产品代号,产品名称,产品区分号  from jd_v_parentid");
+
+            this.bomParentEntity.Query("select * from bomParent wit(nolock) where 1=0");
+            this.bomChildEntity.Query("select * from bomChild with(nolock) where 1=0");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -47,6 +81,12 @@ namespace JNHT_ProdSys
             base.OnInitEvents();
             base.OnInitEvents();
             this.MainEntitySet.AfterAdd += MainEntitySet_AfterAdd;
+            this.woDetailEntity.AfterAdd += woDetailEntity_AfterAdd;
+        }
+
+        void woDetailEntity_AfterAdd(object sender, EntitySetAddEventArgs<woDetail> e)
+        {
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<woOrder> e)
@@ -54,9 +94,5 @@ namespace JNHT_ProdSys
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
 
-        void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<bomChild> e)
-        {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
-        }
     }
 }

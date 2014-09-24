@@ -123,6 +123,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="woDetail.cs" />
     <Compile Include="woOrder.cs" />
     <Compile Include="woOrderView.cs">
       <SubType>UserControl</SubType>
@@ -166,6 +167,7 @@
     <None Include="Properties\DataSources\JNHT_ProdSys.Properties.Resources.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\woDetail.datasource" />
     <None Include="Properties\DataSources\woOrder.datasource" />
     <None Include="Properties\DataSources\woOrderView.datasource" />
     <None Include="Properties\DataSources\woOrderViewViewModel.datasource" />

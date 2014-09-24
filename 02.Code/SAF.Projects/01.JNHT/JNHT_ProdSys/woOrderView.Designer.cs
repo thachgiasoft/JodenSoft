@@ -45,6 +45,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.luparentid = new DevExpress.XtraEditors.LookUpEdit();
             this.bsProd = new System.Windows.Forms.BindingSource(this.components);
+            this.jdvparentidBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtparentname = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,6 +53,9 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.cmbisclose = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.woOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtbomid = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -79,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jdvparentidBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtparentname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -86,6 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbisclose.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.woOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbomid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -122,6 +130,7 @@
             // 
             // lcMain
             // 
+            this.lcMain.Controls.Add(this.txtbomid);
             this.lcMain.Controls.Add(this.cmbisclose);
             this.lcMain.Controls.Add(this.spdqty);
             this.lcMain.Controls.Add(this.txtparentname);
@@ -138,7 +147,8 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem2,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem7});
             this.lcgMain.Size = new System.Drawing.Size(368, 261);
             // 
             // splitRight
@@ -261,10 +271,10 @@
             // txtwocode
             // 
             this.txtwocode.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "WoCode", true));
-            this.txtwocode.Location = new System.Drawing.Point(54, 2);
+            this.txtwocode.Location = new System.Drawing.Point(66, 2);
             this.txtwocode.MenuManager = this.ribbonMain;
             this.txtwocode.Name = "txtwocode";
-            this.txtwocode.Size = new System.Drawing.Size(312, 20);
+            this.txtwocode.Size = new System.Drawing.Size(300, 20);
             this.txtwocode.StyleController = this.lcMain;
             this.txtwocode.TabIndex = 4;
             // 
@@ -276,15 +286,15 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(368, 24);
             this.layoutControlItem1.Text = "生产令单";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(60, 14);
             // 
             // txtwoversion
             // 
             this.txtwoversion.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "WoVersion", true));
-            this.txtwoversion.Location = new System.Drawing.Point(54, 26);
+            this.txtwoversion.Location = new System.Drawing.Point(66, 26);
             this.txtwoversion.MenuManager = this.ribbonMain;
             this.txtwoversion.Name = "txtwoversion";
-            this.txtwoversion.Size = new System.Drawing.Size(312, 20);
+            this.txtwoversion.Size = new System.Drawing.Size(300, 20);
             this.txtwoversion.StyleController = this.lcMain;
             this.txtwoversion.TabIndex = 5;
             // 
@@ -296,31 +306,34 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(368, 24);
             this.layoutControlItem2.Text = "版本";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
             // luparentid
             // 
             this.luparentid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CParentId", true));
-            this.luparentid.EditValue = "";
-            this.luparentid.Location = new System.Drawing.Point(54, 50);
+            this.luparentid.Location = new System.Drawing.Point(66, 50);
             this.luparentid.MenuManager = this.ribbonMain;
             this.luparentid.Name = "luparentid";
             this.luparentid.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.luparentid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luparentid.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "Iden", 48, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "Iden", 48, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品代号", "产品代号", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品名称", "产品名称")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品名称", "产品名称", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品区分号", "产品区分号")});
             this.luparentid.Properties.DataSource = this.bsProd;
             this.luparentid.Properties.DisplayMember = "产品代号";
             this.luparentid.Properties.DropDownRows = 100;
             this.luparentid.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.luparentid.Properties.ValueMember = "产品代号";
-            this.luparentid.Size = new System.Drawing.Size(312, 20);
+            this.luparentid.Size = new System.Drawing.Size(300, 20);
             this.luparentid.StyleController = this.lcMain;
             this.luparentid.TabIndex = 6;
-           
+            // 
+            // jdvparentidBindingSource
+            // 
+            this.jdvparentidBindingSource.DataSource = typeof(JNHT_ProdSys.jd_v_parentid);
             // 
             // layoutControlItem3
             // 
@@ -330,15 +343,15 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(368, 24);
             this.layoutControlItem3.Text = "产品代号";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
             // txtparentname
             // 
             this.txtparentname.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CParentName", true));
-            this.txtparentname.Location = new System.Drawing.Point(54, 74);
+            this.txtparentname.Location = new System.Drawing.Point(66, 74);
             this.txtparentname.MenuManager = this.ribbonMain;
             this.txtparentname.Name = "txtparentname";
-            this.txtparentname.Size = new System.Drawing.Size(312, 20);
+            this.txtparentname.Size = new System.Drawing.Size(300, 20);
             this.txtparentname.StyleController = this.lcMain;
             this.txtparentname.TabIndex = 7;
             // 
@@ -350,7 +363,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(368, 24);
             this.layoutControlItem4.Text = "产品名称";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             // 
             // spdqty
             // 
@@ -360,14 +373,14 @@
             0,
             0,
             0});
-            this.spdqty.Location = new System.Drawing.Point(54, 98);
+            this.spdqty.Location = new System.Drawing.Point(66, 122);
             this.spdqty.MenuManager = this.ribbonMain;
             this.spdqty.Name = "spdqty";
             this.spdqty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spdqty.Properties.IsFloatValue = false;
             this.spdqty.Properties.Mask.EditMask = "N00";
-            this.spdqty.Size = new System.Drawing.Size(312, 20);
+            this.spdqty.Size = new System.Drawing.Size(300, 20);
             this.spdqty.StyleController = this.lcMain;
             this.spdqty.TabIndex = 8;
             // 
@@ -375,16 +388,16 @@
             // 
             this.layoutControlItem5.Control = this.spdqty;
             this.layoutControlItem5.CustomizationFormText = "数量";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(368, 24);
             this.layoutControlItem5.Text = "数量";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
             // cmbisclose
             // 
             this.cmbisclose.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsClose", true));
-            this.cmbisclose.Location = new System.Drawing.Point(54, 122);
+            this.cmbisclose.Location = new System.Drawing.Point(66, 146);
             this.cmbisclose.MenuManager = this.ribbonMain;
             this.cmbisclose.Name = "cmbisclose";
             this.cmbisclose.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -392,7 +405,7 @@
             this.cmbisclose.Properties.Items.AddRange(new object[] {
             "",
             "关闭"});
-            this.cmbisclose.Size = new System.Drawing.Size(312, 20);
+            this.cmbisclose.Size = new System.Drawing.Size(300, 20);
             this.cmbisclose.StyleController = this.lcMain;
             this.cmbisclose.TabIndex = 9;
             // 
@@ -400,11 +413,35 @@
             // 
             this.layoutControlItem6.Control = this.cmbisclose;
             this.layoutControlItem6.CustomizationFormText = "是否关闭";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(368, 141);
+            this.layoutControlItem6.Size = new System.Drawing.Size(368, 117);
             this.layoutControlItem6.Text = "是否关闭";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // woOrderBindingSource
+            // 
+            this.woOrderBindingSource.DataSource = typeof(JNHT_ProdSys.woOrder);
+            // 
+            // txtbomid
+            // 
+            this.txtbomid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "BomId", true));
+            this.txtbomid.Location = new System.Drawing.Point(66, 98);
+            this.txtbomid.MenuManager = this.ribbonMain;
+            this.txtbomid.Name = "txtbomid";
+            this.txtbomid.Size = new System.Drawing.Size(300, 20);
+            this.txtbomid.StyleController = this.lcMain;
+            this.txtbomid.TabIndex = 10;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtbomid;
+            this.layoutControlItem7.CustomizationFormText = "产品区分号";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(368, 24);
+            this.layoutControlItem7.Text = "产品区分号";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
             // 
             // woOrderView
             // 
@@ -439,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jdvparentidBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtparentname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -446,6 +484,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbisclose.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.woOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbomid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,5 +517,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.ComboBoxEdit cmbisclose;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private System.Windows.Forms.BindingSource woOrderBindingSource;
+        private System.Windows.Forms.BindingSource jdvparentidBindingSource;
+        private DevExpress.XtraEditors.TextEdit txtbomid;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

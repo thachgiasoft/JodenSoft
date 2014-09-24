@@ -23,6 +23,12 @@ namespace JNHT_ProdSys
         }
 
         //TODO:添加其他字段
+        public string BomId
+        {
+            get { return base.GetFieldValue<string>(P => P.BomId); }
+            set { base.SetFieldValue(P => P.BomId, value); }
+        }
+
         public string WoCode
         {
             get { return base.GetFieldValue<string>(P => P.WoCode); }
