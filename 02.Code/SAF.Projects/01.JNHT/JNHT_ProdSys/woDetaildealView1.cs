@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework.Controls;
 
 namespace JNHT_ProdSys
 {
@@ -27,8 +28,29 @@ namespace JNHT_ProdSys
 
         public new woDetaildealView1ViewModel ViewModel
         {
-            get { return this.ViewModel as woDetaildealView1ViewModel; }
+            get { return base.ViewModel as woDetaildealView1ViewModel; }
         }
 
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+            UIController.SetupGridControl(this.grdIndex);
+        }
+
+        protected override void OnInitBinding()
+        {
+            base.OnInitBinding();
+            if (this.ViewModel != null)
+            {
+                this.ViewModel.IndexEntitySet.SetBindingSource(bsIndex);
+
+                this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
+            }
+        }
+
+        private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            this.IndexRowChange();
+        }
     }
 }

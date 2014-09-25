@@ -20,7 +20,9 @@ namespace JNHT_ProdSys
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
-            
+            this.MainEntitySet.Query("select * from woorder with(nolock) where iden={0}".FormatEx(key));
+            woiden = this.IndexEntitySet.CurrentEntity.Iden;
+            this.DetailEntitySet.Query("select * from wodetail with(nolock) where woiden='{0}'".FormatEx(woiden));
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -28,5 +30,7 @@ namespace JNHT_ProdSys
             base.OnInitQueryConfig(queryConfig);
             queryConfig.QuickQuery.QueryFields.Add(new QueryField("WoCode", "生产令单号"));
         }
+
+        
     }
 }
