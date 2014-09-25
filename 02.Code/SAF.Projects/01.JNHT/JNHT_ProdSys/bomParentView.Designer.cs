@@ -160,7 +160,6 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.MaxItemId = 14;
             this.ribbonMain.Size = new System.Drawing.Size(1122, 145);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 

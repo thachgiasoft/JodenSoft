@@ -13,6 +13,7 @@ using SAF.Framework.Controls;
 using DevExpress.XtraEditors;
 using SAF.Foundation;
 using SAF.EntityFramework;
+using SAF.SystemEntities;
 
 namespace JNHT_ProdSys
 {
@@ -47,12 +48,12 @@ namespace JNHT_ProdSys
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
             }
             //this.bsProd.DataSource= this.ViewModel.jd_v_parentidEntity.DefaultView;
-             this.ViewModel.jd_v_parentidEntity.SetBindingSource(bsProd);
-           // this.luparentid.Properties.DataSource = this.ViewModel.jd_v_parentidEntity.DefaultView;
+            this.ViewModel.jd_v_parentidEntity.SetBindingSource(bsProd);
+            // this.luparentid.Properties.DataSource = this.ViewModel.jd_v_parentidEntity.DefaultView;
             //this.luparentid.Properties.DisplayMember = "产品代码";
-           // this.luparentid.Properties.ValueMember = "Iden";
+            // this.luparentid.Properties.ValueMember = "Iden";
 
-            
+
         }
 
         protected override void OnInitConfig()
@@ -69,18 +70,18 @@ namespace JNHT_ProdSys
         protected override void OnEdit()
         {
             base.OnEdit();
-            //this.txtwocode.Enabled = false;
-            //this.txtwocode.Enabled = false;
-            //this.luparentid.Enabled = false;
-            //this.spdqty.Enabled = false;
-            //this.txtwoversion.Enabled = false;
-            //this.txtparentname.Enabled = false;
+            this.txtwocode.Enabled = false;
+            this.txtwocode.Enabled = false;
+            this.luparentid.Enabled = false;
+            this.spdqty.Enabled = false;
+            this.txtwoversion.Enabled = false;
+            this.txtparentname.Enabled = false;
         }
 
         protected override void OnAddNew()
         {
             base.OnAddNew();
-            
+
 
         }
 
@@ -91,6 +92,7 @@ namespace JNHT_ProdSys
             this.ViewModel.woDetailEntity.SaveChanges();
         }
 
+        //todo:新增有问题
         private void InsertWodetail(woOrder woOrder)
         {
             //this.ViewModel.bomParentEntity.Query("select * from bomParent wit(nolock) where bomparentid=bomchildid and bomid='{0}'".FormatEx(woOrder.BomId));
@@ -98,45 +100,42 @@ namespace JNHT_ProdSys
 
             foreach (var item in this.ViewModel.bomChildEntity)
             {
-                this.ViewModel.woDetailEntity.AddNew();
-              //  this.ViewModel.woDetailEntity.CurrentEntity.Iden = IdenGenerator.NewIden(this.ViewModel.woDetailEntity.CurrentEntity.DbTableName);
-                this.ViewModel.woDetailEntity.CurrentEntity.WoIden = woOrder.Iden;
-                this.ViewModel.woDetailEntity.CurrentEntity.WoCode = woOrder.WoCode;
-                this.ViewModel.woDetailEntity.CurrentEntity.WoVersion = woOrder.WoVersion;
-                this.ViewModel.woDetailEntity.CurrentEntity.BomId = woOrder.BomId;
-                this.ViewModel.woDetailEntity.CurrentEntity.BomChildId = item.BomChildId;
-                this.ViewModel.woDetailEntity.CurrentEntity.BomChildName =item.BomChildName;
-                this.ViewModel.woDetailEntity.CurrentEntity.NoPicCode = item.NoPicCode;
-                this.ViewModel.woDetailEntity.CurrentEntity.NoPicName = item.NoPicName;
-                this.ViewModel.woDetailEntity.CurrentEntity.CInvCode = item.CInvCode;
-                this.ViewModel.woDetailEntity.CurrentEntity.CInvName = item.CInvName;
-                this.ViewModel.woDetailEntity.CurrentEntity.SingleQty = item.SingleQty;
-                this.ViewModel.woDetailEntity.CurrentEntity.CComUnitCode = item.CComUnitCode;
-                this.ViewModel.woDetailEntity.CurrentEntity.ProcQty = item.ProcQty;
-                this.ViewModel.woDetailEntity.CurrentEntity.ProdQty = item.ProcQty*woOrder.Qty;
-                this.ViewModel.woDetailEntity.CurrentEntity.FeedStd = item.FeedStd;
-                this.ViewModel.woDetailEntity.CurrentEntity.ReMark = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.Dept = item.OpDep;
-                this.ViewModel.woDetailEntity.CurrentEntity.CState =0;
-                this.ViewModel.woDetailEntity.CurrentEntity.Addbatch =0;
-                this.ViewModel.woDetailEntity.CurrentEntity.Cdefine1 = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.Cdefine2 = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.Cdefine3 = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.Cdefine4 = 0;
-                this.ViewModel.woDetailEntity.CurrentEntity.Cdefine5 = 0;
-                this.ViewModel.woDetailEntity.CurrentEntity.BomChildIden = item.Iden;
-                this.ViewModel.woDetailEntity.CurrentEntity.RelsUser = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.RelsDate = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.TotalQty = item.SingleQty*woOrder.Qty;
-                this.ViewModel.woDetailEntity.CurrentEntity.PlanDate = null;
-                this.ViewModel.woDetailEntity.CurrentEntity.PuState = 0;
-                
+                //base.OnAddNew
+                woDetail wodetail= this.ViewModel.woDetailEntity.AddNew();
+                wodetail.Iden = IdenGenerator.NewIden(wodetail.DbTableName);
+                wodetail.WoIden = woOrder.Iden;
+                wodetail.WoCode = woOrder.WoCode;
+                wodetail.WoVersion = woOrder.WoVersion;
+                wodetail.BomId = woOrder.BomId;
+                wodetail.BomChildId = item.BomChildId;
+                wodetail.BomChildName = item.BomChildName;
+                wodetail.NoPicCode = item.NoPicCode;
+                wodetail.NoPicName = item.NoPicName;
+                wodetail.CInvCode = item.CInvCode;
+                wodetail.CInvName = item.CInvName;
+                wodetail.SingleQty = item.SingleQty;
+                wodetail.CComUnitCode = item.CComUnitCode;
+                wodetail.ProcQty = item.ProcQty;
+                wodetail.ProdQty = item.ProcQty * woOrder.Qty;
+                wodetail.FeedStd = item.FeedStd;
+                wodetail.ReMark = null;
+                wodetail.Dept = item.OpDep;
+                wodetail.CState = 0;
+                wodetail.Addbatch = 0;
+                wodetail.Cdefine1 = null;
+                wodetail.Cdefine2 = null;
+                wodetail.Cdefine3 = null;
+                wodetail.Cdefine4 = 0;
+                wodetail.Cdefine5 = 0;
+                wodetail.BomChildIden = item.Iden;
+                wodetail.RelsUser = null;
+                wodetail.RelsDate = null;
+                wodetail.TotalQty = item.SingleQty * woOrder.Qty;
+                wodetail.PlanDate = null;
+                wodetail.PuState = 0;
+
 
             }
-
-            
-
-
         }
         private void luparentid_EditValueChanged(object sender, EventArgs e)
         {
@@ -162,9 +161,9 @@ namespace JNHT_ProdSys
             this.ViewModel.MainEntitySet.CurrentEntity.CParentId = objinventory.产品代号;
             this.ViewModel.MainEntitySet.CurrentEntity.BomId = objinventory.产品区分号;
             this.ViewModel.MainEntitySet.CurrentEntity.CParentName = objinventory.产品名称;
-            
+
         }
 
-       
+
     }
 }

@@ -124,6 +124,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="woDetail.cs" />
+    <Compile Include="woDetaildealView1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="woDetaildealView1.Designer.cs">
+      <DependentUpon>woDetaildealView1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="woDetaildealView1ViewModel.cs" />
     <Compile Include="woOrder.cs" />
     <Compile Include="woOrderView.cs">
       <SubType>UserControl</SubType>
@@ -147,6 +154,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="woDetaildealView1.resx">
+      <DependentUpon>woDetaildealView1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="woOrderView.resx">
       <DependentUpon>woOrderView.cs</DependentUpon>
