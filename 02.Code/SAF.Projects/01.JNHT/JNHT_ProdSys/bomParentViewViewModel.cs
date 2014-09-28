@@ -50,6 +50,9 @@ namespace JNHT_ProdSys
 
         public bool OnImportBomParent(DataTable dt, string bomid)
         {
+            //定义childid 和 childname 存放上一条数据
+            string childid = "";
+            string childname = "";
             //定义一个bool变量
             bool result = false;
             //定义变量,存放部件属性
@@ -89,9 +92,15 @@ namespace JNHT_ProdSys
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(item[1].ToString().Trim()))
+                        if (string.IsNullOrEmpty(item[1].ToString().Trim()) && string.IsNullOrEmpty(item[2].ToString().Trim()))
+                        {
+                            bomchildid = childid;
+                            
+                        }
+                        else if (string.IsNullOrEmpty(item[1].ToString().Trim()))
                         {
                             bomchildid = item[2].ToString().Trim();
+
                         }
                         else
                         {
@@ -105,7 +114,7 @@ namespace JNHT_ProdSys
                     entity.Query("select * from  bomParent with(nolock) where 1=0");
                     bomParent bom = entity.AddNew();
 
-                    if (isBomExists(bomid, bomchildid))
+                    if (isBomExists(item[3].ToString().Trim(),bomid, bomchildid))
                         continue;
 
                     bom.Iden = IdenGenerator.NewIden("bomparent");
@@ -115,11 +124,14 @@ namespace JNHT_ProdSys
                     bom.BomParentStyle = null;
                     bom.BomParentDesc = null;
                     bom.BomChildId = bomchildid;
-                    bom.BomChildDesc = item[2].ToString().Trim();
+                    bom.BomChildDesc = string.IsNullOrEmpty(item[2].ToString().Trim()) ? childname : item[2].ToString().Trim();
                     bom.BomChildStyle = bomProperty;
                     bom.BomChildStd = preName;
                     bom.UseQty = Convert.ToDecimal(item[4].ToString().Trim());
                     entity.SaveChanges();
+
+                    childid = item[1].ToString().Trim();
+                    childname = item[2].ToString().Trim();
                 }
                 result = true;
 
@@ -135,10 +147,10 @@ namespace JNHT_ProdSys
         }
 
         #region 是否导入过
-        private bool isBomExists(string isbomid, string isbomchildid)
+        private bool isBomExists(string isparentid,string isbomid, string isbomchildid)
         {
             EntitySet<bomParent> bomentity = new EntitySet<bomParent>();
-            bomentity.Query("select * from  bomParent with(nolock) where bomid='{0}' and BomChildId='{1}'".FormatEx(isbomid, isbomchildid));
+            bomentity.Query("select * from  bomParent with(nolock) where bomid='{0}' and BomChildId='{1}' and bomparentid='{2}'".FormatEx(isbomid, isbomchildid,isparentid));
             if (bomentity.Count > 0)
                 return true;
             else

@@ -10,6 +10,7 @@ using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework.Controls;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace JNHT_ProdSys
 {
@@ -40,17 +41,37 @@ namespace JNHT_ProdSys
         protected override void OnInitBinding()
         {
             base.OnInitBinding();
-            if (this.ViewModel != null)
-            {
+            //if (this.ViewModel != null)
+            //{
                 this.ViewModel.IndexEntitySet.SetBindingSource(bsIndex);
 
-                this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
-            }
+             //   this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
+
+           // }
+            this.ViewModel.DetailEntitySet.SetBindingSource(bsDetail);
         }
 
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            this.IndexRowChange();
+           // var grid = sender as GridRow;
+            var grid = grvIndex.GetDataRow(grvIndex.FocusedRowHandle);
+            //方法一:适用于不同实体集
+            //var drv = grid.GetFocusedRow();
+            var objinventory = this.ViewModel.IndexEntitySet.FirstOrDefault(p => p.Iden == Convert.ToInt32(grid["Iden"]));
+            if (objinventory == null)
+            {
+                MessageBox.Show("存货不存在");
+                return;
+            }
+            this.txtbomid.Text = objinventory.BomId;
+            this.txtisclose.Text = objinventory.IsClose;
+            this.txtparentid.Text = objinventory.CParentId;
+            this.txtparentname.Text = objinventory.CParentName;
+            this.txtwocode.Text = objinventory.WoCode;
+            this.txtwoversion.Text = objinventory.WoVersion.ToString();
+            this.txtqty.Text = objinventory.Qty.ToString();
         }
+
+       
     }
 }

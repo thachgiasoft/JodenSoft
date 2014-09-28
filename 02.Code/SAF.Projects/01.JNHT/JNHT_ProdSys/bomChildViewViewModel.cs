@@ -56,7 +56,7 @@ namespace JNHT_ProdSys
             //var bomChildId = this.MainEntitySet.CurrentEntity == null ? string.Empty : this.MainEntitySet.CurrentEntity.BomChildId;
 
             //this.DetailEntitySet.Query("select * from bomchild where bomid='{0}' and bomChildid='{1}'".FormatEx(bomId,bomChildId));
-            this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId),BomChildStyle 
+            this.MainEntitySet.Query(@"select BomId,Iden,BomParentId,BomParentDesc,BomParentStd,BomParentStyle,BomChildId,BomChildDesc,BomChildStd,convert(decimal(20,0),UseQty) as UseQty,TotalUseQty=dbo.Fn_GetTotalUseQty(bomid,BomChildId,BomParentId),BomChildStyle 
             from  bomParent with(nolock) where BomId='{0}' ".FormatEx(bomId));
 
             this.DetailEntitySet.Query("select * from bomChild with(nolock)");
