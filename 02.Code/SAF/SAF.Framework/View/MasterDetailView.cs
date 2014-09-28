@@ -26,6 +26,13 @@ namespace SAF.Framework.View
             get { return base.ViewModel as IMasterDetailViewViewModel; }
         }
 
+        protected override void OnInitBinding()
+        {
+            base.OnInitBinding();
+
+            this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
+        }
+
         protected override void OnRefreshDetailToolBar()
         {
             base.OnRefreshDetailToolBar();
