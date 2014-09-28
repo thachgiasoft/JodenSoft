@@ -37,8 +37,19 @@ namespace TMS.IM
 
         public new imInStockOperationViewViewModel ViewModel
         {
-            get { return this.ViewModel as imInStockOperationViewViewModel; }
+            get { return base.ViewModel as imInStockOperationViewViewModel; }
         }
+
+        private void grdIndex_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            IndexRowChange();
+        }
+
 
     }
 }

@@ -101,6 +101,10 @@
             this.layoutControlItem2,
             this.layoutControlItem4});
             // 
+            // tcMain
+            // 
+            this.tcMain.SelectedTabPage = this.pageMain;
+            // 
             // grdIndex
             // 
             this.grdIndex.Cursor = System.Windows.Forms.Cursors.Default;

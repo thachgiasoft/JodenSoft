@@ -26,7 +26,8 @@ namespace TMS.IM
         {
             //throw new System.NotImplementedException();
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
-            
+            e.CurrentEntity.HdrID = this.MainEntitySet.CurrentEntity.Iden;
+                        
         }
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<imInOutStockRoomOperationHdr> e)
@@ -34,7 +35,8 @@ namespace TMS.IM
             //throw new System.NotImplementedException();
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.sCreator = Session.Current.UserName;
-            e.CurrentEntity.sBillNo = BillNoGenerator.NewBillNo(27,true,"","");
+            e.CurrentEntity.sBillNo=BillNoGenerator.NewBillNo("sStoreInNo", "I");
+            //e.CurrentEntity.sBillNo = BillNoGenerator.NewBillNo(27, true, "[RO]+[2位年]+[2位月]+[2位日]+[4位流水号]", "[RO]+[2位年]+[2位月]+[2位日]+[4位流水号]");
         }
 
         protected override void OnQueryChild(object key)

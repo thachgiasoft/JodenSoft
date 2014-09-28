@@ -28,12 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtBillNo = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.DetilTop = new System.Windows.Forms.Panel();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.grvDetile = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splitterControl = new DevExpress.XtraEditors.SplitterControl();
+            this.layoutConverter1 = new DevExpress.XtraLayout.Converter.LayoutConverter(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.aa = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -60,9 +73,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            this.DetilTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDetile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aa)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tcDtl
+            // 
+            this.tcDtl.SelectedTabPage = this.pageDtl;
+            this.tcDtl.Size = new System.Drawing.Size(650, 316);
+            // 
+            // pageDtl
+            // 
+            this.pageDtl.Controls.Add(this.splitterControl);
+            this.pageDtl.Controls.Add(this.panel1);
+            this.pageDtl.Controls.Add(this.DetilTop);
+            this.pageDtl.Size = new System.Drawing.Size(644, 310);
+            this.pageDtl.Controls.SetChildIndex(this.pnlDtlToolbar, 0);
+            this.pageDtl.Controls.SetChildIndex(this.DetilTop, 0);
+            this.pageDtl.Controls.SetChildIndex(this.panel1, 0);
+            this.pageDtl.Controls.SetChildIndex(this.splitterControl, 0);
+            // 
+            // pnlDtlToolbar
+            // 
+            this.pnlDtlToolbar.Size = new System.Drawing.Size(644, 29);
             // 
             // bsDetail
             // 
@@ -71,11 +113,14 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
+            this.ribbonMain.Size = new System.Drawing.Size(937, 145);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
+            this.splitMain.Location = new System.Drawing.Point(0, 177);
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
+            this.splitMain.Size = new System.Drawing.Size(937, 455);
             // 
             // bsIndex
             // 
@@ -85,22 +130,43 @@
             // 
             this.bsMain.DataSource = typeof(TMS.Entities.imInOutStockRoomOperationHdr);
             // 
+            // pnlQueryControl
+            // 
+            this.pnlQueryControl.AutoSize = true;
+            this.pnlQueryControl.Size = new System.Drawing.Size(937, 32);
+            // 
+            // pnlPageControl
+            // 
+            this.pnlPageControl.Location = new System.Drawing.Point(0, 632);
+            this.pnlPageControl.Size = new System.Drawing.Size(937, 32);
+            // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(827, 26);
+            this.pcMain.Size = new System.Drawing.Size(933, 26);
             // 
             // lcMain
             // 
-            this.lcMain.Controls.Add(this.txtBillNo);
+            this.lcMain.Controls.Add(this.textEdit2);
+            this.lcMain.Size = new System.Drawing.Size(644, 124);
             // 
             // lcgMain
             // 
             this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
+            this.aa});
+            this.lcgMain.Size = new System.Drawing.Size(644, 124);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(544, 268);
+            this.splitRight.Size = new System.Drawing.Size(650, 451);
+            // 
+            // tcMain
+            // 
+            this.tcMain.SelectedTabPage = this.pageMain;
+            this.tcMain.Size = new System.Drawing.Size(650, 130);
+            // 
+            // pageMain
+            // 
+            this.pageMain.Size = new System.Drawing.Size(644, 124);
             // 
             // grdIndex
             // 
@@ -111,10 +177,11 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 268);
+            this.grdIndex.Size = new System.Drawing.Size(282, 451);
             this.grdIndex.TabIndex = 2;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
+            this.grdIndex.Click += new System.EventHandler(this.grdIndex_Click);
             // 
             // grvIndex
             // 
@@ -125,6 +192,7 @@
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
             this.grvIndex.OptionsView.ColumnAutoWidth = false;
+            this.grvIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvIndex_FocusedRowChanged);
             // 
             // colIden
             // 
@@ -143,30 +211,143 @@
             this.colNo.VisibleIndex = 1;
             this.colNo.Width = 88;
             // 
-            // txtBillNo
+            // DetilTop
             // 
-            this.txtBillNo.Location = new System.Drawing.Point(111, 2);
-            this.txtBillNo.MenuManager = this.ribbonMain;
-            this.txtBillNo.Name = "txtBillNo";
-            this.txtBillNo.Size = new System.Drawing.Size(425, 20);
-            this.txtBillNo.StyleController = this.lcMain;
-            this.txtBillNo.TabIndex = 4;
+            this.DetilTop.Controls.Add(this.layoutControl1);
+            this.DetilTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DetilTop.Location = new System.Drawing.Point(0, 29);
+            this.DetilTop.Name = "DetilTop";
+            this.DetilTop.Size = new System.Drawing.Size(644, 130);
+            this.DetilTop.TabIndex = 1;
             // 
-            // layoutControlItem1
+            // layoutControl1
             // 
-            this.layoutControlItem1.Control = this.txtBillNo;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(538, 124);
-            this.layoutControlItem1.Text = "layoutControlItem1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(105, 14);
+            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(585, 170, 250, 350);
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(644, 130);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsDetail, "Iden", true));
+            this.textEdit1.Location = new System.Drawing.Point(63, 12);
+            this.textEdit1.MenuManager = this.ribbonMain;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(569, 20);
+            this.textEdit1.StyleController = this.layoutControl1;
+            this.textEdit1.TabIndex = 4;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(644, 130);
+            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.textEdit1;
+            this.layoutControlItem2.CustomizationFormText = "物料编号";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(624, 110);
+            this.layoutControlItem2.Text = "物料编号";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gridControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 159);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(644, 151);
+            this.panel1.TabIndex = 2;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gridControl1.DataSource = this.bsDetail;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.grvDetile;
+            this.gridControl1.MenuManager = this.ribbonMain;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(644, 151);
+            this.gridControl1.TabIndex = 3;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvDetile});
+            // 
+            // grvDetile
+            // 
+            this.grvDetile.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1});
+            this.grvDetile.GridControl = this.gridControl1;
+            this.grvDetile.Name = "grvDetile";
+            this.grvDetile.OptionsBehavior.Editable = false;
+            this.grvDetile.OptionsView.ColumnAutoWidth = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "流水编号";
+            this.gridColumn1.FieldName = "Iden";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // splitterControl
+            // 
+            this.splitterControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitterControl.Location = new System.Drawing.Point(0, 159);
+            this.splitterControl.Name = "splitterControl";
+            this.splitterControl.Size = new System.Drawing.Size(644, 5);
+            this.splitterControl.TabIndex = 3;
+            this.splitterControl.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(18, 2);
+            this.textEdit2.MenuManager = this.ribbonMain;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(624, 20);
+            this.textEdit2.StyleController = this.lcMain;
+            this.textEdit2.TabIndex = 4;
+            // 
+            // aa
+            // 
+            this.aa.Control = this.textEdit2;
+            this.aa.CustomizationFormText = "aa";
+            this.aa.Location = new System.Drawing.Point(0, 0);
+            this.aa.Name = "aa";
+            this.aa.Size = new System.Drawing.Size(644, 124);
+            this.aa.Text = "aa";
+            this.aa.TextSize = new System.Drawing.Size(12, 14);
             // 
             // imInStockOperationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "imInStockOperationView";
+            this.Size = new System.Drawing.Size(937, 664);
+            this.Controls.SetChildIndex(this.ribbonMain, 0);
+            this.Controls.SetChildIndex(this.pnlQueryControl, 0);
+            this.Controls.SetChildIndex(this.pnlPageControl, 0);
+            this.Controls.SetChildIndex(this.splitMain, 0);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
@@ -193,8 +374,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBillNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            this.DetilTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDetile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +396,19 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
         private DevExpress.XtraGrid.Columns.GridColumn colNo;
-        private DevExpress.XtraEditors.TextEdit txtBillNo;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SplitterControl splitterControl;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvDetile;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private System.Windows.Forms.Panel DetilTop;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.Converter.LayoutConverter layoutConverter1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraLayout.LayoutControlItem aa;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
