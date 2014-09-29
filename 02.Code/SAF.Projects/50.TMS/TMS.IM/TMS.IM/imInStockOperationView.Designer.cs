@@ -39,12 +39,11 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.grdDtl = new DevExpress.XtraGrid.GridControl();
             this.grvDetile = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitterControl = new DevExpress.XtraEditors.SplitterControl();
-            this.layoutConverter1 = new DevExpress.XtraLayout.Converter.LayoutConverter(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.layoutDtl = new DevExpress.XtraLayout.Converter.LayoutConverter(this.components);
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.aa = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
@@ -80,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aa)).BeginInit();
@@ -267,32 +266,32 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.gridControl1);
+            this.panel1.Controls.Add(this.grdDtl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(644, 151);
             this.panel1.TabIndex = 2;
             // 
-            // gridControl1
+            // grdDtl
             // 
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.DataSource = this.bsDetail;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.grvDetile;
-            this.gridControl1.MenuManager = this.ribbonMain;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(644, 151);
-            this.gridControl1.TabIndex = 3;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdDtl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grdDtl.DataSource = this.bsDetail;
+            this.grdDtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDtl.Location = new System.Drawing.Point(0, 0);
+            this.grdDtl.MainView = this.grvDetile;
+            this.grdDtl.MenuManager = this.ribbonMain;
+            this.grdDtl.Name = "grdDtl";
+            this.grdDtl.Size = new System.Drawing.Size(644, 151);
+            this.grdDtl.TabIndex = 3;
+            this.grdDtl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDetile});
             // 
             // grvDetile
             // 
             this.grvDetile.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1});
-            this.grvDetile.GridControl = this.gridControl1;
+            this.grvDetile.GridControl = this.grdDtl;
             this.grvDetile.Name = "grvDetile";
             this.grvDetile.OptionsBehavior.Editable = false;
             this.grvDetile.OptionsView.ColumnAutoWidth = false;
@@ -314,13 +313,9 @@
             this.splitterControl.TabIndex = 3;
             this.splitterControl.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // textEdit2
             // 
+            this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
             this.textEdit2.Location = new System.Drawing.Point(18, 2);
             this.textEdit2.MenuManager = this.ribbonMain;
             this.textEdit2.Name = "textEdit2";
@@ -344,10 +339,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "imInStockOperationView";
             this.Size = new System.Drawing.Size(937, 664);
-            this.Controls.SetChildIndex(this.ribbonMain, 0);
-            this.Controls.SetChildIndex(this.pnlQueryControl, 0);
-            this.Controls.SetChildIndex(this.pnlPageControl, 0);
-            this.Controls.SetChildIndex(this.splitMain, 0);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
@@ -381,7 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aa)).EndInit();
@@ -398,7 +389,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNo;
         private DevExpress.XtraEditors.SplitterControl splitterControl;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl grdDtl;
         private DevExpress.XtraGrid.Views.Grid.GridView grvDetile;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private System.Windows.Forms.Panel DetilTop;
@@ -406,9 +397,8 @@
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.Converter.LayoutConverter layoutConverter1;
+        private DevExpress.XtraLayout.Converter.LayoutConverter layoutDtl;
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraLayout.LayoutControlItem aa;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
