@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtType = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lookUp = new DevExpress.XtraEditors.LookUpEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lookUpType = new DevExpress.XtraEditors.LookUpEdit();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lookUpAuto = new DevExpress.XtraEditors.LookUpEdit();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.checkBox = new System.Windows.Forms.CheckBox();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,16 +48,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtType = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lookUp = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lookUpType = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lookUpAuto = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.checkBox = new System.Windows.Forms.CheckBox();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -55,29 +57,29 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).BeginInit();
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -101,6 +103,10 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(763, 26);
             // 
+            // pageMain
+            // 
+            this.pageMain.Controls.Add(this.lcMain);
+            // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.checkBox);
@@ -108,15 +114,147 @@
             this.lcMain.Controls.Add(this.lookUpType);
             this.lcMain.Controls.Add(this.lookUp);
             this.lcMain.Controls.Add(this.txtType);
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.lcgMain;
+            this.lcMain.Size = new System.Drawing.Size(474, 261);
+            this.lcMain.TabIndex = 0;
+            this.lcMain.Text = "layoutControl1";
             // 
             // lcgMain
             // 
+            this.lcgMain.CustomizationFormText = "lcgMain";
+            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgMain.GroupBordersVisible = false;
             this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem3,
             this.layoutControlItem6,
             this.layoutControlItem5,
             this.layoutControlItem7,
             this.layoutControlItem8});
+            this.lcgMain.Location = new System.Drawing.Point(0, 0);
+            this.lcgMain.Name = "lcgMain";
+            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgMain.Size = new System.Drawing.Size(474, 261);
+            this.lcgMain.Text = "lcgMain";
+            this.lcgMain.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txtType;
+            this.layoutControlItem3.CustomizationFormText = "出库类型";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem3.Text = "操作类型";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // txtType
+            // 
+            this.txtType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sStoreInOutName", true));
+            this.txtType.Location = new System.Drawing.Point(53, 2);
+            this.txtType.MenuManager = this.ribbonMain;
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(419, 20);
+            this.txtType.StyleController = this.lcMain;
+            this.txtType.TabIndex = 4;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.lookUp;
+            this.layoutControlItem6.CustomizationFormText = "方向标号";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem6.Text = "方向标号";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // lookUp
+            // 
+            this.lookUp.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sStoreInOutType", true));
+            this.lookUp.EditValue = "+";
+            this.lookUp.Location = new System.Drawing.Point(53, 26);
+            this.lookUp.MenuManager = this.ribbonMain;
+            this.lookUp.Name = "lookUp";
+            this.lookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name1", "Name1"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name2", "Name2")});
+            this.lookUp.Properties.DataSource = this.bsMain;
+            this.lookUp.Size = new System.Drawing.Size(419, 20);
+            this.lookUp.StyleController = this.lcMain;
+            this.lookUp.TabIndex = 6;
+            this.lookUp.EditValueChanged += new System.EventHandler(this.lookUp_EditValueChanged);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.lookUpType;
+            this.layoutControlItem5.CustomizationFormText = "收付类型";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem5.Text = "收付类型";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // lookUpType
+            // 
+            this.lookUpType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "iReceivePayType", true));
+            this.lookUpType.EditValue = ((short)(0));
+            this.lookUpType.Location = new System.Drawing.Point(53, 50);
+            this.lookUpType.MenuManager = this.ribbonMain;
+            this.lookUpType.Name = "lookUpType";
+            this.lookUpType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpType.Size = new System.Drawing.Size(419, 20);
+            this.lookUpType.StyleController = this.lcMain;
+            this.lookUpType.TabIndex = 7;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.lookUpAuto;
+            this.layoutControlItem7.CustomizationFormText = "自动产生";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem7.Text = "自动产生";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // lookUpAuto
+            // 
+            this.lookUpAuto.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "iAutoCreateType", true));
+            this.lookUpAuto.EditValue = "0";
+            this.lookUpAuto.Location = new System.Drawing.Point(53, 74);
+            this.lookUpAuto.MenuManager = this.ribbonMain;
+            this.lookUpAuto.Name = "lookUpAuto";
+            this.lookUpAuto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpAuto.Size = new System.Drawing.Size(419, 20);
+            this.lookUpAuto.StyleController = this.lcMain;
+            this.lookUpAuto.TabIndex = 8;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.checkBox;
+            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(474, 165);
+            this.layoutControlItem8.Text = "layoutControlItem8";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextToControlDistance = 0;
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // checkBox
+            // 
+            this.checkBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.bsMain, "bUsable", true));
+            this.checkBox.Location = new System.Drawing.Point(2, 98);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(470, 20);
+            this.checkBox.TabIndex = 9;
+            this.checkBox.Text = "是否启用";
+            this.checkBox.UseVisualStyleBackColor = true;
             // 
             // grdIndex
             // 
@@ -201,122 +339,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             this.layoutControlItem2.TextToControlDistance = 5;
             // 
-            // txtType
-            // 
-            this.txtType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sStoreInOutName", true));
-            this.txtType.Location = new System.Drawing.Point(54, 2);
-            this.txtType.MenuManager = this.ribbonMain;
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(418, 20);
-            this.txtType.StyleController = this.lcMain;
-            this.txtType.TabIndex = 4;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtType;
-            this.layoutControlItem3.CustomizationFormText = "出库类型";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(474, 24);
-            this.layoutControlItem3.Text = "操作类型";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // lookUp
-            // 
-            this.lookUp.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sStoreInOutType", true));
-            this.lookUp.EditValue = "+";
-            this.lookUp.Location = new System.Drawing.Point(54, 26);
-            this.lookUp.MenuManager = this.ribbonMain;
-            this.lookUp.Name = "lookUp";
-            this.lookUp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name1", "Name1"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name2", "Name2")});
-            this.lookUp.Properties.DataSource = this.bsMain;
-            this.lookUp.Size = new System.Drawing.Size(418, 20);
-            this.lookUp.StyleController = this.lcMain;
-            this.lookUp.TabIndex = 6;
-            this.lookUp.EditValueChanged += new System.EventHandler(this.lookUp_EditValueChanged);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.lookUp;
-            this.layoutControlItem6.CustomizationFormText = "方向标号";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(474, 24);
-            this.layoutControlItem6.Text = "方向标号";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // lookUpType
-            // 
-            this.lookUpType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "iReceivePayType", true));
-            this.lookUpType.EditValue = ((short)(0));
-            this.lookUpType.Location = new System.Drawing.Point(54, 50);
-            this.lookUpType.MenuManager = this.ribbonMain;
-            this.lookUpType.Name = "lookUpType";
-            this.lookUpType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpType.Size = new System.Drawing.Size(418, 20);
-            this.lookUpType.StyleController = this.lcMain;
-            this.lookUpType.TabIndex = 7;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.lookUpType;
-            this.layoutControlItem5.CustomizationFormText = "收付类型";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(474, 24);
-            this.layoutControlItem5.Text = "收付类型";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // lookUpAuto
-            // 
-            this.lookUpAuto.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "iAutoCreateType", true));
-            this.lookUpAuto.EditValue = "0";
-            this.lookUpAuto.Location = new System.Drawing.Point(54, 74);
-            this.lookUpAuto.MenuManager = this.ribbonMain;
-            this.lookUpAuto.Name = "lookUpAuto";
-            this.lookUpAuto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpAuto.Size = new System.Drawing.Size(418, 20);
-            this.lookUpAuto.StyleController = this.lcMain;
-            this.lookUpAuto.TabIndex = 8;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.lookUpAuto;
-            this.layoutControlItem7.CustomizationFormText = "自动产生";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(474, 24);
-            this.layoutControlItem7.Text = "自动产生";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // checkBox
-            // 
-            this.checkBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.bsMain, "bUsable", true));
-            this.checkBox.Location = new System.Drawing.Point(2, 98);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(470, 20);
-            this.checkBox.TabIndex = 9;
-            this.checkBox.Text = "是否启用";
-            this.checkBox.UseVisualStyleBackColor = true;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.checkBox;
-            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(474, 165);
-            this.layoutControlItem8.Text = "layoutControlItem8";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextToControlDistance = 0;
-            this.layoutControlItem8.TextVisible = false;
-            // 
             // imStoreInOutTypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -331,36 +353,37 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;

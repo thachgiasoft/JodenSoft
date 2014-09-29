@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,6 +86,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aa)).BeginInit();
             this.SuspendLayout();
+            this.pageMain.Controls.Add(this.lcMain);
+            // 
+            // lcMain
+            // 
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.lcgMain;
+            this.lcMain.Size = new System.Drawing.Size(474, 261);
+            this.lcMain.TabIndex = 0;
+            this.lcMain.Text = "layoutControl1";
+            // 
+            // lcgMain
+            // 
+            this.lcgMain.CustomizationFormText = "lcgMain";
+            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgMain.GroupBordersVisible = false;
+            this.lcgMain.Location = new System.Drawing.Point(0, 0);
+            this.lcgMain.Name = "lcgMain";
+            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgMain.Size = new System.Drawing.Size(474, 261);
+            this.lcgMain.Text = "lcgMain";
+            this.lcgMain.TextVisible = false;
+			
             // 
             // tcDtl
             // 
@@ -382,7 +408,8 @@
         }
 
         #endregion
-
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
