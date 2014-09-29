@@ -44,30 +44,30 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.btnDtlAddNew, this.IsEdit || this.IsAddNew);
             UIController.RefreshControl(this.btnDtlDelete, (this.IsEdit || this.IsAddNew) && count > 0);
             UIController.RefreshControl(this.btnDtlCopy, (this.IsEdit || this.IsAddNew) && count > 0);
-            UIController.RefreshControl(this.btnDtlImport, (this.IsEdit || this.IsAddNew));
+            UIController.RefreshControl(this.bsiDtlImport, (this.IsEdit || this.IsAddNew));
         }
 
         #region dtl button Actions
 
-        private void btnDtlAddNew_Click(object sender, EventArgs e)
+        private void btnDtlAddNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OnDetailAddNew();
             OnRefreshDetailToolBar();
         }
 
-        private void btnDtlDelete_Click(object sender, EventArgs e)
+        private void btnDtlDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OnDetailDelete();
             OnRefreshDetailToolBar();
         }
 
-        private void btnDtlCopy_Click(object sender, EventArgs e)
+        private void btnDtlCopy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OnDetailCopy();
             OnRefreshDetailToolBar();
         }
 
-        private void btnDtlImport_Click(object sender, EventArgs e)
+        private void bbiDtlImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             OnDetailImport();
         }
@@ -97,5 +97,6 @@ namespace SAF.Framework.View
         }
         #endregion
 
+        
     }
 }

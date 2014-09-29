@@ -33,8 +33,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).BeginInit();
-            this.pnlDtlToolbar.SuspendLayout();
+
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -102,8 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).EndInit();
-            this.pnlDtlToolbar.ResumeLayout(false);
+
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();

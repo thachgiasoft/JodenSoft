@@ -56,6 +56,11 @@
             this.qcMain = new SAF.Framework.Controls.QueryControl();
             this.pnlPageControl = new DevExpress.XtraEditors.PanelControl();
             this.pcMain = new SAF.Framework.Controls.PageControl();
+            this.bmMain = new DevExpress.XtraBars.BarManager();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -70,6 +75,7 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -93,7 +99,7 @@
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.systemPage});
             this.ribbonMain.ShowToolbarCustomizeItem = false;
-            this.ribbonMain.Size = new System.Drawing.Size(767, 145);
+            this.ribbonMain.Size = new System.Drawing.Size(794, 145);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiAddNew
@@ -255,7 +261,7 @@
             this.splitMain.Panel2.Controls.Add(this.splitRight);
             this.splitMain.Panel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.splitMain.Panel2.Text = "Panel2";
-            this.splitMain.Size = new System.Drawing.Size(767, 271);
+            this.splitMain.Size = new System.Drawing.Size(794, 270);
             this.splitMain.SplitterPosition = 282;
             this.splitMain.TabIndex = 0;
             this.splitMain.Text = "splitContainerControl1";
@@ -270,7 +276,7 @@
             this.splitRight.Panel1.Text = "Panel1";
             this.splitRight.Panel2.Text = "Panel2";
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
-            this.splitRight.Size = new System.Drawing.Size(480, 267);
+            this.splitRight.Size = new System.Drawing.Size(507, 266);
             this.splitRight.SplitterPosition = 132;
             this.splitRight.TabIndex = 1;
             this.splitRight.Text = "splitContainerControl1";
@@ -284,7 +290,7 @@
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedTabPage = this.pageMain;
             this.tcMain.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tcMain.Size = new System.Drawing.Size(480, 267);
+            this.tcMain.Size = new System.Drawing.Size(507, 266);
             this.tcMain.TabIndex = 0;
             this.tcMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageMain});
@@ -292,7 +298,7 @@
             // pageMain
             // 
             this.pageMain.Name = "pageMain";
-            this.pageMain.Size = new System.Drawing.Size(474, 261);
+            this.pageMain.Size = new System.Drawing.Size(501, 260);
             this.pageMain.Text = "主数据";
             // 
             // pnlQueryControl
@@ -301,7 +307,7 @@
             this.pnlQueryControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlQueryControl.Location = new System.Drawing.Point(0, 145);
             this.pnlQueryControl.Name = "pnlQueryControl";
-            this.pnlQueryControl.Size = new System.Drawing.Size(767, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(794, 28);
             this.pnlQueryControl.TabIndex = 2;
             // 
             // qcMain
@@ -318,9 +324,9 @@
             // 
             this.pnlPageControl.Controls.Add(this.pcMain);
             this.pnlPageControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 444);
+            this.pnlPageControl.Location = new System.Drawing.Point(0, 443);
             this.pnlPageControl.Name = "pnlPageControl";
-            this.pnlPageControl.Size = new System.Drawing.Size(767, 31);
+            this.pnlPageControl.Size = new System.Drawing.Size(794, 31);
             this.pnlPageControl.TabIndex = 3;
             // 
             // pcMain
@@ -332,10 +338,47 @@
             this.pcMain.MaximumSize = new System.Drawing.Size(0, 26);
             this.pcMain.MinimumSize = new System.Drawing.Size(410, 26);
             this.pcMain.Name = "pcMain";
-            this.pcMain.Size = new System.Drawing.Size(763, 26);
+            this.pcMain.Size = new System.Drawing.Size(790, 26);
             this.pcMain.TabIndex = 0;
             this.pcMain.TotalPageCount = 0;
             this.pcMain.TotalRecordCount = 0;
+            // 
+            // bmMain
+            // 
+            this.bmMain.DockControls.Add(this.barDockControlTop);
+            this.bmMain.DockControls.Add(this.barDockControlBottom);
+            this.bmMain.DockControls.Add(this.barDockControlLeft);
+            this.bmMain.DockControls.Add(this.barDockControlRight);
+            this.bmMain.Form = this;
+            this.bmMain.MaxItemId = 0;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(794, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 474);
+            this.barDockControlBottom.Size = new System.Drawing.Size(794, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 474);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(794, 0);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 474);
             // 
             // SingleView
             // 
@@ -345,8 +388,12 @@
             this.Controls.Add(this.pnlPageControl);
             this.Controls.Add(this.pnlQueryControl);
             this.Controls.Add(this.ribbonMain);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "SingleView";
-            this.Size = new System.Drawing.Size(767, 475);
+            this.Size = new System.Drawing.Size(794, 474);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
@@ -361,6 +408,7 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,6 +443,11 @@
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupReport;
         protected DevExpress.XtraBars.PopupMenu pmuReport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCustom;
-        private DevExpress.XtraBars.BarButtonItem bbiReject;
+        protected DevExpress.XtraBars.BarButtonItem bbiReject;
+        protected DevExpress.XtraBars.BarManager bmMain;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }

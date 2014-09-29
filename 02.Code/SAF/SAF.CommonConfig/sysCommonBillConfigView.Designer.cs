@@ -37,19 +37,17 @@
             this.gluUsers = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).BeginInit();
-            this.pnlDtlToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -66,6 +64,7 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
@@ -74,16 +73,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -96,13 +95,8 @@
             this.pageDtl.Controls.Add(this.grdDtl);
             this.pageDtl.Controls.Add(this.panelControl1);
             this.pageDtl.Size = new System.Drawing.Size(679, 292);
-            this.pageDtl.Controls.SetChildIndex(this.pnlDtlToolbar, 0);
             this.pageDtl.Controls.SetChildIndex(this.panelControl1, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdDtl, 0);
-            // 
-            // pnlDtlToolbar
-            // 
-            this.pnlDtlToolbar.Size = new System.Drawing.Size(679, 29);
             // 
             // bsDetail
             // 
@@ -239,6 +233,50 @@
             this.panelControl1.Size = new System.Drawing.Size(679, 96);
             this.panelControl1.TabIndex = 2;
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(2, 2);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(675, 92);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsDetail, "Iden", true));
+            this.textEdit1.Location = new System.Drawing.Point(55, 12);
+            this.textEdit1.MenuManager = this.ribbonMain;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(608, 20);
+            this.textEdit1.StyleController = this.layoutControl1;
+            this.textEdit1.TabIndex = 4;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(675, 92);
+            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.textEdit1;
+            this.layoutControlItem2.CustomizationFormText = "DtlIden";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(655, 72);
+            this.layoutControlItem2.Text = "DtlIden";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(40, 14);
+            // 
             // textEdit2
             // 
             this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
@@ -284,50 +322,6 @@
             this.layoutControlItem1.Text = "Iden";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(25, 14);
             // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(675, 92);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(675, 92);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsDetail, "Iden", true));
-            this.textEdit1.Location = new System.Drawing.Point(56, 12);
-            this.textEdit1.MenuManager = this.ribbonMain;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(607, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.textEdit1;
-            this.layoutControlItem2.CustomizationFormText = "DtlIden";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(655, 72);
-            this.layoutControlItem2.Text = "DtlIden";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(40, 14);
-            // 
             // sysCommonBillConfigView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -337,8 +331,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).EndInit();
-            this.pnlDtlToolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
@@ -355,6 +347,7 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
@@ -363,16 +356,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

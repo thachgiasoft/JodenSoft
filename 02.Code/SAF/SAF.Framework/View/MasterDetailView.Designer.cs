@@ -30,13 +30,15 @@
         {
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
-            this.pnlDtlToolbar = new DevExpress.XtraEditors.PanelControl();
-            this.btnDtlImport = new DevExpress.XtraEditors.DropDownButton();
+            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
             this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
-            this.btnDtlCopy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDtlDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDtlAddNew = new DevExpress.XtraEditors.SimpleButton();
             this.bsDetail = new System.Windows.Forms.BindingSource();
+            this.barDtl = new DevExpress.XtraBars.Bar();
+            this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDtlDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDtlCopy = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiDtlImport = new DevExpress.XtraBars.BarSubItem();
+            this.bbiDtlImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -51,11 +53,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).BeginInit();
-            this.pnlDtlToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +101,19 @@
             // 
             this.pageMain.Size = new System.Drawing.Size(538, 124);
             // 
+            // bmMain
+            // 
+            this.bmMain.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.barDtl});
+            this.bmMain.DockControls.Add(this.standaloneBarDockControl1);
+            this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.btnDtlAddNew,
+            this.btnDtlDelete,
+            this.btnDtlCopy,
+            this.bsiDtlImport,
+            this.bbiDtlImport});
+            this.bmMain.MaxItemId = 5;
+            // 
             // tcDtl
             // 
             this.tcDtl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,69 +128,85 @@
             // 
             // pageDtl
             // 
-            this.pageDtl.Controls.Add(this.pnlDtlToolbar);
+            this.pageDtl.Controls.Add(this.standaloneBarDockControl1);
             this.pageDtl.Name = "pageDtl";
             this.pageDtl.Size = new System.Drawing.Size(538, 127);
             this.pageDtl.Text = "明细数据";
             // 
-            // pnlDtlToolbar
+            // standaloneBarDockControl1
             // 
-            this.pnlDtlToolbar.Controls.Add(this.btnDtlImport);
-            this.pnlDtlToolbar.Controls.Add(this.btnDtlCopy);
-            this.pnlDtlToolbar.Controls.Add(this.btnDtlDelete);
-            this.pnlDtlToolbar.Controls.Add(this.btnDtlAddNew);
-            this.pnlDtlToolbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDtlToolbar.Location = new System.Drawing.Point(0, 0);
-            this.pnlDtlToolbar.Name = "pnlDtlToolbar";
-            this.pnlDtlToolbar.Size = new System.Drawing.Size(538, 29);
-            this.pnlDtlToolbar.TabIndex = 0;
-            // 
-            // btnDtlImport
-            // 
-            this.btnDtlImport.DropDownControl = this.pmuImportDetail;
-            this.btnDtlImport.Image = global::SAF.Framework.Properties.Resources.Action_ImportData_16x16;
-            this.btnDtlImport.Location = new System.Drawing.Point(215, 3);
-            this.btnDtlImport.MenuManager = this.ribbonMain;
-            this.btnDtlImport.Name = "btnDtlImport";
-            this.btnDtlImport.Size = new System.Drawing.Size(81, 23);
-            this.btnDtlImport.TabIndex = 4;
-            this.btnDtlImport.Text = "导入";
-            this.btnDtlImport.Click += new System.EventHandler(this.btnDtlImport_Click);
+            this.standaloneBarDockControl1.CausesValidation = false;
+            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
+            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(538, 29);
+            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
             // 
             this.pmuImportDetail.Name = "pmuImportDetail";
             this.pmuImportDetail.Ribbon = this.ribbonMain;
             // 
-            // btnDtlCopy
+            // barDtl
             // 
-            this.btnDtlCopy.Image = global::SAF.Framework.Properties.Resources.Action_Copy_16x16;
-            this.btnDtlCopy.Location = new System.Drawing.Point(70, 3);
-            this.btnDtlCopy.Name = "btnDtlCopy";
-            this.btnDtlCopy.Size = new System.Drawing.Size(62, 23);
-            this.btnDtlCopy.TabIndex = 3;
-            this.btnDtlCopy.Text = "复制";
-            this.btnDtlCopy.Click += new System.EventHandler(this.btnDtlCopy_Click);
-            // 
-            // btnDtlDelete
-            // 
-            this.btnDtlDelete.Image = global::SAF.Framework.Properties.Resources.Action_Delete_16x16;
-            this.btnDtlDelete.Location = new System.Drawing.Point(137, 3);
-            this.btnDtlDelete.Name = "btnDtlDelete";
-            this.btnDtlDelete.Size = new System.Drawing.Size(62, 23);
-            this.btnDtlDelete.TabIndex = 2;
-            this.btnDtlDelete.Text = "删除";
-            this.btnDtlDelete.Click += new System.EventHandler(this.btnDtlDelete_Click);
+            this.barDtl.BarName = "barDtl";
+            this.barDtl.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Standalone;
+            this.barDtl.DockCol = 0;
+            this.barDtl.DockRow = 0;
+            this.barDtl.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.barDtl.FloatLocation = new System.Drawing.Point(489, 473);
+            this.barDtl.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlAddNew),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlDelete),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlCopy),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiDtlImport, true)});
+            this.barDtl.OptionsBar.AllowQuickCustomization = false;
+            this.barDtl.OptionsBar.UseWholeRow = true;
+            this.barDtl.StandaloneBarDockControl = this.standaloneBarDockControl1;
+            this.barDtl.Text = "barDtl";
             // 
             // btnDtlAddNew
             // 
-            this.btnDtlAddNew.Image = global::SAF.Framework.Properties.Resources.Action_New_16x16;
-            this.btnDtlAddNew.Location = new System.Drawing.Point(4, 3);
+            this.btnDtlAddNew.Caption = "新增";
+            this.btnDtlAddNew.Glyph = global::SAF.Framework.Properties.Resources.Action_New_16x16;
+            this.btnDtlAddNew.Id = 0;
             this.btnDtlAddNew.Name = "btnDtlAddNew";
-            this.btnDtlAddNew.Size = new System.Drawing.Size(62, 23);
-            this.btnDtlAddNew.TabIndex = 0;
-            this.btnDtlAddNew.Text = "新增";
-            this.btnDtlAddNew.Click += new System.EventHandler(this.btnDtlAddNew_Click);
+            this.btnDtlAddNew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDtlAddNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlAddNew_ItemClick);
+            // 
+            // btnDtlDelete
+            // 
+            this.btnDtlDelete.Caption = "复制";
+            this.btnDtlDelete.Glyph = global::SAF.Framework.Properties.Resources.Action_Copy_16x16;
+            this.btnDtlDelete.Id = 1;
+            this.btnDtlDelete.Name = "btnDtlDelete";
+            this.btnDtlDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDtlDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlDelete_ItemClick);
+            // 
+            // btnDtlCopy
+            // 
+            this.btnDtlCopy.Caption = "删除";
+            this.btnDtlCopy.Glyph = global::SAF.Framework.Properties.Resources.Action_Delete_16x16;
+            this.btnDtlCopy.Id = 2;
+            this.btnDtlCopy.Name = "btnDtlCopy";
+            this.btnDtlCopy.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDtlCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlCopy_ItemClick);
+            // 
+            // bsiDtlImport
+            // 
+            this.bsiDtlImport.Caption = "导入数据";
+            this.bsiDtlImport.Id = 3;
+            this.bsiDtlImport.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDtlImport)});
+            this.bsiDtlImport.Name = "bsiDtlImport";
+            // 
+            // bbiDtlImport
+            // 
+            this.bbiDtlImport.Caption = "导入数据";
+            this.bbiDtlImport.Glyph = global::SAF.Framework.Properties.Resources.Action_ImportData_16x16;
+            this.bbiDtlImport.Id = 4;
+            this.bbiDtlImport.Name = "bbiDtlImport";
+            this.bbiDtlImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDtlImport_ItemClick);
             // 
             // MasterDetailView
             // 
@@ -197,11 +227,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).EndInit();
-            this.pnlDtlToolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
             this.ResumeLayout(false);
@@ -213,13 +242,15 @@
 
         protected DevExpress.XtraTab.XtraTabControl tcDtl;
         protected DevExpress.XtraTab.XtraTabPage pageDtl;
-        protected DevExpress.XtraEditors.PanelControl pnlDtlToolbar;
-        protected DevExpress.XtraEditors.SimpleButton btnDtlDelete;
-        protected DevExpress.XtraEditors.SimpleButton btnDtlAddNew;
         protected System.Windows.Forms.BindingSource bsDetail;
-        protected DevExpress.XtraEditors.SimpleButton btnDtlCopy;
-        private DevExpress.XtraEditors.DropDownButton btnDtlImport;
         private DevExpress.XtraBars.PopupMenu pmuImportDetail;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
+        private DevExpress.XtraBars.Bar barDtl;
+        private DevExpress.XtraBars.BarButtonItem btnDtlAddNew;
+        private DevExpress.XtraBars.BarButtonItem btnDtlDelete;
+        private DevExpress.XtraBars.BarButtonItem btnDtlCopy;
+        private DevExpress.XtraBars.BarSubItem bsiDtlImport;
+        private DevExpress.XtraBars.BarButtonItem bbiDtlImport;
 
 
 
