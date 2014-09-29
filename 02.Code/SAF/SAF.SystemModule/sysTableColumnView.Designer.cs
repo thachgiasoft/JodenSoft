@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdIndex = new DevExpress.XtraGrid.GridControl();
-            this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.grdData = new DevExpress.XtraGrid.GridControl();
             this.grvData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colColumnName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInsertDefaultValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpdateDefaultValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.grdIndex = new DevExpress.XtraGrid.GridControl();
+            this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -46,20 +48,20 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).BeginInit();
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -83,45 +85,20 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(763, 26);
             // 
+            // pageMain
+            // 
+            this.pageMain.Controls.Add(this.lcMain);
+            // 
             // lcMain
             // 
             this.lcMain.Controls.Add(this.grdData);
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            // 
-            // grdIndex
-            // 
-            this.grdIndex.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grdIndex.DataSource = this.bsIndex;
-            this.grdIndex.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdIndex.Location = new System.Drawing.Point(0, 2);
-            this.grdIndex.MainView = this.grvIndex;
-            this.grdIndex.MenuManager = this.ribbonMain;
-            this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 267);
-            this.grdIndex.TabIndex = 0;
-            this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvIndex});
-            // 
-            // grvIndex
-            // 
-            this.grvIndex.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colName});
-            this.grvIndex.GridControl = this.grdIndex;
-            this.grvIndex.Name = "grvIndex";
-            this.grvIndex.OptionsBehavior.Editable = false;
-            this.grvIndex.OptionsBehavior.ReadOnly = true;
-            this.grvIndex.OptionsView.ColumnAutoWidth = false;
-            // 
-            // colName
-            // 
-            this.colName.FieldName = "Name";
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.lcgMain;
+            this.lcMain.Size = new System.Drawing.Size(474, 261);
+            this.lcMain.TabIndex = 0;
+            this.lcMain.Text = "layoutControl1";
             // 
             // grdData
             // 
@@ -170,6 +147,20 @@
             this.colUpdateDefaultValue.Visible = true;
             this.colUpdateDefaultValue.VisibleIndex = 2;
             // 
+            // lcgMain
+            // 
+            this.lcgMain.CustomizationFormText = "lcgMain";
+            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgMain.GroupBordersVisible = false;
+            this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.lcgMain.Location = new System.Drawing.Point(0, 0);
+            this.lcgMain.Name = "lcgMain";
+            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgMain.Size = new System.Drawing.Size(474, 261);
+            this.lcgMain.Text = "lcgMain";
+            this.lcgMain.TextVisible = false;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.grdData;
@@ -181,6 +172,37 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // grdIndex
+            // 
+            this.grdIndex.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grdIndex.DataSource = this.bsIndex;
+            this.grdIndex.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdIndex.Location = new System.Drawing.Point(0, 2);
+            this.grdIndex.MainView = this.grvIndex;
+            this.grdIndex.MenuManager = this.ribbonMain;
+            this.grdIndex.Name = "grdIndex";
+            this.grdIndex.Size = new System.Drawing.Size(282, 267);
+            this.grdIndex.TabIndex = 0;
+            this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvIndex});
+            // 
+            // grvIndex
+            // 
+            this.grvIndex.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName});
+            this.grvIndex.GridControl = this.grdIndex;
+            this.grvIndex.Name = "grvIndex";
+            this.grvIndex.OptionsBehavior.Editable = false;
+            this.grvIndex.OptionsBehavior.ReadOnly = true;
+            this.grvIndex.OptionsView.ColumnAutoWidth = false;
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
             // 
             // sysTableColumnView
             // 
@@ -196,27 +218,28 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.GridControl grdData;

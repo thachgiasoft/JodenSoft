@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.pnlDtlToolbar = new DevExpress.XtraEditors.PanelControl();
             this.btnDtlImport = new DevExpress.XtraEditors.DropDownButton();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
             this.btnDtlCopy = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnDtlAddNew = new DevExpress.XtraEditors.SimpleButton();
-            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDetail = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -47,13 +46,10 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).BeginInit();
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
-            this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
@@ -86,14 +82,6 @@
             // pcMain
             // 
             this.pcMain.Size = new System.Drawing.Size(827, 26);
-            // 
-            // lcMain
-            // 
-            this.lcMain.Size = new System.Drawing.Size(538, 124);
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.Size = new System.Drawing.Size(538, 124);
             // 
             // splitRight
             // 
@@ -204,13 +192,10 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
-            this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);

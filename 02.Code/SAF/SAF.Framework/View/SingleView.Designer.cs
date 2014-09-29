@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -39,7 +38,7 @@
             this.bbiSend = new DevExpress.XtraBars.BarButtonItem();
             this.bbiApprove = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
-            this.pmuReport = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.pmuReport = new DevExpress.XtraBars.PopupMenu();
             this.bbiReject = new DevExpress.XtraBars.BarButtonItem();
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -51,10 +50,8 @@
             this.splitRight = new DevExpress.XtraEditors.SplitContainerControl();
             this.tcMain = new DevExpress.XtraTab.XtraTabControl();
             this.pageMain = new DevExpress.XtraTab.XtraTabPage();
-            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.bsIndex = new System.Windows.Forms.BindingSource(this.components);
-            this.bsMain = new System.Windows.Forms.BindingSource(this.components);
+            this.bsIndex = new System.Windows.Forms.BindingSource();
+            this.bsMain = new System.Windows.Forms.BindingSource();
             this.pnlQueryControl = new DevExpress.XtraEditors.PanelControl();
             this.qcMain = new SAF.Framework.Controls.QueryControl();
             this.pnlPageControl = new DevExpress.XtraEditors.PanelControl();
@@ -67,9 +64,6 @@
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
-            this.pageMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlQueryControl)).BeginInit();
@@ -297,32 +291,9 @@
             // 
             // pageMain
             // 
-            this.pageMain.Controls.Add(this.lcMain);
             this.pageMain.Name = "pageMain";
             this.pageMain.Size = new System.Drawing.Size(474, 261);
             this.pageMain.Text = "主数据";
-            // 
-            // lcMain
-            // 
-            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 0);
-            this.lcMain.Name = "lcMain";
-            this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(474, 261);
-            this.lcMain.TabIndex = 0;
-            this.lcMain.Text = "layoutControl1";
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.CustomizationFormText = "lcgMain";
-            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.lcgMain.GroupBordersVisible = false;
-            this.lcgMain.Location = new System.Drawing.Point(0, 0);
-            this.lcgMain.Name = "lcgMain";
-            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(474, 261);
-            this.lcgMain.Text = "lcgMain";
-            this.lcgMain.TextVisible = false;
             // 
             // pnlQueryControl
             // 
@@ -384,9 +355,6 @@
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
-            this.pageMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlQueryControl)).EndInit();
@@ -415,8 +383,6 @@
         protected DevExpress.XtraEditors.PanelControl pnlPageControl;
         protected Controls.PageControl pcMain;
         protected Controls.QueryControl qcMain;
-        protected DevExpress.XtraLayout.LayoutControl lcMain;
-        protected DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupOperation;
         protected DevExpress.XtraBars.BarButtonItem bbiExitView;
         protected DevExpress.XtraEditors.SplitContainerControl splitRight;

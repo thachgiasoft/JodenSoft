@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.chkIsSystem = new DevExpress.XtraEditors.CheckEdit();
+            this.chkIsActive = new DevExpress.XtraEditors.CheckEdit();
+            this.txtMemo = new DevExpress.XtraEditors.MemoEdit();
+            this.txtTelNo = new DevExpress.XtraEditors.TextEdit();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
+            this.txtUserFullName = new DevExpress.XtraEditors.TextEdit();
+            this.txtUserNo = new DevExpress.XtraEditors.TextEdit();
+            this.txtUserId = new DevExpress.XtraEditors.TextEdit();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageUserRole = new DevExpress.XtraTab.XtraTabPage();
             this.treeRole = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.bsRole = new System.Windows.Forms.BindingSource(this.components);
+            this.bsRole = new System.Windows.Forms.BindingSource();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUserFullName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtUserId = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtUserNo = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtUserFullName = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtTelNo = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtMemo = new DevExpress.XtraEditors.MemoEdit();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chkIsActive = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chkIsSystem = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -64,15 +65,31 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).BeginInit();
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMemo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserFullName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageUserRole.SuspendLayout();
@@ -80,22 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsRole)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserFullName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMemo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -130,31 +131,6 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(896, 26);
             // 
-            // lcMain
-            // 
-            this.lcMain.Controls.Add(this.chkIsSystem);
-            this.lcMain.Controls.Add(this.chkIsActive);
-            this.lcMain.Controls.Add(this.txtMemo);
-            this.lcMain.Controls.Add(this.txtTelNo);
-            this.lcMain.Controls.Add(this.txtEmail);
-            this.lcMain.Controls.Add(this.txtUserFullName);
-            this.lcMain.Controls.Add(this.txtUserNo);
-            this.lcMain.Controls.Add(this.txtUserId);
-            this.lcMain.Size = new System.Drawing.Size(607, 113);
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
-            this.layoutControlItem8});
-            this.lcgMain.Size = new System.Drawing.Size(607, 113);
-            // 
             // splitRight
             // 
             this.splitRight.Panel2.Controls.Add(this.tcDtl);
@@ -169,7 +145,217 @@
             // 
             // pageMain
             // 
+            this.pageMain.Controls.Add(this.lcMain);
             this.pageMain.Size = new System.Drawing.Size(607, 113);
+            // 
+            // lcMain
+            // 
+            this.lcMain.Controls.Add(this.chkIsSystem);
+            this.lcMain.Controls.Add(this.chkIsActive);
+            this.lcMain.Controls.Add(this.txtMemo);
+            this.lcMain.Controls.Add(this.txtTelNo);
+            this.lcMain.Controls.Add(this.txtEmail);
+            this.lcMain.Controls.Add(this.txtUserFullName);
+            this.lcMain.Controls.Add(this.txtUserNo);
+            this.lcMain.Controls.Add(this.txtUserId);
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 0);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.lcgMain;
+            this.lcMain.Size = new System.Drawing.Size(607, 113);
+            this.lcMain.TabIndex = 0;
+            this.lcMain.Text = "layoutControl1";
+            // 
+            // chkIsSystem
+            // 
+            this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
+            this.chkIsSystem.Location = new System.Drawing.Point(528, 26);
+            this.chkIsSystem.MenuManager = this.ribbonMain;
+            this.chkIsSystem.Name = "chkIsSystem";
+            this.chkIsSystem.Properties.Caption = "系统用户";
+            this.chkIsSystem.Size = new System.Drawing.Size(77, 19);
+            this.chkIsSystem.StyleController = this.lcMain;
+            this.chkIsSystem.TabIndex = 11;
+            // 
+            // chkIsActive
+            // 
+            this.chkIsActive.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsActive", true));
+            this.chkIsActive.Location = new System.Drawing.Point(453, 26);
+            this.chkIsActive.MenuManager = this.ribbonMain;
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Properties.Caption = "已激活";
+            this.chkIsActive.Size = new System.Drawing.Size(71, 19);
+            this.chkIsActive.StyleController = this.lcMain;
+            this.chkIsActive.TabIndex = 10;
+            // 
+            // txtMemo
+            // 
+            this.txtMemo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
+            this.txtMemo.Location = new System.Drawing.Point(53, 50);
+            this.txtMemo.MenuManager = this.ribbonMain;
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.Size = new System.Drawing.Size(552, 61);
+            this.txtMemo.StyleController = this.lcMain;
+            this.txtMemo.TabIndex = 9;
+            this.txtMemo.UseOptimizedRendering = true;
+            // 
+            // txtTelNo
+            // 
+            this.txtTelNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "TelephoneNo", true));
+            this.txtTelNo.Location = new System.Drawing.Point(277, 26);
+            this.txtTelNo.MenuManager = this.ribbonMain;
+            this.txtTelNo.Name = "txtTelNo";
+            this.txtTelNo.Size = new System.Drawing.Size(172, 20);
+            this.txtTelNo.StyleController = this.lcMain;
+            this.txtTelNo.TabIndex = 8;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Email", true));
+            this.txtEmail.Location = new System.Drawing.Point(53, 26);
+            this.txtEmail.MenuManager = this.ribbonMain;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(169, 20);
+            this.txtEmail.StyleController = this.lcMain;
+            this.txtEmail.TabIndex = 7;
+            // 
+            // txtUserFullName
+            // 
+            this.txtUserFullName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UserFullName", true));
+            this.txtUserFullName.Location = new System.Drawing.Point(277, 2);
+            this.txtUserFullName.MenuManager = this.ribbonMain;
+            this.txtUserFullName.Name = "txtUserFullName";
+            this.txtUserFullName.Size = new System.Drawing.Size(172, 20);
+            this.txtUserFullName.StyleController = this.lcMain;
+            this.txtUserFullName.TabIndex = 6;
+            // 
+            // txtUserNo
+            // 
+            this.txtUserNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UserName", true));
+            this.txtUserNo.Location = new System.Drawing.Point(53, 2);
+            this.txtUserNo.MenuManager = this.ribbonMain;
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.Size = new System.Drawing.Size(169, 20);
+            this.txtUserNo.StyleController = this.lcMain;
+            this.txtUserNo.TabIndex = 5;
+            // 
+            // txtUserId
+            // 
+            this.txtUserId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
+            this.txtUserId.Location = new System.Drawing.Point(504, 2);
+            this.txtUserId.MenuManager = this.ribbonMain;
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(101, 20);
+            this.txtUserId.StyleController = this.lcMain;
+            this.txtUserId.TabIndex = 4;
+            // 
+            // lcgMain
+            // 
+            this.lcgMain.CustomizationFormText = "lcgMain";
+            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgMain.GroupBordersVisible = false;
+            this.lcgMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.layoutControlItem8});
+            this.lcgMain.Location = new System.Drawing.Point(0, 0);
+            this.lcgMain.Name = "lcgMain";
+            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgMain.Size = new System.Drawing.Size(607, 113);
+            this.lcgMain.Text = "lcgMain";
+            this.lcgMain.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.txtUserId;
+            this.layoutControlItem1.CustomizationFormText = "用户Id";
+            this.layoutControlItem1.Location = new System.Drawing.Point(451, 0);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(156, 24);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(156, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(156, 24);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Text = "用户Id";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txtUserNo;
+            this.layoutControlItem2.CustomizationFormText = "用户名";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(224, 24);
+            this.layoutControlItem2.Text = "用户名";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txtUserFullName;
+            this.layoutControlItem3.CustomizationFormText = "用户姓名";
+            this.layoutControlItem3.Location = new System.Drawing.Point(224, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem3.Text = "用户姓名";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtEmail;
+            this.layoutControlItem4.CustomizationFormText = "邮箱";
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(224, 24);
+            this.layoutControlItem4.Text = "邮箱";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.txtTelNo;
+            this.layoutControlItem5.CustomizationFormText = "手机号";
+            this.layoutControlItem5.Location = new System.Drawing.Point(224, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem5.Text = "手机号";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txtMemo;
+            this.layoutControlItem6.CustomizationFormText = "备注";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(607, 65);
+            this.layoutControlItem6.Text = "备注";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.chkIsActive;
+            this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
+            this.layoutControlItem7.Location = new System.Drawing.Point(451, 24);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(75, 24);
+            this.layoutControlItem7.Text = "layoutControlItem7";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextToControlDistance = 0;
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.chkIsSystem;
+            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
+            this.layoutControlItem8.Location = new System.Drawing.Point(526, 24);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(81, 24);
+            this.layoutControlItem8.Text = "layoutControlItem8";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextToControlDistance = 0;
+            this.layoutControlItem8.TextVisible = false;
             // 
             // tcDtl
             // 
@@ -270,176 +456,6 @@
             this.colUserFullName.Visible = true;
             this.colUserFullName.VisibleIndex = 2;
             // 
-            // txtUserId
-            // 
-            this.txtUserId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtUserId.Location = new System.Drawing.Point(505, 2);
-            this.txtUserId.MenuManager = this.ribbonMain;
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(100, 20);
-            this.txtUserId.StyleController = this.lcMain;
-            this.txtUserId.TabIndex = 4;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.txtUserId;
-            this.layoutControlItem1.CustomizationFormText = "用户Id";
-            this.layoutControlItem1.Location = new System.Drawing.Point(451, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(156, 24);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(156, 24);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(156, 24);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "用户Id";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtUserNo
-            // 
-            this.txtUserNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UserName", true));
-            this.txtUserNo.Location = new System.Drawing.Point(54, 2);
-            this.txtUserNo.MenuManager = this.ribbonMain;
-            this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(168, 20);
-            this.txtUserNo.StyleController = this.lcMain;
-            this.txtUserNo.TabIndex = 5;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.txtUserNo;
-            this.layoutControlItem2.CustomizationFormText = "用户名";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(224, 24);
-            this.layoutControlItem2.Text = "用户名";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtUserFullName
-            // 
-            this.txtUserFullName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UserFullName", true));
-            this.txtUserFullName.Location = new System.Drawing.Point(278, 2);
-            this.txtUserFullName.MenuManager = this.ribbonMain;
-            this.txtUserFullName.Name = "txtUserFullName";
-            this.txtUserFullName.Size = new System.Drawing.Size(171, 20);
-            this.txtUserFullName.StyleController = this.lcMain;
-            this.txtUserFullName.TabIndex = 6;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtUserFullName;
-            this.layoutControlItem3.CustomizationFormText = "用户姓名";
-            this.layoutControlItem3.Location = new System.Drawing.Point(224, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(227, 24);
-            this.layoutControlItem3.Text = "用户姓名";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Email", true));
-            this.txtEmail.Location = new System.Drawing.Point(54, 26);
-            this.txtEmail.MenuManager = this.ribbonMain;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(168, 20);
-            this.txtEmail.StyleController = this.lcMain;
-            this.txtEmail.TabIndex = 7;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtEmail;
-            this.layoutControlItem4.CustomizationFormText = "邮箱";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(224, 24);
-            this.layoutControlItem4.Text = "邮箱";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtTelNo
-            // 
-            this.txtTelNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "TelephoneNo", true));
-            this.txtTelNo.Location = new System.Drawing.Point(278, 26);
-            this.txtTelNo.MenuManager = this.ribbonMain;
-            this.txtTelNo.Name = "txtTelNo";
-            this.txtTelNo.Size = new System.Drawing.Size(171, 20);
-            this.txtTelNo.StyleController = this.lcMain;
-            this.txtTelNo.TabIndex = 8;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.txtTelNo;
-            this.layoutControlItem5.CustomizationFormText = "手机号";
-            this.layoutControlItem5.Location = new System.Drawing.Point(224, 24);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(227, 24);
-            this.layoutControlItem5.Text = "手机号";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtMemo
-            // 
-            this.txtMemo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
-            this.txtMemo.Location = new System.Drawing.Point(54, 50);
-            this.txtMemo.MenuManager = this.ribbonMain;
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(551, 61);
-            this.txtMemo.StyleController = this.lcMain;
-            this.txtMemo.TabIndex = 9;
-            this.txtMemo.UseOptimizedRendering = true;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.txtMemo;
-            this.layoutControlItem6.CustomizationFormText = "备注";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(607, 65);
-            this.layoutControlItem6.Text = "备注";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // chkIsActive
-            // 
-            this.chkIsActive.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsActive", true));
-            this.chkIsActive.Location = new System.Drawing.Point(453, 26);
-            this.chkIsActive.MenuManager = this.ribbonMain;
-            this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Properties.Caption = "已激活";
-            this.chkIsActive.Size = new System.Drawing.Size(71, 19);
-            this.chkIsActive.StyleController = this.lcMain;
-            this.chkIsActive.TabIndex = 10;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.chkIsActive;
-            this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(451, 24);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(75, 24);
-            this.layoutControlItem7.Text = "layoutControlItem7";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // chkIsSystem
-            // 
-            this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
-            this.chkIsSystem.Location = new System.Drawing.Point(528, 26);
-            this.chkIsSystem.MenuManager = this.ribbonMain;
-            this.chkIsSystem.Name = "chkIsSystem";
-            this.chkIsSystem.Properties.Caption = "系统用户";
-            this.chkIsSystem.Size = new System.Drawing.Size(77, 19);
-            this.chkIsSystem.StyleController = this.lcMain;
-            this.chkIsSystem.TabIndex = 11;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.chkIsSystem;
-            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(526, 24);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(81, 24);
-            this.layoutControlItem8.Text = "layoutControlItem8";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextToControlDistance = 0;
-            this.layoutControlItem8.TextVisible = false;
-            // 
             // sysUserView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -455,15 +471,31 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMemo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserFullName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageUserRole.ResumeLayout(false);
@@ -471,29 +503,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserFullName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTelNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMemo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraTab.XtraTabControl tcDtl;
         private DevExpress.XtraTab.XtraTabPage pageUserRole;
         private DevExpress.XtraGrid.GridControl grdIndex;
