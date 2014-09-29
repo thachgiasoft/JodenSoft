@@ -9,36 +9,39 @@ using SAF.EntityFramework;
 
 namespace SAF.CommonConfig
 {
-    public class sysCommonBillConfigViewViewModel : MasterDetailViewViewModel<sysCommonBillHdr, sysCommonBillHdr, sysCommonBillHdrField>
+    public class sysCommonBillConfigViewViewModel : MasterDetailViewViewModel<sdOrder, sdOrder, sdOrderDtl>
     {
-        private EntitySet<SAF.SystemEntities.sysUser> _user = null;
-
-        public EntitySet<SAF.SystemEntities.sysUser> User
-        {
-            get
-            {
-                if (_user == null)
-                    _user = new EntitySet<SystemEntities.sysUser>();
-                return _user;
-            }
-        }
 
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            //base.OnQuery(sCondition, parameterValues);
-
-            this.IndexEntitySet.Query("select * from sysCommonBillHdr");
-
-            User.Query("select Iden, UserName from sysUser");
-
+            this.IndexEntitySet.Query("select * from sdOrder");
         }
 
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
 
-            this.MainEntitySet.Query("select * from sysCommonBillHdr");
-            this.DetailEntitySet.Query("select * from sysCommonBillHdr");
+            this.MainEntitySet.Query("select * from sdOrder where iden=:iden", key);
+            this.DetailEntitySet.Query("select * from sdOrderDtl where orderId=:orderId", key);
+        }
+
+        protected override void OnInitEvents()
+        {
+            base.OnInitEvents();
+
+            this.MainEntitySet.AfterAdd += MainEntitySet_AfterAdd;
+            this.DetailEntitySet.AfterAdd += DetailEntitySet_AfterAdd;
+        }
+
+        void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sdOrderDtl> e)
+        {
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.OrderId = this.MainEntitySet.CurrentEntity.Iden;
+        }
+
+        void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sdOrder> e)
+        {
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)

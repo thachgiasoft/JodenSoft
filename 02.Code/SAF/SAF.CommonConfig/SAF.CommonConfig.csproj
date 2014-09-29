@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="CommonConfigInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sdOrder.cs" />
+    <Compile Include="sdOrderDtl.cs" />
     <Compile Include="sysCommonBillConfigView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\SAF.SystemEntities.sysCommonBillHdr.datasource" />
+    <None Include="Properties\DataSources\sdOrder.datasource" />
+    <None Include="Properties\DataSources\sdOrderDtl.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
