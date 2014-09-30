@@ -88,7 +88,7 @@
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(763, 26);
+            this.pcMain.Size = new System.Drawing.Size(790, 26);
             // 
             // pageMain
             // 
@@ -103,7 +103,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(474, 261);
+            this.lcMain.Size = new System.Drawing.Size(501, 260);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -113,7 +113,7 @@
             this.txtNo.Location = new System.Drawing.Point(53, 26);
             this.txtNo.MenuManager = this.ribbonMain;
             this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(419, 20);
+            this.txtNo.Size = new System.Drawing.Size(446, 20);
             this.txtNo.StyleController = this.lcMain;
             this.txtNo.TabIndex = 7;
             // 
@@ -123,7 +123,7 @@
             this.txtName.Location = new System.Drawing.Point(53, 50);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(419, 20);
+            this.txtName.Size = new System.Drawing.Size(446, 20);
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 5;
             // 
@@ -133,7 +133,7 @@
             this.txtIden.Location = new System.Drawing.Point(53, 2);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(419, 20);
+            this.txtIden.Size = new System.Drawing.Size(446, 20);
             this.txtIden.StyleController = this.lcMain;
             this.txtIden.TabIndex = 4;
             // 
@@ -149,7 +149,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(474, 261);
+            this.lcgMain.Size = new System.Drawing.Size(501, 260);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -159,7 +159,7 @@
             this.layoutControlItem1.CustomizationFormText = "Iden";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(501, 24);
             this.layoutControlItem1.Text = "流水编号";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             this.layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -170,7 +170,7 @@
             this.layoutControlItem2.CustomizationFormText = "Name";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(474, 213);
+            this.layoutControlItem2.Size = new System.Drawing.Size(501, 212);
             this.layoutControlItem2.Text = "仓库名称";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -180,7 +180,7 @@
             this.layoutControlItem4.CustomizationFormText = "仓库编号";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(474, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(501, 24);
             this.layoutControlItem4.Text = "仓库编号";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -193,7 +193,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 267);
+            this.grdIndex.Size = new System.Drawing.Size(282, 266);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
