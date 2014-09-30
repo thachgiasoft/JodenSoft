@@ -54,7 +54,6 @@ FROM dbo.imStoreInOutType A WITH(NOLOCK)
 WHERE bUsable=1 AND {0}
 ORDER BY [Iden]";
             this.ShearchInOutType.Properties.DisplayMember = "sStoreInOutName";
-            this.ShearchInOutType.Properties.va
             this.ShearchInOutType.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
             this.ShearchInOutType.Properties.AutoFillFieldNames = " iStoreInOutType=Iden";
             this.ShearchInOutType.Properties.ColumnHeaders = "操作类型,方向标识,流水编号";
