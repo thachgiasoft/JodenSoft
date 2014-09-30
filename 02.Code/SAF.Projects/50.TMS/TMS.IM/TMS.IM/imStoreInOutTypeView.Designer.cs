@@ -103,10 +103,6 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(790, 26);
             // 
-            // tcMain
-            // 
-            this.tcMain.SelectedTabPage = this.pageMain;
-            // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);

@@ -40,6 +40,26 @@ namespace TMS.IM
             get { return base.ViewModel as imInStockOperationViewViewModel; }
         }
 
+        protected override void OnInitUI()
+        {
+            base.OnInitUI();
+            InitShearchInOutType();
+        }
+
+
+        private void InitShearchInOutType()
+        {
+            this.ShearchInOutType.Properties.CommandText = @"SELECT sStoreInOutName,sStoreInOutType,Iden 
+FROM dbo.imStoreInOutType A WITH(NOLOCK)
+WHERE bUsable=1 AND {0}
+ORDER BY [Iden]";
+            this.ShearchInOutType.Properties.DisplayMember = "sStoreInOutName";
+            this.ShearchInOutType.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
+            this.ShearchInOutType.Properties.AutoFillFieldNames = " iStoreInOutType=Iden";
+            this.ShearchInOutType.Properties.ColumnHeaders = "操作类型,方向标识,流水编号";
+            this.ShearchInOutType.Properties.Query();
+        }
+
         private void grdIndex_Click(object sender, EventArgs e)
         {
 
@@ -48,6 +68,16 @@ namespace TMS.IM
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             IndexRowChange();
+        }
+
+        private void textEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mmoRemark_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
 
 
