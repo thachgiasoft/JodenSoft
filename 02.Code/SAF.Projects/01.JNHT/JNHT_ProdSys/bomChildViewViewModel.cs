@@ -81,5 +81,31 @@ namespace JNHT_ProdSys
         //{
         //    e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         //}
+
+        #region 批准
+
+        protected override void OnApproval()
+        {
+            base.OnApproval();
+        } 
+        #endregion
+
+        #region 送审
+
+        protected override void OnSendToAudit()
+        {
+            base.OnSendToAudit();
+        } 
+        #endregion
+
+        #region 退回
+        protected override void OnReject()
+        {
+            base.OnReject();
+
+        } 
+        #endregion
+
+
     }
 }

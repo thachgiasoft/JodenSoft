@@ -76,11 +76,11 @@
             this.gluDep = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colReMark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).BeginInit();
-            this.pnlDtlToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -91,14 +91,13 @@
             this.pnlQueryControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).BeginInit();
             this.pnlPageControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).BeginInit();
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
@@ -129,6 +128,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -140,21 +141,7 @@
             // 
             this.pageDtl.Controls.Add(this.grddetail);
             this.pageDtl.Size = new System.Drawing.Size(698, 127);
-            this.pageDtl.Controls.SetChildIndex(this.pnlDtlToolbar, 0);
             this.pageDtl.Controls.SetChildIndex(this.grddetail, 0);
-            // 
-            // pnlDtlToolbar
-            // 
-            this.pnlDtlToolbar.Size = new System.Drawing.Size(698, 29);
-            // 
-            // btnDtlDelete
-            // 
-            this.btnDtlDelete.Size = new System.Drawing.Size(72, 23);
-            this.btnDtlDelete.Text = "删除行";
-            // 
-            // btnDtlAddNew
-            // 
-            this.btnDtlAddNew.Text = "新增行";
             // 
             // bsDetail
             // 
@@ -192,18 +179,6 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(1198, 26);
             // 
-            // lcMain
-            // 
-            this.lcMain.Dock = System.Windows.Forms.DockStyle.None;
-            this.lcMain.Location = new System.Drawing.Point(538, 13);
-            this.lcMain.Size = new System.Drawing.Size(160, 111);
-            this.lcMain.Visible = false;
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.Size = new System.Drawing.Size(160, 111);
-            this.lcgMain.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
             // splitRight
             // 
             this.splitRight.Size = new System.Drawing.Size(704, 268);
@@ -217,10 +192,8 @@
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
             this.pageMain.Controls.Add(this.panelControl1);
+            this.pageMain.Controls.Add(this.lcMain);
             this.pageMain.Size = new System.Drawing.Size(698, 124);
-            this.pageMain.Controls.SetChildIndex(this.lcMain, 0);
-            this.pageMain.Controls.SetChildIndex(this.panelControl1, 0);
-            this.pageMain.Controls.SetChildIndex(this.layoutControl1, 0);
             // 
             // splitContainerControl1
             // 
@@ -533,6 +506,7 @@
             this.colReMark});
             this.grvdetail.GridControl = this.grddetail;
             this.grvdetail.Name = "grvdetail";
+            this.grvdetail.OptionsBehavior.CopyToClipboardWithColumnHeaders = false;
             this.grvdetail.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.grvdetail.OptionsView.ColumnAutoWidth = false;
             this.grvdetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grvdetail_KeyDown);
@@ -695,6 +669,29 @@
             this.colReMark.VisibleIndex = 9;
             this.colReMark.Width = 79;
             // 
+            // lcMain
+            // 
+            this.lcMain.Location = new System.Drawing.Point(538, 13);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.lcgMain;
+            this.lcMain.Size = new System.Drawing.Size(160, 111);
+            this.lcMain.TabIndex = 0;
+            this.lcMain.Text = "layoutControl1";
+            this.lcMain.Visible = false;
+            // 
+            // lcgMain
+            // 
+            this.lcgMain.CustomizationFormText = "lcgMain";
+            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lcgMain.GroupBordersVisible = false;
+            this.lcgMain.Location = new System.Drawing.Point(0, 0);
+            this.lcgMain.Name = "lcgMain";
+            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lcgMain.Size = new System.Drawing.Size(160, 111);
+            this.lcgMain.Text = "lcgMain";
+            this.lcgMain.TextVisible = false;
+            this.lcgMain.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
             // bomChildView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -708,8 +705,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDtlToolbar)).EndInit();
-            this.pnlDtlToolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
@@ -720,14 +715,13 @@
             this.pnlQueryControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlPageControl)).EndInit();
             this.pnlPageControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
@@ -758,6 +752,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gluDep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,6 +761,8 @@
 
         #endregion
 
+        private DevExpress.XtraLayout.LayoutControl lcMain;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;

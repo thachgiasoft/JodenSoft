@@ -181,6 +181,7 @@ namespace JNHT_ProdSys
 
         internal bool deleteprod(string bomid)
         {
+           
             EntitySet<bomParent> bomparentEntity = new EntitySet<bomParent>();
             bomparentEntity.Query("select * from bomparent where bomid='{0}'".FormatEx(bomid));
             for (int i = bomparentEntity.Count - 1; i >= 0; i--)

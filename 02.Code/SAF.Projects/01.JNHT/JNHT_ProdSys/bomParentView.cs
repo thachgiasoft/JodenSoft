@@ -159,8 +159,14 @@ namespace JNHT_ProdSys
             string bomid = this.grvIndex.GetFocusedDataRow()[0].ToString();
             if (grvIndex.SelectedRowsCount > 0)
             {
+                ProgressService.Show("正在删除总装产品...");
                 if (bomparentvvm.deleteprod(bomid))
+                {
+                    ProgressService.Close();
                     MessageService.ShowMessage("删除成功!");
+                    
+                }
+                    
             }
             else
             {
