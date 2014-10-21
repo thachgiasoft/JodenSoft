@@ -1,6 +1,6 @@
 ﻿namespace SAF.Framework.Component
 {
-    partial class AppConfigControl
+    partial class ConnectionConfigControl
     {
         /// <summary> 
         /// 必需的设计器变量。

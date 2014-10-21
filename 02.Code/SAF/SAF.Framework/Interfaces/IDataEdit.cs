@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SAF.Framework
 {
-    public interface IDataEdit
+    /// <summary>
+    /// 主数据编辑接口
+    /// </summary>
+    public interface IMasterDataEdit
     {
         /// <summary>
         /// 查询数据
@@ -22,18 +25,46 @@ namespace SAF.Framework
         /// </summary>
         void Edit();
         /// <summary>
+        /// 删除
+        /// </summary>
+        void Delete();
+    }
+    /// <summary>
+    /// 详细数据编辑接口
+    /// </summary>
+    public interface IDetailDataEdit
+    {
+        /// <summary>
+        /// 查询数据
+        /// </summary>
+        /// <param name="key"></param>
+        void Query(object key);
+        /// <summary>
         /// 取消
         /// </summary>
         void Cancel();
         /// <summary>
+        /// 保存
+        /// </summary>
+        void Save();
+        /// <summary>
         /// 删除
         /// </summary>
         void Delete();
+    }
+
+    /// <summary>
+    /// 常规界面数据编辑接口
+    /// </summary>
+    public interface IDataEdit : IMasterDataEdit
+    {
+        /// <summary>
+        /// 取消
+        /// </summary>
+        void Cancel();
         /// <summary>
         /// 保存
         /// </summary>
         void Save();
-
-
     }
 }

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
-            this.bsDetail = new System.Windows.Forms.BindingSource();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
             this.barDtl = new DevExpress.XtraBars.Bar();
             this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDtlDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -64,42 +65,42 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(831, 145);
+            this.ribbonMain.Size = new System.Drawing.Size(821, 147);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
-            this.splitMain.Size = new System.Drawing.Size(831, 272);
+            this.splitMain.Size = new System.Drawing.Size(821, 265);
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(831, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(821, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 445);
-            this.pnlPageControl.Size = new System.Drawing.Size(831, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(0, 440);
+            this.pnlPageControl.Size = new System.Drawing.Size(821, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(827, 26);
+            this.pcMain.Size = new System.Drawing.Size(817, 26);
             // 
             // splitRight
             // 
             this.splitRight.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
             this.splitRight.Panel2.Controls.Add(this.tcDtl);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.Size = new System.Drawing.Size(544, 268);
+            this.splitRight.Size = new System.Drawing.Size(534, 261);
             this.splitRight.SplitterPosition = 130;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(544, 130);
+            this.tcMain.Size = new System.Drawing.Size(534, 130);
             // 
             // pageMain
             // 
-            this.pageMain.Size = new System.Drawing.Size(538, 124);
+            this.pageMain.Size = new System.Drawing.Size(528, 124);
             // 
             // bmMain
             // 
@@ -121,7 +122,7 @@
             this.tcDtl.Name = "tcDtl";
             this.tcDtl.SelectedTabPage = this.pageDtl;
             this.tcDtl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tcDtl.Size = new System.Drawing.Size(544, 133);
+            this.tcDtl.Size = new System.Drawing.Size(534, 126);
             this.tcDtl.TabIndex = 0;
             this.tcDtl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageDtl});
@@ -130,7 +131,7 @@
             // 
             this.pageDtl.Controls.Add(this.standaloneBarDockControl1);
             this.pageDtl.Name = "pageDtl";
-            this.pageDtl.Size = new System.Drawing.Size(538, 127);
+            this.pageDtl.Size = new System.Drawing.Size(528, 120);
             this.pageDtl.Text = "明细数据";
             // 
             // standaloneBarDockControl1
@@ -139,7 +140,7 @@
             this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(538, 29);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(528, 29);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
@@ -211,8 +212,8 @@
             // MasterDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.ClientSize = new System.Drawing.Size(821, 471);
             this.Name = "MasterDetailView";
-            this.Size = new System.Drawing.Size(831, 476);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);

@@ -66,23 +66,11 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BackstageView\IBackstageViewItem.cs" />
-    <Compile Include="Controls\DocumentController.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\DocumentController.Designer.cs">
-      <DependentUpon>DocumentController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\LoginAuthenticate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\LoginAuthenticate.Designer.cs">
       <DependentUpon>LoginAuthenticate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\WorkSpace.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\WorkSpace.Designer.cs">
-      <DependentUpon>WorkSpace.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\SystemMenu.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
@@ -109,13 +97,13 @@
     <Compile Include="ViewModel\SingleViewViewModel.cs" />
     <Compile Include="ViewModel\ViewModelEventArgs.cs" />
     <Compile Include="View\BaseView.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BusinessView.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\BusinessView.Designer.cs">
       <DependentUpon>BusinessView.cs</DependentUpon>
@@ -126,7 +114,7 @@
     <Compile Include="View\ISingleView.cs" />
     <Compile Include="View\ViewParamAttribute.cs" />
     <Compile Include="View\SingleView.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\SingleView.Designer.cs">
       <DependentUpon>SingleView.cs</DependentUpon>
@@ -135,21 +123,15 @@
     <Compile Include="View\IBaseView.cs" />
     <Compile Include="View\IBusinessView.cs" />
     <Compile Include="View\MasterDetailView.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\MasterDetailView.Designer.cs">
       <DependentUpon>MasterDetailView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\DocumentController.resx">
-      <DependentUpon>DocumentController.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\LoginAuthenticate.resx">
       <DependentUpon>LoginAuthenticate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\WorkSpace.resx">
-      <DependentUpon>WorkSpace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

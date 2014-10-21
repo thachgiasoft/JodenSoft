@@ -211,6 +211,21 @@
   <ItemGroup>
     <None Include="Resources\Action_Help_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_refresh_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_tree_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_tree_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_form_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_form_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

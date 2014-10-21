@@ -27,6 +27,10 @@ using SAF.Framework.ServiceModel;
 using SAF.Framework;
 using System.Security;
 using System.Runtime.InteropServices;
+using SAF.Framework.Controls.Entities;
+using DevExpress.XtraTreeList;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace SAF.Client
 {
@@ -49,7 +53,6 @@ namespace SAF.Client
         public IEnumerable<Lazy<IBackstageViewCommand>> BackstageViewCommands { get; private set; }
 
         private LoginAuthenticate loginControl;
-        private WorkSpace workSpace;
 
         BackstageViewControl backstageViewControl = new BackstageViewControl();
 
@@ -69,25 +72,16 @@ namespace SAF.Client
             this.FormClosing += Shell_FormClosing;
 
             ApplicationService.Current.MainForm = this;
-            this.View = this;
         }
 
         void Shell_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (workSpace != null)
+            var s = this.GetAllDirtyViewCpations();
+            if (s.IsNotEmpty())
             {
-                var s = workSpace.GetAllDirtyViewCpations();
-                if (s.IsNotEmpty())
-                {
-                    string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
-                    var allowClose = MessageService.AskQuestion(question);
-                    e.Cancel = !allowClose;
-                }
-                else
-                {
-                    var allowClose = MessageService.AskQuestion("确定要退出系统吗?");
-                    e.Cancel = !allowClose;
-                }
+                string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
+                var allowClose = MessageService.AskQuestion(question);
+                e.Cancel = !allowClose;
             }
             else
             {
@@ -123,23 +117,17 @@ namespace SAF.Client
 
         private void OnInitialize()
         {
-            this.SuspendLayout();
-            try
-            {
-                this.WindowState = FormWindowState.Maximized;
+            this.splMenu.Visible = false;
+            this.navMainMenu.Visible = false;
 
-                loginControl = new LoginAuthenticate();
-                loginControl.Dock = DockStyle.Fill;
-                loginControl.Login += loginControl_Login;
-                loginControl.Exit += loginControl_Exit;
+            this.WindowState = FormWindowState.Maximized;
 
-                this.Controls.Add(loginControl);
-            }
-            finally
-            {
-                this.ResumeLayout(false);
-                this.PerformLayout();
-            }
+            loginControl = new LoginAuthenticate();
+            loginControl.Dock = DockStyle.Fill;
+            loginControl.Login += loginControl_Login;
+            loginControl.Exit += loginControl_Exit;
+
+            this.Controls.Add(loginControl);
         }
 
         void loginControl_Exit(object sender, EventArgs e)
@@ -183,49 +171,25 @@ namespace SAF.Client
                 e.IsSuccess = true;
 
                 this.NotifyMessage("初始化工作区...");
-
-                workSpace = new WorkSpace() { Dock = DockStyle.Fill };
-                workSpace.InitMenuTree();
-                workSpace.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                workSpace.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                this.InitMenuTree();
+                this.TreeMenu.SelectImageList = this.imageCollectionTreeList;
+                this.TreeMenu.GetSelectImage += TreeMenu_GetSelectImage;
+                this.TreeMenu.DoubleClick += TreeMenu_DoubleClick;
+                this.txtFind.EditValueChanged += txtFind_EditValueChanged;
 
                 this.Controls.Remove(loginControl);
                 loginControl.Dispose();
 
-                this.Controls.Add(workSpace);
-                workSpace.BringToFront();
+                this.splMenu.Visible = true;
+                this.navMainMenu.Visible = true;
 
-                this.NotifyMessage("准备就绪...");
+                this.NotifyMessage("就绪...");
             }
-
         }
 
         public RibbonControl RibbonControl
         {
             get { return this.ribbonMain; }
-        }
-
-        public void MergeRibbon(RibbonControl childRibbon)
-        {
-            if (this.RibbonControl != null)
-            {
-                base.SuspendLayout();
-                this.RibbonControl.MergeRibbon(childRibbon);
-
-                if (this.RibbonControl.MergedPages.Count > 0)
-                {
-                    this.RibbonControl.SelectedPage = childRibbon.SelectedPage;
-                }
-                base.ResumeLayout();
-            }
-        }
-
-        public void UnMergeRibbon()
-        {
-            if (this.RibbonControl != null)
-            {
-                this.RibbonControl.UnMergeRibbon();
-            }
         }
 
         private void bbiExitApplication_ItemClick(object sender, BackstageViewItemEventArgs e)
@@ -237,8 +201,7 @@ namespace SAF.Client
         /// </summary>
         public Form View
         {
-            get;
-            private set;
+            get { return this; }
         }
 
         public void InitComponent()
@@ -319,6 +282,248 @@ namespace SAF.Client
         private void bbiExitApplication_ItemClick(object sender, ItemClickEventArgs e)
         {
             ApplicationService.Current.MainForm.Close();
+        }
+
+        #region MainEntitySet
+
+        protected EntitySet<sysMenu> mainEntitySet = null;
+
+        public virtual EntitySet<sysMenu> MainEntitySet
+        {
+            get
+            {
+                if (mainEntitySet == null)
+                {
+                    mainEntitySet = new EntitySet<sysMenu>();
+                }
+                return mainEntitySet;
+            }
+        }
+
+        #endregion
+
+        public void InitMenuTree()
+        {
+            string sql = @"
+DECLARE @result TABLE
+(
+	Iden INT,
+	Name NVARCHAR(500),
+	ClassName NVARCHAR(500),
+	[FileName] NVARCHAR(500),
+	ParentId INT,
+	MenuOrder INT
+)
+
+IF EXISTS(
+	SELECT TOP 1 1 
+	FROM dbo.sysUser a WITH(NOLOCK)
+	JOIN dbo.sysUserRole b WITH(NOLOCK) ON a.Iden=b.UserId
+	JOIN dbo.sysRole c WITH(NOLOCK) ON b.RoleId=c.Iden
+	WHERE c.IsAdministrator=1 AND a.Iden=:UserId)
+BEGIN
+	--系统管理员显示所有菜单
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
+	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+	FROM [dbo].[sysMenu] a with(nolock)
+	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
+	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
+
+END
+ELSE BEGIN
+	--根据用户权限显示菜单
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
+	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+	FROM [dbo].[sysMenu] a with(nolock)
+	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden] and b.IsDeleted=0
+	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden] and c.IsActive=1
+	JOIN dbo.sysRoleMenu d WITH(nolock) ON d.MenuId = a.Iden
+	JOIN dbo.sysUserRole e WITH(NOLOCK) ON d.RoleId=e.RoleId
+	JOIN dbo.sysRole f WITH(NOLOCK) ON e.RoleId=f.Iden AND f.IsDeleted=0
+	WHERE e.UserId=:UserId
+
+	WHILE @@ROWCOUNT>0
+	BEGIN
+		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
+		SELECT DISTINCT temp.*
+		FROM @result res
+		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+				FROM [dbo].[sysMenu] a with(nolock)
+				LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
+				LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
+			) temp ON res.ParentId=temp.Iden AND NOT EXISTS(SELECT TOP 1 1 FROM @result res2 WHERE temp.Iden=res2.Iden)
+	END
+END
+
+SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
+";
+            MainEntitySet.Query(sql, Session.Current.UserId);
+
+            if (this.TreeMenu.Columns.ColumnByFieldName("Name") == null)
+            {
+                var colName = this.TreeMenu.Columns.Add();
+                colName.Caption = "名称";
+                colName.FieldName = "Name";
+                colName.Name = "colName";
+                colName.OptionsColumn.AllowEdit = false;
+                colName.OptionsColumn.AllowMove = false;
+                colName.OptionsColumn.AllowMoveToCustomizationForm = false;
+                colName.OptionsColumn.AllowSort = false;
+                colName.OptionsColumn.ReadOnly = true;
+                colName.OptionsColumn.ShowInCustomizationForm = false;
+                colName.OptionsColumn.ShowInExpressionEditor = false;
+                colName.OptionsFilter.AllowAutoFilter = false;
+                colName.OptionsFilter.AllowFilter = false;
+                colName.Visible = true;
+                colName.VisibleIndex = 0;
+            }
+
+            this.TreeMenu.DataSource = MainEntitySet.DefaultView;
+            this.TreeMenu.KeyFieldName = "Iden";
+            this.TreeMenu.ParentFieldName = "ParentId";
+        }
+
+        private void TreeMenu_DoubleClick(object sender, EventArgs e)
+        {
+            Point point = TreeMenu.PointToClient(Cursor.Position);
+            TreeListHitInfo hitInfo = TreeMenu.CalcHitInfo(point);
+            switch (hitInfo.HitInfoType)
+            {
+                case HitInfoType.Cell:
+                case HitInfoType.SelectImage:
+                    if (this.TreeMenu.FocusedNode != null)
+                    {
+                        var drv = this.TreeMenu.GetDataRecordByNode(this.TreeMenu.FocusedNode) as DataRowView;
+                        if (drv != null)
+                        {
+                            ShowBusinessView(drv);
+                        }
+                    }
+                    break;
+                default:
+                    this.Cursor = Cursors.Default;
+                    break;
+            }
+        }
+
+        private void ShowBusinessView(DataRowView drv)
+        {
+            bool flag = false;
+            try
+            {
+                Monitor.Enter(this, ref flag);
+
+                var className = drv["ClassName"].ToString();
+                if (className.IsEmpty())
+                    return;
+
+                int iMenuId = Convert.ToInt32(drv["Iden"]);
+                //如果已经打开则激活模块，否则新增模块窗体
+                Form doc = this.FindForm(iMenuId);
+                if (doc != null)
+                    doc.Activate();
+                else
+                {
+                    Application.DoEvents();
+                    try
+                    {
+                        var startupPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+                        string fileName = System.IO.Path.Combine(startupPath, drv["FileName"].ToString());
+                        if (!System.IO.File.Exists(fileName))
+                            throw new Exception("文件{0}不存在,无法创建业务窗口.".FormatEx(fileName));
+
+                        ProgressService.Show("正在创建业务窗口...");
+                        try
+                        {
+                            object obj = Assembly.LoadFrom(fileName).CreateInstance(className, true);
+                            if (obj == null)
+                                throw new Exception("业务窗口'{0}'类型错误,无法创建.该类型在Dll文件中不存在.".FormatEx(className));
+
+                            var ctl = obj as SAF.Framework.View.BaseView;
+                            if (ctl != null)
+                            {
+                                ctl.UniqueId = iMenuId;
+                                ctl.Init();
+                                ctl.Text = drv["Name"].ToString();
+                                ctl.MdiParent = this;
+                                ctl.Show();
+                            }
+                            else
+                                throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatEx(className));
+
+                            ProgressService.Close(ApplicationService.Current.MainForm);
+                        }
+                        catch
+                        {
+                            ProgressService.Abort(ApplicationService.Current.MainForm);
+                            throw;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("系统创建业务窗口时出现错误。", ex);
+                    }
+                }
+            }
+            finally
+            {
+                if (flag)
+                    Monitor.Exit(this);
+            }
+        }
+
+        private Form FindForm(int iMenuId)
+        {
+            foreach (var item in this.MdiChildren)
+            {
+                var frm = item as SAF.Framework.View.BaseView;
+                if (frm != null && frm.UniqueId == iMenuId)
+                    return item;
+            }
+            return null;
+        }
+
+        public string GetAllDirtyViewCpations()
+        {
+            //TODO:documentController.GetAllDirtyViewCpations();
+            return string.Empty; //documentController.GetAllDirtyViewCpations();
+        }
+
+        private void btnRefreshMenu_Click(object sender, EventArgs e)
+        {
+            var node = this.TreeMenu.FocusedNode;
+            InitMenuTree();
+            this.TreeMenu.FocusedNode = node;
+        }
+
+        private void txtFind_EditValueChanged(object sender, EventArgs e)
+        {
+            var filter = this.txtFind.EditValue.ToStringEx().Trim();
+            if (!filter.IsEmpty())
+            {
+                this.mainEntitySet.DefaultView.RowFilter = "Name like '%{0}%' and ClassName Is NOT NULL".FormatEx(filter);
+            }
+            else
+            {
+                this.mainEntitySet.DefaultView.RowFilter = null;
+                this.txtFind.EditValue = null;
+            }
+        }
+
+        void TreeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
+        {
+            var drv = this.TreeMenu.GetDataRecordByNode(e.Node) as DataRowView;
+
+            if (drv == null) return;
+
+            if (drv["ClassName"].IsNotEmpty())
+            {
+                e.NodeImageIndex = 2;
+            }
+            else
+            {
+                e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+            }
         }
     }
 }

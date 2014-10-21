@@ -60,11 +60,11 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppConfigControl.cs">
+    <Compile Include="ConnectionConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AppConfigControl.Designer.cs">
-      <DependentUpon>AppConfigControl.cs</DependentUpon>
+    <Compile Include="ConnectionConfigControl.Designer.cs">
+      <DependentUpon>ConnectionConfigControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ExitApplicationCommand.cs" />
     <Compile Include="HelpControl.cs">
@@ -90,8 +90,8 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppConfigControl.resx">
-      <DependentUpon>AppConfigControl.cs</DependentUpon>
+    <EmbeddedResource Include="ConnectionConfigControl.resx">
+      <DependentUpon>ConnectionConfigControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpControl.resx">
       <DependentUpon>HelpControl.cs</DependentUpon>

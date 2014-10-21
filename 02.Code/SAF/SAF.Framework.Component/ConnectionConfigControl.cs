@@ -20,9 +20,9 @@ namespace SAF.Framework.Component
 {
     [ToolboxItem(true)]
     [Export(typeof(IBackstageViewTabItem))]
-    public partial class AppConfigControl : BaseBackstageViewTabItem
+    public partial class ConnectionConfigControl : BaseBackstageViewTabItem
     {
-        public AppConfigControl()
+        public ConnectionConfigControl()
         {
             InitializeComponent();
 
@@ -264,7 +264,7 @@ namespace SAF.Framework.Component
 
         public override string Caption
         {
-            get { return "系统配置"; }
+            get { return "连接配置"; }
         }
 
 

@@ -22,15 +22,6 @@ namespace SAF.Framework
         /// </summary>
         RibbonControl RibbonControl { get; }
         /// <summary>
-        /// 合并菜单
-        /// </summary>
-        /// <param name="childRibbon"></param>
-        void MergeRibbon(RibbonControl childRibbon);
-        /// <summary>
-        /// 取消合并菜单
-        /// </summary>
-        void UnMergeRibbon();
-        /// <summary>
         /// 初始化一些特殊的组件,此方法需由接口主动调用
         /// </summary>
         void InitComponent();

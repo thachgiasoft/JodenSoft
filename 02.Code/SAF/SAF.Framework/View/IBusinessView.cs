@@ -8,11 +8,6 @@ namespace SAF.Framework.View
     public interface IBusinessView : IBaseView
     {
         /// <summary>
-        /// 合并菜单
-        /// </summary>
-        void MergeRibbon();
-
-        /// <summary>
         /// 单据类型ID
         /// </summary>
         string BillTypeId { get; set; }

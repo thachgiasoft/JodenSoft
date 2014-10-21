@@ -21,7 +21,7 @@ namespace SAF.Framework.View
     /// 
     /// </summary>
     [ToolboxItem(false)]
-    public partial class BaseView : XtraUserControl, IBaseView
+    public partial class BaseView : RibbonForm, IBaseView
     {
         /// <summary>
         /// 
@@ -29,6 +29,16 @@ namespace SAF.Framework.View
         public BaseView()
         {
             InitializeComponent();
+
+            this.Icon = Icon.FromHandle(SAF.Framework.Properties.Resources.Icon_Form_16x16.GetHicon());
+        }
+
+        protected override Padding DefaultPadding
+        {
+            get
+            {
+                return new Padding(1);
+            }
         }
 
         #region 初始化
@@ -272,24 +282,6 @@ namespace SAF.Framework.View
             get;
             set;
         }
-        /// <summary>
-        /// 当前View的容器
-        /// </summary>
-        public Control Owner { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public void Close()
-        {
-            if (this.Owner is DocumentController)
-            {
-                (this.Owner as DocumentController).CloseDocument(this);
-            }
-            else if (this.Owner is Form)
-            {
-                (this.Owner as Form).Close();
-            }
-        }
 
         private volatile IBaseViewViewModel _viewModel = null;
         [Browsable(false)]
@@ -378,7 +370,7 @@ namespace SAF.Framework.View
 
         #endregion
 
-        #region 菜单合并
+        #region CustomRibbonMenu
 
         [Browsable(false)]
         protected virtual RibbonControl ChildRibbon
@@ -388,34 +380,6 @@ namespace SAF.Framework.View
                 return null;
             }
         }
-
-        /// <summary>
-        /// 合并菜单
-        /// </summary>
-        public void MergeRibbon()
-        {
-            if (this.ChildRibbon != null && this.ParentFormMain != null)
-            {
-                this.ParentFormMain.UnMergeRibbon();
-                this.ParentFormMain.MergeRibbon(this.ChildRibbon);
-            }
-        }
-
-        /// <summary>
-        /// 主菜单界面
-        /// </summary>
-        [Browsable(false)]
-        public IShell ParentFormMain
-        {
-            get
-            {
-                return base.FindForm() as IShell;
-            }
-        }
-
-        #endregion
-
-        #region CustomRibbonMenu
 
         /// <summary>
         /// 自定义菜单分组
