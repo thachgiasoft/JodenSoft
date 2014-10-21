@@ -109,9 +109,21 @@
       <DependentUpon>BusinessView.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDataAdvancedSearch.cs" />
+    <Compile Include="View\DetailDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailDataView.Designer.cs">
+      <DependentUpon>DetailDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DirtyEventArgs.cs" />
     <Compile Include="View\Exceptions.cs" />
     <Compile Include="View\ISingleView.cs" />
+    <Compile Include="View\MasterDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MasterDataView.Designer.cs">
+      <DependentUpon>MasterDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewParamAttribute.cs" />
     <Compile Include="View\SingleView.cs">
       <SubType>Form</SubType>
@@ -144,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusinessView.resx">
       <DependentUpon>BusinessView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailDataView.resx">
+      <DependentUpon>DetailDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MasterDataView.resx">
+      <DependentUpon>MasterDataView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SingleView.resx">
       <DependentUpon>SingleView.cs</DependentUpon>
