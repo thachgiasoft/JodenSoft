@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shell));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiMessage = new DevExpress.XtraBars.BarStaticItem();
@@ -44,9 +45,10 @@
             this.pnlMenu = new DevExpress.XtraEditors.PanelControl();
             this.txtFind = new DevExpress.XtraEditors.TextEdit();
             this.btnRefreshMenu = new DevExpress.XtraEditors.SimpleButton();
-            this.MdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
             this.splMenu = new DevExpress.XtraEditors.SplitterControl();
+            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).BeginInit();
             this.navMainMenu.SuspendLayout();
@@ -55,8 +57,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFind.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -220,17 +223,6 @@
             this.btnRefreshMenu.TabIndex = 0;
             this.btnRefreshMenu.ToolTip = "刷新菜单";
             // 
-            // MdiManager
-            // 
-            this.MdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
-            this.MdiManager.HeaderButtons = ((DevExpress.XtraTab.TabButtons)(((DevExpress.XtraTab.TabButtons.Prev | DevExpress.XtraTab.TabButtons.Next) 
-            | DevExpress.XtraTab.TabButtons.Default)));
-            this.MdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
-            this.MdiManager.MdiParent = this;
-            this.MdiManager.ShowHeaderFocus = DevExpress.Utils.DefaultBoolean.True;
-            this.MdiManager.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.True;
-            this.MdiManager.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.True;
-            // 
             // imageCollectionTreeList
             // 
             this.imageCollectionTreeList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollectionTreeList.ImageStream")));
@@ -246,6 +238,22 @@
             this.splMenu.TabIndex = 5;
             this.splMenu.TabStop = false;
             // 
+            // documentManager
+            // 
+            this.documentManager.MdiParent = this;
+            this.documentManager.MenuManager = this.ribbonMain;
+            this.documentManager.View = this.tabbedView;
+            this.documentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView});
+            // 
+            // tabbedView
+            // 
+            this.tabbedView.DocumentProperties.AllowDock = false;
+            this.tabbedView.DocumentProperties.AllowDockFill = false;
+            this.tabbedView.DocumentProperties.AllowFloat = false;
+            this.tabbedView.DocumentProperties.AllowFloatOnDoubleClick = false;
+            this.tabbedView.DocumentProperties.UseFormIconAsDocumentImage = true;
+            // 
             // Shell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -256,10 +264,12 @@
             this.Controls.Add(this.statusBarMain);
             this.Controls.Add(this.ribbonMain);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.Name = "Shell";
             this.Ribbon = this.ribbonMain;
             this.StatusBar = this.statusBarMain;
             this.Text = "SAF";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Shell_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).EndInit();
             this.navMainMenu.ResumeLayout(false);
@@ -268,8 +278,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtFind.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MdiManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,9 +303,10 @@
         private DevExpress.XtraEditors.PanelControl pnlMenu;
         private DevExpress.XtraEditors.TextEdit txtFind;
         private DevExpress.XtraEditors.SimpleButton btnRefreshMenu;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager MdiManager;
         private DevExpress.Utils.ImageCollection imageCollectionTreeList;
         private DevExpress.XtraEditors.SplitterControl splMenu;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView;
 
     }
 }

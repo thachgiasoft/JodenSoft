@@ -421,7 +421,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 //如果已经打开则激活模块，否则新增模块窗体
                 Form doc = this.FindForm(iMenuId);
                 if (doc != null)
-                    doc.Activate();
+                    this.tabbedView.ActivateDocument(doc);
                 else
                 {
                     Application.DoEvents();
@@ -524,6 +524,12 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             {
                 e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
             }
+        }
+
+        private void Shell_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F3)
+                MessageService.ShowMessage("Shell F3");
         }
     }
 }
