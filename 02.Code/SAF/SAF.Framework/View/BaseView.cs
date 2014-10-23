@@ -57,6 +57,7 @@ namespace SAF.Framework.View
             OnInitQueryConfig();
             OnInitData();
             OnInitBinding();
+            OnInitDefaultActions();
             RefreshUI();
         }
 
@@ -72,6 +73,54 @@ namespace SAF.Framework.View
                         this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
                 }
             }
+        }
+
+        #endregion
+
+        #region ProcessDialogKey
+
+        private Dictionary<Keys, IAction> defaultActions = new Dictionary<Keys, IAction>();
+
+        public void AddAction(Keys key, IAction action)
+        {
+            defaultActions[key] = action;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            return ExecuteDialogKey(keyData) || base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private bool ExecuteDialogKey(Keys keyData)
+        {
+            IAction action = GetAction(keyData);
+
+            if (action != null)
+            {
+                action.Execute(this);
+                return true;
+            }
+            return false;
+        }
+        private bool IsAction(Keys keyData)
+        {
+            return defaultActions.ContainsKey(keyData);
+        }
+
+        private IAction GetAction(Keys keyData)
+        {
+            if (!IsAction(keyData))
+            {
+                return null;
+            }
+            return (IAction)defaultActions[keyData];
+        }
+
+        /// <summary>
+        /// 初始化快捷键事件
+        /// </summary>
+        protected virtual void OnInitDefaultActions()
+        {
         }
 
         #endregion
