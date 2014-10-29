@@ -15,6 +15,7 @@ using SAF.Framework;
 using SAF.Framework.Controls;
 using SAF.Framework.Controls.Entities;
 using SAF.Framework.ServiceModel;
+using SAF.Framework.View;
 using SAF.SystemModule;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,8 @@ namespace SAF.Client
 
         BackstageViewControl backstageViewControl = new BackstageViewControl();
 
+        public bool IsLogin { get; set; }
+
         public Shell()
         {
             InitializeComponent();
@@ -76,17 +79,20 @@ namespace SAF.Client
 
         void Shell_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var s = this.GetAllDirtyViewCpations();
-            if (s.IsNotEmpty())
+            if (this.IsLogin)
             {
-                string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
-                var allowClose = MessageService.AskQuestion(question);
-                e.Cancel = !allowClose;
-            }
-            else
-            {
-                var allowClose = MessageService.AskQuestion("确定要退出系统吗?");
-                e.Cancel = !allowClose;
+                var s = this.GetAllDirtyViewCpations();
+                if (s.IsNotEmpty())
+                {
+                    string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}{0}{0}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
+                    var allowClose = MessageService.AskQuestion(question);
+                    e.Cancel = !allowClose;
+                }
+                else
+                {
+                    var allowClose = MessageService.AskQuestion("确定要退出系统吗?");
+                    e.Cancel = !allowClose;
+                }
             }
         }
 
@@ -166,6 +172,7 @@ namespace SAF.Client
             if (!provider.Login(userName, password, out msg))
             {
                 e.IsSuccess = false;
+                this.IsLogin = false;
                 e.Message = msg;
                 this.NotifyMessage("准备就绪...");
             }
@@ -180,6 +187,7 @@ namespace SAF.Client
                 UserConfig.Current.Save();
 
                 e.IsSuccess = true;
+                this.IsLogin = true;
 
                 this.NotifyMessage("初始化工作区...");
                 InitWorkspace();
@@ -195,7 +203,7 @@ namespace SAF.Client
             this.TreeMenu.GetSelectImage += TreeMenu_GetSelectImage;
             this.TreeMenu.DoubleClick += TreeMenu_DoubleClick;
             this.txtFind.EditValueChanged += txtFind_EditValueChanged;
-            this.btnRefreshMenu.Click+=btnRefreshMenu_Click;
+            this.btnRefreshMenu.Click += btnRefreshMenu_Click;
 
             this.Controls.Remove(loginControl);
             loginControl.Dispose();
@@ -504,8 +512,12 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
         public string GetAllDirtyViewCpations()
         {
-            //TODO:documentController.GetAllDirtyViewCpations();
-            return string.Empty; //documentController.GetAllDirtyViewCpations();
+            var list = this.MdiChildren.Where(p => p.Controls[0] is IBaseView && (p.Controls[0] as IBaseView).IsDirty).Select(p => p.Controls[0] as IBaseView);
+
+            if (list.IsEmpty()) return string.Empty;
+
+            string str = list.Select(p => p.Text).JoinText(Environment.NewLine);
+            return str;
         }
 
         private void btnRefreshMenu_Click(object sender, EventArgs e)
@@ -545,10 +557,5 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             }
         }
 
-        private void Shell_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.F3)
-                MessageService.ShowMessage("Shell F3");
-        }
     }
 }

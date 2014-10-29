@@ -46,6 +46,14 @@ namespace SAF.Framework
                     container.Text = ctl.Text;
                 };
 
+                if (ctl.ViewModel != null)
+                {
+                    ctl.ViewModel.EditStatusChanged += (sender, args) =>
+                        {
+                            container.Text = ctl.Text + (ctl.IsDirty ? " *" : string.Empty);
+                        };
+                }
+
                 container.Shown += (sender, args) =>
                 {
                     ctl.OnShown();

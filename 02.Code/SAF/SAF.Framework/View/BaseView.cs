@@ -14,6 +14,7 @@ using SAF.EntityFramework;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using SAF.Framework.Controls;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.Framework.View
 {
@@ -29,6 +30,21 @@ namespace SAF.Framework.View
         public BaseView()
         {
             InitializeComponent();
+
+            this.Closing += BaseView_Closing;
+        }
+
+        void BaseView_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (this.IsDirty && e.CloseReason == CloseReason.UserClosing)
+            {
+                string message = "确定要关闭\"{0}\"吗?{1}关闭操作将丢弃所有未更改的保存.".FormatEx(this.Text, Environment.NewLine);
+                var result = MessageService.AskQuestion(message);
+                if (!result)
+                    e.Cancel = true;
+                else
+                    e.Cancel = false;
+            }
         }
 
         protected override Padding DefaultPadding
@@ -450,7 +466,7 @@ namespace SAF.Framework.View
             BaseView.EventShown = new object();
         }
 
-        public void Close()
+        public virtual void Close()
         {
             var frm = this.FindForm();
             if (frm != null)
@@ -465,7 +481,7 @@ namespace SAF.Framework.View
 
         public void OnClosed(FormClosedEventArgs args)
         {
-            var handler = (EventHandler)base.Events[BaseView.EventClosed];
+            var handler = (FormClosedEventHandler)base.Events[BaseView.EventClosed];
             if (handler != null)
                 handler(this, args);
         }
@@ -478,7 +494,7 @@ namespace SAF.Framework.View
 
         public void OnClosing(FormClosingEventArgs args)
         {
-            var handler = (EventHandler)base.Events[BaseView.EventClosing];
+            var handler = (FormClosingEventHandler)base.Events[BaseView.EventClosing];
             if (handler != null)
                 handler(this, args);
         }

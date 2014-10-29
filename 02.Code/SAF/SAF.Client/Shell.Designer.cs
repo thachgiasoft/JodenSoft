@@ -269,7 +269,6 @@
             this.Ribbon = this.ribbonMain;
             this.StatusBar = this.statusBarMain;
             this.Text = "SAF";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Shell_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).EndInit();
             this.navMainMenu.ResumeLayout(false);

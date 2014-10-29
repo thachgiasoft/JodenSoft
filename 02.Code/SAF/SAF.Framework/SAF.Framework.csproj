@@ -121,7 +121,6 @@
     <Compile Include="View\DetailDataView.Designer.cs">
       <DependentUpon>DetailDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\DirtyEventArgs.cs" />
     <Compile Include="View\Exceptions.cs" />
     <Compile Include="View\ISingleView.cs" />
     <Compile Include="View\MasterDataView.cs">
