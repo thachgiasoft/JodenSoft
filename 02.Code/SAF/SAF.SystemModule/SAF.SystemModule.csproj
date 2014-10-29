@@ -66,21 +66,21 @@
   <ItemGroup>
     <Compile Include="FileHelper.cs" />
     <Compile Include="sysBillTypeView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysBillTypeView.Designer.cs">
       <DependentUpon>sysBillTypeView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysBillTypeViewViewModel.cs" />
     <Compile Include="sysDataRoleView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysDataRoleView.Designer.cs">
       <DependentUpon>sysDataRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysDataRoleViewViewModel.cs" />
     <Compile Include="sysFileView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysFileView.Designer.cs">
       <DependentUpon>sysFileView.cs</DependentUpon>
@@ -93,21 +93,21 @@
     </Compile>
     <Compile Include="sysFileViewViewModel.cs" />
     <Compile Include="sysMenuView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysMenuView.Designer.cs">
       <DependentUpon>sysMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysMenuViewViewModel.cs" />
     <Compile Include="sysRoleView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysRoleView.Designer.cs">
       <DependentUpon>sysRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysRoleViewViewModel.cs" />
     <Compile Include="sysTableColumnView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysTableColumnView.Designer.cs">
       <DependentUpon>sysTableColumnView.cs</DependentUpon>
@@ -115,21 +115,21 @@
     <Compile Include="sysTableColumnViewViewModel.cs" />
     <Compile Include="SystemModuleInfo.cs" />
     <Compile Include="sysOrganizationView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysOrganizationView.Designer.cs">
       <DependentUpon>sysOrganizationView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysOrganizationViewViewModel.cs" />
     <Compile Include="sysUserDataRole.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysUserDataRole.Designer.cs">
       <DependentUpon>sysUserDataRole.cs</DependentUpon>
     </Compile>
     <Compile Include="sysUserDataRoleViewModel.cs" />
     <Compile Include="sysUserView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sysUserView.Designer.cs">
       <DependentUpon>sysUserView.cs</DependentUpon>

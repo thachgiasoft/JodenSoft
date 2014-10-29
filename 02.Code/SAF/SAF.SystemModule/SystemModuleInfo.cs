@@ -10,6 +10,13 @@ namespace SAF.SystemModule
     [Export(typeof(ISubProductInfo))]
     public class SystemModuleInfo : AbstractSubProductInfo
     {
+        public override int OrderIndex
+        {
+            get
+            {
+                return -10000;
+            }
+        }
         public override string Description
         {
             get { return "系统管理工具"; }
@@ -24,5 +31,6 @@ namespace SAF.SystemModule
         {
             get { return "系统管理工具"; }
         }
+
     }
 }

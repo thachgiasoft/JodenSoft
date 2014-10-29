@@ -94,7 +94,7 @@
             this.bbiApprove,
             this.bbiPreview,
             this.bbiReject});
-            this.ribbonMain.Location = new System.Drawing.Point(0, 0);
+            this.ribbonMain.Location = new System.Drawing.Point(1, 1);
             this.ribbonMain.MaxItemId = 14;
             this.ribbonMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonMain.Name = "ribbonMain";
@@ -102,8 +102,9 @@
             this.systemPage});
             this.ribbonMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonMain.ShowToolbarCustomizeItem = false;
-            this.ribbonMain.Size = new System.Drawing.Size(784, 147);
+            this.ribbonMain.Size = new System.Drawing.Size(782, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
+            this.ribbonMain.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiAddNew
             // 
@@ -257,14 +258,14 @@
             // 
             this.splitMain.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
             this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitMain.Location = new System.Drawing.Point(0, 175);
+            this.splitMain.Location = new System.Drawing.Point(1, 149);
             this.splitMain.Name = "splitMain";
             this.splitMain.Panel1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.splitMain.Panel1.Text = "Panel1";
             this.splitMain.Panel2.Controls.Add(this.splitRight);
             this.splitMain.Panel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.splitMain.Panel2.Text = "Panel2";
-            this.splitMain.Size = new System.Drawing.Size(784, 263);
+            this.splitMain.Size = new System.Drawing.Size(782, 288);
             this.splitMain.SplitterPosition = 282;
             this.splitMain.TabIndex = 0;
             this.splitMain.Text = "splitContainerControl1";
@@ -279,7 +280,7 @@
             this.splitRight.Panel1.Text = "Panel1";
             this.splitRight.Panel2.Text = "Panel2";
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Panel1;
-            this.splitRight.Size = new System.Drawing.Size(497, 259);
+            this.splitRight.Size = new System.Drawing.Size(495, 284);
             this.splitRight.SplitterPosition = 132;
             this.splitRight.TabIndex = 1;
             this.splitRight.Text = "splitContainerControl1";
@@ -293,7 +294,7 @@
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedTabPage = this.pageMain;
             this.tcMain.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tcMain.Size = new System.Drawing.Size(497, 259);
+            this.tcMain.Size = new System.Drawing.Size(495, 284);
             this.tcMain.TabIndex = 0;
             this.tcMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageMain});
@@ -301,16 +302,16 @@
             // pageMain
             // 
             this.pageMain.Name = "pageMain";
-            this.pageMain.Size = new System.Drawing.Size(491, 253);
+            this.pageMain.Size = new System.Drawing.Size(489, 278);
             this.pageMain.Text = "主数据";
             // 
             // pnlQueryControl
             // 
             this.pnlQueryControl.Controls.Add(this.qcMain);
             this.pnlQueryControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlQueryControl.Location = new System.Drawing.Point(0, 147);
+            this.pnlQueryControl.Location = new System.Drawing.Point(1, 121);
             this.pnlQueryControl.Name = "pnlQueryControl";
-            this.pnlQueryControl.Size = new System.Drawing.Size(784, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(782, 28);
             this.pnlQueryControl.TabIndex = 2;
             // 
             // qcMain
@@ -327,9 +328,9 @@
             // 
             this.pnlPageControl.Controls.Add(this.pcMain);
             this.pnlPageControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 438);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 437);
             this.pnlPageControl.Name = "pnlPageControl";
-            this.pnlPageControl.Size = new System.Drawing.Size(784, 31);
+            this.pnlPageControl.Size = new System.Drawing.Size(782, 31);
             this.pnlPageControl.TabIndex = 3;
             // 
             // pcMain
@@ -341,7 +342,7 @@
             this.pcMain.MaximumSize = new System.Drawing.Size(0, 26);
             this.pcMain.MinimumSize = new System.Drawing.Size(410, 26);
             this.pcMain.Name = "pcMain";
-            this.pcMain.Size = new System.Drawing.Size(780, 26);
+            this.pcMain.Size = new System.Drawing.Size(778, 26);
             this.pcMain.TabIndex = 0;
             this.pcMain.TotalPageCount = 0;
             this.pcMain.TotalRecordCount = 0;
@@ -359,35 +360,34 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(784, 0);
+            this.barDockControlTop.Location = new System.Drawing.Point(1, 1);
+            this.barDockControlTop.Size = new System.Drawing.Size(782, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 469);
-            this.barDockControlBottom.Size = new System.Drawing.Size(784, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(1, 468);
+            this.barDockControlBottom.Size = new System.Drawing.Size(782, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 469);
+            this.barDockControlLeft.Location = new System.Drawing.Point(1, 1);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 467);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(784, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 469);
+            this.barDockControlRight.Location = new System.Drawing.Point(783, 1);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 467);
             // 
             // SingleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 469);
             this.Controls.Add(this.splitMain);
             this.Controls.Add(this.pnlPageControl);
             this.Controls.Add(this.pnlQueryControl);
@@ -397,7 +397,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "SingleView";
-            this.Ribbon = this.ribbonMain;
+            this.Size = new System.Drawing.Size(784, 469);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();

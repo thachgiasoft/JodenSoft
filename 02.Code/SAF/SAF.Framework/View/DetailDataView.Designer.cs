@@ -48,7 +48,8 @@
             this.ribbonDetail.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonDetail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonDetail.Size = new System.Drawing.Size(688, 147);
+            this.ribbonDetail.Size = new System.Drawing.Size(688, 120);
+            this.ribbonDetail.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // ribbonPage1
             // 
@@ -65,11 +66,11 @@
             // splMain
             // 
             this.splMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splMain.Location = new System.Drawing.Point(1, 148);
+            this.splMain.Location = new System.Drawing.Point(1, 121);
             this.splMain.Name = "splMain";
             this.splMain.Panel1.Text = "Panel1";
             this.splMain.Panel2.Text = "Panel2";
-            this.splMain.Size = new System.Drawing.Size(688, 262);
+            this.splMain.Size = new System.Drawing.Size(688, 289);
             this.splMain.SplitterPosition = 181;
             this.splMain.TabIndex = 1;
             this.splMain.Text = "splitContainerControl1";
@@ -78,12 +79,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 411);
             this.Controls.Add(this.splMain);
             this.Controls.Add(this.ribbonDetail);
             this.Name = "DetailDataView";
-            this.Ribbon = this.ribbonDetail;
-            this.Text = "DetailDataView";
+            this.Size = new System.Drawing.Size(690, 411);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
             this.splMain.ResumeLayout(false);

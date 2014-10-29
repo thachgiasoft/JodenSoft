@@ -66,6 +66,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BackstageView\IBackstageViewItem.cs" />
+    <Compile Include="BillRight\BillDataRight.cs" />
+    <Compile Include="BillRight\BillOperateRight.cs" />
+    <Compile Include="BillRight\BillQueryRightInfo.cs" />
+    <Compile Include="BillRight\BillRightInfo.cs" />
+    <Compile Include="BillRight\BillRightType.cs" />
+    <Compile Include="BillRight\BillRightUtil.cs" />
     <Compile Include="Controls\LoginAuthenticate.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,20 +103,20 @@
     <Compile Include="ViewModel\SingleViewViewModel.cs" />
     <Compile Include="ViewModel\ViewModelEventArgs.cs" />
     <Compile Include="View\BaseView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BusinessView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\BusinessView.Designer.cs">
       <DependentUpon>BusinessView.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDataAdvancedSearch.cs" />
     <Compile Include="View\DetailDataView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\DetailDataView.Designer.cs">
       <DependentUpon>DetailDataView.cs</DependentUpon>
@@ -119,14 +125,14 @@
     <Compile Include="View\Exceptions.cs" />
     <Compile Include="View\ISingleView.cs" />
     <Compile Include="View\MasterDataView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\MasterDataView.Designer.cs">
       <DependentUpon>MasterDataView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ViewParamAttribute.cs" />
     <Compile Include="View\SingleView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\SingleView.Designer.cs">
       <DependentUpon>SingleView.cs</DependentUpon>
@@ -135,7 +141,7 @@
     <Compile Include="View\IBaseView.cs" />
     <Compile Include="View\IBusinessView.cs" />
     <Compile Include="View\MasterDetailView.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\MasterDetailView.Designer.cs">
       <DependentUpon>MasterDetailView.cs</DependentUpon>

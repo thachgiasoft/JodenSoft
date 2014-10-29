@@ -45,12 +45,12 @@ namespace SAF.Framework.Component
             if (this.DesignMode) return;
 
             //如果是本地访问
-            var dataPortalProxy = ApplicationConfigHelper.GetAppSetting(DataPortalProxy);
+            var dataPortalProxy = ApplicationConfig.GetAppSetting(DataPortalProxy);
             if (dataPortalProxy.IsEmpty() || dataPortalProxy.Equals(LocalProxy, StringComparison.InvariantCultureIgnoreCase))
             {
                 this.cbxAccessMode.SelectedIndex = 0;
 
-                string conStr = ApplicationConfigHelper.GetConnectionString(DefaultConnection);
+                string conStr = ApplicationConfig.GetConnectionString(DefaultConnection);
                 if (conStr.IsNotEmpty())
                 {
                     SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(conStr);
@@ -71,7 +71,7 @@ namespace SAF.Framework.Component
             {
                 this.cbxAccessMode.SelectedIndex = 1;
 
-                string url = ApplicationConfigHelper.GetAppSetting(DataPortalUrl);
+                string url = ApplicationConfig.GetAppSetting(DataPortalUrl);
 
             }
 
@@ -95,8 +95,8 @@ namespace SAF.Framework.Component
             {
                 if (DataPortalUrlHasError()) return;
 
-                ApplicationConfigHelper.SetAppSetting(DataPortalProxy, WcfProxy);
-                ApplicationConfigHelper.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+                ApplicationConfig.SetAppSetting(DataPortalProxy, WcfProxy);
+                ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
 
                 TestWcfProxy();
             }
@@ -192,11 +192,11 @@ namespace SAF.Framework.Component
                 csb.UserID = this.txtUserName.EditValue.ToStringEx();
                 csb.Password = this.txtPassword.EditValue.ToStringEx();
 
-                ApplicationConfigHelper.SetConnectionString(DefaultConnection, csb.ConnectionString, "System.Data.SqlClient");
+                ApplicationConfig.SetConnectionString(DefaultConnection, csb.ConnectionString, "System.Data.SqlClient");
 
-                ApplicationConfigHelper.SetAppSetting(DataPortalProxy, LocalProxy);
+                ApplicationConfig.SetAppSetting(DataPortalProxy, LocalProxy);
 
-                ApplicationConfigHelper.RemoveAppSetting(DataPortalUrl);
+                ApplicationConfig.RemoveAppSetting(DataPortalUrl);
 
                 MessageService.ShowMessage("保存成功!");
             }
@@ -204,10 +204,10 @@ namespace SAF.Framework.Component
             {
                 if (DataPortalUrlHasError()) return;
 
-                ApplicationConfigHelper.RemoveConnectionString(DefaultConnection);
+                ApplicationConfig.RemoveConnectionString(DefaultConnection);
 
-                ApplicationConfigHelper.SetAppSetting(DataPortalProxy, WcfProxy);
-                ApplicationConfigHelper.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+                ApplicationConfig.SetAppSetting(DataPortalProxy, WcfProxy);
+                ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
 
                 MessageService.ShowMessage("保存成功!");
             }

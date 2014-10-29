@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SAF.Foundation.ServiceModel;
+using SAF.Foundation.ComponentModel;
+using SAF.Foundation.Security;
 
 namespace SAF.Framework.Controls
 {
@@ -23,6 +25,15 @@ namespace SAF.Framework.Controls
 
             this.txtUserName.KeyDown += txtUserName_KeyDown;
             this.txtPassword.KeyDown += txtPassword_KeyDown;
+            this.chkSavePassword.KeyDown += chkSavePassword_KeyDown;
+        }
+
+        void chkSavePassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                OnLoginEvent();
+            }
         }
 
         public void FocusUserName()
@@ -47,16 +58,22 @@ namespace SAF.Framework.Controls
             set { this.txtPassword.EditValue = value; }
         }
 
+        public bool SavePassword
+        {
+            get { return this.chkSavePassword.Checked; }
+            set { this.chkSavePassword.Checked = value; }
+        }
+
         void btnExit_Click(object sender, EventArgs e)
         {
-            FireExitEvent();
+            OnExitEvent();
         }
 
         void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
             {
-                FireLoginEvent();
+                OnLoginEvent();
             }
         }
 
@@ -70,7 +87,7 @@ namespace SAF.Framework.Controls
 
         void btnOK_Click(object sender, EventArgs e)
         {
-            FireLoginEvent();
+            OnLoginEvent();
         }
 
         private bool CheckLoginParamIsRight()
@@ -92,19 +109,38 @@ namespace SAF.Framework.Controls
             return true;
         }
 
-        public event EventHandler<LoginEventArgs> Login;
+        private static readonly object EventLogin;
+        private static readonly object EventExit;
 
-        private void FireLoginEvent()
+        static LoginAuthenticate()
+        {
+            EventLogin = new object();
+            EventExit = new object();
+        }
+
+        public event EventHandler<LoginEventArgs> Login
+        {
+            add { Events.AddHandler(LoginAuthenticate.EventLogin, value); }
+            remove { Events.RemoveHandler(LoginAuthenticate.EventLogin, value); }
+        }
+
+        public event EventHandler Exit
+        {
+            add { Events.AddHandler(LoginAuthenticate.EventExit, value); }
+            remove { Events.RemoveHandler(LoginAuthenticate.EventExit, value); }
+        }
+
+        private void OnLoginEvent()
         {
             this.Enabled = false;
             try
             {
                 if (!CheckLoginParamIsRight()) return;
 
-                var handler = Login;
+                var handler = (EventHandler<LoginEventArgs>)Events[LoginAuthenticate.EventLogin];
                 if (handler != null)
                 {
-                    var arg = new LoginEventArgs(this.txtUserName.Text, this.txtPassword.Text);
+                    var arg = new LoginEventArgs(this.txtUserName.Text, this.txtPassword.Text, this.chkSavePassword.Checked);
                     handler(this, arg);
 
                     if (!arg.IsSuccess)
@@ -123,11 +159,10 @@ namespace SAF.Framework.Controls
             }
         }
 
-        public event EventHandler Exit;
 
-        private void FireExitEvent()
+        private void OnExitEvent()
         {
-            var handler = Exit;
+            var handler = (EventHandler)Events[LoginAuthenticate.EventExit];
             if (handler != null)
             {
                 var arg = new EventArgs();
@@ -135,21 +170,41 @@ namespace SAF.Framework.Controls
             }
         }
 
+
+        public void LoadConfig()
+        {
+            UserName = UserConfig.Current.UserName;
+            if (UserConfig.Current.SavePassword)
+            {
+                try
+                {
+                    Password = DESHelper.Decrypt(UserConfig.Current.Password, HardwareInfo.GetHardwareId());
+                }
+                catch
+                {
+                    Password = string.Empty;
+                }
+                SavePassword = UserConfig.Current.SavePassword;
+            }
+        }
     }
 
     public class LoginEventArgs : EventArgs
     {
         public string UserName { get; private set; }
         public string Password { get; private set; }
+        public bool SavePassword { get; private set; }
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
 
-        public LoginEventArgs(string userName, string password)
+        public LoginEventArgs(string userName, string password, bool savePassword)
         {
             this.UserName = userName;
             this.Password = password;
             IsSuccess = false;
             Message = string.Empty;
+            this.SavePassword = savePassword;
         }
+
     }
 }

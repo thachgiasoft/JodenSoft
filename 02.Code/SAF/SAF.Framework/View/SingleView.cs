@@ -45,7 +45,7 @@ namespace SAF.Framework.View
             this.Query(condition, args);
         }
 
-        protected override RibbonControl ChildRibbon
+        public override RibbonControl Ribbon
         {
             get
             {

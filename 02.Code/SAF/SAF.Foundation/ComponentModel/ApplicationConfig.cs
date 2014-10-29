@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SAF.Foundation.ComponentModel
 {
-    public static class ApplicationConfigHelper
+    public static class ApplicationConfig
     {
         public static string GetConnectionString(string name)
         {

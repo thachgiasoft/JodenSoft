@@ -65,42 +65,42 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(821, 147);
+            this.ribbonMain.Size = new System.Drawing.Size(819, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
-            this.splitMain.Size = new System.Drawing.Size(821, 265);
+            this.splitMain.Size = new System.Drawing.Size(819, 290);
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(821, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(819, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 440);
-            this.pnlPageControl.Size = new System.Drawing.Size(821, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 439);
+            this.pnlPageControl.Size = new System.Drawing.Size(819, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(817, 26);
+            this.pcMain.Size = new System.Drawing.Size(815, 26);
             // 
             // splitRight
             // 
             this.splitRight.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
             this.splitRight.Panel2.Controls.Add(this.tcDtl);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.Size = new System.Drawing.Size(534, 261);
+            this.splitRight.Size = new System.Drawing.Size(532, 286);
             this.splitRight.SplitterPosition = 130;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(534, 130);
+            this.tcMain.Size = new System.Drawing.Size(532, 130);
             // 
             // pageMain
             // 
-            this.pageMain.Size = new System.Drawing.Size(528, 124);
+            this.pageMain.Size = new System.Drawing.Size(526, 124);
             // 
             // bmMain
             // 
@@ -122,7 +122,7 @@
             this.tcDtl.Name = "tcDtl";
             this.tcDtl.SelectedTabPage = this.pageDtl;
             this.tcDtl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tcDtl.Size = new System.Drawing.Size(534, 126);
+            this.tcDtl.Size = new System.Drawing.Size(532, 151);
             this.tcDtl.TabIndex = 0;
             this.tcDtl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageDtl});
@@ -131,7 +131,7 @@
             // 
             this.pageDtl.Controls.Add(this.standaloneBarDockControl1);
             this.pageDtl.Name = "pageDtl";
-            this.pageDtl.Size = new System.Drawing.Size(528, 120);
+            this.pageDtl.Size = new System.Drawing.Size(526, 145);
             this.pageDtl.Text = "明细数据";
             // 
             // standaloneBarDockControl1
@@ -140,7 +140,7 @@
             this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(528, 29);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(526, 29);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
@@ -212,8 +212,8 @@
             // MasterDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.ClientSize = new System.Drawing.Size(821, 471);
             this.Name = "MasterDetailView";
+            this.Size = new System.Drawing.Size(821, 471);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);

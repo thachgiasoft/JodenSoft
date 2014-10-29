@@ -46,7 +46,8 @@
             this.ribbonMaster.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonMaster.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonMaster.Size = new System.Drawing.Size(759, 147);
+            this.ribbonMaster.Size = new System.Drawing.Size(759, 120);
+            this.ribbonMaster.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // ribbonPage1
             // 
@@ -64,11 +65,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(761, 441);
             this.Controls.Add(this.ribbonMaster);
             this.Name = "MasterDataView";
-            this.Ribbon = this.ribbonMaster;
-            this.Text = "MasterDataView";
+            this.Size = new System.Drawing.Size(761, 441);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMaster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

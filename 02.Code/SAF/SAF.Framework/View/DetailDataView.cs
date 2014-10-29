@@ -15,5 +15,13 @@ namespace SAF.Framework.View
         {
             InitializeComponent();
         }
+
+        public override DevExpress.XtraBars.Ribbon.RibbonControl Ribbon
+        {
+            get
+            {
+                return this.ribbonDetail;
+            }
+        }
     }
 }

@@ -65,7 +65,8 @@
   <ItemGroup>
     <Compile Include="AuditAction.cs" />
     <Compile Include="AuditState.cs" />
-    <Compile Include="ComponentModel\ApplicationConfigHelper.cs" />
+    <Compile Include="ComponentModel\ApplicationConfig.cs" />
+    <Compile Include="ComponentModel\XmlSerializerHelper.cs" />
     <Compile Include="EditStatus.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Interfaces\IShellBase.cs" />
@@ -123,7 +124,7 @@
     <Compile Include="ServiceModel\LoggingService\LoggingService.cs" />
     <Compile Include="ServiceModel\MessageService\MessageService.cs" />
     <Compile Include="ServiceModel\RegistryService\RegistryService.cs" />
-    <Compile Include="ComponentModel\UserConfigHelper.cs" />
+    <Compile Include="ComponentModel\UserConfig.cs" />
     <Compile Include="ComponentModel\Comparison.cs" />
     <Compile Include="ComponentModel\Equality.cs" />
     <Compile Include="ComponentModel\HardwareInfo.cs" />

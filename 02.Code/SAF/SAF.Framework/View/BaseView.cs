@@ -21,7 +21,7 @@ namespace SAF.Framework.View
     /// 
     /// </summary>
     [ToolboxItem(false)]
-    public partial class BaseView : RibbonForm, IBaseView
+    public partial class BaseView : XtraUserControl, IBaseView
     {
         /// <summary>
         /// 
@@ -29,8 +29,6 @@ namespace SAF.Framework.View
         public BaseView()
         {
             InitializeComponent();
-
-            this.Icon = Icon.FromHandle(SAF.Framework.Properties.Resources.Icon_Form_16x16.GetHicon());
         }
 
         protected override Padding DefaultPadding
@@ -102,6 +100,7 @@ namespace SAF.Framework.View
             }
             return false;
         }
+
         private bool IsAction(Keys keyData)
         {
             return defaultActions.ContainsKey(keyData);
@@ -274,7 +273,7 @@ namespace SAF.Framework.View
         }
 
         /// <summary>
-        /// 
+        /// 视图唯一ID
         /// </summary>
         [Browsable(false)]
         public int UniqueId
@@ -373,7 +372,7 @@ namespace SAF.Framework.View
         #region CustomRibbonMenu
 
         [Browsable(false)]
-        protected virtual RibbonControl ChildRibbon
+        public virtual RibbonControl Ribbon
         {
             get
             {
@@ -411,7 +410,7 @@ namespace SAF.Framework.View
         {
             if (this.CustomRibbonMenuCommands == null || CustomRibbonMenuCommands.Count <= 0) return;
 
-            if (this.ChildRibbon == null || this.GroupCustom == null) return;
+            if (this.Ribbon == null || this.GroupCustom == null) return;
 
             foreach (var item in CustomRibbonMenuCommands)
             {
@@ -430,12 +429,74 @@ namespace SAF.Framework.View
                     item.Execute(btn);
                 };
 
-                this.ChildRibbon.Items.Add(btn);
+                this.Ribbon.Items.Add(btn);
                 this.GroupCustom.ItemLinks.Add(btn, item.BeginGroup);
 
                 buttons.Add(btn, item);
             }
         }
         #endregion
+
+        #region 事件
+
+        private static readonly object EventShown;
+        private static readonly object EventClosed;
+        private static readonly object EventClosing;
+
+        static BaseView()
+        {
+            BaseView.EventClosed = new object();
+            BaseView.EventClosing = new object();
+            BaseView.EventShown = new object();
+        }
+
+        public void Close()
+        {
+            var frm = this.FindForm();
+            if (frm != null)
+                frm.Close();
+        }
+
+        public event FormClosedEventHandler Closed
+        {
+            add { base.Events.AddHandler(BaseView.EventClosed, value); }
+            remove { base.Events.RemoveHandler(BaseView.EventClosed, value); }
+        }
+
+        public void OnClosed(FormClosedEventArgs args)
+        {
+            var handler = (EventHandler)base.Events[BaseView.EventClosed];
+            if (handler != null)
+                handler(this, args);
+        }
+
+        public event FormClosingEventHandler Closing
+        {
+            add { base.Events.AddHandler(BaseView.EventClosing, value); }
+            remove { base.Events.RemoveHandler(BaseView.EventClosing, value); }
+        }
+
+        public void OnClosing(FormClosingEventArgs args)
+        {
+            var handler = (EventHandler)base.Events[BaseView.EventClosing];
+            if (handler != null)
+                handler(this, args);
+        }
+
+        public event EventHandler Shown
+        {
+            add { base.Events.AddHandler(BaseView.EventShown, value); }
+            remove { base.Events.RemoveHandler(BaseView.EventShown, value); }
+        }
+
+        public void OnShown()
+        {
+            var handler = (EventHandler)base.Events[BaseView.EventShown];
+            if (handler != null)
+                handler(this, EventArgs.Empty);
+        }
+
+        #endregion
+
     }
 }

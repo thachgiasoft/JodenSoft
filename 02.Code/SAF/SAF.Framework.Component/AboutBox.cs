@@ -31,7 +31,7 @@ namespace SAF.Framework.Component
             this.picLogo.Image = AssemblyInfoHelper.ApplicationImage;
 
             if (subSystemInfos != null)
-                SubSystemInfos.AddRange(subSystemInfos);
+                SubSystemInfos.AddRange(subSystemInfos.OrderBy(p => p.OrderIndex));
 
             this.bsMain.DataSource = this.SubSystemInfos;
 
@@ -50,7 +50,7 @@ namespace SAF.Framework.Component
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(AssemblyInfoHelper.AllVersionInfo);
 
-            foreach (var com in SubSystemInfos)
+            foreach (var com in SubSystemInfos.OrderBy(p => p.OrderIndex))
             {
                 if (com != null)
                 {

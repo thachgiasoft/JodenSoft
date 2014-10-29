@@ -52,7 +52,7 @@ namespace SAF.Framework.Component
         {
             UserLookAndFeel.Default.SetSkinStyle(this.cbxSkins.EditValue.ToStringEx());
             ProgressService.SkinName = UserLookAndFeel.Default.SkinName;
-            ApplicationConfigHelper.SetAppSetting("ApplicationSkinName", UserLookAndFeel.Default.SkinName);
+            ApplicationConfig.SetAppSetting("ApplicationSkinName", UserLookAndFeel.Default.SkinName);
 
             this.Refresh();
         }

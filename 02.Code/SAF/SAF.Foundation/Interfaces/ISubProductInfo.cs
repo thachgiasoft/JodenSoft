@@ -11,6 +11,10 @@ namespace SAF.Foundation
     public interface ISubProductInfo
     {
         /// <summary>
+        /// 显示序号
+        /// </summary>
+        int OrderIndex { get; }
+        /// <summary>
         /// 子系统简称或代号或英文缩写
         /// </summary>
         string Name { get; }
@@ -32,6 +36,8 @@ namespace SAF.Foundation
     /// </summary>
     public abstract class AbstractSubProductInfo : ISubProductInfo
     {
+        public virtual int OrderIndex { get { return 0; } }
+
         public abstract string Name { get; }
 
         public abstract string Title { get; }

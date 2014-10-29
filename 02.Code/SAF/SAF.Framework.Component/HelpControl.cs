@@ -42,7 +42,7 @@ namespace SAF.Framework.Component
             var shell = ApplicationService.Current.MainForm as IShellBase;
             if (shell != null)
             {
-                lblProductInclude.Text = "本产品包含：{0}.".FormatEx(shell.SubProductInfos.Select(p => "{0}({1})".FormatEx(p.Title, p.Name)).JoinText(", "));
+                lblProductInclude.Text = "本产品包含：{0}.".FormatEx(shell.SubProductInfos.OrderBy(p => p.OrderIndex).Select(p => "{0}({1})".FormatEx(p.Title, p.Name)).JoinText(", "));
             }
             else
             {

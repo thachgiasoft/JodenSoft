@@ -9,17 +9,17 @@ namespace SAF.Foundation.ServiceModel
 {
     public class FileDragDropManager
     {
-        private Form ucOwner;
+        private UserControl ucOwner;
         private bool ActiveOwner = false;
 
         public event FileDroppedEventHandler FileDropped;
 
-        public FileDragDropManager(Form owner) :
+        public FileDragDropManager(UserControl owner) :
             this(owner, false)
         {
         }
 
-        public FileDragDropManager(Form owner, bool activeOwner)
+        public FileDragDropManager(UserControl owner, bool activeOwner)
         {
             this.ActiveOwner = activeOwner;
 

@@ -1,36 +1,36 @@
-﻿using System;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraSplashScreen;
+using DevExpress.XtraTreeList;
+using SAF.EntityFramework;
+using SAF.Foundation;
+using SAF.Foundation.ComponentModel;
+using SAF.Foundation.Security;
+using SAF.Foundation.ServiceModel;
+using SAF.Framework;
+using SAF.Framework.Controls;
+using SAF.Framework.Controls.Entities;
+using SAF.Framework.ServiceModel;
+using SAF.SystemModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraBars;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraBars.Helpers;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using SAF.SystemModule;
-using SAF.Framework.Controls;
-using DevExpress.XtraSplashScreen;
-using System.Threading;
-using SAF.Foundation.ServiceModel;
-using SAF.Foundation;
-using System.ComponentModel.Composition;
-using SAF.Foundation.ComponentModel;
-using System.Web.Security;
-using SAF.Foundation.Security;
-using SAF.EntityFramework;
-using SAF.Framework.ServiceModel;
-using SAF.Framework;
-using System.Security;
-using System.Runtime.InteropServices;
-using SAF.Framework.Controls.Entities;
-using DevExpress.XtraTreeList;
 using System.Reflection;
-using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Text;
+using System.Threading;
+using System.Web.Security;
+using System.Windows.Forms;
 
 namespace SAF.Client
 {
@@ -96,11 +96,8 @@ namespace SAF.Client
             {
                 this.Activate();
 
-                string userName;
-                UserConfigHelper.GetUser(out userName);
-                loginControl.UserName = userName;
                 //设置焦点
-                if (string.IsNullOrWhiteSpace(userName))
+                if (string.IsNullOrWhiteSpace(UserConfig.Current.UserName))
                 {
                     loginControl.FocusUserName();
                 }
@@ -122,10 +119,17 @@ namespace SAF.Client
 
             this.WindowState = FormWindowState.Maximized;
 
+            InitLoginControl();
+        }
+
+        private void InitLoginControl()
+        {
             loginControl = new LoginAuthenticate();
             loginControl.Dock = DockStyle.Fill;
             loginControl.Login += loginControl_Login;
             loginControl.Exit += loginControl_Exit;
+
+            loginControl.LoadConfig();
 
             this.Controls.Add(loginControl);
         }
@@ -156,7 +160,7 @@ namespace SAF.Client
 
             var userName = e.UserName;
             var password = e.Password;
-            if (password.IsEmpty()) password = "admin";
+
             string msg;
             password = SHA1Helper.Hash(password);
             if (!provider.Login(userName, password, out msg))
@@ -167,7 +171,14 @@ namespace SAF.Client
             }
             else
             {
-                UserConfigHelper.SaveUser(e.UserName);
+                UserConfig.Current.UserName = e.UserName;
+                UserConfig.Current.SavePassword = e.SavePassword;
+                if (e.SavePassword)
+                {
+                    UserConfig.Current.Password = DESHelper.Encrypt(e.Password, HardwareInfo.GetHardwareId());
+                }
+                UserConfig.Current.Save();
+
                 e.IsSuccess = true;
 
                 this.NotifyMessage("初始化工作区...");
@@ -445,8 +456,11 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                                 ctl.UniqueId = iMenuId;
                                 ctl.Init();
                                 ctl.Text = drv["Name"].ToString();
-                                ctl.MdiParent = this;
-                                ctl.Show();
+
+                                var frm = ctl.CreateRibbonContainer();
+                                frm.Icon = Icon.FromHandle(SAF.Client.Properties.Resources.Icon_Form_16x16.GetHicon());
+                                frm.MdiParent = this;
+                                frm.Show();
                             }
                             else
                                 throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatEx(className));
@@ -476,8 +490,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
         {
             foreach (var item in this.MdiChildren)
             {
-                var frm = item as SAF.Framework.View.BaseView;
-                if (frm != null && frm.UniqueId == iMenuId)
+                if (item.Tag != null && item.Tag.ToString() == iMenuId.ToString())
                     return item;
             }
             return null;

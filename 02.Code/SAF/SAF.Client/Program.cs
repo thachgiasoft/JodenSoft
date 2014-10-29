@@ -38,7 +38,7 @@ namespace SAF.Client
             DevExpress.UserSkins.BonusSkins.Register();
             DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9f);
 
-            var skinName = ApplicationConfigHelper.GetAppSetting("ApplicationSkinName");
+            var skinName = ApplicationConfig.GetAppSetting("ApplicationSkinName");
             if (skinName.IsEmpty())
                 skinName = "Office 2013";
             UserLookAndFeel.Default.SetSkinStyle(skinName);
@@ -72,7 +72,7 @@ namespace SAF.Client
 
         private static void Upgrade()
         {
-            var autoUpgrade = ApplicationConfigHelper.GetAppSetting("AutoUpgrade");
+            var autoUpgrade = ApplicationConfig.GetAppSetting("AutoUpgrade");
 
             if (autoUpgrade.IsEmpty() || autoUpgrade.Trim().Equals("true", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -97,9 +97,9 @@ namespace SAF.Client
         {
             try
             {
-                if (!Directory.Exists(UserConfigHelper.ConfigPath))
+                if (!Directory.Exists(ApplicationService.Current.ConfigFilePath))
                 {
-                    Directory.CreateDirectory(UserConfigHelper.ConfigPath);
+                    Directory.CreateDirectory(ApplicationService.Current.ConfigFilePath);
                 }
             }
             catch (Exception ex)

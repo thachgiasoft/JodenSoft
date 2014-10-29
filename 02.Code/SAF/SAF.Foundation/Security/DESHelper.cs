@@ -22,7 +22,7 @@ namespace SAF.Foundation.Security
         /// <param name="key">密钥</param>
         /// <param name="encryptString">要加密的字符串</param>
         /// <returns>加密后的字符串</returns>
-        private static string Encrypt(string key, string encryptString)
+        public static string Encrypt(string encryptString, string key)
         {
             if (string.IsNullOrWhiteSpace(key))
                 key = _Key;
@@ -58,7 +58,7 @@ namespace SAF.Foundation.Security
         /// <param name="key">密钥</param>
         /// <param name="decryptString">要解密的字符串</param>
         /// <returns>解密后的字符串</returns>
-        private static string Decrypt(string key, string decryptString)
+        public static string Decrypt(string decryptString, string key)
         {
             if (string.IsNullOrWhiteSpace(key))
                 key = _Key;

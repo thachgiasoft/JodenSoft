@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SAF.Foundation.ServiceModel
@@ -70,7 +72,19 @@ namespace SAF.Foundation.ServiceModel
             ProcessStartInfo startInfo = Process.GetCurrentProcess().StartInfo;
             startInfo.FileName = System.Reflection.Assembly.GetEntryAssembly().Location;
             Process.Start(startInfo);
-            Environment.Exit(0);
+            Thread.Sleep(5);
+            Process.GetCurrentProcess().Kill();
+        }
+
+        /// <summary>
+        /// 配置文件路径
+        /// </summary>
+        public string ConfigFilePath
+        {
+            get
+            {
+                return Path.Combine(Application.StartupPath, "Config");
+            }
         }
     }
 }
