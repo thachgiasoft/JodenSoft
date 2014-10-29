@@ -182,20 +182,26 @@ namespace SAF.Client
                 e.IsSuccess = true;
 
                 this.NotifyMessage("初始化工作区...");
-                this.InitMenuTree();
-                this.TreeMenu.SelectImageList = this.imageCollectionTreeList;
-                this.TreeMenu.GetSelectImage += TreeMenu_GetSelectImage;
-                this.TreeMenu.DoubleClick += TreeMenu_DoubleClick;
-                this.txtFind.EditValueChanged += txtFind_EditValueChanged;
-
-                this.Controls.Remove(loginControl);
-                loginControl.Dispose();
-
-                this.splMenu.Visible = true;
-                this.navMainMenu.Visible = true;
+                InitWorkspace();
 
                 this.NotifyMessage("就绪...");
             }
+        }
+
+        private void InitWorkspace()
+        {
+            this.InitMenuTree();
+            this.TreeMenu.SelectImageList = this.imageCollectionTreeList;
+            this.TreeMenu.GetSelectImage += TreeMenu_GetSelectImage;
+            this.TreeMenu.DoubleClick += TreeMenu_DoubleClick;
+            this.txtFind.EditValueChanged += txtFind_EditValueChanged;
+            this.btnRefreshMenu.Click+=btnRefreshMenu_Click;
+
+            this.Controls.Remove(loginControl);
+            loginControl.Dispose();
+
+            this.splMenu.Visible = true;
+            this.navMainMenu.Visible = true;
         }
 
         public RibbonControl RibbonControl

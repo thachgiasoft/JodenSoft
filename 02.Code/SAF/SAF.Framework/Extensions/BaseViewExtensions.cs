@@ -53,6 +53,7 @@ namespace SAF.Framework
 
                 container.FormClosing += (sender, args) =>
                 {
+                    args.Cancel = false;
                     ctl.OnClosing(args);
                 };
 
