@@ -134,7 +134,6 @@
     <Compile Include="SplashScreen\SplashScreen.designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UIController.cs" />
     <Compile Include="ViewConfig\QueryConfig.cs" />
     <Compile Include="ViewConfig\QueryField.cs" />
     <Compile Include="ViewConfig\QuickQuery.cs" />

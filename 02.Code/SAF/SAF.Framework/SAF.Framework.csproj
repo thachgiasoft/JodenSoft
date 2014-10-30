@@ -93,6 +93,7 @@
     <Compile Include="ServiceModel\FormMembershipProvider.cs" />
     <Compile Include="Interfaces\IDataEdit.cs" />
     <Compile Include="Interfaces\IDataSelect.cs" />
+    <Compile Include="ServiceModel\UIController.cs" />
     <Compile Include="ViewModel\BaseViewViewModel.cs" />
     <Compile Include="ViewModel\BusinessViewViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewViewModel.cs" />

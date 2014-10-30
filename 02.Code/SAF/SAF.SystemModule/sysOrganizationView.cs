@@ -10,6 +10,7 @@ using SAF.Framework.View;
 using DevExpress.XtraEditors.Controls;
 using SAF.Framework.Controls;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework;
 
 namespace SAF.SystemModule
 {

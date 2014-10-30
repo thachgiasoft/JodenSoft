@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.View;
-using SAF.Framework.Controls;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework;
 
 namespace SAF.SystemModule
 {

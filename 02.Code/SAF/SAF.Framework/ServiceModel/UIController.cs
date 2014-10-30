@@ -18,7 +18,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraLayout;
 using DevExpress.XtraTab;
 
-namespace SAF.Framework.Controls
+namespace SAF.Framework
 {
     public static class UIController
     {
@@ -188,12 +188,12 @@ namespace SAF.Framework.Controls
             else
             {
                 Color color = bEnabled ? colorTrue : colorFalse;
+                aControl.BackColor = color;
                 //ComboBoxEdit、TextEdit、MemoEdit、CheckEdit
                 RepositoryItem item = aControl.GetProperties<RepositoryItem>(true).FirstOrDefault();
                 if (item != null)
                 {
                     item.ReadOnly = !bEnabled;
-                    (aControl as Control).BackColor = color;
                     if (item is RepositoryItemButtonEdit)
                     {
                         foreach (EditorButton d in (item as RepositoryItemButtonEdit).Buttons)
@@ -201,6 +201,10 @@ namespace SAF.Framework.Controls
                             d.Enabled = bEnabled;
                         }
                     }
+                }
+                else
+                {
+                    aControl.Enabled = bEnabled;
                 }
             }
         }

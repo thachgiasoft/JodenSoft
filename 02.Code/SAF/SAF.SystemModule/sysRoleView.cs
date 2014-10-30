@@ -11,6 +11,7 @@ using SAF.Framework.Controls;
 using SAF.Foundation.MetaAttributes;
 using DevExpress.XtraTreeList.Nodes;
 using SAF.Foundation;
+using SAF.Framework;
 
 namespace SAF.SystemModule
 {
