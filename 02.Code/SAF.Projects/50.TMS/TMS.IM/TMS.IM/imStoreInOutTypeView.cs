@@ -68,6 +68,11 @@ namespace TMS.IM
             IndexRowChange();
         }
 
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         
 

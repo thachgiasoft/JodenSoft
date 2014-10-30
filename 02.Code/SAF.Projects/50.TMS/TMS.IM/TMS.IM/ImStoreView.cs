@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
-using SAF.Framework.Controls;
+using SAF.Framework;
 using SAF.Foundation.MetaAttributes;
 
 namespace TMS.IM

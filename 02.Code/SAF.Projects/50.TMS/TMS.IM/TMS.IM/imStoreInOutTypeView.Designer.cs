@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.checkBox = new System.Windows.Forms.CheckBox();
+            this.chkbUable = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpAuto = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpType = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUp = new DevExpress.XtraEditors.LookUpEdit();
@@ -39,7 +39,7 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,9 +63,9 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkbUable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).BeginInit();
@@ -75,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -110,7 +110,7 @@
             // 
             // lcMain
             // 
-            this.lcMain.Controls.Add(this.checkBox);
+            this.lcMain.Controls.Add(this.chkbUable);
             this.lcMain.Controls.Add(this.lookUpAuto);
             this.lcMain.Controls.Add(this.lookUpType);
             this.lcMain.Controls.Add(this.lookUp);
@@ -123,15 +123,16 @@
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
-            // checkBox
+            // chkbUable
             // 
-            this.checkBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.bsMain, "bUsable", true));
-            this.checkBox.Location = new System.Drawing.Point(2, 98);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(485, 20);
-            this.checkBox.TabIndex = 9;
-            this.checkBox.Text = "是否启用";
-            this.checkBox.UseVisualStyleBackColor = true;
+            this.chkbUable.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "bUsable", true));
+            this.chkbUable.Location = new System.Drawing.Point(2, 98);
+            this.chkbUable.MenuManager = this.ribbonMain;
+            this.chkbUable.Name = "chkbUable";
+            this.chkbUable.Properties.Caption = "是否可用";
+            this.chkbUable.Size = new System.Drawing.Size(485, 19);
+            this.chkbUable.StyleController = this.lcMain;
+            this.chkbUable.TabIndex = 10;
             // 
             // lookUpAuto
             // 
@@ -197,7 +198,7 @@
             this.layoutControlItem6,
             this.layoutControlItem5,
             this.layoutControlItem7,
-            this.layoutControlItem8});
+            this.layoutControlItem9});
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -245,17 +246,17 @@
             this.layoutControlItem7.Text = "自动产生";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // layoutControlItem8
+            // layoutControlItem9
             // 
-            this.layoutControlItem8.Control = this.checkBox;
-            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(489, 182);
-            this.layoutControlItem8.Text = "layoutControlItem8";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextToControlDistance = 0;
-            this.layoutControlItem8.TextVisible = false;
+            this.layoutControlItem9.Control = this.chkbUable;
+            this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(489, 182);
+            this.layoutControlItem9.Text = "layoutControlItem9";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextToControlDistance = 0;
+            this.layoutControlItem9.TextVisible = false;
             // 
             // grdIndex
             // 
@@ -360,9 +361,9 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkbUable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpAuto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUp.Properties)).EndInit();
@@ -372,7 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -398,11 +399,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.LookUpEdit lookUp;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private System.Windows.Forms.CheckBox checkBox;
         private DevExpress.XtraEditors.LookUpEdit lookUpAuto;
         private DevExpress.XtraEditors.LookUpEdit lookUpType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.CheckEdit chkbUable;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }
