@@ -14,6 +14,7 @@ using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.Framework.Controls;
 using DevExpress.XtraBars;
+using SAF.EntityFramework;
 
 namespace SAF.Framework.View
 {
@@ -23,6 +24,13 @@ namespace SAF.Framework.View
         public SingleView()
         {
             InitializeComponent();
+        }
+
+        protected override void OnInitBillRight()
+        {
+            base.OnInitBillRight();
+
+            this.ViewModel.MainEntitySet.BillTypeId = this.BillTypeId;
         }
 
         protected override void OnInitQueryConfig()
@@ -484,7 +492,11 @@ namespace SAF.Framework.View
 
             int count = this.ViewModel.MainEntitySet.Count;
 
-            UIController.RefreshControl(this.bbiAddNew, IsBrowse);
+            var operateRight = this.ViewModel.MainEntitySet.BillOperateRight;
+
+            bool canAddNew = operateRight.IncludeEnum(BillOperateRight.AddNew);
+
+            UIController.RefreshControl(this.bbiAddNew, IsBrowse && canAddNew);
             UIController.RefreshControl(this.bbiEdit, IsBrowse && count > 0);
             UIController.RefreshControl(this.bbiDelete, IsBrowse && count > 0);
             UIController.RefreshControl(this.bbiCancel, IsAddNew || IsEdit);

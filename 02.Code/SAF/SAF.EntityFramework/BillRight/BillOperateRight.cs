@@ -12,7 +12,7 @@ namespace SAF.EntityFramework
     public enum BillOperateRight
     {
         None = 0,
-        Insert = 1,
+        AddNew = 1,
         Extend1 = 2,
         Extend2 = 4,
         Extend3 = 8,

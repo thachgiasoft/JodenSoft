@@ -10,6 +10,6 @@ namespace SAF.Framework.View
         /// <summary>
         /// 单据类型ID
         /// </summary>
-        string BillTypeId { get; set; }
+        int BillTypeId { get; set; }
     }
 }

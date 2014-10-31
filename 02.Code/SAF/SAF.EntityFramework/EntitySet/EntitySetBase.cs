@@ -223,6 +223,9 @@ namespace SAF.EntityFramework
 
             DataSet ds;
 
+            if (this.BillTypeId > 0)
+                commandText = BillRight.CalcBillQueryRight(commandText, this.BillTypeId, Session.Current.UserId);
+
             if (this.PageSize <= 0)
             {
                 ds = DataPortal.ExecuteDataset(this.ConnectionName, commandText, parameterValues);
@@ -570,6 +573,82 @@ namespace SAF.EntityFramework
             if (!FieldIsExists(fieldName))
                 throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatEx(fieldName));
             return this.DataTable.Columns[fieldName].DataType;
+        }
+
+        private int _BillTypeId = 0;
+        /// <summary>
+        /// 单据类型
+        /// </summary>
+        public int BillTypeId
+        {
+            get { return this._BillTypeId; }
+            set
+            {
+                _BillTypeId = value;
+                QueryBillRight();
+            }
+        }
+
+        /// <summary>
+        /// 单据权限
+        /// </summary>
+        private BillRightInfo BillRightInfo { get; set; }
+
+        /// <summary>
+        /// 单据操作权限
+        /// </summary>
+        public BillOperateRight BillOperateRight
+        {
+            get
+            {
+                return BillRightInfo == null || !BillRightInfo.UseOperateRight ? BillOperateRight.All : BillRightInfo.OperateRight;
+            }
+        }
+
+        /// <summary>
+        /// 查询单据权限
+        /// </summary>
+        /// <param name="billTypeId">单据类型</param>
+        /// <param name="userId">用户ID</param>
+        /// <param name="organizationId">部门ID(组织架构)</param>
+        public void QueryBillRight(int organizationId = 0)
+        {
+            if (this.BillTypeId > 0)
+                BillRightInfo = BillRight.QueryBillRight(this.BillTypeId, Session.Current.UserId, organizationId);
+        }
+
+        /// <summary>
+        /// 缓存每一行数据的单据数据权限值
+        /// </summary>
+        private Dictionary<object, BillDataRight> dictBillRights = new Dictionary<object, BillDataRight>();
+        /// <summary>
+        /// 计算单据数据权限
+        /// </summary>
+        /// <param name="entity">实体</param>
+        /// <param name="forceCalc">是否强制重新计算</param>
+        /// <returns>数据权限值</returns>
+        public BillDataRight CalcBillDataRight(IEntityBase entity, bool forceCalc)
+        {
+            if (entity == null)
+                return BillDataRight.None;
+            if (BillRightInfo == null || BillRightInfo.BillTypeId <= 0 || !BillRightInfo.UseDataRight)
+                return BillDataRight.All;
+            object key = entity.GetFieldValue<object>(entity.PrimaryKeyName);
+            if (dictBillRights.ContainsKey(key))
+            {
+                if (!forceCalc)
+                    return dictBillRights[key];
+                //强制重新计算
+                BillDataRight dr = BillRight.CalcEntityBillDataRight(entity, BillRightInfo);
+                dictBillRights[key] = dr;
+                return dr;
+            }
+            else
+            {
+                BillDataRight dr = BillRight.CalcEntityBillDataRight(entity, BillRightInfo);
+                dictBillRights.Add(key, dr);
+                return dr;
+            }
         }
     }
 }

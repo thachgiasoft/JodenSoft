@@ -165,7 +165,7 @@ namespace SAF.EntityFramework
         {
             get
             {
-                return this.DataRowView==null?DataRowState.Unchanged: this.DataRowView.Row.RowState;
+                return this.DataRowView == null ? DataRowState.Unchanged : this.DataRowView.Row.RowState;
             }
         }
         /// <summary>
@@ -256,6 +256,14 @@ namespace SAF.EntityFramework
             if (!FieldIsExists(fieldName))
                 throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatEx(fieldName));
             return this.DataRowView.Row.Table.Columns[fieldName].DataType;
+        }
+
+        /// <summary>
+        /// 数据权限
+        /// </summary>
+        public BillDataRight BillDataRight
+        {
+            get { return this.EntitySet.CalcBillDataRight(this, false); }
         }
     }
 }

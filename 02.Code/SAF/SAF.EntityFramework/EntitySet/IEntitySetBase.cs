@@ -36,6 +36,13 @@ namespace SAF.EntityFramework
         #endregion
 
         /// <summary>
+        ///  单据类型
+        /// </summary>
+        int BillTypeId { get; set; }
+
+        BillOperateRight BillOperateRight { get; }
+
+        /// <summary>
         /// 子实体集
         /// </summary>
         EntitySetBaseCollection ChildEntitySets { get; }

@@ -8,24 +8,22 @@ namespace SAF.EntityFramework
 {
     public class BillRightInfo
     {
-        public BillRightType AllowRightType;
-        public int BillTypeId;
-        public DataTable DataRights;
-        public BillOperateRight OperateRight;
-        public string CreateByField;
-        public string OrganizationCodeField;
-        public string OrganizationIdField;
-        public bool UseDataRight;
-        public bool UseOperateRight;
+        public BillRightType AllowRightType { get; set; }
+        public int BillTypeId { get; set; }
+        public DataTable DataRights { get; set; }
+        public BillOperateRight OperateRight { get; set; }
+
+        public static readonly string CreateByField = "CreateBy";
+        public static readonly string OrganizationCodeField = "OrganizationCode";
+        public static readonly string OrganizationIdField = "OrganizationId";
+
+        public bool UseDataRight { get; set; }
+        public bool UseOperateRight { get; set; }
 
         public BillRightInfo()
         {
             AllowRightType = BillRightType.All;
             OperateRight = BillOperateRight.All;
-
-            CreateByField = "CreateBy";
-            OrganizationCodeField = "OrganizationCode";
-            OrganizationIdField = "OrganizationId";
         }
     }
 }

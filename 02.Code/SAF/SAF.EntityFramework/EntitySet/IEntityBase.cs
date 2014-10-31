@@ -13,6 +13,19 @@ namespace SAF.EntityFramework
     public interface IEntityBase : INotifyPropertyChanged
     {
         /// <summary>
+        /// 数据库表名
+        /// </summary>
+        string DbTableName { get; }
+        /// <summary>
+        /// 主键名称
+        /// </summary>
+        string PrimaryKeyName { get; }
+        /// <summary>
+        /// 数据权限
+        /// </summary>
+        BillDataRight BillDataRight { get; }
+
+        /// <summary>
         /// 
         /// </summary>
         DataRowView DataRowView { get; set; }

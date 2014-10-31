@@ -25,48 +25,10 @@ namespace SAF.EntityFramework
             {
                 return CreateDatabase();
             }
-
-            var ConList = CacheService.RetriveObject(CacheKey.sysConnectionString) as EntitySet<sysConnection>;
-            if (ConList == null)
-            {
-                ConList = new EntitySet<sysConnection>();
-                ConList.Query("select * from sysDatabase with(nolock)");
-                if (ConList.Count <= 0)
-                {
-                    throw new Exception("sysDatabase表中未配置数据库连接字符串.");
-                }
-                CacheService.AddObject(CacheKey.sysConnectionString, ConList);
-            }
-
-            sysConnection db = ConList.FirstOrDefault(p => p.Name.Equals(connectionName, StringComparison.CurrentCultureIgnoreCase));
-            if (db == null)
-            {
-                throw new Exception("sysDatabase表中未配置名称为{0}的数据库连接字符串.".FormatEx(connectionName));
-            }
-
-            string connectionString = db.ConnectionString;
-            if (connectionString.IsEmpty())
-                throw new Exception(String.Format("The connection string of ('{0}') is null or empty.", db.Name));
-
-            try
-            {
-                connectionString = AESHelper.Decrypt(connectionString);
-            }
-            catch (Exception ex)
-            {
-                throw new CoreException("系统默认连接字符串不合法,可能未加密.", ex);
-            }
-
-            string provider = db.ProviderName;
-            if (provider.IsEmpty())
-            {
-                provider = "System.Data.SqlClient";
-            }
-
-            if (provider.Equals("System.Data.SqlClient", StringComparison.InvariantCultureIgnoreCase))
-                return new SqlDatabase(connectionString);
             else
-                return new SqlDatabase(connectionString);
+            {
+                throw new ApplicationException("不存在名称为'{0}'的数据库连接字符串,请使用默认连接.".FormatEx(connectionName));
+            }
         }
 
         /// <summary>

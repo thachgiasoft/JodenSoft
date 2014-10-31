@@ -64,6 +64,7 @@ namespace SAF.Framework.View
             if (this.DesignMode) return;
 
             OnInitViewParam();
+            OnInitBillRight();
             GenarateCustomRibbonMenu();
             OnInitConfig();
             OnInitUI();
@@ -73,6 +74,11 @@ namespace SAF.Framework.View
             OnInitBinding();
             OnInitDefaultActions();
             RefreshUI();
+        }
+
+        protected virtual void OnInitBillRight()
+        {
+
         }
 
         protected virtual void OnInitViewParam()
@@ -339,10 +345,10 @@ namespace SAF.Framework.View
 
         [Browsable(false)]
         [ViewParam("单据类型")]
-        public virtual string BillTypeId
+        public virtual int BillTypeId
         {
-            get { return this.GetViewParam("BillTypeId"); }
-            set { this.SetViewParam("BillTypeId", value); }
+            get { return Convert.ToInt32(this.GetViewParam("BillTypeId")); }
+            set { this.SetViewParam("BillTypeId", value.ToString()); }
         }
 
         protected virtual string CalcCondition(string condition)
