@@ -340,5 +340,33 @@ namespace SAF.Foundation
         }
 
         #endregion
+
+        public static string Between(this string s, string preWord, string afterWord, bool bIncludeSelf, ref int iStart)
+        {
+            if (preWord.IsEmpty() && afterWord.IsEmpty())
+                return string.Empty;
+            else if (preWord.IsEmpty())
+                return Before(s, afterWord, bIncludeSelf);
+            else if (afterWord.IsEmpty())
+                return After(s, preWord, bIncludeSelf);
+            else
+            {
+                if (iStart < 0)
+                    iStart = 0;
+                int iLen = preWord.Length;
+                iStart = s.IndexOf(preWord, iStart, StringComparison.OrdinalIgnoreCase);
+                int j = s.IndexOf(afterWord, iStart + iLen, StringComparison.OrdinalIgnoreCase);
+                if (iStart == -1 && j == -1)
+                    return string.Empty;
+                else if (iStart == -1 && j != -1)
+                    return Before(s, afterWord, bIncludeSelf);
+                else if (iStart != -1 && j == -1)
+                    return After(s, preWord, bIncludeSelf);
+                else if (bIncludeSelf)
+                    return s.Substring(iStart, j - iStart + afterWord.Length);
+                else
+                    return s.Substring(iStart + iLen, j - iStart - iLen);
+            }
+        }
     }
 }

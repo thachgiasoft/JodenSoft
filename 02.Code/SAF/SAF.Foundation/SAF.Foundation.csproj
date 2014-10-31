@@ -69,6 +69,7 @@
     <Compile Include="ComponentModel\XmlSerializerHelper.cs" />
     <Compile Include="EditStatus.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Extensions\DataRowExtensions.cs" />
     <Compile Include="Interfaces\IShellBase.cs" />
     <Compile Include="Interfaces\ISubProductInfo.cs" />
     <Compile Include="LoadAssemblyProxyObject.cs" />

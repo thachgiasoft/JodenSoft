@@ -71,6 +71,7 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).BeginInit();
@@ -102,13 +103,13 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(900, 145);
+            this.ribbonMain.Size = new System.Drawing.Size(898, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
-            this.splitMain.Size = new System.Drawing.Size(900, 280);
+            this.splitMain.Size = new System.Drawing.Size(898, 303);
             // 
             // bsIndex
             // 
@@ -120,33 +121,33 @@
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(900, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(898, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 453);
-            this.pnlPageControl.Size = new System.Drawing.Size(900, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 452);
+            this.pnlPageControl.Size = new System.Drawing.Size(898, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(896, 26);
+            this.pcMain.Size = new System.Drawing.Size(894, 26);
             // 
             // splitRight
             // 
             this.splitRight.Panel2.Controls.Add(this.tcDtl);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.Size = new System.Drawing.Size(613, 276);
+            this.splitRight.Size = new System.Drawing.Size(611, 299);
             this.splitRight.SplitterPosition = 119;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(613, 119);
+            this.tcMain.Size = new System.Drawing.Size(611, 119);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(607, 113);
+            this.pageMain.Size = new System.Drawing.Size(605, 113);
             // 
             // lcMain
             // 
@@ -162,14 +163,14 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(607, 113);
+            this.lcMain.Size = new System.Drawing.Size(605, 113);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
             // chkIsSystem
             // 
             this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
-            this.chkIsSystem.Location = new System.Drawing.Point(528, 26);
+            this.chkIsSystem.Location = new System.Drawing.Point(526, 26);
             this.chkIsSystem.MenuManager = this.ribbonMain;
             this.chkIsSystem.Name = "chkIsSystem";
             this.chkIsSystem.Properties.Caption = "系统用户";
@@ -180,7 +181,7 @@
             // chkIsActive
             // 
             this.chkIsActive.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsActive", true));
-            this.chkIsActive.Location = new System.Drawing.Point(453, 26);
+            this.chkIsActive.Location = new System.Drawing.Point(451, 26);
             this.chkIsActive.MenuManager = this.ribbonMain;
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Properties.Caption = "已激活";
@@ -194,7 +195,7 @@
             this.txtMemo.Location = new System.Drawing.Point(53, 50);
             this.txtMemo.MenuManager = this.ribbonMain;
             this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(552, 61);
+            this.txtMemo.Size = new System.Drawing.Size(550, 61);
             this.txtMemo.StyleController = this.lcMain;
             this.txtMemo.TabIndex = 9;
             this.txtMemo.UseOptimizedRendering = true;
@@ -202,10 +203,10 @@
             // txtTelNo
             // 
             this.txtTelNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "TelephoneNo", true));
-            this.txtTelNo.Location = new System.Drawing.Point(277, 26);
+            this.txtTelNo.Location = new System.Drawing.Point(276, 26);
             this.txtTelNo.MenuManager = this.ribbonMain;
             this.txtTelNo.Name = "txtTelNo";
-            this.txtTelNo.Size = new System.Drawing.Size(172, 20);
+            this.txtTelNo.Size = new System.Drawing.Size(171, 20);
             this.txtTelNo.StyleController = this.lcMain;
             this.txtTelNo.TabIndex = 8;
             // 
@@ -215,17 +216,17 @@
             this.txtEmail.Location = new System.Drawing.Point(53, 26);
             this.txtEmail.MenuManager = this.ribbonMain;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(169, 20);
+            this.txtEmail.Size = new System.Drawing.Size(168, 20);
             this.txtEmail.StyleController = this.lcMain;
             this.txtEmail.TabIndex = 7;
             // 
             // txtUserFullName
             // 
             this.txtUserFullName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UserFullName", true));
-            this.txtUserFullName.Location = new System.Drawing.Point(277, 2);
+            this.txtUserFullName.Location = new System.Drawing.Point(276, 2);
             this.txtUserFullName.MenuManager = this.ribbonMain;
             this.txtUserFullName.Name = "txtUserFullName";
-            this.txtUserFullName.Size = new System.Drawing.Size(172, 20);
+            this.txtUserFullName.Size = new System.Drawing.Size(171, 20);
             this.txtUserFullName.StyleController = this.lcMain;
             this.txtUserFullName.TabIndex = 6;
             // 
@@ -235,14 +236,14 @@
             this.txtUserNo.Location = new System.Drawing.Point(53, 2);
             this.txtUserNo.MenuManager = this.ribbonMain;
             this.txtUserNo.Name = "txtUserNo";
-            this.txtUserNo.Size = new System.Drawing.Size(169, 20);
+            this.txtUserNo.Size = new System.Drawing.Size(168, 20);
             this.txtUserNo.StyleController = this.lcMain;
             this.txtUserNo.TabIndex = 5;
             // 
             // txtUserId
             // 
             this.txtUserId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtUserId.Location = new System.Drawing.Point(504, 2);
+            this.txtUserId.Location = new System.Drawing.Point(502, 2);
             this.txtUserId.MenuManager = this.ribbonMain;
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(101, 20);
@@ -266,7 +267,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(607, 113);
+            this.lcgMain.Size = new System.Drawing.Size(605, 113);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -274,7 +275,7 @@
             // 
             this.layoutControlItem1.Control = this.txtUserId;
             this.layoutControlItem1.CustomizationFormText = "用户Id";
-            this.layoutControlItem1.Location = new System.Drawing.Point(451, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(449, 0);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(156, 24);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(156, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -289,7 +290,7 @@
             this.layoutControlItem2.CustomizationFormText = "用户名";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(224, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(223, 24);
             this.layoutControlItem2.Text = "用户名";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -297,9 +298,9 @@
             // 
             this.layoutControlItem3.Control = this.txtUserFullName;
             this.layoutControlItem3.CustomizationFormText = "用户姓名";
-            this.layoutControlItem3.Location = new System.Drawing.Point(224, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(223, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(226, 24);
             this.layoutControlItem3.Text = "用户姓名";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -309,7 +310,7 @@
             this.layoutControlItem4.CustomizationFormText = "邮箱";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(224, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(223, 24);
             this.layoutControlItem4.Text = "邮箱";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -317,9 +318,9 @@
             // 
             this.layoutControlItem5.Control = this.txtTelNo;
             this.layoutControlItem5.CustomizationFormText = "手机号";
-            this.layoutControlItem5.Location = new System.Drawing.Point(224, 24);
+            this.layoutControlItem5.Location = new System.Drawing.Point(223, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(226, 24);
             this.layoutControlItem5.Text = "手机号";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -329,7 +330,7 @@
             this.layoutControlItem6.CustomizationFormText = "备注";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(607, 65);
+            this.layoutControlItem6.Size = new System.Drawing.Size(605, 65);
             this.layoutControlItem6.Text = "备注";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -337,7 +338,7 @@
             // 
             this.layoutControlItem7.Control = this.chkIsActive;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(451, 24);
+            this.layoutControlItem7.Location = new System.Drawing.Point(449, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(75, 24);
             this.layoutControlItem7.Text = "layoutControlItem7";
@@ -349,7 +350,7 @@
             // 
             this.layoutControlItem8.Control = this.chkIsSystem;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(526, 24);
+            this.layoutControlItem8.Location = new System.Drawing.Point(524, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(81, 24);
             this.layoutControlItem8.Text = "layoutControlItem8";
@@ -363,7 +364,7 @@
             this.tcDtl.Location = new System.Drawing.Point(0, 0);
             this.tcDtl.Name = "tcDtl";
             this.tcDtl.SelectedTabPage = this.pageUserRole;
-            this.tcDtl.Size = new System.Drawing.Size(613, 152);
+            this.tcDtl.Size = new System.Drawing.Size(611, 175);
             this.tcDtl.TabIndex = 0;
             this.tcDtl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageUserRole});
@@ -372,7 +373,7 @@
             // 
             this.pageUserRole.Controls.Add(this.treeRole);
             this.pageUserRole.Name = "pageUserRole";
-            this.pageUserRole.Size = new System.Drawing.Size(607, 123);
+            this.pageUserRole.Size = new System.Drawing.Size(605, 146);
             this.pageUserRole.Text = "用户所属系统角色";
             // 
             // treeRole
@@ -390,7 +391,7 @@
             this.treeRole.OptionsView.ShowIndicator = false;
             this.treeRole.OptionsView.ShowVertLines = false;
             this.treeRole.ParentFieldName = "ParentId";
-            this.treeRole.Size = new System.Drawing.Size(607, 123);
+            this.treeRole.Size = new System.Drawing.Size(605, 146);
             this.treeRole.TabIndex = 0;
             // 
             // colName
@@ -416,7 +417,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 276);
+            this.grdIndex.Size = new System.Drawing.Size(282, 299);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -477,6 +478,7 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).EndInit();

@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysOrganizationView));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtIden = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tluParent = new DevExpress.XtraEditors.TreeListLookUpEdit();
             this.treeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
+            this.txtIden = new DevExpress.XtraEditors.TextEdit();
+            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.treeOrg = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
@@ -58,18 +58,19 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tluParent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpEdit1TreeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeOrg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).BeginInit();
             this.SuspendLayout();
@@ -77,13 +78,13 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(813, 145);
+            this.ribbonMain.Size = new System.Drawing.Size(811, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.treeOrg);
-            this.splitMain.Size = new System.Drawing.Size(813, 215);
+            this.splitMain.Size = new System.Drawing.Size(811, 238);
             // 
             // bsIndex
             // 
@@ -95,30 +96,30 @@
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(813, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(811, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(0, 388);
-            this.pnlPageControl.Size = new System.Drawing.Size(813, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 387);
+            this.pnlPageControl.Size = new System.Drawing.Size(811, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(809, 26);
+            this.pcMain.Size = new System.Drawing.Size(807, 26);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(526, 211);
+            this.splitRight.Size = new System.Drawing.Size(524, 234);
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(526, 211);
+            this.tcMain.Size = new System.Drawing.Size(524, 234);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(520, 205);
+            this.pageMain.Size = new System.Drawing.Size(518, 228);
             // 
             // lcMain
             // 
@@ -130,9 +131,65 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(520, 205);
+            this.lcMain.Size = new System.Drawing.Size(518, 228);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
+            this.txtRemark.Location = new System.Drawing.Point(53, 50);
+            this.txtRemark.MenuManager = this.ribbonMain;
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(463, 176);
+            this.txtRemark.StyleController = this.lcMain;
+            this.txtRemark.TabIndex = 8;
+            this.txtRemark.UseOptimizedRendering = true;
+            // 
+            // txtName
+            // 
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtName.Location = new System.Drawing.Point(53, 2);
+            this.txtName.MenuManager = this.ribbonMain;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(299, 20);
+            this.txtName.StyleController = this.lcMain;
+            this.txtName.TabIndex = 4;
+            // 
+            // tluParent
+            // 
+            this.tluParent.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParentId", true));
+            this.tluParent.Location = new System.Drawing.Point(53, 26);
+            this.tluParent.MenuManager = this.ribbonMain;
+            this.tluParent.Name = "tluParent";
+            this.tluParent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
+            this.tluParent.Properties.NullText = "";
+            this.tluParent.Properties.TreeList = this.treeListLookUpEdit1TreeList;
+            this.tluParent.Size = new System.Drawing.Size(463, 20);
+            this.tluParent.StyleController = this.lcMain;
+            this.tluParent.TabIndex = 7;
+            this.tluParent.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tluParent_ButtonClick);
+            // 
+            // treeListLookUpEdit1TreeList
+            // 
+            this.treeListLookUpEdit1TreeList.Location = new System.Drawing.Point(0, 0);
+            this.treeListLookUpEdit1TreeList.Name = "treeListLookUpEdit1TreeList";
+            this.treeListLookUpEdit1TreeList.OptionsBehavior.EnableFiltering = true;
+            this.treeListLookUpEdit1TreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.treeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
+            this.treeListLookUpEdit1TreeList.TabIndex = 0;
+            // 
+            // txtIden
+            // 
+            this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
+            this.txtIden.Location = new System.Drawing.Point(407, 2);
+            this.txtIden.MenuManager = this.ribbonMain;
+            this.txtIden.Name = "txtIden";
+            this.txtIden.Size = new System.Drawing.Size(109, 20);
+            this.txtIden.StyleController = this.lcMain;
+            this.txtIden.TabIndex = 5;
             // 
             // lcgMain
             // 
@@ -147,7 +204,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(520, 205);
+            this.lcgMain.Size = new System.Drawing.Size(518, 228);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -157,25 +214,15 @@
             this.layoutControlItem1.CustomizationFormText = "组织名称";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(356, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem1.Text = "组织名称";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtName
-            // 
-            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtName.Location = new System.Drawing.Point(53, 2);
-            this.txtName.MenuManager = this.ribbonMain;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(301, 20);
-            this.txtName.StyleController = this.lcMain;
-            this.txtName.TabIndex = 4;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtIden;
             this.layoutControlItem2.CustomizationFormText = "组织ID";
-            this.layoutControlItem2.Location = new System.Drawing.Point(356, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(354, 0);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(164, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(164, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -184,50 +231,15 @@
             this.layoutControlItem2.Text = "组织ID";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // txtIden
-            // 
-            this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(409, 2);
-            this.txtIden.MenuManager = this.ribbonMain;
-            this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(109, 20);
-            this.txtIden.StyleController = this.lcMain;
-            this.txtIden.TabIndex = 5;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.tluParent;
             this.layoutControlItem3.CustomizationFormText = "上级组织";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(520, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(518, 24);
             this.layoutControlItem3.Text = "上级组织";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // tluParent
-            // 
-            this.tluParent.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParentId", true));
-            this.tluParent.Location = new System.Drawing.Point(53, 26);
-            this.tluParent.MenuManager = this.ribbonMain;
-            this.tluParent.Name = "tluParent";
-            this.tluParent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.tluParent.Properties.NullText = "";
-            this.tluParent.Properties.TreeList = this.treeListLookUpEdit1TreeList;
-            this.tluParent.Size = new System.Drawing.Size(465, 20);
-            this.tluParent.StyleController = this.lcMain;
-            this.tluParent.TabIndex = 7;
-            this.tluParent.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tluParent_ButtonClick);
-            // 
-            // treeListLookUpEdit1TreeList
-            // 
-            this.treeListLookUpEdit1TreeList.Location = new System.Drawing.Point(0, 0);
-            this.treeListLookUpEdit1TreeList.Name = "treeListLookUpEdit1TreeList";
-            this.treeListLookUpEdit1TreeList.OptionsBehavior.EnableFiltering = true;
-            this.treeListLookUpEdit1TreeList.OptionsView.ShowIndentAsRowStyle = true;
-            this.treeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
-            this.treeListLookUpEdit1TreeList.TabIndex = 0;
             // 
             // layoutControlItem4
             // 
@@ -235,20 +247,9 @@
             this.layoutControlItem4.CustomizationFormText = "备注";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(520, 157);
+            this.layoutControlItem4.Size = new System.Drawing.Size(518, 180);
             this.layoutControlItem4.Text = "备注";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
-            this.txtRemark.Location = new System.Drawing.Point(53, 50);
-            this.txtRemark.MenuManager = this.ribbonMain;
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(465, 153);
-            this.txtRemark.StyleController = this.lcMain;
-            this.txtRemark.TabIndex = 8;
-            this.txtRemark.UseOptimizedRendering = true;
             // 
             // treeOrg
             // 
@@ -268,7 +269,7 @@
             this.treeOrg.OptionsView.ShowIndicator = false;
             this.treeOrg.OptionsView.ShowVertLines = false;
             this.treeOrg.SelectImageList = this.imageCollectionTreeList;
-            this.treeOrg.Size = new System.Drawing.Size(282, 211);
+            this.treeOrg.Size = new System.Drawing.Size(282, 234);
             this.treeOrg.TabIndex = 0;
             // 
             // colName
@@ -307,18 +308,19 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tluParent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpEdit1TreeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeOrg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).EndInit();
             this.ResumeLayout(false);

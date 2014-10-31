@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
-            this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -43,10 +41,8 @@
             this.splitRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).BeginInit();
             this.tcMain.SuspendLayout();
-            this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -56,33 +52,11 @@
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(763, 26);
+            this.pcMain.Size = new System.Drawing.Size(778, 26);
             // 
-            // pageMain
+            // tcMain
             // 
-            this.pageMain.Controls.Add(this.lcMain);
-            // 
-            // lcMain
-            // 
-            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lcMain.Location = new System.Drawing.Point(0, 0);
-            this.lcMain.Name = "lcMain";
-            this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(474, 261);
-            this.lcMain.TabIndex = 0;
-            this.lcMain.Text = "layoutControl1";
-            // 
-            // lcgMain
-            // 
-            this.lcgMain.CustomizationFormText = "lcgMain";
-            this.lcgMain.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.lcgMain.GroupBordersVisible = false;
-            this.lcgMain.Location = new System.Drawing.Point(0, 0);
-            this.lcgMain.Name = "lcgMain";
-            this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(474, 261);
-            this.lcgMain.Text = "lcgMain";
-            this.lcgMain.TextVisible = false;
+            this.tcMain.SelectedTabPage = this.pageMain;
             // 
             // sysUserDataRole
             // 
@@ -102,10 +76,8 @@
             this.splitRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tcMain)).EndInit();
             this.tcMain.ResumeLayout(false);
-            this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,7 +85,5 @@
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl lcMain;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
     }
 }

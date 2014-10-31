@@ -10,34 +10,34 @@ namespace SAF.Framework
     /// </summary>
     public class BillQueryRightInfo
     {
-        public int iBillType = 0;
+        public int BillTypeId = 0;
         public string sPrefix = string.Empty;
-        public int iStart = 0;
-        public int iLength = 0;
-        public string sCondition = string.Empty;
+        public int Start = 0;
+        public int Length = 0;
+        public string Condition = string.Empty;
 
-        public string sCreatorField = string.Empty;
-        public string sDepartmentIdField = string.Empty;
-        public string sDepartmentCodeField = string.Empty;
+        public string CreateByField = string.Empty;
+        public string OrganizationIdField = string.Empty;
+        public string OrganizationCodeField = string.Empty;
 
-        private string _sCode = string.Empty;
-        public string sCode
+        private string _Code = string.Empty;
+        public string Code
         {
-            get { return _sCode; }
+            get { return _Code; }
             set
             {
-                _sCode = value;
+                _Code = value;
                 if (value.Contains(","))
                 {
                     string[] lst = value.Split(',').ToArray();
                     sPrefix = lst[0];
-                    iBillType = Convert.ToInt32(lst[1]);
+                    BillTypeId = Convert.ToInt32(lst[1]);
                     if (lst.Length > 2)
-                        sCreatorField = lst[2];
+                        CreateByField = lst[2];
                     if (lst.Length > 3)
-                        sDepartmentIdField = lst[3];
+                        OrganizationIdField = lst[3];
                     if (lst.Length > 4)
-                        sDepartmentCodeField = lst[4];
+                        OrganizationCodeField = lst[4];
                 }
                 else
                 {

@@ -9,23 +9,23 @@ namespace SAF.Framework
     public class BillRightInfo
     {
         public BillRightType AllowRightType;
-        public int BillType;
-        public DataTable dataRights;
-        public BillOperateRight operateRight;
-        public string sCreatorField;
-        public string sDepartmentCodeField;
-        public string sDepartmentIdField;
+        public int BillTypeId;
+        public DataTable DataRights;
+        public BillOperateRight OperateRight;
+        public string CreateByField;
+        public string OrganizationCodeField;
+        public string OrganizationIdField;
         public bool UseDataRight;
         public bool UseOperateRight;
 
         public BillRightInfo()
         {
             AllowRightType = BillRightType.All;
-            operateRight = BillOperateRight.All;
+            OperateRight = BillOperateRight.All;
 
-            sCreatorField = "CreateBy";
-            sDepartmentCodeField = "sDepartmentCode";
-            sDepartmentIdField = "iDepartmentId";
+            CreateByField = "CreateBy";
+            OrganizationCodeField = "OrganizationCode";
+            OrganizationIdField = "OrganizationId";
         }
     }
 }

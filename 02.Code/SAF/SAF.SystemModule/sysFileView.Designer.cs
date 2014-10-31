@@ -89,13 +89,13 @@
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(951, 147);
+            this.ribbonMain.Size = new System.Drawing.Size(951, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
-            this.splitMain.Size = new System.Drawing.Size(951, 239);
+            this.splitMain.Size = new System.Drawing.Size(951, 266);
             this.splitMain.SplitterPosition = 360;
             // 
             // bsIndex
@@ -121,17 +121,17 @@
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(586, 235);
+            this.splitRight.Size = new System.Drawing.Size(586, 262);
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(586, 235);
+            this.tcMain.Size = new System.Drawing.Size(586, 262);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(580, 229);
+            this.pageMain.Size = new System.Drawing.Size(580, 256);
             // 
             // lcMain
             // 
@@ -146,7 +146,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(580, 229);
+            this.lcMain.Size = new System.Drawing.Size(580, 256);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -220,7 +220,7 @@
             this.txtRemark.Location = new System.Drawing.Point(53, 74);
             this.txtRemark.MenuManager = this.ribbonMain;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(525, 153);
+            this.txtRemark.Size = new System.Drawing.Size(525, 180);
             this.txtRemark.StyleController = this.lcMain;
             this.txtRemark.TabIndex = 10;
             this.txtRemark.UseOptimizedRendering = true;
@@ -241,7 +241,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(580, 229);
+            this.lcgMain.Size = new System.Drawing.Size(580, 256);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -261,7 +261,7 @@
             this.layoutControlItem7.CustomizationFormText = "备注";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(580, 157);
+            this.layoutControlItem7.Size = new System.Drawing.Size(580, 184);
             this.layoutControlItem7.Text = "备注";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -324,7 +324,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(360, 235);
+            this.grdIndex.Size = new System.Drawing.Size(360, 262);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -371,8 +371,8 @@
             this.AccessFocusControl = this.txtFileName;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 447);
             this.Name = "sysFileView";
+            this.Size = new System.Drawing.Size(953, 447);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
