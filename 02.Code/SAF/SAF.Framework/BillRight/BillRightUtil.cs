@@ -235,7 +235,7 @@ WHERE Iden IN ({0}) AND UseBillDataRight=1 AND IsActive=1";
         /// <summary>
         /// 查询单据查询权限
         /// </summary>
-        /// <param name="iUserId">用户ID</param>
+        /// <param name="userId">用户ID</param>
         /// <param name="bills">单据类型ID</param>
         private DataTable QueryBillQueryRight(string userId, IEnumerable<int> bills)
         {
