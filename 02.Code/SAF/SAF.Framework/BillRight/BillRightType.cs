@@ -6,7 +6,10 @@ using System.ComponentModel;
 
 namespace SAF.Framework
 {
-    [Flags]
+    /// <summary>
+    /// 单据权限类型
+    /// </summary>
+    [Flags] 
     public enum BillRightType
     {
         /// <summary>

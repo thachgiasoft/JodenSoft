@@ -17,15 +17,15 @@ namespace SAF.Framework
         public string sDepartmentIdField;
         public bool UseDataRight;
         public bool UseOperateRight;
-        
+
         public BillRightInfo()
         {
             AllowRightType = BillRightType.All;
             operateRight = BillOperateRight.All;
 
             sCreatorField = "CreateBy";
-            sDepartmentCodeField = "DepartmentCode";
-            sDepartmentIdField = "DepartmentId";
+            sDepartmentCodeField = "sDepartmentCode";
+            sDepartmentIdField = "iDepartmentId";
         }
     }
 }

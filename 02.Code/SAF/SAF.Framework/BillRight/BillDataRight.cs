@@ -6,6 +6,9 @@ using System.Text;
 
 namespace SAF.Framework
 {
+    /// <summary>
+    /// 单据数据权限
+    /// </summary>
     [Flags]
     public enum BillDataRight
     {

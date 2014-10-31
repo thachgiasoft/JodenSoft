@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SAF.Framework
 {
+    /// <summary>
+    /// 查询权限
+    /// </summary>
     public class BillQueryRightInfo
     {
         public int iBillType = 0;
