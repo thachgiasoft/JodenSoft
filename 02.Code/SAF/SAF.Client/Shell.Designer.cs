@@ -82,6 +82,7 @@
             this.ribbonMain.Size = new System.Drawing.Size(673, 147);
             this.ribbonMain.StatusBar = this.statusBarMain;
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
+            this.ribbonMain.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bsiMessage
             // 
@@ -248,10 +249,13 @@
             // 
             // tabbedView
             // 
+            this.tabbedView.DocumentGroupProperties.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
+            this.tabbedView.DocumentGroupProperties.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
             this.tabbedView.DocumentProperties.AllowDock = false;
             this.tabbedView.DocumentProperties.AllowDockFill = false;
             this.tabbedView.DocumentProperties.AllowFloat = false;
             this.tabbedView.DocumentProperties.AllowFloatOnDoubleClick = false;
+            this.tabbedView.DocumentProperties.AllowPin = true;
             this.tabbedView.DocumentProperties.UseFormIconAsDocumentImage = true;
             // 
             // Shell
