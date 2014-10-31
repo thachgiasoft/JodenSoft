@@ -66,12 +66,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BackstageView\IBackstageViewItem.cs" />
-    <Compile Include="BillRight\BillDataRight.cs" />
-    <Compile Include="BillRight\BillOperateRight.cs" />
-    <Compile Include="BillRight\BillQueryRightInfo.cs" />
-    <Compile Include="BillRight\BillRightInfo.cs" />
-    <Compile Include="BillRight\BillRightType.cs" />
-    <Compile Include="BillRight\BillRightUtil.cs" />
     <Compile Include="Controls\LoginAuthenticate.cs">
       <SubType>UserControl</SubType>
     </Compile>

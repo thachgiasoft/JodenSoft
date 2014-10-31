@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillRight\BillDataRight.cs" />
+    <Compile Include="BillRight\BillOperateRight.cs" />
+    <Compile Include="BillRight\BillQueryRightInfo.cs" />
+    <Compile Include="BillRight\BillRightInfo.cs" />
+    <Compile Include="BillRight\BillRightType.cs" />
+    <Compile Include="BillRight\BillRightUtil.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />
