@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysBillDataRight.cs" />
+    <Compile Include="sysBillOperateRight.cs" />
+    <Compile Include="sysBillRightDefine.cs" />
+    <Compile Include="sysBillType.cs" />
     <Compile Include="sysBusinessView.cs" />
     <Compile Include="sysBusinessViewParam.cs" />
     <Compile Include="sysCommonBillDtl.cs" />

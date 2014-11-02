@@ -54,10 +54,6 @@
             // 
             this.pcMain.Size = new System.Drawing.Size(778, 26);
             // 
-            // tcMain
-            // 
-            this.tcMain.SelectedTabPage = this.pageMain;
-            // 
             // sysUserDataRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);

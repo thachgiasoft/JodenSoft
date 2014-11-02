@@ -76,8 +76,8 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonMaster;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonMaster;
+        protected DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

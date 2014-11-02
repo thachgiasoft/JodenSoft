@@ -93,9 +93,9 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonDetail;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraEditors.SplitContainerControl splMain;
+        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonDetail;
+        protected DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        protected DevExpress.XtraEditors.SplitContainerControl splMain;
     }
 }

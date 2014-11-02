@@ -189,6 +189,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillDataRight.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillOperateRight.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillRightDefine.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillType.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysDataRole.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysFile.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysMenu.datasource" />
@@ -207,6 +211,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Action_ResetPassword_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Copy_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_new_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,6 +59,7 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).BeginInit();
@@ -94,7 +95,7 @@
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(763, 26);
+            this.pcMain.Size = new System.Drawing.Size(778, 26);
             // 
             // pageMain
             // 
@@ -110,25 +111,25 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(474, 261);
+            this.lcMain.Size = new System.Drawing.Size(489, 278);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
             // chkIsSystem
             // 
             this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
-            this.chkIsSystem.Location = new System.Drawing.Point(378, 2);
+            this.chkIsSystem.Location = new System.Drawing.Point(386, 2);
             this.chkIsSystem.MenuManager = this.ribbonMain;
             this.chkIsSystem.Name = "chkIsSystem";
             this.chkIsSystem.Properties.Caption = "是否系统角色";
-            this.chkIsSystem.Size = new System.Drawing.Size(94, 19);
+            this.chkIsSystem.Size = new System.Drawing.Size(101, 19);
             this.chkIsSystem.StyleController = this.lcMain;
             this.chkIsSystem.TabIndex = 8;
             // 
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(295, 2);
+            this.txtIden.Location = new System.Drawing.Point(303, 2);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
             this.txtIden.Size = new System.Drawing.Size(79, 20);
@@ -141,7 +142,7 @@
             this.txtMemo.Location = new System.Drawing.Point(53, 26);
             this.txtMemo.MenuManager = this.ribbonMain;
             this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(419, 92);
+            this.txtMemo.Size = new System.Drawing.Size(434, 100);
             this.txtMemo.StyleController = this.lcMain;
             this.txtMemo.TabIndex = 6;
             this.txtMemo.UseOptimizedRendering = true;
@@ -152,7 +153,7 @@
             this.txtName.Location = new System.Drawing.Point(53, 2);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(187, 20);
+            this.txtName.Size = new System.Drawing.Size(195, 20);
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 4;
             // 
@@ -170,7 +171,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(474, 261);
+            this.lcgMain.Size = new System.Drawing.Size(489, 278);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -180,7 +181,7 @@
             this.layoutControlItem1.CustomizationFormText = "角色名称";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(242, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(250, 24);
             this.layoutControlItem1.Text = "角色名称";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -190,7 +191,7 @@
             this.layoutControlItem3.CustomizationFormText = "备注";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(474, 96);
+            this.layoutControlItem3.Size = new System.Drawing.Size(489, 104);
             this.layoutControlItem3.Text = "备注";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -198,7 +199,7 @@
             // 
             this.layoutControlItem2.Control = this.txtIden;
             this.layoutControlItem2.CustomizationFormText = "角色ID";
-            this.layoutControlItem2.Location = new System.Drawing.Point(242, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(250, 0);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(134, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(134, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -211,9 +212,9 @@
             // 
             this.layoutControlItem4.Control = this.chkIsSystem;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(376, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(384, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(98, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(105, 24);
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
@@ -223,9 +224,9 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 120);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 128);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(474, 141);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 150);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -237,7 +238,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 267);
+            this.grdIndex.Size = new System.Drawing.Size(282, 284);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -301,6 +302,7 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkIsSystem.Properties)).EndInit();

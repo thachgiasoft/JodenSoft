@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
+            this.bsDetail = new System.Windows.Forms.BindingSource();
             this.barDtl = new DevExpress.XtraBars.Bar();
             this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDtlDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -87,7 +86,6 @@
             // 
             // splitRight
             // 
-            this.splitRight.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
             this.splitRight.Panel2.Controls.Add(this.tcDtl);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
             this.splitRight.Size = new System.Drawing.Size(532, 286);
@@ -140,7 +138,7 @@
             this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(526, 29);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(526, 23);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
@@ -162,7 +160,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlCopy),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiDtlImport, true)});
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
-            this.barDtl.OptionsBar.UseWholeRow = true;
             this.barDtl.StandaloneBarDockControl = this.standaloneBarDockControl1;
             this.barDtl.Text = "barDtl";
             // 
@@ -244,16 +241,14 @@
         protected DevExpress.XtraTab.XtraTabControl tcDtl;
         protected DevExpress.XtraTab.XtraTabPage pageDtl;
         protected System.Windows.Forms.BindingSource bsDetail;
-        private DevExpress.XtraBars.PopupMenu pmuImportDetail;
+        protected DevExpress.XtraBars.PopupMenu pmuImportDetail;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
-        private DevExpress.XtraBars.Bar barDtl;
-        private DevExpress.XtraBars.BarButtonItem btnDtlAddNew;
-        private DevExpress.XtraBars.BarButtonItem btnDtlDelete;
-        private DevExpress.XtraBars.BarButtonItem btnDtlCopy;
-        private DevExpress.XtraBars.BarSubItem bsiDtlImport;
-        private DevExpress.XtraBars.BarButtonItem bbiDtlImport;
-
-
+        protected DevExpress.XtraBars.Bar barDtl;
+        protected DevExpress.XtraBars.BarButtonItem btnDtlAddNew;
+        protected DevExpress.XtraBars.BarButtonItem btnDtlDelete;
+        protected DevExpress.XtraBars.BarButtonItem btnDtlCopy;
+        protected DevExpress.XtraBars.BarSubItem bsiDtlImport;
+        protected DevExpress.XtraBars.BarButtonItem bbiDtlImport;
 
     }
 }
