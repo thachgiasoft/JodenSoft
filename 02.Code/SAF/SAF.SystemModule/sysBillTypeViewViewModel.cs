@@ -48,18 +48,35 @@ namespace SAF.SystemModule
             base.OnInit();
 
             this.sysBillRightDefineEntitySet.PageSize = 0;
+
         }
 
         protected override void OnInitEvents()
         {
             base.OnInitEvents();
             this.MainEntitySet.AfterAdd += MainEntitySet_AfterAdd;
+            this.sysBillOperateRightEntitySet.AfterAdd += sysBillOperateRightEntitySet_AfterAdd;
+            this.sysBillDataRightEntitySet.AfterAdd += sysBillDataRightEntitySet_AfterAdd;
+        }
 
+        void sysBillDataRightEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillDataRight> e)
+        {
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+        }
+
+        void sysBillOperateRightEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillOperateRight> e)
+        {
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillType> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.IsActive = true;
+            e.CurrentEntity.IsSystem = false;
+            e.CurrentEntity.UseBillDataRight = true;
+            e.CurrentEntity.UseBillOperateRight = true;
+            e.CurrentEntity.AllowRightType = 0;
         }
 
         protected override void OnQuery(string sCondition, object[] parameterValues)

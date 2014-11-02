@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework;
+using SAF.EntityFramework;
 
 namespace SAF.SystemModule
 {
@@ -30,5 +32,24 @@ namespace SAF.SystemModule
             get { return this.ViewModel as sysBillTypeViewViewModel; }
         }
 
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+            this.AccessFocusControl = this.txtName;
+        }
+
+        protected override void OnInitUI()
+        {
+            base.OnInitUI();
+            this.cbxAllowRightType.Properties.SetFlags(typeof(BillRightType));
+        }
+
+        protected override void OnRefreshUI()
+        {
+            base.OnRefreshUI();
+
+            UIController.RefreshControl(this.txtIden, false);
+            UIController.RefreshControl(this.chkIsSystem, false);
+        }
     }
 }
