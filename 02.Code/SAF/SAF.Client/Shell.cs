@@ -203,6 +203,7 @@ namespace SAF.Client
             this.TreeMenu.GetSelectImage += TreeMenu_GetSelectImage;
             this.TreeMenu.DoubleClick += TreeMenu_DoubleClick;
             this.txtFind.EditValueChanged += txtFind_EditValueChanged;
+            this.txtFind.KeyDown += txtFind_KeyDown;
             this.btnRefreshMenu.Click += btnRefreshMenu_Click;
 
             this.Controls.Remove(loginControl);
@@ -210,6 +211,29 @@ namespace SAF.Client
 
             this.splMenu.Visible = true;
             this.navMainMenu.Visible = true;
+        }
+
+        void txtFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                this.ShowView();
+                e.Handled = true;
+            }
+            else if (e.KeyData == Keys.Up)
+            {
+                this.TreeMenu.MovePrevVisible();
+                e.Handled = true;
+            }
+            else if (e.KeyData == Keys.Down)
+            {
+                this.TreeMenu.MoveNextVisible();
+                e.Handled = true;
+            }
+            else if (e.KeyData == Keys.Escape)
+            {
+                this.txtFind.EditValue = null;
+            }
         }
 
         public RibbonControl RibbonControl
@@ -416,18 +440,23 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             {
                 case HitInfoType.Cell:
                 case HitInfoType.SelectImage:
-                    if (this.TreeMenu.FocusedNode != null)
-                    {
-                        var drv = this.TreeMenu.GetDataRecordByNode(this.TreeMenu.FocusedNode) as DataRowView;
-                        if (drv != null)
-                        {
-                            ShowBusinessView(drv);
-                        }
-                    }
+                    ShowView();
                     break;
                 default:
                     this.Cursor = Cursors.Default;
                     break;
+            }
+        }
+
+        private void ShowView()
+        {
+            if (this.TreeMenu.FocusedNode != null)
+            {
+                var drv = this.TreeMenu.GetDataRecordByNode(this.TreeMenu.FocusedNode) as DataRowView;
+                if (drv != null)
+                {
+                    ShowBusinessView(drv);
+                }
             }
         }
 
@@ -532,7 +561,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             var filter = this.txtFind.EditValue.ToStringEx().Trim();
             if (!filter.IsEmpty())
             {
-                this.mainEntitySet.DefaultView.RowFilter = "Name like '%{0}%' and ClassName Is NOT NULL".FormatEx(filter);
+                this.mainEntitySet.DefaultView.RowFilter = "(Name Like '%{0}%' or ClassName Like '%{0}%') and ClassName Is NOT NULL".FormatEx(filter);
             }
             else
             {

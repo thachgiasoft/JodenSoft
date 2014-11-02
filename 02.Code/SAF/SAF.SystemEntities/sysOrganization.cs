@@ -38,10 +38,10 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.Code, value); }
         }
 
-        public bool IsDeleted
+        public bool IsActive
         {
-            get { return base.GetFieldValue<bool>(p => p.IsDeleted); }
-            set { base.SetFieldValue(p => p.IsDeleted, value); }
+            get { return base.GetFieldValue<bool>(p => p.IsActive); }
+            set { base.SetFieldValue(p => p.IsActive, value); }
         }
 
         public string Remark
