@@ -8,7 +8,6 @@ namespace SAF.EntityFramework
 {
     public class BillRightInfo
     {
-        public BillRightType AllowRightType { get; set; }
         public int BillTypeId { get; set; }
         public DataTable DataRights { get; set; }
         public BillOperateRight OperateRight { get; set; }
@@ -22,7 +21,6 @@ namespace SAF.EntityFramework
 
         public BillRightInfo()
         {
-            AllowRightType = BillRightType.All;
             OperateRight = BillOperateRight.All;
         }
     }

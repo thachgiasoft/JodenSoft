@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
-            this.bsDetail = new System.Windows.Forms.BindingSource();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
             this.barDtl = new DevExpress.XtraBars.Bar();
             this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDtlDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnDtlCopy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDtlDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bsiDtlImport = new DevExpress.XtraBars.BarSubItem();
             this.bbiDtlImport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
@@ -107,8 +108,8 @@
             this.bmMain.DockControls.Add(this.standaloneBarDockControl1);
             this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnDtlAddNew,
-            this.btnDtlDelete,
             this.btnDtlCopy,
+            this.btnDtlDelete,
             this.bsiDtlImport,
             this.bbiDtlImport});
             this.bmMain.MaxItemId = 5;
@@ -156,8 +157,8 @@
             this.barDtl.FloatLocation = new System.Drawing.Point(489, 473);
             this.barDtl.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlAddNew),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlCopy),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiDtlImport, true)});
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
             this.barDtl.StandaloneBarDockControl = this.standaloneBarDockControl1;
@@ -172,23 +173,23 @@
             this.btnDtlAddNew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDtlAddNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlAddNew_ItemClick);
             // 
-            // btnDtlDelete
-            // 
-            this.btnDtlDelete.Caption = "复制";
-            this.btnDtlDelete.Glyph = global::SAF.Framework.Properties.Resources.Action_Copy_16x16;
-            this.btnDtlDelete.Id = 1;
-            this.btnDtlDelete.Name = "btnDtlDelete";
-            this.btnDtlDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnDtlDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlDelete_ItemClick);
-            // 
             // btnDtlCopy
             // 
-            this.btnDtlCopy.Caption = "删除";
-            this.btnDtlCopy.Glyph = global::SAF.Framework.Properties.Resources.Action_Delete_16x16;
+            this.btnDtlCopy.Caption = "复制";
+            this.btnDtlCopy.Glyph = global::SAF.Framework.Properties.Resources.Action_Copy_16x16;
             this.btnDtlCopy.Id = 2;
             this.btnDtlCopy.Name = "btnDtlCopy";
             this.btnDtlCopy.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDtlCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlCopy_ItemClick);
+            // 
+            // btnDtlDelete
+            // 
+            this.btnDtlDelete.Caption = "删除";
+            this.btnDtlDelete.Glyph = global::SAF.Framework.Properties.Resources.Action_Delete_16x16;
+            this.btnDtlDelete.Id = 1;
+            this.btnDtlDelete.Name = "btnDtlDelete";
+            this.btnDtlDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDtlDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDtlDelete_ItemClick);
             // 
             // bsiDtlImport
             // 

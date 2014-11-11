@@ -58,12 +58,6 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.UseBillDataRight, value); }
         }
 
-        public int AllowRightType
-        {
-            get { return base.GetFieldValue<int>(P => P.AllowRightType); }
-            set { base.SetFieldValue(P => P.AllowRightType, value); }
-        }
-
         public int? CreatedBy
         {
             get { return base.GetFieldValue<int?>(p => p.CreatedBy, null); }

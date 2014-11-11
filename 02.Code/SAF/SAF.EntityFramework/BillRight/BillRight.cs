@@ -19,7 +19,6 @@ namespace SAF.EntityFramework
             public const string CreateBy = @"CreateBy";
             public const string OrganizationId = @"OrganizationId";
             public const string OrganizationCode = @"OrganizationCode";
-            public const string AllowRightType = @"AllowRightType";
         }
 
         #region 数据权限实现
@@ -28,7 +27,7 @@ namespace SAF.EntityFramework
         {
             const string sql = @"
 --查询单据配置
-SELECT UseBillDataRight,UseBillOperateRight,AllowRightType 
+SELECT UseBillDataRight,UseBillOperateRight 
 FROM dbo.sysBillType WITH(NOLOCK) 
 WHERE Iden=:BillTypeId AND IsActive=1
 
@@ -99,7 +98,6 @@ GROUP BY D.Iden,D.Code
                 BillTypeId = billCount == 0 ? 0 : billTypeId,
                 UseDataRight = billCount == 0 ? false : Convert.ToBoolean(ds.Tables[0].Rows[0][0]),
                 UseOperateRight = billCount == 0 ? false : Convert.ToBoolean(ds.Tables[0].Rows[0][1]),
-                AllowRightType = billCount == 0 ? BillRightType.All : (BillRightType)Convert.ToInt32(ds.Tables[0].Rows[0][2]),
                 OperateRight = (BillOperateRight)Convert.ToInt32(ds.Tables[1].Rows[0][0]),
                 DataRights = ds.Tables[2]
             };
@@ -118,13 +116,13 @@ GROUP BY D.Iden,D.Code
             string sTableName = entity.DbTableName;
             if (billRightInfo == null || billRightInfo.BillTypeId <= 0 || !billRightInfo.UseDataRight)
                 return BillDataRight.All;
-            if (billRightInfo.AllowRightType.IncludeEnum(BillRightType.OnlyOwner) && !entity.FieldIsExists(BillRightInfo.CreateByField))
+            if (!entity.FieldIsExists(BillRightInfo.CreateByField))
                 throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.CreateByField));
 
-            if (billRightInfo.AllowRightType.IncludeEnum(BillRightType.OnlyDepartment) && !entity.FieldIsExists(BillRightInfo.OrganizationIdField))
+            if (!entity.FieldIsExists(BillRightInfo.OrganizationIdField))
                 throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.OrganizationIdField));
 
-            if (billRightInfo.AllowRightType.IncludeEnum(BillRightType.DepartmentAndChild) && !entity.FieldIsExists(BillRightInfo.OrganizationCodeField))
+            if (!entity.FieldIsExists(BillRightInfo.OrganizationCodeField))
                 throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.OrganizationCodeField));
 
             return CalcCurrentEntityBillDataRight("UpdateRight", billRightInfo, BillDataRight.Update, entity)
@@ -157,8 +155,7 @@ GROUP BY D.Iden,D.Code
             string CreateBy = entity.FieldIsExists(BillRightInfo.CreateByField) ? entity.GetFieldValue<string>(BillRightInfo.CreateByField) : string.Empty;
             int OrganizationId = entity.FieldIsExists(BillRightInfo.OrganizationIdField) ? entity.GetFieldValue<int>(BillRightInfo.OrganizationIdField) : -1;
 
-            bool bHasOrganizationCode = billRight.AllowRightType.IncludeEnum(BillRightType.DepartmentAndChild);
-            string OrganizationCode = bHasOrganizationCode ? entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField) : string.Empty;
+            string OrganizationCode = entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField);
             foreach (DataRow dr in billRight.DataRights.Rows)
             {
                 //部门为空，则表示针对所有部门都是此角色
@@ -169,7 +166,7 @@ GROUP BY D.Iden,D.Code
                 switch ((BillRightType)Convert.ToInt32(dr[fieldName]))
                 {
                     case BillRightType.None: continue;
-                    case BillRightType.OnlyOwner: temp = bSameCreator && (bAllOrganization || (bHasOrganizationCode ? bSameOrganizationCode : bSameOrganizationId)); break;
+                    case BillRightType.OnlyOwner: temp = bSameCreator && (bAllOrganization || bSameOrganizationCode || bSameOrganizationId); break;
                     case BillRightType.OnlyDepartment: temp = bSameCreator || bAllOrganization || bSameOrganizationId; break;
                     case BillRightType.DepartmentAndChild: temp = bSameCreator || bAllOrganization || bSameOrganizationCode; break;
                     case BillRightType.All: temp = true; break;
@@ -286,7 +283,7 @@ GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
             //未配置权限，则无任何权限，不可查询出任何数据
             if (rights.IsEmpty())
                 return " AND 1=2 ";
-            bool bHasOrganizationCode = rights.Any(x => ((BillRightType)x.Field<int>(RES.AllowRightType)).IncludeEnum(BillRightType.DepartmentAndChild));
+            bool bHasOrganizationCode = true;//????
             //若有查询所有权限，则直接返回1=1(所有部门的本部门权限，等同于所有权限)
             if (rights.Any(x => (BillRightType)x.Field<int>(RES.QueryRight) == BillRightType.All
                                 || (((BillRightType)x.Field<int>(RES.QueryRight)).In(BillRightType.DepartmentAndChild, BillRightType.OnlyDepartment)

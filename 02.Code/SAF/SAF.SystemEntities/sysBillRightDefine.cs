@@ -28,6 +28,12 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.BillTypeId, value); }
         }
 
+        public string RightType
+        {
+            get { return base.GetFieldValue<string>(P => P.RightType); }
+            set { base.SetFieldValue(P => P.RightType, value); }
+        }
+
         public string FieldName
         {
             get { return base.GetFieldValue<string>(P => P.FieldName); }
@@ -50,12 +56,6 @@ namespace SAF.SystemEntities
         {
             get { return base.GetFieldValue<bool>(P => P.IsActive); }
             set { base.SetFieldValue(P => P.IsActive, value); }
-        }
-
-        public bool IsSystem
-        {
-            get { return base.GetFieldValue<bool>(P => P.IsSystem); }
-            set { base.SetFieldValue(P => P.IsSystem, value); }
         }
 
         #region 创建人&创建时间&修改人&修改时间&版本号

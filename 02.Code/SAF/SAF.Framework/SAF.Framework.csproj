@@ -75,6 +75,8 @@
     <Compile Include="Entities\SystemMenu.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
+    <Compile Include="Extensions\LookUpEditExtensions.cs" />
+    <Compile Include="Extensions\SearchLookUpEditExtensions.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IDataCooperation.cs" />
     <Compile Include="Interfaces\IShell.cs" />

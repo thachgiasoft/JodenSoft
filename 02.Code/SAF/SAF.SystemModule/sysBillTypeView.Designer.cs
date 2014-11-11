@@ -36,7 +36,6 @@
             this.chkIsActive = new DevExpress.XtraEditors.CheckEdit();
             this.chkUseDataRight = new DevExpress.XtraEditors.CheckEdit();
             this.chkUseOperateRight = new DevExpress.XtraEditors.CheckEdit();
-            this.cbxAllowRightType = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,7 +44,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
@@ -59,23 +57,29 @@
             this.bsDataRight = new System.Windows.Forms.BindingSource(this.components);
             this.grvDataRight = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDataRoleId1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sluDataRole2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.slvDataRole2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colQueryRight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.luDataRight = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colUpdateRight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDeleteRight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAuditRight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrintRight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRight1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth31 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth41 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth51 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth61 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth71 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth81 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth91 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth101 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight51 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight61 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight71 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight81 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight91 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight101 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsActive3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkIsActive2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.standaloneBarDockControl2 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.colExtendRight1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkOperateRight = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.pageRightDefine = new DevExpress.XtraTab.XtraTabPage();
             this.grdRightDefine = new DevExpress.XtraGrid.GridControl();
             this.bsRightDefine = new System.Windows.Forms.BindingSource(this.components);
@@ -83,26 +87,27 @@
             this.colFieldName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCaption = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsActive2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsSystem1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdOperateRight = new DevExpress.XtraGrid.GridControl();
             this.grvOperateRight = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDataRoleId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sluDataRole = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.slvDataRole = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAddNew = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colExtendRigth10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colExtendRight10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsActive1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAddDataRight = new DevExpress.XtraBars.BarButtonItem();
             this.btnCopyDataRight = new DevExpress.XtraBars.BarButtonItem();
             this.btnDeleteDataRight = new DevExpress.XtraBars.BarButtonItem();
+            this.colRightType = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -132,7 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseDataRight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseOperateRight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxAllowRightType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -141,7 +145,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).BeginInit();
@@ -150,12 +153,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDataRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDataRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDataRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sluDataRole2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slvDataRole2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luDataRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOperateRight)).BeginInit();
             this.pageRightDefine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdRightDefine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRightDefine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvRightDefine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdOperateRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvOperateRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sluDataRole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slvDataRole)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -166,6 +176,7 @@
             this.tcDtl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageDataRight,
             this.pageRightDefine});
+            this.tcDtl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tcDtl_SelectedPageChanged);
             this.tcDtl.Controls.SetChildIndex(this.pageRightDefine, 0);
             this.tcDtl.Controls.SetChildIndex(this.pageDataRight, 0);
             this.tcDtl.Controls.SetChildIndex(this.pageDtl, 0);
@@ -251,7 +262,6 @@
             this.lcMain.Controls.Add(this.chkIsActive);
             this.lcMain.Controls.Add(this.chkUseDataRight);
             this.lcMain.Controls.Add(this.chkUseOperateRight);
-            this.lcMain.Controls.Add(this.cbxAllowRightType);
             this.lcMain.Controls.Add(this.txtName);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
@@ -264,20 +274,20 @@
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(535, 2);
+            this.txtIden.Location = new System.Drawing.Point(511, 2);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(101, 20);
+            this.txtIden.Size = new System.Drawing.Size(125, 20);
             this.txtIden.StyleController = this.lcMain;
             this.txtIden.TabIndex = 11;
             // 
             // txtRemark
             // 
             this.txtRemark.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
-            this.txtRemark.Location = new System.Drawing.Point(77, 73);
+            this.txtRemark.Location = new System.Drawing.Point(53, 49);
             this.txtRemark.MenuManager = this.ribbonMain;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(559, 49);
+            this.txtRemark.Size = new System.Drawing.Size(583, 73);
             this.txtRemark.StyleController = this.lcMain;
             this.txtRemark.TabIndex = 10;
             this.txtRemark.UseOptimizedRendering = true;
@@ -285,7 +295,7 @@
             // chkIsSystem
             // 
             this.chkIsSystem.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsSystem", true));
-            this.chkIsSystem.Location = new System.Drawing.Point(335, 50);
+            this.chkIsSystem.Location = new System.Drawing.Point(335, 26);
             this.chkIsSystem.MenuManager = this.ribbonMain;
             this.chkIsSystem.Name = "chkIsSystem";
             this.chkIsSystem.Properties.Caption = "系统单据";
@@ -296,7 +306,7 @@
             // chkIsActive
             // 
             this.chkIsActive.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsActive", true));
-            this.chkIsActive.Location = new System.Drawing.Point(240, 50);
+            this.chkIsActive.Location = new System.Drawing.Point(240, 26);
             this.chkIsActive.MenuManager = this.ribbonMain;
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Properties.Caption = "是否可用";
@@ -307,7 +317,7 @@
             // chkUseDataRight
             // 
             this.chkUseDataRight.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UseBillDataRight", true));
-            this.chkUseDataRight.Location = new System.Drawing.Point(124, 50);
+            this.chkUseDataRight.Location = new System.Drawing.Point(124, 26);
             this.chkUseDataRight.MenuManager = this.ribbonMain;
             this.chkUseDataRight.Name = "chkUseDataRight";
             this.chkUseDataRight.Properties.Caption = "启用数据权限";
@@ -318,7 +328,7 @@
             // chkUseOperateRight
             // 
             this.chkUseOperateRight.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "UseBillOperateRight", true));
-            this.chkUseOperateRight.Location = new System.Drawing.Point(2, 50);
+            this.chkUseOperateRight.Location = new System.Drawing.Point(2, 26);
             this.chkUseOperateRight.MenuManager = this.ribbonMain;
             this.chkUseOperateRight.Name = "chkUseOperateRight";
             this.chkUseOperateRight.Properties.Caption = "启用操作权限";
@@ -326,25 +336,13 @@
             this.chkUseOperateRight.StyleController = this.lcMain;
             this.chkUseOperateRight.TabIndex = 6;
             // 
-            // cbxAllowRightType
-            // 
-            this.cbxAllowRightType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "AllowRightType", true));
-            this.cbxAllowRightType.Location = new System.Drawing.Point(77, 26);
-            this.cbxAllowRightType.MenuManager = this.ribbonMain;
-            this.cbxAllowRightType.Name = "cbxAllowRightType";
-            this.cbxAllowRightType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbxAllowRightType.Size = new System.Drawing.Size(559, 20);
-            this.cbxAllowRightType.StyleController = this.lcMain;
-            this.cbxAllowRightType.TabIndex = 5;
-            // 
             // txtName
             // 
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Name", true));
-            this.txtName.Location = new System.Drawing.Point(77, 2);
+            this.txtName.Location = new System.Drawing.Point(53, 2);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(379, 20);
+            this.txtName.Size = new System.Drawing.Size(403, 20);
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 4;
             // 
@@ -360,7 +358,6 @@
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem7,
-            this.layoutControlItem2,
             this.layoutControlItem8,
             this.emptySpaceItem1});
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
@@ -378,13 +375,13 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(458, 24);
             this.layoutControlItem1.Text = "单据名称";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.chkUseOperateRight;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(122, 23);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(122, 23);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -399,7 +396,7 @@
             // 
             this.layoutControlItem4.Control = this.chkUseDataRight;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(122, 48);
+            this.layoutControlItem4.Location = new System.Drawing.Point(122, 24);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(116, 23);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(116, 23);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -414,7 +411,7 @@
             // 
             this.layoutControlItem5.Control = this.chkIsActive;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(238, 48);
+            this.layoutControlItem5.Location = new System.Drawing.Point(238, 24);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(95, 23);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(95, 23);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -429,7 +426,7 @@
             // 
             this.layoutControlItem6.Control = this.chkIsSystem;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(333, 48);
+            this.layoutControlItem6.Location = new System.Drawing.Point(333, 24);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(103, 23);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(103, 23);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -444,21 +441,11 @@
             // 
             this.layoutControlItem7.Control = this.txtRemark;
             this.layoutControlItem7.CustomizationFormText = "备注";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 71);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 47);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(638, 53);
+            this.layoutControlItem7.Size = new System.Drawing.Size(638, 77);
             this.layoutControlItem7.Text = "备注";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.cbxAllowRightType;
-            this.layoutControlItem2.CustomizationFormText = "允许操作类型";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(638, 24);
-            this.layoutControlItem2.Text = "允许操作类型";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem8
             // 
@@ -471,13 +458,13 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(180, 24);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.Text = "序号";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(436, 48);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(436, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(202, 23);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
@@ -559,6 +546,10 @@
             this.grdDataRight.MainView = this.grvDataRight;
             this.grdDataRight.MenuManager = this.ribbonMain;
             this.grdDataRight.Name = "grdDataRight";
+            this.grdDataRight.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.sluDataRole2,
+            this.luDataRight,
+            this.chkIsActive2});
             this.grdDataRight.Size = new System.Drawing.Size(524, 91);
             this.grdDataRight.TabIndex = 1;
             this.grdDataRight.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -577,37 +568,66 @@
             this.colDeleteRight,
             this.colAuditRight,
             this.colPrintRight,
-            this.colExtendRight1,
-            this.colExtendRigth21,
-            this.colExtendRigth31,
-            this.colExtendRigth41,
-            this.colExtendRigth51,
-            this.colExtendRigth61,
-            this.colExtendRigth71,
-            this.colExtendRigth81,
-            this.colExtendRigth91,
-            this.colExtendRigth101,
+            this.colExtendRight11,
+            this.colExtendRight21,
+            this.colExtendRight31,
+            this.colExtendRight41,
+            this.colExtendRight51,
+            this.colExtendRight61,
+            this.colExtendRight71,
+            this.colExtendRight81,
+            this.colExtendRight91,
+            this.colExtendRight101,
             this.colIsActive3});
             this.grvDataRight.GridControl = this.grdDataRight;
             this.grvDataRight.Name = "grvDataRight";
             this.grvDataRight.OptionsView.ColumnAutoWidth = false;
+            this.grvDataRight.OptionsView.ShowGroupPanel = false;
             // 
             // colDataRoleId1
             // 
+            this.colDataRoleId1.Caption = "业务角色";
+            this.colDataRoleId1.ColumnEdit = this.sluDataRole2;
             this.colDataRoleId1.FieldName = "DataRoleId";
             this.colDataRoleId1.Name = "colDataRoleId1";
             this.colDataRoleId1.Visible = true;
             this.colDataRoleId1.VisibleIndex = 0;
             // 
+            // sluDataRole2
+            // 
+            this.sluDataRole2.AutoHeight = false;
+            this.sluDataRole2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sluDataRole2.Name = "sluDataRole2";
+            this.sluDataRole2.View = this.slvDataRole2;
+            // 
+            // slvDataRole2
+            // 
+            this.slvDataRole2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.slvDataRole2.Name = "slvDataRole2";
+            this.slvDataRole2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.slvDataRole2.OptionsView.ShowGroupPanel = false;
+            // 
             // colQueryRight
             // 
+            this.colQueryRight.Caption = "查询";
+            this.colQueryRight.ColumnEdit = this.luDataRight;
             this.colQueryRight.FieldName = "QueryRight";
             this.colQueryRight.Name = "colQueryRight";
             this.colQueryRight.Visible = true;
             this.colQueryRight.VisibleIndex = 1;
             // 
+            // luDataRight
+            // 
+            this.luDataRight.AutoHeight = false;
+            this.luDataRight.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luDataRight.Name = "luDataRight";
+            // 
             // colUpdateRight
             // 
+            this.colUpdateRight.Caption = "更新";
+            this.colUpdateRight.ColumnEdit = this.luDataRight;
             this.colUpdateRight.FieldName = "UpdateRight";
             this.colUpdateRight.Name = "colUpdateRight";
             this.colUpdateRight.Visible = true;
@@ -615,6 +635,8 @@
             // 
             // colDeleteRight
             // 
+            this.colDeleteRight.Caption = "删除";
+            this.colDeleteRight.ColumnEdit = this.luDataRight;
             this.colDeleteRight.FieldName = "DeleteRight";
             this.colDeleteRight.Name = "colDeleteRight";
             this.colDeleteRight.Visible = true;
@@ -622,6 +644,8 @@
             // 
             // colAuditRight
             // 
+            this.colAuditRight.Caption = "审批";
+            this.colAuditRight.ColumnEdit = this.luDataRight;
             this.colAuditRight.FieldName = "AuditRight";
             this.colAuditRight.Name = "colAuditRight";
             this.colAuditRight.Visible = true;
@@ -629,87 +653,109 @@
             // 
             // colPrintRight
             // 
+            this.colPrintRight.Caption = "打印";
+            this.colPrintRight.ColumnEdit = this.luDataRight;
             this.colPrintRight.FieldName = "PrintRight";
             this.colPrintRight.Name = "colPrintRight";
             this.colPrintRight.Visible = true;
             this.colPrintRight.VisibleIndex = 5;
             // 
-            // colExtendRight1
+            // colExtendRight11
             // 
-            this.colExtendRight1.FieldName = "ExtendRight1";
-            this.colExtendRight1.Name = "colExtendRight1";
-            this.colExtendRight1.Visible = true;
-            this.colExtendRight1.VisibleIndex = 6;
+            this.colExtendRight11.ColumnEdit = this.luDataRight;
+            this.colExtendRight11.FieldName = "ExtendRight1";
+            this.colExtendRight11.Name = "colExtendRight11";
+            this.colExtendRight11.Visible = true;
+            this.colExtendRight11.VisibleIndex = 6;
             // 
-            // colExtendRigth21
+            // colExtendRight21
             // 
-            this.colExtendRigth21.FieldName = "ExtendRigth2";
-            this.colExtendRigth21.Name = "colExtendRigth21";
-            this.colExtendRigth21.Visible = true;
-            this.colExtendRigth21.VisibleIndex = 7;
+            this.colExtendRight21.ColumnEdit = this.luDataRight;
+            this.colExtendRight21.FieldName = "ExtendRight2";
+            this.colExtendRight21.Name = "colExtendRight21";
+            this.colExtendRight21.Visible = true;
+            this.colExtendRight21.VisibleIndex = 7;
             // 
-            // colExtendRigth31
+            // colExtendRight31
             // 
-            this.colExtendRigth31.FieldName = "ExtendRigth3";
-            this.colExtendRigth31.Name = "colExtendRigth31";
-            this.colExtendRigth31.Visible = true;
-            this.colExtendRigth31.VisibleIndex = 8;
+            this.colExtendRight31.ColumnEdit = this.luDataRight;
+            this.colExtendRight31.FieldName = "ExtendRight3";
+            this.colExtendRight31.Name = "colExtendRight31";
+            this.colExtendRight31.Visible = true;
+            this.colExtendRight31.VisibleIndex = 8;
             // 
-            // colExtendRigth41
+            // colExtendRight41
             // 
-            this.colExtendRigth41.FieldName = "ExtendRigth4";
-            this.colExtendRigth41.Name = "colExtendRigth41";
-            this.colExtendRigth41.Visible = true;
-            this.colExtendRigth41.VisibleIndex = 9;
+            this.colExtendRight41.ColumnEdit = this.luDataRight;
+            this.colExtendRight41.FieldName = "ExtendRight4";
+            this.colExtendRight41.Name = "colExtendRight41";
+            this.colExtendRight41.Visible = true;
+            this.colExtendRight41.VisibleIndex = 9;
             // 
-            // colExtendRigth51
+            // colExtendRight51
             // 
-            this.colExtendRigth51.FieldName = "ExtendRigth5";
-            this.colExtendRigth51.Name = "colExtendRigth51";
-            this.colExtendRigth51.Visible = true;
-            this.colExtendRigth51.VisibleIndex = 10;
+            this.colExtendRight51.ColumnEdit = this.luDataRight;
+            this.colExtendRight51.FieldName = "ExtendRight5";
+            this.colExtendRight51.Name = "colExtendRight51";
+            this.colExtendRight51.Visible = true;
+            this.colExtendRight51.VisibleIndex = 10;
             // 
-            // colExtendRigth61
+            // colExtendRight61
             // 
-            this.colExtendRigth61.FieldName = "ExtendRigth6";
-            this.colExtendRigth61.Name = "colExtendRigth61";
-            this.colExtendRigth61.Visible = true;
-            this.colExtendRigth61.VisibleIndex = 11;
+            this.colExtendRight61.ColumnEdit = this.luDataRight;
+            this.colExtendRight61.FieldName = "ExtendRight6";
+            this.colExtendRight61.Name = "colExtendRight61";
+            this.colExtendRight61.Visible = true;
+            this.colExtendRight61.VisibleIndex = 11;
             // 
-            // colExtendRigth71
+            // colExtendRight71
             // 
-            this.colExtendRigth71.FieldName = "ExtendRigth7";
-            this.colExtendRigth71.Name = "colExtendRigth71";
-            this.colExtendRigth71.Visible = true;
-            this.colExtendRigth71.VisibleIndex = 12;
+            this.colExtendRight71.ColumnEdit = this.luDataRight;
+            this.colExtendRight71.FieldName = "ExtendRight7";
+            this.colExtendRight71.Name = "colExtendRight71";
+            this.colExtendRight71.Visible = true;
+            this.colExtendRight71.VisibleIndex = 12;
             // 
-            // colExtendRigth81
+            // colExtendRight81
             // 
-            this.colExtendRigth81.FieldName = "ExtendRigth8";
-            this.colExtendRigth81.Name = "colExtendRigth81";
-            this.colExtendRigth81.Visible = true;
-            this.colExtendRigth81.VisibleIndex = 13;
+            this.colExtendRight81.ColumnEdit = this.luDataRight;
+            this.colExtendRight81.FieldName = "ExtendRight8";
+            this.colExtendRight81.Name = "colExtendRight81";
+            this.colExtendRight81.Visible = true;
+            this.colExtendRight81.VisibleIndex = 13;
             // 
-            // colExtendRigth91
+            // colExtendRight91
             // 
-            this.colExtendRigth91.FieldName = "ExtendRigth9";
-            this.colExtendRigth91.Name = "colExtendRigth91";
-            this.colExtendRigth91.Visible = true;
-            this.colExtendRigth91.VisibleIndex = 14;
+            this.colExtendRight91.ColumnEdit = this.luDataRight;
+            this.colExtendRight91.FieldName = "ExtendRight9";
+            this.colExtendRight91.Name = "colExtendRight91";
+            this.colExtendRight91.Visible = true;
+            this.colExtendRight91.VisibleIndex = 14;
             // 
-            // colExtendRigth101
+            // colExtendRight101
             // 
-            this.colExtendRigth101.FieldName = "ExtendRigth10";
-            this.colExtendRigth101.Name = "colExtendRigth101";
-            this.colExtendRigth101.Visible = true;
-            this.colExtendRigth101.VisibleIndex = 15;
+            this.colExtendRight101.ColumnEdit = this.luDataRight;
+            this.colExtendRight101.FieldName = "ExtendRight10";
+            this.colExtendRight101.Name = "colExtendRight101";
+            this.colExtendRight101.Visible = true;
+            this.colExtendRight101.VisibleIndex = 15;
             // 
             // colIsActive3
             // 
+            this.colIsActive3.Caption = "是否有效";
+            this.colIsActive3.ColumnEdit = this.chkIsActive2;
             this.colIsActive3.FieldName = "IsActive";
             this.colIsActive3.Name = "colIsActive3";
             this.colIsActive3.Visible = true;
             this.colIsActive3.VisibleIndex = 16;
+            // 
+            // chkIsActive2
+            // 
+            this.chkIsActive2.AutoHeight = false;
+            this.chkIsActive2.Caption = "Check";
+            this.chkIsActive2.Name = "chkIsActive2";
+            this.chkIsActive2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.chkIsActive2.ValueGrayed = false;
             // 
             // standaloneBarDockControl2
             // 
@@ -720,12 +766,28 @@
             this.standaloneBarDockControl2.Size = new System.Drawing.Size(524, 29);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
+            // colExtendRight1
+            // 
+            this.colExtendRight1.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight1.FieldName = "ExtendRight1";
+            this.colExtendRight1.Name = "colExtendRight1";
+            this.colExtendRight1.Visible = true;
+            this.colExtendRight1.VisibleIndex = 2;
+            // 
+            // chkOperateRight
+            // 
+            this.chkOperateRight.AutoHeight = false;
+            this.chkOperateRight.Caption = "Check";
+            this.chkOperateRight.Name = "chkOperateRight";
+            this.chkOperateRight.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.chkOperateRight.ValueGrayed = false;
+            // 
             // pageRightDefine
             // 
             this.pageRightDefine.Controls.Add(this.grdRightDefine);
             this.pageRightDefine.Name = "pageRightDefine";
             this.pageRightDefine.Padding = new System.Windows.Forms.Padding(1);
-            this.pageRightDefine.Size = new System.Drawing.Size(526, 122);
+            this.pageRightDefine.Size = new System.Drawing.Size(638, 171);
             this.pageRightDefine.Text = "权限定义";
             // 
             // grdRightDefine
@@ -737,7 +799,7 @@
             this.grdRightDefine.MainView = this.grvRightDefine;
             this.grdRightDefine.MenuManager = this.ribbonMain;
             this.grdRightDefine.Name = "grdRightDefine";
-            this.grdRightDefine.Size = new System.Drawing.Size(524, 120);
+            this.grdRightDefine.Size = new System.Drawing.Size(636, 169);
             this.grdRightDefine.TabIndex = 0;
             this.grdRightDefine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvRightDefine});
@@ -749,41 +811,38 @@
             // grvRightDefine
             // 
             this.grvRightDefine.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colRightType,
             this.colFieldName,
             this.colCaption,
-            this.colIsActive2,
-            this.colIsSystem1});
+            this.colIsActive2});
             this.grvRightDefine.GridControl = this.grdRightDefine;
             this.grvRightDefine.Name = "grvRightDefine";
             this.grvRightDefine.OptionsView.ColumnAutoWidth = false;
+            this.grvRightDefine.OptionsView.ShowGroupPanel = false;
             // 
             // colFieldName
             // 
+            this.colFieldName.Caption = "字段名称";
             this.colFieldName.FieldName = "FieldName";
             this.colFieldName.Name = "colFieldName";
             this.colFieldName.Visible = true;
-            this.colFieldName.VisibleIndex = 0;
+            this.colFieldName.VisibleIndex = 1;
             // 
             // colCaption
             // 
+            this.colCaption.Caption = "标题";
             this.colCaption.FieldName = "Caption";
             this.colCaption.Name = "colCaption";
             this.colCaption.Visible = true;
-            this.colCaption.VisibleIndex = 1;
+            this.colCaption.VisibleIndex = 2;
             // 
             // colIsActive2
             // 
+            this.colIsActive2.Caption = "是否有效";
             this.colIsActive2.FieldName = "IsActive";
             this.colIsActive2.Name = "colIsActive2";
             this.colIsActive2.Visible = true;
-            this.colIsActive2.VisibleIndex = 2;
-            // 
-            // colIsSystem1
-            // 
-            this.colIsSystem1.FieldName = "IsSystem";
-            this.colIsSystem1.Name = "colIsSystem1";
-            this.colIsSystem1.Visible = true;
-            this.colIsSystem1.VisibleIndex = 3;
+            this.colIsActive2.VisibleIndex = 3;
             // 
             // grdOperateRight
             // 
@@ -794,6 +853,9 @@
             this.grdOperateRight.MainView = this.grvOperateRight;
             this.grdOperateRight.MenuManager = this.ribbonMain;
             this.grdOperateRight.Name = "grdOperateRight";
+            this.grdOperateRight.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.chkOperateRight,
+            this.sluDataRole});
             this.grdOperateRight.Size = new System.Drawing.Size(636, 146);
             this.grdOperateRight.TabIndex = 1;
             this.grdOperateRight.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -804,107 +866,131 @@
             this.grvOperateRight.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colDataRoleId,
             this.colAddNew,
-            this.colExtendRigth1,
-            this.colExtendRigth2,
-            this.colExtendRigth3,
-            this.colExtendRigth4,
-            this.colExtendRigth5,
-            this.colExtendRigth6,
-            this.colExtendRigth7,
-            this.colExtendRigth8,
-            this.colExtendRigth9,
-            this.colExtendRigth10,
+            this.colExtendRight1,
+            this.colExtendRight2,
+            this.colExtendRight3,
+            this.colExtendRight4,
+            this.colExtendRight5,
+            this.colExtendRight6,
+            this.colExtendRight7,
+            this.colExtendRight8,
+            this.colExtendRight9,
+            this.colExtendRight10,
             this.colIsActive1});
             this.grvOperateRight.GridControl = this.grdOperateRight;
             this.grvOperateRight.Name = "grvOperateRight";
             this.grvOperateRight.OptionsView.ColumnAutoWidth = false;
+            this.grvOperateRight.OptionsView.ShowGroupPanel = false;
             // 
             // colDataRoleId
             // 
+            this.colDataRoleId.Caption = "业务角色";
+            this.colDataRoleId.ColumnEdit = this.sluDataRole;
             this.colDataRoleId.FieldName = "DataRoleId";
             this.colDataRoleId.Name = "colDataRoleId";
             this.colDataRoleId.Visible = true;
             this.colDataRoleId.VisibleIndex = 0;
             // 
+            // sluDataRole
+            // 
+            this.sluDataRole.AutoHeight = false;
+            this.sluDataRole.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sluDataRole.Name = "sluDataRole";
+            this.sluDataRole.View = this.slvDataRole;
+            // 
+            // slvDataRole
+            // 
+            this.slvDataRole.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.slvDataRole.Name = "slvDataRole";
+            this.slvDataRole.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.slvDataRole.OptionsView.ShowGroupPanel = false;
+            // 
             // colAddNew
             // 
+            this.colAddNew.Caption = "新增";
+            this.colAddNew.ColumnEdit = this.chkOperateRight;
             this.colAddNew.FieldName = "AddNew";
             this.colAddNew.Name = "colAddNew";
             this.colAddNew.Visible = true;
             this.colAddNew.VisibleIndex = 1;
             // 
-            // colExtendRigth1
+            // colExtendRight2
             // 
-            this.colExtendRigth1.FieldName = "ExtendRigth1";
-            this.colExtendRigth1.Name = "colExtendRigth1";
-            this.colExtendRigth1.Visible = true;
-            this.colExtendRigth1.VisibleIndex = 2;
+            this.colExtendRight2.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight2.FieldName = "ExtendRight2";
+            this.colExtendRight2.Name = "colExtendRight2";
+            this.colExtendRight2.Visible = true;
+            this.colExtendRight2.VisibleIndex = 3;
             // 
-            // colExtendRigth2
+            // colExtendRight3
             // 
-            this.colExtendRigth2.FieldName = "ExtendRigth2";
-            this.colExtendRigth2.Name = "colExtendRigth2";
-            this.colExtendRigth2.Visible = true;
-            this.colExtendRigth2.VisibleIndex = 3;
+            this.colExtendRight3.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight3.FieldName = "ExtendRight3";
+            this.colExtendRight3.Name = "colExtendRight3";
+            this.colExtendRight3.Visible = true;
+            this.colExtendRight3.VisibleIndex = 4;
             // 
-            // colExtendRigth3
+            // colExtendRight4
             // 
-            this.colExtendRigth3.FieldName = "ExtendRigth3";
-            this.colExtendRigth3.Name = "colExtendRigth3";
-            this.colExtendRigth3.Visible = true;
-            this.colExtendRigth3.VisibleIndex = 4;
+            this.colExtendRight4.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight4.FieldName = "ExtendRight4";
+            this.colExtendRight4.Name = "colExtendRight4";
+            this.colExtendRight4.Visible = true;
+            this.colExtendRight4.VisibleIndex = 5;
             // 
-            // colExtendRigth4
+            // colExtendRight5
             // 
-            this.colExtendRigth4.FieldName = "ExtendRigth4";
-            this.colExtendRigth4.Name = "colExtendRigth4";
-            this.colExtendRigth4.Visible = true;
-            this.colExtendRigth4.VisibleIndex = 5;
+            this.colExtendRight5.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight5.FieldName = "ExtendRight5";
+            this.colExtendRight5.Name = "colExtendRight5";
+            this.colExtendRight5.Visible = true;
+            this.colExtendRight5.VisibleIndex = 6;
             // 
-            // colExtendRigth5
+            // colExtendRight6
             // 
-            this.colExtendRigth5.FieldName = "ExtendRigth5";
-            this.colExtendRigth5.Name = "colExtendRigth5";
-            this.colExtendRigth5.Visible = true;
-            this.colExtendRigth5.VisibleIndex = 6;
+            this.colExtendRight6.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight6.FieldName = "ExtendRight6";
+            this.colExtendRight6.Name = "colExtendRight6";
+            this.colExtendRight6.Visible = true;
+            this.colExtendRight6.VisibleIndex = 7;
             // 
-            // colExtendRigth6
+            // colExtendRight7
             // 
-            this.colExtendRigth6.FieldName = "ExtendRigth6";
-            this.colExtendRigth6.Name = "colExtendRigth6";
-            this.colExtendRigth6.Visible = true;
-            this.colExtendRigth6.VisibleIndex = 7;
+            this.colExtendRight7.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight7.FieldName = "ExtendRight7";
+            this.colExtendRight7.Name = "colExtendRight7";
+            this.colExtendRight7.Visible = true;
+            this.colExtendRight7.VisibleIndex = 8;
             // 
-            // colExtendRigth7
+            // colExtendRight8
             // 
-            this.colExtendRigth7.FieldName = "ExtendRigth7";
-            this.colExtendRigth7.Name = "colExtendRigth7";
-            this.colExtendRigth7.Visible = true;
-            this.colExtendRigth7.VisibleIndex = 8;
+            this.colExtendRight8.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight8.FieldName = "ExtendRight8";
+            this.colExtendRight8.Name = "colExtendRight8";
+            this.colExtendRight8.Visible = true;
+            this.colExtendRight8.VisibleIndex = 9;
             // 
-            // colExtendRigth8
+            // colExtendRight9
             // 
-            this.colExtendRigth8.FieldName = "ExtendRigth8";
-            this.colExtendRigth8.Name = "colExtendRigth8";
-            this.colExtendRigth8.Visible = true;
-            this.colExtendRigth8.VisibleIndex = 9;
+            this.colExtendRight9.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight9.FieldName = "ExtendRight9";
+            this.colExtendRight9.Name = "colExtendRight9";
+            this.colExtendRight9.Visible = true;
+            this.colExtendRight9.VisibleIndex = 10;
             // 
-            // colExtendRigth9
+            // colExtendRight10
             // 
-            this.colExtendRigth9.FieldName = "ExtendRigth9";
-            this.colExtendRigth9.Name = "colExtendRigth9";
-            this.colExtendRigth9.Visible = true;
-            this.colExtendRigth9.VisibleIndex = 10;
-            // 
-            // colExtendRigth10
-            // 
-            this.colExtendRigth10.FieldName = "ExtendRigth10";
-            this.colExtendRigth10.Name = "colExtendRigth10";
-            this.colExtendRigth10.Visible = true;
-            this.colExtendRigth10.VisibleIndex = 11;
+            this.colExtendRight10.ColumnEdit = this.chkOperateRight;
+            this.colExtendRight10.FieldName = "ExtendRight10";
+            this.colExtendRight10.Name = "colExtendRight10";
+            this.colExtendRight10.Visible = true;
+            this.colExtendRight10.VisibleIndex = 11;
             // 
             // colIsActive1
             // 
+            this.colIsActive1.Caption = "是否可用";
+            this.colIsActive1.ColumnEdit = this.chkOperateRight;
             this.colIsActive1.FieldName = "IsActive";
             this.colIsActive1.Name = "colIsActive1";
             this.colIsActive1.Visible = true;
@@ -933,6 +1019,7 @@
             this.btnAddDataRight.Id = 5;
             this.btnAddDataRight.Name = "btnAddDataRight";
             this.btnAddDataRight.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnAddDataRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddDataRight_ItemClick);
             // 
             // btnCopyDataRight
             // 
@@ -941,6 +1028,7 @@
             this.btnCopyDataRight.Id = 6;
             this.btnCopyDataRight.Name = "btnCopyDataRight";
             this.btnCopyDataRight.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnCopyDataRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCopyDataRight_ItemClick);
             // 
             // btnDeleteDataRight
             // 
@@ -949,6 +1037,15 @@
             this.btnDeleteDataRight.Id = 7;
             this.btnDeleteDataRight.Name = "btnDeleteDataRight";
             this.btnDeleteDataRight.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnDeleteDataRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeleteDataRight_ItemClick);
+            // 
+            // colRightType
+            // 
+            this.colRightType.Caption = "权限类型";
+            this.colRightType.FieldName = "RightType";
+            this.colRightType.Name = "colRightType";
+            this.colRightType.Visible = true;
+            this.colRightType.VisibleIndex = 0;
             // 
             // sysBillTypeView
             // 
@@ -985,7 +1082,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkIsActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseDataRight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseOperateRight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbxAllowRightType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -994,7 +1090,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIndex)).EndInit();
@@ -1003,12 +1098,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDataRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDataRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDataRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sluDataRole2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slvDataRole2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luDataRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkIsActive2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOperateRight)).EndInit();
             this.pageRightDefine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdRightDefine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRightDefine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvRightDefine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdOperateRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvOperateRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sluDataRole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slvDataRole)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,10 +1126,8 @@
         private DevExpress.XtraTab.XtraTabPage pageRightDefine;
         private DevExpress.XtraGrid.GridControl grdRightDefine;
         private DevExpress.XtraGrid.Views.Grid.GridView grvRightDefine;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit cbxAllowRightType;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.MemoEdit txtRemark;
         private DevExpress.XtraEditors.CheckEdit chkIsSystem;
         private DevExpress.XtraEditors.CheckEdit chkIsActive;
@@ -1058,16 +1158,16 @@
         private DevExpress.XtraBars.BarButtonItem btnDeleteDataRight;
         private DevExpress.XtraGrid.Columns.GridColumn colDataRoleId;
         private DevExpress.XtraGrid.Columns.GridColumn colAddNew;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth1;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth2;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth3;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth4;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth5;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth6;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth7;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth8;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth9;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth10;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight1;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight2;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight3;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight4;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight5;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight6;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight7;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight8;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight9;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight10;
         private DevExpress.XtraGrid.Columns.GridColumn colIsActive1;
         private DevExpress.XtraGrid.Columns.GridColumn colDataRoleId1;
         private DevExpress.XtraGrid.Columns.GridColumn colQueryRight;
@@ -1075,20 +1175,27 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDeleteRight;
         private DevExpress.XtraGrid.Columns.GridColumn colAuditRight;
         private DevExpress.XtraGrid.Columns.GridColumn colPrintRight;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight1;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth21;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth31;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth41;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth51;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth61;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth71;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth81;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth91;
-        private DevExpress.XtraGrid.Columns.GridColumn colExtendRigth101;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight11;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight21;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight31;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight41;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight51;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight61;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight71;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight81;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight91;
+        private DevExpress.XtraGrid.Columns.GridColumn colExtendRight101;
         private DevExpress.XtraGrid.Columns.GridColumn colIsActive3;
         private DevExpress.XtraGrid.Columns.GridColumn colFieldName;
         private DevExpress.XtraGrid.Columns.GridColumn colCaption;
         private DevExpress.XtraGrid.Columns.GridColumn colIsActive2;
-        private DevExpress.XtraGrid.Columns.GridColumn colIsSystem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkOperateRight;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit sluDataRole;
+        private DevExpress.XtraGrid.Views.Grid.GridView slvDataRole;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit sluDataRole2;
+        private DevExpress.XtraGrid.Views.Grid.GridView slvDataRole2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit luDataRight;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkIsActive2;
+        private DevExpress.XtraGrid.Columns.GridColumn colRightType;
     }
 }

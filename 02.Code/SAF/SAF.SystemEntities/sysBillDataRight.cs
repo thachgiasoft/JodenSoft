@@ -70,58 +70,58 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.ExtendRight1, value); }
         }
 
-        public int ExtendRigth2
+        public int ExtendRight2
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth2); }
-            set { base.SetFieldValue(P => P.ExtendRigth2, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight2); }
+            set { base.SetFieldValue(P => P.ExtendRight2, value); }
         }
 
-        public int ExtendRigth3
+        public int ExtendRight3
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth3); }
-            set { base.SetFieldValue(P => P.ExtendRigth3, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight3); }
+            set { base.SetFieldValue(P => P.ExtendRight3, value); }
         }
 
-        public int ExtendRigth4
+        public int ExtendRight4
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth4); }
-            set { base.SetFieldValue(P => P.ExtendRigth4, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight4); }
+            set { base.SetFieldValue(P => P.ExtendRight4, value); }
         }
 
-        public int ExtendRigth5
+        public int ExtendRight5
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth5); }
-            set { base.SetFieldValue(P => P.ExtendRigth5, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight5); }
+            set { base.SetFieldValue(P => P.ExtendRight5, value); }
         }
 
-        public int ExtendRigth6
+        public int ExtendRight6
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth6); }
-            set { base.SetFieldValue(P => P.ExtendRigth6, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight6); }
+            set { base.SetFieldValue(P => P.ExtendRight6, value); }
         }
 
-        public int ExtendRigth7
+        public int ExtendRight7
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth7); }
-            set { base.SetFieldValue(P => P.ExtendRigth7, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight7); }
+            set { base.SetFieldValue(P => P.ExtendRight7, value); }
         }
 
-        public int ExtendRigth8
+        public int ExtendRight8
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth8); }
-            set { base.SetFieldValue(P => P.ExtendRigth8, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight8); }
+            set { base.SetFieldValue(P => P.ExtendRight8, value); }
         }
 
-        public int ExtendRigth9
+        public int ExtendRight9
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth9); }
-            set { base.SetFieldValue(P => P.ExtendRigth9, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight9); }
+            set { base.SetFieldValue(P => P.ExtendRight9, value); }
         }
 
-        public int ExtendRigth10
+        public int ExtendRight10
         {
-            get { return base.GetFieldValue<int>(P => P.ExtendRigth10); }
-            set { base.SetFieldValue(P => P.ExtendRigth10, value); }
+            get { return base.GetFieldValue<int>(P => P.ExtendRight10); }
+            set { base.SetFieldValue(P => P.ExtendRight10, value); }
         }
 
         public bool IsActive
@@ -129,7 +129,7 @@ namespace SAF.SystemEntities
             get { return base.GetFieldValue<bool>(P => P.IsActive); }
             set { base.SetFieldValue(P => P.IsActive, value); }
         }
-        
+
         #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy

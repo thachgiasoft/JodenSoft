@@ -536,6 +536,11 @@ namespace SAF.Framework.View
             return result.IsEmpty() ? " (1=1) " : result;
         }
 
+        protected virtual void OnAfterQuery()
+        {
+
+        }
+
         public void Query(string condition, params object[] args)
         {
             if (ViewModel != null)
@@ -548,6 +553,8 @@ namespace SAF.Framework.View
 
                 condition = CalcCondition(condition);
                 ViewModel.Query(condition, args);
+
+                OnAfterQuery();
 
                 RefreshPageControl();
             }

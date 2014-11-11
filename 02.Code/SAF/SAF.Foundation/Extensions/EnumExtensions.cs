@@ -42,8 +42,11 @@ namespace SAF.Foundation
                 }
                 else
                 {
-                    ResourceManager mgr = new ResourceManager(attributes[0].ResourceType);
-                    string str = mgr.GetString(attributes[0].Name);
+                    //ResourceManager mgr = new ResourceManager(attributes[0].ResourceType);
+                    //string str = mgr.GetString(attributes[0].Name);
+
+                    var str = attributes[0].Name;
+
                     list.Add(new KeyValuePair<T, string>(v, string.IsNullOrWhiteSpace(str) ? enumName : str.Trim()));
                 }
             }
