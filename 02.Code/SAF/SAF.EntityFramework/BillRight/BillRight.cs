@@ -273,17 +273,17 @@ GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
         private static string CalcQueryRight(BillQueryRightInfo info, int sUserId, DataTable billQueryRights)
         {
             const string OnlyOwnerCondition1 = @"({0}='{1}')";
-            const string OnlyOwnerCondition2 = @"({0}='{1}' AND dbo.sysGetOrganizationCode({2}) LIKE '{3}%')";
-            const string OnlyOwnerCondition3 = @"({0}='{1}' AND {2}={3})";
+            //const string OnlyOwnerCondition2 = @"({0}='{1}' AND dbo.sysGetOrganizationCode({2}) LIKE '{3}%')";
+            //const string OnlyOwnerCondition3 = @"({0}='{1}' AND {2}={3})";
             const string OnlyDepartmentCondition = @"({0}={1})";
             const string DepartmentAndChildCondition1 = @"({0} LIKE '{1}%')";
-            const string DepartmentAndChildCondition2 = @"(dbo.sysGetOrganizationCode({0}) LIKE '{1}%')";
+            //const string DepartmentAndChildCondition2 = @"(dbo.sysGetOrganizationCode({0}) LIKE '{1}%')";
             //得到当前单据的权限数据
             var rights = billQueryRights.AsEnumerable().Where(x => x.Field<int>(RES.BillTypeId) == info.BillTypeId);
             //未配置权限，则无任何权限，不可查询出任何数据
             if (rights.IsEmpty())
                 return " AND 1=2 ";
-            bool bHasOrganizationCode = true;//????
+            //bool bHasOrganizationCode = true;
             //若有查询所有权限，则直接返回1=1(所有部门的本部门权限，等同于所有权限)
             if (rights.Any(x => (BillRightType)x.Field<int>(RES.QueryRight) == BillRightType.All
                                 || (((BillRightType)x.Field<int>(RES.QueryRight)).In(BillRightType.DepartmentAndChild, BillRightType.OnlyDepartment)
@@ -309,21 +309,21 @@ GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
                 switch (iQueryRight)
                 {
                     case BillRightType.OnlyOwner:
-                        if (bAllDepartment)
-                            s = string.Format(OnlyOwnerCondition1, CreateByField, sUserId);
-                        else if (bHasOrganizationCode)
-                            s = string.Format(OnlyOwnerCondition2, CreateByField, sUserId, sDepartmentIdField, sDepartmentCode);
-                        else
-                            s = string.Format(OnlyOwnerCondition3, CreateByField, sUserId, sDepartmentIdField, iDepartmentId);
+                        //if (bAllDepartment)
+                        s = string.Format(OnlyOwnerCondition1, CreateByField, sUserId);
+                        //else if (bHasOrganizationCode)
+                        //    s = string.Format(OnlyOwnerCondition2, CreateByField, sUserId, sDepartmentIdField, sDepartmentCode);
+                        //else
+                        //    s = string.Format(OnlyOwnerCondition3, CreateByField, sUserId, sDepartmentIdField, iDepartmentId);
                         break;
                     case BillRightType.OnlyDepartment:
                         s = string.Format(OnlyDepartmentCondition, sDepartmentIdField, iDepartmentId);
                         break;
                     case BillRightType.DepartmentAndChild:
-                        if (!info.OrganizationCodeField.IsEmpty())
-                            s = string.Format(DepartmentAndChildCondition1, sDepartmentCodeField, sDepartmentCode);
-                        else
-                            s = string.Format(DepartmentAndChildCondition2, sDepartmentIdField, sDepartmentCode);
+                        //if (!info.OrganizationCodeField.IsEmpty())
+                        s = string.Format(DepartmentAndChildCondition1, sDepartmentCodeField, sDepartmentCode);
+                        //else
+                        //    s = string.Format(DepartmentAndChildCondition2, sDepartmentIdField, sDepartmentCode);
                         break;
                 }
                 if (!s.IsEmpty())
