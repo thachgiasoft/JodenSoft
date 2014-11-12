@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
-            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.standaloneDtl = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
+            this.bsDetail = new System.Windows.Forms.BindingSource();
             this.barDtl = new DevExpress.XtraBars.Bar();
             this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDtlCopy = new DevExpress.XtraBars.BarButtonItem();
@@ -105,7 +104,7 @@
             // 
             this.bmMain.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.barDtl});
-            this.bmMain.DockControls.Add(this.standaloneBarDockControl1);
+            this.bmMain.DockControls.Add(this.standaloneDtl);
             this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnDtlAddNew,
             this.btnDtlCopy,
@@ -128,19 +127,19 @@
             // 
             // pageDtl
             // 
-            this.pageDtl.Controls.Add(this.standaloneBarDockControl1);
+            this.pageDtl.Controls.Add(this.standaloneDtl);
             this.pageDtl.Name = "pageDtl";
             this.pageDtl.Size = new System.Drawing.Size(526, 145);
             this.pageDtl.Text = "明细数据";
             // 
-            // standaloneBarDockControl1
+            // standaloneDtl
             // 
-            this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(526, 23);
-            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
+            this.standaloneDtl.CausesValidation = false;
+            this.standaloneDtl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneDtl.Location = new System.Drawing.Point(0, 0);
+            this.standaloneDtl.Name = "standaloneDtl";
+            this.standaloneDtl.Size = new System.Drawing.Size(526, 23);
+            this.standaloneDtl.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
             // 
@@ -161,7 +160,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDtlDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiDtlImport, true)});
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
-            this.barDtl.StandaloneBarDockControl = this.standaloneBarDockControl1;
+            this.barDtl.StandaloneBarDockControl = this.standaloneDtl;
             this.barDtl.Text = "barDtl";
             // 
             // btnDtlAddNew
@@ -243,7 +242,7 @@
         protected DevExpress.XtraTab.XtraTabPage pageDtl;
         protected System.Windows.Forms.BindingSource bsDetail;
         protected DevExpress.XtraBars.PopupMenu pmuImportDetail;
-        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
+        protected DevExpress.XtraBars.StandaloneBarDockControl standaloneDtl;
         protected DevExpress.XtraBars.Bar barDtl;
         protected DevExpress.XtraBars.BarButtonItem btnDtlAddNew;
         protected DevExpress.XtraBars.BarButtonItem btnDtlDelete;
