@@ -20,16 +20,5 @@ namespace SAF.Framework.Controls.Test
             InitializeComponent();
         }
 
- 
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.autoSizeLabelControl1.Text = @"Title = 数据连接配置,                GroupHeader = ,                IsFlowBreak = true,                Size = TileSize.Small,";
-        }
-
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

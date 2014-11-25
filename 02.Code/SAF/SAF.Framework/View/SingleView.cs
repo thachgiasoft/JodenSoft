@@ -493,18 +493,23 @@ namespace SAF.Framework.View
             int count = this.ViewModel.MainEntitySet.Count;
 
             var operateRight = this.ViewModel.MainEntitySet.BillOperateRight;
+            var curr = this.ViewModel.MainEntitySet.CurrentEntity;
+            var dataRight = curr == null ? BillDataRight.None : curr.BillDataRight;
 
             bool canAddNew = operateRight.IncludeEnum(BillOperateRight.AddNew);
+            bool canEdit = dataRight.IncludeEnum(BillDataRight.Edit);
+            bool canDelete = dataRight.IncludeEnum(BillDataRight.Delete);
+            bool canAudit = dataRight.IncludeEnum(BillDataRight.Audit);
 
             UIController.RefreshControl(this.bbiAddNew, IsBrowse && canAddNew);
-            UIController.RefreshControl(this.bbiEdit, IsBrowse && count > 0);
-            UIController.RefreshControl(this.bbiDelete, IsBrowse && count > 0);
+            UIController.RefreshControl(this.bbiEdit, IsBrowse && count > 0 && canEdit);
+            UIController.RefreshControl(this.bbiDelete, IsBrowse && count > 0 && canDelete);
             UIController.RefreshControl(this.bbiCancel, IsAddNew || IsEdit);
             UIController.RefreshControl(this.bbiSave, IsAddNew || IsEdit);
 
-            UIController.RefreshControl(this.bbiSend, false);
-            UIController.RefreshControl(this.bbiApprove, false);
-            UIController.RefreshControl(this.bbiReject, false);
+            UIController.RefreshControl(this.bbiSend, IsBrowse && count > 0);
+            UIController.RefreshControl(this.bbiApprove, IsBrowse && count > 0 && canAudit);
+            UIController.RefreshControl(this.bbiReject, IsBrowse && count > 0 && canAudit);
         }
 
         protected override void OnRefreshUI()

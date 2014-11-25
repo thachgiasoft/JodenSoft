@@ -13,7 +13,7 @@ namespace SAF.EntityFramework
     public enum BillDataRight
     {
         None = 0,
-        Update = 1,
+        Edit = 1,
         Delete = 2,
         Audit = 4,
         Print = 8,
