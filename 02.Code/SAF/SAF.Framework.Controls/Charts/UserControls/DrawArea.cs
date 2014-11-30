@@ -105,7 +105,7 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        private ChartControl Owner { get; set; }
+        private IChartControl Owner { get; set; }
 
         private UndoManager UndoManager { get; set; }
 
@@ -127,13 +127,6 @@ namespace SAF.Framework.Controls.Charts
         private DrawArea()
         {
             InitializeComponent();
-
-            //ToolTip.AutoPopDelay = 15000;
-            //ToolTip.InitialDelay = 250;
-            //ToolTip.OwnerDraw = true;
-
-            //ToolTip.Draw += ToolTip_Draw;
-            //ToolTip.Popup += ToolTip_Popup;
         }
 
         private int i = 0;
@@ -249,7 +242,7 @@ namespace SAF.Framework.Controls.Charts
 
         #endregion
 
-        public DrawArea(ChartControl owner)
+        public DrawArea(IChartControl owner)
             : this()
         {
             this.Paint += new PaintEventHandler(DrawArea_Paint);
@@ -264,82 +257,6 @@ namespace SAF.Framework.Controls.Charts
 
             this.AutoScroll = true;
         }
-
-        public string SaveToXml()
-        {
-            return string.Empty;
-            //var diagram = this.ToDiagram();
-
-            //using (MemoryStream ms = new MemoryStream())
-            //{
-            //    XmlSerializer formatter = new XmlSerializer(typeof(Diagram));
-            //    formatter.Serialize(ms, diagram);
-            //    ms.Position = 0;
-            //    using (StreamReader sr = new StreamReader(ms))
-            //    {
-            //        var xmlstring = sr.ReadToEnd();
-            //        xmlstring = xmlstring.m_After("?>");
-            //        xmlstring = xmlstring.Trim();
-            //        return xmlstring;
-            //    }
-            //}
-        }
-
-        public void LoadFromXml(string xmlString)
-        {
-            //this.ClearHistory();
-            //if (!string.IsNullOrWhiteSpace(xmlString))
-            //{
-            //    using (StringReader sr = new StringReader(xmlString))
-            //    {
-            //        XmlSerializer xmldes = new XmlSerializer(typeof(Diagram));
-            //        var diagram = xmldes.Deserialize(sr) as Diagram;
-
-            //        if (diagram == null)
-            //            throw new Exception("反序列化时出错了.可能不是有效的xml字符串.{0}{1}".m_FormatEx(Environment.NewLine, xmlString));
-
-            //        this.GraphicsCollection = CreateGraphicsCollection(diagram.Items);
-
-            //        this.Zoom = diagram.dZoom <= 0 ? 1f : diagram.dZoom;
-            //        this.DiagramType = (DiagramType)diagram.iDiagramType;
-
-            //        this.iProductId = diagram.iProductId;
-            //        this.iProjectId = diagram.iProjectId;
-            //        //this.ID = diagram.iIden;
-            //        this.Caption = diagram.sName;
-
-            //        //GraphicsCollection.ReplaceDrawLine();
-            //    }
-            //}
-            //else
-            //{
-            //    this.GraphicsCollection = new GraphicsCollection();
-            //    this.Zoom = 1f;
-
-            //    this.DiagramType = this.DiagramType;
-
-            //    this.iProductId = 0;
-            //    this.iProjectId = 0;
-            //    this.ID = int.MinValue;
-            //}
-
-            //this.Dirty = false;
-            ////将画布移至第一个图形
-            //if (this.GraphicsCollection.Count > 0)
-            //{
-            //    //drawArea.SetAutoScrollMinSize();
-            //    int x = this.GraphicsCollection.Min(p => p.Left);
-            //    int y = this.GraphicsCollection.Min(p => p.Top);
-
-            //    if (x < this.Width / 3) x = 0;
-            //    if (y < this.Height / 3) y = 0;
-            //    this.AutoScrollPosition = new Point(x, y);
-            //}
-            //this.FireSelectionChanged();
-            //this.Refresh();
-        }
-
-       
 
         public byte[] SaveToStream()
         {
@@ -366,14 +283,11 @@ namespace SAF.Framework.Controls.Charts
                     this.DiagramType = this.GraphicsCollection.DiagramType;
                 else
                     this.DiagramType = this.DiagramType;
-
-                //GraphicsCollection.ReplaceDrawLine();
             }
             else
             {
                 this.GraphicsCollection = new GraphicsCollection();
                 this.Zoom = 1f;
-
                 this.DiagramType = this.DiagramType;
             }
 
@@ -381,7 +295,6 @@ namespace SAF.Framework.Controls.Charts
             //将画布移至第一个图形
             if (this.GraphicsCollection.Count > 0)
             {
-                //drawArea.SetAutoScrollMinSize();
                 int x = this.GraphicsCollection.Min(p => p.Left);
                 int y = this.GraphicsCollection.Min(p => p.Top);
 
@@ -426,7 +339,6 @@ namespace SAF.Framework.Controls.Charts
         void DrawArea_Resize(object sender, EventArgs e)
         {
             this.Refresh();
-            //this.SetAutoScrollMinSize();
         }
 
         protected virtual void GenerateDefaultActions()
@@ -588,8 +500,6 @@ namespace SAF.Framework.Controls.Charts
 
             e.Graphics.PageUnit = GraphicsUnit.Pixel; //GraphicsUnit.Pixel才支持缩放与偏移绘制。
 
-            //SolidBrush brush = new SolidBrush(Color.FromArgb(255, 255, 255));
-
             if (MouseButtons != MouseButtons.Left)
             {
                 Rectangle b = Rectangle.Round(SumRectangles());
@@ -651,7 +561,7 @@ namespace SAF.Framework.Controls.Charts
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="docManager"></param>
-        protected void Initialize(ChartControl owner)
+        protected void Initialize(IChartControl owner)
         {
             //开启双缓冲
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -672,7 +582,6 @@ namespace SAF.Framework.Controls.Charts
             UndoManager = new UndoManager(GraphicsCollection);
 
             tools.Add((int)GraphicsType.Pointer, new ToolPointer());
-            tools.Add((int)GraphicsType.Drag, new ToolDrag());
             //tools.Add(new ToolLine(false, true));
             //tools.Add(new ToolLine(true, true));
             //tools.Add(new ToolRectangle(false));
@@ -871,43 +780,15 @@ namespace SAF.Framework.Controls.Charts
 
             Owner.ContextMenuBeforePopExecute();
 
-            FillStatusMenuItem();
-
             MarginContextMenu(Owner);
-            m_ContextMenu.Show(Owner, point);
+            m_ContextMenu.Show(Owner.View, point);
             m_ContextMenu.Closed += m_ContextMenu_Closed;
 
             Owner.SetStateOfMenuItem();
             SetStateOfContextMenuItem();
         }
 
-        private void FillStatusMenuItem()
-        {
-            if (this.iStatusSource != null && this.iStatusSource.Count() > 0)
-            {
-                if (!this.iStatusToolStripMenuItem.HasDropDownItems)
-                {
-                    foreach (var item in this.iStatusSource)
-                    {
-                        var strip = new ToolStripMenuItem(item.Value);
-                        strip.Tag = item.Key;
-                        strip.Click += (sender, args) =>
-                        {
-                            var commandChangeState = new CommandChangeState(GraphicsCollection);
-                            foreach (var obj in this.GraphicsCollection.Selection)
-                            {
-                                obj.iStatus = Convert.ToInt32((sender as ToolStripMenuItem).Tag);
-                            }
-                            commandChangeState.NewState(GraphicsCollection);
-                            this.AddCommandToHistory(commandChangeState);
-                            this.SetDirty();
-                            Refresh();
-                        };
-                        this.iStatusToolStripMenuItem.DropDownItems.Add(strip);
-                    }
-                }
-            }
-        }
+      
 
 
         void m_ContextMenu_Closed(object sender, ToolStripDropDownClosedEventArgs e)
@@ -921,7 +802,7 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        private void MarginContextMenu(ChartControl owner)
+        private void MarginContextMenu(IChartControl owner)
         {
             if (owner.ContextMenuStrip != null)
             {
@@ -979,9 +860,6 @@ namespace SAF.Framework.Controls.Charts
             bool hasSelectedDrawRectangle = this.GraphicsCollection.Any(p => p.Selected && p is DrawRectangle);
             AutoSizeToolStripMenuItem.Enabled = hasSelectedDrawRectangle && !this.ReadOnly;
             AutoSizeToolStripMenuItem.Visible = hasSelectedDrawRectangle && !this.ReadOnly;
-
-            this.iStatusToolStripMenuItem.Enabled = selectedObjects && !this.ReadOnly && this.iStatusSource != null && this.iStatusSource.Count() > 0;
-            this.iStatusToolStripMenuItem.Visible = this.iStatusToolStripMenuItem.Enabled;
 
         }
 
@@ -1247,17 +1125,10 @@ namespace SAF.Framework.Controls.Charts
         }
 
         public int ID { get; set; }
+        public bool IsLocalFile { get; set; }
         public int iProductId { get; set; }
         public int iProjectId { get; set; }
         public string FileName { get; set; }
-
-        public IEnumerable<KeyValuePair<int, string>> iStatusSource
-        {
-            get
-            {
-                return Owner == null ? null : Owner.iStatusSource;
-            }
-        }
 
         public void ExportToPng(string fileName)
         {

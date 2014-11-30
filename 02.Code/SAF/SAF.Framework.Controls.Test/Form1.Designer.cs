@@ -28,24 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chartControl1 = new SAF.Framework.Controls.Charts.ChartControl();
+            this.menuChartControl1 = new SAF.Framework.Controls.Charts.MenuChartControl();
             this.SuspendLayout();
             // 
-            // chartControl1
+            // menuChartControl1
             // 
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Location = new System.Drawing.Point(0, 0);
-            this.chartControl1.MaxDocumentCount = 50;
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.Size = new System.Drawing.Size(703, 385);
-            this.chartControl1.TabIndex = 0;
+            this.menuChartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuChartControl1.Location = new System.Drawing.Point(0, 0);
+            this.menuChartControl1.Name = "menuChartControl1";
+            this.menuChartControl1.Size = new System.Drawing.Size(703, 385);
+            this.menuChartControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 385);
-            this.Controls.Add(this.chartControl1);
+            this.Controls.Add(this.menuChartControl1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +53,8 @@
 
         #endregion
 
-        private Charts.ChartControl chartControl1;
+        private Charts.MenuChartControl menuChartControl1;
+
 
 
 

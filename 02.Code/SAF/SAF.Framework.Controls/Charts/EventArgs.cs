@@ -41,24 +41,18 @@ namespace SAF.Framework.Controls.Charts
 
     public class SaveEventArgs : EventArgs
     {
-        public List<DrawArea> DrawAreaList { get; private set; }
-        public SaveEventArgs()
-        {
-            DrawAreaList = new List<DrawArea>();
-        }
+        public DrawArea DrawArea { get; set; }
     }
 
     public class ReloadEventArgs : EventArgs
     {
         public int Id { get; private set; }
-        public string Xml { get; set; }
         public byte[] Data { get; set; }
         public object Tag { get; set; }
 
         public ReloadEventArgs(int id, object tag)
         {
             this.Id = id;
-            this.Xml = string.Empty;
             this.Data = null;
             this.Tag = tag;
         }

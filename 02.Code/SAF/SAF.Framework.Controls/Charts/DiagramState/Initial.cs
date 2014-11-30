@@ -60,7 +60,7 @@ namespace SAF.Framework.Controls.Charts
             this.AllowBestFit = false;
 
             base.Draw(g);
-           
+
         }
 
         protected override void DrawObjectContent(Graphics g)
@@ -90,7 +90,7 @@ namespace SAF.Framework.Controls.Charts
         {
             var p = ToolObject.TranslatePoint(drawArea, e.Location);
             p = ToolObject.UnzoomPoint(p, drawArea.Zoom);
-            var obj=new Initial(p.X, p.Y, 40, 40);
+            var obj = new Initial(p.X, p.Y, 40, 40);
             obj.Name += " " + drawArea.NameIndex;
             AddNewObject(drawArea, obj);
             base.OnMouseUp(drawArea, e);

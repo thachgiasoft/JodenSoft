@@ -3,42 +3,30 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraNavBar;
-using System.Runtime.Serialization;
-using System.Security;
 using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 using DevExpress.XtraBars.Docking;
 using DevExpress.XtraBars.Docking2010.Views;
-using DevExpress.XtraTab;
-using System.Runtime.Serialization.Formatters.Binary;
 using DevExpress.XtraBars;
-using System.Security.AccessControl;
 using System.Reflection;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using DevExpress.Utils;
-using DevExpress.XtraBars.Docking2010.Views.Tabbed;
 using SAF.Framework.Controls.Charts.ChartControlActions;
 
 
 namespace SAF.Framework.Controls.Charts
 {
     [ToolboxItem(true)]
-    public partial class ChartControl : BaseUserControl, IChartControl
+    public partial class MenuChartControl : BaseUserControl, IChartControl
     {
-        public ChartControl()
+        public MenuChartControl()
         {
             InitializeComponent();
 
             GenerateDefaultActions();
 
-            this.Load += new EventHandler(FlowChartControl_Load);
+            this.Load += new EventHandler(MenuChartControl_Load);
 
         }
 
@@ -66,32 +54,6 @@ namespace SAF.Framework.Controls.Charts
                 this.ActiveDrawArea.Cursor = Cursors.Default;
             }
 
-            try
-            {
-                GetTopDockPanel(this.dpProperty).Close();
-            }
-            catch { }
-
-            if (value)
-            {
-                try
-                {
-                    GetTopDockPanel(this.dpToolbox).Close();
-                    //GetTopDockPanel(this.dpProperty).Close();
-                }
-                catch { }
-            }
-            else
-            {
-                try
-                {
-                    //GetTopDockPanel(this.dpProperty).Close();
-
-                    GetTopDockPanel(this.dpToolbox).Visibility = DockVisibility.Visible;
-                    GetTopDockPanel(this.dpToolbox).Width = 120;
-                }
-                catch { }
-            }
             this.Refresh();
 
             this.SetStateOfMenuItem();
@@ -108,22 +70,11 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        private void SetDiagramType(DiagramType diagramType)
-        {
-            ClearToolbar();
-            if (diagramType != DiagramType.None)
-            {
-                CreateToolbar();
-            }
-        }
-
-
         private DrawArea _ActiveDrawArea = null;
         public DrawArea ActiveDrawArea
         {
             get
             {
-
                 return _ActiveDrawArea;
             }
         }
@@ -194,19 +145,16 @@ namespace SAF.Framework.Controls.Charts
         {
             if (this.ActiveDrawArea == null) return;
 
-            this.cttPropertyGrid1.PropertyGrid.SelectedObjects = null;
-            this.cttPropertyGrid1.PropertyGrid.SelectedObject = null;
+
             int _SelectionCount = this.ActiveDrawArea.GraphicsCollection.SelectionCount;
             if (_SelectionCount > 0)
             {
                 var list = ActiveDrawArea.GraphicsCollection.Selection;
-                this.cttPropertyGrid1.PropertyGrid.SelectedObjects = list.ToArray();
 
                 FireChartControlSelectionChanged(list);
             }
             else
             {
-                this.cttPropertyGrid1.PropertyGrid.Rows.Clear();
 
                 FireChartControlSelectionChanged(null);
             }
@@ -232,7 +180,7 @@ namespace SAF.Framework.Controls.Charts
             //}
         }
 
-        void FlowChartControl_Load(object sender, EventArgs e)
+        void MenuChartControl_Load(object sender, EventArgs e)
         {
             this._ActiveDrawArea = new DrawArea(this);
             this.ActiveDrawArea.ReadOnly = true;
@@ -241,35 +189,12 @@ namespace SAF.Framework.Controls.Charts
             this.SetAllowExportImage(true);
             this.SetReadOnly(true);
 
-            this.cttPropertyGrid1.PropertyValueChanged += cttPropertyGrid1_PropertyValueChanged;
-            this.cttPropertyGrid1.PropertyValueChanging += cttPropertyGrid1_PropertyValueChanging;
             // Submit to Idle event to set controls state at idle time
             Application.Idle += Application_Idle;
 
         }
 
-        void tabbedView_DocumentClosed(object sender, DocumentEventArgs e)
-        {
-            if (this.ActiveDrawArea != null)
-            {
-                this.ActiveDrawArea.Focus();
-            }
-            else
-            {
-                this.Focus();
-            }
 
-            if (this.ActiveDrawArea == null)
-            {
-                var panel = GetTopDockPanel(this.dpToolbox);
-                if (panel != null && panel.Visibility != DockVisibility.Hidden)
-                    panel.Close();
-
-                panel = GetTopDockPanel(this.dpProperty);
-                if (panel != null && panel.Visibility != DockVisibility.Hidden)
-                    panel.Close();
-            }
-        }
 
 
 
@@ -280,92 +205,6 @@ namespace SAF.Framework.Controls.Charts
 
         private CommandChangeState commandChangeState;
 
-        void cttPropertyGrid1_PropertyValueChanging(object sender, EventArgs e)
-        {
-            if (this.ActiveDrawArea != null)
-            {
-                commandChangeState = new CommandChangeState(ActiveDrawArea.GraphicsCollection);
-            }
-        }
-
-        void cttPropertyGrid1_PropertyValueChanged(object sender, EventArgs e)
-        {
-            if (this.ActiveDrawArea != null)
-            {
-                commandChangeState.NewState(ActiveDrawArea.GraphicsCollection);
-                ActiveDrawArea.AddCommandToHistory(commandChangeState);
-                commandChangeState = null;
-                ActiveDrawArea.SetDirty();
-                this.ActiveDrawArea.Refresh();
-            }
-        }
-
-
-        /// <summary>
-        /// 初始化工具栏
-        /// </summary>
-        private void CreateToolbar()
-        {
-            if (this.ActiveDrawArea == null) return;
-
-            NavBarItem nbiItem = null;
-
-            nbiItem = CreateNodeItem("指针", GraphicsType.Pointer);
-            this.nbgGraphics.ItemLinks.Add(new NavBarItemLink(nbiItem));
-
-            var fields = typeof(GraphicsType).GetFields(BindingFlags.Static | BindingFlags.Public);
-
-            Dictionary<NavBarItem, int> dic = new Dictionary<NavBarItem, int>();
-
-            foreach (var fi in fields)
-            {
-                var arr = Attribute.GetCustomAttributes(fi, typeof(GraphicsDisplayAttribute), false);
-                if (arr != null && arr.Length > 0)
-                {
-                    if (arr.Any(p => ((GraphicsDisplayAttribute)p).DiagramType == this.ActiveDrawArea.DiagramType))
-                    {
-                        var gdAttr = arr.First(p => ((GraphicsDisplayAttribute)p).DiagramType == this.ActiveDrawArea.DiagramType) as GraphicsDisplayAttribute;
-
-                        var value = fi.GetValue(null);
-                        string caption = value.ToString();
-
-                        caption = gdAttr.Name;
-                        nbiItem = CreateNodeItem(caption, (GraphicsType)value);
-                        dic.Add(nbiItem, gdAttr.Index);
-                    }
-                }
-            }
-
-            foreach (var item in dic.OrderBy(p => p.Value))
-            {
-                this.nbgGraphics.ItemLinks.Add(new NavBarItemLink(item.Key));
-            }
-
-        }
-
-        private void ClearToolbar()
-        {
-            this.nbgGraphics.ItemLinks.Clear();
-        }
-
-        private NavBarItem CreateNodeItem(string caption, GraphicsType nodeType)
-        {
-            var item = new NavBarItem();
-            item.Caption = caption;
-            this.navToolBox.Items.Add(item);
-            item.Tag = nodeType;
-            item.LinkClicked += (sender, args) =>
-            {
-                if (args.Link.Item.Tag == null) return;
-                GraphicsType nt = (GraphicsType)args.Link.Item.Tag;
-                if (this.ActiveDrawArea != null)
-                {
-                    this.ActiveDrawArea.CurrentGraphicsType = nt;
-                    this.ActiveDrawArea.LastGraphicsType = nt;
-                }
-            };
-            return item;
-        }
 
         public void SetStateOfMenuItem()
         {
@@ -395,55 +234,11 @@ namespace SAF.Framework.Controls.Charts
 
             this.btnRefresh.Enabled = activeAreaNotNull;
 
-            this.bsiPropertyWindow.Enabled = activeAreaNotNull;
-            this.bsiDescriptionWindow.Enabled = activeAreaNotNull;
-            this.bsiToolboxWindow.Enabled = activeAreaNotNull;
 
 
         }
 
-        private List<IChartPad> chartPadList = new List<IChartPad>();
 
-        public void AddChartPad(IChartPad chartPad)
-        {
-            bool hasChanged = false;
-            if (chartPadList.All(p => p.Id != chartPad.Id))
-            {
-                chartPadList.Add(chartPad);
-                hasChanged = true;
-            }
-            if (hasChanged)
-            {
-                InitialChartPads();
-            }
-        }
-
-        private void InitialChartPads()
-        {
-            foreach (var item in chartPadList)
-            {
-                var dockPanel = this.dockManager.AddPanel(DockingStyle.Right);
-                dockPanel.Controls.Add(item.View);
-                item.View.Dock = DockStyle.Fill;
-                dockPanel.ID = item.Id;
-                dockPanel.Location = new System.Drawing.Point(0, 0);
-                dockPanel.Name = "{0}_{1}".FormatEx2("chartPad", item.Id.ToString().Replace("-", "").Replace("{", "").Replace("}", ""));
-                dockPanel.Options.AllowDockBottom = false;
-                dockPanel.Options.AllowDockLeft = false;
-                dockPanel.Options.AllowDockTop = false;
-                dockPanel.Options.AllowFloating = false;
-                dockPanel.Options.FloatOnDblClick = false;
-                dockPanel.Text = item.Caption;
-                //dockPanel.Visibility = DockVisibility.AutoHide;
-            }
-        }
-
-        private string GetDocumentCaption(DrawArea drawArea)
-        {
-            if (drawArea == null || string.IsNullOrWhiteSpace(drawArea.Caption)) return string.Empty;
-
-            return (drawArea.Caption.Length > 6 ? drawArea.Caption.Substring(0, 6) + "..." : drawArea.Caption.PadRight(6, ' ')) + (drawArea.Dirty ? "*" : "");
-        }
 
         /// <summary>
         /// Save file
@@ -736,16 +531,6 @@ namespace SAF.Framework.Controls.Charts
             else return panel;
         }
 
-        private void bsiToolboxWindow_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            GetTopDockPanel(this.dpToolbox).Show();
-        }
-
-        private void bsiPropertyWindow_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            GetTopDockPanel(this.dpProperty).Show();
-        }
-
 
         private void bsiZoomIn_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -912,9 +697,7 @@ namespace SAF.Framework.Controls.Charts
 
         public UserControl View
         {
-            get {return this; }
+            get { return this; }
         }
-
-       
     }
 }

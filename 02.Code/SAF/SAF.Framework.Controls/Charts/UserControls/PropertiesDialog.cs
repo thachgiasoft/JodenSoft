@@ -44,13 +44,10 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        private IEnumerable<KeyValuePair<int, string>> iStatusSource;
-
-        public PropertiesDialog(GraphicsProperties properties, IEnumerable<KeyValuePair<int, string>> list)
+        public PropertiesDialog(GraphicsProperties properties)
             : this()
         {
             this.properties = properties;
-            iStatusSource = list;
         }
 
         private GraphicsProperties properties;
@@ -112,34 +109,6 @@ namespace SAF.Framework.Controls.Charts
             }
 
             lciiStatus.Visibility = properties.ShowiStatus ? LayoutVisibility.Always : LayoutVisibility.Never;
-
-            this.glediStatus.Properties.DataSource = this.iStatusSource;
-            this.glediStatus.Properties.DisplayMember = "Value";
-            this.glediStatus.Properties.ValueMember = "Key";
-            this.glediStatus.Properties.View.OptionsView.ColumnAutoWidth = true;
-            this.glediStatus.Properties.View.BestFitColumns();
-            this.glediStatus.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
-            this.glediStatus.Properties.ShowFooter = false;
-            this.glediStatus.Properties.NullText = "";
-            this.glediStatus.Properties.PopupFormSize = new Size(this.glediStatus.Width, 50);
-            this.glediStatus.Properties.View.OptionsView.ShowColumnHeaders = false;
-            this.glediStatus.Properties.View.OptionsView.ShowIndicator = false;
-            this.glediStatus.Properties.View.OptionsView.ShowHorizontalLines = DefaultBoolean.False;
-            this.glediStatus.Properties.View.OptionsView.ShowVerticalLines = DefaultBoolean.False;
-            this.glediStatus.Properties.QueryPopUp += (sender, args) =>
-            {
-                if (this.glediStatus.Properties.View.Columns["Key"] != null)
-                    this.glediStatus.Properties.View.Columns["Key"].Visible = false;
-            };
-
-            this.glediStatus.Properties.EditValueChanged += (sender, args) =>
-            {
-                if (properties.IsColorObject)
-                {
-                    int istatus = this.glediStatus.EditValue == null ? -1 : Convert.ToInt32(this.glediStatus.EditValue);
-                    this.colorEditBackColor.Color = DrawRectangle.GetBackColor(istatus);
-                }
-            };
 
             if (!properties.ReadOnly)
             {

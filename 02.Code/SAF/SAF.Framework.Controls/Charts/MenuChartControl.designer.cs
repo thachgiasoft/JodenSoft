@@ -2,14 +2,13 @@
 using DevExpress.Utils.Controls;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Docking;
-using DevExpress.XtraBars.Docking2010;
-using DevExpress.XtraBars.Docking2010.Views;
-using DevExpress.XtraBars.Docking2010.Views.Tabbed;
+
 using DevExpress.XtraNavBar;
 using DevExpress.XtraTab;
+
 namespace SAF.Framework.Controls.Charts
 {
-    partial class ChartControl
+    partial class MenuChartControl
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -38,15 +37,7 @@ namespace SAF.Framework.Controls.Charts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartControl));
-            this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.dpToolbox = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.navToolBox = new DevExpress.XtraNavBar.NavBarControl();
-            this.nbgGraphics = new DevExpress.XtraNavBar.NavBarGroup();
-            this.dpProperty = new DevExpress.XtraBars.Docking.DockPanel();
-            this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.cttPropertyGrid1 = new SAF.Framework.Controls.Charts.XtraPropertyGrid();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuChartControl));
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barTools = new DevExpress.XtraBars.Bar();
             this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -61,125 +52,14 @@ namespace SAF.Framework.Controls.Charts
             this.bsiRedo = new DevExpress.XtraBars.BarButtonItem();
             this.bsiZoomIn = new DevExpress.XtraBars.BarButtonItem();
             this.bsiZoomOut = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiToolboxWindow = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiPropertyWindow = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bsiDescriptionWindow = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
-            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
-            this.dpToolbox.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navToolBox)).BeginInit();
-            this.dpProperty.SuspendLayout();
-            this.controlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
-            this.hideContainerRight.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dockManager
-            // 
-            this.dockManager.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
-            this.hideContainerRight});
-            this.dockManager.Form = this;
-            this.dockManager.MenuManager = this.barManager;
-            this.dockManager.TopZIndexControls.AddRange(new string[] {
-            "BarDockControl",
-            "StandaloneBarDockControl",
-            "System.Windows.Forms.StatusBar",
-            "Ribbon.RibbonStatusBar",
-            "Ribbon.RibbonControl"});
-            // 
-            // dpToolbox
-            // 
-            this.dpToolbox.Controls.Add(this.dockPanel1_Container);
-            this.dpToolbox.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dpToolbox.ID = new System.Guid("efb5af52-3b69-4924-a309-4b2ddaeea53d");
-            this.dpToolbox.Location = new System.Drawing.Point(0, 0);
-            this.dpToolbox.Name = "dpToolbox";
-            this.dpToolbox.Options.AllowDockBottom = false;
-            this.dpToolbox.Options.AllowDockFill = false;
-            this.dpToolbox.Options.AllowDockRight = false;
-            this.dpToolbox.Options.AllowDockTop = false;
-            this.dpToolbox.Options.AllowFloating = false;
-            this.dpToolbox.Options.FloatOnDblClick = false;
-            this.dpToolbox.OriginalSize = new System.Drawing.Size(177, 200);
-            this.dpToolbox.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dpToolbox.SavedIndex = 0;
-            this.dpToolbox.Size = new System.Drawing.Size(177, 478);
-            this.dpToolbox.Text = "工具箱";
-            this.dpToolbox.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Controls.Add(this.navToolBox);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(169, 451);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // navToolBox
-            // 
-            this.navToolBox.ActiveGroup = this.nbgGraphics;
-            this.navToolBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navToolBox.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.nbgGraphics});
-            this.navToolBox.Location = new System.Drawing.Point(0, 0);
-            this.navToolBox.Name = "navToolBox";
-            this.navToolBox.OptionsNavPane.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-            this.navToolBox.OptionsNavPane.ExpandedWidth = 169;
-            this.navToolBox.OptionsNavPane.ShowExpandButton = false;
-            this.navToolBox.OptionsNavPane.ShowOverflowButton = false;
-            this.navToolBox.OptionsNavPane.ShowOverflowPanel = false;
-            this.navToolBox.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navToolBox.Size = new System.Drawing.Size(169, 451);
-            this.navToolBox.StoreDefaultPaintStyleName = true;
-            this.navToolBox.TabIndex = 0;
-            this.navToolBox.Text = "navToolBox";
-            // 
-            // nbgGraphics
-            // 
-            this.nbgGraphics.Caption = "图例";
-            this.nbgGraphics.Expanded = true;
-            this.nbgGraphics.Name = "nbgGraphics";
-            // 
-            // dpProperty
-            // 
-            this.dpProperty.Controls.Add(this.controlContainer1);
-            this.dpProperty.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dpProperty.ID = new System.Guid("1a3b6e4a-ff18-4f00-88cc-f5d96c86ffd4");
-            this.dpProperty.Location = new System.Drawing.Point(0, 0);
-            this.dpProperty.Name = "dpProperty";
-            this.dpProperty.Options.AllowDockBottom = false;
-            this.dpProperty.Options.AllowDockTop = false;
-            this.dpProperty.Options.AllowFloating = false;
-            this.dpProperty.Options.FloatOnDblClick = false;
-            this.dpProperty.OriginalSize = new System.Drawing.Size(186, 253);
-            this.dpProperty.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dpProperty.SavedIndex = 0;
-            this.dpProperty.Size = new System.Drawing.Size(186, 478);
-            this.dpProperty.Text = "属性";
-            this.dpProperty.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
-            // 
-            // controlContainer1
-            // 
-            this.controlContainer1.Controls.Add(this.cttPropertyGrid1);
-            this.controlContainer1.Location = new System.Drawing.Point(4, 23);
-            this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(178, 451);
-            this.controlContainer1.TabIndex = 0;
-            // 
-            // cttPropertyGrid1
-            // 
-            this.cttPropertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cttPropertyGrid1.Location = new System.Drawing.Point(0, 0);
-            this.cttPropertyGrid1.Name = "cttPropertyGrid1";
-            this.cttPropertyGrid1.Size = new System.Drawing.Size(178, 451);
-            this.cttPropertyGrid1.TabIndex = 0;
             // 
             // barManager
             // 
@@ -191,7 +71,6 @@ namespace SAF.Framework.Controls.Charts
             this.barManager.DockControls.Add(this.barDockControlBottom);
             this.barManager.DockControls.Add(this.barDockControlLeft);
             this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.DockManager = this.dockManager;
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bsiSave,
@@ -199,9 +78,6 @@ namespace SAF.Framework.Controls.Charts
             this.bsiSendToBack,
             this.bsiUndo,
             this.bsiRedo,
-            this.bsiPropertyWindow,
-            this.bsiToolboxWindow,
-            this.bsiDescriptionWindow,
             this.bsiZoomIn,
             this.bsiZoomOut,
             this.bbiExportJpg,
@@ -229,9 +105,7 @@ namespace SAF.Framework.Controls.Charts
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiUndo, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiRedo),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomIn, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomOut),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Caption, this.bsiToolboxWindow, "工具箱", true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiPropertyWindow)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomOut)});
             this.barTools.Text = "标准";
             // 
             // btnEdit
@@ -252,7 +126,7 @@ namespace SAF.Framework.Controls.Charts
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Caption = "重新加载";
+            this.btnRefresh.Caption = "刷新";
             this.btnRefresh.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Reload;
             this.btnRefresh.Id = 15;
             this.btnRefresh.Name = "btnRefresh";
@@ -330,22 +204,6 @@ namespace SAF.Framework.Controls.Charts
             this.bsiZoomOut.Name = "bsiZoomOut";
             this.bsiZoomOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bsiZoomOut_ItemClick);
             // 
-            // bsiToolboxWindow
-            // 
-            this.bsiToolboxWindow.Caption = "工具箱";
-            this.bsiToolboxWindow.Glyph = global::SAF.Framework.Controls.Properties.Resources.Toolbox_16x16;
-            this.bsiToolboxWindow.Id = 6;
-            this.bsiToolboxWindow.Name = "bsiToolboxWindow";
-            this.bsiToolboxWindow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bsiToolboxWindow_ItemClick);
-            // 
-            // bsiPropertyWindow
-            // 
-            this.bsiPropertyWindow.Caption = "属性窗口";
-            this.bsiPropertyWindow.Glyph = global::SAF.Framework.Controls.Properties.Resources.Property_16x16;
-            this.bsiPropertyWindow.Id = 5;
-            this.bsiPropertyWindow.Name = "bsiPropertyWindow";
-            this.bsiPropertyWindow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bsiPropertyWindow_ItemClick);
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -374,11 +232,6 @@ namespace SAF.Framework.Controls.Charts
             this.barDockControlRight.Location = new System.Drawing.Point(828, 31);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 447);
             // 
-            // bsiDescriptionWindow
-            // 
-            this.bsiDescriptionWindow.Id = 19;
-            this.bsiDescriptionWindow.Name = "bsiDescriptionWindow";
-            // 
             // imageCollection
             // 
             this.imageCollection.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection.ImageStream")));
@@ -391,48 +244,24 @@ namespace SAF.Framework.Controls.Charts
             this.imageCollection.InsertImage(global::SAF.Framework.Controls.Properties.Resources.Entity, "Entity", typeof(global::SAF.Framework.Controls.Properties.Resources), 3);
             this.imageCollection.Images.SetKeyName(3, "Entity");
             // 
-            // hideContainerRight
-            // 
-            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.hideContainerRight.Controls.Add(this.dpToolbox);
-            this.hideContainerRight.Controls.Add(this.dpProperty);
-            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.hideContainerRight.Location = new System.Drawing.Point(808, 31);
-            this.hideContainerRight.Name = "hideContainerRight";
-            this.hideContainerRight.Size = new System.Drawing.Size(20, 447);
-            // 
-            // ChartControl
+            // MenuChartControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.hideContainerRight);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "ChartControl";
+            this.Name = "MenuChartControl";
             this.Size = new System.Drawing.Size(828, 478);
-            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
-            this.dpToolbox.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navToolBox)).EndInit();
-            this.dpProperty.ResumeLayout(false);
-            this.controlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
-            this.hideContainerRight.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private  DockManager dockManager;
-        private  DockPanel dpToolbox;
-        private  ControlContainer dockPanel1_Container;
-        private  NavBarControl navToolBox;
-        private  DockPanel dpProperty;
-        private  ControlContainer controlContainer1;
         private  BarDockControl barDockControlLeft;
         private  BarDockControl barDockControlRight;
         private  BarDockControl barDockControlBottom;
@@ -443,12 +272,7 @@ namespace SAF.Framework.Controls.Charts
         private  BarButtonItem bsiBringToFront;
         private  BarButtonItem bsiSendToBack;
         private  BarButtonItem bsiUndo;
-        private  BarButtonItem bsiRedo;
-        private  BarButtonItem bsiPropertyWindow;
-        private  BarButtonItem bsiToolboxWindow;
-        private  BarButtonItem bsiDescriptionWindow;
-        private XtraPropertyGrid cttPropertyGrid1;
-        private  NavBarGroup nbgGraphics;
+        private BarButtonItem bsiRedo;
         private  BarButtonItem bsiZoomIn;
         private  BarButtonItem bsiZoomOut;
         private BarButtonItem bbiExportJpg;
@@ -457,6 +281,5 @@ namespace SAF.Framework.Controls.Charts
         private BarButtonItem btnSaveAs;
         private BarButtonItem btnEdit;
         private ImageCollection imageCollection;
-        private AutoHideContainer hideContainerRight;
     }
 }

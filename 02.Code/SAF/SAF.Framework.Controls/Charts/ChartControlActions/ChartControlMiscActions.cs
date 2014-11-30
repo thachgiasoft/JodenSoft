@@ -11,27 +11,17 @@ namespace SAF.Framework.Controls.Charts.ChartControlActions
 {
     public class SaveAction : AbstractChartControlEditAction
     {
-        public override void m_Execute(ChartControl chartControl)
+        public override void m_Execute(IChartControl chartControl)
         {
             if (chartControl == null || chartControl.ActiveDrawArea == null || chartControl.ActiveDrawArea.ReadOnly) return;
 
-            chartControl.CommandSave(new List<DrawArea>() { chartControl.ActiveDrawArea });
-        }
-    }
-
-    public class SaveAllAction : AbstractChartControlEditAction
-    {
-        public override void m_Execute(ChartControl chartControl)
-        {
-            if (chartControl == null || chartControl.DrawAreas.Count() <= 0) return;
-
-            chartControl.CommandSaveAll();
+            chartControl.CommandSave();
         }
     }
 
     public class EditAction : AbstractChartControlEditAction
     {
-        public override void m_Execute(ChartControl chartControl)
+        public override void m_Execute(IChartControl chartControl)
         {
             if (chartControl == null || chartControl.ActiveDrawArea == null) return;
 

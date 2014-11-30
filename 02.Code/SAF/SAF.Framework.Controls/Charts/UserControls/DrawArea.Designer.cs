@@ -38,7 +38,6 @@
             this.spCancelMoveToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.AutoDrawLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +51,7 @@
             this.SendToBackToolStripMenuItem,
             this.spCancelMoveToolStripMenuItem,
             this.AutoDrawLineToolStripMenuItem,
-            this.AutoSizeToolStripMenuItem,
-            this.iStatusToolStripMenuItem});
+            this.AutoSizeToolStripMenuItem});
             this.m_ContextMenu.Name = "contextMenuStrip1";
             this.m_ContextMenu.Size = new System.Drawing.Size(192, 192);
             // 
@@ -108,12 +106,7 @@
             this.AutoSizeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.AutoSizeToolStripMenuItem.Text = "自动调整大小 (Alt+Z)";
             this.AutoSizeToolStripMenuItem.Click += new System.EventHandler(this.AutoSizeToolStripMenuItem_Click);
-            // 
-            // iStatusToolStripMenuItem
-            // 
-            this.iStatusToolStripMenuItem.Name = "iStatusToolStripMenuItem";
-            this.iStatusToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.iStatusToolStripMenuItem.Text = "修改状态";
+
             // 
             // DrawArea
             // 
@@ -138,6 +131,5 @@
         private System.Windows.Forms.ToolStripMenuItem AutoDrawLineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AutoSizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iStatusToolStripMenuItem;
     }
 }

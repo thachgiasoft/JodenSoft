@@ -79,6 +79,13 @@
     <Compile Include="Charts\Actions\MiscActions.cs" />
     <Compile Include="Charts\Actions\SelectionActions.cs" />
     <Compile Include="Charts\Actions\ZoomActions.cs" />
+    <Compile Include="Charts\IChartControl.cs" />
+    <Compile Include="Charts\MenuChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\MenuChartControl.designer.cs">
+      <DependentUpon>MenuChartControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Charts\ChartControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +248,10 @@
     <Compile Include="ViewConfig\QuickQuery.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Charts\MenuChartControl.resx">
+      <DependentUpon>MenuChartControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Charts\ChartControl.resx">
       <DependentUpon>ChartControl.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -332,21 +343,21 @@
     <None Include="Resources\NewViaWizard_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Charts\Cursors\Actor.cur" />
-    <Content Include="Charts\Cursors\Class.cur" />
-    <Content Include="Charts\Cursors\DotLine.cur" />
-    <Content Include="Charts\Cursors\Ellipse.cur" />
-    <Content Include="Charts\Cursors\Final.cur" />
-    <Content Include="Charts\Cursors\FlodLine.cur" />
-    <Content Include="Charts\Cursors\General.cur" />
-    <Content Include="Charts\Cursors\Initial.cur" />
-    <Content Include="Charts\Cursors\Line.cur" />
-    <Content Include="Charts\Cursors\Pencil.cur" />
-    <Content Include="Charts\Cursors\Polygon.cur" />
-    <Content Include="Charts\Cursors\Rectangle.cur" />
-    <Content Include="Charts\Cursors\Rhombus.cur" />
-    <Content Include="Charts\Cursors\RoundedRectangle.cur" />
-    <Content Include="Charts\Cursors\Use.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Actor.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Class.cur" />
+    <EmbeddedResource Include="Charts\Cursors\DotLine.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Ellipse.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Final.cur" />
+    <EmbeddedResource Include="Charts\Cursors\FlodLine.cur" />
+    <EmbeddedResource Include="Charts\Cursors\General.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Initial.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Line.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Pencil.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Polygon.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Rectangle.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Rhombus.cur" />
+    <EmbeddedResource Include="Charts\Cursors\RoundedRectangle.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Use.cur" />
     <None Include="Resources\zoom-out32x32.png" />
     <None Include="Resources\ZoomOut_16x16.png" />
     <None Include="Resources\zoom-in32x32.png" />

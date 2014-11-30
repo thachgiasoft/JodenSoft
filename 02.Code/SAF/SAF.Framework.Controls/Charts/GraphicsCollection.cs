@@ -563,7 +563,7 @@ namespace SAF.Framework.Controls.Charts
             if (parent.GraphicsCollection.Selection.First() is DrawLine)
                 properties.ShowiStatus = false;
 
-            PropertiesDialog dlg = new PropertiesDialog(properties, parent.iStatusSource);
+            PropertiesDialog dlg = new PropertiesDialog(properties);
 
             CommandChangeState c = new CommandChangeState(this);
 

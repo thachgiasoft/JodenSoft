@@ -40,10 +40,7 @@ namespace SAF.Framework.Controls.Charts
         /// 文本
         /// </summary>
         Polygon = 7,
-        /// <summary>
-        /// 拖动
-        /// </summary>
-        Drag = 8,
+
         /// <summary>
         /// Actor
         /// </summary>
