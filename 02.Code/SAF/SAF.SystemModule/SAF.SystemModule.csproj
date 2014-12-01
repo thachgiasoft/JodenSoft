@@ -92,6 +92,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="sysFileViewViewModel.cs" />
+    <Compile Include="sysMenuChartView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysMenuChartView.Designer.cs">
+      <DependentUpon>sysMenuChartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysMenuChartViewViewModel.cs" />
     <Compile Include="sysMenuView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +106,13 @@
       <DependentUpon>sysMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysMenuViewViewModel.cs" />
+    <Compile Include="sysNavigationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysNavigationView.Designer.cs">
+      <DependentUpon>sysNavigationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysNavigationViewViewModel.cs" />
     <Compile Include="sysRoleView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,8 +183,14 @@
     <EmbeddedResource Include="sysFileView.resx">
       <DependentUpon>sysFileView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sysMenuChartView.resx">
+      <DependentUpon>sysMenuChartView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysMenuView.resx">
       <DependentUpon>sysMenuView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysNavigationView.resx">
+      <DependentUpon>sysNavigationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysOrganizationView.resx">
       <DependentUpon>sysOrganizationView.cs</DependentUpon>
@@ -196,6 +216,7 @@
     <None Include="Properties\DataSources\SAF.SystemEntities.sysDataRole.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysFile.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysMenu.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenuChart.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysMenuParam.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysOrganization.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysRole.datasource" />

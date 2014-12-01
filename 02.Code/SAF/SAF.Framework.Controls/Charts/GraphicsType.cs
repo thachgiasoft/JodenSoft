@@ -40,7 +40,10 @@ namespace SAF.Framework.Controls.Charts
         /// 文本
         /// </summary>
         Polygon = 7,
-
+        /// <summary>
+        /// 菜单
+        /// </summary>
+        Menu=8,
         /// <summary>
         /// Actor
         /// </summary>

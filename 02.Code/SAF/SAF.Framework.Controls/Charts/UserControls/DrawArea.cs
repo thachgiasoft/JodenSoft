@@ -64,33 +64,6 @@ namespace SAF.Framework.Controls.Charts
             set
             {
                 readOnly = value;
-                Owner.SetReadOnly(value);
-            }
-        }
-        private bool _AllowSaveAs = true;
-        /// <summary>
-        /// 是否允许另存为
-        /// </summary>
-        public bool AllowSaveAs
-        {
-            get { return _AllowSaveAs; }
-            set
-            {
-                _AllowSaveAs = value;
-                Owner.SetAllowSave(value);
-            }
-        }
-        private bool _AllowExportImage = true;
-        /// <summary>
-        /// 是否可以导出图片
-        /// </summary>
-        public bool AllowExportImage
-        {
-            get { return _AllowExportImage; }
-            set
-            {
-                _AllowExportImage = value;
-                Owner.SetAllowExportImage(value);
             }
         }
 
@@ -788,7 +761,7 @@ namespace SAF.Framework.Controls.Charts
             SetStateOfContextMenuItem();
         }
 
-      
+
 
 
         void m_ContextMenu_Closed(object sender, ToolStripDropDownClosedEventArgs e)
@@ -1124,12 +1097,6 @@ namespace SAF.Framework.Controls.Charts
             Refresh();
         }
 
-        public int ID { get; set; }
-        public bool IsLocalFile { get; set; }
-        public int iProductId { get; set; }
-        public int iProjectId { get; set; }
-        public string FileName { get; set; }
-
         public void ExportToPng(string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -1161,5 +1128,19 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
+        public event EventHandler<DrawAreaDoubleClickEventArgs> DoubleClick;
+
+        internal void FireDoubleClick(IEnumerable<DrawObject> list)
+        {
+            if (DoubleClick != null)
+            {
+                DoubleClick(this, new DrawAreaDoubleClickEventArgs() { Selection = list.ToList() });
+            }
+        }
+    }
+
+    public class DrawAreaDoubleClickEventArgs : EventArgs
+    {
+        public IList<DrawObject> Selection { get; set; }
     }
 }

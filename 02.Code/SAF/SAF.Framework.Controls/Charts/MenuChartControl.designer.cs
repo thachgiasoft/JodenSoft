@@ -36,14 +36,9 @@ namespace SAF.Framework.Controls.Charts
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuChartControl));
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager = new DevExpress.XtraBars.BarManager();
             this.barTools = new DevExpress.XtraBars.Bar();
-            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiOpen = new DevExpress.XtraBars.BarButtonItem();
             this.btnSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExportJpg = new DevExpress.XtraBars.BarButtonItem();
             this.bsiBringToFront = new DevExpress.XtraBars.BarButtonItem();
@@ -56,7 +51,10 @@ namespace SAF.Framework.Controls.Charts
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection = new DevExpress.Utils.ImageCollection();
+            this.bbiCurror = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLine = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRect = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +71,6 @@ namespace SAF.Framework.Controls.Charts
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bsiSave,
             this.bsiBringToFront,
             this.bsiSendToBack,
             this.bsiUndo,
@@ -81,11 +78,11 @@ namespace SAF.Framework.Controls.Charts
             this.bsiZoomIn,
             this.bsiZoomOut,
             this.bbiExportJpg,
-            this.bbiOpen,
-            this.btnRefresh,
             this.btnSaveAs,
-            this.btnEdit});
-            this.barManager.MaxItemId = 21;
+            this.bbiCurror,
+            this.bbiLine,
+            this.bbiRect});
+            this.barManager.MaxItemId = 24;
             // 
             // barTools
             // 
@@ -94,10 +91,6 @@ namespace SAF.Framework.Controls.Charts
             this.barTools.DockRow = 0;
             this.barTools.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.barTools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnEdit),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefresh, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiOpen, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSaveAs),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiExportJpg),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiBringToFront, true),
@@ -105,40 +98,11 @@ namespace SAF.Framework.Controls.Charts
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiUndo, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiRedo),
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomIn, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomOut)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiZoomOut),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCurror, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLine),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRect)});
             this.barTools.Text = "标准";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Caption = "编辑";
-            this.btnEdit.Glyph = global::SAF.Framework.Controls.Properties.Resources.Edit_16;
-            this.btnEdit.Id = 18;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
-            // 
-            // bsiSave
-            // 
-            this.bsiSave.Caption = "保存";
-            this.bsiSave.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Save;
-            this.bsiSave.Id = 0;
-            this.bsiSave.Name = "bsiSave";
-            this.bsiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bsiSave_ItemClick);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Caption = "刷新";
-            this.btnRefresh.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Reload;
-            this.btnRefresh.Id = 15;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
-            // 
-            // bbiOpen
-            // 
-            this.bbiOpen.Caption = "打开文件";
-            this.bbiOpen.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Open;
-            this.bbiOpen.Id = 13;
-            this.bbiOpen.Name = "bbiOpen";
-            this.bbiOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpen_ItemClick);
             // 
             // btnSaveAs
             // 
@@ -209,28 +173,28 @@ namespace SAF.Framework.Controls.Charts
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(828, 31);
+            this.barDockControlTop.Size = new System.Drawing.Size(522, 31);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 478);
-            this.barDockControlBottom.Size = new System.Drawing.Size(828, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 313);
+            this.barDockControlBottom.Size = new System.Drawing.Size(522, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 447);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 282);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(828, 31);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 447);
+            this.barDockControlRight.Location = new System.Drawing.Point(522, 31);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 282);
             // 
             // imageCollection
             // 
@@ -244,6 +208,27 @@ namespace SAF.Framework.Controls.Charts
             this.imageCollection.InsertImage(global::SAF.Framework.Controls.Properties.Resources.Entity, "Entity", typeof(global::SAF.Framework.Controls.Properties.Resources), 3);
             this.imageCollection.Images.SetKeyName(3, "Entity");
             // 
+            // bbiCurror
+            // 
+            this.bbiCurror.Caption = "箭头";
+            this.bbiCurror.Id = 21;
+            this.bbiCurror.Name = "bbiCurror";
+            this.bbiCurror.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCurror_ItemClick);
+            // 
+            // bbiLine
+            // 
+            this.bbiLine.Caption = "连线";
+            this.bbiLine.Id = 22;
+            this.bbiLine.Name = "bbiLine";
+            this.bbiLine.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLine_ItemClick);
+            // 
+            // bbiRect
+            // 
+            this.bbiRect.Caption = "泳道";
+            this.bbiRect.Id = 23;
+            this.bbiRect.Name = "bbiRect";
+            this.bbiRect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRect_ItemClick);
+            // 
             // MenuChartControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -253,7 +238,7 @@ namespace SAF.Framework.Controls.Charts
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "MenuChartControl";
-            this.Size = new System.Drawing.Size(828, 478);
+            this.Size = new System.Drawing.Size(522, 313);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
             this.ResumeLayout(false);
@@ -262,24 +247,23 @@ namespace SAF.Framework.Controls.Charts
 
         #endregion
 
-        private  BarDockControl barDockControlLeft;
-        private  BarDockControl barDockControlRight;
-        private  BarDockControl barDockControlBottom;
-        private  BarDockControl barDockControlTop;
-        private  BarManager barManager;
-        private  Bar barTools;
-        private  BarButtonItem bsiSave;
-        private  BarButtonItem bsiBringToFront;
-        private  BarButtonItem bsiSendToBack;
-        private  BarButtonItem bsiUndo;
+        private BarDockControl barDockControlLeft;
+        private BarDockControl barDockControlRight;
+        private BarDockControl barDockControlBottom;
+        private BarDockControl barDockControlTop;
+        private BarManager barManager;
+        private Bar barTools;
+        private BarButtonItem bsiBringToFront;
+        private BarButtonItem bsiSendToBack;
+        private BarButtonItem bsiUndo;
         private BarButtonItem bsiRedo;
-        private  BarButtonItem bsiZoomIn;
-        private  BarButtonItem bsiZoomOut;
+        private BarButtonItem bsiZoomIn;
+        private BarButtonItem bsiZoomOut;
         private BarButtonItem bbiExportJpg;
-        private  BarButtonItem bbiOpen;
-        private BarButtonItem btnRefresh;
         private BarButtonItem btnSaveAs;
-        private BarButtonItem btnEdit;
         private ImageCollection imageCollection;
+        private BarButtonItem bbiCurror;
+        private BarButtonItem bbiLine;
+        private BarButtonItem bbiRect;
     }
 }

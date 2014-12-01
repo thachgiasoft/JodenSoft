@@ -24,18 +24,20 @@ namespace SAF.Framework.Controls.Charts
         {
             InitializeComponent();
 
+            this._ActiveDrawArea = new DrawArea(this);
+
+            this.Controls.Add(_ActiveDrawArea);
+            _ActiveDrawArea.Dock = DockStyle.Fill;
+
             GenerateDefaultActions();
 
             this.Load += new EventHandler(MenuChartControl_Load);
 
         }
 
-        /// <summary>
-        /// 是否可以保存
-        /// </summary>
-        public void SetAllowSave(bool enabled)
+        public void HideMenu()
         {
-            this.bsiSave.Enabled = enabled;
+            barTools.Visible = false;
         }
 
         /// <summary>
@@ -46,17 +48,20 @@ namespace SAF.Framework.Controls.Charts
             this.bbiExportJpg.Enabled = enabled;
         }
 
-        public void SetReadOnly(bool value)
+        public bool ReadOnly
         {
-            if (this.ActiveDrawArea != null)
+            set
             {
                 this.ActiveDrawArea.CurrentGraphicsType = GraphicsType.Pointer;
                 this.ActiveDrawArea.Cursor = Cursors.Default;
+                this.ActiveDrawArea.ReadOnly = value;
+                this.Refresh();
+                this.SetStateOfMenuItem();
             }
-
-            this.Refresh();
-
-            this.SetStateOfMenuItem();
+            get
+            {
+                return this.ActiveDrawArea.ReadOnly;
+            }
         }
 
         public event EventHandler ContextMenuBeforePop;
@@ -84,9 +89,6 @@ namespace SAF.Framework.Controls.Charts
 
         protected virtual void GenerateDefaultActions()
         {
-            editactions[Keys.S | Keys.Control] = new SaveAction();
-
-            editactions[Keys.E | Keys.Control] = new EditAction();
         }
 
         public bool AddHandler(Keys keys, IChartControlEditAction action)
@@ -108,7 +110,7 @@ namespace SAF.Framework.Controls.Charts
 
             if (action != null)
             {
-                action.m_Execute(this);
+                action.Execute(this);
                 return true;
             }
             return false;
@@ -161,50 +163,20 @@ namespace SAF.Framework.Controls.Charts
 
         }
 
-
-        void drawArea_DirtyChanged(object sender, DirtyChangedEventArg e)
-        {
-            //if (e.DrawArea == null) return;
-
-            //if (doc == null) return;
-
-            //if (e.Dirty)
-            //{
-            //    if (!doc.Caption.EndsWith("*"))
-            //        doc.Caption = doc.Caption + " *";
-            //}
-            //else
-            //{
-            //    if (doc.Caption.EndsWith("*"))
-            //        doc.Caption = doc.Caption.Substring(0, doc.Caption.Length - 1);
-            //}
-        }
-
         void MenuChartControl_Load(object sender, EventArgs e)
         {
-            this._ActiveDrawArea = new DrawArea(this);
-            this.ActiveDrawArea.ReadOnly = true;
-
-            this.SetAllowSave(true);
             this.SetAllowExportImage(true);
-            this.SetReadOnly(true);
+            this.ReadOnly = true;
 
             // Submit to Idle event to set controls state at idle time
             Application.Idle += Application_Idle;
 
         }
 
-
-
-
-
         void Application_Idle(object sender, EventArgs e)
         {
             this.SetStateOfMenuItem();
         }
-
-        private CommandChangeState commandChangeState;
-
 
         public void SetStateOfMenuItem()
         {
@@ -222,19 +194,9 @@ namespace SAF.Framework.Controls.Charts
             this.bsiZoomOut.Enabled = activeAreaNotNull && this.ActiveDrawArea.Zoom > 0.2f;
             this.bsiZoomIn.Enabled = activeAreaNotNull;
 
-            this.btnEdit.Enabled = activeAreaNotNull && this.ActiveDrawArea.ReadOnly;
+            this.btnSaveAs.Enabled = activeAreaNotNull;
 
-            this.bsiSave.Enabled = activeAreaNotNull && this.ActiveDrawArea.Dirty && !this.ActiveDrawArea.ReadOnly;
-
-
-
-            this.btnSaveAs.Enabled = activeAreaNotNull && this.ActiveDrawArea.AllowSaveAs;
-
-            this.bbiExportJpg.Enabled = activeAreaNotNull && this.ActiveDrawArea.AllowExportImage;
-
-            this.btnRefresh.Enabled = activeAreaNotNull;
-
-
+            this.bbiExportJpg.Enabled = activeAreaNotNull;
 
         }
 
@@ -252,29 +214,6 @@ namespace SAF.Framework.Controls.Charts
 
             var bytes = drawArea.SaveToStream();
             File.WriteAllBytes(fileName, bytes);
-
-            //如果是本地文件的话,另存后,改文件名及修改状态和只读状态
-            if (drawArea.IsLocalFile)
-            {
-                drawArea.FileName = fileName;
-                drawArea.Dirty = false;
-                drawArea.ReadOnly = true;
-            }
-
-        }
-
-        private void CommandOpen()
-        {
-            string fileName = GetOpenFileName();
-            if (string.IsNullOrWhiteSpace(fileName)) return;
-
-            var bytes = File.ReadAllBytes(fileName);
-            var result = this.LoadFromStream(bytes, Path.GetFileNameWithoutExtension(fileName), true, int.MinValue);
-            if (result)
-            {
-                this.ActiveDrawArea.FileName = fileName;
-            }
-
 
         }
 
@@ -342,155 +281,6 @@ namespace SAF.Framework.Controls.Charts
             MessageBox.Show("保存文件时出错.\n" + "出错原因: " + GetExceptionMessage(ex), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public event EventHandler<SaveEventArgs> Save;
-        public event EventHandler<ReloadEventArgs> Reload;
-        public event EventHandler<BeforeEditEventArgs> BeforeEdit;
-
-        private void btnEdit_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CommandEdit();
-        }
-
-        public void CommandEdit()
-        {
-            if (this.ActiveDrawArea != null)
-            {
-                if (!this.ActiveDrawArea.IsLocalFile)
-                {
-                    var args = new BeforeEditEventArgs(this.ActiveDrawArea) { AllowEdit = true };
-                    var handler = BeforeEdit;
-                    if (handler != null)
-                    {
-                        handler(this, args);
-                    }
-
-                    if (args.AllowEdit)
-                    {
-                        this.ActiveDrawArea.ReadOnly = false;
-                    }
-                    else
-                    {
-                        this.ActiveDrawArea.ReadOnly = true;
-                    }
-                }
-                else
-                {
-                    this.ActiveDrawArea.ReadOnly = false;
-                }
-            }
-        }
-
-
-        private void bsiSave_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (this.ActiveDrawArea != null && !this.ActiveDrawArea.ReadOnly && this.ActiveDrawArea.Dirty)
-            {
-                CommandSave();
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="drawAreas">有更新的画图区</param>
-        public void CommandSave()
-        {
-            var drawArea = this.ActiveDrawArea;
-            //本地文件
-            if (drawArea.IsLocalFile)
-            {
-                if (!string.IsNullOrWhiteSpace(drawArea.FileName) && File.Exists(drawArea.FileName))
-                {
-                    var bytes = drawArea.SaveToStream();
-                    File.WriteAllBytes(drawArea.FileName, bytes);
-                }
-                else
-                {
-                    CommandSaveAs();
-                }
-                drawArea.ClearHistory();
-                drawArea.Dirty = false;
-                drawArea.ReadOnly = true;
-            }
-            else
-            {
-                var handler = Save;
-                if (handler != null)
-                {
-                    var args = new SaveEventArgs();
-
-                    args.DrawArea = this.ActiveDrawArea;
-
-                    handler(this, args);
-
-                    this.ActiveDrawArea.Dirty = false;
-                    this.ActiveDrawArea.ReadOnly = true;
-                    this.ActiveDrawArea.ClearHistory();
-                    CommandReload(this.ActiveDrawArea);
-                }
-            }
-
-        }
-
-        private void btnRefresh_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CommandReload(this.ActiveDrawArea);
-        }
-
-        public void CommandReload(DrawArea drawArea)
-        {
-            if (drawArea == null) return;
-
-            //本地文件
-            if (drawArea.IsLocalFile)
-            {
-                if (drawArea.Dirty)
-                {
-                    if (MessageBox.Show("重新加载数据会丢失文档中所有未保存的更改,确定要重新加载吗?", "确认",
-                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
-                }
-
-                if (!string.IsNullOrWhiteSpace(drawArea.FileName) && File.Exists(drawArea.FileName))
-                {
-                    if (!File.Exists(drawArea.FileName))
-                    {
-                        MessageBox.Show(string.Format("文件{0}不存在,无法重新加载.", drawArea.FileName), "出错了", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    drawArea.FileName = drawArea.FileName;
-                    drawArea.LoadFromStream(File.ReadAllBytes(drawArea.FileName));
-                    drawArea.ReadOnly = true;
-                    drawArea.ClearHistory();
-                }
-            }
-            else
-            {
-                var handler = Reload;
-                if (handler != null)
-                {
-                    if (drawArea.Dirty)
-                    {
-                        if (MessageBox.Show("重新加载数据会丢失文档中所有未保存的更改,确定要重新加载吗?", "确认",
-                               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
-                    }
-
-                    var args = new ReloadEventArgs(drawArea.ID, drawArea.Tag);
-                    handler(this, args);
-
-                    drawArea.LoadFromStream(args.Data);
-
-                    drawArea.Tag = args.Tag;
-
-                    drawArea.ClearHistory();
-                    drawArea.ReadOnly = true;
-                }
-            }
-        }
-
-        private void bbiOpen_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            CommandOpen();
-        }
-
         private void btnSaveAs_ItemClick(object sender, ItemClickEventArgs e)
         {
             CommandSaveAs();
@@ -516,22 +306,6 @@ namespace SAF.Framework.Controls.Charts
             CommandRedo();
         }
 
-        protected DockPanel GetTopDockPanelCore(DockPanel panel)
-        {
-            if (panel.ParentPanel != null)
-                return GetTopDockPanel(panel.ParentPanel);
-            return panel;
-        }
-
-        protected DockPanel GetTopDockPanel(DockPanel panel)
-        {
-            DockPanel floatPanelCandidate = GetTopDockPanelCore(panel);
-            if (floatPanelCandidate.Dock == DockingStyle.Float)
-                return floatPanelCandidate;
-            else return panel;
-        }
-
-
         private void bsiZoomIn_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (this.ActiveDrawArea != null)
@@ -544,61 +318,19 @@ namespace SAF.Framework.Controls.Charts
                 this.ActiveDrawArea.ZoomOut();
         }
 
-        /// <summary>
-        /// 加载本地文件时用
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <param name="header"></param>
-        /// <returns></returns>
-        public bool LoadFromStream(byte[] bytes, string header)
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [DefaultValue(null)]
+        [Bindable(true)]
+        public byte[] Data
         {
-            return this.LoadFromStream(bytes, header, true, int.MinValue);
-        }
-
-        /// <summary>
-        /// 加载数据库文件时用
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <param name="id"></param>
-        /// <param name="header"></param>
-        /// <returns></returns>
-        public bool LoadFromStream(byte[] bytes, string header, int id)
-        {
-            return LoadFromStream(bytes, header, false, id);
-        }
-
-        private bool LoadFromStream(byte[] bytes, string header, bool isLocalFile, int id)
-        {
-            var drawArea = this.ActiveDrawArea;
-
-            drawArea.Caption = header;
-            drawArea.IsLocalFile = isLocalFile;
-            drawArea.ID = id;
-
-            // Read the data
-            try
+            get
             {
-                if (drawArea.Dirty)
-                {
-                    if (MessageBox.Show("当前数据已经修改但没有保存,确定要打开新的文件吗?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.No)
-                        return false;
-                }
-                drawArea.LoadFromStream(bytes);
+                if (this.ActiveDrawArea.GraphicsCollection.Count >= 0)
+                    return this.ActiveDrawArea.SaveToStream();
+                else
+                    return default(byte[]);
             }
-            catch (Exception ex)
-            {
-                HandleLoadException(ex);
-                return false;
-            }
-
-            return true;
-        }
-
-        public byte[] SaveToStream()
-        {
-            if (this.ActiveDrawArea == null) return null;
-
-            return this.ActiveDrawArea.SaveToStream();
+            set { this.ActiveDrawArea.LoadFromStream(value); }
         }
 
         public Point ConvertPointToClient(Point pt)
@@ -653,22 +385,6 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        private void tabbedView_DocumentClosing(object sender, DocumentCancelEventArgs e)
-        {
-            if (e.Document != null && (e.Document.Control is DrawArea))
-            {
-                var area = e.Document.Control as DrawArea;
-                if (area.Dirty)
-                {
-                    string caption = string.Format(@"文档 ""{0}"" 已修改,关闭后将丢失更改,确定要关闭窗口吗?", area.Caption);
-                    e.Cancel = (MessageBox.Show(caption, "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No);
-                }
-            }
-        }
-
-        private List<KeyValuePair<int, string>> _iStatusSource = new List<KeyValuePair<int, string>>();
-        public List<KeyValuePair<int, string>> iStatusSource { get { return _iStatusSource; } }
-
         public string GetSaveFileName()
         {
             var drawArea = this.ActiveDrawArea;
@@ -698,6 +414,21 @@ namespace SAF.Framework.Controls.Charts
         public UserControl View
         {
             get { return this; }
+        }
+
+        private void bbiCurror_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ActiveDrawArea.CurrentGraphicsType = GraphicsType.Pointer;
+        }
+
+        private void bbiLine_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ActiveDrawArea.CurrentGraphicsType = GraphicsType.InheritLine;
+        }
+
+        private void bbiRect_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ActiveDrawArea.CurrentGraphicsType = GraphicsType.Swimlane;
         }
     }
 }

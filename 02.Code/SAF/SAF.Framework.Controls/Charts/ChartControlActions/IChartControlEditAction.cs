@@ -15,7 +15,7 @@ namespace SAF.Framework.Controls.Charts.ChartControlActions
             set;
         }
 
-        void m_Execute(IChartControl chartControl);
+        void Execute(IChartControl chartControl);
     }
 
 
@@ -35,6 +35,6 @@ namespace SAF.Framework.Controls.Charts.ChartControlActions
             }
         }
 
-        public abstract void m_Execute(IChartControl chartControl);
+        public abstract void Execute(IChartControl chartControl);
     }		
 }

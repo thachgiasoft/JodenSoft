@@ -79,6 +79,7 @@
     <Compile Include="Charts\Actions\MiscActions.cs" />
     <Compile Include="Charts\Actions\SelectionActions.cs" />
     <Compile Include="Charts\Actions\ZoomActions.cs" />
+    <Compile Include="Charts\DrawObjects\DrawMenu.cs" />
     <Compile Include="Charts\IChartControl.cs" />
     <Compile Include="Charts\MenuChartControl.cs">
       <SubType>UserControl</SubType>
@@ -86,13 +87,6 @@
     <Compile Include="Charts\MenuChartControl.designer.cs">
       <DependentUpon>MenuChartControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Charts\ChartControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Charts\ChartControl.designer.cs">
-      <DependentUpon>ChartControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\ChartControlActions\ChartControlMiscActions.cs" />
     <Compile Include="Charts\ChartControlActions\IChartControlEditAction.cs" />
     <Compile Include="Charts\Commands\Command.cs" />
     <Compile Include="Charts\Commands\CommandAdd.cs" />
@@ -135,7 +129,6 @@
     <Compile Include="Charts\GraphicsCollection.cs" />
     <Compile Include="Charts\GraphicsProperties.cs" />
     <Compile Include="Charts\GraphicsType.cs" />
-    <Compile Include="Charts\IChartPad.cs" />
     <Compile Include="Charts\LineHelper.cs" />
     <Compile Include="Charts\MD5Helper.cs" />
     <Compile Include="Charts\MouseWheelHandler.cs" />
@@ -250,10 +243,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Charts\MenuChartControl.resx">
       <DependentUpon>MenuChartControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\ChartControl.resx">
-      <DependentUpon>ChartControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Charts\SearchDialog.resx">

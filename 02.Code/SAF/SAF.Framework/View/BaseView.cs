@@ -73,7 +73,13 @@ namespace SAF.Framework.View
             OnInitData();
             OnInitBinding();
             OnInitDefaultActions();
+            OnAfterInit();
             RefreshUI();
+        }
+
+        protected virtual void OnAfterInit()
+        {
+
         }
 
         protected virtual void OnInitBillRight()

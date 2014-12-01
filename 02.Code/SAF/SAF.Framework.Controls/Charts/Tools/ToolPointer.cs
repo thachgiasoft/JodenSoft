@@ -115,12 +115,15 @@ namespace SAF.Framework.Controls.Charts
 
             if (e.Clicks >= 2)
             {
-                if (drawArea.GraphicsCollection.SelectionCount == 1)
+                if (drawArea.GraphicsCollection.SelectionCount > 0)
                 {
-                    if (drawArea.GraphicsCollection.ShowPropertiesDialog(drawArea))
-                    {
-                        drawArea.Refresh();
-                    }
+                    //双击时执行双击事件
+                    drawArea.FireDoubleClick(drawArea.GraphicsCollection.Selection);
+
+                    //if (drawArea.GraphicsCollection.ShowPropertiesDialog(drawArea))
+                    //{
+                    //    drawArea.Refresh();
+                    //}
                     return;
                 }
             }

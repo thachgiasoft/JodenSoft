@@ -14,12 +14,7 @@ namespace SAF.Framework.Controls.Charts
 
         void ContextMenuBeforePopExecute();
         void SetAllowExportImage(bool value);
-        void SetAllowSave(bool value);
-        void SetReadOnly(bool value);
         void SetStateOfMenuItem();
         ContextMenuStrip ContextMenuStrip { get; }
-
-        void CommandSave();
-        void CommandEdit();
     }
 }
