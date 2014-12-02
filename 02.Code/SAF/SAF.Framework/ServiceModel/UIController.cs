@@ -17,6 +17,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraBars;
 using DevExpress.XtraLayout;
 using DevExpress.XtraTab;
+using DevExpress.XtraBars.Ribbon;
 
 namespace SAF.Framework
 {
@@ -210,6 +211,29 @@ namespace SAF.Framework
                 {
                     aControl.Enabled = bEnabled;
                 }
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="barItems"></param>
+        public static void HideMenu(params BarItem[] barItems)
+        {
+            if (barItems == null) return;
+            foreach (var item in barItems)
+            {
+                item.Enabled = false;
+                item.Visibility = BarItemVisibility.Never;
+            }
+        }
+
+        public static void HideMenu(params RibbonPageGroup[] groups)
+        {
+            if (groups == null) return;
+            foreach (var group in groups)
+            {
+                group.Enabled = false;
+                group.Visible = false;
             }
         }
     }

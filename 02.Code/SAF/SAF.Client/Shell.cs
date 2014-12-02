@@ -503,6 +503,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                                 var frm = ctl.CreateRibbonContainer();
                                 frm.Icon = Icon.FromHandle(SAF.Client.Properties.Resources.Icon_Form_16x16.GetHicon());
                                 frm.MdiParent = this;
+                                frm.Tag = iMenuId;
                                 frm.Show();
                             }
                             else
@@ -586,5 +587,13 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             }
         }
 
+        public void ShowBusinessView(int iMenuId)
+        {
+            var obj = MainEntitySet.FirstOrDefault(p => p.Iden == iMenuId);
+            if (obj != null)
+            {
+                this.ShowBusinessView(obj.DataRowView);
+            }
+        }
     }
 }

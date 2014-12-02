@@ -41,6 +41,17 @@ namespace SAF.Framework.Controls.Charts
             return obj;
         }
 
+        public override void SaveToStream(System.Runtime.Serialization.SerializationInfo info, int orderNumber)
+        {
+            info.AddValue(this.SerializationName(p => p.iMenuId, orderNumber), iMenuId);
+            base.SaveToStream(info, orderNumber);
+        }
+        public override void LoadFromStream(System.Runtime.Serialization.SerializationInfo info, int orderNumber)
+        {
+            this.iMenuId = info.GetInt32(this.SerializationName(p => p.iMenuId, orderNumber));
+            base.LoadFromStream(info, orderNumber);
+        }
+
     }
 
     class ToolMenu : ToolDiagramBase

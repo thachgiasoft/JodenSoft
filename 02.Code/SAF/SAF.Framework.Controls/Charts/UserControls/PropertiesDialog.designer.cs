@@ -31,44 +31,36 @@ namespace SAF.Framework.Controls.Charts
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesDialog));
-            this.layoutControl1 = new LayoutControl();
-            this.descriptionControl1 = new DescriptionControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.descriptionControl1 = new SAF.Framework.Controls.Charts.DescriptionControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.txtStatus = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtText = new DevExpress.XtraEditors.TextEdit();
             this.colorEditBackColor = new DevExpress.XtraEditors.ColorEdit();
-            this.glediStatus = new DevExpress.XtraEditors.GridLookUpEdit();
             this.lcgRoot = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tcgGeneral = new DevExpress.XtraLayout.TabbedControlGroup();
             this.lcgGeneral = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lciColor = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciText = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciName = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciiStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorEditBackColor.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glediStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgRoot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcgGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciiStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
@@ -78,11 +70,9 @@ namespace SAF.Framework.Controls.Charts
             this.layoutControl1.Controls.Add(this.descriptionControl1);
             this.layoutControl1.Controls.Add(this.btnOK);
             this.layoutControl1.Controls.Add(this.btnCancel);
-            this.layoutControl1.Controls.Add(this.txtStatus);
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Controls.Add(this.txtText);
             this.layoutControl1.Controls.Add(this.colorEditBackColor);
-            this.layoutControl1.Controls.Add(this.glediStatus);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -93,11 +83,11 @@ namespace SAF.Framework.Controls.Charts
             // 
             // descriptionControl1
             // 
-            this.descriptionControl1.Location = new System.Drawing.Point(15, 151);
+            this.descriptionControl1.Location = new System.Drawing.Point(15, 127);
             this.descriptionControl1.Name = "descriptionControl1";
             this.descriptionControl1.ReadOnly = false;
             this.descriptionControl1.RtfText = resources.GetString("descriptionControl1.RtfText");
-            this.descriptionControl1.Size = new System.Drawing.Size(446, 216);
+            this.descriptionControl1.Size = new System.Drawing.Size(446, 240);
             this.descriptionControl1.TabIndex = 15;
             // 
             // btnOK
@@ -124,50 +114,32 @@ namespace SAF.Framework.Controls.Charts
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(66, 86);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(170, 20);
-            this.txtStatus.StyleController = this.layoutControl1;
-            this.txtStatus.TabIndex = 12;
-            // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(66, 38);
+            this.txtName.Location = new System.Drawing.Point(54, 38);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(395, 20);
+            this.txtName.Size = new System.Drawing.Size(407, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 11;
             // 
             // txtText
             // 
-            this.txtText.Location = new System.Drawing.Point(66, 62);
+            this.txtText.Location = new System.Drawing.Point(54, 62);
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(395, 20);
+            this.txtText.Size = new System.Drawing.Size(407, 20);
             this.txtText.StyleController = this.layoutControl1;
             this.txtText.TabIndex = 10;
             // 
             // colorEditBackColor
             // 
             this.colorEditBackColor.EditValue = System.Drawing.Color.Empty;
-            this.colorEditBackColor.Location = new System.Drawing.Point(66, 110);
+            this.colorEditBackColor.Location = new System.Drawing.Point(54, 86);
             this.colorEditBackColor.Name = "colorEditBackColor";
             this.colorEditBackColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorEditBackColor.Size = new System.Drawing.Size(395, 20);
+            this.colorEditBackColor.Size = new System.Drawing.Size(407, 20);
             this.colorEditBackColor.StyleController = this.layoutControl1;
             this.colorEditBackColor.TabIndex = 9;
-            // 
-            // glediStatus
-            // 
-            this.glediStatus.Location = new System.Drawing.Point(291, 86);
-            this.glediStatus.Name = "glediStatus";
-            this.glediStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.glediStatus.Size = new System.Drawing.Size(170, 20);
-            this.glediStatus.StyleController = this.layoutControl1;
-            this.glediStatus.TabIndex = 16;
             // 
             // lcgRoot
             // 
@@ -215,10 +187,8 @@ namespace SAF.Framework.Controls.Charts
             this.lcgGeneral.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciColor,
             this.lciText,
-            this.lciStatus,
             this.lciName,
-            this.layoutControlItem1,
-            this.lciiStatus});
+            this.layoutControlItem1});
             this.lcgGeneral.Location = new System.Drawing.Point(0, 0);
             this.lcgGeneral.Name = "lcgGeneral";
             this.lcgGeneral.Size = new System.Drawing.Size(450, 333);
@@ -228,11 +198,11 @@ namespace SAF.Framework.Controls.Charts
             // 
             this.lciColor.Control = this.colorEditBackColor;
             this.lciColor.CustomizationFormText = "ÑÕÉ«";
-            this.lciColor.Location = new System.Drawing.Point(0, 72);
+            this.lciColor.Location = new System.Drawing.Point(0, 48);
             this.lciColor.Name = "lciColor";
             this.lciColor.Size = new System.Drawing.Size(450, 24);
             this.lciColor.Text = "±³¾°É«";
-            this.lciColor.TextSize = new System.Drawing.Size(48, 14);
+            this.lciColor.TextSize = new System.Drawing.Size(36, 14);
             // 
             // lciText
             // 
@@ -242,17 +212,7 @@ namespace SAF.Framework.Controls.Charts
             this.lciText.Name = "lciText";
             this.lciText.Size = new System.Drawing.Size(450, 24);
             this.lciText.Text = "ÎÄ±¾";
-            this.lciText.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // lciStatus
-            // 
-            this.lciStatus.Control = this.txtStatus;
-            this.lciStatus.CustomizationFormText = "×´Ì¬";
-            this.lciStatus.Location = new System.Drawing.Point(0, 48);
-            this.lciStatus.Name = "lciStatus";
-            this.lciStatus.Size = new System.Drawing.Size(225, 24);
-            this.lciStatus.Text = "µ¥¾ÝÀàÐÍ";
-            this.lciStatus.TextSize = new System.Drawing.Size(48, 14);
+            this.lciText.TextSize = new System.Drawing.Size(36, 14);
             // 
             // lciName
             // 
@@ -262,28 +222,18 @@ namespace SAF.Framework.Controls.Charts
             this.lciName.Name = "lciName";
             this.lciName.Size = new System.Drawing.Size(450, 24);
             this.lciName.Text = "Ãû³Æ";
-            this.lciName.TextSize = new System.Drawing.Size(48, 14);
+            this.lciName.TextSize = new System.Drawing.Size(36, 14);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.descriptionControl1;
             this.layoutControlItem1.CustomizationFormText = "ÃèÊö";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(450, 237);
+            this.layoutControlItem1.Size = new System.Drawing.Size(450, 261);
             this.layoutControlItem1.Text = "ÃèÊö";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // lciiStatus
-            // 
-            this.lciiStatus.Control = this.glediStatus;
-            this.lciiStatus.CustomizationFormText = "×´Ì¬";
-            this.lciiStatus.Location = new System.Drawing.Point(225, 48);
-            this.lciiStatus.Name = "lciiStatus";
-            this.lciiStatus.Size = new System.Drawing.Size(225, 24);
-            this.lciiStatus.Text = "×´Ì¬";
-            this.lciiStatus.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(36, 14);
             // 
             // layoutControlItem3
             // 
@@ -326,21 +276,17 @@ namespace SAF.Framework.Controls.Charts
             this.Load += new System.EventHandler(this.PropertiesDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorEditBackColor.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.glediStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgRoot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcgGeneral)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgGeneral)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciiStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
@@ -360,15 +306,11 @@ namespace SAF.Framework.Controls.Charts
         private LayoutControlItem lciText;
         private TextEdit txtName;
         private LayoutControlItem lciName;
-        private TextEdit txtStatus;
-        private LayoutControlItem lciStatus;
         private SimpleButton btnOK;
         private SimpleButton btnCancel;
         private LayoutControlItem layoutControlItem3;
         private LayoutControlItem layoutControlItem5;
         private DescriptionControl descriptionControl1;
         private LayoutControlItem layoutControlItem1;
-        private LayoutControlItem lciiStatus;
-        private GridLookUpEdit glediStatus;
     }
 }

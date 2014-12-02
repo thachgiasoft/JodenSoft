@@ -118,12 +118,12 @@ namespace SAF.Framework.Controls.Charts
                 if (drawArea.GraphicsCollection.SelectionCount > 0)
                 {
                     //双击时执行双击事件
-                    drawArea.FireDoubleClick(drawArea.GraphicsCollection.Selection);
+                    var hasHandle = drawArea.FireDoubleClick(drawArea.GraphicsCollection.Selection);
 
-                    //if (drawArea.GraphicsCollection.ShowPropertiesDialog(drawArea))
-                    //{
-                    //    drawArea.Refresh();
-                    //}
+                    if (!hasHandle && drawArea.GraphicsCollection.ShowPropertiesDialog(drawArea))
+                    {
+                        drawArea.Refresh();
+                    }
                     return;
                 }
             }

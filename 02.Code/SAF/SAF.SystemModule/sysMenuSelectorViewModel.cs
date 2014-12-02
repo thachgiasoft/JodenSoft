@@ -8,18 +8,22 @@ using SAF.SystemEntities;
 
 namespace SAF.SystemModule
 {
-    public class sysNavigationViewViewModel : SingleViewViewModel<sysMenuChart, sysMenuChart>
+    public class sysMenuSelectorViewModel : SingleViewViewModel<sysMenu, sysMenu>
     {
         protected override void OnInitConfig()
         {
             base.OnInitConfig();
-
             this.IndexEntitySet.PageSize = 0;
+
+            
         }
 
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            this.IndexEntitySet.Query("select * from sysMenuChart with(nolock)");
+            string sql = @"SELECT Iden,Name,ParentId,BusinessViewId 
+                           FROM dbo.sysMenu WITH(NOLOCK) 
+                           ORDER BY ParentId ,MenuOrder";
+            this.IndexEntitySet.Query(sql);
         }
 
         protected override void OnQueryChild(object key)

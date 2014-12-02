@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.chkIsSystem = new DevExpress.XtraEditors.CheckEdit();
             this.chkIsActive = new DevExpress.XtraEditors.CheckEdit();
@@ -50,7 +51,7 @@
             this.pageUserRole = new DevExpress.XtraTab.XtraTabPage();
             this.treeRole = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.bsRole = new System.Windows.Forms.BindingSource();
+            this.bsRole = new System.Windows.Forms.BindingSource(this.components);
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();

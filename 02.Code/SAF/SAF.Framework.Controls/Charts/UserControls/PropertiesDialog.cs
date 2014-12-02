@@ -101,39 +101,10 @@ namespace SAF.Framework.Controls.Charts
                 txtText.BackColor = SystemColors.ControlLight;
             }
 
-            this.txtStatus.Text = properties.Status;
-            this.txtStatus.Properties.ReadOnly = properties.ReadOnly;
-            if (properties.ReadOnly)
-            {
-                txtStatus.BackColor = SystemColors.ControlLight;
-            }
-
-            lciiStatus.Visibility = properties.ShowiStatus ? LayoutVisibility.Always : LayoutVisibility.Never;
-
-            if (!properties.ReadOnly)
-            {
-                this.glediStatus.Properties.Buttons.Add(new EditorButton(ButtonPredefines.Delete));
-                this.glediStatus.Properties.ButtonClick += Properties_ButtonClick;
-            }
-
-
-            this.glediStatus.EditValue = properties.iStatus;
-            this.glediStatus.Properties.ReadOnly = properties.ReadOnly;
-            if (properties.ReadOnly)
-            {
-                glediStatus.BackColor = SystemColors.ControlLight;
-            }
+            
 
             this.descriptionControl1.RtfText = properties.Description;
             this.descriptionControl1.ReadOnly = properties.ReadOnly;
-        }
-
-        void Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            if (e.Button.Kind == ButtonPredefines.Delete)
-            {
-                this.glediStatus.EditValue = null;
-            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -145,9 +116,7 @@ namespace SAF.Framework.Controls.Charts
 
             properties.Name = this.txtName.Text;
             properties.Text = this.txtText.Text;
-            properties.Status = this.txtStatus.Text;
             properties.Description = this.descriptionControl1.RtfText;
-            properties.iStatus = this.glediStatus.EditValue == null ? -1 : Convert.ToInt32(this.glediStatus.EditValue);
 
             this.DialogResult = DialogResult.OK;
         }

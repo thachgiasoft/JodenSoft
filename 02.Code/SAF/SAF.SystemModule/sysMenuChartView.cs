@@ -12,6 +12,7 @@ using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using SAF.Framework.Controls.Charts;
 using SAF.Foundation.ServiceModel;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace SAF.SystemModule
 {
@@ -36,6 +37,8 @@ namespace SAF.SystemModule
             }
         }
 
+
+
         protected override void OnInitConfig()
         {
             base.OnInitConfig();
@@ -43,16 +46,13 @@ namespace SAF.SystemModule
             this.AccessFocusControl = this.txtName;
 
             this.menuChart.ContextMenuBeforePop += menuChart_ContextMenuBeforePop;
-            this.menuChart.ActiveDrawArea.DoubleClick += ActiveDrawArea_DoubleClick;
+
+            this.grvIndex.FocusedRowChanged += grvIndex_FocusedRowChanged;
         }
 
-        void ActiveDrawArea_DoubleClick(object sender, DrawAreaDoubleClickEventArgs e)
+        void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (e.Selection.Count != 1) return;
-
-            var obj = e.Selection.First();
-
-            MessageService.ShowMessage((obj as DrawMenu).iMenuId.ToString());
+            this.IndexRowChange();
         }
 
         void menuChart_ContextMenuBeforePop(object sender, EventArgs e)
@@ -69,7 +69,30 @@ namespace SAF.SystemModule
 
         private void bbiAddMenu_Click(object sender, EventArgs e)
         {
-            this.menuChart.ActiveDrawArea.AddDrawObject(new DrawMenu(10, 10, 100, 50) { Name = "测试界面", iMenuId = 123 });
+            var menuSelector = new sysMenuSelector();
+            menuSelector.Init();
+            var form = menuSelector.CreateRibbonContainer(ApplicationService.Current.MainForm);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                var list = menuSelector.Selection;
+
+                var random = new Random(DateTime.Now.Second);
+                foreach (TreeListNode item in list)
+                {
+                    if (!item.GetValue("BusinessViewId").m_IsEmpty())
+                    {
+                        int iMenuId = Convert.ToInt32(item.GetValue("Iden"));
+                        string MenuName = item.GetValue("Name").ToString();
+
+                        var left = random.Next(10, 200);
+                        var top = random.Next(10, 100);
+                        if (!this.menuChart.ActiveDrawArea.GraphicsCollection.Any(p => (p is DrawMenu) && (p as DrawMenu).iMenuId == iMenuId))
+                        {
+                            this.menuChart.ActiveDrawArea.AddDrawObject(new DrawMenu(left, top, 100, 50) { Name = MenuName, iMenuId = iMenuId });
+                        }
+                    }
+                }
+            }
         }
 
     }

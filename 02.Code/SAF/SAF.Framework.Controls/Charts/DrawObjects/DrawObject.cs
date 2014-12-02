@@ -355,7 +355,6 @@ namespace SAF.Framework.Controls.Charts
             info.AddValue(this.SerializationName(p => p.Status, orderNumber), this.Status);
             info.AddValue(this.SerializationName(p => p.Description, orderNumber), this.Description);
             info.AddValue(this.SerializationName(p => p.Tag, orderNumber), this.Tag);
-            info.AddValue(this.SerializationName(p => p.iStatus, orderNumber), this.iStatus);
 
         }
 
@@ -381,14 +380,6 @@ namespace SAF.Framework.Controls.Charts
             this.Description = info.GetString(this.SerializationName(p => p.Description, orderNumber));
             this.Tag = info.GetValue(this.SerializationName(p => p.Tag, orderNumber), typeof(object));
 
-            try
-            {
-                this.iStatus = info.GetInt32(this.SerializationName(p => p.iStatus, orderNumber));
-            }
-            catch
-            {
-                this.iStatus = 0;
-            }
         }
 
         /// <summary>

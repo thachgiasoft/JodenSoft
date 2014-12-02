@@ -198,6 +198,10 @@ namespace SAF.Framework.Controls.Charts
 
             this.bbiExportJpg.Enabled = activeAreaNotNull;
 
+            this.bbiCurror.Enabled = activeAreaNotNull && !ReadOnly;
+            this.bbiLine.Enabled = activeAreaNotNull && !ReadOnly;
+            this.bbiRect.Enabled = activeAreaNotNull && !ReadOnly;
+
         }
 
 

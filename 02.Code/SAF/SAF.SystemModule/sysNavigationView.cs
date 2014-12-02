@@ -10,6 +10,8 @@ using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework.Controls.Charts;
+using SAF.Foundation.ServiceModel;
+using SAF.Framework;
 
 namespace SAF.SystemModule
 {
@@ -54,8 +56,26 @@ namespace SAF.SystemModule
                 var page = tabControl.TabPages.Add(item.Name);
                 var ctl = new MenuChartControl() { Dock = DockStyle.Fill, Data = item.FileData };
                 ctl.HideMenu();
+                ctl.ActiveDrawArea.DoubleClick += ActiveDrawArea_DoubleClick;
                 page.Controls.Add(ctl);
             }
         }
+
+        void ActiveDrawArea_DoubleClick(object sender, DrawAreaDoubleClickEventArgs e)
+        {
+            if (e.Selection.Count() == 1)
+            {
+                var obj = e.Selection.First() as DrawMenu;
+
+                var shell = ApplicationService.Current.MainForm as IShell;
+                if (shell != null && obj != null)
+                    shell.ShowBusinessView(obj.iMenuId);
+
+                e.HasHandle = true;
+            }
+        }
+
+
+
     }
 }

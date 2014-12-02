@@ -484,10 +484,10 @@ namespace SAF.Framework.Controls.Charts
                 AutoScrollMinSize = oldAutoScrollMinSize;
             }
 
-            var brush = new LinearGradientBrush(this.ClientRectangle, Color.LightSteelBlue, Color.White, LinearGradientMode.ForwardDiagonal);
-
-            e.Graphics.FillRectangle(brush,
-                this.ClientRectangle);
+            //底色
+            //var brush = new LinearGradientBrush(this.ClientRectangle, Color.LightSteelBlue, Color.White, LinearGradientMode.ForwardDiagonal);
+            //e.Graphics.FillRectangle(brush,
+            //    this.ClientRectangle);
 
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X, this.AutoScrollPosition.Y);
             e.Graphics.ScaleTransform(Zoom, Zoom, MatrixOrder.Prepend);
@@ -497,7 +497,7 @@ namespace SAF.Framework.Controls.Charts
                 GraphicsCollection.Draw(e.Graphics, this);
             }
 
-            brush.Dispose();
+            //brush.Dispose();
         }
 
         /// <summary>
@@ -1128,19 +1128,29 @@ namespace SAF.Framework.Controls.Charts
             }
         }
 
-        public event EventHandler<DrawAreaDoubleClickEventArgs> DoubleClick;
+        public new event EventHandler<DrawAreaDoubleClickEventArgs> DoubleClick;
 
-        internal void FireDoubleClick(IEnumerable<DrawObject> list)
+        internal bool FireDoubleClick(IEnumerable<DrawObject> list)
         {
             if (DoubleClick != null)
             {
-                DoubleClick(this, new DrawAreaDoubleClickEventArgs() { Selection = list.ToList() });
+                var args = new DrawAreaDoubleClickEventArgs() { Selection = list.ToList() };
+                DoubleClick(this, args);
+                return args.HasHandle;
             }
+            return false;
         }
     }
 
     public class DrawAreaDoubleClickEventArgs : EventArgs
     {
+        public bool HasHandle { get; set; }
         public IList<DrawObject> Selection { get; set; }
+
+        public DrawAreaDoubleClickEventArgs()
+        {
+            HasHandle = false;
+            Selection = new List<DrawObject>();
+        }
     }
 }

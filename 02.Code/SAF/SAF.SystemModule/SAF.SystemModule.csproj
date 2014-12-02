@@ -99,6 +99,13 @@
       <DependentUpon>sysMenuChartView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysMenuChartViewViewModel.cs" />
+    <Compile Include="sysMenuSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysMenuSelector.Designer.cs">
+      <DependentUpon>sysMenuSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysMenuSelectorViewModel.cs" />
     <Compile Include="sysMenuView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +193,9 @@
     <EmbeddedResource Include="sysMenuChartView.resx">
       <DependentUpon>sysMenuChartView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sysMenuSelector.resx">
+      <DependentUpon>sysMenuSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysMenuView.resx">
       <DependentUpon>sysMenuView.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\action_new_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Mark_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

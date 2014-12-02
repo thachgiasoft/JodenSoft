@@ -25,5 +25,10 @@ namespace SAF.Framework
         /// 初始化一些特殊的组件,此方法需由接口主动调用
         /// </summary>
         void InitComponent();
+        /// <summary>
+        /// 显示菜单
+        /// </summary>
+        /// <param name="iMenuId"></param>
+        void ShowBusinessView(int iMenuId);
     }
 }
