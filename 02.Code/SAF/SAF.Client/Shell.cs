@@ -595,5 +595,21 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 this.ShowBusinessView(obj.DataRowView);
             }
         }
+
+        private void btnUpMyMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMyMenuDown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefreshMyFavorite_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

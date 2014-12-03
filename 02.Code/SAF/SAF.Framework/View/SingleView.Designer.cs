@@ -40,6 +40,7 @@
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
             this.pmuReport = new DevExpress.XtraBars.PopupMenu();
             this.bbiReject = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAddToFavorite = new DevExpress.XtraBars.BarButtonItem();
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupCooperation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -92,9 +93,10 @@
             this.bbiSend,
             this.bbiApprove,
             this.bbiPreview,
-            this.bbiReject});
+            this.bbiReject,
+            this.bbiAddToFavorite});
             this.ribbonMain.Location = new System.Drawing.Point(1, 1);
-            this.ribbonMain.MaxItemId = 14;
+            this.ribbonMain.MaxItemId = 15;
             this.ribbonMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -192,6 +194,14 @@
             this.bbiReject.Name = "bbiReject";
             this.bbiReject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReject_ItemClick);
             // 
+            // bbiAddToFavorite
+            // 
+            this.bbiAddToFavorite.Caption = "收藏";
+            this.bbiAddToFavorite.Glyph = global::SAF.Framework.Properties.Resources.AddFavorite;
+            this.bbiAddToFavorite.Id = 14;
+            this.bbiAddToFavorite.Name = "bbiAddToFavorite";
+            this.bbiAddToFavorite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAddToFavorite_ItemClick);
+            // 
             // systemPage
             // 
             this.systemPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -247,6 +257,7 @@
             // groupOperation
             // 
             this.groupOperation.AllowTextClipping = false;
+            this.groupOperation.ItemLinks.Add(this.bbiAddToFavorite);
             this.groupOperation.ItemLinks.Add(this.bbiExitView);
             this.groupOperation.MergeOrder = 100;
             this.groupOperation.Name = "groupOperation";
@@ -452,5 +463,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem bbiAddToFavorite;
     }
 }

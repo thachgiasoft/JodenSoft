@@ -83,6 +83,16 @@ namespace SAF.Client.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Add_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Add_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Close_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
@@ -96,6 +106,26 @@ namespace SAF.Client.Properties {
         internal static System.Drawing.Bitmap Action_Close_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Close_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Delete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Delete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Down_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Down_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +156,16 @@ namespace SAF.Client.Properties {
         internal static System.Drawing.Bitmap Action_Refresh_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Refresh_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Up_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Up_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,6 +213,26 @@ namespace SAF.Client.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_Note_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Note_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_Report_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Report_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Tree_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Tree_16x16", resourceCulture);
@@ -186,6 +246,16 @@ namespace SAF.Client.Properties {
         internal static System.Drawing.Bitmap Icon_Tree_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Tree_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_Workplace_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Workplace_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

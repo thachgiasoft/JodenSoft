@@ -565,5 +565,10 @@ namespace SAF.Framework.View
             }
         }
 
+        private void bbiAddToFavorite_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.AddMenuToFavorite();
+        }
+
     }
 }

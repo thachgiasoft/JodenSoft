@@ -39,12 +39,23 @@
             this.groupHelp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navMainMenu = new DevExpress.XtraNavBar.NavBarControl();
-            this.systemMenuGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.sysMyWorkspace = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroupControlContainer2 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.treeMyMenu = new DevExpress.XtraTreeList.TreeList();
+            this.pnlWorkspace = new DevExpress.XtraEditors.PanelControl();
+            this.btnRefreshMyFavorite = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMyMenuDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMyMenuDown = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUpMyMenu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddMyMenu = new DevExpress.XtraEditors.SimpleButton();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.TreeMenu = new DevExpress.XtraTreeList.TreeList();
             this.pnlMenu = new DevExpress.XtraEditors.PanelControl();
             this.txtFind = new DevExpress.XtraEditors.TextEdit();
             this.btnRefreshMenu = new DevExpress.XtraEditors.SimpleButton();
+            this.systemMenuGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.sysNotice = new DevExpress.XtraNavBar.NavBarGroup();
+            this.sysReportCenter = new DevExpress.XtraNavBar.NavBarGroup();
             this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
             this.splMenu = new DevExpress.XtraEditors.SplitterControl();
             this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
@@ -52,6 +63,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).BeginInit();
             this.navMainMenu.SuspendLayout();
+            this.navBarGroupControlContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeMyMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlWorkspace)).BeginInit();
+            this.pnlWorkspace.SuspendLayout();
             this.navBarGroupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TreeMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).BeginInit();
@@ -146,11 +161,15 @@
             // 
             // navMainMenu
             // 
-            this.navMainMenu.ActiveGroup = this.systemMenuGroup;
+            this.navMainMenu.ActiveGroup = this.sysMyWorkspace;
             this.navMainMenu.Controls.Add(this.navBarGroupControlContainer1);
+            this.navMainMenu.Controls.Add(this.navBarGroupControlContainer2);
             this.navMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.navMainMenu.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.systemMenuGroup});
+            this.sysMyWorkspace,
+            this.systemMenuGroup,
+            this.sysNotice,
+            this.sysReportCenter});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
             this.navMainMenu.NavigationPaneMaxVisibleGroups = 0;
@@ -160,28 +179,121 @@
             this.navMainMenu.TabIndex = 2;
             this.navMainMenu.Text = "navBarControl1";
             // 
-            // systemMenuGroup
+            // sysMyWorkspace
             // 
-            this.systemMenuGroup.Caption = "系统菜单";
-            this.systemMenuGroup.ControlContainer = this.navBarGroupControlContainer1;
-            this.systemMenuGroup.Expanded = true;
-            this.systemMenuGroup.GroupClientHeight = 80;
-            this.systemMenuGroup.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
-            this.systemMenuGroup.Name = "systemMenuGroup";
-            this.systemMenuGroup.SmallImage = global::SAF.Client.Properties.Resources.Icon_Tree_16x16;
+            this.sysMyWorkspace.Caption = "我的工作台";
+            this.sysMyWorkspace.ControlContainer = this.navBarGroupControlContainer2;
+            this.sysMyWorkspace.Expanded = true;
+            this.sysMyWorkspace.GroupClientHeight = 80;
+            this.sysMyWorkspace.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.sysMyWorkspace.Name = "sysMyWorkspace";
+            this.sysMyWorkspace.SmallImage = global::SAF.Client.Properties.Resources.Icon_Workplace_16x16;
+            // 
+            // navBarGroupControlContainer2
+            // 
+            this.navBarGroupControlContainer2.Controls.Add(this.treeMyMenu);
+            this.navBarGroupControlContainer2.Controls.Add(this.pnlWorkspace);
+            this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
+            this.navBarGroupControlContainer2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 163);
+            this.navBarGroupControlContainer2.TabIndex = 1;
+            // 
+            // treeMyMenu
+            // 
+            this.treeMyMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeMyMenu.Location = new System.Drawing.Point(1, 27);
+            this.treeMyMenu.Name = "treeMyMenu";
+            this.treeMyMenu.OptionsSelection.InvertSelection = true;
+            this.treeMyMenu.OptionsView.ShowColumns = false;
+            this.treeMyMenu.OptionsView.ShowHorzLines = false;
+            this.treeMyMenu.OptionsView.ShowIndicator = false;
+            this.treeMyMenu.OptionsView.ShowVertLines = false;
+            this.treeMyMenu.Size = new System.Drawing.Size(180, 136);
+            this.treeMyMenu.TabIndex = 0;
+            // 
+            // pnlWorkspace
+            // 
+            this.pnlWorkspace.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlWorkspace.Controls.Add(this.btnRefreshMyFavorite);
+            this.pnlWorkspace.Controls.Add(this.btnMyMenuDelete);
+            this.pnlWorkspace.Controls.Add(this.btnMyMenuDown);
+            this.pnlWorkspace.Controls.Add(this.btnUpMyMenu);
+            this.pnlWorkspace.Controls.Add(this.btnAddMyMenu);
+            this.pnlWorkspace.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlWorkspace.Location = new System.Drawing.Point(1, 0);
+            this.pnlWorkspace.Name = "pnlWorkspace";
+            this.pnlWorkspace.Size = new System.Drawing.Size(180, 27);
+            this.pnlWorkspace.TabIndex = 1;
+            // 
+            // btnRefreshMyFavorite
+            // 
+            this.btnRefreshMyFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshMyFavorite.Image = global::SAF.Client.Properties.Resources.Action_Refresh_16x16;
+            this.btnRefreshMyFavorite.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRefreshMyFavorite.Location = new System.Drawing.Point(158, 3);
+            this.btnRefreshMyFavorite.Name = "btnRefreshMyFavorite";
+            this.btnRefreshMyFavorite.Size = new System.Drawing.Size(20, 20);
+            this.btnRefreshMyFavorite.TabIndex = 4;
+            this.btnRefreshMyFavorite.ToolTip = "刷新菜单";
+            this.btnRefreshMyFavorite.Click += new System.EventHandler(this.btnRefreshMyFavorite_Click);
+            // 
+            // btnMyMenuDelete
+            // 
+            this.btnMyMenuDelete.Image = global::SAF.Client.Properties.Resources.Action_Delete_16x16;
+            this.btnMyMenuDelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnMyMenuDelete.Location = new System.Drawing.Point(23, 3);
+            this.btnMyMenuDelete.Name = "btnMyMenuDelete";
+            this.btnMyMenuDelete.Size = new System.Drawing.Size(20, 20);
+            this.btnMyMenuDelete.TabIndex = 3;
+            this.btnMyMenuDelete.Text = "删除菜单";
+            // 
+            // btnMyMenuDown
+            // 
+            this.btnMyMenuDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMyMenuDown.Image = global::SAF.Client.Properties.Resources.Action_Down_16x16;
+            this.btnMyMenuDown.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnMyMenuDown.Location = new System.Drawing.Point(136, 3);
+            this.btnMyMenuDown.Name = "btnMyMenuDown";
+            this.btnMyMenuDown.Size = new System.Drawing.Size(20, 20);
+            this.btnMyMenuDown.TabIndex = 2;
+            this.btnMyMenuDown.Text = "下移";
+            this.btnMyMenuDown.Click += new System.EventHandler(this.btnMyMenuDown_Click);
+            // 
+            // btnUpMyMenu
+            // 
+            this.btnUpMyMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpMyMenu.Image = global::SAF.Client.Properties.Resources.Action_Up_16x16;
+            this.btnUpMyMenu.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnUpMyMenu.Location = new System.Drawing.Point(114, 3);
+            this.btnUpMyMenu.Name = "btnUpMyMenu";
+            this.btnUpMyMenu.Size = new System.Drawing.Size(20, 20);
+            this.btnUpMyMenu.TabIndex = 1;
+            this.btnUpMyMenu.Text = "上移";
+            this.btnUpMyMenu.Click += new System.EventHandler(this.btnUpMyMenu_Click);
+            // 
+            // btnAddMyMenu
+            // 
+            this.btnAddMyMenu.Image = global::SAF.Client.Properties.Resources.Action_Add_16x16;
+            this.btnAddMyMenu.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAddMyMenu.Location = new System.Drawing.Point(1, 3);
+            this.btnAddMyMenu.Name = "btnAddMyMenu";
+            this.btnAddMyMenu.Size = new System.Drawing.Size(20, 20);
+            this.btnAddMyMenu.TabIndex = 0;
+            this.btnAddMyMenu.Text = "添加菜单";
             // 
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Controls.Add(this.TreeMenu);
             this.navBarGroupControlContainer1.Controls.Add(this.pnlMenu);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
+            this.navBarGroupControlContainer1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.navBarGroupControlContainer1.Size = new System.Drawing.Size(181, 163);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // TreeMenu
             // 
             this.TreeMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TreeMenu.Location = new System.Drawing.Point(0, 27);
+            this.TreeMenu.Location = new System.Drawing.Point(1, 27);
             this.TreeMenu.Name = "TreeMenu";
             this.TreeMenu.OptionsBehavior.Editable = false;
             this.TreeMenu.OptionsSelection.InvertSelection = true;
@@ -189,7 +301,7 @@
             this.TreeMenu.OptionsView.ShowHorzLines = false;
             this.TreeMenu.OptionsView.ShowIndicator = false;
             this.TreeMenu.OptionsView.ShowVertLines = false;
-            this.TreeMenu.Size = new System.Drawing.Size(181, 136);
+            this.TreeMenu.Size = new System.Drawing.Size(180, 136);
             this.TreeMenu.TabIndex = 0;
             // 
             // pnlMenu
@@ -198,19 +310,19 @@
             this.pnlMenu.Controls.Add(this.txtFind);
             this.pnlMenu.Controls.Add(this.btnRefreshMenu);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Location = new System.Drawing.Point(1, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(181, 27);
+            this.pnlMenu.Size = new System.Drawing.Size(180, 27);
             this.pnlMenu.TabIndex = 1;
             // 
             // txtFind
             // 
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFind.Location = new System.Drawing.Point(3, 3);
+            this.txtFind.Location = new System.Drawing.Point(1, 3);
             this.txtFind.Name = "txtFind";
             this.txtFind.Properties.NullText = "菜单筛选";
-            this.txtFind.Size = new System.Drawing.Size(155, 20);
+            this.txtFind.Size = new System.Drawing.Size(156, 20);
             this.txtFind.TabIndex = 1;
             // 
             // btnRefreshMenu
@@ -218,11 +330,32 @@
             this.btnRefreshMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshMenu.Image = global::SAF.Client.Properties.Resources.Action_Refresh_16x16;
             this.btnRefreshMenu.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnRefreshMenu.Location = new System.Drawing.Point(159, 3);
+            this.btnRefreshMenu.Location = new System.Drawing.Point(158, 3);
             this.btnRefreshMenu.Name = "btnRefreshMenu";
             this.btnRefreshMenu.Size = new System.Drawing.Size(20, 20);
             this.btnRefreshMenu.TabIndex = 0;
             this.btnRefreshMenu.ToolTip = "刷新菜单";
+            // 
+            // systemMenuGroup
+            // 
+            this.systemMenuGroup.Caption = "系统菜单";
+            this.systemMenuGroup.ControlContainer = this.navBarGroupControlContainer1;
+            this.systemMenuGroup.GroupClientHeight = 80;
+            this.systemMenuGroup.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
+            this.systemMenuGroup.Name = "systemMenuGroup";
+            this.systemMenuGroup.SmallImage = global::SAF.Client.Properties.Resources.Icon_Tree_16x16;
+            // 
+            // sysNotice
+            // 
+            this.sysNotice.Caption = "系统公告";
+            this.sysNotice.Name = "sysNotice";
+            this.sysNotice.SmallImage = global::SAF.Client.Properties.Resources.Icon_Note_16x16;
+            // 
+            // sysReportCenter
+            // 
+            this.sysReportCenter.Caption = "报表中心";
+            this.sysReportCenter.Name = "sysReportCenter";
+            this.sysReportCenter.SmallImage = global::SAF.Client.Properties.Resources.Icon_Report_16x16;
             // 
             // imageCollectionTreeList
             // 
@@ -276,6 +409,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).EndInit();
             this.navMainMenu.ResumeLayout(false);
+            this.navBarGroupControlContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeMyMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlWorkspace)).EndInit();
+            this.pnlWorkspace.ResumeLayout(false);
             this.navBarGroupControlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TreeMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).EndInit();
@@ -310,6 +447,17 @@
         private DevExpress.XtraEditors.SplitterControl splMenu;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView;
+        private DevExpress.XtraNavBar.NavBarGroup sysMyWorkspace;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer2;
+        private DevExpress.XtraTreeList.TreeList treeMyMenu;
+        private DevExpress.XtraEditors.PanelControl pnlWorkspace;
+        private DevExpress.XtraEditors.SimpleButton btnMyMenuDelete;
+        private DevExpress.XtraEditors.SimpleButton btnMyMenuDown;
+        private DevExpress.XtraEditors.SimpleButton btnUpMyMenu;
+        private DevExpress.XtraEditors.SimpleButton btnAddMyMenu;
+        private DevExpress.XtraEditors.SimpleButton btnRefreshMyFavorite;
+        private DevExpress.XtraNavBar.NavBarGroup sysNotice;
+        private DevExpress.XtraNavBar.NavBarGroup sysReportCenter;
 
     }
 }

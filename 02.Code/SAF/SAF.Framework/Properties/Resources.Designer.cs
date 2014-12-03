@@ -413,6 +413,16 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap AddFavorite {
+            get {
+                object obj = ResourceManager.GetObject("AddFavorite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Form_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Form_16x16", resourceCulture);

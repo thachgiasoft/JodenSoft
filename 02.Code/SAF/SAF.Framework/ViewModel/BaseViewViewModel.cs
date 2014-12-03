@@ -1,4 +1,6 @@
-﻿using SAF.Foundation;
+﻿using SAF.EntityFramework;
+using SAF.Foundation;
+using SAF.Framework.Entities;
 using SAF.Framework.View;
 using System;
 using System.Collections.Generic;
@@ -65,5 +67,6 @@ namespace SAF.Framework.ViewModel
                 handler(this, new EventArgs());
             }
         }
+
     }
 }

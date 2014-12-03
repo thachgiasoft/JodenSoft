@@ -72,6 +72,7 @@
     <Compile Include="Controls\LoginAuthenticate.Designer.cs">
       <DependentUpon>LoginAuthenticate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\sysMyFavoriteMenu.cs" />
     <Compile Include="Entities\SystemMenu.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
@@ -223,6 +224,7 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AddFavorite.gif" />
     <None Include="Resources\Action_SendToAudit_32x32.png" />
     <None Include="Resources\Action_SendToAudit_16x16.png" />
     <None Include="Resources\Icon_Tree_16x16.png" />
