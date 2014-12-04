@@ -207,6 +207,9 @@ namespace SAF.Client
                 this.NotifyMessage("显示欢迎页...");
                 var frm = ShowWelcomePage();
 
+                this.NotifyMessage("显示导航图...");
+                ShowNavigationPage();
+
                 this.NotifyMessage("打开界面...");
                 ShowAutoOpenView();
 
