@@ -75,7 +75,12 @@ namespace SAF.SystemModule
             }
         }
 
+        protected override void OnRefreshRibbonMenu()
+        {
+            base.OnRefreshRibbonMenu();
 
+            UIController.HideMenu(this.groupData, groupCooperation, groupReport);
+        }
 
     }
 }

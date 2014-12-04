@@ -197,8 +197,8 @@
             // bbiAddToFavorite
             // 
             this.bbiAddToFavorite.Caption = "收藏";
-            this.bbiAddToFavorite.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_AddToFavorite_32x32;
             this.bbiAddToFavorite.Id = 14;
+            this.bbiAddToFavorite.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_AddToFavorite_32x32;
             this.bbiAddToFavorite.Name = "bbiAddToFavorite";
             this.bbiAddToFavorite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAddToFavorite_ItemClick);
             // 
@@ -259,7 +259,7 @@
             this.groupOperation.AllowTextClipping = false;
             this.groupOperation.ItemLinks.Add(this.bbiAddToFavorite);
             this.groupOperation.ItemLinks.Add(this.bbiExitView);
-            this.groupOperation.MergeOrder = 100;
+            this.groupOperation.MergeOrder = 10000;
             this.groupOperation.Name = "groupOperation";
             this.groupOperation.ShowCaptionButton = false;
             this.groupOperation.Text = "操作";
