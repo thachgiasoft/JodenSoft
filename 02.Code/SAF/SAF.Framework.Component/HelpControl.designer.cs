@@ -96,21 +96,21 @@ namespace SAF.Framework.Component
             // 
             // galleryControlGallery1
             // 
-            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemCaptionAppearance.Disabled.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font")));
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemCaptionAppearance.Hovered.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font")));
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Hovered.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemCaptionAppearance.Normal.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Normal.Font")));
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemCaptionAppearance.Pressed.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font")));
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Pressed.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemDescriptionAppearance.Disabled.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font")));
             this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemDescriptionAppearance.Hovered.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font")));
             this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemDescriptionAppearance.Normal.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font")));
             this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Normal.Options.UseFont = true;
-            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery1.Appearance.ItemDescriptionAppearance.Pressed.Font")));
+            this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font")));
             this.galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Options.UseFont = true;
             this.galleryControl2.Gallery.AutoFitColumns = false;
             this.galleryControl2.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.Vertical;
@@ -159,21 +159,21 @@ namespace SAF.Framework.Component
             // 
             // galleryControlGallery2
             // 
-            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemCaptionAppearance.Disabled.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font")));
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemCaptionAppearance.Hovered.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font")));
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Hovered.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemCaptionAppearance.Normal.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Normal.Font")));
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemCaptionAppearance.Pressed.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font")));
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Pressed.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemDescriptionAppearance.Disabled.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font")));
             this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemDescriptionAppearance.Hovered.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font")));
             this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemDescriptionAppearance.Normal.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font")));
             this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Normal.Options.UseFont = true;
-            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControlGallery2.Appearance.ItemDescriptionAppearance.Pressed.Font")));
+            this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font")));
             this.galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Options.UseFont = true;
             this.galleryControl1.Gallery.AutoFitColumns = false;
             this.galleryControl1.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.Vertical;

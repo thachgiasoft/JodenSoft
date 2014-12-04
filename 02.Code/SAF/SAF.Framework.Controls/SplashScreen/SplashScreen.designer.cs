@@ -31,14 +31,14 @@
             this.txtMessage = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+            this.picHS = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.picHS = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHS)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtMessage
@@ -81,6 +81,17 @@
             this.marqueeProgressBarControl1.Size = new System.Drawing.Size(408, 14);
             this.marqueeProgressBarControl1.TabIndex = 7;
             // 
+            // picHS
+            // 
+            this.picHS.BackColor = System.Drawing.Color.Transparent;
+            this.picHS.Image = global::SAF.Framework.Controls.Properties.Resources.HSImage;
+            this.picHS.Location = new System.Drawing.Point(16, 38);
+            this.picHS.Name = "picHS";
+            this.picHS.Size = new System.Drawing.Size(411, 100);
+            this.picHS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picHS.TabIndex = 6;
+            this.picHS.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
@@ -100,17 +111,6 @@
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            // 
-            // picHS
-            // 
-            this.picHS.BackColor = System.Drawing.Color.Transparent;
-            this.picHS.Image = global::SAF.Framework.Controls.Properties.Resources.HSImage;
-            this.picHS.Location = new System.Drawing.Point(16, 38);
-            this.picHS.Name = "picHS";
-            this.picHS.Size = new System.Drawing.Size(411, 100);
-            this.picHS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picHS.TabIndex = 6;
-            this.picHS.TabStop = false;
             // 
             // SplashScreen
             // 
@@ -134,9 +134,9 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHS)).EndInit();
             this.ResumeLayout(false);
 
         }

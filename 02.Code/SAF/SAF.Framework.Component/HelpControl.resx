@@ -150,28 +150,28 @@
   <data name="galleryControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery1.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl2.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="galleryItem1.Caption" xml:space="preserve">
@@ -259,28 +259,28 @@
   <data name="galleryControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Disabled.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Hovered.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="galleryControlGallery2.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="galleryControl1.Gallery.Appearance.ItemDescriptionAppearance.Pressed.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="galleryItem2.Caption" xml:space="preserve">
