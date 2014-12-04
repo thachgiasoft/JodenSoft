@@ -298,20 +298,20 @@ namespace SAF.Framework
         public bool Login(string username, string password, out string message)
         {
 #if !DEBUG
-            string code = RegInfoHelper.GetRegInfo();
+            //string code = RegInfoHelper.GetRegInfo();
 
-            if (!RegisterHelper.Validate(code, Session.Current.ProductId))
-            {
-                if (fmRegister.ShowRegister() != DialogResult.OK)
-                {
-                    message = string.Format("系统尚未注册激活!{0}请联系系统供应商获取注册码.", Environment.NewLine);
-                    return false;
-                }
-            }
-            else
-            {
-                RegInfoHelper.UpdateLastTime();
-            }
+            //if (!RegisterHelper.Validate(code, Session.Current.ProductId))
+            //{
+            //    if (fmRegister.ShowRegister() != DialogResult.OK)
+            //    {
+            //        message = string.Format("系统尚未注册激活!{0}请联系系统供应商获取注册码.", Environment.NewLine);
+            //        return false;
+            //    }
+            //}
+            //else
+            //{
+            //    RegInfoHelper.UpdateLastTime();
+            //}
 #endif
             const string sql = @"
 select top 1 Iden, UserName, UserFullName, Password, Email, TelephoneNo, UserImage, IsActive, IsDeleted, IsSystem 
