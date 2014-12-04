@@ -200,11 +200,12 @@ namespace SAF.Client
                 InitWorkspace();
 
                 this.NotifyMessage("显示欢迎页...");
-                ShowWelcomePage();
+                var frm = ShowWelcomePage();
 
                 this.NotifyMessage("打开界面...");
                 ShowAutoOpenView();
 
+                this.tabbedView.ActivateDocument(frm);
                 this.NotifyMessage("就绪...");
             }
         }
@@ -220,7 +221,7 @@ namespace SAF.Client
 
         private static readonly int WelcomePageId = -10000;
 
-        private void ShowWelcomePage()
+        private Form ShowWelcomePage()
         {
             Form frm = this.FindBusinessView(WelcomePageId);
             if (frm != null)
@@ -239,6 +240,8 @@ namespace SAF.Client
             this.tabbedView.Documents.TryGetValue(frm, out doc);
             if (doc is Document)
                 (doc as Document).Pinned = true;
+
+            return frm;
         }
 
         private void InitWorkspace()
