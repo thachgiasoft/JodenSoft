@@ -372,7 +372,7 @@
             this.Controls.Add(this.backstageViewLabel1);
             this.Name = "UserAccountConfigControl";
             this.Padding = new System.Windows.Forms.Padding(20);
-            this.Size = new System.Drawing.Size(832, 466);
+            this.Size = new System.Drawing.Size(832, 529);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picUserPicture)).EndInit();
