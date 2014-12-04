@@ -184,7 +184,7 @@
             this.sysReportCenter});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
-            this.navMainMenu.NavigationPaneMaxVisibleGroups = 0;
+            this.navMainMenu.NavigationPaneMaxVisibleGroups = 2;
             this.navMainMenu.OptionsNavPane.ExpandedWidth = 181;
             this.navMainMenu.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
             this.navMainMenu.Size = new System.Drawing.Size(181, 238);
@@ -207,7 +207,7 @@
             this.navBarGroupControlContainer2.Controls.Add(this.pnlWorkspace);
             this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
             this.navBarGroupControlContainer2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 163);
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 103);
             this.navBarGroupControlContainer2.TabIndex = 1;
             // 
             // treeMyMenu
@@ -220,7 +220,7 @@
             this.treeMyMenu.OptionsView.ShowHorzLines = false;
             this.treeMyMenu.OptionsView.ShowIndicator = false;
             this.treeMyMenu.OptionsView.ShowVertLines = false;
-            this.treeMyMenu.Size = new System.Drawing.Size(180, 136);
+            this.treeMyMenu.Size = new System.Drawing.Size(180, 76);
             this.treeMyMenu.TabIndex = 0;
             // 
             // pnlWorkspace
