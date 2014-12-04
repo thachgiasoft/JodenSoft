@@ -132,6 +132,8 @@ namespace SAF.Client
 
             this.WindowState = FormWindowState.Maximized;
 
+            this.Icon = Properties.Resources.SAF_Icon;
+
             InitLoginControl();
         }
 
