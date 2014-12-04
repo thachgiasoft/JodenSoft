@@ -55,7 +55,7 @@ namespace SAF.SystemModule
             base.OnQuery(sCondition, parameterValues);
 
             string sql = @"
-SELECT Iden,Name,[ParentId],[MenuOrder] ,
+SELECT Iden,Name,[ParentId],[MenuOrder] ,IsAutoOpen,
     BusinessView=(SELECT top 1 [ClassName] FROM dbo.sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
 FROM [dbo].[sysMenu] a with(nolock)
 where {0}
@@ -77,7 +77,7 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(sCondition);
             base.OnQueryChild(key);
 
             this.MainEntitySet.Query(@"
-select Iden, Name, ParentId, BusinessViewId, MenuOrder, Remark, IsSystem, 
+select Iden, Name, ParentId, BusinessViewId, MenuOrder, Remark, IsSystem, IsAutoOpen,
 CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber,
 BusinessView=(SELECT top 1 [ClassName] FROM sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
 from [sysMenu] a with(nolock) 
@@ -139,6 +139,7 @@ LEFT JOIN
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.MenuOrder = 0;
+            e.CurrentEntity.IsAutoOpen = false;
 
             if (e.OriginalEntity != null)
             {
@@ -157,7 +158,7 @@ LEFT JOIN
         {
             this.ExecuteCache.Execute(0, "delete [sysMenuParam] where menuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
             base.OnDelete();
-           
+
         }
 
         protected override void OnApplySave()

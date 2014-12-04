@@ -2,6 +2,8 @@
 using DevExpress.Skins;
 using DevExpress.UserSkins;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Docking2010.Views;
+using DevExpress.XtraBars.Docking2010.Views.Tabbed;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraSplashScreen;
@@ -12,8 +14,10 @@ using SAF.Foundation.ComponentModel;
 using SAF.Foundation.Security;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework;
+using SAF.Framework.Component;
 using SAF.Framework.Controls;
 using SAF.Framework.Controls.Entities;
+using SAF.Framework.Entities;
 using SAF.Framework.ServiceModel;
 using SAF.Framework.View;
 using SAF.SystemModule;
@@ -123,6 +127,9 @@ namespace SAF.Client
             this.splMenu.Visible = false;
             this.navMainMenu.Visible = false;
 
+            this.bbiWelcomePage.Enabled = false;
+            this.bbiWelcomePage.Visibility = BarItemVisibility.Never;
+
             this.WindowState = FormWindowState.Maximized;
 
             InitLoginControl();
@@ -192,8 +199,46 @@ namespace SAF.Client
                 this.NotifyMessage("初始化工作区...");
                 InitWorkspace();
 
+                this.NotifyMessage("显示欢迎页...");
+                ShowWelcomePage();
+
+                this.NotifyMessage("打开界面...");
+                ShowAutoOpenView();
+
                 this.NotifyMessage("就绪...");
             }
+        }
+
+        private void ShowAutoOpenView()
+        {
+            var autoOpenList = this.MainEntitySet.Where(p => p.IsAutoOpen == true);
+            foreach (var item in autoOpenList)
+            {
+                ShowBusinessView(item.DataRowView);
+            }
+        }
+
+        private static readonly int WelcomePageId = -10000;
+
+        private void ShowWelcomePage()
+        {
+            Form frm = this.FindBusinessView(WelcomePageId);
+            if (frm != null)
+                this.tabbedView.ActivateDocument(frm);
+            else
+            {
+                var page = new WelcomePage() { UniqueId = WelcomePageId };
+                frm = page.CreateRibbonContainer();
+                frm.Tag = WelcomePageId;
+                frm.Icon = Icon.FromHandle(SAF.Client.Properties.Resources.Icon_Form_16x16.GetHicon());
+                frm.MdiParent = this;
+                frm.Show();
+            }
+
+            BaseDocument doc;
+            this.tabbedView.Documents.TryGetValue(frm, out doc);
+            if (doc is Document)
+                (doc as Document).Pinned = true;
         }
 
         private void InitWorkspace()
@@ -206,18 +251,95 @@ namespace SAF.Client
             this.txtFind.KeyDown += txtFind_KeyDown;
             this.btnRefreshMenu.Click += btnRefreshMenu_Click;
 
+            this.InitMyWorkspace();
+            this.treeMyMenu.SelectImageList = this.imageCollectionTreeList;
+            this.treeMyMenu.GetSelectImage += TreeMenu_GetSelectImage;
+            this.treeMyMenu.DoubleClick += TreeMenu_DoubleClick;
+
             this.Controls.Remove(loginControl);
             loginControl.Dispose();
 
             this.splMenu.Visible = true;
             this.navMainMenu.Visible = true;
+
+            this.bbiWelcomePage.Enabled = true;
+            this.bbiWelcomePage.Visibility = BarItemVisibility.Always;
+        }
+
+        #region myMenuEntitySet
+
+        protected EntitySet<sysMenu> myMenuEntitySet = null;
+
+        protected EntitySet<sysMyFavoriteMenu> myFavoriteMenu = null;
+        public virtual EntitySet<sysMyFavoriteMenu> MyFavoriteMenu
+        {
+            get
+            {
+                if (myFavoriteMenu == null)
+                {
+                    myFavoriteMenu = new EntitySet<sysMyFavoriteMenu>();
+                }
+                return myFavoriteMenu;
+            }
+        }
+
+        #endregion
+
+
+        private void InitMyWorkspace()
+        {
+            myMenuEntitySet = this.MainEntitySet.Clone() as EntitySet<sysMenu>;
+            var root = myMenuEntitySet.AddNew();
+            root.Iden = -1;
+            root.ParentId = -2;
+            root.Name = "我收藏的菜单";
+            root.MenuOrder = -1;
+
+            MyFavoriteMenu.Query("SELECT a.Iden, a.MenuId,RowNumber FROM dbo.sysMyFavoriteMenu a with(nolock) WHERE UserId=:UserId", Session.Current.UserId);
+
+            var list = this.MainEntitySet.Where(p => MyFavoriteMenu.Any(x => x.MenuId == p.Iden));
+
+            foreach (var item in list)
+            {
+                var obj = myMenuEntitySet.AddNew();
+                obj.Copy(item);
+                obj.ParentId = root.Iden;
+                obj.MenuOrder = MyFavoriteMenu.First(p => p.MenuId == item.Iden).RowNumber;
+            }
+
+            this.treeMyMenu.OptionsBehavior.AutoPopulateColumns = false;
+            this.treeMyMenu.OptionsBehavior.Editable = false;
+            if (this.treeMyMenu.Columns.ColumnByFieldName("Name") == null)
+            {
+                var colName = this.treeMyMenu.Columns.Add();
+                colName.Caption = "名称";
+                colName.FieldName = "Name";
+                colName.Name = "colName";
+                colName.OptionsColumn.AllowEdit = false;
+                colName.OptionsColumn.AllowMove = false;
+                colName.OptionsColumn.AllowMoveToCustomizationForm = false;
+                colName.OptionsColumn.AllowSort = false;
+                colName.OptionsColumn.ReadOnly = true;
+                colName.OptionsColumn.ShowInCustomizationForm = false;
+                colName.OptionsColumn.ShowInExpressionEditor = false;
+                colName.OptionsFilter.AllowAutoFilter = false;
+                colName.OptionsFilter.AllowFilter = false;
+                colName.Visible = true;
+                colName.VisibleIndex = 0;
+            }
+
+            var source = myMenuEntitySet.OrderBy(p => p.ParentId).OrderBy(p => p.MenuOrder).OrderBy(p => p.Iden);
+            this.treeMyMenu.DataSource = new BindingSource() { DataSource = source };
+            this.treeMyMenu.KeyFieldName = "Iden";
+            this.treeMyMenu.ParentFieldName = "ParentId";
+            this.treeMyMenu.ExpandAll();
         }
 
         void txtFind_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
             {
-                this.ShowView();
+                this.ShowView(this.TreeMenu);
                 e.Handled = true;
             }
             else if (e.KeyData == Keys.Up)
@@ -361,7 +483,8 @@ DECLARE @result TABLE
 	ClassName NVARCHAR(500),
 	[FileName] NVARCHAR(500),
 	ParentId INT,
-	MenuOrder INT
+	MenuOrder INT,
+    IsAutoOpen BIT
 )
 
 IF EXISTS(
@@ -372,8 +495,8 @@ IF EXISTS(
 	WHERE c.IsAdministrator=1 AND a.Iden=:UserId)
 BEGIN
 	--系统管理员显示所有菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
-	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
+	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -381,8 +504,8 @@ BEGIN
 END
 ELSE BEGIN
 	--根据用户权限显示菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
-	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
+	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden] and b.IsDeleted=0
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden] and c.IsActive=1
@@ -393,10 +516,10 @@ ELSE BEGIN
 
 	WHILE @@ROWCOUNT>0
 	BEGIN
-		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder)
+		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
 		SELECT DISTINCT temp.*
 		FROM @result res
-		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder]
+		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
 				FROM [dbo].[sysMenu] a with(nolock)
 				LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 				LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -427,20 +550,26 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 colName.VisibleIndex = 0;
             }
 
-            this.TreeMenu.DataSource = MainEntitySet.DefaultView;
+            this.TreeMenu.DataSource = new BindingSource() { DataSource = MainEntitySet };
             this.TreeMenu.KeyFieldName = "Iden";
             this.TreeMenu.ParentFieldName = "ParentId";
+            if (this.TreeMenu.Nodes.Count > 0)
+            {
+                this.TreeMenu.Nodes[0].Expanded = true;
+            }
         }
 
         private void TreeMenu_DoubleClick(object sender, EventArgs e)
         {
-            Point point = TreeMenu.PointToClient(Cursor.Position);
-            TreeListHitInfo hitInfo = TreeMenu.CalcHitInfo(point);
+            var tree = (sender as TreeList);
+            if (tree == null) return;
+            Point point = tree.PointToClient(Cursor.Position);
+            TreeListHitInfo hitInfo = tree.CalcHitInfo(point);
             switch (hitInfo.HitInfoType)
             {
                 case HitInfoType.Cell:
                 case HitInfoType.SelectImage:
-                    ShowView();
+                    ShowView(tree);
                     break;
                 default:
                     this.Cursor = Cursors.Default;
@@ -448,14 +577,14 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             }
         }
 
-        private void ShowView()
+        private void ShowView(TreeList tree)
         {
-            if (this.TreeMenu.FocusedNode != null)
+            if (tree.FocusedNode != null)
             {
-                var drv = this.TreeMenu.GetDataRecordByNode(this.TreeMenu.FocusedNode) as DataRowView;
+                var drv = tree.GetDataRecordByNode(tree.FocusedNode) as sysMenu;
                 if (drv != null)
                 {
-                    ShowBusinessView(drv);
+                    ShowBusinessView(drv.DataRowView);
                 }
             }
         }
@@ -473,7 +602,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
                 int iMenuId = Convert.ToInt32(drv["Iden"]);
                 //如果已经打开则激活模块，否则新增模块窗体
-                Form doc = this.FindForm(iMenuId);
+                Form doc = this.FindBusinessView(iMenuId);
                 if (doc != null)
                     this.tabbedView.ActivateDocument(doc);
                 else
@@ -530,7 +659,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             }
         }
 
-        private Form FindForm(int iMenuId)
+        private Form FindBusinessView(int iMenuId)
         {
             foreach (var item in this.MdiChildren)
             {
@@ -573,11 +702,11 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
         void TreeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
         {
-            var drv = this.TreeMenu.GetDataRecordByNode(e.Node) as DataRowView;
+            var menu = (sender as TreeList).GetDataRecordByNode(e.Node) as sysMenu;
 
-            if (drv == null) return;
+            if (menu == null) return;
 
-            if (drv["ClassName"].IsNotEmpty())
+            if (menu.FieldIsExists("ClassName") && menu.GetFieldValue<string>("ClassName").IsNotEmpty())
             {
                 e.NodeImageIndex = 2;
             }
@@ -596,6 +725,27 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             }
         }
 
+        private void btnMyMenuDelete_Click(object sender, EventArgs e)
+        {
+            if (this.treeMyMenu.FocusedNode != null)
+            {
+                var menu = treeMyMenu.GetDataRecordByNode(this.treeMyMenu.FocusedNode) as sysMenu;
+                if (menu != null && menu.Iden != -1)
+                {
+                    if (MessageService.AskQuestion("确定要删除收藏的菜单吗?"))
+                    {
+                        var obj = this.MyFavoriteMenu.FirstOrDefault(p => p.MenuId == menu.Iden);
+                        if (obj != null)
+                        {
+                            obj.Delete();
+                            MyFavoriteMenu.SaveChanges();
+                            treeMyMenu.DeleteNode(this.treeMyMenu.FocusedNode);
+                        }
+                    }
+                }
+            }
+        }
+
         private void btnUpMyMenu_Click(object sender, EventArgs e)
         {
 
@@ -608,8 +758,19 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
         private void btnRefreshMyFavorite_Click(object sender, EventArgs e)
         {
-
+            RefreshFavorite();
         }
+
+        private void bbiWelcomePage_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ShowWelcomePage();
+        }
+
+        public void RefreshFavorite()
+        {
+            this.InitMyWorkspace();
+        }
+
 
     }
 }

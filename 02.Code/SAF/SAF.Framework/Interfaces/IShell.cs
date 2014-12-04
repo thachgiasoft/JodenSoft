@@ -30,5 +30,9 @@ namespace SAF.Framework
         /// </summary>
         /// <param name="iMenuId"></param>
         void ShowBusinessView(int iMenuId);
+        /// <summary>
+        /// 刷新收藏夹
+        /// </summary>
+        void RefreshFavorite();
     }
 }

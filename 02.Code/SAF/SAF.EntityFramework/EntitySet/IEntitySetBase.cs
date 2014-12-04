@@ -13,7 +13,7 @@ namespace SAF.EntityFramework
     /// <summary>
     /// 
     /// </summary>
-    public interface IEntitySetBase
+    public interface IEntitySetBase : ICloneable
     {
         #region 分页
         /// <summary>

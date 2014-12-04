@@ -115,7 +115,7 @@ namespace SAF.EntityFramework
             }
         }
 
-        private TEntity CreateEntity(DataRowView drv)
+        internal TEntity CreateEntity(DataRowView drv)
         {
             if (drv == null) return null;
 
@@ -240,7 +240,7 @@ namespace SAF.EntityFramework
         /// <returns></returns>
         public IEnumerator<TEntity> GetEnumerator()
         {
-            return new EntitySetEnumerator<TEntity>(this.DefaultView);
+            return new EntitySetEnumerator<TEntity>(this);
         }
         /// <summary>
         /// 
@@ -481,6 +481,18 @@ namespace SAF.EntityFramework
                 if (newobj.FieldIsExists(EntityFields.VersionNumber))
                     newobj.SetFieldValue(EntityFields.VersionNumber, null);
             }
+        }
+        /// <summary>
+        /// 只复制结构和约束而不复制数据
+        /// </summary>
+        /// <returns></returns>
+        public override object Clone()
+        {
+            if (this.DataTable == null)
+                throw new NullReferenceException("实体集的DataTable为空,无法复制结构.");
+            var dt = this.DataTable.Clone();
+            var obj = new EntitySet<TEntity>(dt);
+            return obj;
         }
     }
 }

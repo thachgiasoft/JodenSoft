@@ -18,8 +18,7 @@ namespace SAF.EntityFramework
         where TEntity : Entity<TEntity>, new()
     {
         #region private
-
-        private DataView _DataView = null;
+        private EntitySet<TEntity> _EntitySet = null;
         private int _position = -1;
 
         #endregion
@@ -29,9 +28,9 @@ namespace SAF.EntityFramework
         /// 
         /// </summary>
         /// <param name="dataView"></param>
-        public EntitySetEnumerator(DataView dataView)
+        public EntitySetEnumerator(EntitySet<TEntity> entitySet)
         {
-            this._DataView = dataView;
+            _EntitySet = entitySet;
             Reset();
         }
 
@@ -45,11 +44,10 @@ namespace SAF.EntityFramework
         {
             get
             {
-                if (_DataView == null) return null;
+                if (_EntitySet == null) return null;
 
-                TEntity entity = new TEntity();
-                entity.DataRowView = _DataView[_position];
-                return entity;
+                return _EntitySet.CreateEntity(_EntitySet.DefaultView[_position]);
+
             }
         }
         /// <summary>
@@ -59,11 +57,9 @@ namespace SAF.EntityFramework
         {
             get
             {
-                if (_DataView == null) return null;
+                if (_EntitySet == null) return null;
 
-                TEntity entity = new TEntity();
-                entity.DataRowView = _DataView[_position];
-                return entity;
+                return _EntitySet.CreateEntity(_EntitySet.DefaultView[_position]);
             }
         }
         /// <summary>
@@ -72,8 +68,8 @@ namespace SAF.EntityFramework
         /// <returns></returns>
         public bool MoveNext()
         {
-            if (_DataView == null) return false;
-            if (_position < _DataView.Count - 1)
+            if (_EntitySet == null) return false;
+            if (_position < _EntitySet.DefaultView.Count - 1)
             {
                 _position++;
                 return true;
@@ -104,7 +100,7 @@ namespace SAF.EntityFramework
                 try
                 {
                     Monitor.Enter(this, ref flag);
-                    _DataView = null;
+                    _EntitySet = null;
                 }
                 finally
                 {

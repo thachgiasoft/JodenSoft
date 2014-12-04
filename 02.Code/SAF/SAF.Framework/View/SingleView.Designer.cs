@@ -197,7 +197,7 @@
             // bbiAddToFavorite
             // 
             this.bbiAddToFavorite.Caption = "收藏";
-            this.bbiAddToFavorite.Glyph = global::SAF.Framework.Properties.Resources.AddFavorite;
+            this.bbiAddToFavorite.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_AddToFavorite_32x32;
             this.bbiAddToFavorite.Id = 14;
             this.bbiAddToFavorite.Name = "bbiAddToFavorite";
             this.bbiAddToFavorite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAddToFavorite_ItemClick);

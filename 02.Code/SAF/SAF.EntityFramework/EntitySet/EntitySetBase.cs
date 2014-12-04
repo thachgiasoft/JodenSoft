@@ -650,5 +650,7 @@ namespace SAF.EntityFramework
                 return dr;
             }
         }
+
+        public abstract object Clone();
     }
 }

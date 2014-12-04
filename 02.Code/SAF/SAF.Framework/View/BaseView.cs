@@ -274,7 +274,7 @@ namespace SAF.Framework.View
 
         }
 
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Browsable(true)]
         public override string Text
         {

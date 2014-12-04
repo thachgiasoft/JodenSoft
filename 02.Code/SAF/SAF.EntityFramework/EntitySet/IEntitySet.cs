@@ -13,7 +13,7 @@ namespace SAF.EntityFramework
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public interface IEntitySet<TEntity> : IEntitySetBase
-        where TEntity : Entity<TEntity>,new()
+        where TEntity : Entity<TEntity>, new()
     {
         /// <summary>
         /// 实体集当前实体

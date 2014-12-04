@@ -50,7 +50,11 @@ namespace SAF.Framework.Controls.Entities
             get { return base.GetFieldValue<bool>(p => p.IsSystem); }
             set { base.SetFieldValue(p => p.IsSystem, value); }
         }
-
+        public bool IsAutoOpen
+        {
+            get { return base.GetFieldValue<bool>(p => p.IsAutoOpen); }
+            set { base.SetFieldValue(p => p.IsAutoOpen, value); }
+        }
         public int? CreatedBy
         {
             get { return base.GetFieldValue<int?>(p => p.CreatedBy, null); }

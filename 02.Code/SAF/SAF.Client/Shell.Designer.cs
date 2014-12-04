@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shell));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiMessage = new DevExpress.XtraBars.BarStaticItem();
             this.bbiAbout = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHelp = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHomepage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWelcomePage = new DevExpress.XtraBars.BarButtonItem();
             this.SystemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupHelp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -47,19 +47,19 @@
             this.btnMyMenuDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnMyMenuDown = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpMyMenu = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddMyMenu = new DevExpress.XtraEditors.SimpleButton();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.TreeMenu = new DevExpress.XtraTreeList.TreeList();
             this.pnlMenu = new DevExpress.XtraEditors.PanelControl();
             this.txtFind = new DevExpress.XtraEditors.TextEdit();
             this.btnRefreshMenu = new DevExpress.XtraEditors.SimpleButton();
+            this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
+            this.treeReportCenter = new DevExpress.XtraTreeList.TreeList();
             this.systemMenuGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.sysNotice = new DevExpress.XtraNavBar.NavBarGroup();
             this.sysReportCenter = new DevExpress.XtraNavBar.NavBarGroup();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
             this.splMenu = new DevExpress.XtraEditors.SplitterControl();
-            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).BeginInit();
             this.navMainMenu.SuspendLayout();
@@ -72,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFind.Properties)).BeginInit();
+            this.navBarGroupControlContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeReportCenter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
@@ -85,9 +87,10 @@
             this.bsiMessage,
             this.bbiAbout,
             this.bbiHelp,
-            this.bbiHomepage});
+            this.bbiHomepage,
+            this.bbiWelcomePage});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 6;
+            this.ribbonMain.MaxItemId = 7;
             this.ribbonMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -133,6 +136,14 @@
             this.bbiHomepage.Name = "bbiHomepage";
             this.bbiHomepage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHomepage_ItemClick);
             // 
+            // bbiWelcomePage
+            // 
+            this.bbiWelcomePage.Caption = "起始页";
+            this.bbiWelcomePage.Id = 6;
+            this.bbiWelcomePage.LargeGlyph = global::SAF.Client.Properties.Resources.Action_Welcome_32x32;
+            this.bbiWelcomePage.Name = "bbiWelcomePage";
+            this.bbiWelcomePage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWelcomePage_ItemClick);
+            // 
             // SystemPage
             // 
             this.SystemPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -143,6 +154,7 @@
             // groupHelp
             // 
             this.groupHelp.AllowTextClipping = false;
+            this.groupHelp.ItemLinks.Add(this.bbiWelcomePage);
             this.groupHelp.ItemLinks.Add(this.bbiHomepage);
             this.groupHelp.ItemLinks.Add(this.bbiAbout);
             this.groupHelp.ItemLinks.Add(this.bbiHelp);
@@ -164,11 +176,11 @@
             this.navMainMenu.ActiveGroup = this.sysMyWorkspace;
             this.navMainMenu.Controls.Add(this.navBarGroupControlContainer1);
             this.navMainMenu.Controls.Add(this.navBarGroupControlContainer2);
+            this.navMainMenu.Controls.Add(this.navBarGroupControlContainer3);
             this.navMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.navMainMenu.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.sysMyWorkspace,
             this.systemMenuGroup,
-            this.sysNotice,
             this.sysReportCenter});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
@@ -218,7 +230,6 @@
             this.pnlWorkspace.Controls.Add(this.btnMyMenuDelete);
             this.pnlWorkspace.Controls.Add(this.btnMyMenuDown);
             this.pnlWorkspace.Controls.Add(this.btnUpMyMenu);
-            this.pnlWorkspace.Controls.Add(this.btnAddMyMenu);
             this.pnlWorkspace.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlWorkspace.Location = new System.Drawing.Point(1, 0);
             this.pnlWorkspace.Name = "pnlWorkspace";
@@ -241,11 +252,12 @@
             // 
             this.btnMyMenuDelete.Image = global::SAF.Client.Properties.Resources.Action_Delete_16x16;
             this.btnMyMenuDelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnMyMenuDelete.Location = new System.Drawing.Point(23, 3);
+            this.btnMyMenuDelete.Location = new System.Drawing.Point(2, 3);
             this.btnMyMenuDelete.Name = "btnMyMenuDelete";
             this.btnMyMenuDelete.Size = new System.Drawing.Size(20, 20);
             this.btnMyMenuDelete.TabIndex = 3;
             this.btnMyMenuDelete.Text = "删除菜单";
+            this.btnMyMenuDelete.Click += new System.EventHandler(this.btnMyMenuDelete_Click);
             // 
             // btnMyMenuDown
             // 
@@ -257,6 +269,7 @@
             this.btnMyMenuDown.Size = new System.Drawing.Size(20, 20);
             this.btnMyMenuDown.TabIndex = 2;
             this.btnMyMenuDown.Text = "下移";
+            this.btnMyMenuDown.Visible = false;
             this.btnMyMenuDown.Click += new System.EventHandler(this.btnMyMenuDown_Click);
             // 
             // btnUpMyMenu
@@ -269,17 +282,8 @@
             this.btnUpMyMenu.Size = new System.Drawing.Size(20, 20);
             this.btnUpMyMenu.TabIndex = 1;
             this.btnUpMyMenu.Text = "上移";
+            this.btnUpMyMenu.Visible = false;
             this.btnUpMyMenu.Click += new System.EventHandler(this.btnUpMyMenu_Click);
-            // 
-            // btnAddMyMenu
-            // 
-            this.btnAddMyMenu.Image = global::SAF.Client.Properties.Resources.Action_Add_16x16;
-            this.btnAddMyMenu.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAddMyMenu.Location = new System.Drawing.Point(1, 3);
-            this.btnAddMyMenu.Name = "btnAddMyMenu";
-            this.btnAddMyMenu.Size = new System.Drawing.Size(20, 20);
-            this.btnAddMyMenu.TabIndex = 0;
-            this.btnAddMyMenu.Text = "添加菜单";
             // 
             // navBarGroupControlContainer1
             // 
@@ -336,6 +340,26 @@
             this.btnRefreshMenu.TabIndex = 0;
             this.btnRefreshMenu.ToolTip = "刷新菜单";
             // 
+            // navBarGroupControlContainer3
+            // 
+            this.navBarGroupControlContainer3.Controls.Add(this.treeReportCenter);
+            this.navBarGroupControlContainer3.Name = "navBarGroupControlContainer3";
+            this.navBarGroupControlContainer3.Size = new System.Drawing.Size(181, 163);
+            this.navBarGroupControlContainer3.TabIndex = 2;
+            // 
+            // treeReportCenter
+            // 
+            this.treeReportCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeReportCenter.Location = new System.Drawing.Point(0, 0);
+            this.treeReportCenter.Name = "treeReportCenter";
+            this.treeReportCenter.OptionsBehavior.Editable = false;
+            this.treeReportCenter.OptionsView.ShowColumns = false;
+            this.treeReportCenter.OptionsView.ShowHorzLines = false;
+            this.treeReportCenter.OptionsView.ShowIndicator = false;
+            this.treeReportCenter.OptionsView.ShowVertLines = false;
+            this.treeReportCenter.Size = new System.Drawing.Size(181, 163);
+            this.treeReportCenter.TabIndex = 0;
+            // 
             // systemMenuGroup
             // 
             this.systemMenuGroup.Caption = "系统菜单";
@@ -345,15 +369,12 @@
             this.systemMenuGroup.Name = "systemMenuGroup";
             this.systemMenuGroup.SmallImage = global::SAF.Client.Properties.Resources.Icon_Tree_16x16;
             // 
-            // sysNotice
-            // 
-            this.sysNotice.Caption = "系统公告";
-            this.sysNotice.Name = "sysNotice";
-            this.sysNotice.SmallImage = global::SAF.Client.Properties.Resources.Icon_Note_16x16;
-            // 
             // sysReportCenter
             // 
             this.sysReportCenter.Caption = "报表中心";
+            this.sysReportCenter.ControlContainer = this.navBarGroupControlContainer3;
+            this.sysReportCenter.GroupClientHeight = 80;
+            this.sysReportCenter.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.sysReportCenter.Name = "sysReportCenter";
             this.sysReportCenter.SmallImage = global::SAF.Client.Properties.Resources.Icon_Report_16x16;
             // 
@@ -418,6 +439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlMenu)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtFind.Properties)).EndInit();
+            this.navBarGroupControlContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeReportCenter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
@@ -454,10 +477,11 @@
         private DevExpress.XtraEditors.SimpleButton btnMyMenuDelete;
         private DevExpress.XtraEditors.SimpleButton btnMyMenuDown;
         private DevExpress.XtraEditors.SimpleButton btnUpMyMenu;
-        private DevExpress.XtraEditors.SimpleButton btnAddMyMenu;
         private DevExpress.XtraEditors.SimpleButton btnRefreshMyFavorite;
-        private DevExpress.XtraNavBar.NavBarGroup sysNotice;
         private DevExpress.XtraNavBar.NavBarGroup sysReportCenter;
+        private DevExpress.XtraBars.BarButtonItem bbiWelcomePage;
+        private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer3;
+        private DevExpress.XtraTreeList.TreeList treeReportCenter;
 
     }
 }

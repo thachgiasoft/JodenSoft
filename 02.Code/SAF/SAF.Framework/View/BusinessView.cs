@@ -52,6 +52,10 @@ namespace SAF.Framework.View
             }
 
             MessageService.ShowMessage("菜单已经收藏至我的工作台.");
+
+            var shell = ApplicationService.Current.MainForm as IShell;
+            if (shell != null)
+                shell.RefreshFavorite();
         }
     }
 }

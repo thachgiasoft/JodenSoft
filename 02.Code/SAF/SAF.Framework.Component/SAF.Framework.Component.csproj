@@ -85,6 +85,24 @@
     <Compile Include="UserAccountConfigControl.Designer.cs">
       <DependentUpon>UserAccountConfigControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="WelcomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomePage.Designer.cs">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePageControl\Notice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomePageControl\Notice.designer.cs">
+      <DependentUpon>Notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePageControl\ToDoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomePageControl\ToDoList.Designer.cs">
+      <DependentUpon>ToDoList.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox.resx">
@@ -103,6 +121,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserAccountConfigControl.resx">
       <DependentUpon>UserAccountConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomePage.resx">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomePageControl\Notice.resx">
+      <DependentUpon>Notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomePageControl\ToDoList.resx">
+      <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
