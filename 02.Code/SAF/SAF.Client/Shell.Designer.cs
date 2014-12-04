@@ -35,6 +35,7 @@
             this.bbiHelp = new DevExpress.XtraBars.BarButtonItem();
             this.bbiHomepage = new DevExpress.XtraBars.BarButtonItem();
             this.bbiWelcomePage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiNavigation = new DevExpress.XtraBars.BarButtonItem();
             this.SystemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupHelp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusBarMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -88,9 +89,10 @@
             this.bbiAbout,
             this.bbiHelp,
             this.bbiHomepage,
-            this.bbiWelcomePage});
+            this.bbiWelcomePage,
+            this.bbiNavigation});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 7;
+            this.ribbonMain.MaxItemId = 8;
             this.ribbonMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -144,6 +146,14 @@
             this.bbiWelcomePage.Name = "bbiWelcomePage";
             this.bbiWelcomePage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWelcomePage_ItemClick);
             // 
+            // bbiNavigation
+            // 
+            this.bbiNavigation.Caption = "导航图";
+            this.bbiNavigation.Id = 7;
+            this.bbiNavigation.LargeGlyph = global::SAF.Client.Properties.Resources.Action_NavigationPage_32x32;
+            this.bbiNavigation.Name = "bbiNavigation";
+            this.bbiNavigation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNavigation_ItemClick);
+            // 
             // SystemPage
             // 
             this.SystemPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -155,7 +165,8 @@
             // 
             this.groupHelp.AllowTextClipping = false;
             this.groupHelp.ItemLinks.Add(this.bbiWelcomePage);
-            this.groupHelp.ItemLinks.Add(this.bbiHomepage);
+            this.groupHelp.ItemLinks.Add(this.bbiNavigation);
+            this.groupHelp.ItemLinks.Add(this.bbiHomepage, true);
             this.groupHelp.ItemLinks.Add(this.bbiAbout);
             this.groupHelp.ItemLinks.Add(this.bbiHelp);
             this.groupHelp.MergeOrder = 9000;
@@ -166,7 +177,7 @@
             // statusBarMain
             // 
             this.statusBarMain.ItemLinks.Add(this.bsiMessage);
-            this.statusBarMain.Location = new System.Drawing.Point(0, 385);
+            this.statusBarMain.Location = new System.Drawing.Point(0, 436);
             this.statusBarMain.Name = "statusBarMain";
             this.statusBarMain.Ribbon = this.ribbonMain;
             this.statusBarMain.Size = new System.Drawing.Size(673, 31);
@@ -187,7 +198,7 @@
             this.navMainMenu.NavigationPaneMaxVisibleGroups = 2;
             this.navMainMenu.OptionsNavPane.ExpandedWidth = 181;
             this.navMainMenu.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navMainMenu.Size = new System.Drawing.Size(181, 238);
+            this.navMainMenu.Size = new System.Drawing.Size(181, 289);
             this.navMainMenu.TabIndex = 2;
             this.navMainMenu.Text = "navBarControl1";
             // 
@@ -207,7 +218,7 @@
             this.navBarGroupControlContainer2.Controls.Add(this.pnlWorkspace);
             this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
             this.navBarGroupControlContainer2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 103);
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 154);
             this.navBarGroupControlContainer2.TabIndex = 1;
             // 
             // treeMyMenu
@@ -220,7 +231,7 @@
             this.treeMyMenu.OptionsView.ShowHorzLines = false;
             this.treeMyMenu.OptionsView.ShowIndicator = false;
             this.treeMyMenu.OptionsView.ShowVertLines = false;
-            this.treeMyMenu.Size = new System.Drawing.Size(180, 76);
+            this.treeMyMenu.Size = new System.Drawing.Size(180, 127);
             this.treeMyMenu.TabIndex = 0;
             // 
             // pnlWorkspace
@@ -389,7 +400,7 @@
             // 
             this.splMenu.Location = new System.Drawing.Point(181, 147);
             this.splMenu.Name = "splMenu";
-            this.splMenu.Size = new System.Drawing.Size(5, 238);
+            this.splMenu.Size = new System.Drawing.Size(5, 289);
             this.splMenu.TabIndex = 5;
             this.splMenu.TabStop = false;
             // 
@@ -416,7 +427,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 416);
+            this.ClientSize = new System.Drawing.Size(673, 467);
             this.Controls.Add(this.splMenu);
             this.Controls.Add(this.navMainMenu);
             this.Controls.Add(this.statusBarMain);
@@ -482,6 +493,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiWelcomePage;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer3;
         private DevExpress.XtraTreeList.TreeList treeReportCenter;
+        private DevExpress.XtraBars.BarButtonItem bbiNavigation;
 
     }
 }

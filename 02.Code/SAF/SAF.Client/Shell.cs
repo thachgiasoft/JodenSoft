@@ -130,6 +130,9 @@ namespace SAF.Client
             this.bbiWelcomePage.Enabled = false;
             this.bbiWelcomePage.Visibility = BarItemVisibility.Never;
 
+            this.bbiNavigation.Enabled = false;
+            this.bbiNavigation.Visibility = BarItemVisibility.Never;
+
             this.WindowState = FormWindowState.Maximized;
 
             this.Icon = Properties.Resources.SAF_Icon;
@@ -214,11 +217,15 @@ namespace SAF.Client
 
         private void ShowAutoOpenView()
         {
-            var autoOpenList = this.MainEntitySet.Where(p => p.IsAutoOpen == true);
-            foreach (var item in autoOpenList)
+            try
             {
-                ShowBusinessView(item.DataRowView);
+                var autoOpenList = this.MainEntitySet.Where(p => p.IsAutoOpen == true);
+                foreach (var item in autoOpenList)
+                {
+                    ShowBusinessView(item.DataRowView);
+                }
             }
+            catch { }
         }
 
         private static readonly int WelcomePageId = -10000;
@@ -231,6 +238,7 @@ namespace SAF.Client
             else
             {
                 var page = new WelcomePage() { UniqueId = WelcomePageId };
+                page.Init();
                 frm = page.CreateRibbonContainer();
                 frm.Tag = WelcomePageId;
                 frm.Icon = Icon.FromHandle(SAF.Client.Properties.Resources.Icon_Form_16x16.GetHicon());
@@ -269,6 +277,9 @@ namespace SAF.Client
 
             this.bbiWelcomePage.Enabled = true;
             this.bbiWelcomePage.Visibility = BarItemVisibility.Always;
+
+            this.bbiNavigation.Enabled = true;
+            this.bbiNavigation.Visibility = BarItemVisibility.Always;
         }
 
         #region myMenuEntitySet
@@ -774,6 +785,36 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
         public void RefreshFavorite()
         {
             this.InitMyWorkspace();
+        }
+
+        private void bbiNavigation_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ShowNavigationPage();
+        }
+
+        private static readonly int NavigationPageId = -10010;
+        private Form ShowNavigationPage()
+        {
+            Form frm = this.FindBusinessView(NavigationPageId);
+            if (frm != null)
+                this.tabbedView.ActivateDocument(frm);
+            else
+            {
+                var page = new NavigationPage() { UniqueId = NavigationPageId };
+                page.Init();
+                frm = page.CreateRibbonContainer();
+                frm.Tag = NavigationPageId;
+                frm.Icon = Icon.FromHandle(SAF.Client.Properties.Resources.Icon_Form_16x16.GetHicon());
+                frm.MdiParent = this;
+                frm.Show();
+            }
+
+            BaseDocument doc;
+            this.tabbedView.Documents.TryGetValue(frm, out doc);
+            if (doc is Document)
+                (doc as Document).Pinned = true;
+
+            return frm;
         }
 
 

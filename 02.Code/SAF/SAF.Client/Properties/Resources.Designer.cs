@@ -153,6 +153,16 @@ namespace SAF.Client.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_NavigationPage_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_NavigationPage_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Refresh_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Refresh_16x16", resourceCulture);

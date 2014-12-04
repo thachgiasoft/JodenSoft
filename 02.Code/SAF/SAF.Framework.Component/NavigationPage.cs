@@ -12,49 +12,41 @@ using SAF.Foundation.MetaAttributes;
 using SAF.Framework.Controls.Charts;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework;
+using SAF.EntityFramework;
 
 namespace SAF.SystemModule
 {
-    [BusinessObject("sysNavigationView")]
-    public partial class sysNavigationView : SingleView
+    public partial class NavigationPage : BusinessView
     {
-        public sysNavigationView()
+        public NavigationPage()
         {
             InitializeComponent();
         }
 
-        protected override IBaseViewViewModel OnCreateViewModel()
-        {
-            return new sysNavigationViewViewModel();
-        }
-
-        public new sysNavigationViewViewModel ViewModel
+        private EntitySet<QueryEntity> queryEntitySet = null;
+        public virtual EntitySet<QueryEntity> QueryEntitySet
         {
             get
             {
-                return base.ViewModel as sysNavigationViewViewModel;
+                if (queryEntitySet == null)
+                {
+                    queryEntitySet = new EntitySet<QueryEntity>();
+                    queryEntitySet.IsReadOnly = true;
+                }
+                return queryEntitySet;
             }
-        }
-
-        protected override void OnInitUI()
-        {
-            base.OnInitUI();
-
-            this.pnlPageControl.Enabled = false;
-            this.pnlPageControl.Visible = false;
-
-            this.pnlQueryControl.Enabled = false;
-            this.pnlQueryControl.Visible = false;
         }
 
         protected override void OnAfterInit()
         {
             base.OnAfterInit();
 
-            foreach (var item in this.ViewModel.IndexEntitySet)
+            this.QueryEntitySet.Query("select * from sysMenuChart with(nolock)");
+
+            foreach (var item in QueryEntitySet)
             {
-                var page = tabControl.TabPages.Add(item.Name);
-                var ctl = new MenuChartControl() { Dock = DockStyle.Fill, Data = item.FileData };
+                var page = tabControl.TabPages.Add(item.GetFieldValue<string>("Name"));
+                var ctl = new MenuChartControl() { Dock = DockStyle.Fill, Data = item.GetFieldValue<byte[]>("FileData") };
                 ctl.HideMenu();
                 ctl.ActiveDrawArea.DoubleClick += ActiveDrawArea_DoubleClick;
                 page.Controls.Add(ctl);
@@ -73,13 +65,6 @@ namespace SAF.SystemModule
 
                 e.HasHandle = true;
             }
-        }
-
-        protected override void OnRefreshRibbonMenu()
-        {
-            base.OnRefreshRibbonMenu();
-
-            UIController.HideMenu(this.groupData, groupCooperation, groupReport);
         }
 
     }

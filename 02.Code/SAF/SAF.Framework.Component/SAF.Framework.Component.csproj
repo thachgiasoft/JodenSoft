@@ -79,6 +79,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="NavigationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NavigationPage.Designer.cs">
+      <DependentUpon>NavigationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserAccountConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationPage.resx">
+      <DependentUpon>NavigationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserAccountConfigControl.resx">
       <DependentUpon>UserAccountConfigControl.cs</DependentUpon>
