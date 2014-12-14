@@ -26,10 +26,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\..\04.Release\SAF.Client\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -54,28 +55,41 @@
     <Reference Include="org.in2bits.MyXls">
       <HintPath>..\..\..\SAF.DLL\org.in2bits.MyXls.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.EntityFramework">
-      <HintPath>..\..\..\SAF.DLL\SAF.EntityFramework.dll</HintPath>
+    <Reference Include="SAF.CommonConfig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.CommonConfig.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.Foundation">
-      <HintPath>..\..\..\SAF.DLL\SAF.Foundation.dll</HintPath>
+    <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.Framework">
-      <HintPath>..\..\..\SAF.DLL\SAF.Framework.dll</HintPath>
+    <Reference Include="SAF.Foundation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.Foundation.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.Framework.Controls">
-      <HintPath>..\..\..\SAF.DLL\SAF.Framework.Controls.dll</HintPath>
+    <Reference Include="SAF.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.Framework.Services">
-      <HintPath>..\..\..\SAF.DLL\SAF.Framework.Services.dll</HintPath>
+    <Reference Include="SAF.Framework.Component, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.Framework.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.Framework.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.Framework.Services.dll</HintPath>
     </Reference>
     <Reference Include="SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SAF.Output\Client\SAF.SystemEntities.dll</HintPath>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.SystemEntities.dll</HintPath>
     </Reference>
     <Reference Include="SAF.SystemModule, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SAF.Output\Client\SAF.SystemModule.dll</HintPath>
+      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.SystemModule.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -100,6 +114,14 @@
       <DependentUpon>bomChildView.cs</DependentUpon>
     </Compile>
     <Compile Include="bomChildViewViewModel.cs" />
+    <Compile Include="bomMeterial.cs" />
+    <Compile Include="bomMeterialView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bomMeterialView.Designer.cs">
+      <DependentUpon>bomMeterialView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bomMeterialViewViewModel.cs" />
     <Compile Include="bomParent.cs" />
     <Compile Include="bomParentView.cs">
       <SubType>UserControl</SubType>
@@ -108,6 +130,14 @@
       <DependentUpon>bomParentView.cs</DependentUpon>
     </Compile>
     <Compile Include="bomParentViewViewModel.cs" />
+    <Compile Include="bomRoting.cs" />
+    <Compile Include="bomRotingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bomRotingView.Designer.cs">
+      <DependentUpon>bomRotingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bomRotingViewViewModel.cs" />
     <Compile Include="BomTreeList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,8 +174,14 @@
     <EmbeddedResource Include="bomChildView.resx">
       <DependentUpon>bomChildView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bomMeterialView.resx">
+      <DependentUpon>bomMeterialView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bomParentView.resx">
       <DependentUpon>bomParentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bomRotingView.resx">
+      <DependentUpon>bomRotingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BomTreeList.resx">
       <DependentUpon>BomTreeList.cs</DependentUpon>
@@ -167,9 +203,11 @@
     <None Include="Properties\DataSources\bomChild.datasource" />
     <None Include="Properties\DataSources\bomChildView.datasource" />
     <None Include="Properties\DataSources\bomChildViewViewModel.datasource" />
+    <None Include="Properties\DataSources\bomMeterial.datasource" />
     <None Include="Properties\DataSources\bomParent.datasource" />
     <None Include="Properties\DataSources\bomParentView.datasource" />
     <None Include="Properties\DataSources\bomParentViewViewModel.datasource" />
+    <None Include="Properties\DataSources\bomRoting.datasource" />
     <None Include="Properties\DataSources\BomTreeList.datasource" />
     <None Include="Properties\DataSources\jd_v_inventory.datasource" />
     <None Include="Properties\DataSources\jd_v_parentid.datasource" />

@@ -14,6 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.Data;
 using SAF.Foundation;
+using SAF.Framework;
 
 
 namespace JNHT_ProdSys

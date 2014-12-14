@@ -14,6 +14,7 @@ using DevExpress.XtraEditors;
 using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.SystemEntities;
+using SAF.Framework;
 
 namespace JNHT_ProdSys
 {
