@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED244656-9A5C-46A8-A7D1-F94A4E2B4115}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSDProdPlan</RootNamespace>
+    <AssemblyName>FSDProdPlan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="SAF.CommonConfig">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.CommonConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.EntityFramework">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Foundation">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Component">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.Framework.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Controls">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.Framework.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Services">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.Framework.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.SystemEntities">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.SystemEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.SystemModule">
+      <HintPath>..\..\..\..\..\04.Release\SAF.Client\SAF.SystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="jdMomorder.cs" />
+    <Compile Include="jdMomorderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jdMomorderView.Designer.cs">
+      <DependentUpon>jdMomorderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jdMomorderViewViewModel.cs" />
+    <Compile Include="jdProcess.cs" />
+    <Compile Include="jdProcessView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jdProcessView.Designer.cs">
+      <DependentUpon>jdProcessView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jdProcessViewViewModel.cs" />
+    <Compile Include="jdProdetail.cs" />
+    <Compile Include="jdProdetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jdProdetailView.Designer.cs">
+      <DependentUpon>jdProdetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jdProdetailViewViewModel.cs" />
+    <Compile Include="jdRecourse.cs" />
+    <Compile Include="jdRecourseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jdRecourseView.Designer.cs">
+      <DependentUpon>jdRecourseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jdRecourseViewViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="jdMomorderView.resx">
+      <DependentUpon>jdMomorderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jdProcessView.resx">
+      <DependentUpon>jdProcessView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jdProdetailView.resx">
+      <DependentUpon>jdProdetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jdRecourseView.resx">
+      <DependentUpon>jdRecourseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\jdMomorder.datasource" />
+    <None Include="Properties\DataSources\jdProcess.datasource" />
+    <None Include="Properties\DataSources\jdProdetail.datasource" />
+    <None Include="Properties\DataSources\jdRecourse.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
