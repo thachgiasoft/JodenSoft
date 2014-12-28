@@ -63,7 +63,7 @@
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />
     <Compile Include="EntitySet\EntitySetBaseCollection.cs" />
-    <Compile Include="EntitySet\VersionNumner.cs" />
+    <Compile Include="VersionNumner.cs" />
     <Compile Include="Extensions\BillNoGenerator.cs" />
     <Compile Include="Extensions\ConfigContext.cs" />
     <Compile Include="Extensions\CacheKey.cs" />
