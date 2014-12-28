@@ -82,9 +82,9 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(p => p.ModifiedOn, value); }
         }
 
-        public int VersionNumber
+        public VersionNumber VersionNumber
         {
-            get { return base.GetFieldValue<int>(p => p.VersionNumber, 0); }
+            get { return new VersionNumber(base.GetFieldValue<byte[]>(p => p.VersionNumber)); }
         }
     }
 }

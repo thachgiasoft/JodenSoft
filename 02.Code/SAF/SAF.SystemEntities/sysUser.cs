@@ -151,9 +151,9 @@ namespace SAF.SystemEntities
         /// <summary>
         /// 数据版本号
         /// </summary>
-        public int VersionNumber
+        public VersionNumber VersionNumber
         {
-            get { return base.GetFieldValue<int>(p => p.VersionNumber, 0); }
+            get { return new VersionNumber(base.GetFieldValue<byte[]>(p => p.VersionNumber)); }
         }
     }
 }

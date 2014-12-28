@@ -230,6 +230,7 @@
     </Compile>
     <Compile Include="QueryControlHelper.cs" />
     <Compile Include="RegInfoHelper.cs" />
+    <Compile Include="ReportService\ReportService.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +390,7 @@
     <None Include="Resources\HSImage.png" />
     <None Include="Resources\JodenSoft.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
