@@ -619,11 +619,24 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         paramReg = new Regex(@":UserId\s?,");
                         param = paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
 
+                        paramReg = new Regex(@":UserId" + "\\s?\"\\s+");
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+
+                        paramReg = new Regex(@":UserId" + "\\s?\"\\s?,");
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
+
+                        //替换UserName
                         paramReg = new Regex(@":UserName\s+");
                         param = paramReg.Replace(param, Session.Current.UserName.ToString());
 
                         paramReg = new Regex(@":UserName\s?,");
                         param = paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
+
+                        paramReg = new Regex(@":UserName" + "\\s?\"\\s+");
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+
+                        paramReg = new Regex(@":UserName" + "\\s?\"\\s?,");
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
 
                         if (!File.Exists(fileName))
                         {
