@@ -611,6 +611,11 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                     if (drv.MenuType.In((int)sysMenuType.ExternalForm, (int)sysMenuType.ExternalProgram))
                     {
                         string fileName = Path.Combine(Application.StartupPath, drv.GetFieldValue<string>("MenuFileName"));
+                        if (!File.Exists(fileName))
+                        {
+                            MessageService.ShowErrorFormatted("菜单对应的文件名不存在.文件名称为:{0}", fileName);
+                            return;
+                        }
 
                         string param = drv.FileParameter + " ";
                         Regex paramReg = new Regex(@":UserId\s+");
@@ -638,11 +643,6 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         paramReg = new Regex(@":UserName" + "\\s?\"\\s?,");
                         param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
 
-                        if (!File.Exists(fileName))
-                        {
-                            MessageService.ShowErrorFormatted("菜单对应的文件名不存在.文件名称为:{0}", fileName);
-                            return;
-                        }
                         ProcessStartInfo startInfo = new ProcessStartInfo(fileName);
                         startInfo.Arguments = param;
                         var customProcess = Process.Start(startInfo);
