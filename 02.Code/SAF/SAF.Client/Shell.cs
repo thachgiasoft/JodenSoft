@@ -614,16 +614,16 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
                         string param = drv.FileParameter + " ";
                         Regex paramReg = new Regex(@":UserId\s+");
-                        paramReg.Replace(param, Session.Current.UserId.ToString());
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString());
 
-                        paramReg = new Regex(@":UserId\s?,\s?");
-                        paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
+                        paramReg = new Regex(@":UserId\s?,");
+                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
 
                         paramReg = new Regex(@":UserName\s+");
-                        paramReg.Replace(param, Session.Current.UserName.ToString());
+                        param = paramReg.Replace(param, Session.Current.UserName.ToString());
 
-                        paramReg = new Regex(@":UserName\s?,\s?");
-                        paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
+                        paramReg = new Regex(@":UserName\s?,");
+                        param = paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
 
                         if (!File.Exists(fileName))
                         {
