@@ -7,6 +7,7 @@ using System.Text;
 using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Entities;
 
 namespace SAF.SystemModule
 {
@@ -55,7 +56,7 @@ namespace SAF.SystemModule
             base.OnQuery(sCondition, parameterValues);
 
             string sql = @"
-SELECT Iden,Name,[ParentId],[MenuOrder] ,IsAutoOpen,
+SELECT Iden,Name,[ParentId],[MenuOrder] ,IsAutoOpen,MenuType,
     BusinessView=(SELECT top 1 [ClassName] FROM dbo.sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
 FROM [dbo].[sysMenu] a with(nolock)
 where {0}
@@ -77,7 +78,7 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(sCondition);
             base.OnQueryChild(key);
 
             this.MainEntitySet.Query(@"
-select Iden, Name, ParentId, BusinessViewId, MenuOrder, Remark, IsSystem, IsAutoOpen,
+select Iden, Name, ParentId, BusinessViewId, MenuOrder, Remark, IsSystem, IsAutoOpen,MenuType,FileName,FileParameter,
 CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber,
 BusinessView=(SELECT top 1 [ClassName] FROM sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
 from [sysMenu] a with(nolock) 

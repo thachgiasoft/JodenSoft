@@ -209,6 +209,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\SAF.Framework.Entities.sysMenu.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysBillDataRight.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysBillOperateRight.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysBillRightDefine.datasource" />

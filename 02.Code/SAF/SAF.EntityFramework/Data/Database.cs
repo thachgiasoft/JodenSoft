@@ -219,7 +219,7 @@ namespace SAF.EntityFramework
             if (command == null) throw new ArgumentNullException("command");
 
             List<string> result = new List<string>();
-            Regex paramReg = new Regex(@"[^@:](?<p>:\w+)");
+            Regex paramReg = new Regex(@"[^:](?<p>:\w+)");
             MatchCollection matches = paramReg.Matches(String.Concat(command.CommandText, " "));
             foreach (Match m in matches)
             {

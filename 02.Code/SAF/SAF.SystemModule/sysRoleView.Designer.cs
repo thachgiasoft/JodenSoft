@@ -385,7 +385,7 @@
             // 
             // bsMenu
             // 
-            this.bsMenu.DataSource = typeof(SAF.SystemEntities.sysMenu);
+            this.bsMenu.DataSource = typeof(SAF.Framework.Entities.sysMenu);
             // 
             // imageCollectionTreeList
             // 

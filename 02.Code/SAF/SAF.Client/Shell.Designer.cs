@@ -395,6 +395,7 @@
             this.imageCollectionTreeList.Images.SetKeyName(0, "BO_Folder_Closed.png");
             this.imageCollectionTreeList.Images.SetKeyName(1, "BO_Folder_Opened.png");
             this.imageCollectionTreeList.Images.SetKeyName(2, "Icon_Form_16x16.png");
+            this.imageCollectionTreeList.Images.SetKeyName(3, "Form_Out_16x16.png");
             // 
             // splMenu
             // 

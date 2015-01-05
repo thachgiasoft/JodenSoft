@@ -13,6 +13,8 @@ using SAF.Framework.Controls;
 using SAF.Foundation;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
+using SAF.Framework.Entities;
+using DevExpress.XtraLayout.Utils;
 
 namespace SAF.SystemModule
 {
@@ -45,8 +47,16 @@ namespace SAF.SystemModule
 
             InitBusinessViewGridSearch();
 
+            InitMenuType();
+
             this.treeMenu.GetSelectImage += treeList1_GetSelectImage;
             this.gseBusinessView.EditValueChanged += gseBusinessView_EditValueChanged;
+        }
+
+        private void InitMenuType()
+        {
+            var list = typeof(sysMenuType).ToList<int>();
+            this.gluMenuType.Properties.SetDataSource(list, "Key", "Value", "Value|菜单类型");
         }
 
         void gseBusinessView_EditValueChanged(object sender, EventArgs e)
@@ -58,9 +68,22 @@ namespace SAF.SystemModule
         {
             var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
 
-            if (drv.IsNotEmpty() && drv["BusinessView"].IsNotEmpty())
+            if (drv.IsNotEmpty())
             {
-                e.NodeImageIndex = 2;
+                if (drv["MenuType"].IsEmpty())
+                {
+                    e.NodeImageIndex = 0;
+                }
+                else
+                {
+                    var menuType = (sysMenuType)Convert.ToInt32(drv["MenuType"]);
+                    if (menuType.In(sysMenuType.Catalog))
+                        e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+                    else if (menuType.In(sysMenuType.Menu))
+                        e.NodeImageIndex = 2;
+                    else
+                        e.NodeImageIndex = 3;
+                }
             }
             else
             {
@@ -112,6 +135,14 @@ ORDER BY [Iden]";
                 this.grvParams.EditableColumns("Value");
             }
             this.grvParams.BestFitColumns();
+
+            var menuType = sysMenuType.Catalog;
+            if (this.ViewModel.MainEntitySet.CurrentEntity == null || this.ViewModel.MainEntitySet.CurrentEntity.MenuType == 0)
+                menuType = sysMenuType.Catalog;
+            else
+                menuType = (sysMenuType)this.ViewModel.MainEntitySet.CurrentEntity.MenuType;
+
+            RefreshUIByMenuType(menuType);
         }
 
         private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -155,5 +186,26 @@ ORDER BY [Iden]";
 
             base.OnPostUIData();
         }
+
+        private void gluMenuType_EditValueChanged(object sender, EventArgs e)
+        {
+            var edit = sender as GridLookUpEdit;
+            if (edit == null || edit.EditValue == null || edit.EditValue == DBNull.Value) return;
+
+            var menuType = (sysMenuType)Convert.ToInt32(edit.EditValue);
+
+            RefreshUIByMenuType(menuType);
+
+        }
+
+        private void RefreshUIByMenuType(sysMenuType menuType)
+        {
+            lciIsAutoOpen.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciViewId.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciFileName.Visibility = menuType.In(sysMenuType.ExternalForm, sysMenuType.ExternalProgram) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciParameter.Visibility = menuType.In(sysMenuType.ExternalForm, sysMenuType.ExternalProgram) ? LayoutVisibility.Always : LayoutVisibility.Never;
+        }
+
+
     }
 }

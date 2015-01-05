@@ -63,7 +63,7 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysMenu);
+            this.bsIndex.DataSource = typeof(SAF.Framework.Entities.sysMenu);
             // 
             // pcMain
             // 

@@ -28,11 +28,13 @@ using System.ComponentModel.Composition;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web.Security;
 using System.Windows.Forms;
@@ -503,7 +505,10 @@ DECLARE @result TABLE
 	[FileName] NVARCHAR(500),
 	ParentId INT,
 	MenuOrder INT,
-    IsAutoOpen BIT
+    IsAutoOpen BIT,
+    MenuType INT,
+    MenuFileName NVARCHAR(MAX),
+    FileParameter NVARCHAR(MAX)
 )
 
 IF EXISTS(
@@ -514,8 +519,8 @@ IF EXISTS(
 	WHERE c.IsAdministrator=1 AND a.Iden=:UserId)
 BEGIN
 	--系统管理员显示所有菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
-	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,MenuFileName,FileParameter)
+	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -523,8 +528,8 @@ BEGIN
 END
 ELSE BEGIN
 	--根据用户权限显示菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
-	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter])
+	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden] and b.IsDeleted=0
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden] and c.IsActive=1
@@ -535,10 +540,10 @@ ELSE BEGIN
 
 	WHILE @@ROWCOUNT>0
 	BEGIN
-		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen)
+		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter])
 		SELECT DISTINCT temp.*
 		FROM @result res
-		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen]
+		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],MenuFileName=A.[FileName],A.[FileParameter]
 				FROM [dbo].[sysMenu] a with(nolock)
 				LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 				LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -603,7 +608,32 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 var drv = tree.GetDataRecordByNode(tree.FocusedNode) as sysMenu;
                 if (drv != null)
                 {
-                    ShowBusinessView(drv.DataRowView);
+                    if (drv.MenuType.In((int)sysMenuType.ExternalForm, (int)sysMenuType.ExternalProgram))
+                    {
+                        string fileName = Path.Combine(Application.StartupPath, drv.GetFieldValue<string>("MenuFileName"));
+
+                        string param = drv.FileParameter;
+                        Regex paramReg = new Regex(@":UserId\s+");
+                        paramReg.Replace(param, Session.Current.UserId.ToString());
+
+                        paramReg = new Regex(@":UserName\s+");
+                        paramReg.Replace(param, Session.Current.UserName.ToString());
+
+                        if (!File.Exists(fileName))
+                        {
+                            MessageService.ShowErrorFormatted("菜单对应的文件名不存在.文件名称为:{0}", fileName);
+                            return;
+                        }
+                        ProcessStartInfo startInfo = new ProcessStartInfo(fileName);
+                        startInfo.Arguments = param;
+                        var customProcess = Process.Start(startInfo);
+                        if (drv.MenuType == (int)sysMenuType.ExternalForm)
+                            customProcess.WaitForExit();
+                    }
+                    else
+                    {
+                        ShowBusinessView(drv.DataRowView);
+                    }
                 }
             }
         }
@@ -725,9 +755,13 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
             if (menu == null) return;
 
-            if (menu.FieldIsExists("ClassName") && menu.GetFieldValue<string>("ClassName").IsNotEmpty())
+            if (menu.MenuType == 1)
             {
                 e.NodeImageIndex = 2;
+            }
+            else if (menu.MenuType.In(2, 3))
+            {
+                e.NodeImageIndex = 3;
             }
             else
             {

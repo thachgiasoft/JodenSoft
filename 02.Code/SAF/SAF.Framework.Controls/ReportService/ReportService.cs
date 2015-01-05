@@ -5,7 +5,10 @@ using System.Text;
 
 namespace SAF.Framework.Controls
 {
-    class ReportService
+    /// <summary>
+    /// 报表服务
+    /// </summary>
+    public sealed class ReportService
     {
     }
 }

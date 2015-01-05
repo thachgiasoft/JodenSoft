@@ -59,7 +59,6 @@
     <Compile Include="sysCommonBillHdrField.cs" />
     <Compile Include="sysDataRole.cs" />
     <Compile Include="sysFile.cs" />
-    <Compile Include="sysMenu.cs" />
     <Compile Include="sysMenuChart.cs" />
     <Compile Include="sysMenuParam.cs" />
     <Compile Include="sysOrganization.cs" />
