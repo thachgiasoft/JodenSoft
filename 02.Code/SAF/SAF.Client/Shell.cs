@@ -211,6 +211,11 @@ namespace SAF.Client
                 this.InitBackstageViewTabItemAndCommand(DisplayMode.AfterLogin);
                 InitWorkspace();
 
+                if (AppConfig.Current.ShowWorkSpace)
+                    this.navMainMenu.ActiveGroup = sysMyWorkspace;
+                else
+                    this.navMainMenu.ActiveGroup = systemMenuGroup;
+
                 Form welcome = null;
 
                 if (AppConfig.Current.ShowWelcomePage)

@@ -50,6 +50,15 @@ namespace SAF.Framework.Component
 
             this.chkShowNavigationPage.EditValue = AppConfig.Current.ShowNavigationPage;
             this.chkShowNavigationPage.EditValueChanged += chkShowNavigationPage_EditValueChanged;
+
+            this.chkShowWorkSpace.EditValue = AppConfig.Current.ShowWorkSpace;
+            this.chkShowWorkSpace.EditValueChanged += chkShowWorkSpace_EditValueChanged;
+        }
+
+        void chkShowWorkSpace_EditValueChanged(object sender, EventArgs e)
+        {
+            AppConfig.Current.ShowWorkSpace = this.chkShowWorkSpace.IsOn;
+            AppConfig.Current.Save();
         }
 
         void chkShowWelcomePage_EditValueChanged(object sender, EventArgs e)

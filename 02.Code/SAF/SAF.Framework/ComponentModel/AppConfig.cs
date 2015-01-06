@@ -77,6 +77,7 @@ namespace SAF.Framework.ComponentModel
             this.ThemeName = "Office 2013";
             this.ShowWelcomePage = false;
             this.ShowNavigationPage = false;
+            this.ShowWorkSpace = false;
         }
 
         private static AppConfig _current = null;
