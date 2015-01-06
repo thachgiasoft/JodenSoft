@@ -34,5 +34,9 @@ namespace SAF.Framework
         /// 刷新收藏夹
         /// </summary>
         void RefreshFavorite();
+        /// <summary>
+        /// 重新登录
+        /// </summary>
+        void Relogin();
     }
 }

@@ -102,7 +102,7 @@
             // 
             // bsiMessage
             // 
-            this.bsiMessage.Caption = "准备就绪...";
+            this.bsiMessage.Caption = "就绪...";
             this.bsiMessage.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
             this.bsiMessage.Id = 1;
             this.bsiMessage.Name = "bsiMessage";

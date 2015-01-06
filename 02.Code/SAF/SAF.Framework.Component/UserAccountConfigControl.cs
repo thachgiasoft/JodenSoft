@@ -13,6 +13,7 @@ using SAF.EntityFramework;
 using SAF.Framework.Controls;
 using System.ComponentModel.Composition;
 using SAF.Framework.ComponentModel;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.Framework.Component
 {
@@ -88,18 +89,27 @@ namespace SAF.Framework.Component
 
         private void lblChangePassword_Click(object sender, EventArgs e)
         {
-            //TODO:修改密码
+            var form = new ChangePassword();
+            form.ShowDialog(ApplicationService.Current.MainForm);
         }
 
         private void lblChangeUser_Click(object sender, EventArgs e)
         {
-            //TODO:切换用户
+            var shell = (ApplicationService.Current.MainForm as IShell);
+            shell.RibbonControl.HideApplicationButtonContentControl();
+
+            Application.DoEvents();
+
+            if (!MessageService.AskQuestionFormatted("确定要切换用户账户吗?{0}注:切换用户账户时系统会关闭所有已打开的界面.", Environment.NewLine)) return;
+
+            Application.DoEvents();
+            shell.Relogin();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
             this.BackColor = Color.Transparent;
+            base.OnPaint(e);
         }
 
         public override string Caption

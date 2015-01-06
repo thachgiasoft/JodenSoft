@@ -45,21 +45,21 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.chkShowWorkSpace = new DevExpress.XtraEditors.ToggleSwitch();
             this.chkShowNavigationPage = new DevExpress.XtraEditors.ToggleSwitch();
             this.chkShowWelcomePage = new DevExpress.XtraEditors.ToggleSwitch();
             this.cbxSkins = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.backstageViewLabel2 = new SAF.Framework.Controls.BackstageViewLabel();
-            this.backstageViewLabel1 = new SAF.Framework.Controls.BackstageViewLabel();
-            this.chkShowWorkSpace = new DevExpress.XtraEditors.ToggleSwitch();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.backstageViewLabel2 = new SAF.Framework.Controls.BackstageViewLabel();
+            this.backstageViewLabel1 = new SAF.Framework.Controls.BackstageViewLabel();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserPicture)).BeginInit();
@@ -74,19 +74,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowWorkSpace.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowNavigationPage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowWelcomePage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSkins.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkShowWorkSpace.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -128,7 +128,7 @@
             this.lblChangeUser.Size = new System.Drawing.Size(52, 15);
             this.lblChangeUser.StyleController = this.layoutControl1;
             this.lblChangeUser.TabIndex = 9;
-            this.lblChangeUser.Text = "切换帐户";
+            this.lblChangeUser.Text = "切换账户";
             this.lblChangeUser.Click += new System.EventHandler(this.lblChangeUser_Click);
             // 
             // lblChangePicture
@@ -306,6 +306,16 @@
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // chkShowWorkSpace
+            // 
+            this.chkShowWorkSpace.Location = new System.Drawing.Point(88, 119);
+            this.chkShowWorkSpace.Name = "chkShowWorkSpace";
+            this.chkShowWorkSpace.Properties.OffText = "隐藏";
+            this.chkShowWorkSpace.Properties.OnText = "显示";
+            this.chkShowWorkSpace.Size = new System.Drawing.Size(134, 25);
+            this.chkShowWorkSpace.StyleController = this.layoutControl2;
+            this.chkShowWorkSpace.TabIndex = 7;
+            // 
             // chkShowNavigationPage
             // 
             this.chkShowNavigationPage.Location = new System.Drawing.Point(88, 90);
@@ -362,6 +372,21 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.CustomizationFormText = "系统启动时";
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem10,
+            this.emptySpaceItem4,
+            this.emptySpaceItem5});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(389, 144);
+            this.layoutControlGroup3.Text = "系统启动时";
+            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.chkShowWelcomePage;
@@ -381,6 +406,46 @@
             this.layoutControlItem9.Size = new System.Drawing.Size(201, 29);
             this.layoutControlItem9.Text = "导航页";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.chkShowWorkSpace;
+            this.layoutControlItem10.CustomizationFormText = "我的工作台";
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(201, 29);
+            this.layoutControlItem10.Text = "我的工作台";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(201, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(170, 87);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 87);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(371, 27);
+            this.emptySpaceItem5.Text = "emptySpaceItem5";
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.cbxSkins;
+            this.layoutControlItem7.CustomizationFormText = "系统主题";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(389, 24);
+            this.layoutControlItem7.Text = "系统主题";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
             // 
             // backstageViewLabel2
             // 
@@ -410,71 +475,6 @@
             this.backstageViewLabel1.TabIndex = 1;
             this.backstageViewLabel1.Text = "用户信息";
             // 
-            // chkShowWorkSpace
-            // 
-            this.chkShowWorkSpace.Location = new System.Drawing.Point(88, 119);
-            this.chkShowWorkSpace.Name = "chkShowWorkSpace";
-            this.chkShowWorkSpace.Properties.OffText = "隐藏";
-            this.chkShowWorkSpace.Properties.OnText = "显示";
-            this.chkShowWorkSpace.Size = new System.Drawing.Size(134, 25);
-            this.chkShowWorkSpace.StyleController = this.layoutControl2;
-            this.chkShowWorkSpace.TabIndex = 7;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.chkShowWorkSpace;
-            this.layoutControlItem10.CustomizationFormText = "我的工作台";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 58);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(201, 29);
-            this.layoutControlItem10.Text = "我的工作台";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(60, 14);
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.CustomizationFormText = "系统启动时";
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem10,
-            this.emptySpaceItem4,
-            this.emptySpaceItem5});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(389, 144);
-            this.layoutControlGroup3.Text = "系统启动时";
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.cbxSkins;
-            this.layoutControlItem7.CustomizationFormText = "系统主题";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(389, 24);
-            this.layoutControlItem7.Text = "系统主题";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(201, 0);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(170, 87);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem5
-            // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 87);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(371, 27);
-            this.emptySpaceItem5.Text = "emptySpaceItem5";
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // UserAccountConfigControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -500,19 +500,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowWorkSpace.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowNavigationPage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowWelcomePage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxSkins.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkShowWorkSpace.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }

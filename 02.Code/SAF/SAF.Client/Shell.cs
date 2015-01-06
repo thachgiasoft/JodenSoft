@@ -69,6 +69,8 @@ namespace SAF.Client
         public Shell()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.Icon = Properties.Resources.SAF_Icon;
 
             OnInitialize();
 
@@ -77,7 +79,6 @@ namespace SAF.Client
 #else
             this.Text = "SAF";
 #endif
-
             this.Shown += Shell_Shown;
             this.FormClosing += Shell_FormClosing;
 
@@ -136,10 +137,6 @@ namespace SAF.Client
             this.bbiNavigation.Enabled = false;
             this.bbiNavigation.Visibility = BarItemVisibility.Never;
 
-            this.WindowState = FormWindowState.Maximized;
-
-            this.Icon = Properties.Resources.SAF_Icon;
-
             InitLoginControl();
         }
 
@@ -189,7 +186,7 @@ namespace SAF.Client
                 e.IsSuccess = false;
                 this.IsLogin = false;
                 e.Message = msg;
-                this.NotifyMessage("准备就绪...");
+                this.NotifyMessage("就绪...");
             }
             else
             {
@@ -840,12 +837,12 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
         private void btnUpMyMenu_Click(object sender, EventArgs e)
         {
-
+            //TODO:btnUpMyMenu_Click
         }
 
         private void btnMyMenuDown_Click(object sender, EventArgs e)
         {
-
+            //TODO:btnMyMenuDown_Click
         }
 
         private void btnRefreshMyFavorite_Click(object sender, EventArgs e)
@@ -893,6 +890,23 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             return frm;
         }
 
-
+        public void Relogin()
+        {
+            this.NotifyMessage("正在关闭已打开的窗体...");
+            foreach (var item in this.MdiChildren)
+            {
+                item.Close();
+            }
+            if (this.MdiChildren.Any())
+            {
+                this.NotifyMessage("子窗口未成功关闭,已取消切换用户账户操作.");
+                return;
+            }
+            Application.DoEvents();
+            Session.Current.Clear();
+            this.NotifyMessage("初始化登录界面...");
+            this.OnInitialize();
+            this.NotifyMessage("就绪...");
+        }
     }
 }
