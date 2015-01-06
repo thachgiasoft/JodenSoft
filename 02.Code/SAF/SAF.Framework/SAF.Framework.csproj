@@ -73,6 +73,7 @@
     <Compile Include="Controls\LoginAuthenticate.Designer.cs">
       <DependentUpon>LoginAuthenticate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\sysAppConfig.cs" />
     <Compile Include="Entities\sysMyFavoriteMenu.cs" />
     <Compile Include="Entities\sysMenu.cs" />
     <Compile Include="Entities\sysMenuType.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Interfaces\IDataEdit.cs" />
     <Compile Include="Interfaces\IDataSelect.cs" />
     <Compile Include="ServiceModel\UIController.cs" />
+    <Compile Include="ComponentModel\AppConfig.cs" />
     <Compile Include="ViewModel\BaseViewViewModel.cs" />
     <Compile Include="ViewModel\BusinessViewViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewViewModel.cs" />
@@ -256,6 +258,7 @@
     <Content Include="Resources\Action_SaveAs_32x32.png" />
     <Content Include="Resources\Action_Save_16x16.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

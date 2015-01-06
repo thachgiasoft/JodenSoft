@@ -51,6 +51,11 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.backstageViewLabel2 = new SAF.Framework.Controls.BackstageViewLabel();
             this.backstageViewLabel1 = new SAF.Framework.Controls.BackstageViewLabel();
+            this.chkShowWelcomePage = new DevExpress.XtraEditors.ToggleSwitch();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chkShowNavigationPage = new DevExpress.XtraEditors.ToggleSwitch();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserPicture)).BeginInit();
@@ -69,6 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowWelcomePage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowNavigationPage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -275,23 +285,25 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.chkShowNavigationPage);
+            this.layoutControl2.Controls.Add(this.chkShowWelcomePage);
             this.layoutControl2.Controls.Add(this.cbxSkins);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl2.Location = new System.Drawing.Point(20, 275);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(792, 69);
+            this.layoutControl2.Size = new System.Drawing.Size(792, 120);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // cbxSkins
             // 
-            this.cbxSkins.Location = new System.Drawing.Point(12, 12);
+            this.cbxSkins.Location = new System.Drawing.Point(87, 12);
             this.cbxSkins.Name = "cbxSkins";
             this.cbxSkins.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbxSkins.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cbxSkins.Size = new System.Drawing.Size(381, 20);
+            this.cbxSkins.Size = new System.Drawing.Size(301, 20);
             this.cbxSkins.StyleController = this.layoutControl2;
             this.cbxSkins.TabIndex = 4;
             // 
@@ -302,35 +314,33 @@
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem7,
-            this.emptySpaceItem3});
+            this.emptySpaceItem3,
+            this.layoutControlItem8,
+            this.emptySpaceItem4,
+            this.layoutControlItem9});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(792, 69);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(792, 120);
             this.layoutControlGroup2.Text = "layoutControlGroup2";
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.cbxSkins;
-            this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
+            this.layoutControlItem7.CustomizationFormText = "系统主题";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.MaxSize = new System.Drawing.Size(385, 38);
-            this.layoutControlItem7.MinSize = new System.Drawing.Size(385, 38);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(385, 49);
-            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "layoutControlItem7";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
-            this.layoutControlItem7.TextVisible = false;
+            this.layoutControlItem7.Size = new System.Drawing.Size(380, 24);
+            this.layoutControlItem7.Text = "系统主题";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 14);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(385, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(380, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(387, 49);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(392, 100);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -346,7 +356,7 @@
             this.backstageViewLabel2.ShowLineShadow = false;
             this.backstageViewLabel2.Size = new System.Drawing.Size(792, 35);
             this.backstageViewLabel2.TabIndex = 3;
-            this.backstageViewLabel2.Text = "系统主题";
+            this.backstageViewLabel2.Text = "应用程序配置";
             // 
             // backstageViewLabel1
             // 
@@ -361,6 +371,56 @@
             this.backstageViewLabel1.Size = new System.Drawing.Size(792, 35);
             this.backstageViewLabel1.TabIndex = 1;
             this.backstageViewLabel1.Text = "用户信息";
+            // 
+            // chkShowWelcomePage
+            // 
+            this.chkShowWelcomePage.Location = new System.Drawing.Point(87, 36);
+            this.chkShowWelcomePage.Name = "chkShowWelcomePage";
+            this.chkShowWelcomePage.Properties.OffText = "关闭";
+            this.chkShowWelcomePage.Properties.OnText = "打开";
+            this.chkShowWelcomePage.Size = new System.Drawing.Size(150, 25);
+            this.chkShowWelcomePage.StyleController = this.layoutControl2;
+            this.chkShowWelcomePage.TabIndex = 5;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.chkShowWelcomePage;
+            this.layoutControlItem8.CustomizationFormText = "启动时起始页";
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(229, 29);
+            this.layoutControlItem8.Text = "启动时起始页";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // chkShowNavigationPage
+            // 
+            this.chkShowNavigationPage.Location = new System.Drawing.Point(87, 65);
+            this.chkShowNavigationPage.Name = "chkShowNavigationPage";
+            this.chkShowNavigationPage.Properties.OffText = "关闭";
+            this.chkShowNavigationPage.Properties.OnText = "打开";
+            this.chkShowNavigationPage.Size = new System.Drawing.Size(150, 25);
+            this.chkShowNavigationPage.StyleController = this.layoutControl2;
+            this.chkShowNavigationPage.TabIndex = 6;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.chkShowNavigationPage;
+            this.layoutControlItem9.CustomizationFormText = "启动时导航页";
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 53);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(229, 47);
+            this.layoutControlItem9.Text = "启动时导航页";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
+            this.emptySpaceItem4.Location = new System.Drawing.Point(229, 24);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(151, 76);
+            this.emptySpaceItem4.Text = "emptySpaceItem4";
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // UserAccountConfigControl
             // 
@@ -391,6 +451,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowWelcomePage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShowNavigationPage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -420,5 +485,10 @@
         private DevExpress.XtraEditors.ComboBoxEdit cbxSkins;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraEditors.ToggleSwitch chkShowNavigationPage;
+        private DevExpress.XtraEditors.ToggleSwitch chkShowWelcomePage;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }

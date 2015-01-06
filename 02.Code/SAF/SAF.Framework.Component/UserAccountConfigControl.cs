@@ -12,6 +12,7 @@ using SAF.Foundation.ComponentModel;
 using SAF.EntityFramework;
 using SAF.Framework.Controls;
 using System.ComponentModel.Composition;
+using SAF.Framework.ComponentModel;
 
 namespace SAF.Framework.Component
 {
@@ -31,30 +32,44 @@ namespace SAF.Framework.Component
             if (this.DesignMode) return;
 
             this.picUserPicture.Image = Session.Current.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
+
             this.lblUserName.Text = "{0} ({1})".FormatEx(Session.Current.UserName, Session.Current.UserFullName);
             this.lblEmail.Text = Session.Current.Email;
 
             this.cbxSkins.Properties.Items.AddRange(
                 new string[] {
-                    "Office 2013",     
-                    "Office 2013 Dark Gray",
+                    "Office 2013",    
                     "Office 2013 Light Gray",
-                    "Office 2010 Silver",
-                    "Office 2010 Blue",
-                    "Office 2010 Black",
-                    "DevExpress Style"
+                    "Office 2013 Dark Gray"
                 });
-            this.cbxSkins.EditValue = UserLookAndFeel.Default.SkinName;
+            this.cbxSkins.EditValue = AppConfig.Current.ThemeName;
             this.cbxSkins.SelectedIndexChanged += cbxSkins_SelectedIndexChanged;
+
+            this.chkShowWelcomePage.EditValue = AppConfig.Current.ShowWelcomePage;
+            this.chkShowWelcomePage.EditValueChanged += chkShowWelcomePage_EditValueChanged;
+
+            this.chkShowNavigationPage.EditValue = AppConfig.Current.ShowNavigationPage;
+            this.chkShowNavigationPage.EditValueChanged += chkShowNavigationPage_EditValueChanged;
+        }
+
+        void chkShowWelcomePage_EditValueChanged(object sender, EventArgs e)
+        {
+            AppConfig.Current.ShowWelcomePage = this.chkShowWelcomePage.IsOn;
+            AppConfig.Current.Save();
+        }
+
+        void chkShowNavigationPage_EditValueChanged(object sender, EventArgs e)
+        {
+            AppConfig.Current.ShowNavigationPage = this.chkShowNavigationPage.IsOn;
+            AppConfig.Current.Save();
         }
 
         void cbxSkins_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UserLookAndFeel.Default.SetSkinStyle(this.cbxSkins.EditValue.ToStringEx());
-            ProgressService.SkinName = UserLookAndFeel.Default.SkinName;
-            ApplicationConfig.SetAppSetting("ApplicationSkinName", UserLookAndFeel.Default.SkinName);
+            AppConfig.Current.ThemeName = this.cbxSkins.EditValue.ToStringEx();
+            AppConfig.Current.Save();
 
-            this.Refresh();
+            AppConfig.Current.SetTheme();
         }
 
         private void lblChangePicture_Click(object sender, EventArgs e)

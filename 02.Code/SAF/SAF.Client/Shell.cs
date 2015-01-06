@@ -15,6 +15,7 @@ using SAF.Foundation.Security;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework;
 using SAF.Framework.Component;
+using SAF.Framework.ComponentModel;
 using SAF.Framework.Controls;
 using SAF.Framework.Controls.Entities;
 using SAF.Framework.Entities;
@@ -200,22 +201,35 @@ namespace SAF.Client
                 }
                 UserConfig.Current.Save();
 
+                AppConfig.Current.Load();
+                AppConfig.Current.SetTheme();
+
                 e.IsSuccess = true;
                 this.IsLogin = true;
 
                 this.NotifyMessage("初始化工作区...");
                 InitWorkspace();
 
-                this.NotifyMessage("显示欢迎页...");
-                var frm = ShowWelcomePage();
+                Form welcome = null;
 
-                this.NotifyMessage("显示导航图...");
-                ShowNavigationPage();
+                if (AppConfig.Current.ShowWelcomePage)
+                {
+                    this.NotifyMessage("显示欢迎页...");
+                    welcome = ShowWelcomePage();
+                }
+
+                if (AppConfig.Current.ShowNavigationPage)
+                {
+                    this.NotifyMessage("显示导航图...");
+                    ShowNavigationPage();
+                }
 
                 this.NotifyMessage("打开界面...");
                 ShowAutoOpenView();
 
-                this.tabbedView.ActivateDocument(frm);
+                if (welcome != null)
+                    this.tabbedView.ActivateDocument(welcome);
+
                 this.NotifyMessage("就绪...");
             }
         }

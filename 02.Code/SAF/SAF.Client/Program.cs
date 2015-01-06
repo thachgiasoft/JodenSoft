@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.Reflection;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
+using SAF.Framework.ComponentModel;
 
 namespace SAF.Client
 {
@@ -34,17 +35,17 @@ namespace SAF.Client
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在设置系统参数");
-            DevExpress.Skins.SkinManager.EnableFormSkins();
+
+            System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
+            System.Threading.Thread.CurrentThread.CurrentCulture = zhHans;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = zhHans;
+
             DevExpress.UserSkins.BonusSkins.Register();
-            DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9f);
+            DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9);
 
-            var skinName = ApplicationConfig.GetAppSetting("ApplicationSkinName");
-            if (skinName.IsEmpty())
-                skinName = "Office 2013";
-            UserLookAndFeel.Default.SetSkinStyle(skinName);
-            ProgressService.SkinName = skinName;
-            SkinManager.EnableFormSkins();
+            AppConfig.Current.SetTheme();
 
+            DevExpress.Skins.SkinManager.EnableFormSkins();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
