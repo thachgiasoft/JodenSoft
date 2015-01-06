@@ -105,5 +105,13 @@ namespace SAF.Framework.Component
                 return 50;
             }
         }
+
+        public override DisplayMode DisplayMode
+        {
+            get
+            {
+                return DisplayMode.AfterLogin;
+            }
+        }
     }
 }
