@@ -265,5 +265,12 @@ namespace SAF.EntityFramework
         {
             get { return this.EntitySet.CalcBillDataRight(this, false); }
         }
+
+
+        public void SetModified()
+        {
+            if (this.DataRowView != null)
+                this.DataRowView.Row.SetModified();
+        }
     }
 }

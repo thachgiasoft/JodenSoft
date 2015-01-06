@@ -66,6 +66,12 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePicture.Designer.cs">
+      <DependentUpon>ChangePicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePicture.resx">
+      <DependentUpon>ChangePicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectionConfigControl.resx">
       <DependentUpon>ConnectionConfigControl.cs</DependentUpon>

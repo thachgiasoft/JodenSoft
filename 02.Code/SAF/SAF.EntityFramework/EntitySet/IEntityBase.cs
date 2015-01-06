@@ -97,6 +97,10 @@ namespace SAF.EntityFramework
         /// <param name="fieldName"></param>
         /// <returns></returns>
         Type FieldDataType(string fieldName);
+        /// <summary>
+        /// 设置为Modified
+        /// </summary>
+        void SetModified();
 
     }
 }

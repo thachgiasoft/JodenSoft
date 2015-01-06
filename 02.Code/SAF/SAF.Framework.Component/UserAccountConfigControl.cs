@@ -32,10 +32,7 @@ namespace SAF.Framework.Component
         {
             if (this.DesignMode) return;
 
-            this.picUserPicture.Image = Session.Current.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
-
-            this.lblUserName.Text = "{0} ({1})".FormatEx(Session.Current.UserName, Session.Current.UserFullName);
-            this.lblEmail.Text = Session.Current.Email;
+            InitUserInfo();
 
             this.cbxSkins.Properties.Items.AddRange(
                 new string[] {
@@ -54,6 +51,14 @@ namespace SAF.Framework.Component
 
             this.chkShowWorkSpace.EditValue = AppConfig.Current.ShowWorkSpace;
             this.chkShowWorkSpace.EditValueChanged += chkShowWorkSpace_EditValueChanged;
+        }
+
+        private void InitUserInfo()
+        {
+            this.picUserPicture.Image = Session.Current.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
+
+            this.lblUserName.Text = "{0} ({1})".FormatEx(Session.Current.UserName, Session.Current.UserFullName);
+            this.lblEmail.Text = Session.Current.Email;
         }
 
         void chkShowWorkSpace_EditValueChanged(object sender, EventArgs e)
@@ -84,7 +89,17 @@ namespace SAF.Framework.Component
 
         private void lblChangePicture_Click(object sender, EventArgs e)
         {
-            //TODO:修改用户图片
+            var form = new ChangePicture();
+            form.AfterPictureChanged += (s, args) =>
+            {
+                var es = new EntitySet<sysUser>();
+                es.Query("Select * from sysUser with(nolock) where Iden=:UserId", Session.Current.UserId);
+                if (es.Count > 0)
+                    Session.Current.Assign(es.CurrentEntity);
+                InitUserInfo();
+            };
+
+            form.ShowDialog(ApplicationService.Current.MainForm);
         }
 
         private void lblChangePassword_Click(object sender, EventArgs e)

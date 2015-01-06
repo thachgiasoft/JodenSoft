@@ -83,7 +83,10 @@ namespace SAF.EntityFramework
         /// 用户图片
         /// </summary>
         public Image UserImage { get; private set; }
-
+        /// <summary>
+        /// 用户签名图片
+        /// </summary>
+        public Image UserSignImage { get; private set; }
         #endregion
 
         private Session()
@@ -145,6 +148,12 @@ namespace SAF.EntityFramework
                 var bytes = entity.GetFieldValue<byte[]>("UserImage");
                 this.UserImage = new Bitmap(new MemoryStream(bytes));
             }
+
+            if (entity.FieldIsExists("UserSignImage") && !entity.FieldIsNull("UserSignImage"))
+            {
+                var bytes = entity.GetFieldValue<byte[]>("UserSignImage");
+                this.UserSignImage = new Bitmap(new MemoryStream(bytes));
+            }
         }
 
         public void Clear()
@@ -156,6 +165,7 @@ namespace SAF.EntityFramework
             this.Email = string.Empty;
             this.TelephoneNo = string.Empty;
             this.UserImage = null;
+            this.UserSignImage = null;
         }
 
         public bool IsInvalid
