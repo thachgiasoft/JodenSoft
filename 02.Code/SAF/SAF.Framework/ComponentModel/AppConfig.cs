@@ -21,6 +21,7 @@ namespace SAF.Framework.ComponentModel
         public string ThemeName { get; set; }
         public bool ShowWelcomePage { get; set; }
         public bool ShowNavigationPage { get; set; }
+        public bool ShowWorkSpace { get; set; }
 
         /// <summary>
         /// 从数据库中加载用户的应用程序配置信息
@@ -38,6 +39,7 @@ namespace SAF.Framework.ComponentModel
                     this.ThemeName = obj.ThemeName;
                     this.ShowWelcomePage = obj.ShowWelcomePage;
                     this.ShowNavigationPage = obj.ShowNavigationPage;
+                    this.ShowWorkSpace = obj.ShowWorkSpace;
                 }
             }
         }

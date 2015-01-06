@@ -208,6 +208,7 @@ namespace SAF.Client
                 this.IsLogin = true;
 
                 this.NotifyMessage("初始化工作区...");
+                this.InitBackstageViewTabItemAndCommand(DisplayMode.AfterLogin);
                 InitWorkspace();
 
                 Form welcome = null;
