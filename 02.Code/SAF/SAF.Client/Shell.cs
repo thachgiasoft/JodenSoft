@@ -525,7 +525,8 @@ DECLARE @result TABLE
     IsAutoOpen BIT,
     MenuType INT,
     MenuFileName NVARCHAR(MAX),
-    FileParameter NVARCHAR(MAX)
+    FileParameter NVARCHAR(MAX),
+    IsShowDialog BIT
 )
 
 IF EXISTS(
@@ -536,8 +537,8 @@ IF EXISTS(
 	WHERE c.IsAdministrator=1 AND a.Iden=:UserId)
 BEGIN
 	--系统管理员显示所有菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,MenuFileName,FileParameter)
-	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,MenuFileName,FileParameter,IsShowDialog)
+	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter],A.[IsShowDialog]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -545,8 +546,8 @@ BEGIN
 END
 ELSE BEGIN
 	--根据用户权限显示菜单
-	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter])
-	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter]
+	INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter],IsShowDialog)
+	SELECT DISTINCT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],A.[FileName],A.[FileParameter],A.[IsShowDialog]
 	FROM [dbo].[sysMenu] a with(nolock)
 	LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden] and b.IsDeleted=0
 	LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden] and c.IsActive=1
@@ -557,10 +558,10 @@ ELSE BEGIN
 
 	WHILE @@ROWCOUNT>0
 	BEGIN
-		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter])
+		INSERT @result(Iden,Name,ClassName,[FileName],ParentId,MenuOrder,IsAutoOpen,MenuType,[MenuFileName],[FileParameter],IsShowDialog)
 		SELECT DISTINCT temp.*
 		FROM @result res
-		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],MenuFileName=A.[FileName],A.[FileParameter]
+		JOIN (	SELECT a.[Iden],a.[Name],b.[ClassName],[FileName]=c.[Name],a.[ParentId],a.[MenuOrder], A.[IsAutoOpen],A.[MenuType],MenuFileName=A.[FileName],A.[FileParameter],A.[IsShowDialog]
 				FROM [dbo].[sysMenu] a with(nolock)
 				LEFT JOIN [dbo].[sysBusinessView] b with(nolock) ON a.[BusinessViewId]=b.[Iden]
 				LEFT JOIN [dbo].[sysFile] c with(nolock) ON b.[FileId]=c.[Iden]
@@ -625,7 +626,11 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 var drv = tree.GetDataRecordByNode(tree.FocusedNode) as sysMenu;
                 if (drv != null)
                 {
-                    if (drv.MenuType.In((int)sysMenuType.ExternalForm, (int)sysMenuType.ExternalProgram))
+                    if (drv.MenuType == (int)sysMenuType.Menu)
+                    {
+                        ShowBusinessView(drv.DataRowView);
+                    }
+                    else if (drv.MenuType.In((int)sysMenuType.ExternalForm))
                     {
                         string fileName = Path.Combine(Application.StartupPath, drv.GetFieldValue<string>("MenuFileName"));
                         if (!File.Exists(fileName))
@@ -633,45 +638,50 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                             MessageService.ShowErrorFormatted("菜单对应的文件名不存在.文件名称为:{0}", fileName);
                             return;
                         }
-
-                        string param = drv.FileParameter + " ";
-                        Regex paramReg = new Regex(@":UserId\s+");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString());
-
-                        paramReg = new Regex(@":UserId\s?,");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
-
-                        paramReg = new Regex(@":UserId" + "\\s?\"\\s+");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
-
-                        paramReg = new Regex(@":UserId" + "\\s?\"\\s?,");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
-
-                        //替换UserName
-                        paramReg = new Regex(@":UserName\s+");
-                        param = paramReg.Replace(param, Session.Current.UserName.ToString());
-
-                        paramReg = new Regex(@":UserName\s?,");
-                        param = paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
-
-                        paramReg = new Regex(@":UserName" + "\\s?\"\\s+");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
-
-                        paramReg = new Regex(@":UserName" + "\\s?\"\\s?,");
-                        param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
-
+                        var param = ParseFileParameter(drv.FileParameter);
                         ProcessStartInfo startInfo = new ProcessStartInfo(fileName);
                         startInfo.Arguments = param;
                         var customProcess = Process.Start(startInfo);
-                        if (drv.MenuType == (int)sysMenuType.ExternalForm)
+                        if (drv.IsShowDialog)
                             customProcess.WaitForExit();
                     }
                     else
                     {
-                        ShowBusinessView(drv.DataRowView);
+                        MessageService.ShowError("未支持的菜单类型,无法打开菜单.");
                     }
                 }
             }
+        }
+
+        private string ParseFileParameter(string sileParameter)
+        {
+            string param = sileParameter + " ";
+            Regex paramReg = new Regex(@":UserId\s+");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString());
+
+            paramReg = new Regex(@":UserId\s?,");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
+
+            paramReg = new Regex(@":UserId" + "\\s?\"\\s+");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+
+            paramReg = new Regex(@":UserId" + "\\s?\"\\s?,");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
+
+            //替换UserName
+            paramReg = new Regex(@":UserName\s+");
+            param = paramReg.Replace(param, Session.Current.UserName.ToString());
+
+            paramReg = new Regex(@":UserName\s?,");
+            param = paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
+
+            paramReg = new Regex(@":UserName" + "\\s?\"\\s+");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+
+            paramReg = new Regex(@":UserName" + "\\s?\"\\s?,");
+            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
+
+            return param;
         }
 
         private void ShowBusinessView(DataRowView drv)

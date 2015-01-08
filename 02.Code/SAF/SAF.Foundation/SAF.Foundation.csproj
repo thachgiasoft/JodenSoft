@@ -72,6 +72,7 @@
     <Compile Include="Extensions\DataRowExtensions.cs" />
     <Compile Include="Interfaces\IShellBase.cs" />
     <Compile Include="Interfaces\ISubProductInfo.cs" />
+    <Compile Include="Interop\FormHijack.cs" />
     <Compile Include="LoadAssemblyProxyObject.cs" />
     <Compile Include="RefreshMode.cs" />
     <Compile Include="Security\RegisterHelper.cs" />

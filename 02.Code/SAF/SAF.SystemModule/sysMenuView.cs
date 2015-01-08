@@ -202,8 +202,14 @@ ORDER BY [Iden]";
         {
             lciIsAutoOpen.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
             lciViewId.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
-            lciFileName.Visibility = menuType.In(sysMenuType.ExternalForm, sysMenuType.ExternalProgram) ? LayoutVisibility.Always : LayoutVisibility.Never;
-            lciParameter.Visibility = menuType.In(sysMenuType.ExternalForm, sysMenuType.ExternalProgram) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciFileName.Visibility = menuType.In(sysMenuType.ExternalForm) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciParameter.Visibility = menuType.In(sysMenuType.ExternalForm) ? LayoutVisibility.Always : LayoutVisibility.Never;
+
+            if (menuType.In(sysMenuType.Menu))
+                this.splitRight.PanelVisibility = SplitPanelVisibility.Both;
+            else
+                this.splitRight.PanelVisibility = SplitPanelVisibility.Panel1;
+
         }
 
 
