@@ -108,5 +108,13 @@ namespace SAF.EntityFramework
             return this.FieldDataType(fieldName);
         }
 
+        public override bool VersionNumberIsSync
+        {
+            get
+            {
+                //TODO:VersionNumberIsSync
+                return false;
+            }
+        }
     }
 }

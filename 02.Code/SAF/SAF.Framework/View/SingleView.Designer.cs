@@ -36,10 +36,8 @@
             this.bbiCancel = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExitView = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSend = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiApprove = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
             this.pmuReport = new DevExpress.XtraBars.PopupMenu();
-            this.bbiReject = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAddToFavorite = new DevExpress.XtraBars.BarButtonItem();
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -91,9 +89,7 @@
             this.bbiCancel,
             this.bbiExitView,
             this.bbiSend,
-            this.bbiApprove,
             this.bbiPreview,
-            this.bbiReject,
             this.bbiAddToFavorite});
             this.ribbonMain.Location = new System.Drawing.Point(1, 1);
             this.ribbonMain.MaxItemId = 15;
@@ -164,14 +160,6 @@
             this.bbiSend.Name = "bbiSend";
             this.bbiSend.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSend_ItemClick);
             // 
-            // bbiApprove
-            // 
-            this.bbiApprove.Caption = "通过";
-            this.bbiApprove.Id = 11;
-            this.bbiApprove.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Approvel_32x32;
-            this.bbiApprove.Name = "bbiApprove";
-            this.bbiApprove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiApprove_ItemClick);
-            // 
             // bbiPreview
             // 
             this.bbiPreview.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
@@ -185,14 +173,6 @@
             // 
             this.pmuReport.Name = "pmuReport";
             this.pmuReport.Ribbon = this.ribbonMain;
-            // 
-            // bbiReject
-            // 
-            this.bbiReject.Caption = "驳回";
-            this.bbiReject.Id = 13;
-            this.bbiReject.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Reject_32x32;
-            this.bbiReject.Name = "bbiReject";
-            this.bbiReject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReject_ItemClick);
             // 
             // bbiAddToFavorite
             // 
@@ -230,8 +210,6 @@
             // 
             this.groupCooperation.AllowTextClipping = false;
             this.groupCooperation.ItemLinks.Add(this.bbiSend);
-            this.groupCooperation.ItemLinks.Add(this.bbiApprove);
-            this.groupCooperation.ItemLinks.Add(this.bbiReject);
             this.groupCooperation.MergeOrder = 20;
             this.groupCooperation.Name = "groupCooperation";
             this.groupCooperation.ShowCaptionButton = false;
@@ -451,13 +429,11 @@
         protected DevExpress.XtraTab.XtraTabControl tcMain;
         protected DevExpress.XtraTab.XtraTabPage pageMain;
         protected DevExpress.XtraBars.BarButtonItem bbiSend;
-        protected DevExpress.XtraBars.BarButtonItem bbiApprove;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCooperation;
         protected DevExpress.XtraBars.BarButtonItem bbiPreview;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupReport;
         protected DevExpress.XtraBars.PopupMenu pmuReport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCustom;
-        protected DevExpress.XtraBars.BarButtonItem bbiReject;
         protected DevExpress.XtraBars.BarManager bmMain;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

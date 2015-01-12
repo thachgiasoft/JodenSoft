@@ -33,7 +33,7 @@ namespace SAF.Framework.ViewModel
 
         public BusinessViewViewModel(string connectionName)
         {
-            this.EditStatus = EditStatus.Browse;
+            this.EditState = EditState.Browse;
 
             this.ConnectionName = connectionName.IsEmpty() ? ConfigContext.DefaultConnection : connectionName;
             this.executeCache = new ExecuteCache(this.ConnectionName);

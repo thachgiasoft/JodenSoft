@@ -229,6 +229,8 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Action_UnSendToAudit_16x16.png" />
+    <None Include="Resources\Action_UnSendToAudit_32x32.png" />
     <None Include="Resources\Action_SendToAudit_32x32.png" />
     <None Include="Resources\Action_SendToAudit_16x16.png" />
     <None Include="Resources\Icon_Tree_16x16.png" />

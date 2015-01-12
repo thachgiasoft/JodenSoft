@@ -24,9 +24,14 @@ namespace SAF.Framework.ViewModel
         void Cancel();
         void Save();
 
+        /// <summary>
+        /// 送审
+        /// </summary>
         void SendToAudit();
-        void Approval();
-        void Reject();
+        /// <summary>
+        /// 取消送审
+        /// </summary>
+        void UnSendToAudit();
 
         /// <summary>
         /// 保存后事件

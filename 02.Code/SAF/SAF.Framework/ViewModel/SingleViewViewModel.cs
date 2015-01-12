@@ -1,5 +1,6 @@
 ﻿using SAF.EntityFramework;
 using SAF.Foundation;
+using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls.ViewConfig;
 using System;
 using System.Collections.Generic;
@@ -117,7 +118,7 @@ namespace SAF.Framework.ViewModel
             OnSave();
         }
 
-        private EditStatus preEditStatus = EditStatus.Browse;
+        private EditState preEditStatus = EditState.Browse;
 
         protected virtual void OnSave()
         {
@@ -125,7 +126,7 @@ namespace SAF.Framework.ViewModel
             if (!canSave) return;
 
             bool saveSucceed = false;
-            preEditStatus = this.EditStatus;
+            preEditStatus = this.EditState;
             try
             {
                 this.ApplySave();
@@ -133,10 +134,10 @@ namespace SAF.Framework.ViewModel
                 {
                     DataPortal.ExecuteNonQueryByTransaction(this.ConnectionName, ExecuteCache.ToList());
                 }
-                this.EditStatus = EditStatus.Browse;
+                this.EditState = EditState.Browse;
                 saveSucceed = true;
 
-                if (preEditStatus.In(EditStatus.AddNew, EditStatus.Edit))
+                if (preEditStatus.In(EditState.AddNew, EditState.Edit))
                     OnSyncIndexEntitySet();
             }
             catch
@@ -164,7 +165,7 @@ namespace SAF.Framework.ViewModel
             OnQuery(condition, parameterValues);
             QueryChild(this.IndexEntitySet.CurrentKey);
 
-            this.EditStatus = EditStatus.Browse;
+            this.EditState = EditState.Browse;
 
             FireAfterQuery();
         }
@@ -196,7 +197,7 @@ namespace SAF.Framework.ViewModel
         public void AddNew()
         {
             OnAddNew();
-            this.EditStatus = EditStatus.AddNew;
+            this.EditState = EditState.AddNew;
         }
 
         protected virtual void OnAddNew()
@@ -224,7 +225,7 @@ namespace SAF.Framework.ViewModel
         public void Edit()
         {
             OnEdit();
-            this.EditStatus = EditStatus.Edit;
+            this.EditState = EditState.Edit;
         }
 
         protected virtual void OnEdit()
@@ -240,7 +241,7 @@ namespace SAF.Framework.ViewModel
             {
                 OnDelete();
                 Save();
-                this.EditStatus = EditStatus.Browse;
+                this.EditState = EditState.Browse;
             }
             finally
             {
@@ -267,7 +268,7 @@ namespace SAF.Framework.ViewModel
         public void Cancel()
         {
             OnCancel();
-            this.EditStatus = EditStatus.Browse;
+            this.EditState = EditState.Browse;
         }
 
         protected virtual void OnCancel()
@@ -342,35 +343,30 @@ namespace SAF.Framework.ViewModel
         public void SendToAudit()
         {
             OnSendToAudit();
-            this.EditStatus = EditStatus.Browse;
+            this.EditState = EditState.Browse;
         }
 
         protected virtual void OnSendToAudit()
         {
+            var curr = this.mainEntitySet.CurrentEntity;
+            if (curr == null) return;
 
-        }
-        
-        public void Approval()
-        {
-            OnApproval();
-            this.EditStatus = EditStatus.Browse;
-        }
-
-        protected virtual void OnApproval()
-        {
-
+            if (!curr.VersionNumberIsSync)
+            {
+                MessageService.ShowError("数据已被修改,请重新查询后再送审.");
+                return;
+            }
         }
 
-        public void Reject()
+        public void UnSendToAudit()
         {
-            OnReject();
-            this.EditStatus = EditStatus.Browse;
+            OnUnSendToAudit();
+            this.EditState = EditState.Browse;
         }
 
-
-        protected virtual void OnReject()
+        protected virtual void OnUnSendToAudit()
         {
-
+            //TODO:OnUnSendToAudit
         }
 
         public void EndEdit()
@@ -412,7 +408,5 @@ namespace SAF.Framework.ViewModel
         {
             return true;
         }
-        
-        
     }
 }

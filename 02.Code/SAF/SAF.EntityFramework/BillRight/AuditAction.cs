@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.Foundation
+namespace SAF.EntityFramework
 {
-    /// <summary>
-    /// 审批状态
-    /// </summary>
-    public enum AuditState
+    public enum AuditAction
     {
         /// <summary>
-        /// 草稿
+        /// 无
         /// </summary>
-        Draft = 1,
+        None = 0,
         /// <summary>
-        /// 待审
+        /// 送审
         /// </summary>
-        Unaudited = 2,
+        Send = 1,
         /// <summary>
         /// 通过
         /// </summary>
-        Approved = 4,
+        Approved = 2,
         /// <summary>
         /// 驳回
         /// </summary>
-        Reject = 8
+        Reject = 4,
+        /// <summary>
+        /// 撤消
+        /// </summary>
+        Cancel = 8
     }
 }

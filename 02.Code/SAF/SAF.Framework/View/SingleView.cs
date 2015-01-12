@@ -98,17 +98,10 @@ namespace SAF.Framework.View
 
         private void bbiSend_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SendToAudit();
-        }
-
-        private void bbiApprove_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Approval();
-        }
-
-        private void bbiReject_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Reject();
+            if (this.bbiSend.Tag.ToStringEx() == "SendToAudit")
+                SendToAudit();
+            else
+                UnSendToAudit();
         }
 
         private void bbiExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -245,19 +238,11 @@ namespace SAF.Framework.View
             RefreshUI();
         }
         /// <summary>
-        /// 通过
+        /// 取消送审
         /// </summary>
-        public void Approval()
+        public void UnSendToAudit()
         {
-            OnApproval();
-            RefreshUI();
-        }
-        /// <summary>
-        /// 驳回
-        /// </summary>
-        public void Reject()
-        {
-            OnReject();
+            OnUnSendToAudit();
             RefreshUI();
         }
 
@@ -354,12 +339,14 @@ namespace SAF.Framework.View
 
             if (this.IsAddNew || this.IsEdit)
             {
-                MessageService.ShowError("编辑模式下不能送审单据,请先提交数据或撤消更改.");
+                MessageService.ShowError("编辑模式下不能 送审 单据,请先提交数据或撤消更改.");
                 return;
             }
 
             try
             {
+                if (!MessageService.AskQuestion("确定要 送审 单据码?")) return;
+
                 ViewModel.SendToAudit();
                 MessageService.ShowMessage("送审成功.");
             }
@@ -367,51 +354,32 @@ namespace SAF.Framework.View
             {
                 MessageService.ShowException(ex, "送审失败!");
             }
-
         }
         /// <summary>
-        /// 通过
+        /// 取消送审
         /// </summary>
-        protected virtual void OnApproval()
+        protected virtual void OnUnSendToAudit()
         {
             if (ViewModel == null) return;
 
             if (this.IsAddNew || this.IsEdit)
             {
-                MessageService.ShowError("编辑模式下不能审批单据,请先提交数据或撤消更改.");
+                MessageService.ShowError("编辑模式下不能 取消送审 单据,请先提交数据或撤消更改.");
                 return;
             }
-            try
-            {
-                ViewModel.Approval();
-                MessageService.ShowMessage("审批成功.");
-            }
-            catch (Exception ex)
-            {
-                MessageService.ShowException(ex, "审批失败!");
-            }
-        }
-        /// <summary>
-        /// 驳回
-        /// </summary>
-        protected virtual void OnReject()
-        {
-            if (ViewModel == null) return;
 
-            if (this.IsAddNew || this.IsEdit)
-            {
-                MessageService.ShowError("编辑模式下不能驳回单据,请先提交数据或撤消更改.");
-                return;
-            }
             try
             {
-                ViewModel.Reject();
-                MessageService.ShowMessage("驳回成功.");
+                if (!MessageService.AskQuestion("确定要 取消送审 单据码?")) return;
+
+                ViewModel.SendToAudit();
+                MessageService.ShowMessage("取消送审成功.");
             }
             catch (Exception ex)
             {
-                MessageService.ShowException(ex, "驳回失败!");
+                MessageService.ShowException(ex, "取消送审失败!");
             }
+
         }
 
         #endregion
@@ -468,21 +436,21 @@ namespace SAF.Framework.View
         /// </summary>
         protected bool IsBrowse
         {
-            get { return this.ViewModel == null ? false : this.ViewModel.EditStatus == EditStatus.Browse; }
+            get { return this.ViewModel == null ? false : this.ViewModel.EditState == EditState.Browse; }
         }
         /// <summary>
         /// 是否新增状态
         /// </summary>
         protected bool IsAddNew
         {
-            get { return this.ViewModel == null ? false : this.ViewModel.EditStatus == EditStatus.AddNew; }
+            get { return this.ViewModel == null ? false : this.ViewModel.EditState == EditState.AddNew; }
         }
         /// <summary>
         /// 是否编辑状态
         /// </summary>
         protected bool IsEdit
         {
-            get { return this.ViewModel == null ? false : this.ViewModel.EditStatus == EditStatus.Edit; }
+            get { return this.ViewModel == null ? false : this.ViewModel.EditState == EditState.Edit; }
         }
 
         protected override void OnRefreshRibbonMenu()
@@ -499,7 +467,8 @@ namespace SAF.Framework.View
             bool canAddNew = operateRight.IncludeEnum(BillOperateRight.AddNew);
             bool canEdit = dataRight.IncludeEnum(BillDataRight.Edit);
             bool canDelete = dataRight.IncludeEnum(BillDataRight.Delete);
-            bool canAudit = dataRight.IncludeEnum(BillDataRight.Audit);
+
+            bool canSendToAudit = dataRight.IncludeEnum(BillDataRight.SendToAudit);
 
             UIController.RefreshControl(this.bbiAddNew, IsBrowse && canAddNew);
             UIController.RefreshControl(this.bbiEdit, IsBrowse && count > 0 && canEdit);
@@ -507,9 +476,29 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiCancel, IsAddNew || IsEdit);
             UIController.RefreshControl(this.bbiSave, IsAddNew || IsEdit);
 
-            UIController.RefreshControl(this.bbiSend, IsBrowse && count > 0);
-            UIController.RefreshControl(this.bbiApprove, IsBrowse && count > 0 && canAudit);
-            UIController.RefreshControl(this.bbiReject, IsBrowse && count > 0 && canAudit);
+            UIController.RefreshControl(this.bbiSend, IsBrowse && this.BillTypeId > 0 && curr != null && canSendToAudit && curr.BillState == BillState.Draft);
+            
+            if (curr != null)
+            {
+                if (curr.BillState.In(BillState.Draft))
+                {
+                    this.bbiSend.Tag = "SendToAudit";
+                    this.bbiSend.Caption = "送审";
+                    this.bbiSend.LargeGlyph = Properties.Resources.Action_SendToAudit_32x32;
+                }
+                else if (curr.BillState.In(BillState.Unaudited))
+                {
+                    this.bbiSend.Tag = "UnSendToAudit";
+                    this.bbiSend.Caption = "取消送审";
+                    this.bbiSend.LargeGlyph = Properties.Resources.Action_UnSendToAudit_32x32;
+                }
+                else
+                {
+                    this.bbiSend.Tag = "SendToAudit";
+                    this.bbiSend.Caption = "送审";
+                    this.bbiSend.LargeGlyph = Properties.Resources.Action_SendToAudit_32x32;
+                }
+            }
         }
 
         protected override void OnRefreshUI()
@@ -521,8 +510,8 @@ namespace SAF.Framework.View
             qcMain.Enabled = IsBrowse;
             pcMain.Enabled = IsBrowse;
 
-            UIController.RefreshControl(splitMain.Panel1, this.ViewModel.EditStatus, true, RefreshMode.Unnatural);
-            UIController.RefreshControl(splitMain.Panel2, this.ViewModel.EditStatus);
+            UIController.RefreshControl(splitMain.Panel1, this.ViewModel.EditState, true, RefreshMode.Unnatural);
+            UIController.RefreshControl(splitMain.Panel2, this.ViewModel.EditState);
         }
 
         private static readonly string QueryArgs_Condition = "Condition";
@@ -569,6 +558,5 @@ namespace SAF.Framework.View
         {
             this.AddMenuToFavorite();
         }
-
     }
 }

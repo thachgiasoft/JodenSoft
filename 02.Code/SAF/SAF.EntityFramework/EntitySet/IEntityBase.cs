@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.ComponentModel;
+using SAF.Foundation;
 
 namespace SAF.EntityFramework
 {
@@ -24,7 +25,14 @@ namespace SAF.EntityFramework
         /// 数据权限
         /// </summary>
         BillDataRight BillDataRight { get; }
-
+        /// <summary>
+        /// 单据状态
+        /// </summary>
+        BillState BillState { get; }
+        /// <summary>
+        /// 时间戳是否一致
+        /// </summary>
+        bool VersionNumberIsSync { get; }
         /// <summary>
         /// 
         /// </summary>
@@ -101,6 +109,10 @@ namespace SAF.EntityFramework
         /// 设置为Modified
         /// </summary>
         void SetModified();
+        /// <summary>
+        /// 设置为Added
+        /// </summary>
+        void SetAdded();
 
     }
 }

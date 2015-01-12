@@ -266,11 +266,39 @@ namespace SAF.EntityFramework
             get { return this.EntitySet.CalcBillDataRight(this, false); }
         }
 
-
+        /// <summary>
+        /// 设置为修改状态
+        /// </summary>
         public void SetModified()
         {
             if (this.DataRowView != null)
                 this.DataRowView.Row.SetModified();
+        }
+        /// <summary>
+        /// 设置为新增状态
+        /// </summary>
+        public void SetAdded()
+        {
+            if (this.DataRowView != null)
+                this.DataRowView.Row.SetAdded();
+        }
+
+        /// <summary>
+        /// 单据状态
+        /// </summary>
+        public BillState BillState
+        {
+            get
+            {
+                if (!this.FieldIsExists("BillState")) return BillState.None;
+                return (BillState)this.GetFieldValue<int>("BillState");
+            }
+        }
+
+
+        public abstract bool VersionNumberIsSync
+        {
+            get;
         }
     }
 }

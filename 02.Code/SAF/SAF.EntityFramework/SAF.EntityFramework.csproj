@@ -53,12 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillRight\AuditAction.cs" />
     <Compile Include="BillRight\BillDataRight.cs" />
     <Compile Include="BillRight\BillOperateRight.cs" />
     <Compile Include="BillRight\BillQueryRightInfo.cs" />
     <Compile Include="BillRight\BillRightInfo.cs" />
     <Compile Include="BillRight\BillRightType.cs" />
     <Compile Include="BillRight\BillRight.cs" />
+    <Compile Include="BillRight\BillState.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />

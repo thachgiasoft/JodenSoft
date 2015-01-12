@@ -15,12 +15,8 @@ namespace SAF.Framework
         /// </summary>
         void SendToAudit();
         /// <summary>
-        /// 通过
+        /// 取消送审
         /// </summary>
-        void Approval();
-        /// <summary>
-        /// 驳回
-        /// </summary>
-        void Reject();
+        void UnSendToAudit();
     }
 }

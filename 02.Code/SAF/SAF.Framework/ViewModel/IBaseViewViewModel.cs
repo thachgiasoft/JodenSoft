@@ -17,7 +17,7 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// 
         /// </summary>
-        EditStatus EditStatus { get; }
+        EditState EditState { get; }
         /// <summary>
         /// 
         /// </summary>

@@ -237,7 +237,7 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
 
         public void SelectFile()
         {
-            if (this.EditStatus.In(EditStatus.AddNew, EditStatus.Edit))
+            if (this.EditState.In(EditState.AddNew, EditState.Edit))
             {
                 var fileName = FileDialogHelper.OpenFile("选择文件...");
                 if (fileName.IsNotEmpty() && File.Exists(fileName) && MainEntitySet.CurrentEntity != null)

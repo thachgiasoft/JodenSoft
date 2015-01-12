@@ -645,10 +645,6 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         if (drv.IsShowDialog)
                             customProcess.WaitForExit();
                     }
-                    else
-                    {
-                        MessageService.ShowError("未支持的菜单类型,无法打开菜单.");
-                    }
                 }
             }
         }

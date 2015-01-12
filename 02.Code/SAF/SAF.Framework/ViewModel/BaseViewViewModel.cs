@@ -25,11 +25,11 @@ namespace SAF.Framework.ViewModel
             }
         }
 
-        private static readonly object EventEditStatusChanged;
+        private static readonly object EventEditStateChanged;
 
         static BaseViewViewModel()
         {
-            EventEditStatusChanged = new object();
+            EventEditStateChanged = new object();
         }
 
         /// <summary>
@@ -37,17 +37,17 @@ namespace SAF.Framework.ViewModel
         /// </summary>
         public int UniqueId { get; set; }
 
-        private EditStatus _editStatus = EditStatus.Browse;
+        private EditState _editState = EditState.Browse;
         /// <summary>
         /// 
         /// </summary>
-        public EditStatus EditStatus
+        public EditState EditState
         {
-            get { return _editStatus; }
+            get { return _editState; }
             set
             {
-                _editStatus = value;
-                OnEditStatusChanged();
+                _editState = value;
+                OnEditStateChanged();
             }
         }
         /// <summary>
@@ -55,13 +55,13 @@ namespace SAF.Framework.ViewModel
         /// </summary>
         public event EventHandler EditStatusChanged
         {
-            add { Events.AddHandler(BaseViewViewModel.EventEditStatusChanged, value); }
-            remove { Events.RemoveHandler(BaseViewViewModel.EventEditStatusChanged, value); }
+            add { Events.AddHandler(BaseViewViewModel.EventEditStateChanged, value); }
+            remove { Events.RemoveHandler(BaseViewViewModel.EventEditStateChanged, value); }
         }
 
-        protected void OnEditStatusChanged()
+        protected void OnEditStateChanged()
         {
-            var handler = (EventHandler)Events[BaseViewViewModel.EventEditStatusChanged];
+            var handler = (EventHandler)Events[BaseViewViewModel.EventEditStateChanged];
             if (handler != null)
             {
                 handler(this, new EventArgs());

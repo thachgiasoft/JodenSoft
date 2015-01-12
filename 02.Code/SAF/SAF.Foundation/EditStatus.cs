@@ -8,7 +8,7 @@ namespace SAF.Foundation
     /// <summary>
     /// 界面编辑状态
     /// </summary>
-    public enum EditStatus
+    public enum EditState
     {
         Browse = 0,
         AddNew = 1,

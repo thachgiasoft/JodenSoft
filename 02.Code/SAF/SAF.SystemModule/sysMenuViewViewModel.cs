@@ -166,7 +166,7 @@ LEFT JOIN
         {
             base.OnApplySave();
 
-            if (this.EditStatus.In(EditStatus.AddNew, EditStatus.Edit))
+            if (this.EditState.In(EditState.AddNew, EditState.Edit))
             {
                 this.ExecuteCache.Execute(0, "delete [sysMenuParam] where menuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
 

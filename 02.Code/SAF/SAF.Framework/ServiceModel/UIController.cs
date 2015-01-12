@@ -59,14 +59,14 @@ namespace SAF.Framework
         /// <param name="status"></param>
         /// <param name="bRecursion"></param>
         /// <param name="mode"></param>
-        public static void RefreshControl(Control aControl, EditStatus status, bool bRecursion = true, RefreshMode mode = RefreshMode.Normal)
+        public static void RefreshControl(Control aControl, EditState status, bool bRecursion = true, RefreshMode mode = RefreshMode.Normal)
         {
             if (aControl == null)
                 return;
             Color colorTrue = Color.White;
             Color colorFalse = Color.WhiteSmoke;
             //正常的是编辑状态下可用
-            bool bInEdit = status.In(EditStatus.Edit, EditStatus.AddNew);
+            bool bInEdit = status.In(EditState.Edit, EditState.AddNew);
             bool bControlEnabled = mode == RefreshMode.Normal ? bInEdit : !bInEdit;
             if (aControl is GridControl)
             {

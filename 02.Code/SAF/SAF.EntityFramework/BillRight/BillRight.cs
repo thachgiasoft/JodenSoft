@@ -127,7 +127,7 @@ GROUP BY D.Iden,D.Code
 
             return CalcCurrentEntityBillDataRight("UpdateRight", billRightInfo, BillDataRight.Edit, entity)
                 | CalcCurrentEntityBillDataRight("DeleteRight", billRightInfo, BillDataRight.Delete, entity)
-                | CalcCurrentEntityBillDataRight("AuditRight", billRightInfo, BillDataRight.Audit, entity)
+                | CalcCurrentEntityBillDataRight("AuditRight", billRightInfo, BillDataRight.SendToAudit, entity)
                 | CalcCurrentEntityBillDataRight("PrintRight", billRightInfo, BillDataRight.Print, entity)
                 | CalcCurrentEntityBillDataRight("ExtendRight1", billRightInfo, BillDataRight.Extend1, entity)
                 | CalcCurrentEntityBillDataRight("ExtendRight2", billRightInfo, BillDataRight.Extend2, entity)

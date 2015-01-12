@@ -296,7 +296,7 @@ namespace SAF.Framework.View
         {
             get
             {
-                return this.ViewModel == null ? false : this.ViewModel.EditStatus.In(EditStatus.AddNew, EditStatus.Edit);
+                return this.ViewModel == null ? false : this.ViewModel.EditState.In(EditState.AddNew, EditState.Edit);
             }
         }
 
