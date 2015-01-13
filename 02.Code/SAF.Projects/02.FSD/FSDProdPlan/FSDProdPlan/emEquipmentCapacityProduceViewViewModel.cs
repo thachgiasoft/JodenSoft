@@ -37,6 +37,7 @@ namespace FSDProdPlan
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
         {
             base.OnInitQueryConfig(queryConfig);
+            queryConfig.QuickQuery.QueryFields.Add(new QueryField("sEquipmentNo", "机台编号"));
             this.MainEntitySet.AfterAdd += MainEntitySet_AfterAdd;
         }
 

@@ -51,7 +51,7 @@ namespace FSDProdPlan
 
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            UIController.SetupGridControl(this.grdIndex);
+            this.IndexRowChange();
         }
 
 

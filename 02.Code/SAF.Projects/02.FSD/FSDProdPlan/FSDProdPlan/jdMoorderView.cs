@@ -9,29 +9,29 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
-using DevExpress.XtraEditors;
 using SAF.Framework;
+using DevExpress.XtraEditors;
 
 namespace FSDProdPlan
 {
-    [BusinessObject("emEquipmentExView")]
-    public partial class emEquipmentExView : SingleView
+    [BusinessObject("jdMoorderView")]
+    public partial class jdMoorderView : SingleView
     {
-        public emEquipmentExView()
+        public jdMoorderView()
         {
             InitializeComponent();
         }
 
         protected override IBaseViewViewModel OnCreateViewModel()
         {
-            return new emEquipmentExViewViewModel();
+            return new jdMoorderViewViewModel();
         }
 
-        public new emEquipmentExViewViewModel ViewModel
+        public new jdMoorderViewViewModel ViewModel
         {
             get
             {
-                return base.ViewModel as emEquipmentExViewViewModel;
+                return base.ViewModel as jdMoorderViewViewModel;
             }
         }
         protected override void OnInitBinding()
@@ -43,16 +43,20 @@ namespace FSDProdPlan
 
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
             }
-            this.ViewModel.emModelEntity.SetBindingSource(bsjt);
+            this.ViewModel.emEquipmentCapacityProduceEntity.SetBindingSource(bsch);
+            this.lusMaterialNo.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
+            this.lusMaterialNo.Properties.DisplayMember = "Iden";
+            this.lusMaterialNo.Properties.ValueMember = "sMaterialNo";
         }
+
         protected override void OnInitConfig()
         {
             base.OnInitConfig();
             UIController.SetupGridControl(this.grdIndex);
-            lusEquipmentNo.EditValueChanged += lusEquipmentNo_EditValueChanged;
+            lusMaterialNo.EditValueChanged += lusMaterialNo_EditValueChanged;
         }
 
-        void lusEquipmentNo_EditValueChanged(object sender, EventArgs e)
+        void lusMaterialNo_EditValueChanged(object sender, EventArgs e)
         {
             var grid = sender as LookUpEdit;
 
@@ -61,7 +65,7 @@ namespace FSDProdPlan
 
             if (drv == null) return;
 
-            var objinventory = this.ViewModel.emModelEntity.FirstOrDefault(p => p.Iden == Convert.ToInt32(drv["Iden"]));
+            var objinventory = this.ViewModel.emEquipmentCapacityProduceEntity.FirstOrDefault(p => p.Iden == Convert.ToInt32(drv["Iden"]));
 
             //方法二:适合与同一实体集
             //var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
@@ -70,28 +74,20 @@ namespace FSDProdPlan
 
             if (objinventory == null)
             {
-                MessageBox.Show("机台不存在");
+                MessageBox.Show("存货不存在");
                 return;
             }
-            this.ViewModel.MainEntitySet.CurrentEntity.uGuid = objinventory.uGuid;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentNo = objinventory.sEquipmentNo;
-            this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uGuid;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentName = objinventory.sEquipmentName;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelName = objinventory.sEquipmentName;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelCaption = objinventory.sEquipmentNo;
-            this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
-            
-            
+            this.ViewModel.MainEntitySet.CurrentEntity.sMaterialNo = objinventory.sMaterialNo;
+            this.ViewModel.MainEntitySet.CurrentEntity.sMaterialName = objinventory.sMaterialName;
+            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelName = objinventory.sEquipmentNo;
+            this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uemEquipmentModelGUID;
+            this.ViewModel.MainEntitySet.CurrentEntity.nCapacity = objinventory.nCapacity;
 
         }
 
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             this.IndexRowChange();
-        }
-        protected override void OnSave()
-        {
-            base.OnSave();
         }
     }
 }

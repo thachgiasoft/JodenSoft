@@ -72,6 +72,12 @@ namespace FSDProdPlan
             get { return base.GetFieldValue<string>(P => P.sBillNO); }
             set { base.SetFieldValue(P => P.sBillNO, value); }
         }
+        
+            public decimal nCapacity
+        {
+            get { return base.GetFieldValue<decimal>(P => P.nCapacity); }
+            set { base.SetFieldValue(P => P.nCapacity, value); }
+        }
         #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy

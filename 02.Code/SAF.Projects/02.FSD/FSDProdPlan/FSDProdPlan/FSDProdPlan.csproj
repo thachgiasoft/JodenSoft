@@ -112,6 +112,13 @@
     </Compile>
     <Compile Include="jdMomorderViewViewModel.cs" />
     <Compile Include="jdMoorder.cs" />
+    <Compile Include="jdMoorderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="jdMoorderView.Designer.cs">
+      <DependentUpon>jdMoorderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jdMoorderViewViewModel.cs" />
     <Compile Include="jdProcess.cs" />
     <Compile Include="jdProcessView.cs">
       <SubType>UserControl</SubType>
@@ -151,6 +158,9 @@
     <EmbeddedResource Include="jdMomorderView.resx">
       <DependentUpon>jdMomorderView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="jdMoorderView.resx">
+      <DependentUpon>jdMoorderView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="jdProcessView.resx">
       <DependentUpon>jdProcessView.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +177,7 @@
     <None Include="Properties\DataSources\emEquipmentEx.datasource" />
     <None Include="Properties\DataSources\emModel.datasource" />
     <None Include="Properties\DataSources\jdMomorder.datasource" />
+    <None Include="Properties\DataSources\jdMoorder.datasource" />
     <None Include="Properties\DataSources\jdProcess.datasource" />
     <None Include="Properties\DataSources\jdProdetail.datasource" />
     <None Include="Properties\DataSources\jdRecourse.datasource" />

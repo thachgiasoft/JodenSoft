@@ -257,6 +257,7 @@
             // lusEquipmentNo
             // 
             this.lusEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentNo", true));
+            this.lusEquipmentNo.EditValue = "<Null>";
             this.lusEquipmentNo.Location = new System.Drawing.Point(75, 36);
             this.lusEquipmentNo.MenuManager = this.ribbonMain;
             this.lusEquipmentNo.Name = "lusEquipmentNo";
@@ -349,6 +350,7 @@
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
+            this.txtIden.Enabled = false;
             this.txtIden.Location = new System.Drawing.Point(75, 12);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
@@ -405,6 +407,7 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(428, 24);
             this.layoutControlItem4.Text = "机台id";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem5
             // 
@@ -435,6 +438,7 @@
             this.layoutControlItem7.Size = new System.Drawing.Size(428, 24);
             this.layoutControlItem7.Text = "机台型号id";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem7.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem8
             // 
@@ -445,6 +449,7 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(428, 81);
             this.layoutControlItem8.Text = "机台日产能";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(60, 14);
+            this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem2
             // 
