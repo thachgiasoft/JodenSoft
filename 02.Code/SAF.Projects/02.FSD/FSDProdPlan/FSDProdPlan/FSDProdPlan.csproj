@@ -79,6 +79,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="emEquipmentCapacityProduce.cs" />
+    <Compile Include="emEquipmentCapacityProduceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="emEquipmentCapacityProduceView.Designer.cs">
+      <DependentUpon>emEquipmentCapacityProduceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="emEquipmentCapacityProduceViewViewModel.cs" />
+    <Compile Include="emEquipmentEx.cs" />
+    <Compile Include="emEquipmentExView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="emEquipmentExView.Designer.cs">
+      <DependentUpon>emEquipmentExView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="emEquipmentExViewViewModel.cs" />
+    <Compile Include="emModel.cs" />
+    <Compile Include="emModelView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="emModelView.Designer.cs">
+      <DependentUpon>emModelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="emModelViewViewModel.cs" />
     <Compile Include="jdMomorder.cs" />
     <Compile Include="jdMomorderView.cs">
       <SubType>UserControl</SubType>
@@ -87,6 +111,7 @@
       <DependentUpon>jdMomorderView.cs</DependentUpon>
     </Compile>
     <Compile Include="jdMomorderViewViewModel.cs" />
+    <Compile Include="jdMoorder.cs" />
     <Compile Include="jdProcess.cs" />
     <Compile Include="jdProcessView.cs">
       <SubType>UserControl</SubType>
@@ -114,6 +139,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="emEquipmentCapacityProduceView.resx">
+      <DependentUpon>emEquipmentCapacityProduceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="emEquipmentExView.resx">
+      <DependentUpon>emEquipmentExView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="emModelView.resx">
+      <DependentUpon>emModelView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="jdMomorderView.resx">
       <DependentUpon>jdMomorderView.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +163,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\emEquipmentCapacityProduce.datasource" />
+    <None Include="Properties\DataSources\emEquipmentEx.datasource" />
+    <None Include="Properties\DataSources\emModel.datasource" />
     <None Include="Properties\DataSources\jdMomorder.datasource" />
     <None Include="Properties\DataSources\jdProcess.datasource" />
     <None Include="Properties\DataSources\jdProdetail.datasource" />

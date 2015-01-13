@@ -41,6 +41,7 @@
             this.colLineNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.spLineNumber = new DevExpress.XtraEditors.SpinEdit();
             this.cmbMoType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dtEndDate = new DevExpress.XtraEditors.DateEdit();
@@ -60,7 +61,6 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cmbState = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -82,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLineNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMoType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -103,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,6 +146,7 @@
             // 
             // tcMain
             // 
+            this.tcMain.SelectedTabPage = this.pageMain;
             this.tcMain.Size = new System.Drawing.Size(266, 307);
             // 
             // pageMain
@@ -290,6 +291,22 @@
             this.layoutControl1.Size = new System.Drawing.Size(260, 301);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cmbState
+            // 
+            this.cmbState.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "State", true));
+            this.cmbState.EditValue = "正常";
+            this.cmbState.Location = new System.Drawing.Point(87, 228);
+            this.cmbState.MenuManager = this.ribbonMain;
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbState.Properties.Items.AddRange(new object[] {
+            "正常",
+            "关闭"});
+            this.cmbState.Size = new System.Drawing.Size(161, 20);
+            this.cmbState.StyleController = this.layoutControl1;
+            this.cmbState.TabIndex = 15;
             // 
             // spLineNumber
             // 
@@ -523,22 +540,6 @@
             this.layoutControlItem1.Text = "行号";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
             // 
-            // cmbState
-            // 
-            this.cmbState.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "State", true));
-            this.cmbState.EditValue = "正常";
-            this.cmbState.Location = new System.Drawing.Point(87, 228);
-            this.cmbState.MenuManager = this.ribbonMain;
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbState.Properties.Items.AddRange(new object[] {
-            "正常",
-            "关闭"});
-            this.cmbState.Size = new System.Drawing.Size(161, 20);
-            this.cmbState.StyleController = this.layoutControl1;
-            this.cmbState.TabIndex = 15;
-            // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.cmbState;
@@ -575,6 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spLineNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMoType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtEndDate.Properties.CalendarTimeProperties)).EndInit();
@@ -596,7 +598,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
