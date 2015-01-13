@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysRoleView));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.chkIsSystem = new DevExpress.XtraEditors.CheckEdit();
@@ -51,8 +52,8 @@
             this.pageRoleMenu = new DevExpress.XtraTab.XtraTabPage();
             this.treeMenu = new DevExpress.XtraTreeList.TreeList();
             this.colName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.bsMenu = new System.Windows.Forms.BindingSource();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
+            this.bsMenu = new System.Windows.Forms.BindingSource(this.components);
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -393,6 +394,8 @@
             this.imageCollectionTreeList.Images.SetKeyName(0, "BO_Folder_Closed.png");
             this.imageCollectionTreeList.Images.SetKeyName(1, "BO_Folder_Opened.png");
             this.imageCollectionTreeList.Images.SetKeyName(2, "forms.png");
+            this.imageCollectionTreeList.InsertImage(global::SAF.SystemModule.Properties.Resources.Form_Out_16x16, "Form_Out_16x16", typeof(global::SAF.SystemModule.Properties.Resources), 3);
+            this.imageCollectionTreeList.Images.SetKeyName(3, "Form_Out_16x16");
             // 
             // sysRoleView
             // 

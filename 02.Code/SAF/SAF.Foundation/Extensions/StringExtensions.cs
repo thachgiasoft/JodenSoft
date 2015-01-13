@@ -51,6 +51,18 @@ namespace SAF.Foundation
             if (s.IsEmpty()) return s;
             return string.Format(s, args);
         }
+
+        /// <summary>
+        /// 以指定字符串作为分隔符将指定字符串分隔成数组
+        /// </summary>
+        /// <param name="value">要分割的字符串</param>
+        /// <param name="strSplit">字符串类型的分隔符</param>
+        /// <param name="removeEmptyEntries">是否移除数据中元素为空字符串的项</param>
+        /// <returns>分割后的数据</returns>
+        public static string[] Split(this string value, string strSplit, bool removeEmptyEntries = false)
+        {
+            return value.Split(new[] { strSplit }, removeEmptyEntries ? StringSplitOptions.RemoveEmptyEntries : StringSplitOptions.None);
+        }
         #endregion
 
         #region substring

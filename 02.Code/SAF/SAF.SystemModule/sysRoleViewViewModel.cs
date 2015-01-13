@@ -46,7 +46,7 @@ namespace SAF.SystemModule
             base.OnInit();
 
             const string sql = @"
-SELECT Iden,[Name],[ParentId] ,BusinessViewId
+SELECT Iden,[Name],[ParentId] ,MenuType
 FROM [dbo].[sysMenu] WITH(NOLOCK)
 ORDER BY [ParentId],[MenuOrder] ";
             MenuEntitySet.Query(sql);
@@ -70,7 +70,7 @@ ORDER BY [ParentId],[MenuOrder] ";
 SELECT a.*
 FROM dbo.sysRoleMenu a WITH(NOLOCK)
 JOIN [dbo].[sysMenu] b WITH(NOLOCK) ON a.[MenuId]=b.[Iden]
-WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
+WHERE a.[RoleId]=:Iden AND B.MenuType>0";
             RoleMenuEntitySet.Query(sqlMenu, key);
 
         }
@@ -160,7 +160,8 @@ WHERE a.[RoleId]=:Iden AND B.BusinessViewId IS NOT NULL";
             this.ExecuteCache.Execute(0, "delete sysRoleMenu where RoleId=:RoleId", this.MainEntitySet.CurrentKey);
             foreach (TreeListNode item in list)
             {
-                if (item.GetValue("BusinessViewId").IsNotEmpty())
+                var menuType = item.GetValue("MenuType");
+                if (menuType != null && Convert.ToInt32(menuType) > 0)
                 {
                     var entity = this.RoleMenuEntitySet.AddNew();
                     entity.MenuId = Convert.ToInt32(item.GetValue("Iden"));

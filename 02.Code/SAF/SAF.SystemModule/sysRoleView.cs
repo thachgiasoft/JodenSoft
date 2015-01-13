@@ -12,6 +12,7 @@ using SAF.Foundation.MetaAttributes;
 using DevExpress.XtraTreeList.Nodes;
 using SAF.Foundation;
 using SAF.Framework;
+using SAF.Framework.Entities;
 
 namespace SAF.SystemModule
 {
@@ -115,9 +116,15 @@ namespace SAF.SystemModule
         {
             var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
 
-            if (drv.IsNotEmpty() && drv["BusinessViewId"].IsNotEmpty())
+            if (drv.IsNotEmpty())
             {
-                e.NodeImageIndex = 2;
+                var menuType = (sysMenuType)Convert.ToInt32(drv["MenuType"]);
+                if (menuType == sysMenuType.Menu)
+                    e.NodeImageIndex = 2;
+                else if (menuType == sysMenuType.ExternalForm)
+                    e.NodeImageIndex = 3;
+                else
+                    e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
             }
             else
             {

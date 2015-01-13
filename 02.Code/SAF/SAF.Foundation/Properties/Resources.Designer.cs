@@ -80,6 +80,114 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
+        ///   查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_Between {
+            get {
+                return ResourceManager.GetString("ParameterCheck_Between", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间，且不能等于“{3}”。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_BetweenNotEqual {
+            get {
+                return ResourceManager.GetString("ParameterCheck_BetweenNotEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 指定的目录路径“{0}”不存在。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_DirectoryNotExists {
+            get {
+                return ResourceManager.GetString("ParameterCheck_DirectoryNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 指定的文件路径“{0}”不存在。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_FileNotExists {
+            get {
+                return ResourceManager.GetString("ParameterCheck_FileNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值不能为Guid.Empty 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotEmpty_Guid {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotEmpty_Guid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值必须大于“{1}”。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotGreaterThan {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotGreaterThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值必须大于或等于“{1}”。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotGreaterThanOrEqual {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotGreaterThanOrEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值必须小于“{1}”。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotLessThan {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotLessThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”的值必须小于或等于“{1}”。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotLessThanOrEqual {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotLessThanOrEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”不能为空引用。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotNull {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”不能为空引用或空集合。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotNullOrEmpty_Collection {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotNullOrEmpty_Collection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 参数“{0}”不能为空引用或空字符串。 的本地化字符串。
+        /// </summary>
+        internal static string ParameterCheck_NotNullOrEmpty_String {
+            get {
+                return ResourceManager.GetString("ParameterCheck_NotNullOrEmpty_String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 The member access expression does not access a property. 的本地化字符串。
         /// </summary>
         internal static string PropertySupport_ExpressionNotProperty_Exception {
