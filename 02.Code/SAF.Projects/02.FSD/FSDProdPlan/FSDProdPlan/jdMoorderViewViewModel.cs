@@ -30,7 +30,7 @@ namespace FSDProdPlan
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  *  FROM  jdMoorder where Iden='{0}'".FormatEx(key));
-            this.emEquipmentCapacityProduceEntity.Query("select * from emEquipmentCapacityProduce with(nolock)");
+            this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo AS sMaterialNo,sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -47,6 +47,7 @@ namespace FSDProdPlan
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<jdMoorder> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.sOrderNo = (1000000000 + e.CurrentEntity.Iden).ToString();
         }
     }
 }

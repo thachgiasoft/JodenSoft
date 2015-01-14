@@ -33,6 +33,12 @@ namespace FSDProdPlan
                 return base.ViewModel as emModelViewViewModel;
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            groupCooperation.Visible = false;
+            groupReport.Visible = false;
+        }
         protected override void OnInitBinding()
         {
             base.OnInitBinding();

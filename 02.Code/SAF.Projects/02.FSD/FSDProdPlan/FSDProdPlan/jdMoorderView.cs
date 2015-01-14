@@ -34,6 +34,12 @@ namespace FSDProdPlan
                 return base.ViewModel as jdMoorderViewViewModel;
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            groupCooperation.Visible = false;
+            groupReport.Visible = false;
+        }
         protected override void OnInitBinding()
         {
             base.OnInitBinding();
@@ -45,7 +51,7 @@ namespace FSDProdPlan
             }
             this.ViewModel.emEquipmentCapacityProduceEntity.SetBindingSource(bsch);
             this.lusMaterialNo.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
-            this.lusMaterialNo.Properties.DisplayMember = "Iden";
+            this.lusMaterialNo.Properties.DisplayMember = "sMaterialNo";
             this.lusMaterialNo.Properties.ValueMember = "sMaterialNo";
         }
 
