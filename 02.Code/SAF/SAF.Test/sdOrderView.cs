@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework;
 
 namespace SAF.Test
 {
@@ -35,6 +36,8 @@ namespace SAF.Test
             base.OnInitUI();
 
             InitOrgGridSearch();
+
+            this.AccessFocusControl = this.txtOrderNo;
         }
 
         private void InitOrgGridSearch()
@@ -49,6 +52,13 @@ ORDER BY [Iden]";
             this.gseOrg.Properties.AutoFillFieldNames = "OrganiaztionId=Iden,OrganiaztionName=Name";
             this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
             this.gseOrg.Properties.Query();
+        }
+
+        protected override void OnRefreshUI()
+        {
+            base.OnRefreshUI();
+
+            UIController.RefreshControl(this.txtIden, false);
         }
     }
 }
