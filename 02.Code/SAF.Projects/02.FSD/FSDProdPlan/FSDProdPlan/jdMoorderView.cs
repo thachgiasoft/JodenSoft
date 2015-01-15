@@ -49,6 +49,7 @@ namespace FSDProdPlan
 
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
             }
+            
             this.ViewModel.emEquipmentCapacityProduceEntity.SetBindingSource(bsch);
             //this.lusMaterialNo.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
             //this.lusMaterialNo.Properties.DisplayMember = "sMaterialNo";

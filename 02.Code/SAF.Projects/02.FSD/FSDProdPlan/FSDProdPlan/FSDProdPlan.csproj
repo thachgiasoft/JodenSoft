@@ -144,6 +144,14 @@
     </Compile>
     <Compile Include="jdRecourseViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysBillNoFormula.cs" />
+    <Compile Include="sysBillNoFormulaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysBillNoFormulaView.Designer.cs">
+      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysBillNoFormulaViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="emEquipmentCapacityProduceView.resx">
@@ -171,6 +179,9 @@
       <DependentUpon>jdRecourseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="sysBillNoFormulaView.resx">
+      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\emEquipmentCapacityProduce.datasource" />

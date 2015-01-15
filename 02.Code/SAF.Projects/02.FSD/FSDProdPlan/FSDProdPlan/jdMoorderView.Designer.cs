@@ -329,7 +329,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sMaterialNo", "存货编码", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sMaterialName", "存货名称", 95, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("uemEquipmentModelGUID", "机型ID", 165, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nCapacity", "周期(分钟)", 66, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nCapacity", "周期(秒)", 66, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
             this.lusMaterialNo.Properties.DataSource = this.bsch;
             this.lusMaterialNo.Properties.DisplayMember = "sMaterialNo";
             this.lusMaterialNo.Properties.DropDownRows = 15;
@@ -455,6 +455,7 @@
             // txtsOrderNo
             // 
             this.txtsOrderNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sOrderNo", true));
+            this.txtsOrderNo.Enabled = false;
             this.txtsOrderNo.Location = new System.Drawing.Point(85, 36);
             this.txtsOrderNo.MenuManager = this.ribbonMain;
             this.txtsOrderNo.Name = "txtsOrderNo";
