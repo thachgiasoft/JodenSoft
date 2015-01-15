@@ -51,6 +51,17 @@ namespace SAF.SystemModule
 
             this.treeMenu.GetSelectImage += treeList1_GetSelectImage;
             this.gseBusinessView.EditValueChanged += gseBusinessView_EditValueChanged;
+
+        }
+
+        protected override void OnAfterInit()
+        {
+            base.OnAfterInit();
+
+            if (this.treeMenu.Nodes.Count > 0)
+            {
+                this.treeMenu.Nodes[0].Expanded = true;
+            }
         }
 
         private void InitMenuType()
@@ -93,14 +104,15 @@ namespace SAF.SystemModule
 
         private void InitBusinessViewGridSearch()
         {
-            this.gseBusinessView.Properties.CommandText = @"SELECT Iden,[ClassName],[IsDeleted]
+            this.gseBusinessView.Properties.CommandText = @"
+SELECT Iden,[ClassName],[Description],[IsDeleted]
 FROM [dbo].[sysBusinessView] WITH(NOLOCK)
 where {0}
 ORDER BY [Iden]";
             this.gseBusinessView.Properties.DisplayMember = "ClassName";
             this.gseBusinessView.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
-            this.gseBusinessView.Properties.AutoFillFieldNames = "BusinessViewId=Iden,BusinessView=ClassName";
-            this.gseBusinessView.Properties.ColumnHeaders = "Iden,业务类名,是否已删除";
+            this.gseBusinessView.Properties.AutoFillFieldNames = "BusinessViewId=Iden,BusinessView=ClassName,BusinessViewDescription=Description";
+            this.gseBusinessView.Properties.ColumnHeaders = "Iden,业务类名,业务功能描述,是否已删除";
             this.gseBusinessView.Properties.Query();
         }
 
@@ -128,6 +140,7 @@ ORDER BY [Iden]";
             base.OnRefreshUI();
 
             UIController.RefreshControl(this.txtIden, false);
+            UIController.RefreshControl(this.txtDescription, false);
 
             this.grvParams.UnEditableAllColumns();
             if (this.IsAddNew || this.IsEdit)
@@ -202,6 +215,7 @@ ORDER BY [Iden]";
         {
             lciIsAutoOpen.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
             lciViewId.Visibility = menuType.In(sysMenuType.Menu) ? LayoutVisibility.Always : LayoutVisibility.Never;
+            lciDescription.Visibility = lciViewId.Visibility;
             lciFileName.Visibility = menuType.In(sysMenuType.ExternalForm) ? LayoutVisibility.Always : LayoutVisibility.Never;
             lciParameter.Visibility = menuType.In(sysMenuType.ExternalForm) ? LayoutVisibility.Always : LayoutVisibility.Never;
 

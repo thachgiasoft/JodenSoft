@@ -78,11 +78,14 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(sCondition);
             base.OnQueryChild(key);
 
             this.MainEntitySet.Query(@"
-select Iden, Name, ParentId, BusinessViewId, MenuOrder, Remark, IsSystem, IsAutoOpen,MenuType,FileName,FileParameter,IsShowDialog,
-CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber,
-BusinessView=(SELECT top 1 [ClassName] FROM sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
+select a.Iden, a.Name, a.ParentId, a.BusinessViewId, a.MenuOrder, a.Remark, a.IsSystem, 
+    a.IsAutoOpen,a.MenuType,a.[FileName],a.FileParameter,a.IsShowDialog,
+    a.CreatedBy, a.CreatedOn, a.ModifiedBy, a.ModifiedOn, a.VersionNumber,
+    BusinessView=b.[ClassName],
+    BusinessViewDescription=b.[Description]
 from [sysMenu] a with(nolock) 
-where Iden=:Iden", key);
+LEFT JOIN dbo.sysBusinessView b WITH(NOLOCK) ON a.BusinessViewId=b.Iden
+where a.Iden=:Iden", key);
 
             string sql = @"
 ;WITH tree AS 
@@ -98,7 +101,7 @@ where Iden=:Iden", key);
 SELECT Iden,Name,[ParentId]
 FROM [dbo].[sysMenu]  with(nolock)
 WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree])
-    AND [BusinessViewId] IS NULL
+    AND MenuType=0
 ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
             this.ParentEntitySet.Query(sql);
 

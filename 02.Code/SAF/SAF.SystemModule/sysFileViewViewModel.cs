@@ -143,6 +143,7 @@ namespace SAF.SystemModule
         {
             public string FileName { get; set; }
             public string TypeName { get; set; }
+            public string Description { get; set; }
             public IEnumerable<PropertyInfo> ViewParams { get; set; }
         }
 
@@ -174,7 +175,10 @@ namespace SAF.SystemModule
                             foreach (Type item in types)
                             {
                                 var list = item.GetAllPropertyMarked<ViewParamAttribute>();
-                                listView.Add(new ViewTypeInfo() { FileName = Path.GetFileName(fileName), TypeName = item.FullName, ViewParams = list });
+                                var boAttr = item.GetCustomAttribute<BusinessObjectAttribute>();
+                                var view = new ViewTypeInfo() { FileName = Path.GetFileName(fileName), TypeName = item.FullName, ViewParams = list };
+                                view.Description = boAttr == null ? string.Empty : boAttr.Description;
+                                listView.Add(view);
                             }
                         }
                     }
@@ -186,7 +190,7 @@ namespace SAF.SystemModule
             }
 
             string sql = @"
-SELECT a.Iden, a.ClassName, a.FileId, a.Remark, a.IsDeleted,FileName= b.Name,
+SELECT a.Iden, a.ClassName,a.Description, a.FileId, a.Remark, a.IsDeleted,FileName= b.Name,
     a.CreatedBy, a.CreatedOn, a.ModifiedBy, a.ModifiedOn, a.VersionNumber 
 FROM [dbo].[sysBusinessView] a with(nolock)
 JOIN [dbo].[sysFile] b with(nolock) ON a.[FileId]=b.[Iden]
@@ -209,6 +213,11 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
                     viewInfo.Iden = IdenGenerator.NewIden(viewInfo.DbTableName);
                     viewInfo.ClassName = type.TypeName;
                     viewInfo.FileId = GetFileId(type.FileName);
+                    viewInfo.Description = type.Description;
+                }
+                else
+                {
+                    viewInfo.Description = type.Description;
                 }
                 viewInfo.IsDeleted = false;
 

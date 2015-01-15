@@ -28,6 +28,13 @@ namespace SAF.SystemEntities
             get { return base.GetFieldValue<string>(p => p.ClassName); }
             set { base.SetFieldValue(p => p.ClassName, value); }
         }
+
+        public string Description
+        {
+            get { return base.GetFieldValue<string>(p => p.Description); }
+            set { base.SetFieldValue(p => p.Description, value); }
+        }
+
         public int FileId
         {
             get { return base.GetFieldValue<int>(P => P.FileId); }
