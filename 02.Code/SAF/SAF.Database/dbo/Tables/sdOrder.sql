@@ -1,7 +1,8 @@
 ﻿CREATE TABLE [dbo].[sdOrder] (
     [Iden]            INT           NOT NULL,
     [OrderNo]         NVARCHAR (50) NULL,
-    [iOrganiaztionId] INT           NULL,
+    [OrganiaztionId] INT           NULL,
+    [Remark] NVARCHAR(MAX) NULL, 
     PRIMARY KEY CLUSTERED ([Iden] ASC)
 );
 

@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SAF.Database</RootNamespace>
-    <AssemblyName>SAF.Database</AssemblyName>
+    <RootNamespace>SAF.SqlClr</RootNamespace>
+    <AssemblyName>SAF.SqlClr</AssemblyName>
     <ModelCollation>2052,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -105,5 +105,11 @@
     <Build Include="dbo\Stored Procedures\sysGenerateIden.sql" />
     <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
     <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SAF.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SAF.Database.publish.xml" />
   </ItemGroup>
 </Project>
