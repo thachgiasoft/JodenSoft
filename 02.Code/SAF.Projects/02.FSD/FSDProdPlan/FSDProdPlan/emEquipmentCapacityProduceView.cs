@@ -60,7 +60,7 @@ namespace FSDProdPlan
 
         void lusEquipmentNo_EditValueChanged(object sender, EventArgs e)
         {
-            var grid = sender as LookUpEdit;
+            var grid = sender as GridLookUpEdit;
 
             //方法一:适用于不同实体集
             var drv = grid.GetSelectedDataRow() as DataRowView;
