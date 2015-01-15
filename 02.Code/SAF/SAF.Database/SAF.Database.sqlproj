@@ -63,6 +63,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\SqlClr" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\sysRegInfo.sql" />
@@ -111,5 +112,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SAF.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dbo\SqlClr\Split.cs" />
   </ItemGroup>
 </Project>
