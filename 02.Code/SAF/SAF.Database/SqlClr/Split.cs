@@ -8,7 +8,7 @@ using System.Collections;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction(FillRowMethodName = "SplitFillRow", TableDefinition = "item nvarchar(max)")]
-    public static IEnumerable Split(SqlChars input, SqlChars separators)
+    public static IEnumerable Split(SqlChars input, SqlChars separators = null)
     {
         string[] array;
         if (input.IsNull)
@@ -25,7 +25,7 @@ public partial class UserDefinedFunctions
             string sepStr = separators.ToSqlString().Value;
             string[] separatorsArray = sepStr.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
-            array = inputStr.Split(separatorsArray, StringSplitOptions.None);
+            array = inputStr.Split(separatorsArray, StringSplitOptions.RemoveEmptyEntries);
         }
         return array;
     }

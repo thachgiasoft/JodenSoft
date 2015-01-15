@@ -64,6 +64,7 @@
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="dbo\SqlClr" />
+    <Folder Include="SqlClr" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\sysRegInfo.sql" />
@@ -120,5 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbo\SqlClr\Split.cs" />
+    <Compile Include="SqlClr\Split.cs" />
   </ItemGroup>
 </Project>
