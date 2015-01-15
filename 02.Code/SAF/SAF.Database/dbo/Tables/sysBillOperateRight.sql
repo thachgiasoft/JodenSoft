@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[sysBillOperateRight] (
+    [Iden]          INT          NOT NULL,
+    [BillTypeId]    INT          NOT NULL,
+    [DataRoleId]    INT          NOT NULL,
+    [AddNew]        BIT          CONSTRAINT [DF__SystemBil__CanAd__7FB5F314] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth1]  BIT          CONSTRAINT [DF__SystemBil__Exten__00AA174D] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth2]  BIT          CONSTRAINT [DF__SystemBil__Exten__019E3B86] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth3]  BIT          CONSTRAINT [DF__SystemBil__Exten__02925FBF] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth4]  BIT          CONSTRAINT [DF__SystemBil__Exten__038683F8] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth5]  BIT          CONSTRAINT [DF__SystemBil__Exten__047AA831] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth6]  BIT          CONSTRAINT [DF__SystemBil__Exten__056ECC6A] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth7]  BIT          CONSTRAINT [DF__SystemBil__Exten__0662F0A3] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth8]  BIT          CONSTRAINT [DF__SystemBil__Exten__075714DC] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth9]  BIT          CONSTRAINT [DF__SystemBil__Exten__084B3915] DEFAULT ((0)) NOT NULL,
+    [ExtendRigth10] BIT          CONSTRAINT [DF__SystemBil__Exten__093F5D4E] DEFAULT ((0)) NOT NULL,
+    [IsActive]      BIT          CONSTRAINT [DF__SystemBil__IsAct__0A338187] DEFAULT ((1)) NOT NULL,
+    [CreatedBy]     INT          NULL,
+    [CreatedOn]     DATETIME     NULL,
+    [ModifiedBy]    INT          NULL,
+    [ModifiedOn]    DATETIME     NULL,
+    [VersionNumber] NUMERIC (18) NULL,
+    CONSTRAINT [PK__SystemBi__B77084577DCDAAA2] PRIMARY KEY CLUSTERED ([Iden] ASC),
+    CONSTRAINT [FK_SystemBillOperateRight_SystemBillType] FOREIGN KEY ([BillTypeId]) REFERENCES [dbo].[sysBillType] ([Iden]),
+    CONSTRAINT [FK_SystemBillOperateRight_SystemRole] FOREIGN KEY ([DataRoleId]) REFERENCES [dbo].[sysDataRole] ([Iden])
+);
+

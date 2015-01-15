@@ -10,15 +10,15 @@ namespace SAF.EntityFramework
     /// </summary>
     public static class BillNoGenerator
     {
-        private static string NewBillNo(string connectionName, string billNoType, string dynamicContent = "")
+        public static string NewBillNo(string connectionName, int billNoId, string dynamicContent = "")
         {
-            var obj = DataPortal.ExecuteScalar(connectionName, "exec dbo.sysGenerateBillNo :BillNoType,:DynamicContent,'',1", billNoType, dynamicContent);
+            var obj = DataPortal.ExecuteScalar(connectionName, "exec dbo.sysGenerateBillNo @BillNoId=:BillNoId,@DynamicContent=:DynamicContent,@BillNo='',@Return=1", billNoId, dynamicContent);
             return obj.ToString();
         }
 
-        public static string NewBillNo(string billNoType, string dynamicContent = "")
+        public static string NewBillNo(int billNoId, string dynamicContent = "")
         {
-            return NewBillNo(ConfigContext.DefaultConnection, billNoType, dynamicContent);
+            return NewBillNo(ConfigContext.DefaultConnection, billNoId, dynamicContent);
         }
     }
 }

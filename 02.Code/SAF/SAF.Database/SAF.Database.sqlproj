@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SAF.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{4e0c1e2b-91b2-4e4a-a96a-5e0ce845e6ef}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SAF.Database</RootNamespace>
+    <AssemblyName>SAF.Database</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\sysRegInfo.sql" />
+    <Build Include="dbo\Tables\sysOrganization.sql" />
+    <Build Include="dbo\Tables\sysBillDataRight.sql" />
+    <Build Include="dbo\Tables\sysIden.sql" />
+    <Build Include="dbo\Tables\sysUserDataRole.sql" />
+    <Build Include="dbo\Tables\sysCodeTemplate.sql" />
+    <Build Include="dbo\Tables\sysBusinessViewParam.sql" />
+    <Build Include="dbo\Tables\sysFile.sql" />
+    <Build Include="dbo\Tables\sysMenuParam.sql" />
+    <Build Include="dbo\Tables\sysDataRole.sql" />
+    <Build Include="dbo\Tables\sysUser.sql" />
+    <Build Include="dbo\Tables\sysBusinessView.sql" />
+    <Build Include="dbo\Tables\sysUserRole.sql" />
+    <Build Include="dbo\Tables\sysCommonBillHdrField.sql" />
+    <Build Include="dbo\Tables\sysCommonBillDtl.sql" />
+    <Build Include="dbo\Tables\sysBillRightDefine.sql" />
+    <Build Include="dbo\Tables\sysBillOperateRight.sql" />
+    <Build Include="dbo\Tables\sysRole.sql" />
+    <Build Include="dbo\Tables\sysQueryConfig.sql" />
+    <Build Include="dbo\Tables\sysQueryParam.sql" />
+    <Build Include="dbo\Tables\sysCommonBillDtlField.sql" />
+    <Build Include="dbo\Tables\sysRoleMenu.sql" />
+    <Build Include="dbo\Tables\sysMenuChart.sql" />
+    <Build Include="dbo\Tables\sysMyFavoriteMenu.sql" />
+    <Build Include="dbo\Tables\sysMenu.sql" />
+    <Build Include="dbo\Tables\sysTableColumn.sql" />
+    <Build Include="dbo\Tables\sysBillType.sql" />
+    <Build Include="dbo\Tables\sysReportParameter.sql" />
+    <Build Include="dbo\Tables\sysBillNoFormula.sql" />
+    <Build Include="dbo\Tables\sysReportFormat.sql" />
+    <Build Include="dbo\Tables\sysReport.sql" />
+    <Build Include="dbo\Tables\sdOrder.sql" />
+    <Build Include="dbo\Tables\sdOrderDtl.sql" />
+    <Build Include="dbo\Tables\sysAppConfig.sql" />
+    <Build Include="dbo\Tables\sysCommonBillHdr.sql" />
+    <Build Include="dbo\Tables\wfBill.sql" />
+    <Build Include="dbo\Functions\sysGetOrganizationCode.sql" />
+    <Build Include="dbo\Stored Procedures\sysGenerateIden.sql" />
+    <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
+    <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
+  </ItemGroup>
+</Project>
