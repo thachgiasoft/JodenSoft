@@ -261,6 +261,9 @@
             this.lusEquipmentNo.Location = new System.Drawing.Point(75, 36);
             this.lusEquipmentNo.MenuManager = this.ribbonMain;
             this.lusEquipmentNo.Name = "lusEquipmentNo";
+            this.lusEquipmentNo.Properties.AutoSearchColumnIndex = 1;
+            this.lusEquipmentNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lusEquipmentNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.lusEquipmentNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lusEquipmentNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {

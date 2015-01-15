@@ -283,7 +283,7 @@
             // 
             // colnCapacity
             // 
-            this.colnCapacity.Caption = "单个周期(分钟)";
+            this.colnCapacity.Caption = "单个周期(秒)";
             this.colnCapacity.FieldName = "nCapacity";
             this.colnCapacity.Name = "colnCapacity";
             this.colnCapacity.Visible = true;
@@ -314,9 +314,12 @@
             // lusMaterialNo
             // 
             this.lusMaterialNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sMaterialNo", true));
-            this.lusMaterialNo.Location = new System.Drawing.Point(63, 60);
+            this.lusMaterialNo.Location = new System.Drawing.Point(85, 60);
             this.lusMaterialNo.MenuManager = this.ribbonMain;
             this.lusMaterialNo.Name = "lusMaterialNo";
+            this.lusMaterialNo.Properties.AutoSearchColumnIndex = 2;
+            this.lusMaterialNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lusMaterialNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.lusMaterialNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lusMaterialNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -327,8 +330,13 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sMaterialName", "存货名称", 95, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("uemEquipmentModelGUID", "机型ID", 165, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("nCapacity", "周期(分钟)", 66, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
+            this.lusMaterialNo.Properties.DataSource = this.bsch;
+            this.lusMaterialNo.Properties.DisplayMember = "sMaterialNo";
+            this.lusMaterialNo.Properties.DropDownRows = 15;
+            this.lusMaterialNo.Properties.HeaderClickMode = DevExpress.XtraEditors.Controls.HeaderClickMode.AutoSearch;
             this.lusMaterialNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lusMaterialNo.Size = new System.Drawing.Size(202, 20);
+            this.lusMaterialNo.Properties.ValueMember = "sMaterialNo";
+            this.lusMaterialNo.Size = new System.Drawing.Size(180, 20);
             this.lusMaterialNo.StyleController = this.layoutControl1;
             this.lusMaterialNo.TabIndex = 18;
             // 
@@ -341,12 +349,12 @@
             0,
             0});
             this.spnCapacity.Enabled = false;
-            this.spnCapacity.Location = new System.Drawing.Point(63, 252);
+            this.spnCapacity.Location = new System.Drawing.Point(85, 252);
             this.spnCapacity.MenuManager = this.ribbonMain;
             this.spnCapacity.Name = "spnCapacity";
             this.spnCapacity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spnCapacity.Size = new System.Drawing.Size(202, 20);
+            this.spnCapacity.Size = new System.Drawing.Size(180, 20);
             this.spnCapacity.StyleController = this.layoutControl1;
             this.spnCapacity.TabIndex = 17;
             // 
@@ -358,7 +366,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Location = new System.Drawing.Point(63, 228);
+            this.spnPlanQty.Location = new System.Drawing.Point(85, 228);
             this.spnPlanQty.MenuManager = this.ribbonMain;
             this.spnPlanQty.Name = "spnPlanQty";
             this.spnPlanQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -373,7 +381,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Size = new System.Drawing.Size(202, 20);
+            this.spnPlanQty.Size = new System.Drawing.Size(180, 20);
             this.spnPlanQty.StyleController = this.layoutControl1;
             this.spnPlanQty.TabIndex = 16;
             // 
@@ -381,44 +389,44 @@
             // 
             this.dedDeliveryDate.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "dDeliveryDate", true));
             this.dedDeliveryDate.EditValue = null;
-            this.dedDeliveryDate.Location = new System.Drawing.Point(63, 156);
+            this.dedDeliveryDate.Location = new System.Drawing.Point(85, 156);
             this.dedDeliveryDate.MenuManager = this.ribbonMain;
             this.dedDeliveryDate.Name = "dedDeliveryDate";
             this.dedDeliveryDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dedDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dedDeliveryDate.Size = new System.Drawing.Size(202, 20);
+            this.dedDeliveryDate.Size = new System.Drawing.Size(180, 20);
             this.dedDeliveryDate.StyleController = this.layoutControl1;
             this.dedDeliveryDate.TabIndex = 15;
             // 
             // txtsBillNO
             // 
             this.txtsBillNO.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sBillNO", true));
-            this.txtsBillNO.Location = new System.Drawing.Point(63, 204);
+            this.txtsBillNO.Location = new System.Drawing.Point(85, 204);
             this.txtsBillNO.MenuManager = this.ribbonMain;
             this.txtsBillNO.Name = "txtsBillNO";
-            this.txtsBillNO.Size = new System.Drawing.Size(202, 20);
+            this.txtsBillNO.Size = new System.Drawing.Size(180, 20);
             this.txtsBillNO.StyleController = this.layoutControl1;
             this.txtsBillNO.TabIndex = 12;
             // 
             // txtuemEquipmentModelGUID
             // 
             this.txtuemEquipmentModelGUID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "uemEquipmentModelGUID", true));
-            this.txtuemEquipmentModelGUID.Location = new System.Drawing.Point(63, 180);
+            this.txtuemEquipmentModelGUID.Location = new System.Drawing.Point(85, 180);
             this.txtuemEquipmentModelGUID.MenuManager = this.ribbonMain;
             this.txtuemEquipmentModelGUID.Name = "txtuemEquipmentModelGUID";
-            this.txtuemEquipmentModelGUID.Size = new System.Drawing.Size(202, 20);
+            this.txtuemEquipmentModelGUID.Size = new System.Drawing.Size(180, 20);
             this.txtuemEquipmentModelGUID.StyleController = this.layoutControl1;
             this.txtuemEquipmentModelGUID.TabIndex = 11;
             // 
             // txtsColorNo
             // 
             this.txtsColorNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sColorNo", true));
-            this.txtsColorNo.Location = new System.Drawing.Point(63, 132);
+            this.txtsColorNo.Location = new System.Drawing.Point(85, 132);
             this.txtsColorNo.MenuManager = this.ribbonMain;
             this.txtsColorNo.Name = "txtsColorNo";
-            this.txtsColorNo.Size = new System.Drawing.Size(202, 20);
+            this.txtsColorNo.Size = new System.Drawing.Size(180, 20);
             this.txtsColorNo.StyleController = this.layoutControl1;
             this.txtsColorNo.TabIndex = 9;
             // 
@@ -426,10 +434,10 @@
             // 
             this.txtsEquipmentModelName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelName", true));
             this.txtsEquipmentModelName.Enabled = false;
-            this.txtsEquipmentModelName.Location = new System.Drawing.Point(63, 108);
+            this.txtsEquipmentModelName.Location = new System.Drawing.Point(85, 108);
             this.txtsEquipmentModelName.MenuManager = this.ribbonMain;
             this.txtsEquipmentModelName.Name = "txtsEquipmentModelName";
-            this.txtsEquipmentModelName.Size = new System.Drawing.Size(202, 20);
+            this.txtsEquipmentModelName.Size = new System.Drawing.Size(180, 20);
             this.txtsEquipmentModelName.StyleController = this.layoutControl1;
             this.txtsEquipmentModelName.TabIndex = 8;
             // 
@@ -437,20 +445,20 @@
             // 
             this.txtsMaterialName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sMaterialName", true));
             this.txtsMaterialName.Enabled = false;
-            this.txtsMaterialName.Location = new System.Drawing.Point(63, 84);
+            this.txtsMaterialName.Location = new System.Drawing.Point(85, 84);
             this.txtsMaterialName.MenuManager = this.ribbonMain;
             this.txtsMaterialName.Name = "txtsMaterialName";
-            this.txtsMaterialName.Size = new System.Drawing.Size(202, 20);
+            this.txtsMaterialName.Size = new System.Drawing.Size(180, 20);
             this.txtsMaterialName.StyleController = this.layoutControl1;
             this.txtsMaterialName.TabIndex = 7;
             // 
             // txtsOrderNo
             // 
             this.txtsOrderNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sOrderNo", true));
-            this.txtsOrderNo.Location = new System.Drawing.Point(63, 36);
+            this.txtsOrderNo.Location = new System.Drawing.Point(85, 36);
             this.txtsOrderNo.MenuManager = this.ribbonMain;
             this.txtsOrderNo.Name = "txtsOrderNo";
-            this.txtsOrderNo.Size = new System.Drawing.Size(202, 20);
+            this.txtsOrderNo.Size = new System.Drawing.Size(180, 20);
             this.txtsOrderNo.StyleController = this.layoutControl1;
             this.txtsOrderNo.TabIndex = 5;
             // 
@@ -458,10 +466,10 @@
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
             this.txtIden.Enabled = false;
-            this.txtIden.Location = new System.Drawing.Point(63, 12);
+            this.txtIden.Location = new System.Drawing.Point(85, 12);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(202, 20);
+            this.txtIden.Size = new System.Drawing.Size(180, 20);
             this.txtIden.StyleController = this.layoutControl1;
             this.txtIden.TabIndex = 4;
             // 
@@ -496,7 +504,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem1.Text = "序号";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem2
             // 
@@ -506,7 +514,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem2.Text = "工单号";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem4
             // 
@@ -516,7 +524,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem4.Text = "存货名称";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem5
             // 
@@ -526,7 +534,7 @@
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem5.Text = "机台号";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem6
             // 
@@ -536,7 +544,7 @@
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem6.Text = "色号";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem8
             // 
@@ -546,7 +554,7 @@
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem8.Text = "机台ID";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(70, 14);
             this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem9
@@ -557,7 +565,7 @@
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem9.Text = "排单号";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(70, 14);
             this.layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem7
@@ -568,7 +576,7 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem7.Text = "交货日期";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem10
             // 
@@ -578,7 +586,7 @@
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem10.Text = "工单数量";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem11
             // 
@@ -587,8 +595,8 @@
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 240);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(257, 37);
-            this.layoutControlItem11.Text = "周期";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem11.Text = "单个周期(秒)";
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem12
             // 
@@ -598,7 +606,7 @@
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(257, 24);
             this.layoutControlItem12.Text = "存货编码";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(70, 14);
             // 
             // jdMoorderView
             // 
