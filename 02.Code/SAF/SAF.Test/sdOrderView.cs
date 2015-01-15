@@ -27,8 +27,28 @@ namespace SAF.Test
 
         public new sdOrderViewViewModel ViewModel
         {
-            get { return this.ViewModel as sdOrderViewViewModel; }
+            get { return base.ViewModel as sdOrderViewViewModel; }
         }
 
+        protected override void OnInitUI()
+        {
+            base.OnInitUI();
+
+            InitOrgGridSearch();
+        }
+
+        private void InitOrgGridSearch()
+        {
+            this.gseOrg.Properties.CommandText = @"
+SELECT Iden,Name 
+FROM dbo.sysOrganization a WITH(NOLOCK)
+where {0}
+ORDER BY [Iden]";
+            this.gseOrg.Properties.DisplayMember = "Name";
+            this.gseOrg.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
+            this.gseOrg.Properties.AutoFillFieldNames = "OrganiaztionId=Iden,OrganiaztionName=Name";
+            this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
+            this.gseOrg.Properties.Query();
+        }
     }
 }
