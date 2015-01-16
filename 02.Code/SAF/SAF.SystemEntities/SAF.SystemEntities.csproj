@@ -65,7 +65,6 @@
     <Compile Include="sysRole.cs" />
     <Compile Include="sysRoleMenu.cs" />
     <Compile Include="sysTableColumn.cs" />
-    <Compile Include="sysUser.cs" />
     <Compile Include="sysUserRole.cs" />
     <Compile Include="Tables.cs" />
   </ItemGroup>

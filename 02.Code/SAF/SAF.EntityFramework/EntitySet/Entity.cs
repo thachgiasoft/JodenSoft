@@ -107,7 +107,9 @@ namespace SAF.EntityFramework
             string fieldName = EntityHelper.GetFieldName(propertyLambdaExpression);
             return this.FieldDataType(fieldName);
         }
-
+        /// <summary>
+        /// 时间戳是否同步
+        /// </summary>
         public override bool VersionNumberIsSync
         {
             get
@@ -116,5 +118,47 @@ namespace SAF.EntityFramework
                 return false;
             }
         }
+
+        #region CreatedBy & CreatedOn & ModifiedBy & ModifiedOnVersionNumber
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public override int? CreatedBy
+        {
+            get { return base.GetFieldValue<int?>("CreatedBy", null); }
+            set { base.SetFieldValue("CreatedBy", value); }
+        }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public override DateTime? CreatedOn
+        {
+            get { return base.GetFieldValue<DateTime?>("CreatedOn", null); }
+            set { base.SetFieldValue("CreatedOn", value); }
+        }
+        /// <summary>
+        /// 修改人
+        /// </summary>
+        public override int? ModifiedBy
+        {
+            get { return base.GetFieldValue<int?>("ModifiedBy", null); }
+            set { base.SetFieldValue("ModifiedBy", value); }
+        }
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public override DateTime? ModifiedOn
+        {
+            get { return base.GetFieldValue<DateTime?>("ModifiedOn", null); }
+            set { base.SetFieldValue("ModifiedOn", value); }
+        }
+        /// <summary>
+        /// 时间戳
+        /// </summary>
+        public override VersionNumber VersionNumber
+        {
+            get { return new VersionNumber(base.GetFieldValue<byte[]>("VersionNumber")); }
+        }
+        #endregion
     }
 }

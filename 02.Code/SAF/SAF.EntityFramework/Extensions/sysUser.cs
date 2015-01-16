@@ -116,44 +116,6 @@ namespace SAF.EntityFramework
             get { return base.GetFieldValue<bool>(p => p.Remark); }
             set { base.SetFieldValue(p => p.Remark, value); }
         }
-        /// <summary>
-        /// 创建人
-        /// </summary>
-        public int? CreatedBy
-        {
-            get { return base.GetFieldValue<int?>(p => p.CreatedBy, null); }
-            set { base.SetFieldValue(p => p.CreatedBy, value); }
-        }
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime? CreatedOn
-        {
-            get { return base.GetFieldValue<DateTime?>(p => p.CreatedOn, null); }
-            set { base.SetFieldValue(p => p.CreatedOn, value); }
-        }
-        /// <summary>
-        /// 修改人
-        /// </summary>
-        public DateTime? ModifiedBy
-        {
-            get { return base.GetFieldValue<DateTime?>(p => p.ModifiedBy, null); }
-            set { base.SetFieldValue(p => p.ModifiedBy, value); }
-        }
-        /// <summary>
-        /// 修改时间
-        /// </summary>
-        public DateTime? ModifiedOn
-        {
-            get { return base.GetFieldValue<DateTime?>(p => p.ModifiedOn, null); }
-            set { base.SetFieldValue(p => p.ModifiedOn, value); }
-        }
-        /// <summary>
-        /// 数据版本号
-        /// </summary>
-        public VersionNumber VersionNumber
-        {
-            get { return new VersionNumber(base.GetFieldValue<byte[]>(p => p.VersionNumber)); }
-        }
+       
     }
 }

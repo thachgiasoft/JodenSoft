@@ -13,7 +13,7 @@ using SAF.Foundation.Security;
 
 namespace SAF.SystemModule
 {
-    public class sysUserViewViewModel : SingleViewViewModel<SAF.SystemEntities.sysUser, SAF.SystemEntities.sysUser>
+    public class sysUserViewViewModel : SingleViewViewModel<sysUser, sysUser>
     {
         #region 角色
 
@@ -102,7 +102,7 @@ order by Iden";
             this.MainEntitySet.AfterAdd += MainEntitySet_AfterAdd;
         }
 
-        void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<SystemEntities.sysUser> e)
+        void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysUser> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.IsSystem = false;

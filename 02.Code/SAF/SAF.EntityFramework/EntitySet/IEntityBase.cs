@@ -86,7 +86,6 @@ namespace SAF.EntityFramework
         /// 复制
         /// </summary>
         void Copy(IEntityBase sourceEntity);
-
         /// <summary>
         /// 判断字段是否存在
         /// </summary>
@@ -114,5 +113,25 @@ namespace SAF.EntityFramework
         /// </summary>
         void SetAdded();
 
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        int? CreatedBy { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        DateTime? CreatedOn { get; set; }
+        /// <summary>
+        /// 修改人
+        /// </summary>
+        int? ModifiedBy { get; set; }
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        DateTime? ModifiedOn { get; set; }
+        /// <summary>
+        /// 时间戳
+        /// </summary>
+        VersionNumber VersionNumber { get; }
     }
 }

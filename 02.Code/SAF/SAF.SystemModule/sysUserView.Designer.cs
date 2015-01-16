@@ -114,11 +114,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysUser);
+            this.bsIndex.DataSource = typeof(SAF.EntityFramework.sysUser);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysUser);
+            this.bsMain.DataSource = typeof(SAF.EntityFramework.sysUser);
             // 
             // pnlQueryControl
             // 

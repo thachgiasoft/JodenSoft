@@ -295,8 +295,49 @@ namespace SAF.EntityFramework
             }
         }
 
-
+        /// <summary>
+        /// 时间戳是否一致
+        /// </summary>
         public abstract bool VersionNumberIsSync
+        {
+            get;
+        }
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public abstract int? CreatedBy
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public abstract DateTime? CreatedOn
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 修改人
+        /// </summary>
+        public abstract int? ModifiedBy
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public abstract DateTime? ModifiedOn
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 时间戳
+        /// </summary>
+        public abstract VersionNumber VersionNumber
         {
             get;
         }
