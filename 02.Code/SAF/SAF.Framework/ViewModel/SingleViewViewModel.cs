@@ -122,7 +122,11 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnSave()
         {
-            bool canSave = OnBeforeSave();
+            bool canSave = true;
+            canSave = OnValidateData();
+            if (!canSave) return;
+
+            canSave = OnBeforeSave();
             if (!canSave) return;
 
             bool saveSucceed = false;
@@ -156,6 +160,14 @@ namespace SAF.Framework.ViewModel
                     FireAfterSaveEvent();
                 }
             }
+        }
+        /// <summary>
+        /// 数据验证
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool OnValidateData()
+        {
+            return true;
         }
 
         public event EventHandler AfterQuery;
