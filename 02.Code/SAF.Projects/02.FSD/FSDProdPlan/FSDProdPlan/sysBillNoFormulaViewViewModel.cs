@@ -14,7 +14,7 @@ namespace FSDProdPlan
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
-            IndexEntitySet.Query(@"SELECT Iden,BillNoType,CurrentIden  from sysBillNoFormula with(nolock) where ({0})".FormatEx(sCondition));
+            IndexEntitySet.Query(@"SELECT Iden,BillNoType,CurrentIden,CurrentDate  from sysBillNoFormula with(nolock) where ({0})".FormatEx(sCondition));
         }
 
         protected override void OnQueryChild(object key)
