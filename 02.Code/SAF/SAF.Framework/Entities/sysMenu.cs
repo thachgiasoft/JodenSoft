@@ -66,28 +66,26 @@ namespace SAF.Framework.Entities
         public int MenuType
         {
             get { return base.GetFieldValue<int>(p => p.MenuType); }
-            set { base.SetFieldValue(p => (int)p.MenuType, value); }
+            set { base.SetFieldValue(p => p.MenuType, value); }
         }
 
         public string FileName
         {
             get { return base.GetFieldValue<string>(p => p.FileName); }
-            set { base.SetFieldValue(p => (string)p.FileName, value); }
+            set { base.SetFieldValue(p => p.FileName, value); }
         }
 
         public string FileParameter
         {
             get { return base.GetFieldValue<string>(p => p.FileParameter); }
-            set { base.SetFieldValue(p => (string)p.FileParameter, value); }
+            set { base.SetFieldValue(p => p.FileParameter, value); }
         }
 
         public bool IsShowDialog
         {
             get { return base.GetFieldValue<bool>(p => p.IsShowDialog); }
-            set { base.SetFieldValue(p => (bool)p.IsShowDialog, value); }
+            set { base.SetFieldValue(p => p.IsShowDialog, value); }
         }
-
-       
 
     }
 }

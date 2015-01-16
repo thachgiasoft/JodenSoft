@@ -78,7 +78,7 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(sCondition);
             base.OnQueryChild(key);
 
             this.MainEntitySet.Query(@"
-select a.Iden, a.Name, a.ParentId, a.BusinessViewId, a.MenuOrder, a.Remark, a.IsSystem, 
+select a.Iden, a.Name, a.ParentId, a.BusinessViewId, a.MenuOrder, a.Remark, a.IsSystem,
     a.IsAutoOpen,a.MenuType,a.[FileName],a.FileParameter,a.IsShowDialog,
     a.CreatedBy, a.CreatedOn, a.ModifiedBy, a.ModifiedOn, a.VersionNumber,
     BusinessView=b.[ClassName],
@@ -144,6 +144,7 @@ LEFT JOIN
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.MenuOrder = 0;
             e.CurrentEntity.IsAutoOpen = false;
+            e.CurrentEntity.IsShowDialog = false;
 
             if (e.OriginalEntity != null)
             {

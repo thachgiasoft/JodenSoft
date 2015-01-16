@@ -120,7 +120,7 @@ ORDER BY [Iden]";
         {
             base.OnInitConfig();
 
-            this.AccessFocusControl = this.txtName;
+            this.AccessFocusControl = this.gluMenuType;
 
             UIController.SetupTreelist(this.treeMenu);
         }
