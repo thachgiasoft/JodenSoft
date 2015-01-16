@@ -179,14 +179,26 @@ namespace SAF.Framework.View
             PostUIData();
             try
             {
-                OnSave();
+                var bSaveSuccess = OnSave();
                 RefreshUI();
-                MessageService.ShowMessage("保存成功!");
+
+                OnAfterSave(bSaveSuccess);
+
+                if (bSaveSuccess)
+                    MessageService.ShowMessage("保存成功!");
             }
             catch (Exception ex)
             {
                 throw new SaveException("保存失败!", ex);
             }
+        }
+        /// <summary>
+        /// 界面保存后事件
+        /// </summary>
+        /// <param name="bSaveSuccess"></param>
+        protected virtual void OnAfterSave(bool bSaveSuccess)
+        {
+
         }
 
         protected override void OnPostUIData()
@@ -266,13 +278,16 @@ namespace SAF.Framework.View
             }
         }
 
-        protected virtual void OnSave()
+        protected virtual bool OnSave()
         {
             if (ViewModel != null)
             {
-                ViewModel.Save();
+                var result = ViewModel.Save();
                 RefreshPageControl();
+                return result;
             }
+
+            return false;
         }
 
         protected virtual void OnDelete()
@@ -477,7 +492,7 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiSave, IsAddNew || IsEdit);
 
             UIController.RefreshControl(this.bbiSend, IsBrowse && this.BillTypeId > 0 && curr != null && canSendToAudit && curr.BillState == BillState.Draft);
-            
+
             if (curr != null)
             {
                 if (curr.BillState.In(BillState.Draft))

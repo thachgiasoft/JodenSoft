@@ -104,12 +104,12 @@ namespace SAF.SystemModule
             }
         }
 
-        protected override void OnSave()
+        protected override bool OnSave()
         {
             var list = this.treeMenu.GetAllCheckedNodes();
             this.ViewModel.SaveCheckNodes(list);
 
-            base.OnSave();
+            return base.OnSave();
         }
 
         private void treeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)

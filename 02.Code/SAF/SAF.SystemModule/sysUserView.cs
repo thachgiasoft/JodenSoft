@@ -88,12 +88,12 @@ namespace SAF.SystemModule
 
         }
 
-        protected override void OnSave()
+        protected override bool OnSave()
         {
             var list = this.treeRole.GetAllCheckedNodes();
             this.ViewModel.SaveRoles(list);
 
-            base.OnSave();
+            return base.OnSave();
         }
 
         protected override void OnInitCustomRibbonMenuCommands()

@@ -22,7 +22,7 @@ namespace SAF.Framework.ViewModel
         bool AllowEdit();
         void Edit();
         void Cancel();
-        void Save();
+        bool Save();
 
         /// <summary>
         /// 送审

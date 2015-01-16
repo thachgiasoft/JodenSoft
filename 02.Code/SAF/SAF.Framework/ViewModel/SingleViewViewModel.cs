@@ -113,25 +113,25 @@ namespace SAF.Framework.ViewModel
             OnApplySave();
         }
 
-        public void Save()
+        public bool Save()
         {
-            OnSave();
+            return OnSave();
         }
 
         private EditState preEditStatus = EditState.Browse;
 
-        protected virtual void OnSave()
+        protected virtual bool OnSave()
         {
             bool canSave = true;
             //预处理数据
             canSave = OnPreHandle();
-            if (!canSave) return;
+            if (!canSave) return false;
             //验证数据
             canSave = OnValidateData();
-            if (!canSave) return;
+            if (!canSave) return false;
             //保存前处理
             canSave = OnBeforeSave();
-            if (!canSave) return;
+            if (!canSave) return false;
 
             bool saveSucceed = false;
             preEditStatus = this.EditState;
@@ -147,6 +147,8 @@ namespace SAF.Framework.ViewModel
 
                 if (preEditStatus.In(EditState.AddNew, EditState.Edit))
                     OnSyncIndexEntitySet();
+
+                return true;
             }
             catch
             {
