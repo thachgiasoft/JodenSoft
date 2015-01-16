@@ -145,9 +145,6 @@ namespace SAF.Framework.ViewModel
                 this.EditState = EditState.Browse;
                 saveSucceed = true;
 
-                if (preEditStatus.In(EditState.AddNew, EditState.Edit))
-                    OnSyncIndexEntitySet();
-
                 return true;
             }
             catch
@@ -157,6 +154,9 @@ namespace SAF.Framework.ViewModel
             }
             finally
             {
+                if (preEditStatus.In(EditState.AddNew, EditState.Edit))
+                    OnSyncIndexEntitySet();
+
                 this.ExecuteCache.Clear();
                 OnAcceptChanges(saveSucceed);
                 OnAfterSave(saveSucceed);
