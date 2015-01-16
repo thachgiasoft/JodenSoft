@@ -99,12 +99,12 @@ namespace SAF.Framework.ViewModel
 
         public event EventHandler<AfterSaveEventArgs> AfterSave;
 
-        private void FireAfterSaveEvent()
+        private void FireAfterSaveEvent(bool isSavedSuccessfully)
         {
             var handler = AfterSave;
             if (handler != null)
             {
-                handler(this, new AfterSaveEventArgs());
+                handler(this, new AfterSaveEventArgs(isSavedSuccessfully));
             }
         }
 
@@ -133,7 +133,7 @@ namespace SAF.Framework.ViewModel
             canSave = OnBeforeSave();
             if (!canSave) return false;
 
-            bool saveSucceed = false;
+            bool isSavedSuccessfully = false;
             preEditStatus = this.EditState;
             try
             {
@@ -143,13 +143,13 @@ namespace SAF.Framework.ViewModel
                     DataPortal.ExecuteNonQueryByTransaction(this.ConnectionName, ExecuteCache.ToList());
                 }
                 this.EditState = EditState.Browse;
-                saveSucceed = true;
+                isSavedSuccessfully = true;
 
                 return true;
             }
             catch
             {
-                saveSucceed = false;
+                isSavedSuccessfully = false;
                 throw;
             }
             finally
@@ -158,13 +158,10 @@ namespace SAF.Framework.ViewModel
                     OnSyncIndexEntitySet();
 
                 this.ExecuteCache.Clear();
-                OnAcceptChanges(saveSucceed);
-                OnAfterSave(saveSucceed);
+                OnAcceptChanges(isSavedSuccessfully);
+                OnAfterSave(isSavedSuccessfully);
 
-                if (saveSucceed)
-                {
-                    FireAfterSaveEvent();
-                }
+                FireAfterSaveEvent(isSavedSuccessfully);
             }
         }
         /// <summary>
