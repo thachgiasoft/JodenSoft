@@ -95,9 +95,6 @@ namespace FSDProdPlan
         {
             this.IndexRowChange();
         }
-        protected override void OnSave()
-        {
-            base.OnSave();
-        }
+        
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
+using SAF.Foundation.ServiceModel;
 
 namespace FSDProdPlan
 {
@@ -38,5 +39,15 @@ namespace FSDProdPlan
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
         }
+        protected override bool OnValidateData()
+        {
+            if (string.IsNullOrEmpty(this.MainEntitySet.CurrentEntity.BillNoType))
+            {
+                MessageService.ShowMessage("请输入单据号类型");
+                return false;
+            }
+            return true;
+        }
+        
     }
 }

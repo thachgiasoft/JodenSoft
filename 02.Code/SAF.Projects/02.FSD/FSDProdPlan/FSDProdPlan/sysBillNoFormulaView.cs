@@ -60,16 +60,18 @@ namespace FSDProdPlan
         {
             this.IndexRowChange();
         }
-        protected override void OnPostUIData()
+        protected override void OnValidated(EventArgs e)
         {
-            base.OnPostUIData();
+            base.OnValidated(e);
             if (string.IsNullOrEmpty(this.txtBillNoType.Text))
             {
                 MessageService.ShowMessage("请输入单据号类型");
-                return  ;
-                
+                return ;
+
             }
+            
         }
+        
        
     }
 }

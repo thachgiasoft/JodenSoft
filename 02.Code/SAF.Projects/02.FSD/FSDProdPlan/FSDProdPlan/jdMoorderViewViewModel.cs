@@ -50,7 +50,7 @@ namespace FSDProdPlan
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
 
-            e.CurrentEntity.sOrderNo = BillNoGenerator.NewBillNo("2");
+            e.CurrentEntity.sOrderNo = BillNoGenerator.NewBillNo(2);
                 //DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, "exec JD_P_GetMoOrderNumber").ToString();// (1000000000 + e.CurrentEntity.Iden).ToString();
         }
     }
