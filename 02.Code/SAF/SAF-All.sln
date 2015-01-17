@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Controls.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Services", "SAF.Framework.Services\SAF.Framework.Services.csproj", "{916492C7-4CA2-4D9E-BE81-895C126ED8C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.CommonConfig", "SAF.CommonConfig\SAF.CommonConfig.csproj", "{C43A0047-5D4E-40F7-8D85-82B98C7D8598}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.CommonConfig", "SAF.CommonBill\SAF.CommonBill.csproj", "{C43A0047-5D4E-40F7-8D85-82B98C7D8598}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Component", "SAF.Framework.Component\SAF.Framework.Component.csproj", "{86B4FE45-AD27-49C5-A4F2-A05F2695ADD7}"
 EndProject
