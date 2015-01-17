@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C43A0047-5D4E-40F7-8D85-82B98C7D8598}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAF.CommonConfig</RootNamespace>
+    <AssemblyName>SAF.CommonConfig</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\SAF.Output\Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF.Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\SAF.Key\StrongKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonConfigInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sdOrder.cs" />
+    <Compile Include="sdOrderDtl.cs" />
+    <Compile Include="sysCommonBillConfigView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysCommonBillConfigView.Designer.cs">
+      <DependentUpon>sysCommonBillConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysCommonBillConfigViewViewModel.cs" />
+    <Compile Include="sysCommonBillView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysCommonBillView.Designer.cs">
+      <DependentUpon>sysCommonBillView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysCommonBillViewViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.EntityFramework\SAF.EntityFramework.csproj">
+      <Project>{2f6a089c-dd0b-47af-b44d-ea510f2b4376}</Project>
+      <Name>SAF.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
+      <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
+      <Name>SAF.Framework.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Services\SAF.Framework.Services.csproj">
+      <Project>{916492c7-4ca2-4d9e-be81-895c126ed8c9}</Project>
+      <Name>SAF.Framework.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework\SAF.Framework.csproj">
+      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
+      <Name>SAF.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntities.csproj">
+      <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
+      <Name>SAF.SystemEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="sysCommonBillConfigView.resx">
+      <DependentUpon>sysCommonBillConfigView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysCommonBillView.resx">
+      <DependentUpon>sysCommonBillView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysCommonBillHdr.datasource" />
+    <None Include="Properties\DataSources\sdOrder.datasource" />
+    <None Include="Properties\DataSources\sdOrderDtl.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
