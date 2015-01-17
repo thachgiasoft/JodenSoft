@@ -16,6 +16,7 @@ using DevExpress.XtraLayout;
 using DevExpress.XtraEditors;
 using SAF.EntityFramework;
 using DevExpress.Utils;
+using SAF.Framework.Controls.ViewConfig;
 
 namespace SAF.CommonBill
 {
@@ -39,7 +40,7 @@ namespace SAF.CommonBill
 
         protected override Framework.ViewModel.IBaseViewViewModel OnCreateViewModel()
         {
-            return new sysCommonBillViewViewModel();
+            return new sysCommonBillViewViewModel() { View = this };
         }
 
         public new sysCommonBillViewViewModel ViewModel
@@ -60,25 +61,30 @@ namespace SAF.CommonBill
 
         private CommonBillConfig config = new CommonBillConfig();
 
-        protected override void OnInitUI()
+        protected override void OnInitCommonBill()
         {
-            base.OnInitUI();
+            base.OnInitCommonBill();
 
-            var config = ViewModel.QueryBillConfg(this.CommonBillConfigId);
+            var config = QueryBillConfg(this.CommonBillConfigId);
 
             CreateIndexControl(config.IndexEntitySetConfig);
 
             CreateMainControl(config.MainEntitySetConfig);
 
             CreateDetailsControl(config.DetailEntitySetConfigs);
-
         }
 
         private void CreateDetailsControl(IList<DetailEntitySetConfig> dtlConfigs)
         {
-            if (dtlConfigs == null || dtlConfigs.Count <= 0) return;
-
             this.tcDtl.TabPages.Clear();
+
+            if (dtlConfigs == null || dtlConfigs.Count <= 0)
+            {
+                this.splitRight.PanelVisibility = SplitPanelVisibility.Panel1;
+                return;
+            }
+
+            this.splitRight.PanelVisibility = SplitPanelVisibility.Both;
 
             if (dtlConfigs.Count <= 1)
                 this.tcDtl.ShowTabHeader = DefaultBoolean.False;
@@ -97,7 +103,7 @@ namespace SAF.CommonBill
 
                 var dtlEntity = new EntitySet<QueryEntity>(this.ViewModel.ExecuteCache);
                 dtlEntity.IsReadOnly = config.IsReadOnly;
-                this.ViewModel.dtlEntitys.Add(dtlEntity);
+                this.dtlEntitys.Add(dtlEntity);
                 dtlEntity.SetBindingSource(bsDtl);
 
                 if (config.ControlSetting.ControlType == EntitySetControlType.GridControl)
@@ -185,6 +191,70 @@ namespace SAF.CommonBill
                     column.Visible = true;
                 }
             }
+        }
+        /// <summary>
+        /// 通用单据配置
+        /// </summary>
+        public CommonBillConfig CommonBillConfig = new CommonBillConfig();
+        /// <summary>
+        /// 通用单据查询实体
+        /// </summary>
+        public EntitySet<sysCommonBillConfig> CommonBillConfigEntitySet = new EntitySet<sysCommonBillConfig>();
+        /// <summary>
+        /// 所有明细实体集列表
+        /// </summary>
+        public List<EntitySet<QueryEntity>> dtlEntitys = new List<EntitySet<QueryEntity>>();
+        /// <summary>
+        /// 查询通用单据配置
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public CommonBillConfig QueryBillConfg(object key)
+        {
+            //            string sql = @"
+            //SELECT a.Iden,a.Config,a.CreatedBy,a.CreatedOn,a.ModifiedBy,a.ModifiedOn,a.VersionNumber
+            //FROM dbo.sysCommonBillConfig a WITH(NOLOCK)
+            //WHERE Iden=:Iden";
+            //            IndexEntitySet.Query(sql, key);
+            //            if (IndexEntitySet.CurrentEntity == null || IndexEntitySet.CurrentEntity.Config.IsEmpty())
+            //                return null;
+            //            return XmlSerializerHelper.Deserialize<CommonBillConfig>(IndexEntitySet.CurrentEntity.Config);
+
+            CommonBillConfig.QueryConfig.QuickQuery.QueryFields.Add(new QueryField("OrderNo", "订单号"));
+
+            CommonBillConfig.IndexEntitySetConfig.DbTableName = "sdOrder";
+            CommonBillConfig.IndexEntitySetConfig.PrimaryKeyName = "Iden";
+            CommonBillConfig.IndexEntitySetConfig.Sql = "SELECT * FROM dbo.sdOrder with(nolock)";
+            CommonBillConfig.IndexEntitySetConfig.IsReadOnly = true;
+            CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
+            CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
+
+            CommonBillConfig.MainEntitySetConfig.DbTableName = "sdOrder";
+            CommonBillConfig.MainEntitySetConfig.PrimaryKeyName = "Iden";
+            CommonBillConfig.MainEntitySetConfig.Sql = "SELECT * FROM dbo.sdOrder with(nolock) where Iden=:Iden";
+            CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
+            CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
+
+            //var dtlConfig = new DetailEntitySetConfig();
+            //dtlConfig.DbTableName = "sdOrderDtl";
+            //dtlConfig.PrimaryKeyName = "Iden";
+            //dtlConfig.Caption = "订单明细";
+            //dtlConfig.Sql = " SELECT * FROM [dbo].[sdOrderDtl] WITH(NOLOCK) WHERE OrderId=:Iden";
+            //dtlConfig.Fields.Add(new EntitySetField("Iden", "序号", true));
+            //dtlConfig.Fields.Add(new EntitySetField("Qty", "数量"));
+            //CommonBillConfig.DetailEntitySetConfigs.Add(dtlConfig);
+
+            //dtlConfig = new DetailEntitySetConfig();
+            //dtlConfig.DbTableName = "sdOrderDtl";
+            //dtlConfig.PrimaryKeyName = "Iden";
+            //dtlConfig.Caption = "订单明细2";
+            //dtlConfig.Sql = " SELECT * FROM [dbo].[sdOrderDtl] WITH(NOLOCK) WHERE OrderId=:Iden";
+            //dtlConfig.Fields.Add(new EntitySetField("Iden", "序号", true));
+            //dtlConfig.Fields.Add(new EntitySetField("Qty", "数量"));
+            //CommonBillConfig.DetailEntitySetConfigs.Add(dtlConfig);
+
+            return CommonBillConfig;
+
         }
 
     }

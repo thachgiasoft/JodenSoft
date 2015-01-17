@@ -45,6 +45,10 @@ namespace SAF.Framework.ViewModel
         /// 查询配置
         /// </summary>
         QueryConfig QueryConfig { get; }
+        /// <summary>
+        /// 初始查询配置
+        /// </summary>
+        void InitQueryConfig();
 
     }
 }

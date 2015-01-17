@@ -70,14 +70,8 @@ namespace SAF.Framework.ViewModel
             }
         }
 
-        protected override void OnInitConfig()
-        {
-            base.OnInitConfig();
-            InitQueryConfig();
-        }
-
         public QueryConfig QueryConfig { get; private set; }
-        protected void InitQueryConfig()
+        public void InitQueryConfig()
         {
             QueryConfig = new QueryConfig();
             OnInitQueryConfig(QueryConfig);

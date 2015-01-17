@@ -64,6 +64,7 @@ namespace SAF.Framework.View
             if (this.DesignMode) return;
 
             OnInitViewParam();
+            OnInitCommonBill();
             OnInitBillRight();
             GenarateCustomRibbonMenu();
             OnInitConfig();
@@ -75,6 +76,14 @@ namespace SAF.Framework.View
             OnInitDefaultActions();
             OnAfterInit();
             RefreshUI();
+        }
+
+        /// <summary>
+        /// 初始化通用单据
+        /// </summary>
+        protected virtual void OnInitCommonBill()
+        {
+            
         }
 
         protected virtual void OnAfterInit()

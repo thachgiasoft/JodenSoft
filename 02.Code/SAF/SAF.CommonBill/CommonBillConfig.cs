@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAF.Framework.Controls.ViewConfig;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +8,19 @@ namespace SAF.CommonBill
 {
     public sealed class CommonBillConfig
     {
+        public QueryConfig QueryConfig { get; set; }
+
         public EntitySetConfig IndexEntitySetConfig { get; set; }
         public EntitySetConfig MainEntitySetConfig { get; set; }
         public IList<DetailEntitySetConfig> DetailEntitySetConfigs { get; set; }
 
         public CommonBillConfig()
         {
+            QueryConfig = new Framework.Controls.ViewConfig.QueryConfig();
             IndexEntitySetConfig = new EntitySetConfig();
             MainEntitySetConfig = new EntitySetConfig();
             DetailEntitySetConfigs = new List<DetailEntitySetConfig>();
+
         }
     }
 

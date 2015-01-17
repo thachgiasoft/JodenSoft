@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -37,7 +38,7 @@
             this.bbiExitView = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSend = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
-            this.pmuReport = new DevExpress.XtraBars.PopupMenu();
+            this.pmuReport = new DevExpress.XtraBars.PopupMenu(this.components);
             this.bbiAddToFavorite = new DevExpress.XtraBars.BarButtonItem();
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -49,13 +50,13 @@
             this.splitRight = new DevExpress.XtraEditors.SplitContainerControl();
             this.tcMain = new DevExpress.XtraTab.XtraTabControl();
             this.pageMain = new DevExpress.XtraTab.XtraTabPage();
-            this.bsIndex = new System.Windows.Forms.BindingSource();
-            this.bsMain = new System.Windows.Forms.BindingSource();
+            this.bsIndex = new System.Windows.Forms.BindingSource(this.components);
+            this.bsMain = new System.Windows.Forms.BindingSource(this.components);
             this.pnlQueryControl = new DevExpress.XtraEditors.PanelControl();
             this.qcMain = new SAF.Framework.Controls.QueryControl();
             this.pnlPageControl = new DevExpress.XtraEditors.PanelControl();
             this.pcMain = new SAF.Framework.Controls.PageControl();
-            this.bmMain = new DevExpress.XtraBars.BarManager();
+            this.bmMain = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();

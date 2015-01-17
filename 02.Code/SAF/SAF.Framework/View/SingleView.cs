@@ -37,7 +37,10 @@ namespace SAF.Framework.View
         {
             base.OnInitQueryConfig();
             if (this.ViewModel != null)
+            {
+                this.ViewModel.InitQueryConfig();
                 this.qcMain.Init(this.ViewModel.QueryConfig);
+            }
         }
 
         protected override void OnInitUI()
