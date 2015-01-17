@@ -35,7 +35,7 @@ namespace SAF.CommonBill
 
         public new sysCommonBillViewViewModel ViewModel
         {
-            get { return this.ViewModel as sysCommonBillViewViewModel; }
+            get { return base.ViewModel as sysCommonBillViewViewModel; }
         }
 
         private CommonBillConfig config = new CommonBillConfig();
