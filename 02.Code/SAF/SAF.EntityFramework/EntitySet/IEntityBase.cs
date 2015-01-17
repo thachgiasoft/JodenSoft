@@ -40,7 +40,7 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 拥有此实体的实体集
         /// </summary>
-        EntitySetBase EntitySet { get; }
+        EntitySetBase OwnerEntitySet { get; }
         /// <summary>
         /// 实体状态
         /// </summary>

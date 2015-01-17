@@ -29,8 +29,6 @@ namespace SAF.EntityFramework
         {
             if (connectionName.IsEmpty())
                 throw new Exception("GeneratorCommand方法中的connectionName为空.");
-            if (dbTableName.IsEmpty())
-                throw new Exception("GeneratorCommand方法中的tableName为空.");
 
             List<SqlCommandObject> cmds = new List<SqlCommandObject>();
             if (table.IsEmpty())
@@ -54,6 +52,9 @@ namespace SAF.EntityFramework
                 }
 
                 if (dtChanges == null) return cmds;
+
+                if (dbTableName.IsEmpty())
+                    throw new Exception("GeneratorCommand方法中的tableName为空.");
 
                 foreach (DataRow dr in dtChanges.Rows)
                 {

@@ -14,34 +14,41 @@ namespace SAF.EntityFramework
     [Serializable]
     public abstract class EntityBase : DisposableObject, IEntityBase
     {
+        private string _DbTableName = string.Empty;
+        private string _PrimaryKeyName = string.Empty;
+
         /// <summary>
         /// 数据库表名
         /// </summary>
-        public virtual string DbTableName { get; set; }
-
-        private string _PrimaryKeyName = "Iden";
-        /// <summary>
-        /// 数据库表的主键名称
-        /// </summary>
-        public virtual string PrimaryKeyName
+        public string DbTableName
         {
-            get { return _PrimaryKeyName; }
+            get { return IsInner ? _DbTableName : OwnerEntitySet.DbTableName; }
+            set { _DbTableName = value; }
+        }
+        /// <summary>
+        /// 主键名称
+        /// </summary>
+        public string PrimaryKeyName
+        {
+            get { return IsInner ? _PrimaryKeyName : OwnerEntitySet.PrimaryKeyName; }
             set { _PrimaryKeyName = value; }
         }
+
+        internal bool IsInner = false;
 
         /// <summary>
         /// 对应数据集的行
         /// </summary>
         public DataRowView DataRowView { get; set; }
 
-        private EntitySetBase _EntitySetBase;
+        private EntitySetBase _OwnerEntitySet;
         /// <summary>
         /// 
         /// </summary>
-        public EntitySetBase EntitySet
+        public EntitySetBase OwnerEntitySet
         {
-            get { return _EntitySetBase; }
-            internal set { this._EntitySetBase = value; }
+            get { return _OwnerEntitySet; }
+            internal set { this._OwnerEntitySet = value; }
         }
 
         #region 设置字段值
@@ -135,7 +142,7 @@ namespace SAF.EntityFramework
                 throw new NullReferenceException("FieldIsNull: fieldName Is Null Or WhiteSpace.");
             if (this.DataRowView == null || this.DataRowView.Row == null || this.DataRowView.Row.Table == null)
                 throw new Exception("FieldIsNull: DataRowView is null.");
-            if (!EntitySet.FieldIsExists(fieldName)) return false;
+            if (!OwnerEntitySet.FieldIsExists(fieldName)) return false;
             return this.DataRowView.Row.IsNull(fieldName);
         }
         /// <summary>
@@ -143,9 +150,9 @@ namespace SAF.EntityFramework
         /// </summary>
         public void Delete()
         {
-            if (this.EntitySet != null)
+            if (this.OwnerEntitySet != null)
             {
-                this.EntitySet.DeleteEntity(this);
+                this.OwnerEntitySet.DeleteEntity(this);
             }
         }
         /// <summary>
@@ -153,9 +160,9 @@ namespace SAF.EntityFramework
         /// </summary>
         public void Cancel()
         {
-            if (this.EntitySet != null)
+            if (this.OwnerEntitySet != null)
             {
-                this.EntitySet.CancelEditEntity(this);
+                this.OwnerEntitySet.CancelEditEntity(this);
             }
         }
         /// <summary>
@@ -263,7 +270,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public BillDataRight BillDataRight
         {
-            get { return this.EntitySet.CalcBillDataRight(this, false); }
+            get { return this.OwnerEntitySet.CalcBillDataRight(this, false); }
         }
 
         /// <summary>

@@ -119,7 +119,7 @@ namespace SAF.EntityFramework
             }
         }
 
-        #region CreatedBy & CreatedOn & ModifiedBy & ModifiedOnVersionNumber
+        #region CreatedBy & CreatedOn & ModifiedBy & ModifiedOn & VersionNumber
         /// <summary>
         /// 创建人
         /// </summary>
@@ -160,5 +160,6 @@ namespace SAF.EntityFramework
             get { return new VersionNumber(base.GetFieldValue<byte[]>("VersionNumber")); }
         }
         #endregion
+
     }
 }

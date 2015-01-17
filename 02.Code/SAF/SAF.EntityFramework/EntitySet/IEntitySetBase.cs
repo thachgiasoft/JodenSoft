@@ -36,6 +36,14 @@ namespace SAF.EntityFramework
         #endregion
 
         /// <summary>
+        /// 数据库表名
+        /// </summary>
+        string DbTableName { get; }
+        /// <summary>
+        /// 主键名称
+        /// </summary>
+        string PrimaryKeyName { get; }
+        /// <summary>
         ///  单据类型
         /// </summary>
         int BillTypeId { get; set; }

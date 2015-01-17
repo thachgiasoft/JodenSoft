@@ -22,6 +22,20 @@ namespace SAF.EntityFramework
         private EntitySetBaseCollection _childEntitySets = new EntitySetBaseCollection();
         private string _connectionName = string.Empty;
 
+        /// <summary>
+        /// 数据库表名
+        /// </summary>
+        public abstract string DbTableName { get; set; }
+
+        /// <summary>
+        /// 数据库表的主键名称
+        /// </summary>
+        public abstract string PrimaryKeyName
+        {
+            get;
+            set;
+        }
+
         #region Page
 
         private int _CurrentPageIndex = 0;

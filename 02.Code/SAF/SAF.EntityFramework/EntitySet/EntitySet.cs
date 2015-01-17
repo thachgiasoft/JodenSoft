@@ -26,7 +26,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public event EventHandler<EntitySetAddEventArgs<TEntity>> AfterAdd;
 
-        private TEntity innerEntity = default(TEntity);
+        private TEntity innerEntity = new TEntity() { IsInner = true };
 
         #region 构造函数
         /// <summary>
@@ -82,7 +82,7 @@ namespace SAF.EntityFramework
 
             this.ExecuteCache = executeCache;
 
-            this.innerEntity = new TEntity();
+            innerEntity.OwnerEntitySet = this;
         }
         /// <summary>
         /// 
@@ -120,7 +120,7 @@ namespace SAF.EntityFramework
             if (drv == null) return null;
 
             TEntity entity = new TEntity();
-            entity.EntitySet = this;
+            entity.OwnerEntitySet = this;
             entity.DataRowView = drv;
             return entity;
         }
@@ -291,7 +291,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public override void SaveChanges(DataRowState entityState = DataRowState.Unchanged)
         {
-            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable, entityState);
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.DbTableName, this.DataTable, entityState);
             if (list.Count <= 0) return;
             try
             {
@@ -320,7 +320,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public override void SubmitToDatabase()
         {
-            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.innerEntity.DbTableName, this.DataTable, DataRowState.Unchanged);
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.DbTableName, this.DataTable, DataRowState.Unchanged);
             if (list.Count <= 0) return;
             try
             {
@@ -341,7 +341,7 @@ namespace SAF.EntityFramework
             if (this.CurrentEntity == null)
                 return int.MinValue;
 
-            var keyName = innerEntity.PrimaryKeyName;
+            var keyName = this.PrimaryKeyName;
             if (keyName.IsEmpty())
                 throw new Exception("实体中未标记主键字段.");
             return this.CurrentEntity.GetFieldValue(keyName, int.MinValue);
@@ -463,8 +463,8 @@ namespace SAF.EntityFramework
             {
                 newobj.Copy(oldObj);
 
-                if (newobj.FieldIsExists(newobj.PrimaryKeyName))
-                    newobj.SetFieldValue(newobj.PrimaryKeyName, null);
+                if (newobj.FieldIsExists(this.PrimaryKeyName))
+                    newobj.SetFieldValue(this.PrimaryKeyName, null);
 
                 if (newobj.FieldIsExists(EntityFields.CreatedBy))
                     newobj.SetFieldValue(EntityFields.CreatedBy, null);
@@ -493,6 +493,34 @@ namespace SAF.EntityFramework
             var dt = this.DataTable.Clone();
             var obj = new EntitySet<TEntity>(dt);
             return obj;
+        }
+        /// <summary>
+        /// 数据库表名
+        /// </summary>
+        public override string DbTableName
+        {
+            get
+            {
+                return innerEntity.DbTableName;
+            }
+            set
+            {
+                innerEntity.DbTableName = value;
+            }
+        }
+        /// <summary>
+        /// 数据库主键名
+        /// </summary>
+        public override string PrimaryKeyName
+        {
+            get
+            {
+                return innerEntity.PrimaryKeyName;
+            }
+            set
+            {
+                innerEntity.PrimaryKeyName = value;
+            }
         }
     }
 }
