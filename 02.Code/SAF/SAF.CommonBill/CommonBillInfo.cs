@@ -8,7 +8,7 @@ using System.Text;
 namespace SAF.CommonConfig
 {
     [Export(typeof(ISubProductInfo))]
-    public class CommonConfigInfo : AbstractSubProductInfo
+    public class CommonBillInfo : AbstractSubProductInfo
     {
         public override int OrderIndex
         {

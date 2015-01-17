@@ -58,10 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonConfigInfo.cs" />
+    <Compile Include="CommonBillInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sdOrder.cs" />
-    <Compile Include="sdOrderDtl.cs" />
     <Compile Include="sysCommonBillConfigView.cs">
       <SubType>UserControl</SubType>
     </Compile>
