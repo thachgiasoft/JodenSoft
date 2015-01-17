@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonConfig
+﻿namespace SAF.CommonBill
 {
     partial class sysCommonBillView
     {
@@ -33,8 +33,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
-
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -50,9 +50,14 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             this.SuspendLayout();
+            // 
+            // barDtl
+            // 
+            this.barDtl.OptionsBar.AllowQuickCustomization = false;
             // 
             // ribbonMain
             // 
@@ -61,11 +66,11 @@
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(827, 26);
+            this.pcMain.Size = new System.Drawing.Size(815, 26);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(544, 268);
+            this.splitRight.Size = new System.Drawing.Size(532, 286);
             // 
             // pageMain
             // 
@@ -77,7 +82,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(538, 124);
+            this.lcMain.Size = new System.Drawing.Size(526, 124);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -89,7 +94,7 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(538, 124);
+            this.lcgMain.Size = new System.Drawing.Size(526, 124);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
@@ -101,8 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
-
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
@@ -118,6 +123,7 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
             this.ResumeLayout(false);

@@ -5,7 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 
-namespace SAF.CommonConfig
+namespace SAF.CommonBill
 {
     [Export(typeof(ISubProductInfo))]
     public class CommonBillInfo : AbstractSubProductInfo
@@ -19,17 +19,17 @@ namespace SAF.CommonConfig
         }
         public override string Description
         {
-            get { return "系统配置工具"; }
+            get { return "系统通用单据"; }
         }
 
         public override string Name
         {
-            get { return "System Config Tools"; }
+            get { return "System Common Bill"; }
         }
 
         public override string Title
         {
-            get { return "系统配置工具"; }
+            get { return "系统通用单据"; }
         }
     }
 }

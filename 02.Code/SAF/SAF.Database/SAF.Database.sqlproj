@@ -79,14 +79,11 @@
     <Build Include="dbo\Tables\sysUser.sql" />
     <Build Include="dbo\Tables\sysBusinessView.sql" />
     <Build Include="dbo\Tables\sysUserRole.sql" />
-    <Build Include="dbo\Tables\sysCommonBillHdrField.sql" />
-    <Build Include="dbo\Tables\sysCommonBillDtl.sql" />
     <Build Include="dbo\Tables\sysBillRightDefine.sql" />
     <Build Include="dbo\Tables\sysBillOperateRight.sql" />
     <Build Include="dbo\Tables\sysRole.sql" />
     <Build Include="dbo\Tables\sysQueryConfig.sql" />
     <Build Include="dbo\Tables\sysQueryParam.sql" />
-    <Build Include="dbo\Tables\sysCommonBillDtlField.sql" />
     <Build Include="dbo\Tables\sysRoleMenu.sql" />
     <Build Include="dbo\Tables\sysMenuChart.sql" />
     <Build Include="dbo\Tables\sysMyFavoriteMenu.sql" />
@@ -100,12 +97,12 @@
     <Build Include="dbo\Tables\sdOrder.sql" />
     <Build Include="dbo\Tables\sdOrderDtl.sql" />
     <Build Include="dbo\Tables\sysAppConfig.sql" />
-    <Build Include="dbo\Tables\sysCommonBillHdr.sql" />
     <Build Include="dbo\Tables\wfBill.sql" />
     <Build Include="dbo\Functions\sysGetOrganizationCode.sql" />
     <Build Include="dbo\Stored Procedures\sysGenerateIden.sql" />
     <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
     <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
+    <Build Include="dbo\Tables\sysCommonBillConfig.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SAF.Database.refactorlog" />

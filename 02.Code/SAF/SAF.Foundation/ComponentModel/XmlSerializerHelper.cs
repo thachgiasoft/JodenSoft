@@ -24,12 +24,18 @@ namespace SAF.Foundation.ComponentModel
             using (StringReader sr = new StringReader(s))
             {
                 XmlSerializer xz = new XmlSerializer(typeof(T));
-                var obj = xz.Deserialize(sr);
-                if (obj is T)
-                    return (T)obj;
-                return default(T);
+                try
+                {
+                    var obj = xz.Deserialize(sr);
+                    if (obj is T)
+                        return (T)obj;
+                    return default(T);
+                }
+                catch
+                {
+                    return default(T);
+                }
             }
-
         }
     }
 }
