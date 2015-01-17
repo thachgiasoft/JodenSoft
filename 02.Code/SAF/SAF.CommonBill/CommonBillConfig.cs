@@ -9,17 +9,37 @@ namespace SAF.CommonBill
     {
         public EntitySetConfig IndexEntitySetConfig { get; set; }
         public EntitySetConfig MainEntitySetConfig { get; set; }
-        public IList<EntitySetConfig> DetailEntitySetConfigs { get; set; }
+        public IList<DetailEntitySetConfig> DetailEntitySetConfigs { get; set; }
 
         public CommonBillConfig()
         {
             IndexEntitySetConfig = new EntitySetConfig();
             MainEntitySetConfig = new EntitySetConfig();
-            DetailEntitySetConfigs = new List<EntitySetConfig>();
+            DetailEntitySetConfigs = new List<DetailEntitySetConfig>();
         }
     }
 
     public sealed class EntitySetConfig
+    {
+        public EntitySetControlSetting ControlSetting { get; set; }
+        public string DbTableName { get; set; }
+        public string PrimaryKeyName { get; set; }
+        public string Sql { get; set; }
+        public List<EntitySetField> Fields { get; set; }
+        public bool IsReadOnly { get; set; }
+
+
+        public EntitySetConfig()
+        {
+            ControlSetting = new EntitySetControlSetting();
+            Fields = new List<EntitySetField>();
+            Sql = string.Empty;
+            PrimaryKeyName = "Iden";
+            IsReadOnly = false;
+        }
+    }
+
+    public sealed class DetailEntitySetConfig
     {
         public EntitySetControlSetting ControlSetting { get; set; }
         public string DbTableName { get; set; }
@@ -32,7 +52,7 @@ namespace SAF.CommonBill
         /// </summary>
         public string Caption { get; set; }
 
-        public EntitySetConfig()
+        public DetailEntitySetConfig()
         {
             ControlSetting = new EntitySetControlSetting();
             Fields = new List<EntitySetField>();
@@ -42,6 +62,8 @@ namespace SAF.CommonBill
             Caption = string.Empty;
         }
     }
+
+
 
     public sealed class EntitySetField
     {

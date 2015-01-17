@@ -55,7 +55,7 @@ namespace SAF.CommonBill
             CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
             CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
 
-            var dtlConfig = new EntitySetConfig();
+            var dtlConfig = new DetailEntitySetConfig();
             dtlConfig.DbTableName = "sdOrderDtl";
             dtlConfig.PrimaryKeyName = "Iden";
             dtlConfig.Caption = "订单明细";
@@ -64,7 +64,7 @@ namespace SAF.CommonBill
             dtlConfig.Fields.Add(new EntitySetField("Qty", "数量"));
             CommonBillConfig.DetailEntitySetConfigs.Add(dtlConfig);
 
-            dtlConfig = new EntitySetConfig();
+            dtlConfig = new DetailEntitySetConfig();
             dtlConfig.DbTableName = "sdOrderDtl";
             dtlConfig.PrimaryKeyName = "Iden";
             dtlConfig.Caption = "订单明细2";

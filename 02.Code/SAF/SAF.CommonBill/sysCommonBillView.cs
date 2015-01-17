@@ -74,7 +74,7 @@ namespace SAF.CommonBill
 
         }
 
-        private void CreateDetailsControl(IList<EntitySetConfig> dtlConfigs)
+        private void CreateDetailsControl(IList<DetailEntitySetConfig> dtlConfigs)
         {
             if (dtlConfigs == null || dtlConfigs.Count <= 0) return;
 
