@@ -219,8 +219,16 @@ namespace SAF.Framework.ViewModel
 
         public void AddNew()
         {
-            OnAddNew();
-            this.EditState = EditState.AddNew;
+            try
+            {
+                OnAddNew();
+                this.EditState = EditState.AddNew;
+            }
+            catch
+            {
+                this.Cancel();
+                throw;
+            }
         }
 
         protected virtual void OnAddNew()
