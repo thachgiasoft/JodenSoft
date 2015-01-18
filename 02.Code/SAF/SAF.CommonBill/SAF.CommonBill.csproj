@@ -61,7 +61,7 @@
     <Compile Include="CommonBillConfig.cs" />
     <Compile Include="CommonBillInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysCommonBillConfig.cs" />
+    <Compile Include="Entities\sysCommonBillConfig.cs" />
     <Compile Include="sysCommonBillConfigView.cs">
       <SubType>UserControl</SubType>
     </Compile>

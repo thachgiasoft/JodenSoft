@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.CommonBill
+namespace SAF.CommonBill.Entities
 {
     public class sysCommonBillConfig : Entity<sysCommonBillConfig>
     {
