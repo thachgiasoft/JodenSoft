@@ -42,6 +42,7 @@
             this.tcIndexFields = new DevExpress.XtraTab.XtraTabControl();
             this.pageIndexFields = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.textEditorControl1 = new SAF.Framework.Controls.TextEditor.TextEditorControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -62,7 +63,6 @@
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.textEditorControl1 = new SAF.Framework.Controls.TextEditor.TextEditorControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -328,6 +328,15 @@
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
+            // textEditorControl1
+            // 
+            this.textEditorControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(0, 0);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(341, 192);
+            this.textEditorControl1.TabIndex = 0;
+            // 
             // gridControl1
             // 
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -520,15 +529,6 @@
             this.layoutControlGroup5.Size = new System.Drawing.Size(935, 95);
             this.layoutControlGroup5.Text = "layoutControlGroup2";
             this.layoutControlGroup5.TextVisible = false;
-            // 
-            // textEditorControl1
-            // 
-            this.textEditorControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditorControl1.IsReadOnly = false;
-            this.textEditorControl1.Location = new System.Drawing.Point(0, 0);
-            this.textEditorControl1.Name = "textEditorControl1";
-            this.textEditorControl1.Size = new System.Drawing.Size(341, 192);
-            this.textEditorControl1.TabIndex = 0;
             // 
             // sysCommonBillConfigView
             // 

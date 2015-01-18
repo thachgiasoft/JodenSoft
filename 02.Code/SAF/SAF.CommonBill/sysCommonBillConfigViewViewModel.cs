@@ -6,6 +6,7 @@ using System.Text;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
+using SAF.CommonBill.Entities;
 
 namespace SAF.CommonBill
 {
