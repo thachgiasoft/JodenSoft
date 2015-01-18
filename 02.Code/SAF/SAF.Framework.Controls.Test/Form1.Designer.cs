@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuChartControl1 = new SAF.Framework.Controls.Charts.MenuChartControl();
+            this.textEditorControl1 = new SAF.Framework.Controls.TextEditor.TextEditorControl();
             this.SuspendLayout();
             // 
-            // menuChartControl1
+            // textEditorControl1
             // 
-            this.menuChartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuChartControl1.Location = new System.Drawing.Point(0, 0);
-            this.menuChartControl1.Name = "menuChartControl1";
-            this.menuChartControl1.Size = new System.Drawing.Size(703, 385);
-            this.menuChartControl1.TabIndex = 0;
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(38, 52);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(505, 255);
+            this.textEditorControl1.TabIndex = 0;
+            this.textEditorControl1.Text = "textEditorControl1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 385);
-            this.Controls.Add(this.menuChartControl1);
+            this.Controls.Add(this.textEditorControl1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -53,7 +54,8 @@
 
         #endregion
 
-        private Charts.MenuChartControl menuChartControl1;
+        private TextEditor.TextEditorControl textEditorControl1;
+
 
 
 

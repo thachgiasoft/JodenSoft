@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[sysCommonBillConfig]
 (
 	[Iden] INT NOT NULL, 
+	[Name] NVARCHAR(200) NOT NULL,
     [Config] NVARCHAR(MAX) NOT NULL,
 	[CreatedBy]     INT            NULL,
     [CreatedOn]     DATETIME       NULL,

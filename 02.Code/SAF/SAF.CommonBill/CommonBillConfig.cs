@@ -26,17 +26,22 @@ namespace SAF.CommonBill
 
     public sealed class EntitySetConfig
     {
-        public EntitySetControlSetting ControlSetting { get; set; }
+        public EntitySetControlType ControlType { get; set; }
+        public string ControlKeyFieldName { get; set; }
+        public string ControlParentFieldName { get; set; }
+
         public string DbTableName { get; set; }
         public string PrimaryKeyName { get; set; }
         public string Sql { get; set; }
         public List<EntitySetField> Fields { get; set; }
         public bool IsReadOnly { get; set; }
 
-
         public EntitySetConfig()
         {
-            ControlSetting = new EntitySetControlSetting();
+            ControlType = EntitySetControlType.GridControl;
+            ControlKeyFieldName = string.Empty;
+            ControlParentFieldName = string.Empty;
+
             Fields = new List<EntitySetField>();
             Sql = string.Empty;
             PrimaryKeyName = "Iden";
@@ -46,7 +51,10 @@ namespace SAF.CommonBill
 
     public sealed class DetailEntitySetConfig
     {
-        public EntitySetControlSetting ControlSetting { get; set; }
+        public EntitySetControlType ControlType { get; set; }
+        public string ControlKeyFieldName { get; set; }
+        public string ControlParentFieldName { get; set; }
+
         public string DbTableName { get; set; }
         public string PrimaryKeyName { get; set; }
         public string Sql { get; set; }
@@ -59,7 +67,10 @@ namespace SAF.CommonBill
 
         public DetailEntitySetConfig()
         {
-            ControlSetting = new EntitySetControlSetting();
+            ControlType = EntitySetControlType.GridControl;
+            ControlKeyFieldName = string.Empty;
+            ControlParentFieldName = string.Empty;
+
             Fields = new List<EntitySetField>();
             Sql = string.Empty;
             PrimaryKeyName = "Iden";
@@ -111,18 +122,6 @@ namespace SAF.CommonBill
         Number = 3,
         Lookup = 4,
         GridSearch = 5
-    }
-
-    public class EntitySetControlSetting
-    {
-        public EntitySetControlType ControlType { get; set; }
-        public string KeyFieldName { get; set; }
-        public string ParentFieldName { get; set; }
-
-        public EntitySetControlSetting()
-        {
-            ControlType = EntitySetControlType.GridControl;
-        }
     }
 
     public enum EntitySetControlType

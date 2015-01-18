@@ -22,6 +22,12 @@ namespace SAF.CommonBill
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
+        public string Name
+        {
+            get { return base.GetFieldValue<string>(P => P.Name); }
+            set { base.SetFieldValue(P => P.Name, value); }
+        }
+
         public string Config
         {
             get { return base.GetFieldValue<string>(P => P.Config); }
