@@ -11,6 +11,8 @@ using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using SAF.Foundation.ServiceModel;
+using SAF.Foundation;
+using DevExpress.XtraLayout.Utils;
 
 namespace SAF.SystemModule
 {
@@ -55,6 +57,18 @@ namespace SAF.SystemModule
             UIController.RefreshControl(this.txtCurrentIden, false);
 
             this.grvIndex.BestFitColumns();
+        }
+
+        private void txtResetType_EditValueChanged(object sender, EventArgs e)
+        {
+            if (this.txtResetType.EditValue.IsNotEmpty())
+            {
+                lcgDateFormat.Visibility = LayoutVisibility.Always;
+            }
+            else
+            {
+                lcgDateFormat.Visibility = LayoutVisibility.Never;
+            }
         }
     }
 }

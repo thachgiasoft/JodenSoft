@@ -33,6 +33,7 @@
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBillNoType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtSuffix = new DevExpress.XtraEditors.TextEdit();
             this.txtMidfix = new DevExpress.XtraEditors.TextEdit();
             this.txtPrefix = new DevExpress.XtraEditors.TextEdit();
@@ -48,20 +49,17 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcgDateFormat = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tabbedControlGroup2 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -100,19 +98,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgDateFormat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
@@ -230,10 +226,26 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl2.LineColor = System.Drawing.Color.Transparent;
+            this.labelControl2.LineVisible = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 268);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(320, 17);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "流水号 = 前缀+动态内容+日期+中缀+流水号+后缀\r\n";
+            // 
             // txtSuffix
             // 
             this.txtSuffix.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Suffix", true));
-            this.txtSuffix.Location = new System.Drawing.Point(63, 218);
+            this.txtSuffix.Location = new System.Drawing.Point(63, 244);
             this.txtSuffix.MenuManager = this.ribbonMain;
             this.txtSuffix.Name = "txtSuffix";
             this.txtSuffix.Size = new System.Drawing.Size(463, 20);
@@ -243,7 +255,7 @@
             // txtMidfix
             // 
             this.txtMidfix.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Midfix", true));
-            this.txtMidfix.Location = new System.Drawing.Point(63, 139);
+            this.txtMidfix.Location = new System.Drawing.Point(63, 152);
             this.txtMidfix.MenuManager = this.ribbonMain;
             this.txtMidfix.Name = "txtMidfix";
             this.txtMidfix.Size = new System.Drawing.Size(463, 20);
@@ -302,6 +314,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtResetType.Properties.DropDownRows = 3;
             this.txtResetType.Properties.Items.AddRange(new object[] {
+            "",
             "day",
             "month",
             "year"});
@@ -309,6 +322,7 @@
             this.txtResetType.Size = new System.Drawing.Size(203, 20);
             this.txtResetType.StyleController = this.layoutControl1;
             this.txtResetType.TabIndex = 6;
+            this.txtResetType.EditValueChanged += new System.EventHandler(this.txtResetType_EditValueChanged);
             // 
             // txtCurrentIden
             // 
@@ -318,7 +332,7 @@
             0,
             0,
             0});
-            this.txtCurrentIden.Location = new System.Drawing.Point(323, 190);
+            this.txtCurrentIden.Location = new System.Drawing.Point(323, 208);
             this.txtCurrentIden.MenuManager = this.ribbonMain;
             this.txtCurrentIden.Name = "txtCurrentIden";
             this.txtCurrentIden.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -337,7 +351,7 @@
             0,
             0,
             0});
-            this.txtCurrentIden.Size = new System.Drawing.Size(199, 20);
+            this.txtCurrentIden.Size = new System.Drawing.Size(191, 20);
             this.txtCurrentIden.StyleController = this.layoutControl1;
             this.txtCurrentIden.TabIndex = 13;
             // 
@@ -349,7 +363,7 @@
             0,
             0,
             0});
-            this.txtIdenLength.Location = new System.Drawing.Point(67, 190);
+            this.txtIdenLength.Location = new System.Drawing.Point(75, 208);
             this.txtIdenLength.MenuManager = this.ribbonMain;
             this.txtIdenLength.Name = "txtIdenLength";
             this.txtIdenLength.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -368,7 +382,7 @@
             0,
             0,
             0});
-            this.txtIdenLength.Size = new System.Drawing.Size(201, 20);
+            this.txtIdenLength.Size = new System.Drawing.Size(193, 20);
             this.txtIdenLength.StyleController = this.layoutControl1;
             this.txtIdenLength.TabIndex = 14;
             // 
@@ -376,7 +390,7 @@
             // 
             this.txtYearFormat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "YearFormat", true));
             this.txtYearFormat.EditValue = "yyyy";
-            this.txtYearFormat.Location = new System.Drawing.Point(67, 111);
+            this.txtYearFormat.Location = new System.Drawing.Point(75, 116);
             this.txtYearFormat.MenuManager = this.ribbonMain;
             this.txtYearFormat.Name = "txtYearFormat";
             this.txtYearFormat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -386,7 +400,7 @@
             "yy",
             "yyyy"});
             this.txtYearFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtYearFormat.Size = new System.Drawing.Size(141, 20);
+            this.txtYearFormat.Size = new System.Drawing.Size(135, 20);
             this.txtYearFormat.StyleController = this.layoutControl1;
             this.txtYearFormat.TabIndex = 9;
             // 
@@ -394,7 +408,7 @@
             // 
             this.txtMonthFormat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "MonthFormat", true));
             this.txtMonthFormat.EditValue = "mm";
-            this.txtMonthFormat.Location = new System.Drawing.Point(263, 111);
+            this.txtMonthFormat.Location = new System.Drawing.Point(265, 116);
             this.txtMonthFormat.MenuManager = this.ribbonMain;
             this.txtMonthFormat.Name = "txtMonthFormat";
             this.txtMonthFormat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -403,7 +417,7 @@
             "m",
             "mm"});
             this.txtMonthFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtMonthFormat.Size = new System.Drawing.Size(109, 20);
+            this.txtMonthFormat.Size = new System.Drawing.Size(104, 20);
             this.txtMonthFormat.StyleController = this.layoutControl1;
             this.txtMonthFormat.TabIndex = 10;
             // 
@@ -411,7 +425,7 @@
             // 
             this.txtDayFormat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "DayFormat", true));
             this.txtDayFormat.EditValue = "dd";
-            this.txtDayFormat.Location = new System.Drawing.Point(431, 111);
+            this.txtDayFormat.Location = new System.Drawing.Point(428, 116);
             this.txtDayFormat.MenuManager = this.ribbonMain;
             this.txtDayFormat.Name = "txtDayFormat";
             this.txtDayFormat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -420,7 +434,7 @@
             "d",
             "dd"});
             this.txtDayFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtDayFormat.Size = new System.Drawing.Size(91, 20);
+            this.txtDayFormat.Size = new System.Drawing.Size(86, 20);
             this.txtDayFormat.StyleController = this.layoutControl1;
             this.txtDayFormat.TabIndex = 11;
             // 
@@ -439,8 +453,8 @@
             this.layoutControlItem12,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.tabbedControlGroup1,
-            this.tabbedControlGroup2});
+            this.lcgDateFormat,
+            this.layoutControlGroup3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(538, 319);
@@ -470,6 +484,58 @@
             this.layoutControlItem2.Text = "名称";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.labelControl2;
+            this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 256);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(518, 21);
+            this.layoutControlItem13.Text = "layoutControlItem13";
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextToControlDistance = 0;
+            this.layoutControlItem13.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 277);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(518, 22);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.txtPrefix;
+            this.layoutControlItem5.CustomizationFormText = "前缀";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(518, 24);
+            this.layoutControlItem5.Text = "前缀";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.txtMidfix;
+            this.layoutControlItem9.CustomizationFormText = "中缀";
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 140);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(518, 24);
+            this.layoutControlItem9.Text = "中缀";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.txtSuffix;
+            this.layoutControlItem12.CustomizationFormText = "后缀";
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 232);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(518, 24);
+            this.layoutControlItem12.Text = "后缀";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(48, 14);
+            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtResetType;
@@ -490,98 +556,17 @@
             this.layoutControlItem4.Text = "分隔符";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // layoutControlItem5
+            // lcgDateFormat
             // 
-            this.layoutControlItem5.Control = this.txtPrefix;
-            this.layoutControlItem5.CustomizationFormText = "前缀";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(518, 24);
-            this.layoutControlItem5.Text = "前缀";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.txtMidfix;
-            this.layoutControlItem9.CustomizationFormText = "中缀";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 127);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(518, 24);
-            this.layoutControlItem9.Text = "中缀";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.txtSuffix;
-            this.layoutControlItem12.CustomizationFormText = "后缀";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 206);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(518, 24);
-            this.layoutControlItem12.Text = "后缀";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.labelControl2.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.labelControl2.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl2.LineColor = System.Drawing.Color.Transparent;
-            this.labelControl2.LineVisible = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 242);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(320, 17);
-            this.labelControl2.StyleController = this.layoutControl1;
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "流水号 = 前缀+动态内容+日期+中缀+流水号+后缀\r\n";
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.labelControl2;
-            this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 230);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(518, 21);
-            this.layoutControlItem13.Text = "layoutControlItem13";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem13.TextToControlDistance = 0;
-            this.layoutControlItem13.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 251);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(518, 48);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // tabbedControlGroup1
-            // 
-            this.tabbedControlGroup1.CustomizationFormText = "tabbedControlGroup1";
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 72);
-            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(518, 55);
-            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2});
-            this.tabbedControlGroup1.Text = "tabbedControlGroup1";
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.CustomizationFormText = "日期";
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lcgDateFormat.CustomizationFormText = "日期";
+            this.lcgDateFormat.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(510, 24);
-            this.layoutControlGroup2.Text = "日期";
+            this.lcgDateFormat.Location = new System.Drawing.Point(0, 72);
+            this.lcgDateFormat.Name = "lcgDateFormat";
+            this.lcgDateFormat.Size = new System.Drawing.Size(518, 68);
+            this.lcgDateFormat.Text = "日期";
             // 
             // layoutControlItem6
             // 
@@ -589,7 +574,7 @@
             this.layoutControlItem6.CustomizationFormText = "年度格式";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(196, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(190, 24);
             this.layoutControlItem6.Text = "年格式";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -597,9 +582,9 @@
             // 
             this.layoutControlItem7.Control = this.txtMonthFormat;
             this.layoutControlItem7.CustomizationFormText = "月份格式";
-            this.layoutControlItem7.Location = new System.Drawing.Point(196, 0);
+            this.layoutControlItem7.Location = new System.Drawing.Point(190, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(164, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(159, 24);
             this.layoutControlItem7.Text = "月格式";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -607,26 +592,13 @@
             // 
             this.layoutControlItem8.Control = this.txtDayFormat;
             this.layoutControlItem8.CustomizationFormText = "日格式";
-            this.layoutControlItem8.Location = new System.Drawing.Point(360, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(349, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(150, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(145, 24);
             this.layoutControlItem8.Text = "日格式";
             this.layoutControlItem8.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(50, 20);
             this.layoutControlItem8.TextToControlDistance = 5;
-            // 
-            // tabbedControlGroup2
-            // 
-            this.tabbedControlGroup2.CustomizationFormText = "tabbedControlGroup2";
-            this.tabbedControlGroup2.Location = new System.Drawing.Point(0, 151);
-            this.tabbedControlGroup2.Name = "tabbedControlGroup2";
-            this.tabbedControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.tabbedControlGroup2.SelectedTabPage = this.layoutControlGroup3;
-            this.tabbedControlGroup2.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup2.Size = new System.Drawing.Size(518, 55);
-            this.tabbedControlGroup2.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup3});
-            this.tabbedControlGroup2.Text = "tabbedControlGroup2";
             // 
             // layoutControlGroup3
             // 
@@ -634,18 +606,18 @@
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem10,
             this.layoutControlItem11});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 164);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(510, 24);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(518, 68);
             this.layoutControlGroup3.Text = "流水号";
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtCurrentIden;
             this.layoutControlItem10.CustomizationFormText = "当前流水号";
-            this.layoutControlItem10.Location = new System.Drawing.Point(256, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(248, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(254, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(246, 24);
             this.layoutControlItem10.Text = "当前值";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -655,7 +627,7 @@
             this.layoutControlItem11.CustomizationFormText = "流水号长度";
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(256, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(248, 24);
             this.layoutControlItem11.Text = "长度";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -700,19 +672,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgDateFormat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
@@ -751,12 +721,10 @@
         private DevExpress.XtraEditors.ComboBoxEdit txtDayFormat;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgDateFormat;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;

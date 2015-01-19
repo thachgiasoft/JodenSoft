@@ -249,6 +249,17 @@ namespace SAF.EntityFramework
         #endregion
 
         /// <summary>
+        /// 数据库当前时间
+        /// </summary>
+        public static DateTime Now
+        {
+            get
+            {
+                return Convert.ToDateTime(DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, "SELECT GetDate()"));
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="connectionName"></param>

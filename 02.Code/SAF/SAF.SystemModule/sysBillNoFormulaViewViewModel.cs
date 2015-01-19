@@ -38,6 +38,16 @@ namespace SAF.SystemModule
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.CurrentIden = 0;
+            e.CurrentEntity.Prefix = string.Empty;
+            e.CurrentEntity.Midfix = string.Empty;
+            e.CurrentEntity.Suffix = string.Empty;
+            e.CurrentEntity.Separator = string.Empty;
+            e.CurrentEntity.CurrentDate = DataPortal.Now;
+            e.CurrentEntity.YearFormat = "yy";
+            e.CurrentEntity.MonthFormat = "mm";
+            e.CurrentEntity.DayFormat = "dd";
+            e.CurrentEntity.IdenLength = 4;
+            e.CurrentEntity.ResetType = string.Empty;
         }
         protected override bool OnValidateData()
         {
