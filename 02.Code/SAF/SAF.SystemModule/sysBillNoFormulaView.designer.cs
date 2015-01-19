@@ -314,7 +314,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtResetType.Properties.DropDownRows = 3;
             this.txtResetType.Properties.Items.AddRange(new object[] {
-            "",
+            "None",
             "day",
             "month",
             "year"});

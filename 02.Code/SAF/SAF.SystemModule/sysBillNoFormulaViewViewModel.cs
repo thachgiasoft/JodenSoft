@@ -47,7 +47,7 @@ namespace SAF.SystemModule
             e.CurrentEntity.MonthFormat = "mm";
             e.CurrentEntity.DayFormat = "dd";
             e.CurrentEntity.IdenLength = 4;
-            e.CurrentEntity.ResetType = string.Empty;
+            e.CurrentEntity.ResetType = "None";
         }
         protected override bool OnValidateData()
         {

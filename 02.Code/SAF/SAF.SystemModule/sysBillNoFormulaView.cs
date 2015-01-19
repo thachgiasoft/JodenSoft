@@ -61,7 +61,7 @@ namespace SAF.SystemModule
 
         private void txtResetType_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.txtResetType.EditValue.IsNotEmpty())
+            if (this.txtResetType.EditValue.IsNotEmpty() && !this.txtResetType.EditValue.ToStringEx().Equals("None", StringComparison.CurrentCultureIgnoreCase))
             {
                 lcgDateFormat.Visibility = LayoutVisibility.Always;
             }
