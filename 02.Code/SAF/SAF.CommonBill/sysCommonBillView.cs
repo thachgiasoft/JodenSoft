@@ -107,7 +107,7 @@ namespace SAF.CommonBill
                 this.dtlEntitys.Add(dtlEntity);
                 dtlEntity.SetBindingSource(bsDtl);
 
-                if (config.ControlSetting.ControlType == EntitySetControlType.GridControl)
+                if (config.ControlType == EntitySetControlType.GridControl)
                 {
                     var grdDtl = new GridControl() { Name = "grdDtl_" + i };
                     var grvDtl = new GridView(grdDtl) { Name = "grvDtl_" + i };
@@ -167,7 +167,7 @@ namespace SAF.CommonBill
             this.ViewModel.IndexEntitySet.PrimaryKeyName = indexConfig.PrimaryKeyName;
             this.ViewModel.IndexEntitySet.IsReadOnly = indexConfig.IsReadOnly;
 
-            if (indexConfig.ControlSetting.ControlType == EntitySetControlType.GridControl)
+            if (indexConfig.ControlType == EntitySetControlType.GridControl)
             {
                 var grdIndex = new GridControl() { Name = "grdIndex" };
                 var grvIndex = new GridView(grdIndex) { Name = "grvIndex" };

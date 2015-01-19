@@ -65,6 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileHelper.cs" />
+    <Compile Include="sysBillNoFormulaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sysBillNoFormulaView.designer.cs">
+      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysBillNoFormulaViewViewModel.cs" />
     <Compile Include="sysBillTypeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +180,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sysBillNoFormulaView.resx">
+      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysBillTypeView.resx">
       <DependentUpon>sysBillTypeView.cs</DependentUpon>

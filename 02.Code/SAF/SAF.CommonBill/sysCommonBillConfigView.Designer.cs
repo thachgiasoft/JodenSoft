@@ -139,11 +139,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.CommonBill.sysCommonBillConfig);
+            this.bsIndex.DataSource = typeof(SAF.CommonBill.Entities.sysCommonBillConfig);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.CommonBill.sysCommonBillConfig);
+            this.bsMain.DataSource = typeof(SAF.CommonBill.Entities.sysCommonBillConfig);
             // 
             // pnlQueryControl
             // 

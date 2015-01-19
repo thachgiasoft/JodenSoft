@@ -61,7 +61,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Parameter name cannot be null or an empty string. 的本地化字符串。
+        ///   查找类似 参数名称不能为空. 的本地化字符串。
         /// </summary>
         internal static string Cache_EmptyParameterName_Exception {
             get {
@@ -116,7 +116,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”的值不能为Guid.Empty 的本地化字符串。
+        ///   查找类似 “{0}”的值不能为Guid.Empty 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotEmpty_Guid {
             get {
@@ -125,7 +125,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”的值必须大于“{1}”。 的本地化字符串。
+        ///   查找类似 “{0}”的值必须大于“{1}”。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotGreaterThan {
             get {
@@ -134,7 +134,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”的值必须大于或等于“{1}”。 的本地化字符串。
+        ///   查找类似 “{0}”的值必须大于或等于“{1}”。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotGreaterThanOrEqual {
             get {
@@ -143,7 +143,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”的值必须小于“{1}”。 的本地化字符串。
+        ///   查找类似 “{0}”的值必须小于“{1}”。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotLessThan {
             get {
@@ -152,7 +152,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”的值必须小于或等于“{1}”。 的本地化字符串。
+        ///   查找类似 “{0}”的值必须小于或等于“{1}”。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotLessThanOrEqual {
             get {
@@ -161,7 +161,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”不能为空引用。 的本地化字符串。
+        ///   查找类似 “{0}”不能为空。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotNull {
             get {
@@ -170,7 +170,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”不能为空引用或空集合。 的本地化字符串。
+        ///   查找类似 “{0}”不能为空。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotNullOrEmpty_Collection {
             get {
@@ -179,7 +179,7 @@ namespace SAF.Foundation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 参数“{0}”不能为空引用或空字符串。 的本地化字符串。
+        ///   查找类似 “{0}”不能为空。 的本地化字符串。
         /// </summary>
         internal static string ParameterCheck_NotNullOrEmpty_String {
             get {

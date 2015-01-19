@@ -21,7 +21,7 @@ namespace SAF.Foundation
                 message.AppendLine(e.Message);
                 e = e.InnerException;
             }
-            return message.ToString();
+            return message.ToString().Trim();
         }
 
     }

@@ -31,7 +31,10 @@ namespace SAF.Framework.ServiceModel
 
         public virtual void ShowException(Exception ex, string message)
         {
-            ShowError(string.Format("{0}{1}{2}", message, Environment.NewLine, ex.GetAllMessage()));
+            if (message.IsEmpty())
+                ShowError(string.Format("{0}", ex.GetAllMessage()));
+            else
+                ShowError(string.Format("{0}{1}{2}", message, Environment.NewLine, ex.GetAllMessage()));
         }
 
         public void ShowError(string message)

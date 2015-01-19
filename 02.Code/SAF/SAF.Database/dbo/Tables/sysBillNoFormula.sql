@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[sysBillNoFormula] (
-    [Iden]        INT          IDENTITY (1, 1) NOT NULL,
+    [Iden]        INT          NOT NULL,
     [BillNoType]  VARCHAR (50) NOT NULL,
     [ResetType]   VARCHAR (50) CONSTRAINT [Default_sysBillNoFormula_ResetType] DEFAULT ('day') NOT NULL,
     [Separator]   VARCHAR (50) CONSTRAINT [Default_sysBillNoFormula_Separator] DEFAULT ('') NOT NULL,

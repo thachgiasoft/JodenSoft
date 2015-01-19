@@ -181,7 +181,7 @@ namespace SAF.Client
 
             if (ServiceManager.Instance != null)
             {
-                MessageService.ShowException(e.Exception, "系统发生未知异常.");
+                MessageService.ShowException(e.Exception);
             }
             else
             {
