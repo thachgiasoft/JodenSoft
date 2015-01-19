@@ -74,7 +74,7 @@ BEGIN
 	RETURN
 END
    
-IF @ResetType<>'' 
+IF @ResetType<>'None' 
 BEGIN   
 SET  @datestr =  CASE  @YearFormat 
                         WHEN 'yyyy' THEN cast(year(@Now) AS VARCHAR(50)) ELSE right(cast(year(@Now) AS VARCHAR(50)),2) END 

@@ -13,11 +13,11 @@
     [CurrentDate] DATETIME     CONSTRAINT [Default_sysBillNoFormula_CurrentMaxDate] DEFAULT (getdate()) NULL,
     [Suffix]      VARCHAR (50) CONSTRAINT [Default_sysBillNoFormula_Suffix] DEFAULT ('') NOT NULL,
     CONSTRAINT [PK_sysBillNoFormula_Iden] PRIMARY KEY CLUSTERED ([Iden] ASC),
-    CONSTRAINT [chk_sysBillNoFormula_CurrentDate] CHECK ([ResetType]='' OR [ResetType]<>'' AND [CurrentDate] IS NOT NULL),
+    CONSTRAINT [chk_sysBillNoFormula_CurrentDate] CHECK ([ResetType]='None' OR( [ResetType]<>'None' AND [CurrentDate] IS NOT NULL)),
     CONSTRAINT [CHK_sysBillNoFormula_DayFormat] CHECK ([DayFormat]='' OR [DayFormat]='d' OR [DayFormat]='dd'),
     CONSTRAINT [CHK_sysBillNoFormula_MonthFormat] CHECK ([MonthFormat]='' OR [MonthFormat]='m' OR [MonthFormat]='mm'),
-    CONSTRAINT [CHK_sysBillNoFormula_ResetType] CHECK ([ResetType]='' OR [ResetType]='day' OR [ResetType]='month' OR [ResetType]='year'),
-    CONSTRAINT [CHK_sysBillNoFormula_ResetType_Map] CHECK ([ResetType]='' OR charindex(left([ResetType],(1)),([YearFormat]+[MonthFormat])+[DayFormat])>(0)),
+    CONSTRAINT [CHK_sysBillNoFormula_ResetType] CHECK ([ResetType]='None' OR [ResetType]='day' OR [ResetType]='month' OR [ResetType]='year'),
+    CONSTRAINT [CHK_sysBillNoFormula_ResetType_Map] CHECK ([ResetType]='None' OR charindex(left([ResetType],(1)),([YearFormat]+[MonthFormat])+[DayFormat])>(0)),
     CONSTRAINT [CHK_sysBillNoFormula_YearFormat] CHECK ([YearFormat]='' OR [YearFormat]='yy' OR [YearFormat]='yyyy'),
     CONSTRAINT [UQ_sysBillNoFormula_BillNoType] UNIQUE NONCLUSTERED ([BillNoType] ASC)
 );
