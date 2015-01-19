@@ -37,6 +37,7 @@ namespace SAF.SystemModule
         void MainEntitySet_AfterAdd(object sender, SAF.EntityFramework.EntitySetAddEventArgs<sysBillNoFormula> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.CurrentIden = 0;
         }
         protected override bool OnValidateData()
         {
