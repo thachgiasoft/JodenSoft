@@ -43,8 +43,8 @@
             this.pageIndexFields = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.textEditorControl1 = new SAF.Framework.Controls.TextEditor.TextEditorControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdIndexFields = new DevExpress.XtraGrid.GridControl();
+            this.grvIndexFields = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pageMainEntitySet = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -63,6 +63,8 @@
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.tcIndexSql = new DevExpress.XtraTab.XtraTabControl();
+            this.pageIndexSql = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -98,8 +100,8 @@
             this.pageIndexFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIndexFields)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvIndexFields)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.pageMainEntitySet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -118,18 +120,21 @@
             this.splitContainerControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcIndexSql)).BeginInit();
+            this.tcIndexSql.SuspendLayout();
+            this.pageIndexSql.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(935, 120);
+            this.ribbonMain.Size = new System.Drawing.Size(1041, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
-            this.splitMain.Size = new System.Drawing.Size(935, 396);
+            this.splitMain.Size = new System.Drawing.Size(1041, 460);
             this.splitMain.SplitterPosition = 233;
             // 
             // bsIndex
@@ -142,32 +147,32 @@
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(935, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(1041, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(1, 545);
-            this.pnlPageControl.Size = new System.Drawing.Size(935, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 609);
+            this.pnlPageControl.Size = new System.Drawing.Size(1041, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(931, 26);
+            this.pcMain.Size = new System.Drawing.Size(1037, 26);
             // 
             // splitRight
             // 
             this.splitRight.Panel2.Controls.Add(this.tcEntitySet);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.Size = new System.Drawing.Size(697, 392);
+            this.splitRight.Size = new System.Drawing.Size(803, 456);
             this.splitRight.SplitterPosition = 39;
             // 
             // tcMain
             // 
-            this.tcMain.Size = new System.Drawing.Size(697, 39);
+            this.tcMain.Size = new System.Drawing.Size(803, 39);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
-            this.pageMain.Size = new System.Drawing.Size(691, 33);
+            this.pageMain.Size = new System.Drawing.Size(797, 33);
             // 
             // layoutControl1
             // 
@@ -177,14 +182,14 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(691, 33);
+            this.layoutControl1.Size = new System.Drawing.Size(797, 33);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(603, 3);
+            this.txtIden.Location = new System.Drawing.Point(709, 3);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
             this.txtIden.Size = new System.Drawing.Size(85, 20);
@@ -197,7 +202,7 @@
             this.txtName.Location = new System.Drawing.Point(30, 3);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(542, 20);
+            this.txtName.Size = new System.Drawing.Size(648, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
             // 
@@ -212,7 +217,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(691, 33);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(797, 33);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -222,7 +227,7 @@
             this.layoutControlItem1.CustomizationFormText = "名称";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(573, 31);
+            this.layoutControlItem1.Size = new System.Drawing.Size(679, 31);
             this.layoutControlItem1.Text = "名称";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(24, 14);
             // 
@@ -230,7 +235,7 @@
             // 
             this.layoutControlItem2.Control = this.txtIden;
             this.layoutControlItem2.CustomizationFormText = "序号";
-            this.layoutControlItem2.Location = new System.Drawing.Point(573, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(679, 0);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(116, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(116, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -245,7 +250,7 @@
             this.tcEntitySet.Location = new System.Drawing.Point(0, 0);
             this.tcEntitySet.Name = "tcEntitySet";
             this.tcEntitySet.SelectedTabPage = this.pageIndexEntity;
-            this.tcEntitySet.Size = new System.Drawing.Size(697, 348);
+            this.tcEntitySet.Size = new System.Drawing.Size(803, 412);
             this.tcEntitySet.TabIndex = 0;
             this.tcEntitySet.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageIndexEntity,
@@ -256,7 +261,7 @@
             // 
             this.pageIndexEntity.Controls.Add(this.splitContainerControl1);
             this.pageIndexEntity.Name = "pageIndexEntity";
-            this.pageIndexEntity.Size = new System.Drawing.Size(691, 319);
+            this.pageIndexEntity.Size = new System.Drawing.Size(797, 383);
             this.pageIndexEntity.Text = "索引数据";
             // 
             // splitContainerControl1
@@ -267,9 +272,9 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.lcIndexEntitySet);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.tcIndexFields);
+            this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(691, 319);
+            this.splitContainerControl1.Size = new System.Drawing.Size(797, 383);
             this.splitContainerControl1.SplitterPosition = 93;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -280,7 +285,7 @@
             this.lcIndexEntitySet.Location = new System.Drawing.Point(0, 0);
             this.lcIndexEntitySet.Name = "lcIndexEntitySet";
             this.lcIndexEntitySet.Root = this.layoutControlGroup2;
-            this.lcIndexEntitySet.Size = new System.Drawing.Size(691, 93);
+            this.lcIndexEntitySet.Size = new System.Drawing.Size(797, 93);
             this.lcIndexEntitySet.TabIndex = 0;
             this.lcIndexEntitySet.Text = "lcIndexEntitySet";
             // 
@@ -301,16 +306,17 @@
             this.tcIndexFields.Location = new System.Drawing.Point(0, 0);
             this.tcIndexFields.Name = "tcIndexFields";
             this.tcIndexFields.SelectedTabPage = this.pageIndexFields;
-            this.tcIndexFields.Size = new System.Drawing.Size(691, 221);
+            this.tcIndexFields.Size = new System.Drawing.Size(401, 285);
             this.tcIndexFields.TabIndex = 0;
             this.tcIndexFields.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageIndexFields});
             // 
             // pageIndexFields
             // 
-            this.pageIndexFields.Controls.Add(this.splitContainerControl2);
+            this.pageIndexFields.Controls.Add(this.grdIndexFields);
+            this.pageIndexFields.Controls.Add(this.panelControl1);
             this.pageIndexFields.Name = "pageIndexFields";
-            this.pageIndexFields.Size = new System.Drawing.Size(685, 192);
+            this.pageIndexFields.Size = new System.Drawing.Size(395, 256);
             this.pageIndexFields.Text = "索引字段";
             // 
             // splitContainerControl2
@@ -318,13 +324,12 @@
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.textEditorControl1);
+            this.splitContainerControl2.Panel1.Controls.Add(this.tcIndexSql);
             this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.gridControl1);
-            this.splitContainerControl2.Panel2.Controls.Add(this.panelControl1);
+            this.splitContainerControl2.Panel2.Controls.Add(this.tcIndexFields);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(685, 192);
-            this.splitContainerControl2.SplitterPosition = 341;
+            this.splitContainerControl2.Size = new System.Drawing.Size(797, 285);
+            this.splitContainerControl2.SplitterPosition = 391;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -334,40 +339,40 @@
             this.textEditorControl1.IsReadOnly = false;
             this.textEditorControl1.Location = new System.Drawing.Point(0, 0);
             this.textEditorControl1.Name = "textEditorControl1";
-            this.textEditorControl1.Size = new System.Drawing.Size(341, 192);
+            this.textEditorControl1.Size = new System.Drawing.Size(385, 256);
             this.textEditorControl1.TabIndex = 0;
             // 
-            // gridControl1
+            // grdIndexFields
             // 
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 32);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.ribbonMain;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(339, 160);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.grdIndexFields.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grdIndexFields.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdIndexFields.Location = new System.Drawing.Point(0, 32);
+            this.grdIndexFields.MainView = this.grvIndexFields;
+            this.grdIndexFields.MenuManager = this.ribbonMain;
+            this.grdIndexFields.Name = "grdIndexFields";
+            this.grdIndexFields.Size = new System.Drawing.Size(395, 224);
+            this.grdIndexFields.TabIndex = 1;
+            this.grdIndexFields.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvIndexFields});
             // 
-            // gridView1
+            // grvIndexFields
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.grvIndexFields.GridControl = this.grdIndexFields;
+            this.grvIndexFields.Name = "grvIndexFields";
             // 
             // panelControl1
             // 
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(339, 32);
+            this.panelControl1.Size = new System.Drawing.Size(395, 32);
             this.panelControl1.TabIndex = 0;
             // 
             // pageMainEntitySet
             // 
             this.pageMainEntitySet.Controls.Add(this.layoutControl3);
             this.pageMainEntitySet.Name = "pageMainEntitySet";
-            this.pageMainEntitySet.Size = new System.Drawing.Size(538, 211);
+            this.pageMainEntitySet.Size = new System.Drawing.Size(691, 319);
             this.pageMainEntitySet.Text = "主数据";
             // 
             // layoutControl3
@@ -376,7 +381,7 @@
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(538, 211);
+            this.layoutControl3.Size = new System.Drawing.Size(691, 319);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -396,7 +401,7 @@
             this.pageDetailEntitySet.Controls.Add(this.spcDetailEntitySet);
             this.pageDetailEntitySet.Controls.Add(this.pnlDetailEntitySetTool);
             this.pageDetailEntitySet.Name = "pageDetailEntitySet";
-            this.pageDetailEntitySet.Size = new System.Drawing.Size(538, 211);
+            this.pageDetailEntitySet.Size = new System.Drawing.Size(691, 319);
             this.pageDetailEntitySet.Text = "明细数据";
             // 
             // spcDetailEntitySet
@@ -408,7 +413,7 @@
             this.spcDetailEntitySet.Panel1.Text = "Panel1";
             this.spcDetailEntitySet.Panel2.Controls.Add(this.layoutControl4);
             this.spcDetailEntitySet.Panel2.Text = "Panel2";
-            this.spcDetailEntitySet.Size = new System.Drawing.Size(538, 178);
+            this.spcDetailEntitySet.Size = new System.Drawing.Size(691, 286);
             this.spcDetailEntitySet.SplitterPosition = 133;
             this.spcDetailEntitySet.TabIndex = 0;
             this.spcDetailEntitySet.Text = "spcDetailEntitySet";
@@ -421,7 +426,7 @@
             this.grdDetailEntitySet.MainView = this.grvDetailEntitySet;
             this.grdDetailEntitySet.MenuManager = this.ribbonMain;
             this.grdDetailEntitySet.Name = "grdDetailEntitySet";
-            this.grdDetailEntitySet.Size = new System.Drawing.Size(133, 178);
+            this.grdDetailEntitySet.Size = new System.Drawing.Size(133, 286);
             this.grdDetailEntitySet.TabIndex = 0;
             this.grdDetailEntitySet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDetailEntitySet});
@@ -437,7 +442,7 @@
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup4;
-            this.layoutControl4.Size = new System.Drawing.Size(400, 178);
+            this.layoutControl4.Size = new System.Drawing.Size(553, 286);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -457,7 +462,7 @@
             this.pnlDetailEntitySetTool.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDetailEntitySetTool.Location = new System.Drawing.Point(0, 0);
             this.pnlDetailEntitySetTool.Name = "pnlDetailEntitySetTool";
-            this.pnlDetailEntitySetTool.Size = new System.Drawing.Size(538, 33);
+            this.pnlDetailEntitySetTool.Size = new System.Drawing.Size(691, 33);
             this.pnlDetailEntitySetTool.TabIndex = 1;
             // 
             // grdIndex
@@ -469,7 +474,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(233, 392);
+            this.grdIndex.Size = new System.Drawing.Size(233, 456);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -505,7 +510,7 @@
             this.splitContainerControl3.Location = new System.Drawing.Point(1, 1);
             this.splitContainerControl3.Name = "splitContainerControl3";
             this.splitContainerControl3.Panel1.Controls.Add(this.layoutControl2);
-            this.splitContainerControl3.Size = new System.Drawing.Size(935, 575);
+            this.splitContainerControl3.Size = new System.Drawing.Size(1041, 639);
             this.splitContainerControl3.SplitterPosition = 95;
             this.splitContainerControl3.TabIndex = 0;
             // 
@@ -515,7 +520,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup5;
-            this.layoutControl2.Size = new System.Drawing.Size(935, 95);
+            this.layoutControl2.Size = new System.Drawing.Size(1041, 95);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "lcIndexEntitySet";
             // 
@@ -530,13 +535,31 @@
             this.layoutControlGroup5.Text = "layoutControlGroup2";
             this.layoutControlGroup5.TextVisible = false;
             // 
+            // tcIndexSql
+            // 
+            this.tcIndexSql.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcIndexSql.Location = new System.Drawing.Point(0, 0);
+            this.tcIndexSql.Name = "tcIndexSql";
+            this.tcIndexSql.SelectedTabPage = this.pageIndexSql;
+            this.tcIndexSql.Size = new System.Drawing.Size(391, 285);
+            this.tcIndexSql.TabIndex = 1;
+            this.tcIndexSql.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.pageIndexSql});
+            // 
+            // pageIndexSql
+            // 
+            this.pageIndexSql.Controls.Add(this.textEditorControl1);
+            this.pageIndexSql.Name = "pageIndexSql";
+            this.pageIndexSql.Size = new System.Drawing.Size(385, 256);
+            this.pageIndexSql.Text = "查询脚本";
+            // 
             // sysCommonBillConfigView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl3);
             this.Name = "sysCommonBillConfigView";
-            this.Size = new System.Drawing.Size(937, 577);
+            this.Size = new System.Drawing.Size(1043, 641);
             this.Controls.SetChildIndex(this.splitContainerControl3, 0);
             this.Controls.SetChildIndex(this.ribbonMain, 0);
             this.Controls.SetChildIndex(this.pnlQueryControl, 0);
@@ -577,8 +600,8 @@
             this.pageIndexFields.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdIndexFields)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvIndexFields)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.pageMainEntitySet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
@@ -597,6 +620,9 @@
             this.splitContainerControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcIndexSql)).EndInit();
+            this.tcIndexSql.ResumeLayout(false);
+            this.pageIndexSql.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,12 +658,14 @@
         private DevExpress.XtraTab.XtraTabControl tcIndexFields;
         private DevExpress.XtraTab.XtraTabPage pageIndexFields;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl grdIndexFields;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvIndexFields;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
         private Framework.Controls.TextEditor.TextEditorControl textEditorControl1;
+        private DevExpress.XtraTab.XtraTabControl tcIndexSql;
+        private DevExpress.XtraTab.XtraTabPage pageIndexSql;
     }
 }
