@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JNHT_ProdSys", "JNHT_ProdSys\JNHT_ProdSys.csproj", "{C8B4A88D-F32C-4E2A-A138-359D768CD8F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.EntityFramework", "..\..\SAF\SAF.EntityFramework\SAF.EntityFramework.csproj", "{2F6A089C-DD0B-47AF-B44D-EA510F2B4376}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C8B4A88D-F32C-4E2A-A138-359D768CD8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8B4A88D-F32C-4E2A-A138-359D768CD8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8B4A88D-F32C-4E2A-A138-359D768CD8F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F6A089C-DD0B-47AF-B44D-EA510F2B4376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F6A089C-DD0B-47AF-B44D-EA510F2B4376}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F6A089C-DD0B-47AF-B44D-EA510F2B4376}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F6A089C-DD0B-47AF-B44D-EA510F2B4376}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -117,7 +117,7 @@ namespace JNHT_ProdSys
             // base.OnAddNew();
             //pnlDtlToolbar. = true;
             // this.ViewModel.DetailEntitySet.IsBusy = true;
-            this.ViewModel.EditStatus = EditStatus.AddNew;
+            //this.ViewModel.EditStatus = EditStatus.AddNew;
             grvdetail.OptionsBehavior.ReadOnly = false;
 
         }
@@ -149,12 +149,19 @@ namespace JNHT_ProdSys
         // this.ViewModel.DetailEntitySet.SaveChanges();
 
 
-        protected override void OnSave()
+        protected override bool OnSave()
         {
-            // entityPack();
-
             base.OnSave();
-            this.ViewModel.DetailEntitySet.SaveChanges();
+
+            try
+            {
+                this.ViewModel.DetailEntitySet.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
 

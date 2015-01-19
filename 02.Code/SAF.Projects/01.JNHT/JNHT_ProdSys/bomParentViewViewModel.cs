@@ -20,7 +20,7 @@ namespace JNHT_ProdSys
             get
             {
                 if (_bomEntity == null)
-                    _bomEntity = new EntitySet<bomParent>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                    _bomEntity = new EntitySet<bomParent>(ConfigContext.DefaultConnection, null, 0);
                 return _bomEntity;
             }
         }
@@ -128,6 +128,7 @@ namespace JNHT_ProdSys
                     bom.BomChildStyle = bomProperty;
                     bom.BomChildStd = preName;
                     bom.UseQty = Convert.ToDecimal(item[4].ToString().Trim());
+                    bom.Define1 = item[7].ToString().Trim();
                     entity.SaveChanges();
 
                     childid = item[1].ToString().Trim();

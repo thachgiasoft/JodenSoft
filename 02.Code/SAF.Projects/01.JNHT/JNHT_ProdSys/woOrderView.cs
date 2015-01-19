@@ -86,11 +86,20 @@ namespace JNHT_ProdSys
 
         }
 
-        protected override void OnSave()
+        protected override bool OnSave()
         {
             base.OnSave();
-            InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
-            this.ViewModel.woDetailEntity.SaveChanges();
+            try
+            {
+                InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
+                this.ViewModel.woDetailEntity.SaveChanges();
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+                
+            }
         }
 
         //todo:新增有问题

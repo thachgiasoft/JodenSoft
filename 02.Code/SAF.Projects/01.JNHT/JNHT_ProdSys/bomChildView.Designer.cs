@@ -82,6 +82,7 @@
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -135,28 +136,37 @@
             // tcDtl
             // 
             this.tcDtl.SelectedTabPage = this.pageDtl;
-            this.tcDtl.Size = new System.Drawing.Size(704, 133);
+            this.tcDtl.Size = new System.Drawing.Size(702, 156);
             // 
             // pageDtl
             // 
             this.pageDtl.Controls.Add(this.grddetail);
-            this.pageDtl.Size = new System.Drawing.Size(698, 127);
+            this.pageDtl.Size = new System.Drawing.Size(696, 150);
+            this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grddetail, 0);
             // 
             // bsDetail
             // 
             this.bsDetail.DataSource = typeof(JNHT_ProdSys.bomChild);
             // 
+            // standaloneDtl
+            // 
+            this.standaloneDtl.Size = new System.Drawing.Size(696, 23);
+            // 
+            // barDtl
+            // 
+            this.barDtl.OptionsBar.AllowQuickCustomization = false;
+            // 
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
-            this.ribbonMain.Size = new System.Drawing.Size(1202, 145);
+            this.ribbonMain.Size = new System.Drawing.Size(1200, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.splitContainerControl1);
-            this.splitMain.Size = new System.Drawing.Size(1202, 272);
+            this.splitMain.Size = new System.Drawing.Size(1200, 295);
             this.splitMain.SplitterPosition = 493;
             // 
             // bsIndex
@@ -169,31 +179,32 @@
             // 
             // pnlQueryControl
             // 
-            this.pnlQueryControl.Size = new System.Drawing.Size(1202, 28);
+            this.pnlQueryControl.Size = new System.Drawing.Size(1200, 28);
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Size = new System.Drawing.Size(1202, 31);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 444);
+            this.pnlPageControl.Size = new System.Drawing.Size(1200, 31);
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(1198, 26);
+            this.pcMain.Size = new System.Drawing.Size(1196, 26);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(704, 268);
+            this.splitRight.Size = new System.Drawing.Size(702, 291);
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(704, 130);
+            this.tcMain.Size = new System.Drawing.Size(702, 130);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
             this.pageMain.Controls.Add(this.panelControl1);
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(698, 124);
+            this.pageMain.Size = new System.Drawing.Size(696, 124);
             // 
             // splitContainerControl1
             // 
@@ -205,7 +216,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.tlbom);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(493, 268);
+            this.splitContainerControl1.Size = new System.Drawing.Size(493, 291);
             this.splitContainerControl1.SplitterPosition = 124;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -219,7 +230,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(124, 268);
+            this.grdIndex.Size = new System.Drawing.Size(124, 291);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -262,7 +273,7 @@
             this.tlbom.OptionsView.ShowIndicator = false;
             this.tlbom.OptionsView.ShowVertLines = false;
             this.tlbom.SelectImageList = this.imageList1;
-            this.tlbom.Size = new System.Drawing.Size(364, 268);
+            this.tlbom.Size = new System.Drawing.Size(364, 291);
             this.tlbom.StateImageList = this.imageList1;
             this.tlbom.TabIndex = 0;
             this.tlbom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tlbom_MouseDown);
@@ -350,7 +361,7 @@
             this.txtbomid.Location = new System.Drawing.Point(75, 12);
             this.txtbomid.MenuManager = this.ribbonMain;
             this.txtbomid.Name = "txtbomid";
-            this.txtbomid.Size = new System.Drawing.Size(299, 20);
+            this.txtbomid.Size = new System.Drawing.Size(297, 20);
             this.txtbomid.StyleController = this.layoutControl1;
             this.txtbomid.TabIndex = 4;
             // 
@@ -364,7 +375,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(312, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(386, 124);
+            this.layoutControl1.Size = new System.Drawing.Size(384, 124);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -374,7 +385,7 @@
             this.txtbomchildid.Location = new System.Drawing.Point(75, 36);
             this.txtbomchildid.MenuManager = this.ribbonMain;
             this.txtbomchildid.Name = "txtbomchildid";
-            this.txtbomchildid.Size = new System.Drawing.Size(299, 20);
+            this.txtbomchildid.Size = new System.Drawing.Size(297, 20);
             this.txtbomchildid.StyleController = this.layoutControl1;
             this.txtbomchildid.TabIndex = 5;
             // 
@@ -384,7 +395,7 @@
             this.txtbomchildstyle.Location = new System.Drawing.Point(75, 84);
             this.txtbomchildstyle.MenuManager = this.ribbonMain;
             this.txtbomchildstyle.Name = "txtbomchildstyle";
-            this.txtbomchildstyle.Size = new System.Drawing.Size(299, 20);
+            this.txtbomchildstyle.Size = new System.Drawing.Size(297, 20);
             this.txtbomchildstyle.StyleController = this.layoutControl1;
             this.txtbomchildstyle.TabIndex = 7;
             // 
@@ -394,7 +405,7 @@
             this.txtbomchilddesc.Location = new System.Drawing.Point(75, 60);
             this.txtbomchilddesc.MenuManager = this.ribbonMain;
             this.txtbomchilddesc.Name = "txtbomchilddesc";
-            this.txtbomchilddesc.Size = new System.Drawing.Size(299, 20);
+            this.txtbomchilddesc.Size = new System.Drawing.Size(297, 20);
             this.txtbomchilddesc.StyleController = this.layoutControl1;
             this.txtbomchilddesc.TabIndex = 6;
             // 
@@ -410,7 +421,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(386, 124);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(384, 124);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -420,7 +431,7 @@
             this.layoutControlItem1.CustomizationFormText = "产品区分号";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(366, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(364, 24);
             this.layoutControlItem1.Text = "产品区分号";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -430,7 +441,7 @@
             this.layoutControlItem2.CustomizationFormText = "零部件代号";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(366, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(364, 24);
             this.layoutControlItem2.Text = "零部件代号";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -440,7 +451,7 @@
             this.layoutControlItem4.CustomizationFormText = "零部件属性";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(366, 32);
+            this.layoutControlItem4.Size = new System.Drawing.Size(364, 32);
             this.layoutControlItem4.Text = "零部件属性";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -450,7 +461,7 @@
             this.layoutControlItem3.CustomizationFormText = "零部件名称";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(366, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(364, 24);
             this.layoutControlItem3.Text = "零部件名称";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -464,7 +475,7 @@
             this.grddetail.Cursor = System.Windows.Forms.Cursors.Default;
             this.grddetail.DataSource = this.bsDetail;
             this.grddetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grddetail.Location = new System.Drawing.Point(0, 29);
+            this.grddetail.Location = new System.Drawing.Point(0, 23);
             this.grddetail.MainView = this.grvdetail;
             this.grddetail.MenuManager = this.ribbonMain;
             this.grddetail.Name = "grddetail";
@@ -472,7 +483,7 @@
             this.gluCinvcode,
             this.gluCinvName,
             this.gluDep});
-            this.grddetail.Size = new System.Drawing.Size(698, 98);
+            this.grddetail.Size = new System.Drawing.Size(696, 127);
             this.grddetail.TabIndex = 1;
             this.grddetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvdetail});
@@ -706,6 +717,7 @@
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);

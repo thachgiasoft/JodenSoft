@@ -136,10 +136,7 @@ namespace JNHT_ProdSys
             UIController.SetupGridControl(this.grdIndex);
         }
 
-        protected override void OnSave()
-        {
-            base.OnSave();
-        }
+      
 
         protected override void OnInitBinding()
         {

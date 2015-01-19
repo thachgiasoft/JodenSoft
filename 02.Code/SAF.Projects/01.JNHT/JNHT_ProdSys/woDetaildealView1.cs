@@ -69,7 +69,7 @@ namespace JNHT_ProdSys
         protected override void OnAddNew()
         {
             //base.OnAddNew();
-            this.ViewModel.EditStatus = EditStatus.AddNew;
+           // this.ViewModel.EditStatus = EditStatus.AddNew;
             grvdetail.OptionsBehavior.ReadOnly = false;
             
         }
