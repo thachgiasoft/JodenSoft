@@ -60,15 +60,17 @@ namespace FSDProdPlan
         {
             base.OnInitConfig();
             UIController.SetupGridControl(this.grdIndex);
-            lusMaterialNo.EditValueChanged += lusMaterialNo_EditValueChanged;
+           // lusMaterialNo.EditValueChanged += lusMaterialNo_EditValueChanged;
+
+            sluchbm.EditValueChanged += sluchbm_EditValueChanged;
         }
 
-        void lusMaterialNo_EditValueChanged(object sender, EventArgs e)
+        void sluchbm_EditValueChanged(object sender, EventArgs e)
         {
-            var grid = sender as LookUpEdit;
+            var grid = sender as SearchLookUpEdit;
 
             //方法一:适用于不同实体集
-            var drv = grid.GetSelectedDataRow() as DataRowView;
+            var drv = grid.Properties.View.GetFocusedDataRow() as DataRow;
 
             if (drv == null) return;
 
@@ -89,12 +91,25 @@ namespace FSDProdPlan
             this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelName = objinventory.sEquipmentNo;
             this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uemEquipmentModelGUID;
             this.ViewModel.MainEntitySet.CurrentEntity.nCapacity = objinventory.nCapacity;
-
         }
+
+      
+
 
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             this.IndexRowChange();
         }
+
+        protected override void OnAddNew()
+        {
+            base.OnAddNew();
+            this.sluchbm.Text = string.Empty;
+            this.txtsMaterialName.Text = string.Empty;
+            this.txtsEquipmentModelName.Text = string.Empty;
+        }
+
+        
     }
 }
+ 

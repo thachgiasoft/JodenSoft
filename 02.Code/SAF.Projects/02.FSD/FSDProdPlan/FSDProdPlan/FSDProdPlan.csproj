@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\04.Release\SAF.Client\</OutputPath>
+    <OutputPath>..\..\..\..\..\04.Release\SAF.Client\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -103,14 +103,6 @@
       <DependentUpon>emModelView.cs</DependentUpon>
     </Compile>
     <Compile Include="emModelViewViewModel.cs" />
-    <Compile Include="jdMomorder.cs" />
-    <Compile Include="jdMomorderView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="jdMomorderView.Designer.cs">
-      <DependentUpon>jdMomorderView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="jdMomorderViewViewModel.cs" />
     <Compile Include="jdMoorder.cs" />
     <Compile Include="jdMoorderView.cs">
       <SubType>UserControl</SubType>
@@ -119,39 +111,7 @@
       <DependentUpon>jdMoorderView.cs</DependentUpon>
     </Compile>
     <Compile Include="jdMoorderViewViewModel.cs" />
-    <Compile Include="jdProcess.cs" />
-    <Compile Include="jdProcessView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="jdProcessView.Designer.cs">
-      <DependentUpon>jdProcessView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="jdProcessViewViewModel.cs" />
-    <Compile Include="jdProdetail.cs" />
-    <Compile Include="jdProdetailView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="jdProdetailView.Designer.cs">
-      <DependentUpon>jdProdetailView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="jdProdetailViewViewModel.cs" />
-    <Compile Include="jdRecourse.cs" />
-    <Compile Include="jdRecourseView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="jdRecourseView.Designer.cs">
-      <DependentUpon>jdRecourseView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="jdRecourseViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysBillNoFormula.cs" />
-    <Compile Include="sysBillNoFormulaView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="sysBillNoFormulaView.Designer.cs">
-      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sysBillNoFormulaViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="emEquipmentCapacityProduceView.resx">
@@ -163,25 +123,10 @@
     <EmbeddedResource Include="emModelView.resx">
       <DependentUpon>emModelView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="jdMomorderView.resx">
-      <DependentUpon>jdMomorderView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="jdMoorderView.resx">
       <DependentUpon>jdMoorderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="jdProcessView.resx">
-      <DependentUpon>jdProcessView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jdProdetailView.resx">
-      <DependentUpon>jdProdetailView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="jdRecourseView.resx">
-      <DependentUpon>jdRecourseView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="sysBillNoFormulaView.resx">
-      <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\emEquipmentCapacityProduce.datasource" />

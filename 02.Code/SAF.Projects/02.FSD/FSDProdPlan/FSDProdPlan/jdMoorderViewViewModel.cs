@@ -7,6 +7,7 @@ using SAF.Framework.Controls.ViewConfig;
 using SAF.EntityFramework;
 using SAF.Foundation;
 using System.Data;
+using SAF.Foundation.ServiceModel;
 namespace FSDProdPlan
 {
     public class jdMoorderViewViewModel : SingleViewViewModel<jdMoorder, jdMoorder>
@@ -31,7 +32,7 @@ namespace FSDProdPlan
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  *  FROM  jdMoorder where Iden='{0}'".FormatEx(key));
-            this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo AS sMaterialNo,sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
+            this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo  AS sMaterialNo,sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
            
         }
 
@@ -50,8 +51,24 @@ namespace FSDProdPlan
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
 
-            e.CurrentEntity.sOrderNo = BillNoGenerator.NewBillNo(2);
+            e.CurrentEntity.sOrderNo =  BillNoGenerator.NewBillNo(11);//(1000000000 + e.CurrentEntity.Iden).ToString();// ; //BillNoGenerator.NewBillNo(2);
                 //DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, "exec JD_P_GetMoOrderNumber").ToString();// (1000000000 + e.CurrentEntity.Iden).ToString();
+        }
+
+        protected override void OnDelete()
+        {
+            if (checkisExists(this.MainEntitySet.CurrentEntity.sOrderNo))
+            {
+                MessageService.ShowMessage("此订单在排产,不能删除!");
+                return;
+            }
+            base.OnDelete();
+        }
+
+        private bool checkisExists(string p)
+        {
+            string sql = "SELECT  COUNT(*)  FROM psWpp WHERE sOrderNo='{0}'".FormatEx(p);
+            return Convert.ToInt32(DataPortal.ExecuteScalar(ConfigContext.DefaultConnection,sql))>0;
         }
     }
 }

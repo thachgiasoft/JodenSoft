@@ -259,6 +259,7 @@
             0,
             0,
             0});
+            this.spnCapacity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.spnCapacity.Location = new System.Drawing.Point(63, 180);
             this.spnCapacity.MenuManager = this.ribbonMain;
             this.spnCapacity.Name = "spnCapacity";
