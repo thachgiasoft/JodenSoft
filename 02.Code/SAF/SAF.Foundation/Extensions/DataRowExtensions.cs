@@ -10,7 +10,7 @@ namespace SAF.Foundation
     {
         public static bool IsFieldExists(this DataRow dr, string fieldName)
         {
-            return dr != null && fieldName.IsNotEmpty() && dr.Table.Columns.Contains(fieldName);
+            return dr != null && !fieldName.IsEmpty() && dr.Table.Columns.Contains(fieldName);
         }
     }
 }

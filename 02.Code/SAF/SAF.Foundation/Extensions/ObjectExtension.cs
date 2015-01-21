@@ -19,41 +19,6 @@ namespace SAF.Foundation
         {
             return (obj == null || obj == DBNull.Value) ? string.Empty : obj.ToString();
         }
-        /// <summary>
-        /// 判断对象是否为NULL,string.Empty或空格,或元素个数为0
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static bool IsEmpty(this object obj)
-        {
-            if (obj == null || obj == DBNull.Value) return true;
-
-            if (obj is string)
-            {
-                return string.IsNullOrWhiteSpace(obj.ToStringEx());
-            }
-
-            if (obj is IEnumerable)
-            {
-                var list = obj as IEnumerable;
-                IEnumerator i = list.GetEnumerator();
-                if (!i.MoveNext())
-                    return true;
-                else
-                    return false;
-            }
-            return false;
-
-        }
-        /// <summary>
-        /// 判断对象是否非空
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public static bool IsNotEmpty(this object obj)
-        {
-            return !obj.IsEmpty();
-        }
 
         /// <summary>
         /// Converts the input string to specified type.
@@ -113,8 +78,8 @@ namespace SAF.Foundation
         /// <returns></returns>
         public static bool In<T>(this T t, params T[] c)
         {
-            if (t.IsEmpty()) return false;
-            if (c.IsEmpty() || c.Length <= 0) return false;
+            if (t == null) return false;
+            if (c.IsEmpty()) return false;
 
             return c.Any(i => i.Equals(t));
         }

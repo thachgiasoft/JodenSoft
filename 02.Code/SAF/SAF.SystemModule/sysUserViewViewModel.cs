@@ -118,7 +118,7 @@ order by Iden";
             this.ExecuteCache.Execute(0, "delete sysUserRole where UserId=:UserId", this.MainEntitySet.CurrentKey);
             foreach (TreeListNode item in list)
             {
-                if (item.GetValue("Iden").IsNotEmpty())
+                if (!item.GetValue("Iden").IsEmpty())
                 {
                     var entity = this.UserRoleEntitySet.AddNew();
                     entity.Iden = IdenGenerator.NewIden(entity.DbTableName);

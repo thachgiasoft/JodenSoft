@@ -51,7 +51,7 @@ namespace SAF.Framework.Component
                 this.cbxAccessMode.SelectedIndex = 0;
 
                 string conStr = ApplicationConfig.GetConnectionString(DefaultConnection);
-                if (conStr.IsNotEmpty())
+                if (!conStr.IsEmpty())
                 {
                     SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(conStr);
                     this.txtServer.EditValue = csb.DataSource;

@@ -67,7 +67,7 @@ namespace SAF.SystemModule
 
             if (drv == null) return;
 
-            if (drv["BusinessViewId"].IsNotEmpty())
+            if (!drv["BusinessViewId"].IsEmpty())
             {
                 e.NodeImageIndex = 2;
             }

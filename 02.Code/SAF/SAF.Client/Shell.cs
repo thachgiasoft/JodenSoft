@@ -90,7 +90,7 @@ namespace SAF.Client
             if (this.IsLogin)
             {
                 var s = this.GetAllDirtyViewCpations();
-                if (s.IsNotEmpty())
+                if (!s.IsEmpty())
                 {
                     string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}{0}{0}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
                     var allowClose = MessageService.AskQuestion(question);

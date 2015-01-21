@@ -116,7 +116,7 @@ namespace SAF.SystemModule
         {
             var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
 
-            if (drv.IsNotEmpty())
+            if (!drv.IsEmpty())
             {
                 var menuType = (sysMenuType)Convert.ToInt32(drv["MenuType"]);
                 if (menuType == sysMenuType.Menu)

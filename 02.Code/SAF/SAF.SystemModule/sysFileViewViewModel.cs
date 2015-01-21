@@ -249,7 +249,7 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
             if (this.EditState.In(EditState.AddNew, EditState.Edit))
             {
                 var fileName = FileDialogHelper.OpenFile("选择文件...");
-                if (fileName.IsNotEmpty() && File.Exists(fileName) && MainEntitySet.CurrentEntity != null)
+                if (!fileName.IsEmpty() && File.Exists(fileName) && MainEntitySet.CurrentEntity != null)
                 {
                     FileHelper.SetFileInfo(MainEntitySet.CurrentEntity, fileName);
                     this.SyncIndexEntitySet();

@@ -79,7 +79,7 @@ namespace SAF.SystemModule
         {
             var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
 
-            if (drv.IsNotEmpty())
+            if (!drv.IsEmpty())
             {
                 if (drv["MenuType"].IsEmpty())
                 {

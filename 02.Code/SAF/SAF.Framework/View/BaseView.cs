@@ -83,7 +83,7 @@ namespace SAF.Framework.View
         /// </summary>
         protected virtual void OnInitCommonBill()
         {
-            
+
         }
 
         protected virtual void OnAfterInit()
@@ -100,11 +100,11 @@ namespace SAF.Framework.View
         {
             var es = new EntitySet<QueryEntity>();
             es.Query("SELECT Name,[Value] FROM  [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
-            if (es.IsNotEmpty())
+            if (!es.IsEmpty())
             {
                 foreach (var entity in es)
                 {
-                    if (entity.GetFieldValue<string>("Value").IsNotEmpty())
+                    if (!entity.GetFieldValue<string>("Value").IsEmpty())
                         this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
                 }
             }
