@@ -105,9 +105,9 @@ SET @BillNo= @prefix
     + @suffix
 
 UPDATE sysBillNoFormula
-SET CurrentDate  = @CurrentDate 
+SET CurrentDate  = @Now 
     ,CurrentIden=@CurrentIden
-WHERE Iden=@BillNoId;
+WHERE Iden=@BillNoId
     
 COMMIT TRAN
 
