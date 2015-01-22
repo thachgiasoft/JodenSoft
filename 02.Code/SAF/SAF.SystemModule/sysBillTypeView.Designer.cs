@@ -540,7 +540,7 @@
             this.pageDataRight.Controls.Add(this.standaloneBarDockControl2);
             this.pageDataRight.Name = "pageDataRight";
             this.pageDataRight.Padding = new System.Windows.Forms.Padding(1);
-            this.pageDataRight.Size = new System.Drawing.Size(526, 122);
+            this.pageDataRight.Size = new System.Drawing.Size(638, 171);
             this.pageDataRight.Text = "数据权限";
             // 
             // grdDataRight
@@ -556,7 +556,7 @@
             this.sluDataRole2,
             this.luDataRight,
             this.chkIsActive2});
-            this.grdDataRight.Size = new System.Drawing.Size(524, 91);
+            this.grdDataRight.Size = new System.Drawing.Size(636, 140);
             this.grdDataRight.TabIndex = 1;
             this.grdDataRight.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDataRight});
@@ -769,7 +769,7 @@
             this.standaloneBarDockControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl2.Location = new System.Drawing.Point(1, 1);
             this.standaloneBarDockControl2.Name = "standaloneBarDockControl2";
-            this.standaloneBarDockControl2.Size = new System.Drawing.Size(524, 29);
+            this.standaloneBarDockControl2.Size = new System.Drawing.Size(636, 29);
             this.standaloneBarDockControl2.Text = "standaloneBarDockControl2";
             // 
             // colExtendRight1

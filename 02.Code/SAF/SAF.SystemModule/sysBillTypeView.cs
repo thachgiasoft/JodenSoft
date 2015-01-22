@@ -115,18 +115,29 @@ namespace SAF.SystemModule
         protected override void OnIndexRowChange()
         {
             base.OnIndexRowChange();
+            this.ViewModel.MergeBillRightDefine();
             RefreshOperateAndDataRightCaption();
         }
 
         protected override void OnAddNew()
         {
             base.OnAddNew();
+            this.ViewModel.MergeBillRightDefine();
             RefreshOperateAndDataRightCaption();
         }
 
         private void RefreshOperateAndDataRightCaption()
         {
-            this.ViewModel.MergeBillRightDefine();
+            colDataRoleId.VisibleIndex = 0;
+            colAddNew.VisibleIndex = 1;
+
+            colDataRoleId1.VisibleIndex = 0;
+            colQueryRight.VisibleIndex = 1;
+            colUpdateRight.VisibleIndex = 2;
+            colDeleteRight.VisibleIndex = 3;
+            colAuditRight.VisibleIndex = 4;
+            colPrintRight.VisibleIndex = 5;
+
             for (int i = 0; i < this.ViewModel._dtDataRightDefine.Rows.Count; i++)
             {
                 DataRow define = this.ViewModel._dtDataRightDefine.Rows[i];
@@ -164,6 +175,7 @@ namespace SAF.SystemModule
                     }
                 }
             }
+
             this.colIsActive1.Visible = false;
             this.colIsActive1.VisibleIndex = 20;
 

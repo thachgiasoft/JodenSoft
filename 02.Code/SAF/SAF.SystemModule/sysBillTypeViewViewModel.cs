@@ -201,6 +201,7 @@ namespace SAF.SystemModule
                 {
                     obj["Caption"] = item.Caption;
                     obj["IsActive"] = item.IsActive;
+                    obj.EndEdit();
                 }
             }
         }
