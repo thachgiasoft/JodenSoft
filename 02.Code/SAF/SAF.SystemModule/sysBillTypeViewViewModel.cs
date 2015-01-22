@@ -95,16 +95,16 @@ namespace SAF.SystemModule
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;
             e.CurrentEntity.AddNew = false;
-            e.CurrentEntity.ExtendRigth1 = false;
-            e.CurrentEntity.ExtendRigth2 = false;
-            e.CurrentEntity.ExtendRigth3 = false;
-            e.CurrentEntity.ExtendRigth4 = false;
-            e.CurrentEntity.ExtendRigth5 = false;
-            e.CurrentEntity.ExtendRigth6 = false;
-            e.CurrentEntity.ExtendRigth7 = false;
-            e.CurrentEntity.ExtendRigth8 = false;
-            e.CurrentEntity.ExtendRigth9 = false;
-            e.CurrentEntity.ExtendRigth10 = false;
+            e.CurrentEntity.ExtendRight1 = false;
+            e.CurrentEntity.ExtendRight2 = false;
+            e.CurrentEntity.ExtendRight3 = false;
+            e.CurrentEntity.ExtendRight4 = false;
+            e.CurrentEntity.ExtendRight5 = false;
+            e.CurrentEntity.ExtendRight6 = false;
+            e.CurrentEntity.ExtendRight7 = false;
+            e.CurrentEntity.ExtendRight8 = false;
+            e.CurrentEntity.ExtendRight9 = false;
+            e.CurrentEntity.ExtendRight10 = false;
             e.CurrentEntity.IsActive = true;
         }
 
@@ -162,7 +162,13 @@ namespace SAF.SystemModule
 
         public DataTable _dtDataRightDefine = new DataTable();
 
-        public void InitDataRightDefine()
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+            InitDataRightDefine();
+        }
+
+        private void InitDataRightDefine()
         {
             _dtDataRightDefine.Columns.Add("RightType", typeof(string));
             _dtDataRightDefine.Columns.Add("FieldName", typeof(string));
@@ -171,11 +177,11 @@ namespace SAF.SystemModule
 
             for (int i = 1; i <= 10; i++)
             {
-                _dtDataRightDefine.Rows.Add("操作权限", "ExtendRight{0}".FormatEx(i), string.Empty, true);
+                _dtDataRightDefine.Rows.Add("操作权限", "ExtendRight{0}".FormatEx(i), string.Empty, false);
             }
             for (int i = 1; i <= 10; i++)
             {
-                _dtDataRightDefine.Rows.Add("数据权限", "ExtendRight{0}".FormatEx(i), string.Empty, true);
+                _dtDataRightDefine.Rows.Add("数据权限", "ExtendRight{0}".FormatEx(i), string.Empty, false);
             }
         }
 
@@ -208,7 +214,7 @@ namespace SAF.SystemModule
                 {
                     obj = this.sysBillRightDefineEntitySet.AddNew();
                     obj.Iden = IdenGenerator.NewIden(obj.DbTableName);
-                    obj.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;                   
+                    obj.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;
                     obj.FieldName = item["FieldName"].ToString();
                 }
 

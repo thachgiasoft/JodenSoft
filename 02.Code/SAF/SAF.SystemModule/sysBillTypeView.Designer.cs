@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
@@ -54,7 +53,7 @@
             this.colIsSystem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pageDataRight = new DevExpress.XtraTab.XtraTabPage();
             this.grdDataRight = new DevExpress.XtraGrid.GridControl();
-            this.bsDataRight = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDataRight = new System.Windows.Forms.BindingSource();
             this.grvDataRight = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDataRoleId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sluDataRole2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -82,8 +81,9 @@
             this.chkOperateRight = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.pageRightDefine = new DevExpress.XtraTab.XtraTabPage();
             this.grdRightDefine = new DevExpress.XtraGrid.GridControl();
-            this.bsRightDefine = new System.Windows.Forms.BindingSource(this.components);
+            this.bsRightDefine = new System.Windows.Forms.BindingSource();
             this.grvRightDefine = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colRightType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFieldName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCaption = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsActive2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -107,7 +107,6 @@
             this.btnAddDataRight = new DevExpress.XtraBars.BarButtonItem();
             this.btnCopyDataRight = new DevExpress.XtraBars.BarButtonItem();
             this.btnDeleteDataRight = new DevExpress.XtraBars.BarButtonItem();
-            this.colRightType = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -187,11 +186,17 @@
             this.pageDtl.Padding = new System.Windows.Forms.Padding(1);
             this.pageDtl.Size = new System.Drawing.Size(638, 171);
             this.pageDtl.Text = "操作权限";
+            this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdOperateRight, 0);
             // 
             // bsDetail
             // 
             this.bsDetail.DataSource = typeof(SAF.SystemEntities.sysBillOperateRight);
+            // 
+            // standaloneDtl
+            // 
+            this.standaloneDtl.Location = new System.Drawing.Point(1, 1);
+            this.standaloneDtl.Size = new System.Drawing.Size(636, 23);
             // 
             // barDtl
             // 
@@ -495,6 +500,7 @@
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
             this.grvIndex.OptionsView.ColumnAutoWidth = false;
+            this.grvIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvIndex_FocusedRowChanged);
             // 
             // colIden
             // 
@@ -787,7 +793,7 @@
             this.pageRightDefine.Controls.Add(this.grdRightDefine);
             this.pageRightDefine.Name = "pageRightDefine";
             this.pageRightDefine.Padding = new System.Windows.Forms.Padding(1);
-            this.pageRightDefine.Size = new System.Drawing.Size(638, 171);
+            this.pageRightDefine.Size = new System.Drawing.Size(526, 122);
             this.pageRightDefine.Text = "权限定义";
             // 
             // grdRightDefine
@@ -799,7 +805,7 @@
             this.grdRightDefine.MainView = this.grvRightDefine;
             this.grdRightDefine.MenuManager = this.ribbonMain;
             this.grdRightDefine.Name = "grdRightDefine";
-            this.grdRightDefine.Size = new System.Drawing.Size(636, 169);
+            this.grdRightDefine.Size = new System.Drawing.Size(524, 120);
             this.grdRightDefine.TabIndex = 0;
             this.grdRightDefine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvRightDefine});
@@ -816,9 +822,20 @@
             this.colCaption,
             this.colIsActive2});
             this.grvRightDefine.GridControl = this.grdRightDefine;
+            this.grvRightDefine.GroupCount = 1;
             this.grvRightDefine.Name = "grvRightDefine";
             this.grvRightDefine.OptionsView.ColumnAutoWidth = false;
             this.grvRightDefine.OptionsView.ShowGroupPanel = false;
+            this.grvRightDefine.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRightType, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colRightType
+            // 
+            this.colRightType.Caption = "权限类型";
+            this.colRightType.FieldName = "RightType";
+            this.colRightType.Name = "colRightType";
+            this.colRightType.Visible = true;
+            this.colRightType.VisibleIndex = 0;
             // 
             // colFieldName
             // 
@@ -826,7 +843,7 @@
             this.colFieldName.FieldName = "FieldName";
             this.colFieldName.Name = "colFieldName";
             this.colFieldName.Visible = true;
-            this.colFieldName.VisibleIndex = 1;
+            this.colFieldName.VisibleIndex = 0;
             // 
             // colCaption
             // 
@@ -834,7 +851,7 @@
             this.colCaption.FieldName = "Caption";
             this.colCaption.Name = "colCaption";
             this.colCaption.Visible = true;
-            this.colCaption.VisibleIndex = 2;
+            this.colCaption.VisibleIndex = 1;
             // 
             // colIsActive2
             // 
@@ -842,7 +859,7 @@
             this.colIsActive2.FieldName = "IsActive";
             this.colIsActive2.Name = "colIsActive2";
             this.colIsActive2.Visible = true;
-            this.colIsActive2.VisibleIndex = 3;
+            this.colIsActive2.VisibleIndex = 2;
             // 
             // grdOperateRight
             // 
@@ -1038,14 +1055,6 @@
             this.btnDeleteDataRight.Name = "btnDeleteDataRight";
             this.btnDeleteDataRight.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDeleteDataRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeleteDataRight_ItemClick);
-            // 
-            // colRightType
-            // 
-            this.colRightType.Caption = "权限类型";
-            this.colRightType.FieldName = "RightType";
-            this.colRightType.Name = "colRightType";
-            this.colRightType.Visible = true;
-            this.colRightType.VisibleIndex = 0;
             // 
             // sysBillTypeView
             // 

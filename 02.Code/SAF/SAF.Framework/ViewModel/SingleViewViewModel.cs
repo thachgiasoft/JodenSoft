@@ -227,7 +227,7 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnAddNew()
         {
-            this.MainEntitySet.IsBusy = true;
+            this.IndexEntitySet.IsBusy = true;
             try
             {
                 this.IndexEntitySet.AddNew();
@@ -243,7 +243,7 @@ namespace SAF.Framework.ViewModel
             }
             finally
             {
-                this.MainEntitySet.IsBusy = false;
+                this.IndexEntitySet.IsBusy = false;
             }
         }
 

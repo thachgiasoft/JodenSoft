@@ -38,6 +38,13 @@ namespace SAF.SystemModule
         {
             base.OnInitConfig();
             this.AccessFocusControl = this.txtName;
+
+            this.Shown += sysBillTypeView_Shown;
+        }
+
+        void sysBillTypeView_Shown(object sender, EventArgs e)
+        {
+            this.grvRightDefine.ExpandAllGroups();
         }
 
         protected override void OnInitBinding()
@@ -63,9 +70,6 @@ namespace SAF.SystemModule
             var dataRightType = typeof(BillRightType).ToList<int>();
             this.luDataRight.SetDataSource(dataRightType, "Key", "Value");
 
-            this.ViewModel.InitDataRightDefine();
-
-            RefreshOperateAndDataRightCaption();
         }
 
         protected override void OnRefreshUI()
@@ -111,26 +115,34 @@ namespace SAF.SystemModule
         protected override void OnIndexRowChange()
         {
             base.OnIndexRowChange();
-            this.ViewModel.MergeBillRightDefine();
+            RefreshOperateAndDataRightCaption();
+        }
+
+        protected override void OnAddNew()
+        {
+            base.OnAddNew();
             RefreshOperateAndDataRightCaption();
         }
 
         private void RefreshOperateAndDataRightCaption()
         {
-            foreach (DataRow define in this.ViewModel._dtDataRightDefine.Rows)
+            this.ViewModel.MergeBillRightDefine();
+            for (int i = 0; i < this.ViewModel._dtDataRightDefine.Rows.Count; i++)
             {
+                DataRow define = this.ViewModel._dtDataRightDefine.Rows[i];
+
                 if (define["RightType"].ToString() == "操作权限")
                 {
                     var column = this.grvOperateRight.Columns.ColumnByFieldName(define["FieldName"].ToString());
                     if (column != null)
                     {
-                        if (!Convert.ToBoolean(define["IsActive"]) || define["Caption"].IsEmpty())
+                        if (!Convert.ToBoolean(define["IsActive"]))
                         {
                             column.Visible = false;
                         }
                         else
                         {
-                            column.Visible = true;
+                            column.VisibleIndex = (i > 9 ? i - 9 : i) + 2;
                             column.Caption = define["Caption"].ToString();
                         }
                     }
@@ -140,24 +152,38 @@ namespace SAF.SystemModule
                     var column = this.grvDataRight.Columns.ColumnByFieldName(define["FieldName"].ToString());
                     if (column != null)
                     {
-                        if (!Convert.ToBoolean(define["IsActive"]) || define["Caption"].IsEmpty())
+                        if (!Convert.ToBoolean(define["IsActive"]))
                         {
                             column.Visible = false;
                         }
                         else
                         {
-                            column.Visible = true;
+                            column.VisibleIndex = (i > 9 ? i - 9 : i) + 5;
                             column.Caption = define["Caption"].ToString();
                         }
                     }
                 }
             }
+            this.colIsActive1.Visible = false;
+            this.colIsActive1.VisibleIndex = 20;
+
+            this.colIsActive3.Visible = false;
+            this.colIsActive3.VisibleIndex = 20;
+
+            this.grvOperateRight.BestFitColumns();
+            this.grvDataRight.BestFitColumns();
+            this.grvRightDefine.BestFitColumns();
 
         }
 
         private void tcDtl_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             RefreshOperateAndDataRightCaption();
+        }
+
+        private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            IndexRowChange();
         }
     }
 }

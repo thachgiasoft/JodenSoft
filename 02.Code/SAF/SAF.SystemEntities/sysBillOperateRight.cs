@@ -40,64 +40,64 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.AddNew, value); }
         }
 
-        public bool ExtendRigth1
+        public bool ExtendRight1
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth1); }
-            set { base.SetFieldValue(P => P.ExtendRigth1, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight1); }
+            set { base.SetFieldValue(P => P.ExtendRight1, value); }
         }
 
-        public bool ExtendRigth2
+        public bool ExtendRight2
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth2); }
-            set { base.SetFieldValue(P => P.ExtendRigth2, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight2); }
+            set { base.SetFieldValue(P => P.ExtendRight2, value); }
         }
 
-        public bool ExtendRigth3
+        public bool ExtendRight3
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth3); }
-            set { base.SetFieldValue(P => P.ExtendRigth3, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight3); }
+            set { base.SetFieldValue(P => P.ExtendRight3, value); }
         }
 
-        public bool ExtendRigth4
+        public bool ExtendRight4
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth4); }
-            set { base.SetFieldValue(P => P.ExtendRigth4, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight4); }
+            set { base.SetFieldValue(P => P.ExtendRight4, value); }
         }
 
-        public bool ExtendRigth5
+        public bool ExtendRight5
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth5); }
-            set { base.SetFieldValue(P => P.ExtendRigth5, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight5); }
+            set { base.SetFieldValue(P => P.ExtendRight5, value); }
         }
 
-        public bool ExtendRigth6
+        public bool ExtendRight6
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth6); }
-            set { base.SetFieldValue(P => P.ExtendRigth6, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight6); }
+            set { base.SetFieldValue(P => P.ExtendRight6, value); }
         }
 
-        public bool ExtendRigth7
+        public bool ExtendRight7
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth7); }
-            set { base.SetFieldValue(P => P.ExtendRigth7, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight7); }
+            set { base.SetFieldValue(P => P.ExtendRight7, value); }
         }
 
-        public bool ExtendRigth8
+        public bool ExtendRight8
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth8); }
-            set { base.SetFieldValue(P => P.ExtendRigth8, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight8); }
+            set { base.SetFieldValue(P => P.ExtendRight8, value); }
         }
 
-        public bool ExtendRigth9
+        public bool ExtendRight9
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth9); }
-            set { base.SetFieldValue(P => P.ExtendRigth9, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight9); }
+            set { base.SetFieldValue(P => P.ExtendRight9, value); }
         }
 
-        public bool ExtendRigth10
+        public bool ExtendRight10
         {
-            get { return base.GetFieldValue<bool>(P => P.ExtendRigth10); }
-            set { base.SetFieldValue(P => P.ExtendRigth10, value); }
+            get { return base.GetFieldValue<bool>(P => P.ExtendRight10); }
+            set { base.SetFieldValue(P => P.ExtendRight10, value); }
         }
 
         public bool IsActive
