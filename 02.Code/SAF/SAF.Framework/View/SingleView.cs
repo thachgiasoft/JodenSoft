@@ -485,6 +485,7 @@ namespace SAF.Framework.View
             bool canAddNew = operateRight.IncludeEnum(BillOperateRight.AddNew);
             bool canEdit = dataRight.IncludeEnum(BillDataRight.Edit);
             bool canDelete = dataRight.IncludeEnum(BillDataRight.Delete);
+            bool canPreview = dataRight.IncludeEnum(BillDataRight.Print);
 
             bool canSendToAudit = dataRight.IncludeEnum(BillDataRight.SendToAudit);
 
@@ -495,6 +496,8 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiSave, IsAddNew || IsEdit);
 
             UIController.RefreshControl(this.bbiSend, IsBrowse && this.BillTypeId > 0 && curr != null && canSendToAudit && curr.BillState == BillState.Draft);
+
+            UIController.RefreshControl(this.bbiPreview, IsBrowse && curr != null && canPreview);
 
             if (curr != null)
             {

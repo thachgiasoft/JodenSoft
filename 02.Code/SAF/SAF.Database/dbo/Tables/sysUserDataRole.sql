@@ -8,9 +8,9 @@
     [ModifiedBy]     INT        NULL,
     [ModifiedOn]     DATETIME   NULL,
     [VersionNumber]  ROWVERSION NULL,
-    CONSTRAINT [PK_sysUserRole] PRIMARY KEY CLUSTERED ([Iden] ASC),
-    CONSTRAINT [FK_SystemUserOrganizationRole_SystemOrganization] FOREIGN KEY ([OrganizationId]) REFERENCES [dbo].[sysOrganization] ([Iden]),
-    CONSTRAINT [FK_sysUserRole_sysRole_RoleId] FOREIGN KEY ([DataRoleId]) REFERENCES [dbo].[sysDataRole] ([Iden]),
-    CONSTRAINT [FK_sysUserRole_sysUser_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[sysUser] ([Iden])
+    CONSTRAINT [PK_sysUserDataRole] PRIMARY KEY CLUSTERED ([Iden] ASC),
+    CONSTRAINT [FK_sysUserDataRole_SystemOrganization] FOREIGN KEY ([OrganizationId]) REFERENCES [dbo].[sysOrganization] ([Iden]),
+    CONSTRAINT [FK_sysUserDataRole_sysRole_RoleId] FOREIGN KEY ([DataRoleId]) REFERENCES [dbo].[sysDataRole] ([Iden]),
+    CONSTRAINT [FK_sysUserDataRole_sysUser_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[sysUser] ([Iden])
 );
 

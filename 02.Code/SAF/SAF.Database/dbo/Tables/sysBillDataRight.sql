@@ -17,7 +17,7 @@
     [ExtendRight8]  INT        NOT NULL,
     [ExtendRight9]  INT        NOT NULL,
     [ExtendRight10] INT        NOT NULL,
-    [IsActive]      BIT        CONSTRAINT [DF__SystemBil__IsAct__0C1BC9F9] DEFAULT ((1)) NOT NULL,
+    [IsActive]      BIT        CONSTRAINT [DF_sysBillDataRight_IsActive] DEFAULT ((1)) NOT NULL,
     [CreatedBy]     INT        NULL,
     [CreatedOn]     DATETIME   NULL,
     [ModifiedBy]    INT        NULL,

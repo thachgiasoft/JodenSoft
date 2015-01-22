@@ -10,6 +10,6 @@
     [ModifiedBy]      INT            NULL,
     [ModifiedOn]      DATETIME       NULL,
     [VersionNumber]   ROWVERSION     NULL,
-    CONSTRAINT [PK_sysRole_1] PRIMARY KEY CLUSTERED ([Iden] ASC)
+    CONSTRAINT [PK_sysRole] PRIMARY KEY CLUSTERED ([Iden] ASC)
 );
 

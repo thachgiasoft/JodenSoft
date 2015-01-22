@@ -13,6 +13,7 @@ namespace SAF.Test
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
+            var rightFilter = "/*QueryRight()*/";
             string sql = "SELECT Iden,OrderNo FROM dbo.sdOrder WITH(NOLOCK) WHERE ({0})".FormatEx(sCondition);
             this.IndexEntitySet.Query(sql);
         }

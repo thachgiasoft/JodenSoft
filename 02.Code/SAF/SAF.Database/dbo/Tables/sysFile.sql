@@ -13,6 +13,6 @@
     [ModifiedBy]    INT            NULL,
     [ModifiedOn]    DATETIME       NULL,
     [VersionNumber] ROWVERSION     NULL,
-    CONSTRAINT [PK_sysFile_140319_153831] PRIMARY KEY CLUSTERED ([Iden] ASC)
+    CONSTRAINT [PK_sysFile] PRIMARY KEY CLUSTERED ([Iden] ASC)
 );
 
