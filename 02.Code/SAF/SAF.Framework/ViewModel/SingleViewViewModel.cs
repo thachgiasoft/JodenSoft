@@ -14,6 +14,14 @@ namespace SAF.Framework.ViewModel
         where TIndexEntity : Entity<TIndexEntity>, new()
         where TMainEntity : Entity<TMainEntity>, new()
     {
+        /// <summary>
+        /// Index做为分组使用
+        /// </summary>
+        public virtual bool IndexUseForGroup
+        {
+            get { return false; }
+        }
+
         #region IndexEntitySet
 
         private EntitySet<TIndexEntity> indexEntitySet = null;
@@ -149,7 +157,7 @@ namespace SAF.Framework.ViewModel
             finally
             {
                 if (preEditStatus.In(EditState.AddNew, EditState.Edit))
-                    OnSyncIndexEntitySet();
+                    SyncIndexEntitySet();
 
                 this.ExecuteCache.Clear();
                 OnAcceptChanges(isSavedSuccessfully);
@@ -230,7 +238,9 @@ namespace SAF.Framework.ViewModel
             this.IndexEntitySet.IsBusy = true;
             try
             {
-                this.IndexEntitySet.AddNew();
+                if (!this.IndexUseForGroup)
+                    this.IndexEntitySet.AddNew();
+
                 this.MainEntitySet.AddNew();
 
                 foreach (var child in this.MainEntitySet.ChildEntitySets)
@@ -277,7 +287,7 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnDelete()
         {
-            if (this.indexEntitySet.CurrentEntity != null)
+            if (this.indexEntitySet.CurrentEntity != null && !this.IndexUseForGroup)
                 this.IndexEntitySet.DeleteCurrent();
 
             if (this.mainEntitySet.CurrentEntity != null)
@@ -306,7 +316,8 @@ namespace SAF.Framework.ViewModel
 
             this.MainEntitySet.Cancel();
 
-            this.IndexEntitySet.Cancel();
+            if (!this.IndexUseForGroup)
+                this.IndexEntitySet.Cancel();
         }
 
         protected virtual void OnApplySave()
@@ -339,7 +350,8 @@ namespace SAF.Framework.ViewModel
 
         public void SyncIndexEntitySet()
         {
-            OnSyncIndexEntitySet();
+            if (!this.IndexUseForGroup)
+                OnSyncIndexEntitySet();
         }
 
         protected virtual void OnSyncIndexEntitySet()
@@ -353,7 +365,8 @@ namespace SAF.Framework.ViewModel
         {
             if (saveSucceed)
             {
-                this.IndexEntitySet.AcceptChanges();
+                if (!this.IndexUseForGroup)
+                    this.IndexEntitySet.AcceptChanges();
                 this.MainEntitySet.AcceptChanges();
                 foreach (var child in this.MainEntitySet.ChildEntitySets)
                 {
@@ -396,7 +409,8 @@ namespace SAF.Framework.ViewModel
 
         public void EndEdit()
         {
-            this.IndexEntitySet.EndEdit();
+            if (!this.IndexUseForGroup)
+                this.IndexEntitySet.EndEdit();
             this.MainEntitySet.EndEdit();
             foreach (var child in this.MainEntitySet.ChildEntitySets)
             {
@@ -433,5 +447,6 @@ namespace SAF.Framework.ViewModel
         {
             return true;
         }
+
     }
 }

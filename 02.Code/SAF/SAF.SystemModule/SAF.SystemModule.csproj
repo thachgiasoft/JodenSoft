@@ -142,11 +142,11 @@
       <DependentUpon>sysOrganizationView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysOrganizationViewViewModel.cs" />
-    <Compile Include="sysUserDataRole.cs">
+    <Compile Include="sysUserDataRoleView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="sysUserDataRole.Designer.cs">
-      <DependentUpon>sysUserDataRole.cs</DependentUpon>
+    <Compile Include="sysUserDataRoleView.Designer.cs">
+      <DependentUpon>sysUserDataRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysUserDataRoleViewModel.cs" />
     <Compile Include="sysUserView.cs">
@@ -211,14 +211,15 @@
     <EmbeddedResource Include="sysTableColumnView.resx">
       <DependentUpon>sysTableColumnView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sysUserDataRole.resx">
-      <DependentUpon>sysUserDataRole.cs</DependentUpon>
+    <EmbeddedResource Include="sysUserDataRoleView.resx">
+      <DependentUpon>sysUserDataRoleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sysUserView.resx">
       <DependentUpon>sysUserView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\SAF.EntityFramework.sysUser.datasource" />
     <None Include="Properties\DataSources\SAF.Framework.Entities.sysMenu.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysBillDataRight.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysBillOperateRight.datasource" />
@@ -234,6 +235,7 @@
     <None Include="Properties\DataSources\SAF.SystemEntities.sysRoleMenu.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysTableColumn.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysUser.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntities.sysUserDataRole.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysUserRole.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.Tables.datasource" />
     <None Include="Resources\Action_PublishEntity_32x32.png" />

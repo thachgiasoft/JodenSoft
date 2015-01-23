@@ -82,6 +82,7 @@
     <Compile Include="Extensions\LookUpEditExtensions.cs" />
     <Compile Include="Extensions\GridLookUpEditExtensions.cs" />
     <Compile Include="Extensions\SearchLookUpEditExtensions.cs" />
+    <Compile Include="Extensions\TreeListLookUpEditExtensions.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IDataCooperation.cs" />
     <Compile Include="Interfaces\IShell.cs" />

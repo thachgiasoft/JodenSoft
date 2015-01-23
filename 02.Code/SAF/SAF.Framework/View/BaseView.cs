@@ -331,6 +331,7 @@ namespace SAF.Framework.View
                     if (_viewModel != null)
                     {
                         _viewModel.UniqueId = this.UniqueId;
+                        _viewModel.BillTypeId = this.BillTypeId;
                     }
                 }
                 return _viewModel;
@@ -346,7 +347,11 @@ namespace SAF.Framework.View
         /// </summary>
         public void PostUIData()
         {
-            SendKeys.Send("{TAB}");
+            //SendKeys.Send("{TAB}");
+            if (!this.SelectNextControl(ActiveControl, true, true, true, true))
+                if (!this.SelectNextControl(ActiveControl, false, true, true, true))
+                    if (!this.SelectNextControl(ActiveControl, false, true, false, true))
+                        this.SelectNextControl(ActiveControl, true, true, false, true);
 
             OnPostUIData();
         }
@@ -359,11 +364,12 @@ namespace SAF.Framework.View
         }
 
         [Browsable(false)]
-        [ViewParam("单据类型")]
+        //[ViewParam("单据类型")]
         public virtual int BillTypeId
         {
-            get { return Convert.ToInt32(this.GetViewParam("BillTypeId")); }
-            set { this.SetViewParam("BillTypeId", value.ToString()); }
+            //get { return Convert.ToInt32(this.GetViewParam("BillTypeId")); }
+            //set { this.SetViewParam("BillTypeId", value.ToString()); }
+            get { return 0; }
         }
 
         protected virtual string CalcCondition(string condition)

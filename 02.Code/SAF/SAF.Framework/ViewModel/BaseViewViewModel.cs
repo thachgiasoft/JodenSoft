@@ -36,6 +36,10 @@ namespace SAF.Framework.ViewModel
         /// 
         /// </summary>
         public int UniqueId { get; set; }
+        /// <summary>
+        /// 单据ID
+        /// </summary>
+        public int BillTypeId { get; set; }
 
         private EditState _editState = EditState.Browse;
         /// <summary>
@@ -67,6 +71,5 @@ namespace SAF.Framework.ViewModel
                 handler(this, new EventArgs());
             }
         }
-
     }
 }

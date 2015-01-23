@@ -13,6 +13,11 @@ namespace SAF.Framework.ViewModel
         IEntitySetBase MainEntitySet { get; }
         IEntitySetBase IndexEntitySet { get; }
 
+        /// <summary>
+        /// Index仅用于分组显示
+        /// </summary>
+        bool IndexUseForGroup { get; }
+
         void Query(string sCondition, params object[] parameterValues);
         void QueryChild(object key);
 

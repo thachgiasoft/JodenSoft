@@ -11,7 +11,11 @@ namespace SAF.Framework.ViewModel
     public interface IBaseViewViewModel
     {
         /// <summary>
-        /// 
+        /// 单据类型ID
+        /// </summary>
+        int BillTypeId { get; set; }
+        /// <summary>
+        /// UI唯一标识
         /// </summary>
         int UniqueId { get; set; }
         /// <summary>

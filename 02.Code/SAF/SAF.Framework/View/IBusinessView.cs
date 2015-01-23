@@ -7,9 +7,6 @@ namespace SAF.Framework.View
 {
     public interface IBusinessView : IBaseView
     {
-        /// <summary>
-        /// 单据类型ID
-        /// </summary>
-        int BillTypeId { get; set; }
+
     }
 }

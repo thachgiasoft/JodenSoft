@@ -10,7 +10,11 @@ namespace SAF.Framework.View
     public interface IBaseView
     {
         /// <summary>
-        /// UIController惟一标识
+        /// 单据类型ID
+        /// </summary>
+        int BillTypeId { get; }
+        /// <summary>
+        /// UI唯一标识
         /// </summary>
         int UniqueId { get; }
         /// <summary>

@@ -8,6 +8,9 @@ namespace SAF.Framework.View
 {
     public interface ISingleView : IBusinessView, IDataEdit, IDataAdvancedSearch, IDataSelect, IDataCooperation
     {
+        /// <summary>
+        /// 索引行改变
+        /// </summary>
         void IndexRowChange();
     }
 }
