@@ -37,7 +37,7 @@ namespace JNHT_ProdSys
         protected override void OnQueryChild(object key)
         {
             //base.OnQueryChild(key);
-
+            this.MainEntitySet.PageSize = 0;
             var bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
 
             //this.bomEntity.Query("select Iden,BomParentId,BomChildId,BomChildDesc,UseQty  from bomparent with(nolock) where BomId='{0}' ".FormatEx(bomId));

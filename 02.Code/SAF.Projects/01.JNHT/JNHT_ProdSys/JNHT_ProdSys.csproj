@@ -162,6 +162,13 @@
       <DependentUpon>sctzView.cs</DependentUpon>
     </Compile>
     <Compile Include="sctzViewViewModel.cs" />
+    <Compile Include="woDealView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="woDealView.Designer.cs">
+      <DependentUpon>woDealView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="woDealViewViewModel.cs" />
     <Compile Include="woDetail.cs" />
     <Compile Include="woDetaildealView1.cs">
       <SubType>UserControl</SubType>
@@ -202,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sctzView.resx">
       <DependentUpon>sctzView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="woDealView.resx">
+      <DependentUpon>woDealView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="woDetaildealView1.resx">
       <DependentUpon>woDetaildealView1.cs</DependentUpon>

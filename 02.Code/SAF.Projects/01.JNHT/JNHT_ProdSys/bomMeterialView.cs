@@ -37,6 +37,14 @@ namespace JNHT_ProdSys
                 return base.ViewModel as bomMeterialViewViewModel;
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.pcMain.Visible = false;
+            this.groupCooperation.Visible = false;
+            this.groupReport.Visible = false;
+        
+        }
         protected override void OnInitCustomRibbonMenuCommands()
         {
             base.OnInitCustomRibbonMenuCommands(); 
@@ -47,7 +55,7 @@ namespace JNHT_ProdSys
         private void MyExportExcute(object obj)
         {
             DataTable dt = ExcelUtil.ExcelToDataTable();
-            string bomid = txtBomId.Text.Trim();
+            string bomid = this.ViewModel.IndexEntitySet.CurrentEntity.BomId;// txtBomId.Text.Trim();
             ProgressService.Show("正在上传文件...");
             try
             {

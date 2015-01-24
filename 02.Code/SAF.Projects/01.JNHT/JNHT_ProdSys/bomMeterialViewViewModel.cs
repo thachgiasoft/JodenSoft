@@ -19,6 +19,7 @@ namespace JNHT_ProdSys
 
         protected override void OnQueryChild(object key)
         {
+            MainEntitySet.PageSize = 0;
             //base.OnQueryChild(key);
             var bomId = this.IndexEntitySet.CurrentEntity == null ? string.Empty : this.IndexEntitySet.CurrentEntity.BomId;
 

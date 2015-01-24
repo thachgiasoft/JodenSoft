@@ -56,14 +56,14 @@ namespace JNHT_ProdSys
 
             if (string.IsNullOrEmpty(txtBomId.Text.Trim()))
             {
-                MessageService.ShowMessage("请选择导入文件的根节点,产品区分号不能为空!");
+                MessageService.ShowMessage("产品区分号不能为空!");
                 return;
             }
-            if (txtBomId.Text != txtBomParentId.Text || txtBomParentId.Text != txtBomChildId.Text)
-            {
-                MessageService.ShowMessage("选择的根节点不是总的区分号");
-                return;
-            }
+            //if (txtBomId.Text != txtBomParentId.Text || txtBomParentId.Text != txtBomChildId.Text)
+            //{
+            //    MessageService.ShowMessage("选择的根节点不是总的区分号");
+            //    return;
+            //}
             DataTable dt = ExcelUtil.ExcelToDataTable();
             string bomid = txtBomId.Text.Trim();
             ProgressService.Show("正在上传文件...");
@@ -145,7 +145,12 @@ namespace JNHT_ProdSys
             
 
         }
-
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.groupCooperation.Visible = false;
+            this.groupReport.Visible = false;
+        }
         private void grvMainIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             this.IndexRowChange();

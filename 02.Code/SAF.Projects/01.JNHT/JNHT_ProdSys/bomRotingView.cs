@@ -40,13 +40,19 @@ namespace JNHT_ProdSys
                 return base.ViewModel as bomRotingViewViewModel;
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.groupCooperation.Visible = false;
+            this.groupReport.Visible = false;
+        }
         protected override void OnInitCustomRibbonMenuCommands()
         {
             base.OnInitCustomRibbonMenuCommands();
             var MyExport = new DefaultRibbonMenuCommand("导入", MyExportExcute) { LargeGlyph = Properties.Resources.Action_ImportData_32x32 };
             this.AddRibbonMenuCommand(MyExport);
         }
-
+        
         private void MyExportExcute(object obj)
         {
             //if (rgleixing.SelectedIndex == 0)

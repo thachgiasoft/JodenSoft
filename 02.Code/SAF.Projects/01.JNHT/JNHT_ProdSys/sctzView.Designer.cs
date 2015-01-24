@@ -75,7 +75,6 @@
             // 
             // tcMain
             // 
-            this.tcMain.SelectedTabPage = this.pageMain;
             this.tcMain.Size = new System.Drawing.Size(616, 284);
             // 
             // pageMain
