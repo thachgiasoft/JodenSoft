@@ -1,0 +1,16 @@
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Output\Client\GTMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Output\Client\GTMS.IM.pdb
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.csprojResolveAssemblyReference.cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.imStoreManageView.resources
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.csproj.GenerateResource.Cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.dll.licenses
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\IM\GTMS.IM\GTMS.IM\obj\Debug\GTMS.IM.pdb
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.csprojResolveAssemblyReference.cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.imStoreManageView.resources
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.csproj.GenerateResource.Cache
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.dll.licenses
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\trunk\02.Code\SAF.Projects\50.GTMS\GTMS.IM\obj\Debug\GTMS.IM.pdb
+D:\MyWorkSpaces\JodenSoft\SAF.Output\Client\GTMS.IM.dll
+D:\MyWorkSpaces\JodenSoft\SAF.Output\Client\GTMS.IM.pdb
