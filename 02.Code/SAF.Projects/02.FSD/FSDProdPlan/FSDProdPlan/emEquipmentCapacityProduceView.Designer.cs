@@ -342,10 +342,11 @@
             this.lusEquipmentNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lusEquipmentNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "序号", 48, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("uGuid", "机台id", 45, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentNo", "机台编号", 97, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentName", "机台名称", 113, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "序号", 35, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentNo", "机台编号", 97, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentName", "机台名称", 113, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentModelCaption", "机型编号", 133, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentModelName", "机型名称", 149, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
             this.lusEquipmentNo.Properties.DataSource = this.bsjt;
             this.lusEquipmentNo.Properties.DisplayMember = "sEquipmentNo";
             this.lusEquipmentNo.Properties.DropDownRows = 20;
@@ -357,7 +358,7 @@
             // 
             // bsjt
             // 
-            this.bsjt.DataSource = typeof(FSDProdPlan.emModel);
+            this.bsjt.DataSource = typeof(FSDProdPlan.emEquipmentEx);
             // 
             // layoutControlGroup1
             // 

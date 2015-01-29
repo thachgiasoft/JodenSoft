@@ -32,7 +32,7 @@
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluGuid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colsEquipmentNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colssEquipmentModelNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtsEquipmentName = new DevExpress.XtraEditors.TextEdit();
             this.txtsEquipmentNo = new DevExpress.XtraEditors.TextEdit();
@@ -114,7 +114,7 @@
             this.grvIndex.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIden,
             this.coluGuid,
-            this.colsEquipmentNo});
+            this.colssEquipmentModelNo});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
@@ -135,14 +135,14 @@
             this.coluGuid.FieldName = "uGuid";
             this.coluGuid.Name = "coluGuid";
             // 
-            // colsEquipmentNo
+            // colssEquipmentModelNo
             // 
-            this.colsEquipmentNo.Caption = "机台编号";
-            this.colsEquipmentNo.FieldName = "sEquipmentNo";
-            this.colsEquipmentNo.Name = "colsEquipmentNo";
-            this.colsEquipmentNo.Visible = true;
-            this.colsEquipmentNo.VisibleIndex = 1;
-            this.colsEquipmentNo.Width = 149;
+            this.colssEquipmentModelNo.Caption = "机型编码";
+            this.colssEquipmentModelNo.FieldName = "sEquipmentModelNo";
+            this.colssEquipmentModelNo.Name = "colssEquipmentModelNo";
+            this.colssEquipmentModelNo.Visible = true;
+            this.colssEquipmentModelNo.VisibleIndex = 1;
+            this.colssEquipmentModelNo.Width = 149;
             // 
             // layoutControl1
             // 
@@ -159,7 +159,7 @@
             // 
             // txtsEquipmentName
             // 
-            this.txtsEquipmentName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentName", true));
+            this.txtsEquipmentName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelName", true));
             this.txtsEquipmentName.Location = new System.Drawing.Point(63, 60);
             this.txtsEquipmentName.MenuManager = this.ribbonMain;
             this.txtsEquipmentName.Name = "txtsEquipmentName";
@@ -169,7 +169,7 @@
             // 
             // txtsEquipmentNo
             // 
-            this.txtsEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentNo", true));
+            this.txtsEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelNo", true));
             this.txtsEquipmentNo.Location = new System.Drawing.Point(63, 36);
             this.txtsEquipmentNo.MenuManager = this.ribbonMain;
             this.txtsEquipmentNo.Name = "txtsEquipmentNo";
@@ -220,7 +220,7 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(469, 24);
-            this.layoutControlItem2.Text = "机器编码";
+            this.layoutControlItem2.Text = "机型编码";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem3
@@ -230,7 +230,7 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(469, 210);
-            this.layoutControlItem3.Text = "机器名称";
+            this.layoutControlItem3.Text = "机型名称";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
             // emModelView
@@ -276,7 +276,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
         private DevExpress.XtraGrid.Columns.GridColumn coluGuid;
-        private DevExpress.XtraGrid.Columns.GridColumn colsEquipmentNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colssEquipmentModelNo;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.TextEdit txtsEquipmentName;
         private DevExpress.XtraEditors.TextEdit txtsEquipmentNo;

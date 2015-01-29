@@ -40,12 +40,12 @@
             this.colnDailyOuputQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsEquipmentModelName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lusEquipmentNo = new DevExpress.XtraEditors.LookUpEdit();
+            this.lusEquipmentModelCaption = new DevExpress.XtraEditors.LookUpEdit();
             this.bsjt = new System.Windows.Forms.BindingSource(this.components);
             this.spnDailyOuputQty = new DevExpress.XtraEditors.SpinEdit();
             this.txtuemEquipmentModelGUID = new DevExpress.XtraEditors.TextEdit();
             this.txtsEquipmentModelName = new DevExpress.XtraEditors.TextEdit();
-            this.txtsEquipmentModelCaption = new DevExpress.XtraEditors.TextEdit();
+            this.txtsEquipmentNo = new DevExpress.XtraEditors.TextEdit();
             this.txtuGuid = new DevExpress.XtraEditors.TextEdit();
             this.txtsEquipmentName = new DevExpress.XtraEditors.TextEdit();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
@@ -53,10 +53,10 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
@@ -78,12 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lusEquipmentNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lusEquipmentModelCaption.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsjt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnDailyOuputQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuemEquipmentModelGUID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentModelName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentModelCaption.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuGuid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
@@ -91,10 +91,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,11 +238,11 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.lusEquipmentNo);
+            this.layoutControl1.Controls.Add(this.lusEquipmentModelCaption);
             this.layoutControl1.Controls.Add(this.spnDailyOuputQty);
             this.layoutControl1.Controls.Add(this.txtuemEquipmentModelGUID);
             this.layoutControl1.Controls.Add(this.txtsEquipmentModelName);
-            this.layoutControl1.Controls.Add(this.txtsEquipmentModelCaption);
+            this.layoutControl1.Controls.Add(this.txtsEquipmentNo);
             this.layoutControl1.Controls.Add(this.txtuGuid);
             this.layoutControl1.Controls.Add(this.txtsEquipmentName);
             this.layoutControl1.Controls.Add(this.txtIden);
@@ -254,30 +254,29 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "lcMain";
             // 
-            // lusEquipmentNo
+            // lusEquipmentModelCaption
             // 
-            this.lusEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentNo", true));
-            this.lusEquipmentNo.EditValue = "<Null>";
-            this.lusEquipmentNo.Location = new System.Drawing.Point(75, 36);
-            this.lusEquipmentNo.MenuManager = this.ribbonMain;
-            this.lusEquipmentNo.Name = "lusEquipmentNo";
-            this.lusEquipmentNo.Properties.AutoSearchColumnIndex = 1;
-            this.lusEquipmentNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.lusEquipmentNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.lusEquipmentNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lusEquipmentModelCaption.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelCaption", true));
+            this.lusEquipmentModelCaption.Location = new System.Drawing.Point(75, 108);
+            this.lusEquipmentModelCaption.MenuManager = this.ribbonMain;
+            this.lusEquipmentModelCaption.Name = "lusEquipmentModelCaption";
+            this.lusEquipmentModelCaption.Properties.AutoSearchColumnIndex = 1;
+            this.lusEquipmentModelCaption.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lusEquipmentModelCaption.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.lusEquipmentModelCaption.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lusEquipmentNo.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lusEquipmentModelCaption.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "序号", 48, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentNo", "机器编号", 97, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("sEquipmentName", "机器名称", 113, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("uGuid", "u Guid", 45, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near)});
-            this.lusEquipmentNo.Properties.DataSource = this.bsjt;
-            this.lusEquipmentNo.Properties.DisplayMember = "sEquipmentNo";
-            this.lusEquipmentNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lusEquipmentNo.Properties.ValueMember = "sEquipmentNo";
-            this.lusEquipmentNo.Size = new System.Drawing.Size(361, 20);
-            this.lusEquipmentNo.StyleController = this.layoutControl1;
-            this.lusEquipmentNo.TabIndex = 12;
+            this.lusEquipmentModelCaption.Properties.DataSource = this.bsjt;
+            this.lusEquipmentModelCaption.Properties.DisplayMember = "sEquipmentModelNo";
+            this.lusEquipmentModelCaption.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lusEquipmentModelCaption.Properties.ValueMember = "sEquipmentModelNo";
+            this.lusEquipmentModelCaption.Size = new System.Drawing.Size(361, 20);
+            this.lusEquipmentModelCaption.StyleController = this.layoutControl1;
+            this.lusEquipmentModelCaption.TabIndex = 12;
             // 
             // bsjt
             // 
@@ -320,15 +319,15 @@
             this.txtsEquipmentModelName.StyleController = this.layoutControl1;
             this.txtsEquipmentModelName.TabIndex = 9;
             // 
-            // txtsEquipmentModelCaption
+            // txtsEquipmentNo
             // 
-            this.txtsEquipmentModelCaption.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelCaption", true));
-            this.txtsEquipmentModelCaption.Location = new System.Drawing.Point(75, 108);
-            this.txtsEquipmentModelCaption.MenuManager = this.ribbonMain;
-            this.txtsEquipmentModelCaption.Name = "txtsEquipmentModelCaption";
-            this.txtsEquipmentModelCaption.Size = new System.Drawing.Size(361, 20);
-            this.txtsEquipmentModelCaption.StyleController = this.layoutControl1;
-            this.txtsEquipmentModelCaption.TabIndex = 8;
+            this.txtsEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentNo", true));
+            this.txtsEquipmentNo.Location = new System.Drawing.Point(75, 36);
+            this.txtsEquipmentNo.MenuManager = this.ribbonMain;
+            this.txtsEquipmentNo.Name = "txtsEquipmentNo";
+            this.txtsEquipmentNo.Size = new System.Drawing.Size(361, 20);
+            this.txtsEquipmentNo.StyleController = this.layoutControl1;
+            this.txtsEquipmentNo.TabIndex = 8;
             // 
             // txtuGuid
             // 
@@ -370,10 +369,10 @@
             this.layoutControlItem1,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
+            this.layoutControlItem5,
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
@@ -412,16 +411,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.txtsEquipmentModelCaption;
-            this.layoutControlItem5.CustomizationFormText = "机型编码";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(428, 24);
-            this.layoutControlItem5.Text = "机型编码";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txtsEquipmentModelName;
@@ -454,14 +443,24 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.txtsEquipmentNo;
+            this.layoutControlItem5.CustomizationFormText = "机型编码";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(428, 24);
+            this.layoutControlItem5.Text = "机台编号";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
+            // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.lusEquipmentNo;
+            this.layoutControlItem2.Control = this.lusEquipmentModelCaption;
             this.layoutControlItem2.CustomizationFormText = "机台编号";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(428, 24);
-            this.layoutControlItem2.Text = "机台编号";
+            this.layoutControlItem2.Text = "机型编码";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
             // emEquipmentExView
@@ -490,12 +489,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lusEquipmentNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lusEquipmentModelCaption.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsjt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnDailyOuputQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuemEquipmentModelGUID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentModelName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentModelCaption.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtuGuid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
@@ -503,10 +502,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -526,11 +525,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colnDailyOuputQty;
         private DevExpress.XtraGrid.Columns.GridColumn colsEquipmentModelName;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.LookUpEdit lusEquipmentNo;
+        private DevExpress.XtraEditors.LookUpEdit lusEquipmentModelCaption;
         private DevExpress.XtraEditors.SpinEdit spnDailyOuputQty;
         private DevExpress.XtraEditors.TextEdit txtuemEquipmentModelGUID;
         private DevExpress.XtraEditors.TextEdit txtsEquipmentModelName;
-        private DevExpress.XtraEditors.TextEdit txtsEquipmentModelCaption;
+        private DevExpress.XtraEditors.TextEdit txtsEquipmentNo;
         private DevExpress.XtraEditors.TextEdit txtuGuid;
         private DevExpress.XtraEditors.TextEdit txtsEquipmentName;
         private DevExpress.XtraEditors.TextEdit txtIden;

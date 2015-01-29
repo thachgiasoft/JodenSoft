@@ -11,6 +11,9 @@ using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using DevExpress.XtraEditors;
+using SAF.Foundation.ServiceModel;
+using SAF.EntityFramework;
+using SAF.Framework.Controls;
 
 namespace FSDProdPlan
 {
@@ -109,7 +112,36 @@ namespace FSDProdPlan
             this.txtsEquipmentModelName.Text = string.Empty;
         }
 
-        
+        protected override void OnEdit()
+        {
+            if ("开工".Equals(this.ViewModel.MainEntitySet.CurrentEntity.state))
+            {
+                MessageService.ShowMessage("已经开工,无法修改!");
+                return;
+            }
+            if ("完工".Equals(this.ViewModel.MainEntitySet.CurrentEntity.state))
+            {
+                MessageService.ShowMessage("已经完工,无法修改!");
+                return;
+            }
+            base.OnEdit();
+        }
+        protected override void OnInitCustomRibbonMenuCommands()
+        {
+            base.OnInitCustomRibbonMenuCommands();
+            var MyExport = new DefaultRibbonMenuCommand("自动排机", MyExportExcute) { LargeGlyph = Properties.Resources.Action_PublishEntity_32x32 };
+            this.AddRibbonMenuCommand(MyExport);
+        }
+
+        private void MyExportExcute(object obj)
+        {
+            ProgressService.Show("正在自动排机....");
+           // PreProcessMessage    MessageService.ShowMessage("正在自动排机...");
+            DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection,"jd_zdpj");
+            ProgressService.Close();
+            MessageService.ShowMessage("排机完成");
+
+        }
     }
 }
  

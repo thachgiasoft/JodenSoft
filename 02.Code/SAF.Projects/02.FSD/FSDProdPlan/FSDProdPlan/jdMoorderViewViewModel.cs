@@ -31,7 +31,7 @@ namespace FSDProdPlan
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
-            this.MainEntitySet.Query("SELECT  *  FROM  jdMoorder where Iden='{0}'".FormatEx(key));
+            this.MainEntitySet.Query("SELECT  *  FROM  jdMoorder with(nolock) where Iden='{0}'".FormatEx(key));
             this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo  AS sMaterialNo,sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
            
         }
@@ -53,6 +53,7 @@ namespace FSDProdPlan
 
             e.CurrentEntity.sOrderNo =  BillNoGenerator.NewBillNo(11);//(1000000000 + e.CurrentEntity.Iden).ToString();// ; //BillNoGenerator.NewBillNo(2);
                 //DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, "exec JD_P_GetMoOrderNumber").ToString();// (1000000000 + e.CurrentEntity.Iden).ToString();
+            e.CurrentEntity.sBillNO = e.CurrentEntity.sOrderNo;
         }
 
         protected override void OnDelete()

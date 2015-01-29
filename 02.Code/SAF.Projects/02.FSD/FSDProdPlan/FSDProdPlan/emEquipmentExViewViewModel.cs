@@ -31,7 +31,7 @@ namespace FSDProdPlan
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  *  FROM  emEquipmentEx where Iden='{0}'".FormatEx(key));
-            this.emModelEntity.Query("select Iden ,uGuid ,sEquipmentNo ,sEquipmentName from emModel with(nolock)");
+            this.emModelEntity.Query("select Iden ,uGuid ,sEquipmentModelNo ,sEquipmentModelName from emModel with(nolock)");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -48,6 +48,7 @@ namespace FSDProdPlan
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<emEquipmentEx> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.uGuid = Guid.NewGuid();
         }
     }
 }

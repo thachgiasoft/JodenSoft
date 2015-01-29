@@ -31,15 +31,15 @@ namespace FSDProdPlan
         }
 
 
-        public string sEquipmentNo
+        public string sEquipmentModelNo
         {
-            get { return base.GetFieldValue<string>(P => P.sEquipmentNo); }
-            set { base.SetFieldValue(P => P.sEquipmentNo, value); }
+            get { return base.GetFieldValue<string>(P => P.sEquipmentModelNo); }
+            set { base.SetFieldValue(P => P.sEquipmentModelNo, value); }
         }
-        public string sEquipmentName
+        public string sEquipmentModelName
         {
-            get { return base.GetFieldValue<string>(P => P.sEquipmentName); }
-            set { base.SetFieldValue(P => P.sEquipmentName, value); }
+            get { return base.GetFieldValue<string>(P => P.sEquipmentModelName); }
+            set { base.SetFieldValue(P => P.sEquipmentModelName, value); }
         }
         #region 创建人&创建时间&修改人&修改时间&版本号
 

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bsch = new System.Windows.Forms.BindingSource(this.components);
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -44,6 +47,7 @@
             this.colsBillNO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnCapacity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtstate = new DevExpress.XtraEditors.TextEdit();
             this.sluchbm = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Iden1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,6 +77,7 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -94,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtstate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sluchbm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnCapacity.Properties)).BeginInit();
@@ -119,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -130,8 +137,8 @@
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
-            this.splitMain.Size = new System.Drawing.Size(1066, 307);
-            this.splitMain.SplitterPosition = 731;
+            this.splitMain.Size = new System.Drawing.Size(1066, 336);
+            this.splitMain.SplitterPosition = 788;
             // 
             // bsIndex
             // 
@@ -147,7 +154,7 @@
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(1, 456);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 485);
             this.pnlPageControl.Size = new System.Drawing.Size(1066, 31);
             // 
             // pcMain
@@ -156,17 +163,25 @@
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(330, 303);
+            this.splitRight.Size = new System.Drawing.Size(273, 332);
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(330, 303);
+            this.tcMain.Size = new System.Drawing.Size(273, 332);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
-            this.pageMain.Size = new System.Drawing.Size(324, 297);
+            this.pageMain.Size = new System.Drawing.Size(267, 326);
+            // 
+            // colstate
+            // 
+            this.colstate.Caption = "工单状态";
+            this.colstate.FieldName = "state";
+            this.colstate.Name = "colstate";
+            this.colstate.Visible = true;
+            this.colstate.VisibleIndex = 9;
             // 
             // bsch
             // 
@@ -181,7 +196,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(731, 303);
+            this.grdIndex.Size = new System.Drawing.Size(788, 332);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -199,7 +214,23 @@
             this.colnPlanQty,
             this.coluemEquipmentModelGUID,
             this.colsBillNO,
-            this.colnCapacity});
+            this.colnCapacity,
+            this.colstate});
+            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.Green;
+            styleFormatCondition3.Appearance.Options.UseBackColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.colstate;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "开工";
+            styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.Red;
+            styleFormatCondition4.Appearance.Options.UseBackColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.colstate;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = "完工";
+            this.grvIndex.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition3,
+            styleFormatCondition4});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
@@ -303,6 +334,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtstate);
             this.layoutControl1.Controls.Add(this.sluchbm);
             this.layoutControl1.Controls.Add(this.spnCapacity);
             this.layoutControl1.Controls.Add(this.spnPlanQty);
@@ -318,9 +350,20 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(324, 297);
+            this.layoutControl1.Size = new System.Drawing.Size(267, 326);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtstate
+            // 
+            this.txtstate.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "state", true));
+            this.txtstate.Enabled = false;
+            this.txtstate.Location = new System.Drawing.Point(85, 276);
+            this.txtstate.MenuManager = this.ribbonMain;
+            this.txtstate.Name = "txtstate";
+            this.txtstate.Size = new System.Drawing.Size(170, 20);
+            this.txtstate.StyleController = this.layoutControl1;
+            this.txtstate.TabIndex = 20;
             // 
             // sluchbm
             // 
@@ -334,7 +377,7 @@
             this.sluchbm.Properties.DisplayMember = "sMaterialNo";
             this.sluchbm.Properties.ValueMember = "sMaterialNo";
             this.sluchbm.Properties.View = this.searchLookUpEdit1View;
-            this.sluchbm.Size = new System.Drawing.Size(227, 20);
+            this.sluchbm.Size = new System.Drawing.Size(170, 20);
             this.sluchbm.StyleController = this.layoutControl1;
             this.sluchbm.TabIndex = 19;
             // 
@@ -405,7 +448,7 @@
             this.spnCapacity.Name = "spnCapacity";
             this.spnCapacity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spnCapacity.Size = new System.Drawing.Size(227, 20);
+            this.spnCapacity.Size = new System.Drawing.Size(170, 20);
             this.spnCapacity.StyleController = this.layoutControl1;
             this.spnCapacity.TabIndex = 17;
             // 
@@ -432,7 +475,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Size = new System.Drawing.Size(227, 20);
+            this.spnPlanQty.Size = new System.Drawing.Size(170, 20);
             this.spnPlanQty.StyleController = this.layoutControl1;
             this.spnPlanQty.TabIndex = 16;
             // 
@@ -447,7 +490,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dedDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dedDeliveryDate.Size = new System.Drawing.Size(227, 20);
+            this.dedDeliveryDate.Size = new System.Drawing.Size(170, 20);
             this.dedDeliveryDate.StyleController = this.layoutControl1;
             this.dedDeliveryDate.TabIndex = 15;
             // 
@@ -457,7 +500,7 @@
             this.txtsBillNO.Location = new System.Drawing.Point(85, 204);
             this.txtsBillNO.MenuManager = this.ribbonMain;
             this.txtsBillNO.Name = "txtsBillNO";
-            this.txtsBillNO.Size = new System.Drawing.Size(227, 20);
+            this.txtsBillNO.Size = new System.Drawing.Size(170, 20);
             this.txtsBillNO.StyleController = this.layoutControl1;
             this.txtsBillNO.TabIndex = 12;
             // 
@@ -467,7 +510,7 @@
             this.txtuemEquipmentModelGUID.Location = new System.Drawing.Point(85, 180);
             this.txtuemEquipmentModelGUID.MenuManager = this.ribbonMain;
             this.txtuemEquipmentModelGUID.Name = "txtuemEquipmentModelGUID";
-            this.txtuemEquipmentModelGUID.Size = new System.Drawing.Size(227, 20);
+            this.txtuemEquipmentModelGUID.Size = new System.Drawing.Size(170, 20);
             this.txtuemEquipmentModelGUID.StyleController = this.layoutControl1;
             this.txtuemEquipmentModelGUID.TabIndex = 11;
             // 
@@ -477,7 +520,7 @@
             this.txtsColorNo.Location = new System.Drawing.Point(85, 132);
             this.txtsColorNo.MenuManager = this.ribbonMain;
             this.txtsColorNo.Name = "txtsColorNo";
-            this.txtsColorNo.Size = new System.Drawing.Size(227, 20);
+            this.txtsColorNo.Size = new System.Drawing.Size(170, 20);
             this.txtsColorNo.StyleController = this.layoutControl1;
             this.txtsColorNo.TabIndex = 9;
             // 
@@ -488,7 +531,7 @@
             this.txtsEquipmentModelName.Location = new System.Drawing.Point(85, 108);
             this.txtsEquipmentModelName.MenuManager = this.ribbonMain;
             this.txtsEquipmentModelName.Name = "txtsEquipmentModelName";
-            this.txtsEquipmentModelName.Size = new System.Drawing.Size(227, 20);
+            this.txtsEquipmentModelName.Size = new System.Drawing.Size(170, 20);
             this.txtsEquipmentModelName.StyleController = this.layoutControl1;
             this.txtsEquipmentModelName.TabIndex = 8;
             // 
@@ -499,7 +542,7 @@
             this.txtsMaterialName.Location = new System.Drawing.Point(85, 84);
             this.txtsMaterialName.MenuManager = this.ribbonMain;
             this.txtsMaterialName.Name = "txtsMaterialName";
-            this.txtsMaterialName.Size = new System.Drawing.Size(227, 20);
+            this.txtsMaterialName.Size = new System.Drawing.Size(170, 20);
             this.txtsMaterialName.StyleController = this.layoutControl1;
             this.txtsMaterialName.TabIndex = 7;
             // 
@@ -510,7 +553,7 @@
             this.txtsOrderNo.Location = new System.Drawing.Point(85, 36);
             this.txtsOrderNo.MenuManager = this.ribbonMain;
             this.txtsOrderNo.Name = "txtsOrderNo";
-            this.txtsOrderNo.Size = new System.Drawing.Size(227, 20);
+            this.txtsOrderNo.Size = new System.Drawing.Size(170, 20);
             this.txtsOrderNo.StyleController = this.layoutControl1;
             this.txtsOrderNo.TabIndex = 5;
             // 
@@ -521,7 +564,7 @@
             this.txtIden.Location = new System.Drawing.Point(85, 12);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(227, 20);
+            this.txtIden.Size = new System.Drawing.Size(170, 20);
             this.txtIden.StyleController = this.layoutControl1;
             this.txtIden.TabIndex = 4;
             // 
@@ -541,10 +584,11 @@
             this.layoutControlItem7,
             this.layoutControlItem10,
             this.layoutControlItem11,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem12});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(324, 297);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(267, 326);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -554,7 +598,7 @@
             this.layoutControlItem1.CustomizationFormText = "序号";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem1.Text = "序号";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -564,7 +608,7 @@
             this.layoutControlItem2.CustomizationFormText = "工单号";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem2.Text = "工单号";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -574,7 +618,7 @@
             this.layoutControlItem4.CustomizationFormText = "存货名称";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem4.Text = "存货名称";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -584,8 +628,8 @@
             this.layoutControlItem5.CustomizationFormText = "机台号";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(304, 24);
-            this.layoutControlItem5.Text = "机台号";
+            this.layoutControlItem5.Size = new System.Drawing.Size(247, 24);
+            this.layoutControlItem5.Text = "机型号";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem6
@@ -594,7 +638,7 @@
             this.layoutControlItem6.CustomizationFormText = "色号";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem6.Text = "色号";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -604,8 +648,8 @@
             this.layoutControlItem8.CustomizationFormText = "机台ID";
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 168);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(304, 24);
-            this.layoutControlItem8.Text = "机台ID";
+            this.layoutControlItem8.Size = new System.Drawing.Size(247, 24);
+            this.layoutControlItem8.Text = "机型ID";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(70, 14);
             this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
@@ -615,7 +659,7 @@
             this.layoutControlItem9.CustomizationFormText = "排单号";
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 192);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem9.Text = "排单号";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(70, 14);
             this.layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -626,7 +670,7 @@
             this.layoutControlItem7.CustomizationFormText = "交货日期";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem7.Text = "交货日期";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -636,7 +680,7 @@
             this.layoutControlItem10.CustomizationFormText = "工单数量";
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 216);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem10.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem10.Text = "工单数量";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -646,7 +690,7 @@
             this.layoutControlItem11.CustomizationFormText = "周期";
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 240);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(304, 37);
+            this.layoutControlItem11.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem11.Text = "单个周期(秒)";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(70, 14);
             // 
@@ -656,16 +700,26 @@
             this.layoutControlItem3.CustomizationFormText = "存货编码";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(247, 24);
             this.layoutControlItem3.Text = "存货编码";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(70, 14);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.txtstate;
+            this.layoutControlItem12.CustomizationFormText = "工单状态";
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 264);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(247, 42);
+            this.layoutControlItem12.Text = "工单状态";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(70, 14);
             // 
             // jdMoorderView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "jdMoorderView";
-            this.Size = new System.Drawing.Size(1068, 488);
+            this.Size = new System.Drawing.Size(1068, 517);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
@@ -687,6 +741,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtstate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sluchbm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnCapacity.Properties)).EndInit();
@@ -712,6 +767,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,5 +819,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn sMaterialName1;
         private DevExpress.XtraGrid.Columns.GridColumn nCapacity1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.Columns.GridColumn colstate;
+        private DevExpress.XtraEditors.TextEdit txtstate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
     }
 }

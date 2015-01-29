@@ -55,7 +55,7 @@ namespace FSDProdPlan
         {
             base.OnInitConfig();
             UIController.SetupGridControl(this.grdIndex);
-            lusEquipmentNo.EditValueChanged += lusEquipmentNo_EditValueChanged;
+            lusEquipmentModelCaption.EditValueChanged += lusEquipmentNo_EditValueChanged;
         }
 
         void lusEquipmentNo_EditValueChanged(object sender, EventArgs e)
@@ -79,12 +79,12 @@ namespace FSDProdPlan
                 MessageBox.Show("机台不存在");
                 return;
             }
-            this.ViewModel.MainEntitySet.CurrentEntity.uGuid = objinventory.uGuid;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentNo = objinventory.sEquipmentNo;
+           // this.ViewModel.MainEntitySet.CurrentEntity.uGuid = objinventory.uGuid;
+            //this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentNo = objinventory.sEquipmentModelNo;
             this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uGuid;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentName = objinventory.sEquipmentName;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelName = objinventory.sEquipmentName;
-            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelCaption = objinventory.sEquipmentNo;
+            //this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentName = objinventory.sEquipmentModelName;
+            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelName = objinventory.sEquipmentModelName;
+            this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentModelCaption = objinventory.sEquipmentModelNo;
             this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
             
             

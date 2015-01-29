@@ -78,6 +78,11 @@ namespace FSDProdPlan
             get { return base.GetFieldValue<decimal>(P => P.nCapacity); }
             set { base.SetFieldValue(P => P.nCapacity, value); }
         }
+            public string state
+            {
+                get { return base.GetFieldValue<string>(P => P.state); }
+                set { base.SetFieldValue(P => P.state, value); }
+            }
         #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy

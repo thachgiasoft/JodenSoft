@@ -11,14 +11,14 @@ namespace FSDProdPlan
 {
     public class emEquipmentCapacityProduceViewViewModel : SingleViewViewModel<emEquipmentCapacityProduce, emEquipmentCapacityProduce>
     {
-        private EntitySet<emModel> _emModelEntity = null;
-        public EntitySet<emModel> emModelEntity
+        private EntitySet<emEquipmentEx> _emEquipmentExEntity = null;
+        public EntitySet<emEquipmentEx> emEquipmentExEntity
         {
             get
             {
-                if (_emModelEntity == null)
-                    _emModelEntity = new EntitySet<emModel>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
-                return _emModelEntity;
+                if (_emEquipmentExEntity == null)
+                    _emEquipmentExEntity = new EntitySet<emEquipmentEx>(ConfigContext.DefaultConnection, null, ConfigContext.DefaultPageSize);
+                return _emEquipmentExEntity;
             }
         }
         protected override void OnQuery(string sCondition, object[] parameterValues)
@@ -31,7 +31,8 @@ namespace FSDProdPlan
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  *  FROM  emEquipmentCapacityProduce where Iden='{0}'".FormatEx(key));
-            this.emModelEntity.Query("select Iden ,uGuid ,sEquipmentNo ,sEquipmentName from emModel with(nolock)");
+            this.emEquipmentExEntity.Query(@"select Iden ,uGuid ,sEquipmentNo ,sEquipmentName,
+                uemEquipmentModelGUID,sEquipmentModelCaption,sEquipmentModelName,nDailyOuputQty from emEquipmentEx with(nolock)");
         }
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)

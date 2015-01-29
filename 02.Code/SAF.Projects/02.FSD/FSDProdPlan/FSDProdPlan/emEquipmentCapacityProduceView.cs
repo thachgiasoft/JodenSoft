@@ -49,7 +49,7 @@ namespace FSDProdPlan
 
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
             }
-            this.ViewModel.emModelEntity.SetBindingSource(bsjt);
+            this.ViewModel.emEquipmentExEntity.SetBindingSource(bsjt);
         }
         protected override void OnInitConfig()
         {
@@ -67,7 +67,7 @@ namespace FSDProdPlan
 
             if (drv == null) return;
 
-            var objinventory = this.ViewModel.emModelEntity.FirstOrDefault(p => p.Iden == Convert.ToInt32(drv["Iden"]));
+            var objinventory = this.ViewModel.emEquipmentExEntity.FirstOrDefault(p => p.Iden == Convert.ToInt32(drv["Iden"]));
 
             //方法二:适合与同一实体集
             //var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
@@ -79,9 +79,9 @@ namespace FSDProdPlan
                 MessageBox.Show("机台不存在");
                 return;
             }
-            
+
             this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentNo = objinventory.sEquipmentNo;
-            this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uGuid;
+            this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelGUID = objinventory.uemEquipmentModelGUID;
             this.ViewModel.MainEntitySet.CurrentEntity.uEquipmentGuid = objinventory.uGuid;
             
             
