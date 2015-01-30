@@ -128,5 +128,6 @@
     <Compile Include="SqlClr\ConvertToSimplifiedChinese.cs" />
     <Compile Include="SqlClr\ConvertToTraditionalChinese.cs" />
     <Compile Include="SqlClr\ConvertToProperCase.cs" />
+    <Compile Include="SqlClr\CalcValue.cs" />
   </ItemGroup>
 </Project>
