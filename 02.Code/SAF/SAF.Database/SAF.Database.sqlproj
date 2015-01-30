@@ -116,6 +116,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SqlClr\Split.cs" />
+    <Compile Include="SqlClr\SplitString.cs" />
+    <Compile Include="SqlClr\ConcatString.cs" />
+    <Compile Include="SqlClr\PadLeft.cs" />
+    <Compile Include="SqlClr\PadRight.cs" />
   </ItemGroup>
 </Project>
