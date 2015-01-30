@@ -115,6 +115,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualBasic" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SqlClr\SplitString.cs" />
@@ -124,5 +125,7 @@
     <Compile Include="SqlClr\Helper\MoneyConverter.cs" />
     <Compile Include="SqlClr\ConvertMoneyToCN.cs" />
     <Compile Include="SqlClr\ConvertMoneyToEN.cs" />
+    <Compile Include="SqlClr\ConvertToSimplifiedChinese.cs" />
+    <Compile Include="SqlClr\ConvertToTraditionalChinese.cs" />
   </ItemGroup>
 </Project>
