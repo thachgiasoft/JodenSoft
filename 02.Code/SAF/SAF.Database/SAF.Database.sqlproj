@@ -127,5 +127,6 @@
     <Compile Include="SqlClr\ConvertMoneyToEN.cs" />
     <Compile Include="SqlClr\ConvertToSimplifiedChinese.cs" />
     <Compile Include="SqlClr\ConvertToTraditionalChinese.cs" />
+    <Compile Include="SqlClr\ConvertToProperCase.cs" />
   </ItemGroup>
 </Project>
