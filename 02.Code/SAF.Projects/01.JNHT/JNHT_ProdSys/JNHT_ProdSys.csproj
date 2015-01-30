@@ -177,6 +177,7 @@
       <DependentUpon>woDetaildealView1.cs</DependentUpon>
     </Compile>
     <Compile Include="woDetaildealView1ViewModel.cs" />
+    <Compile Include="woMaterial.cs" />
     <Compile Include="woOrder.cs" />
     <Compile Include="woOrderView.cs">
       <SubType>UserControl</SubType>
