@@ -64,6 +64,7 @@
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="SqlClr" />
+    <Folder Include="SqlClr\Helper" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\sysRegInfo.sql" />
@@ -120,5 +121,8 @@
     <Compile Include="SqlClr\ConcatString.cs" />
     <Compile Include="SqlClr\PadLeft.cs" />
     <Compile Include="SqlClr\PadRight.cs" />
+    <Compile Include="SqlClr\Helper\MoneyConverter.cs" />
+    <Compile Include="SqlClr\ConvertMoneyToCN.cs" />
+    <Compile Include="SqlClr\ConvertMoneyToEN.cs" />
   </ItemGroup>
 </Project>
