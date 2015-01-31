@@ -42,6 +42,7 @@ namespace JNHT_ProdSys
 
         protected override void OnInitBinding()
         {
+            
             base.OnInitBinding();
             this.ViewModel.IndexEntitySet.SetBindingSource(bsIndex);
 

@@ -45,7 +45,6 @@
             this.cmbisclose = new DevExpress.XtraEditors.ComboBoxEdit();
             this.spdqty = new DevExpress.XtraEditors.SpinEdit();
             this.txtparentname = new DevExpress.XtraEditors.TextEdit();
-            this.luparentid = new DevExpress.XtraEditors.LookUpEdit();
             this.bsProd = new System.Windows.Forms.BindingSource(this.components);
             this.txtwoversion = new DevExpress.XtraEditors.TextEdit();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -58,6 +57,8 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.jdvparentidBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.woOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.luparentid = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -84,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbisclose.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spdqty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtparentname.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtwoversion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
@@ -97,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jdvparentidBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.woOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -266,9 +268,9 @@
             this.lcMain.Controls.Add(this.cmbisclose);
             this.lcMain.Controls.Add(this.spdqty);
             this.lcMain.Controls.Add(this.txtparentname);
-            this.lcMain.Controls.Add(this.luparentid);
             this.lcMain.Controls.Add(this.txtwoversion);
             this.lcMain.Controls.Add(this.txtwocode);
+            this.lcMain.Controls.Add(this.luparentid);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
@@ -330,30 +332,6 @@
             this.txtparentname.Size = new System.Drawing.Size(299, 20);
             this.txtparentname.StyleController = this.lcMain;
             this.txtparentname.TabIndex = 7;
-            // 
-            // luparentid
-            // 
-            this.luparentid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CParentId", true));
-            this.luparentid.EditValue = "";
-            this.luparentid.Location = new System.Drawing.Point(65, 50);
-            this.luparentid.MenuManager = this.ribbonMain;
-            this.luparentid.Name = "luparentid";
-            this.luparentid.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.luparentid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.luparentid.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Iden", "Iden", 48, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品代号", "产品代号", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品名称", "产品名称", 58, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("产品区分号", "产品区分号")});
-            this.luparentid.Properties.DataSource = this.bsProd;
-            this.luparentid.Properties.DisplayMember = "产品代号";
-            this.luparentid.Properties.DropDownRows = 100;
-            this.luparentid.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.luparentid.Properties.ValueMember = "产品代号";
-            this.luparentid.Size = new System.Drawing.Size(299, 20);
-            this.luparentid.StyleController = this.lcMain;
-            this.luparentid.TabIndex = 6;
             // 
             // txtwoversion
             // 
@@ -463,6 +441,31 @@
             // 
             this.woOrderBindingSource.DataSource = typeof(JNHT_ProdSys.woOrder);
             // 
+            // luparentid
+            // 
+            this.luparentid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CParentId", true));
+            this.luparentid.EditValue = "";
+            this.luparentid.Location = new System.Drawing.Point(65, 50);
+            this.luparentid.MenuManager = this.ribbonMain;
+            this.luparentid.Name = "luparentid";
+            this.luparentid.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.luparentid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luparentid.Properties.DisplayMember = "产品代号";
+            this.luparentid.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.luparentid.Properties.ValueMember = "产品代号";
+            this.luparentid.Properties.View = this.searchLookUpEdit1View;
+            this.luparentid.Size = new System.Drawing.Size(299, 20);
+            this.luparentid.StyleController = this.lcMain;
+            this.luparentid.TabIndex = 6;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // woOrderView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -495,7 +498,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbisclose.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spdqty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtparentname.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtwoversion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
@@ -508,6 +510,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jdvparentidBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.woOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luparentid.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,7 +529,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn CParentName;
         private DevExpress.XtraEditors.SpinEdit spdqty;
         private DevExpress.XtraEditors.TextEdit txtparentname;
-        private DevExpress.XtraEditors.LookUpEdit luparentid;
         private DevExpress.XtraEditors.TextEdit txtwoversion;
         private DevExpress.XtraEditors.TextEdit txtwocode;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
@@ -544,5 +547,7 @@
         private System.Windows.Forms.BindingSource jdvparentidBindingSource;
         private DevExpress.XtraEditors.TextEdit txtbomid;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.SearchLookUpEdit luparentid;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
     }
 }

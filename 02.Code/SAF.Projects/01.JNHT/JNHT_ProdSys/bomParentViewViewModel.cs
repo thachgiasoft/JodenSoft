@@ -28,7 +28,7 @@ namespace JNHT_ProdSys
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             //base.OnQuery(sCondition, parameterValues);
-
+            
             IndexEntitySet.Query(@"SELECT distinct Iden=0, BomId  from bomParent with(nolock) where ({0})".FormatEx(sCondition));
         }
 

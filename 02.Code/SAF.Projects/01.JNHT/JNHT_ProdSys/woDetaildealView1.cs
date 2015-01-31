@@ -113,6 +113,7 @@ namespace JNHT_ProdSys
             col.UnboundType = UnboundColumnType.Boolean;
             this.grvdetail.Columns["选择"].OptionsColumn.ReadOnly = false;
             this.grvdetail.Columns["选择"].OptionsColumn.AllowEdit = true;
+            
         }
 
         private void grvdetail_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)

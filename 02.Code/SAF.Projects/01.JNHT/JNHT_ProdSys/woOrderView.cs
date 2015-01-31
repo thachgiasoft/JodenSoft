@@ -15,6 +15,7 @@ using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.SystemEntities;
 using SAF.Framework;
+using System.Data.SqlClient;
 
 namespace JNHT_ProdSys
 {
@@ -91,8 +92,15 @@ namespace JNHT_ProdSys
             base.OnSave();
             try
             {
-                InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
-                this.ViewModel.woDetailEntity.SaveChanges();
+                //InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
+               woOrder entity=this.ViewModel.MainEntitySet.CurrentEntity;
+               // this.ViewModel.woDetailEntity.SaveChanges();
+                SqlParameter[] parm=new SqlParameter[]{ new SqlParameter("@woid",entity.Iden),
+                                                        new SqlParameter("@userid",Session.Current.UserId),
+                                                        new SqlParameter("@organiaztionid",entity.OrganiaztionId),
+                                                        new SqlParameter("@qty",entity.Qty)};
+
+                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "JD_P_GetRotingMaterial", parm);
                 return true;
             }
             catch (Exception )

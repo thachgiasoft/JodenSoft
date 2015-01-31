@@ -87,7 +87,11 @@ namespace JNHT_ProdSys
             set { base.SetFieldValue(P => P.Cdefine5, value); }
         }
 
-
+        public int OrganiaztionId
+        {
+            get { return base.GetFieldValue<int>(P => P.OrganiaztionId); }
+            set { base.SetFieldValue(P => P.OrganiaztionId, value); }
+        }
         #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy
