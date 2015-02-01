@@ -11,6 +11,7 @@ using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.EntityFramework;
 using JNHT_ProdSys.Method;
+using SAF.Framework.Controls;
 
 namespace JNHT_ProdSys
 {
@@ -48,7 +49,9 @@ namespace JNHT_ProdSys
 
         private void grvwo_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            ProgressService.Show("正在生成工单结构树...");
             Common.InitBomTree(this.ViewModel.woOrderEntity.CurrentEntity,treeBom);
+            ProgressService.Close();
         }
 
         private void treeBom_AfterSelect(object sender, TreeViewEventArgs e)
