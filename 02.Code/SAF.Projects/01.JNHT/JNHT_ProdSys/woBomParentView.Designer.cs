@@ -151,7 +151,6 @@
             this.grvwo.OptionsBehavior.Editable = false;
             this.grvwo.OptionsView.ColumnAutoWidth = false;
             this.grvwo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvwo_RowClick);
-            this.grvwo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvwo_FocusedRowChanged);
             // 
             // colIden
             // 
