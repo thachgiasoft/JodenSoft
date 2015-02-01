@@ -55,10 +55,6 @@
     <Reference Include="org.in2bits.MyXls">
       <HintPath>..\..\..\SAF.DLL\org.in2bits.MyXls.dll</HintPath>
     </Reference>
-    <Reference Include="SAF.CommonConfig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.CommonConfig.dll</HintPath>
-    </Reference>
     <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\04.Release\SAF.Client\SAF.EntityFramework.dll</HintPath>
@@ -162,6 +158,14 @@
       <DependentUpon>sctzView.cs</DependentUpon>
     </Compile>
     <Compile Include="sctzViewViewModel.cs" />
+    <Compile Include="woBomParent.cs" />
+    <Compile Include="woBomParentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="woBomParentView.Designer.cs">
+      <DependentUpon>woBomParentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="woBomParentViewViewModel.cs" />
     <Compile Include="woDealView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sctzView.resx">
       <DependentUpon>sctzView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="woBomParentView.resx">
+      <DependentUpon>woBomParentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="woDealView.resx">
       <DependentUpon>woDealView.cs</DependentUpon>

@@ -57,6 +57,27 @@ namespace JNHT_ProdSys
 
 
         }
+        protected override void OnInitUI()
+        {
+            base.OnInitUI();
+           // InitOrgGridSearch();
+
+            this.AccessFocusControl = this.txtwocode;
+        }
+
+//        private void InitOrgGridSearch()
+//        {
+//            this.gseOrg.Properties.CommandText = @"
+//SELECT Iden,Name 
+//FROM dbo.sysOrganization a WITH(NOLOCK)
+//where {0}
+//ORDER BY [Iden]";
+//            this.gseOrg.Properties.DisplayMember = "Name";
+//            this.gseOrg.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
+//            this.gseOrg.Properties.AutoFillFieldNames = "OrganiaztionId=Iden,OrganiaztionName=Name";
+//            this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
+//            this.gseOrg.Properties.Query();
+//        }
 
         protected override void OnInitConfig()
         {
@@ -95,12 +116,12 @@ namespace JNHT_ProdSys
                 //InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
                woOrder entity=this.ViewModel.MainEntitySet.CurrentEntity;
                // this.ViewModel.woDetailEntity.SaveChanges();
-                SqlParameter[] parm=new SqlParameter[]{ new SqlParameter("@woid",entity.Iden),
-                                                        new SqlParameter("@userid",Session.Current.UserId),
-                                                        new SqlParameter("@organiaztionid",entity.OrganiaztionId),
-                                                        new SqlParameter("@qty",entity.Qty)};
+                //SqlParameter[] parm=new SqlParameter[]{ new SqlParameter("@woid",entity.Iden),
+                //                                        new SqlParameter("@userid",Session.Current.UserId),
+                //                                        new SqlParameter("@organiaztionid",1),//entity.OrganiaztionId
+                //                                        new SqlParameter("@qty",entity.Qty)};
 
-                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "JD_P_GetRotingMaterial", parm);
+                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "exec JD_P_GetRotingMaterial @woid=:woid,@userid=:userid,@organiaztionid=:organiaztionid,@qty=:qty", entity.Iden, Session.Current.UserId, 1, entity.Qty);
                 return true;
             }
             catch (Exception )
@@ -111,56 +132,56 @@ namespace JNHT_ProdSys
         }
 
         //todo:新增有问题
-        private void InsertWodetail(woOrder woOrder)
-        {
-            //this.ViewModel.bomParentEntity.Query("select * from bomParent wit(nolock) where bomparentid=bomchildid and bomid='{0}'".FormatEx(woOrder.BomId));
-            this.ViewModel.bomChildEntity.Query("select * from bomChild with(nolock) where Editstatus='通过' and  bomid='{0}'".FormatEx(woOrder.BomId));
+        //private void InsertWodetail(woOrder woOrder)
+        //{
+        //    //this.ViewModel.bomParentEntity.Query("select * from bomParent wit(nolock) where bomparentid=bomchildid and bomid='{0}'".FormatEx(woOrder.BomId));
+        //    this.ViewModel.bomChildEntity.Query("select * from bomChild with(nolock) where Editstatus='通过' and  bomid='{0}'".FormatEx(woOrder.BomId));
 
-            foreach (var item in this.ViewModel.bomChildEntity)
-            {
-                //base.OnAddNew
-                woDetail wodetail= this.ViewModel.woDetailEntity.AddNew();
-                wodetail.Iden = IdenGenerator.NewIden(wodetail.DbTableName);
-                wodetail.WoIden = woOrder.Iden;
-                wodetail.WoCode = woOrder.WoCode;
-                wodetail.WoVersion = woOrder.WoVersion;
-                wodetail.BomId = woOrder.BomId;
-                wodetail.BomChildId = item.BomChildId;
-                wodetail.BomChildName = item.BomChildName;
-                wodetail.NoPicCode = item.NoPicCode;
-                wodetail.NoPicName = item.NoPicName;
-                wodetail.CInvCode = item.CInvCode;
-                wodetail.CInvName = item.CInvName;
-                wodetail.SingleQty = item.SingleQty;
-                wodetail.CComUnitCode = item.CComUnitCode;
-                wodetail.ProcQty = item.ProcQty;
-                wodetail.ProdQty = item.ProcQty * woOrder.Qty;
-                wodetail.FeedStd = item.FeedStd;
-                wodetail.ReMark = null;
-                wodetail.Dept = item.OpDep;
-                wodetail.CState = 0;
-                wodetail.Addbatch = 0;
-                wodetail.Cdefine1 = null;
-                wodetail.Cdefine2 = null;
-                wodetail.Cdefine3 = null;
-                wodetail.Cdefine4 = 0;
-                wodetail.Cdefine5 = 0;
-                wodetail.BomChildIden = item.Iden;
-                wodetail.RelsUser = null;
-                wodetail.RelsDate = null;
-                wodetail.TotalQty = item.SingleQty * woOrder.Qty;
-                wodetail.PlanDate = null;
-                wodetail.PuState = 0;
+        //    foreach (var item in this.ViewModel.bomChildEntity)
+        //    {
+        //        //base.OnAddNew
+        //        woDetail wodetail= this.ViewModel.woDetailEntity.AddNew();
+        //        wodetail.Iden = IdenGenerator.NewIden(wodetail.DbTableName);
+        //        wodetail.WoIden = woOrder.Iden;
+        //        wodetail.WoCode = woOrder.WoCode;
+        //        wodetail.WoVersion = woOrder.WoVersion;
+        //        wodetail.BomId = woOrder.BomId;
+        //        wodetail.BomChildId = item.BomChildId;
+        //        wodetail.BomChildName = item.BomChildName;
+        //        wodetail.NoPicCode = item.NoPicCode;
+        //        wodetail.NoPicName = item.NoPicName;
+        //        wodetail.CInvCode = item.CInvCode;
+        //        wodetail.CInvName = item.CInvName;
+        //        wodetail.SingleQty = item.SingleQty;
+        //        wodetail.CComUnitCode = item.CComUnitCode;
+        //        wodetail.ProcQty = item.ProcQty;
+        //        wodetail.ProdQty = item.ProcQty * woOrder.Qty;
+        //        wodetail.FeedStd = item.FeedStd;
+        //        wodetail.ReMark = null;
+        //        wodetail.Dept = item.OpDep;
+        //        wodetail.CState = 0;
+        //        wodetail.Addbatch = 0;
+        //        wodetail.Cdefine1 = null;
+        //        wodetail.Cdefine2 = null;
+        //        wodetail.Cdefine3 = null;
+        //        wodetail.Cdefine4 = 0;
+        //        wodetail.Cdefine5 = 0;
+        //        wodetail.BomChildIden = item.Iden;
+        //        wodetail.RelsUser = null;
+        //        wodetail.RelsDate = null;
+        //        wodetail.TotalQty = item.SingleQty * woOrder.Qty;
+        //        wodetail.PlanDate = null;
+        //        wodetail.PuState = 0;
 
 
-            }
-        }
+        //    }
+        //}
         private void luparentid_EditValueChanged(object sender, EventArgs e)
         {
-            var grid = sender as LookUpEdit;
+            var grid = sender as SearchLookUpEdit;
 
             //方法一:适用于不同实体集
-            var drv = grid.GetSelectedDataRow() as DataRowView;
+            var drv = grid.Properties.View.GetFocusedDataRow() as DataRow;
 
             if (drv == null) return;
 

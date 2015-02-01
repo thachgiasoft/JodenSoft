@@ -7,7 +7,7 @@ using SAF.Framework.Controls.ViewConfig;
 
 namespace JNHT_ProdSys
 {
-    public class woDealViewViewModel : SingleViewViewModel<bomParent, bomParent>
+    public class woDealViewViewModel : SingleViewViewModel<woBomParent, woBomParent>
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {

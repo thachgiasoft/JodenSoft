@@ -6,13 +6,13 @@ using System.Text;
 
 namespace JNHT_ProdSys
 {
-    public class bomParent : Entity<bomParent>
+    public class woBomParent : Entity<woBomParent>
     {
         protected override void OnInit()
         {
             base.OnInit();
 
-            this.DbTableName = "bomParent";
+            this.DbTableName = "woBomParent";
             this.PrimaryKeyName = "Iden";
         }
 
@@ -21,6 +21,22 @@ namespace JNHT_ProdSys
             get { return base.GetFieldValue<int>(P => P.Iden); }
             set { base.SetFieldValue(P => P.Iden, value); }
         }
+        public int WoId
+        {
+            get { return base.GetFieldValue<int>(P => P.WoId); }
+            set { base.SetFieldValue(P => P.WoId, value); }
+        }
+        public int BomparentIden
+        {
+            get { return base.GetFieldValue<int>(P => P.BomparentIden); }
+            set { base.SetFieldValue(P => P.BomparentIden, value); }
+        }
+        public string WoCode
+        {
+            get { return base.GetFieldValue<string>(P => P.WoCode); }
+            set { base.SetFieldValue(P => P.WoCode, value); }
+        }
+   
         public string BomId
         {
             get { return base.GetFieldValue<string>(P => P.BomId); }
@@ -67,7 +83,7 @@ namespace JNHT_ProdSys
             get { return base.GetFieldValue<string>(P => P.BomChildStyle); }
             set { base.SetFieldValue(P => P.BomChildStyle, value); }
         }
-           
+
         public decimal UseQty
         {
             get { return base.GetFieldValue<decimal>(P => P.UseQty); }
@@ -78,7 +94,7 @@ namespace JNHT_ProdSys
             get { return base.GetFieldValue<string>(P => P.Define1); }
             set { base.SetFieldValue(P => P.Define1, value); }
         }
-       
+
         public string Define2
         {
             get { return base.GetFieldValue<string>(P => P.Define2); }
@@ -104,6 +120,34 @@ namespace JNHT_ProdSys
             get { return base.GetFieldValue<string>(P => P.Define6); }
             set { base.SetFieldValue(P => P.Define6, value); }
         }
+     
+        public DateTime PlanSDate
+        {
+            get { return base.GetFieldValue<DateTime>(P => P.PlanSDate); }
+            set { base.SetFieldValue(P => P.PlanSDate, value); }
+        }
+        public DateTime PlanEDate
+        {
+            get { return base.GetFieldValue<DateTime>(P => P.PlanEDate); }
+            set { base.SetFieldValue(P => P.PlanEDate, value); }
+        }
+        public DateTime FactSDate
+        {
+            get { return base.GetFieldValue<DateTime>(P => P.FactSDate); }
+            set { base.SetFieldValue(P => P.FactSDate, value); }
+        }
+        public DateTime FactEDate
+        {
+            get { return base.GetFieldValue<DateTime>(P => P.FactEDate); }
+            set { base.SetFieldValue(P => P.FactEDate, value); }
+        }
+        public int OrganiaztionId
+        {
+            get { return base.GetFieldValue<int>(P => P.OrganiaztionId); }
+            set { base.SetFieldValue(P => P.OrganiaztionId, value); }
+        }
+        //TODO:添加其他字段
+        #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy
         {
@@ -130,5 +174,7 @@ namespace JNHT_ProdSys
         {
             get { return base.GetFieldValue<int>(p => p.VersionNumber, 0); }
         }
+
+        #endregion
     }
 }
