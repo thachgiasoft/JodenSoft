@@ -21,6 +21,16 @@ namespace JNHT_ProdSys
                 return _woOrderEntity;
             }
         }
+        private EntitySet<woBomParent> _woBomParentEntity = null;
+        public EntitySet<woBomParent> woBomParentEntity
+        {
+            get
+            {
+                if (_woBomParentEntity == null)
+                    _woBomParentEntity = new EntitySet<woBomParent>(ConfigContext.DefaultConnection, null, 0);
+                return _woBomParentEntity;
+            }
+        }
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);

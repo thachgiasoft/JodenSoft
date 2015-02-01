@@ -148,7 +148,9 @@
             this.colIsClose});
             this.grvwo.GridControl = this.grdwo;
             this.grvwo.Name = "grvwo";
+            this.grvwo.OptionsBehavior.Editable = false;
             this.grvwo.OptionsView.ColumnAutoWidth = false;
+            this.grvwo.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvwo_RowClick);
             this.grvwo.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvwo_FocusedRowChanged);
             // 
             // colIden
@@ -167,7 +169,7 @@
             this.colBomId.Name = "colBomId";
             this.colBomId.Visible = true;
             this.colBomId.VisibleIndex = 1;
-            this.colBomId.Width = 80;
+            this.colBomId.Width = 53;
             // 
             // colWoCode
             // 
@@ -176,7 +178,7 @@
             this.colWoCode.Name = "colWoCode";
             this.colWoCode.Visible = true;
             this.colWoCode.VisibleIndex = 2;
-            this.colWoCode.Width = 100;
+            this.colWoCode.Width = 97;
             // 
             // colWoVersion
             // 
@@ -230,6 +232,7 @@
             this.treeBom.Name = "treeBom";
             this.treeBom.Size = new System.Drawing.Size(283, 298);
             this.treeBom.TabIndex = 0;
+            this.treeBom.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeBom_AfterSelect);
             // 
             // woBomParentView
             // 

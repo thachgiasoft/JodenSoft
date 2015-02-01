@@ -143,6 +143,7 @@
     <Compile Include="jd_v_inventory.cs" />
     <Compile Include="jd_v_parentid.cs" />
     <Compile Include="JPxml\JPxmlfile.cs" />
+    <Compile Include="Method\Common.cs" />
     <Compile Include="Method\ExcelUtil.cs" />
     <Compile Include="Method\xmlFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

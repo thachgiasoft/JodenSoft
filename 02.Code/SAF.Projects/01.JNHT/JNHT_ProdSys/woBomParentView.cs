@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
+using SAF.EntityFramework;
+using JNHT_ProdSys.Method;
 
 namespace JNHT_ProdSys
 {
@@ -32,18 +34,28 @@ namespace JNHT_ProdSys
                 return base.ViewModel as woBomParentViewViewModel;
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.pnlQueryControl.Visible = false;
+            this.pnlPageControl.Visible = false;
+        }
         protected override void OnInitBinding()
         {
             base.OnInitBinding();
             this.ViewModel.woOrderEntity.SetBindingSource(bswo);
         }
 
-        private void grvwo_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void grvwo_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-             var woid = this.ViewModel.woOrderEntity.CurrentEntity.Iden;
-             this.ViewModel.MainEntitySet.Query("select *  from woBomParent with(nolock) where woid=:woid ",woid);
-
+            Common.InitBomTree(this.ViewModel.woOrderEntity.CurrentEntity,treeBom);
         }
 
+        private void treeBom_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string bomparentid = treeBom.SelectedNode.Tag.ToString();
+            var woid = this.ViewModel.woOrderEntity.CurrentEntity.Iden;
+
+        }
     }
 }
