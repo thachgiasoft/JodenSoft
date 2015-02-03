@@ -24,7 +24,7 @@ public partial class UserDefinedFunctions
 
             for (int i = 0; i < iCount; i++)
             {
-                array[i] = i.ToString();
+                array[i] = (i+1).ToString();
             }
         }
 
