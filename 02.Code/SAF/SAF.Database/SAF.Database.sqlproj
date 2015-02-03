@@ -129,5 +129,6 @@
     <Compile Include="SqlClr\ConvertToTraditionalChinese.cs" />
     <Compile Include="SqlClr\ConvertToProperCase.cs" />
     <Compile Include="SqlClr\CalcValue.cs" />
+    <Compile Include="SqlClr\Dual.cs" />
   </ItemGroup>
 </Project>
