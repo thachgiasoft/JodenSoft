@@ -23,14 +23,14 @@ public struct ConcatString : IBinarySerialize
     /// 把每个值进行累加
     /// </summary>
     /// <param name="value"></param>
-    public void Accumulate(SqlChars value, SqlString splitter)
+    public void Accumulate(SqlChars value, SqlString connector)
     {
         if (value.IsNull)
             return;
         if (splitterLength == 0)
-            splitterLength = (splitter.IsNull ? "," : splitter.Value).Length;
+            splitterLength = (connector.IsNull ? "," : connector.Value).Length;
         // 在此处放置代码
-        result.Append(value.Value).Append(splitter.IsNull ? "," : splitter.Value);
+        result.Append(value.Value).Append(connector.IsNull ? "," : connector.Value);
     }
     /// <summary>
     /// 与其他对象进行合并
