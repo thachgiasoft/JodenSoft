@@ -8,21 +8,21 @@ using System.Collections;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction(FillRowMethodName = "SplitFillRow", TableDefinition = "item nvarchar(max)")]
-    public static IEnumerable SplitString(SqlChars input, SqlChars separators)
+    public static IEnumerable SplitString(SqlChars input, SqlChars splitter)
     {
         string[] array;
         if (input.IsNull)
         {
             array = new string[] { null };
         }
-        else if (separators.IsNull)
+        else if (splitter.IsNull)
         {
             array = new string[] { input.ToSqlString().Value };
         }
         else
         {
             string inputStr = input.ToSqlString().Value;
-            string sepStr = separators.ToSqlString().Value;
+            string sepStr = splitter.ToSqlString().Value;
             string[] separatorsArray = sepStr.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
             array = inputStr.Split(separatorsArray, StringSplitOptions.RemoveEmptyEntries);

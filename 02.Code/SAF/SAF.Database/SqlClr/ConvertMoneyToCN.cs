@@ -8,11 +8,11 @@ using SAF.SqlClr.Helper;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction]
-    public static SqlString ConvertMoneyToCN(SqlMoney nMoney)
+    public static SqlString ConvertMoneyToCN(SqlMoney money)
     {
-        if (nMoney.IsNull)
+        if (money.IsNull)
             return SqlString.Null;
         // 在此处放置代码
-        return new SqlString(MoneyConverter.GetCnString(nMoney.ToString()));
+        return new SqlString(MoneyConverter.GetCnString(money.ToString()));
     }
 }

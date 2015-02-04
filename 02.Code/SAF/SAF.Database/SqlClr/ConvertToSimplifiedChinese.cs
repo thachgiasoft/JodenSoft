@@ -8,12 +8,12 @@ using Microsoft.VisualBasic;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction(IsDeterministic = true)]
-    public static SqlChars ConvertToSimplifiedChinese(SqlChars sInputString)
+    public static SqlChars ConvertToSimplifiedChinese(SqlChars input)
     {
-        if (sInputString.IsNull)
-            return sInputString;
+        if (input.IsNull)
+            return input;
 
-        var str = new string(sInputString.Value);
+        var str = new string(input.Value);
         // 在此处放置代码
         return new SqlChars(Strings.StrConv(str, VbStrConv.SimplifiedChinese, 0));
     }

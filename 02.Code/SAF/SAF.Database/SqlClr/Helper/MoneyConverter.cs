@@ -19,18 +19,18 @@ namespace SAF.SqlClr.Helper
         /// <summary>
         /// 货币金额中文大写转换方法
         /// </summary>
-        /// <param name="MoneyString">转化金额
+        /// <param name="moneyString">转化金额
         /// <para>最大转化金额:9999999999999999.99（16位整数位，2位小数位）</para>
         /// </param>
         /// <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
-        public static String GetCnString(string MoneyString)
+        public static String GetCnString(string moneyString)
         {
-            if (MoneyString == null || string.IsNullOrEmpty(MoneyString) || MoneyString.Trim() == "0")
+            if (moneyString == null || string.IsNullOrEmpty(moneyString) || moneyString.Trim() == "0" || Math.Round(Convert.ToDecimal(moneyString), 2) == 0)
             {
                 return "零";
             }
-            string[] tmpString = MoneyString.Split('.');
-            string intString = MoneyString;   // 默认为整数
+            string[] tmpString = moneyString.Split('.');
+            string intString = moneyString;   // 默认为整数
             string decString = "";            // 保存小数部分字串
             string rmbCapital = "";            // 保存中文大写字串
             int k;
@@ -98,18 +98,18 @@ namespace SAF.SqlClr.Helper
         /// <summary>
         /// 货币金额英文大写转换方法
         /// </summary>
-        /// <param name="MoneyString">转换金额
+        /// <param name="moneyString">转换金额
         /// <para>最大转化金额:999999999999999.99（15位整数位，2位小数位）</para>
         /// </param>
         /// <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
-        public static String GetEnString(string MoneyString)
+        public static String GetEnString(string moneyString)
         {
-            if (MoneyString == null || string.IsNullOrEmpty(MoneyString) || MoneyString.Trim() == "0")
+            if (moneyString == null || string.IsNullOrEmpty(moneyString) || moneyString.Trim() == "0" || Math.Round(Convert.ToDecimal(moneyString), 2) == 0)
             {
                 return "ZERO";
             }
-            string[] tmpString = MoneyString.Split('.');
-            string intString = MoneyString;   // 默认为整数
+            string[] tmpString = moneyString.Split('.');
+            string intString = moneyString;   // 默认为整数
             string decString = "";            // 保存小数部分字串
             string engCapital = "";            // 保存英文大写字串
             string strBuff1;

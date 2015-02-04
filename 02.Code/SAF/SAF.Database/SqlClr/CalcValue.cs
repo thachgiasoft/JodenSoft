@@ -8,66 +8,66 @@ using Microsoft.SqlServer.Server;
 [Microsoft.SqlServer.Server.SqlUserDefinedAggregate(Format.Native)]
 public struct CalcValue
 {
-    int iTotalValue;
-    bool bFirst;
+    int totalValue;
+    bool isFirst;
     public void Init()
     {
         // 在此处放置代码
-        iTotalValue = 0;
-        bFirst = true;
+        totalValue = 0;
+        isFirst = true;
     }
 
-    public void Accumulate(SqlInt32 iValue, SqlString sOperate)
+    public void Accumulate(SqlInt32 value, SqlString operate)
     {
         // 在此处放置代码
-        if (iValue.IsNull)
+        if (value.IsNull)
             return;
-        if (sOperate.IsNull)
+        if (operate.IsNull)
             return;
-        if (bFirst)
+        if (isFirst)
         {
-            iTotalValue = iValue.Value;
-            bFirst = false;
+            totalValue = value.Value;
+            isFirst = false;
             return;
         }
 
-        switch (sOperate.Value)
+        switch (operate.Value)
         {
             case "+":
-                iTotalValue += iValue.Value;
+                totalValue += value.Value;
                 break;
             case "-":
-                iTotalValue -= iValue.Value;
+                totalValue -= value.Value;
                 break;
             case "*":
-                iTotalValue *= iValue.Value;
+                totalValue *= value.Value;
                 break;
             case "/":
-                if (iValue != 0)
-                    iTotalValue /= iValue.Value;
+                if (value != 0)
+                    totalValue /= value.Value;
                 break;
             case "%":
-                if (iValue != 0)
-                    iTotalValue %= iValue.Value;
+                if (value != 0)
+                    totalValue %= value.Value;
                 break;
             //位移
             case "<<":
-                iTotalValue <<= iValue.Value;
+                totalValue <<= value.Value;
                 break;
             case ">>":
-                iTotalValue >>= iValue.Value;
+                totalValue >>= value.Value;
                 break;
             //逻辑“与”
             case "&":
-                iTotalValue &= iValue.Value;
+                totalValue &= value.Value;
                 break;
             //逻辑“异或”
             case "^":
-                iTotalValue ^= iValue.Value;
+                totalValue ^= value.Value;
                 break;
             //逻辑“或”
             case "|":
-                iTotalValue |= iValue.Value;
+                totalValue |= value.Value;
                 break;
             default:
                 break;
@@ -77,13 +77,13 @@ public struct CalcValue
     public void Merge(CalcValue Group)
     {
         // 在此处放置代码
-        this.iTotalValue += Group.iTotalValue;
-        this.bFirst = Group.bFirst;
+        this.totalValue += Group.totalValue;
+        this.isFirst = Group.isFirst;
     }
 
     public SqlInt32 Terminate()
     {
         // 在此处放置代码
-        return new SqlInt32(iTotalValue);
+        return new SqlInt32(totalValue);
     }
 }

@@ -7,18 +7,18 @@ using Microsoft.SqlServer.Server;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction]
-    public static SqlChars PadLeft(SqlChars sInput, SqlInt32 iTotalWidth, char sPadChar)
+    public static SqlChars PadLeft(SqlChars input, SqlInt32 totalWidth, char paddingChar)
     {
-        if (sInput.IsNull)
-            return sInput;
+        if (input.IsNull)
+            return input;
 
-        if (sPadChar == null)
-            return sInput;
+        if (paddingChar == null)
+            return input;
 
-        if (iTotalWidth.IsNull || iTotalWidth < 0)
-            iTotalWidth = 0;
+        if (totalWidth.IsNull || totalWidth < 0)
+            totalWidth = 0;
 
         // 在此处放置代码
-        return new SqlChars(new string(sInput.Value).PadLeft(iTotalWidth.Value, sPadChar));
+        return new SqlChars(new string(input.Value).PadLeft(totalWidth.Value, paddingChar));
     }
 }
