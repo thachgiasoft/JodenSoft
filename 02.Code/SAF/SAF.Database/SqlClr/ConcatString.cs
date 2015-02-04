@@ -58,16 +58,16 @@ public struct ConcatString : IBinarySerialize
 
     #region IBinarySerialize 成员
 
-    public void Read(System.IO.BinaryReader r)
+    public void Read(System.IO.BinaryReader reader)
     {
-        result = new StringBuilder(r.ReadString());
-        splitterLength = r.ReadInt32();
+        result = new StringBuilder(reader.ReadString());
+        splitterLength = reader.ReadInt32();
     }
 
-    public void Write(System.IO.BinaryWriter w)
+    public void Write(System.IO.BinaryWriter writer)
     {
-        w.Write(result.ToString());
-        w.Write(splitterLength);
+        writer.Write(result.ToString());
+        writer.Write(splitterLength);
     }
 
     #endregion
