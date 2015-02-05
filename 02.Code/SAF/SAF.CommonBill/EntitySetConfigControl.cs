@@ -8,12 +8,26 @@ using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.Controls;
 using SAF.Foundation;
+using DevExpress.XtraLayout.Utils;
 
 namespace SAF.CommonBill
 {
     [ToolboxItem(true)]
     public partial class EntitySetConfigControl : BaseUserControl
     {
+        private EntitySetType _EntitySetType = EntitySetType.None;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Browsable(false)]
+        public EntitySetType EntitySetType
+        {
+            get { return _EntitySetType; }
+            set
+            {
+                _EntitySetType = value;
+                lciCaption.Visibility = (_EntitySetType.In(EntitySetType.Index, EntitySetType.Main) ? LayoutVisibility.Never : LayoutVisibility.Always);
+            }
+        }
+
         private EntitySetConfig _EntitySetConfig = new EntitySetConfig();
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [Browsable(false)]
@@ -70,7 +84,13 @@ namespace SAF.CommonBill
         {
             this.bsFields.MoveCurrentDown();
         }
+    }
 
-
+    public enum EntitySetType
+    {
+        None = 0,
+        Index = 1,
+        Main = 2,
+        Detail = 3
     }
 }

@@ -55,6 +55,10 @@ namespace SAF.CommonBill
         {
             base.OnRefreshUI();
             UIController.RefreshControl(this.txtIden, false);
+
+            this.indexConfig.EntitySetType = EntitySetType.Index;
+            this.mainConfig.EntitySetType = EntitySetType.Main;
+            this.detailConfig.EntitySetType = EntitySetType.Detail;
         }
 
         protected override void OnInitEvent()

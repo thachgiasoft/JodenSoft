@@ -54,8 +54,6 @@
             this.colSql = new DevExpress.XtraGrid.Columns.GridColumn();
             this.memoSql = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.txtSqlScript = new SAF.Framework.Controls.TextEditor.TextEditorControl();
-            this.txtPrimaryKey = new DevExpress.XtraEditors.TextEdit();
-            this.txtTableName = new DevExpress.XtraEditors.TextEdit();
             this.txtControlParentField = new DevExpress.XtraEditors.TextEdit();
             this.txtControlKeyField = new DevExpress.XtraEditors.TextEdit();
             this.cbmControlType = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -67,14 +65,16 @@
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciIndexControlKeyField = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
+            this.lciCaption = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciIndexControlParentField = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciIndexControlParentField = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.lciCaption = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
+            this.txtTableName = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtPrimaryKey = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.lcIndexEntitySet)).BeginInit();
             this.lcIndexEntitySet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCaption.Properties)).BeginInit();
@@ -85,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvFields)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxFieldType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoSql)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrimaryKey.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtControlParentField.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtControlKeyField.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbmControlType.Properties)).BeginInit();
@@ -98,14 +96,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlKeyField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlParentField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlParentField)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrimaryKey.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lcIndexEntitySet
@@ -114,11 +114,11 @@
             this.lcIndexEntitySet.Controls.Add(this.barDockFields);
             this.lcIndexEntitySet.Controls.Add(this.grdFields);
             this.lcIndexEntitySet.Controls.Add(this.txtSqlScript);
-            this.lcIndexEntitySet.Controls.Add(this.txtPrimaryKey);
-            this.lcIndexEntitySet.Controls.Add(this.txtTableName);
             this.lcIndexEntitySet.Controls.Add(this.txtControlParentField);
             this.lcIndexEntitySet.Controls.Add(this.txtControlKeyField);
             this.lcIndexEntitySet.Controls.Add(this.cbmControlType);
+            this.lcIndexEntitySet.Controls.Add(this.txtTableName);
+            this.lcIndexEntitySet.Controls.Add(this.txtPrimaryKey);
             this.lcIndexEntitySet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcIndexEntitySet.Location = new System.Drawing.Point(0, 0);
             this.lcIndexEntitySet.Name = "lcIndexEntitySet";
@@ -131,10 +131,10 @@
             // txtCaption
             // 
             this.txtCaption.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "Caption", true));
-            this.txtCaption.Location = new System.Drawing.Point(247, 3);
+            this.txtCaption.Location = new System.Drawing.Point(241, 3);
             this.txtCaption.MenuManager = this.bmEntitySetConfig;
             this.txtCaption.Name = "txtCaption";
-            this.txtCaption.Size = new System.Drawing.Size(116, 20);
+            this.txtCaption.Size = new System.Drawing.Size(122, 20);
             this.txtCaption.StyleController = this.lcIndexEntitySet;
             this.txtCaption.TabIndex = 9;
             // 
@@ -350,30 +350,12 @@
             this.txtSqlScript.Size = new System.Drawing.Size(352, 241);
             this.txtSqlScript.TabIndex = 0;
             // 
-            // txtPrimaryKey
-            // 
-            this.txtPrimaryKey.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "PrimaryKeyName", true));
-            this.txtPrimaryKey.Location = new System.Drawing.Point(247, 51);
-            this.txtPrimaryKey.Name = "txtPrimaryKey";
-            this.txtPrimaryKey.Size = new System.Drawing.Size(116, 20);
-            this.txtPrimaryKey.StyleController = this.lcIndexEntitySet;
-            this.txtPrimaryKey.TabIndex = 8;
-            // 
-            // txtTableName
-            // 
-            this.txtTableName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "DbTableName", true));
-            this.txtTableName.Location = new System.Drawing.Point(66, 51);
-            this.txtTableName.Name = "txtTableName";
-            this.txtTableName.Size = new System.Drawing.Size(114, 20);
-            this.txtTableName.StyleController = this.lcIndexEntitySet;
-            this.txtTableName.TabIndex = 7;
-            // 
             // txtControlParentField
             // 
             this.txtControlParentField.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "ControlParentFieldName", true));
-            this.txtControlParentField.Location = new System.Drawing.Point(247, 27);
+            this.txtControlParentField.Location = new System.Drawing.Point(241, 27);
             this.txtControlParentField.Name = "txtControlParentField";
-            this.txtControlParentField.Size = new System.Drawing.Size(116, 20);
+            this.txtControlParentField.Size = new System.Drawing.Size(122, 20);
             this.txtControlParentField.StyleController = this.lcIndexEntitySet;
             this.txtControlParentField.TabIndex = 6;
             // 
@@ -382,7 +364,7 @@
             this.txtControlKeyField.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "ControlKeyFieldName", true));
             this.txtControlKeyField.Location = new System.Drawing.Point(66, 27);
             this.txtControlKeyField.Name = "txtControlKeyField";
-            this.txtControlKeyField.Size = new System.Drawing.Size(114, 20);
+            this.txtControlKeyField.Size = new System.Drawing.Size(108, 20);
             this.txtControlKeyField.StyleController = this.lcIndexEntitySet;
             this.txtControlKeyField.TabIndex = 5;
             // 
@@ -393,7 +375,7 @@
             this.cbmControlType.Name = "cbmControlType";
             this.cbmControlType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbmControlType.Size = new System.Drawing.Size(114, 20);
+            this.cbmControlType.Size = new System.Drawing.Size(108, 20);
             this.cbmControlType.StyleController = this.lcIndexEntitySet;
             this.cbmControlType.TabIndex = 4;
             // 
@@ -407,12 +389,12 @@
             this.tabbedControlGroup2,
             this.lciIndexControlKeyField,
             this.splitterItem1,
+            this.splitterItem2,
             this.lciCaption,
-            this.layoutControlItem6,
             this.layoutControlItem3,
             this.lciIndexControlParentField,
-            this.layoutControlItem7,
-            this.splitterItem2});
+            this.layoutControlItem6,
+            this.layoutControlItem7});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
@@ -504,55 +486,15 @@
             this.layoutControlItem8.TextToControlDistance = 0;
             this.layoutControlItem8.TextVisible = false;
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.cbmControlType;
-            this.layoutControlItem3.CustomizationFormText = "控件类型";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(181, 24);
-            this.layoutControlItem3.Text = "控件类型";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
-            // 
             // lciIndexControlKeyField
             // 
             this.lciIndexControlKeyField.Control = this.txtControlKeyField;
             this.lciIndexControlKeyField.CustomizationFormText = "KeyField";
             this.lciIndexControlKeyField.Location = new System.Drawing.Point(0, 24);
             this.lciIndexControlKeyField.Name = "lciIndexControlKeyField";
-            this.lciIndexControlKeyField.Size = new System.Drawing.Size(181, 24);
+            this.lciIndexControlKeyField.Size = new System.Drawing.Size(175, 24);
             this.lciIndexControlKeyField.Text = "控件主字段";
             this.lciIndexControlKeyField.TextSize = new System.Drawing.Size(60, 14);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.txtTableName;
-            this.layoutControlItem6.CustomizationFormText = "表名";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(181, 24);
-            this.layoutControlItem6.Text = "表名";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(60, 14);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.txtPrimaryKey;
-            this.layoutControlItem7.CustomizationFormText = "主键名";
-            this.layoutControlItem7.Location = new System.Drawing.Point(181, 48);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(183, 24);
-            this.layoutControlItem7.Text = "表主键名";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
-            // 
-            // lciIndexControlParentField
-            // 
-            this.lciIndexControlParentField.Control = this.txtControlParentField;
-            this.lciIndexControlParentField.CustomizationFormText = "ParentField";
-            this.lciIndexControlParentField.Location = new System.Drawing.Point(181, 24);
-            this.lciIndexControlParentField.Name = "lciIndexControlParentField";
-            this.lciIndexControlParentField.Size = new System.Drawing.Size(183, 24);
-            this.lciIndexControlParentField.Text = "控件父字段";
-            this.lciIndexControlParentField.TextSize = new System.Drawing.Size(60, 14);
             // 
             // splitterItem1
             // 
@@ -562,16 +504,6 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(716, 5);
             // 
-            // lciCaption
-            // 
-            this.lciCaption.Control = this.txtCaption;
-            this.lciCaption.CustomizationFormText = "控件标题";
-            this.lciCaption.Location = new System.Drawing.Point(181, 0);
-            this.lciCaption.Name = "lciCaption";
-            this.lciCaption.Size = new System.Drawing.Size(183, 24);
-            this.lciCaption.Text = "控件标题";
-            this.lciCaption.TextSize = new System.Drawing.Size(60, 14);
-            // 
             // splitterItem2
             // 
             this.splitterItem2.AllowHotTrack = true;
@@ -579,6 +511,78 @@
             this.splitterItem2.Location = new System.Drawing.Point(364, 0);
             this.splitterItem2.Name = "splitterItem2";
             this.splitterItem2.Size = new System.Drawing.Size(5, 348);
+            // 
+            // lciCaption
+            // 
+            this.lciCaption.Control = this.txtCaption;
+            this.lciCaption.CustomizationFormText = "控件标题";
+            this.lciCaption.Location = new System.Drawing.Point(175, 0);
+            this.lciCaption.Name = "lciCaption";
+            this.lciCaption.Size = new System.Drawing.Size(189, 24);
+            this.lciCaption.Text = "实体标题";
+            this.lciCaption.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.cbmControlType;
+            this.layoutControlItem3.CustomizationFormText = "控件类型";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(175, 24);
+            this.layoutControlItem3.Text = "控件类型";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // lciIndexControlParentField
+            // 
+            this.lciIndexControlParentField.Control = this.txtControlParentField;
+            this.lciIndexControlParentField.CustomizationFormText = "ParentField";
+            this.lciIndexControlParentField.Location = new System.Drawing.Point(175, 24);
+            this.lciIndexControlParentField.Name = "lciIndexControlParentField";
+            this.lciIndexControlParentField.Size = new System.Drawing.Size(189, 24);
+            this.lciIndexControlParentField.Text = "控件父字段";
+            this.lciIndexControlParentField.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txtTableName;
+            this.layoutControlItem6.CustomizationFormText = "表名";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(175, 24);
+            this.layoutControlItem6.Text = "表名";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.txtPrimaryKey;
+            this.layoutControlItem7.CustomizationFormText = "主键名";
+            this.layoutControlItem7.Location = new System.Drawing.Point(175, 48);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(189, 24);
+            this.layoutControlItem7.Text = "表主键名";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // txtTableName
+            // 
+            this.txtTableName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "DbTableName", true));
+            this.txtTableName.Location = new System.Drawing.Point(66, 51);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTableName.Size = new System.Drawing.Size(108, 20);
+            this.txtTableName.StyleController = this.lcIndexEntitySet;
+            this.txtTableName.TabIndex = 7;
+            // 
+            // txtPrimaryKey
+            // 
+            this.txtPrimaryKey.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "PrimaryKeyName", true));
+            this.txtPrimaryKey.Location = new System.Drawing.Point(241, 51);
+            this.txtPrimaryKey.Name = "txtPrimaryKey";
+            this.txtPrimaryKey.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPrimaryKey.Size = new System.Drawing.Size(122, 20);
+            this.txtPrimaryKey.StyleController = this.lcIndexEntitySet;
+            this.txtPrimaryKey.TabIndex = 8;
             // 
             // EntitySetConfigControl
             // 
@@ -601,8 +605,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvFields)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxFieldType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoSql)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrimaryKey.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTableName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtControlParentField.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtControlKeyField.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbmControlType.Properties)).EndInit();
@@ -614,14 +616,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlKeyField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlParentField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciIndexControlParentField)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrimaryKey.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -639,8 +643,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSql;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit memoSql;
         private Framework.Controls.TextEditor.TextEditorControl txtSqlScript;
-        private DevExpress.XtraEditors.TextEdit txtPrimaryKey;
-        private DevExpress.XtraEditors.TextEdit txtTableName;
         private DevExpress.XtraEditors.TextEdit txtControlParentField;
         private DevExpress.XtraEditors.TextEdit txtControlKeyField;
         private DevExpress.XtraEditors.ImageComboBoxEdit cbmControlType;
@@ -674,5 +676,7 @@
         private System.Windows.Forms.BindingSource bsConfig;
         private System.Windows.Forms.BindingSource bsFields;
         private DevExpress.XtraLayout.SplitterItem splitterItem2;
+        private DevExpress.XtraEditors.ComboBoxEdit txtTableName;
+        private DevExpress.XtraEditors.ComboBoxEdit txtPrimaryKey;
     }
 }

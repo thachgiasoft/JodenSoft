@@ -49,12 +49,13 @@
             this.mainConfig = new SAF.CommonBill.EntitySetConfigControl();
             this.pageDetailConfig = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.pnlDetailEntityConfig = new DevExpress.XtraEditors.PanelControl();
             this.listDetailEntitySet = new DevExpress.XtraEditors.ListBoxControl();
-            this.detailConfig = new SAF.CommonBill.EntitySetConfigControl();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
+            this.detailConfig = new SAF.CommonBill.EntitySetConfigControl();
             this.pageQueryConfig = new DevExpress.XtraTab.XtraTabPage();
             this.queryConfig = new SAF.CommonBill.QueryConfigControl();
-            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barDetailEntitySet = new DevExpress.XtraBars.Bar();
             this.btnDetailEntitySetConfigAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnDetailEntitySetConfigDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bsDetailEntitySetConfig = new System.Windows.Forms.BindingSource(this.components);
@@ -94,6 +95,8 @@
             this.pageDetailConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlDetailEntityConfig)).BeginInit();
+            this.pnlDetailEntityConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listDetailEntitySet)).BeginInit();
             this.pageQueryConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDetailEntitySetConfig)).BeginInit();
@@ -152,7 +155,7 @@
             // bmMain
             // 
             this.bmMain.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1});
+            this.barDetailEntitySet});
             this.bmMain.DockControls.Add(this.standaloneBarDockControl1);
             this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnDetailEntitySetConfigAdd,
@@ -346,7 +349,6 @@
             // pageDetailConfig
             // 
             this.pageDetailConfig.Controls.Add(this.splitContainerControl1);
-            this.pageDetailConfig.Controls.Add(this.standaloneBarDockControl1);
             this.pageDetailConfig.Name = "pageDetailConfig";
             this.pageDetailConfig.Size = new System.Drawing.Size(538, 211);
             this.pageDetailConfig.Text = "明细数据配置";
@@ -354,33 +356,37 @@
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.listDetailEntitySet);
+            this.splitContainerControl1.Panel1.Controls.Add(this.pnlDetailEntityConfig);
+            this.splitContainerControl1.Panel1.Controls.Add(this.standaloneBarDockControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.detailConfig);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(538, 183);
-            this.splitContainerControl1.SplitterPosition = 133;
+            this.splitContainerControl1.Size = new System.Drawing.Size(538, 211);
+            this.splitContainerControl1.SplitterPosition = 149;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
+            // 
+            // pnlDetailEntityConfig
+            // 
+            this.pnlDetailEntityConfig.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlDetailEntityConfig.Controls.Add(this.listDetailEntitySet);
+            this.pnlDetailEntityConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDetailEntityConfig.Location = new System.Drawing.Point(0, 28);
+            this.pnlDetailEntityConfig.Name = "pnlDetailEntityConfig";
+            this.pnlDetailEntityConfig.Padding = new System.Windows.Forms.Padding(1);
+            this.pnlDetailEntityConfig.Size = new System.Drawing.Size(149, 183);
+            this.pnlDetailEntityConfig.TabIndex = 2;
             // 
             // listDetailEntitySet
             // 
             this.listDetailEntitySet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listDetailEntitySet.Location = new System.Drawing.Point(0, 0);
+            this.listDetailEntitySet.Location = new System.Drawing.Point(1, 1);
             this.listDetailEntitySet.Name = "listDetailEntitySet";
-            this.listDetailEntitySet.Size = new System.Drawing.Size(133, 183);
+            this.listDetailEntitySet.Size = new System.Drawing.Size(147, 181);
             this.listDetailEntitySet.TabIndex = 0;
             this.listDetailEntitySet.SelectedValueChanged += new System.EventHandler(this.listDetailEntitySet_SelectedValueChanged);
-            // 
-            // detailConfig
-            // 
-            this.detailConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailConfig.Location = new System.Drawing.Point(0, 0);
-            this.detailConfig.Name = "detailConfig";
-            this.detailConfig.Size = new System.Drawing.Size(400, 183);
-            this.detailConfig.TabIndex = 1;
             // 
             // standaloneBarDockControl1
             // 
@@ -388,8 +394,16 @@
             this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(538, 28);
+            this.standaloneBarDockControl1.Size = new System.Drawing.Size(149, 28);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
+            // 
+            // detailConfig
+            // 
+            this.detailConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.detailConfig.Location = new System.Drawing.Point(0, 0);
+            this.detailConfig.Name = "detailConfig";
+            this.detailConfig.Size = new System.Drawing.Size(384, 211);
+            this.detailConfig.TabIndex = 1;
             // 
             // pageQueryConfig
             // 
@@ -407,22 +421,22 @@
             this.queryConfig.Size = new System.Drawing.Size(536, 209);
             this.queryConfig.TabIndex = 0;
             // 
-            // bar1
+            // barDetailEntitySet
             // 
-            this.bar1.BarName = "Custom 2";
-            this.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Standalone;
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.bar1.FloatLocation = new System.Drawing.Point(455, 357);
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barDetailEntitySet.BarName = "barDetailEntitySet";
+            this.barDetailEntitySet.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Standalone;
+            this.barDetailEntitySet.DockCol = 0;
+            this.barDetailEntitySet.DockRow = 0;
+            this.barDetailEntitySet.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
+            this.barDetailEntitySet.FloatLocation = new System.Drawing.Point(455, 357);
+            this.barDetailEntitySet.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailEntitySetConfigAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailEntitySetConfigDelete)});
-            this.bar1.OptionsBar.AllowQuickCustomization = false;
-            this.bar1.OptionsBar.DrawDragBorder = false;
-            this.bar1.OptionsBar.UseWholeRow = true;
-            this.bar1.StandaloneBarDockControl = this.standaloneBarDockControl1;
-            this.bar1.Text = "Custom 2";
+            this.barDetailEntitySet.OptionsBar.AllowQuickCustomization = false;
+            this.barDetailEntitySet.OptionsBar.DrawDragBorder = false;
+            this.barDetailEntitySet.OptionsBar.UseWholeRow = true;
+            this.barDetailEntitySet.StandaloneBarDockControl = this.standaloneBarDockControl1;
+            this.barDetailEntitySet.Text = "barDetailEntitySet";
             // 
             // btnDetailEntitySetConfigAdd
             // 
@@ -490,6 +504,8 @@
             this.pageDetailConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlDetailEntityConfig)).EndInit();
+            this.pnlDetailEntityConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listDetailEntitySet)).EndInit();
             this.pageQueryConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsDetailEntitySetConfig)).EndInit();
@@ -521,7 +537,7 @@
         private EntitySetConfigControl indexConfig;
         private EntitySetConfigControl mainConfig;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
-        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.Bar barDetailEntitySet;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.ListBoxControl listDetailEntitySet;
         private DevExpress.XtraBars.BarButtonItem btnDetailEntitySetConfigAdd;
@@ -529,5 +545,6 @@
         private EntitySetConfigControl detailConfig;
         private System.Windows.Forms.BindingSource bsDetailEntitySetConfig;
         private QueryConfigControl queryConfig;
+        private DevExpress.XtraEditors.PanelControl pnlDetailEntityConfig;
     }
 }

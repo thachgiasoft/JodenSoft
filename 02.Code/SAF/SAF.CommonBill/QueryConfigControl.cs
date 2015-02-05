@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.Controls;
 using SAF.Framework.Controls.ViewConfig;
+using SAF.Foundation;
 
 namespace SAF.CommonBill
 {
@@ -55,6 +56,16 @@ namespace SAF.CommonBill
         {
             if (this.bsQuickQueryFields.Count > 0)
                 this.bsQuickQueryFields.RemoveCurrent();
+        }
+
+        private void btnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.bsQuickQueryFields.MoveCurrentUp();
+        }
+
+        private void btnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.bsQuickQueryFields.MoveCurrentDown();
         }
     }
 }
