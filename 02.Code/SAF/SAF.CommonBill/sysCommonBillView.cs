@@ -75,7 +75,7 @@ namespace SAF.CommonBill
             CreateDetailsControl(config.DetailEntitySetConfigs);
         }
 
-        private void CreateDetailsControl(IList<DetailEntitySetConfig> dtlConfigs)
+        private void CreateDetailsControl(IList<EntitySetConfig> dtlConfigs)
         {
             this.tcDtl.TabPages.Clear();
 
@@ -225,14 +225,14 @@ namespace SAF.CommonBill
 
             CommonBillConfig.IndexEntitySetConfig.DbTableName = "sdOrder";
             CommonBillConfig.IndexEntitySetConfig.PrimaryKeyName = "Iden";
-            CommonBillConfig.IndexEntitySetConfig.Sql = "SELECT * FROM dbo.sdOrder with(nolock)";
+            CommonBillConfig.IndexEntitySetConfig.SqlScript = "SELECT * FROM dbo.sdOrder with(nolock)";
             CommonBillConfig.IndexEntitySetConfig.IsReadOnly = true;
             CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
             CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
 
             CommonBillConfig.MainEntitySetConfig.DbTableName = "sdOrder";
             CommonBillConfig.MainEntitySetConfig.PrimaryKeyName = "Iden";
-            CommonBillConfig.MainEntitySetConfig.Sql = "SELECT * FROM dbo.sdOrder with(nolock) where Iden=:Iden";
+            CommonBillConfig.MainEntitySetConfig.SqlScript = "SELECT * FROM dbo.sdOrder with(nolock) where Iden=:Iden";
             CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
             CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
 

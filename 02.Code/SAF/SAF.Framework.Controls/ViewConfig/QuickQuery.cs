@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SAF.Framework.Controls.ViewConfig
 {
+    [Serializable]
     public class QuickQuery
     {
         public List<QueryField> QueryFields { get; set; }

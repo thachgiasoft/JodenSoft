@@ -10,6 +10,7 @@ namespace SAF.Framework.Controls
     [ToolboxItem(false)]
     public class BaseUserControl : XtraUserControl, IBaseUserControl
     {
+
         public void Init()
         {
             OnInit();

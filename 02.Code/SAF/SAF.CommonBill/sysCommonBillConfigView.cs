@@ -11,6 +11,8 @@ using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using SAF.Foundation.ComponentModel;
+using DevExpress.XtraEditors;
+using DevExpress.XtraLayout.Utils;
 
 namespace SAF.CommonBill
 {
@@ -41,6 +43,14 @@ namespace SAF.CommonBill
             this.AccessFocusControl = this.txtName;
         }
 
+
+
+        protected override void OnInitUI()
+        {
+            base.OnInitUI();
+
+        }
+
         protected override void OnRefreshUI()
         {
             base.OnRefreshUI();
@@ -59,19 +69,72 @@ namespace SAF.CommonBill
             this.IndexRowChange();
         }
 
+        private CommonBillConfig _CommonBillConfig = new CommonBillConfig();
+        public CommonBillConfig CommonBillConfig
+        {
+            get { return _CommonBillConfig; }
+            set
+            {
+                if (value == null)
+                    _CommonBillConfig = new CommonBill.CommonBillConfig();
+                else
+                    _CommonBillConfig = value;
+
+                BindingCommonBillConfig();
+            }
+        }
+
+        private void BindingCommonBillConfig()
+        {
+            this.indexConfig.EntitySetConfig = CommonBillConfig.IndexEntitySetConfig;
+            this.mainConfig.EntitySetConfig = CommonBillConfig.MainEntitySetConfig;
+
+            this.queryConfig.QueryConfig = CommonBillConfig.QueryConfig;
+
+            this.bsDetailEntitySetConfig.DataSource = CommonBillConfig.DetailEntitySetConfigs;
+            this.listDetailEntitySet.DataSource = bsDetailEntitySetConfig;
+            this.listDetailEntitySet.DisplayMember = "Caption";
+            this.listDetailEntitySet.ValueMember = "Caption";
+        }
+
         protected override void OnIndexRowChange()
         {
             base.OnIndexRowChange();
 
-            var config = new CommonBillConfig();
             if (this.ViewModel.MainEntitySet.CurrentEntity != null)
             {
-                config = XmlSerializerHelper.Deserialize<CommonBillConfig>(this.ViewModel.MainEntitySet.CurrentEntity.Config);
-                if (config == null)
-                    config = new CommonBillConfig();
+                CommonBillConfig = XmlSerializerHelper.Deserialize<CommonBillConfig>(this.ViewModel.MainEntitySet.CurrentEntity.Config);
+                if (CommonBillConfig == null)
+                    CommonBillConfig = new CommonBillConfig();
             }
+        }
 
+        protected override void OnAddNew()
+        {
+            CommonBillConfig = new CommonBillConfig();
+            base.OnAddNew();
+        }
 
+        protected override bool OnSave()
+        {
+            var config = XmlSerializerHelper.Serialize(this.CommonBillConfig);
+            this.ViewModel.MainEntitySet.CurrentEntity.Config = config;
+            return base.OnSave();
+        }
+
+        private void listDetailEntitySet_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.detailConfig.EntitySetConfig = listDetailEntitySet.SelectedItem as EntitySetConfig;
+        }
+
+        private void btnDetailEntitySetConfigAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.bsDetailEntitySetConfig.AddNew();
+        }
+
+        private void btnDetailEntitySetConfigDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.bsDetailEntitySetConfig.RemoveCurrent();
         }
 
     }

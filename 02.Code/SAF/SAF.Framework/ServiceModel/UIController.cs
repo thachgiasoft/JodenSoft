@@ -18,6 +18,8 @@ using DevExpress.XtraBars;
 using DevExpress.XtraLayout;
 using DevExpress.XtraTab;
 using DevExpress.XtraBars.Ribbon;
+using SAF.Framework.Controls.TextEditor;
+using SAF.Framework.Controls;
 
 namespace SAF.Framework
 {
@@ -83,7 +85,7 @@ namespace SAF.Framework
                 }
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
-                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl))
+                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl))
             {
                 foreach (Control c in aControl.Controls)
                 {
@@ -113,7 +115,7 @@ namespace SAF.Framework
                 RefreshControl(view, bEnabled);
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
-                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl))
+                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl))
             {
                 foreach (Control c in aControl.Controls)
                 {
@@ -185,6 +187,14 @@ namespace SAF.Framework
             else if (aControl is CheckEdit)
             {
                 aControl.Enabled = bEnabled;
+            }
+            else if (aControl is TextEditorControl)
+            {
+                (aControl as TextEditorControl).IsReadOnly = !bEnabled;
+            }
+            else if (aControl is ListBoxControl)
+            {
+                //ListBoxControl 即只读
             }
             else if (aControl is SAF.Framework.Controls.Charts.MenuChartControl)
             {

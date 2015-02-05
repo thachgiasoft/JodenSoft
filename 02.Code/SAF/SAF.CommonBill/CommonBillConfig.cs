@@ -6,24 +6,25 @@ using System.Text;
 
 namespace SAF.CommonBill
 {
+    [Serializable]
     public sealed class CommonBillConfig
     {
         public QueryConfig QueryConfig { get; set; }
 
         public EntitySetConfig IndexEntitySetConfig { get; set; }
         public EntitySetConfig MainEntitySetConfig { get; set; }
-        public IList<DetailEntitySetConfig> DetailEntitySetConfigs { get; set; }
+        public List<EntitySetConfig> DetailEntitySetConfigs { get; set; }
 
         public CommonBillConfig()
         {
             QueryConfig = new Framework.Controls.ViewConfig.QueryConfig();
             IndexEntitySetConfig = new EntitySetConfig();
             MainEntitySetConfig = new EntitySetConfig();
-            DetailEntitySetConfigs = new List<DetailEntitySetConfig>();
+            DetailEntitySetConfigs = new List<EntitySetConfig>();
 
         }
     }
-
+    [Serializable]
     public sealed class EntitySetConfig
     {
         public EntitySetControlType ControlType { get; set; }
@@ -32,9 +33,13 @@ namespace SAF.CommonBill
 
         public string DbTableName { get; set; }
         public string PrimaryKeyName { get; set; }
-        public string Sql { get; set; }
+        public string SqlScript { get; set; }
+
+        [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public List<EntitySetField> Fields { get; set; }
         public bool IsReadOnly { get; set; }
+
+        public string Caption { get; set; }
 
         public EntitySetConfig()
         {
@@ -43,44 +48,13 @@ namespace SAF.CommonBill
             ControlParentFieldName = string.Empty;
 
             Fields = new List<EntitySetField>();
-            Sql = string.Empty;
-            PrimaryKeyName = "Iden";
-            IsReadOnly = false;
-        }
-    }
-
-    public sealed class DetailEntitySetConfig
-    {
-        public EntitySetControlType ControlType { get; set; }
-        public string ControlKeyFieldName { get; set; }
-        public string ControlParentFieldName { get; set; }
-
-        public string DbTableName { get; set; }
-        public string PrimaryKeyName { get; set; }
-        public string Sql { get; set; }
-        public List<EntitySetField> Fields { get; set; }
-        public bool IsReadOnly { get; set; }
-        /// <summary>
-        /// 主要针对明细区的TabContainer
-        /// </summary>
-        public string Caption { get; set; }
-
-        public DetailEntitySetConfig()
-        {
-            ControlType = EntitySetControlType.GridControl;
-            ControlKeyFieldName = string.Empty;
-            ControlParentFieldName = string.Empty;
-
-            Fields = new List<EntitySetField>();
-            Sql = string.Empty;
+            SqlScript = string.Empty;
             PrimaryKeyName = "Iden";
             IsReadOnly = false;
             Caption = string.Empty;
         }
     }
-
-
-
+    [Serializable]
     public sealed class EntitySetField
     {
         public string FieldName { get; set; }
@@ -126,7 +100,8 @@ namespace SAF.CommonBill
 
     public enum EntitySetControlType
     {
-        GridControl = 0,
-        TreeList = 1
+        None = 0,
+        GridControl = 1,
+        TreeList = 2
     }
 }

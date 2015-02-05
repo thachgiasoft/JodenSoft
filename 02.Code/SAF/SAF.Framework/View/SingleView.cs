@@ -281,6 +281,10 @@ namespace SAF.Framework.View
             }
         }
 
+        protected virtual void OnBeforeSave()
+        {
+        }
+
         protected virtual bool OnSave()
         {
             if (ViewModel != null)

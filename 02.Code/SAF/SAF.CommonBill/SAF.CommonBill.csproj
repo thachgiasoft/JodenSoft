@@ -60,8 +60,25 @@
   <ItemGroup>
     <Compile Include="CommonBillConfig.cs" />
     <Compile Include="CommonBillInfo.cs" />
+    <Compile Include="EntitySetConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EntitySetConfigControl.Designer.cs">
+      <DependentUpon>EntitySetConfigControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\sysCommonBillConfig.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryConfigControl.Designer.cs">
+      <DependentUpon>QueryConfigControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="sysCommonBillConfigView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,19 +121,56 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EntitySetConfigControl.resx">
+      <DependentUpon>EntitySetConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryConfigControl.resx">
+      <DependentUpon>QueryConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sysCommonBillConfigView.resx">
       <DependentUpon>sysCommonBillConfigView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="sysCommonBillView.resx">
       <DependentUpon>sysCommonBillView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\EntitySetConfig.datasource" />
+    <None Include="Properties\DataSources\EntitySetField.datasource" />
     <None Include="Properties\DataSources\SAF.SystemEntities.sysCommonBillHdr.datasource" />
     <None Include="Properties\DataSources\sdOrder.datasource" />
     <None Include="Properties\DataSources\sdOrderDtl.datasource" />
     <None Include="Properties\DataSources\sysCommonBillConfig.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowDependencies_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowDependencies_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_delete_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_new_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_new_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Down_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Action_Up_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

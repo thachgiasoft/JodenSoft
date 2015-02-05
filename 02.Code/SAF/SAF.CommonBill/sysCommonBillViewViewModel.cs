@@ -17,21 +17,21 @@ namespace SAF.CommonBill
 
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            if (!View.CommonBillConfig.IndexEntitySetConfig.Sql.IsEmpty())
-                IndexEntitySet.Query(View.CommonBillConfig.IndexEntitySetConfig.Sql);
+            if (!View.CommonBillConfig.IndexEntitySetConfig.SqlScript.IsEmpty())
+                IndexEntitySet.Query(View.CommonBillConfig.IndexEntitySetConfig.SqlScript);
         }
 
         protected override void OnQueryChild(object key)
         {
-            if (!View.CommonBillConfig.MainEntitySetConfig.Sql.IsEmpty())
-                this.MainEntitySet.Query(View.CommonBillConfig.MainEntitySetConfig.Sql, key);
+            if (!View.CommonBillConfig.MainEntitySetConfig.SqlScript.IsEmpty())
+                this.MainEntitySet.Query(View.CommonBillConfig.MainEntitySetConfig.SqlScript, key);
 
             for (int i = 0; i < View.dtlEntitys.Count; i++)
             {
                 var config = View.CommonBillConfig.DetailEntitySetConfigs[i];
-                if (!config.Sql.IsEmpty())
+                if (!config.SqlScript.IsEmpty())
                 {
-                    View.dtlEntitys[i].Query(config.Sql, key);
+                    View.dtlEntitys[i].Query(config.SqlScript, key);
                 }
             }
         }

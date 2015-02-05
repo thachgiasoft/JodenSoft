@@ -7,6 +7,7 @@ using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.CommonBill.Entities;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.CommonBill
 {
@@ -44,5 +45,6 @@ namespace SAF.CommonBill
             e.CurrentEntity.Name = string.Empty;
             e.CurrentEntity.Config = string.Empty;
         }
+
     }
 }

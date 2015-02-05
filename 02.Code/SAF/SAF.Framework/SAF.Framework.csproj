@@ -230,6 +230,7 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Action_Up_16x16.png" />
     <None Include="Resources\Action_UnSendToAudit_16x16.png" />
     <None Include="Resources\Action_UnSendToAudit_32x32.png" />
     <None Include="Resources\Action_SendToAudit_32x32.png" />
@@ -251,6 +252,7 @@
     <None Include="Resources\Action_Approvel_32x32.png" />
     <None Include="Resources\Action_Approvel_16x16.png" />
     <None Include="Resources\Action_AddToFavorite_32x32.png" />
+    <None Include="Resources\Action_Down_16x16.png" />
     <Content Include="Resources\Action_New_16x16.png" />
     <Content Include="Resources\Action_New_32x32.png" />
     <None Include="Resources\Action_Refresh_32x32.png" />

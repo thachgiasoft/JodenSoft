@@ -66,6 +66,7 @@
     <Compile Include="ComponentModel\ApplicationConfig.cs" />
     <Compile Include="ComponentModel\XmlSerializerHelper.cs" />
     <Compile Include="EditStatus.cs" />
+    <Compile Include="Extensions\BindingSourceExtensions.cs" />
     <Compile Include="Extensions\CommonExtensions.cs" />
     <Compile Include="Extensions\ParamterCheckExtensions.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
