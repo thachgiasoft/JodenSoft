@@ -30,7 +30,16 @@ namespace SAF.CommonBill
 
                 this.bsQuickQuery.DataSource = _QueryConfig.QuickQuery;
                 this.bsQuickQueryFields.DataSource = _QueryConfig.QuickQuery.QueryFields;
+
+                this.bsQuickQuery.ResetBindings(false);
+                this.bsQuickQueryFields.ResetBindings(false);
             }
+        }
+
+        public void ResetBindings()
+        {
+            this.bsQuickQuery.ResetBindings(false);
+            this.bsQuickQueryFields.ResetBindings(false);
         }
 
         public QueryConfigControl()
@@ -44,7 +53,23 @@ namespace SAF.CommonBill
         {
             base.OnInit();
 
-            cbxQuickQueryType.Properties.Items.AddEnum(typeof(QuickQueryType));
+            Converter<QuickQueryType, string> conveter = p =>
+            {
+                switch (p)
+                {
+                    case QuickQueryType.Exact:
+                        return "精确查找";
+                    case QuickQueryType.Fuzzy:
+                        return "模糊匹配";
+                    case QuickQueryType.Combinatorial:
+                        return "组合查找";
+                    case QuickQueryType.LeftMatch:
+                        return "左匹配";
+                    default:
+                        return string.Empty;
+                }
+            };
+            cbxQuickQueryType.Properties.Items.AddEnum(conveter);
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -60,11 +85,13 @@ namespace SAF.CommonBill
 
         private void btnUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.grvFields.PostEditor();
             this.bsQuickQueryFields.MoveCurrentUp();
         }
 
         private void btnDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.grvFields.PostEditor();
             this.bsQuickQueryFields.MoveCurrentDown();
         }
     }

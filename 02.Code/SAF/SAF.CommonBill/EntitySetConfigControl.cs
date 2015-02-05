@@ -43,7 +43,16 @@ namespace SAF.CommonBill
 
                 this.bsConfig.DataSource = _EntitySetConfig;
                 this.bsFields.DataSource = _EntitySetConfig.Fields;
+
+                this.bsConfig.ResetBindings(false);
+                this.bsFields.ResetBindings(false);
             }
+        }
+
+        public void ResetBindings()
+        {
+            this.bsConfig.ResetBindings(false);
+            this.bsFields.ResetBindings(false);
         }
 
         public EntitySetConfigControl()
@@ -56,7 +65,21 @@ namespace SAF.CommonBill
         {
             base.OnInit();
 
-            this.cbmControlType.Properties.Items.AddEnum(typeof(EntitySetControlType));
+            Converter<EntitySetControlType, string> convertor = p =>
+            {
+                switch (p)
+                {
+                    case EntitySetControlType.None:
+                        return "无";
+                    case EntitySetControlType.GridControl:
+                        return "表格控件";
+                    case EntitySetControlType.TreeList:
+                        return "树形控件";
+                    default:
+                        return "无";
+                }
+            };
+            this.cbmControlType.Properties.Items.AddEnum(convertor);
         }
 
         private void btnEntitySetConfigFieldParse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -77,11 +100,13 @@ namespace SAF.CommonBill
 
         private void btnEntitySetConfigFieldUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.grvFields.PostEditor();
             this.bsFields.MoveCurrentUp();
         }
 
         private void btnEntitySetConfigFieldDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.grvFields.PostEditor();
             this.bsFields.MoveCurrentDown();
         }
     }
@@ -93,4 +118,6 @@ namespace SAF.CommonBill
         Main = 2,
         Detail = 3
     }
+
+
 }

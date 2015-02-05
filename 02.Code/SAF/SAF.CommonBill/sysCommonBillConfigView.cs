@@ -131,9 +131,15 @@ namespace SAF.CommonBill
             this.detailConfig.EntitySetConfig = listDetailEntitySet.SelectedItem as EntitySetConfig;
         }
 
+        private int EntitySetIndex = 0;
         private void btnDetailEntitySetConfigAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.bsDetailEntitySetConfig.AddNew();
+            var obj = this.bsDetailEntitySetConfig.AddNew() as EntitySetConfig;
+
+            obj.Caption = "EntitySet " + EntitySetIndex++;
+            this.bsDetailEntitySetConfig.EndEdit();
+            this.bsDetailEntitySetConfig.ResetBindings(false);
+            this.detailConfig.ResetBindings();
         }
 
         private void btnDetailEntitySetConfigDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
