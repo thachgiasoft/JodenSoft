@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SAF.Foundation;
+using System.ComponentModel.DataAnnotations;
 
 namespace SAF.Framework.Controls
 {
@@ -58,18 +59,22 @@ namespace SAF.Framework.Controls
         /// <summary>
         /// 精确查找
         /// </summary>
+        [Display(Name = "精确查找")]
         Exact = 0,
         /// <summary>
         /// 模糊匹配
         /// </summary>
+         [Display(Name = "模糊匹配")]
         Fuzzy = 1,
         /// <summary>
         /// 组合查找
         /// </summary>
+         [Display(Name = "组合查找")]
         Combinatorial = 2,
         /// <summary>
         /// 左匹配
         /// </summary>
+         [Display(Name = "左匹配")]
         LeftMatch = 3,
     }
 }

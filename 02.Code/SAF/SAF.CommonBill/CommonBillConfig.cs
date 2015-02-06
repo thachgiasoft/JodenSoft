@@ -1,11 +1,15 @@
 ﻿using SAF.Framework.Controls.ViewConfig;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
 namespace SAF.CommonBill
 {
+    /// <summary>
+    /// 通用单据配置
+    /// </summary>
     [Serializable]
     public sealed class CommonBillConfig
     {
@@ -24,6 +28,9 @@ namespace SAF.CommonBill
 
         }
     }
+    /// <summary>
+    /// 实体配置
+    /// </summary>
     [Serializable]
     public sealed class EntitySetConfig
     {
@@ -54,6 +61,9 @@ namespace SAF.CommonBill
             Caption = string.Empty;
         }
     }
+    /// <summary>
+    /// 实体字段
+    /// </summary>
     [Serializable]
     public sealed class EntitySetField
     {
@@ -87,21 +97,45 @@ namespace SAF.CommonBill
         }
 
     }
-
+    /// <summary>
+    /// 实体字段类型
+    /// </summary>
     public enum EntitySetFieldType
     {
+        [Display(Name = "文本")]
         Text = 0,
+        [Display(Name = "长文本")]
         Memo = 1,
+        [Display(Name = "整数")]
         Integer = 2,
+        [Display(Name = "小数")]
         Number = 3,
+        [Display(Name = "查找")]
         Lookup = 4,
+        [Display(Name = "表格查找")]
         GridSearch = 5
     }
-
+    /// <summary>
+    /// 实体控件类型
+    /// </summary>
     public enum EntitySetControlType
     {
+        [Display(Name = "无")]
         None = 0,
+        [Display(Name = "表格控件")]
         GridControl = 1,
+        [Display(Name = "树形控件")]
         TreeList = 2
     }
+    /// <summary>
+    /// 根据类型决定是否显示界面控件
+    /// </summary>
+    public enum EntitySetType
+    {
+        None = 0,
+        Index = 1,
+        Main = 2,
+        Detail = 3
+    }
+
 }

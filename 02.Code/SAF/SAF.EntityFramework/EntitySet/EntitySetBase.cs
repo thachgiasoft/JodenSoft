@@ -666,5 +666,26 @@ namespace SAF.EntityFramework
         }
 
         public abstract object Clone();
+
+
+        public abstract bool IsDeleted
+        {
+            get;
+        }
+
+        public abstract bool IsAdded
+        {
+            get;
+        }
+
+        public abstract bool IsModified
+        {
+            get;
+        }
+
+        public abstract bool IsAddedOrModified
+        {
+            get;
+        }
     }
 }

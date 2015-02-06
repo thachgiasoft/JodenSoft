@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysMenuView));
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.txtDescription = new DevExpress.XtraEditors.TextEdit();
@@ -51,20 +50,20 @@
             this.lciFileName = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciParameter = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lciIsAutoOpen = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDescription = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciIsAutoOpen = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.treeMenu = new DevExpress.XtraTreeList.TreeList();
             this.colKey = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
             this.tcParams = new DevExpress.XtraTab.XtraTabControl();
             this.pageParams = new DevExpress.XtraTab.XtraTabPage();
             this.grdParams = new DevExpress.XtraGrid.GridControl();
-            this.bsParams = new System.Windows.Forms.BindingSource(this.components);
+            this.bsParams = new System.Windows.Forms.BindingSource();
             this.grvParams = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -107,13 +106,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFileName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcParams)).BeginInit();
@@ -437,21 +436,6 @@
             this.layoutControlItem3.Text = "上级菜单";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // lciIsAutoOpen
-            // 
-            this.lciIsAutoOpen.Control = this.chkIsAutoOpen;
-            this.lciIsAutoOpen.CustomizationFormText = "lciIsAutoOpen";
-            this.lciIsAutoOpen.Location = new System.Drawing.Point(362, 0);
-            this.lciIsAutoOpen.MaxSize = new System.Drawing.Size(137, 23);
-            this.lciIsAutoOpen.MinSize = new System.Drawing.Size(137, 23);
-            this.lciIsAutoOpen.Name = "lciIsAutoOpen";
-            this.lciIsAutoOpen.Size = new System.Drawing.Size(137, 24);
-            this.lciIsAutoOpen.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciIsAutoOpen.Text = "lciIsAutoOpen";
-            this.lciIsAutoOpen.TextSize = new System.Drawing.Size(0, 0);
-            this.lciIsAutoOpen.TextToControlDistance = 0;
-            this.lciIsAutoOpen.TextVisible = false;
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.gluMenuType;
@@ -461,34 +445,6 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(362, 24);
             this.layoutControlItem8.Text = "菜单类型";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.chkIsShowDialog;
-            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(362, 24);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(137, 23);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(137, 23);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(137, 24);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "layoutControlItem4";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.txtIden;
-            this.layoutControlItem1.CustomizationFormText = "菜单ID";
-            this.layoutControlItem1.Location = new System.Drawing.Point(361, 48);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(138, 24);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(138, 24);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(138, 24);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "菜单ID";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem2
             // 
@@ -522,6 +478,49 @@
             this.lciDescription.Size = new System.Drawing.Size(499, 24);
             this.lciDescription.Text = "界面描述";
             this.lciDescription.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // lciIsAutoOpen
+            // 
+            this.lciIsAutoOpen.Control = this.chkIsAutoOpen;
+            this.lciIsAutoOpen.CustomizationFormText = "lciIsAutoOpen";
+            this.lciIsAutoOpen.Location = new System.Drawing.Point(362, 0);
+            this.lciIsAutoOpen.MaxSize = new System.Drawing.Size(137, 23);
+            this.lciIsAutoOpen.MinSize = new System.Drawing.Size(137, 23);
+            this.lciIsAutoOpen.Name = "lciIsAutoOpen";
+            this.lciIsAutoOpen.Size = new System.Drawing.Size(137, 24);
+            this.lciIsAutoOpen.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lciIsAutoOpen.Text = "lciIsAutoOpen";
+            this.lciIsAutoOpen.TextSize = new System.Drawing.Size(0, 0);
+            this.lciIsAutoOpen.TextToControlDistance = 0;
+            this.lciIsAutoOpen.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.chkIsShowDialog;
+            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
+            this.layoutControlItem4.Location = new System.Drawing.Point(362, 24);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(137, 23);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(137, 23);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(137, 24);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextToControlDistance = 0;
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.txtIden;
+            this.layoutControlItem1.CustomizationFormText = "菜单ID";
+            this.layoutControlItem1.Location = new System.Drawing.Point(361, 48);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(138, 24);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(138, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(138, 24);
+            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem1.Text = "菜单ID";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
             // treeMenu
             // 
@@ -687,13 +686,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFileName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollectionTreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tcParams)).EndInit();

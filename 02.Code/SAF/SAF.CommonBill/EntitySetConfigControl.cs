@@ -67,19 +67,17 @@ namespace SAF.CommonBill
 
             Converter<EntitySetControlType, string> convertor = p =>
             {
-                switch (p)
-                {
-                    case EntitySetControlType.None:
-                        return "无";
-                    case EntitySetControlType.GridControl:
-                        return "表格控件";
-                    case EntitySetControlType.TreeList:
-                        return "树形控件";
-                    default:
-                        return "无";
-                }
+                return p.GetDisplayName();
             };
             this.cbmControlType.Properties.Items.AddEnum(convertor);
+
+
+            Converter<EntitySetFieldType, string> fieldTypeConvertor = p =>
+            {
+                return p.GetDisplayName();
+            };
+
+            this.cbxFieldType.Items.AddEnum(fieldTypeConvertor);
         }
 
         private void btnEntitySetConfigFieldParse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -110,14 +108,5 @@ namespace SAF.CommonBill
             this.bsFields.MoveCurrentDown();
         }
     }
-
-    public enum EntitySetType
-    {
-        None = 0,
-        Index = 1,
-        Main = 2,
-        Detail = 3
-    }
-
 
 }

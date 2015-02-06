@@ -19,13 +19,10 @@ namespace SAF.Foundation
         public static IList<KeyValuePair<T, string>> ToList<T>(this Type enumType)
         {
             if (!enumType.IsEnum)
+                throw new Exception("value不是枚举类型，不能转换为表。");
+            if (EnumDic.ContainsKey(enumType))
             {
-                throw new ArgumentException("Type must be enum!");
-            }
-
-            if (EnumDic.ContainsKey(enumType.GetType()))
-            {
-                return EnumDic[enumType.GetType()] as IList<KeyValuePair<T, string>>;
+                return EnumDic[enumType] as IList<KeyValuePair<T, string>>;
             }
 
             IList<KeyValuePair<T, string>> list = new List<KeyValuePair<T, string>>();
@@ -48,8 +45,23 @@ namespace SAF.Foundation
                     list.Add(new KeyValuePair<T, string>(v, string.IsNullOrWhiteSpace(str) ? enumName : str.Trim()));
                 }
             }
-            EnumDic.Add(enumType.GetType(), list);
+            EnumDic.Add(enumType, list);
             return list;
+        }
+        /// <summary>
+        /// 获取枚举值显法名称
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string GetDisplayName(this Enum value)
+        {
+            var list = value.GetType().ToList<int>();
+            var enumValue = Convert.ToInt32(Enum.Parse(value.GetType(), value.ToString()));
+
+            var obj = list.FirstOrDefault(p => p.Key == enumValue);
+            if (obj.Value.IsEmpty())
+                return value.ToString();
+            return obj.Value;
         }
 
         /// <summary>

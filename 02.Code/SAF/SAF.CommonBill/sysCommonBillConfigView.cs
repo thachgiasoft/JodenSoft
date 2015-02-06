@@ -13,6 +13,7 @@ using SAF.Framework;
 using SAF.Foundation.ComponentModel;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout.Utils;
+using SAF.Foundation;
 
 namespace SAF.CommonBill
 {
@@ -49,6 +50,8 @@ namespace SAF.CommonBill
         {
             base.OnInitUI();
 
+            this.cbxLayout.Properties.Items.AddEnum(typeof(CommonBillLayout), true);
+            this.colcbxLayout.Items.AddEnum(typeof(CommonBillLayout), true);
         }
 
         protected override void OnRefreshUI()
@@ -121,8 +124,11 @@ namespace SAF.CommonBill
 
         protected override bool OnSave()
         {
-            var config = XmlSerializerHelper.Serialize(this.CommonBillConfig);
-            this.ViewModel.MainEntitySet.CurrentEntity.Config = config;
+            if (this.ViewModel.MainEntitySet.Count > 0 && this.ViewModel.MainEntitySet.IsAddedOrModified)
+            {
+                var config = XmlSerializerHelper.Serialize(this.CommonBillConfig);
+                this.ViewModel.MainEntitySet.CurrentEntity.Config = config;
+            }
             return base.OnSave();
         }
 
@@ -145,6 +151,21 @@ namespace SAF.CommonBill
         private void btnDetailEntitySetConfigDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.bsDetailEntitySetConfig.RemoveCurrent();
+        }
+
+        private void cbxLayout_EditValueChanged(object sender, EventArgs e)
+        {
+            var editor = sender as ImageComboBoxEdit;
+            if (editor == null) return;
+
+            if ((CommonBillLayout)editor.EditValue == CommonBillLayout.Single)
+            {
+                pageDetailConfig.PageVisible = false;
+            }
+            else
+            {
+                pageDetailConfig.PageVisible = true;
+            }
         }
 
     }

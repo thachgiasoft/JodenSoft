@@ -164,6 +164,12 @@ namespace SAF.EntityFramework
         /// <param name="rowStates"></param>
         /// <returns></returns>
         IEntitySetBase GetChanges(DataRowState rowStates);
+
+        bool IsDeleted { get; }
+        bool IsAdded { get; }
+        bool IsModified { get; }
+        bool IsAddedOrModified { get; }
+
         /// <summary>
         /// 判断字段是否存在
         /// </summary>

@@ -417,6 +417,8 @@ namespace SAF.EntityFramework
         /// <returns></returns>
         public EntitySet<TEntity> GetChanges(DataRowState rowStates)
         {
+            if (this.DataTable == null)
+                throw new Exception("实体对应的数据表为NULL");
             var changes = this.DataTable.GetChanges(rowStates);
             return new EntitySet<TEntity>(changes)
             {
@@ -520,6 +522,46 @@ namespace SAF.EntityFramework
             set
             {
                 innerEntity.PrimaryKeyName = value;
+            }
+        }
+
+        public override bool IsDeleted
+        {
+            get
+            {
+                if (this.DataTable == null)
+                    throw new Exception("实体对应的数据表为NULL");
+                return this.DataTable.GetChanges(DataRowState.Deleted).Rows.Count > 0;
+            }
+        }
+
+        public override bool IsAdded
+        {
+            get
+            {
+                if (this.DataTable == null)
+                    throw new Exception("实体对应的数据表为NULL");
+                return this.DataTable.GetChanges(DataRowState.Added).Rows.Count > 0;
+            }
+        }
+
+        public override bool IsModified
+        {
+            get
+            {
+                if (this.DataTable == null)
+                    throw new Exception("实体对应的数据表为NULL");
+                return this.DataTable.GetChanges(DataRowState.Modified).Rows.Count > 0;
+            }
+        }
+
+        public override bool IsAddedOrModified
+        {
+            get
+            {
+                if (this.DataTable == null)
+                    throw new Exception("实体对应的数据表为NULL");
+                return this.DataTable.GetChanges(DataRowState.Added | DataRowState.Modified).Rows.Count > 0;
             }
         }
     }

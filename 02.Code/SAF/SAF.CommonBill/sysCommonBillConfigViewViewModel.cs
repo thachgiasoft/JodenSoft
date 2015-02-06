@@ -15,7 +15,7 @@ namespace SAF.CommonBill
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            string sql = "SELECT a.Iden,a.Name FROM dbo.sysCommonBillConfig a WITH(NOLOCK) where ({0})".FormatEx(sCondition);
+            string sql = "SELECT a.Iden,a.Name,a.Layout FROM dbo.sysCommonBillConfig a WITH(NOLOCK) where ({0})".FormatEx(sCondition);
             this.IndexEntitySet.Query(sql);
         }
 
@@ -43,6 +43,7 @@ namespace SAF.CommonBill
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.Name = string.Empty;
+            e.CurrentEntity.Layout = CommonBillLayout.Single;
             e.CurrentEntity.Config = string.Empty;
         }
 
