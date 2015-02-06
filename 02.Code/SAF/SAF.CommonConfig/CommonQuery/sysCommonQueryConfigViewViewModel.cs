@@ -6,7 +6,7 @@ using System.Text;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.CommonConfig.Entities;
 
-namespace SAF.CommonConfig.CommonQuery
+namespace SAF.CommonConfig
 {
     public class sysCommonQueryConfigViewViewModel : SingleViewViewModel<sysCommonBillConfig, sysCommonBillConfig>
     {

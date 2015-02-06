@@ -10,7 +10,7 @@ using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 
-namespace SAF.CommonConfig.CommonReport
+namespace SAF.CommonConfig
 {
     [BusinessObject("报表中心配置")]
     public partial class sysCommonReportConfigView : SingleView

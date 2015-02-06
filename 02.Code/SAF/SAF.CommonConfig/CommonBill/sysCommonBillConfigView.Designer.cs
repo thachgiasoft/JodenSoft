@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonConfig.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class sysCommonBillConfigView
     {
@@ -548,17 +548,17 @@
         private DevExpress.XtraTab.XtraTabPage pageMainConfig;
         private DevExpress.XtraTab.XtraTabPage pageDetailConfig;
         private DevExpress.XtraTab.XtraTabPage pageQueryConfig;
-        private EntitySetConfigControl indexConfig;
-        private EntitySetConfigControl mainConfig;
+        private SAF.CommonConfig.CommonBill.EntitySetConfigControl indexConfig;
+        private SAF.CommonConfig.CommonBill.EntitySetConfigControl mainConfig;
         private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
         private DevExpress.XtraBars.Bar barDetailEntitySet;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.ListBoxControl listDetailEntitySet;
         private DevExpress.XtraBars.BarButtonItem btnDetailEntitySetConfigAdd;
         private DevExpress.XtraBars.BarButtonItem btnDetailEntitySetConfigDelete;
-        private EntitySetConfigControl detailConfig;
+        private SAF.CommonConfig.CommonBill.EntitySetConfigControl detailConfig;
         private System.Windows.Forms.BindingSource bsDetailEntitySetConfig;
-        private QueryConfigControl queryConfig;
+        private SAF.CommonConfig.CommonBill.QueryConfigControl queryConfig;
         private DevExpress.XtraEditors.PanelControl pnlDetailEntityConfig;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox colcbxLayout;
     }

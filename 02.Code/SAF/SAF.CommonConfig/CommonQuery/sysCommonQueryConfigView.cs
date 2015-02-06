@@ -10,7 +10,7 @@ using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 
-namespace SAF.CommonConfig.CommonQuery
+namespace SAF.CommonConfig
 {
     [BusinessObject("查询平台配置")]
     public partial class sysCommonQueryConfigView : SingleView

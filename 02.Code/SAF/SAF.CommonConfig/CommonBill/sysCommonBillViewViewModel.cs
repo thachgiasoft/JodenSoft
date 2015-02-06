@@ -9,7 +9,7 @@ using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
 using SAF.EntityFramework;
 
-namespace SAF.CommonConfig.CommonBill
+namespace SAF.CommonConfig
 {
     public class sysCommonBillViewViewModel : MasterDetailViewViewModel<QueryEntity, QueryEntity, QueryEntity>
     {

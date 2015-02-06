@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonConfig.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class sysCommonBillView
     {
@@ -55,6 +55,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
             this.SuspendLayout();
             // 
+            // tcDtl
+            // 
+            this.tcDtl.SelectedTabPage = this.pageDtl;
+            // 
             // barDtl
             // 
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
@@ -71,6 +75,10 @@
             // splitRight
             // 
             this.splitRight.Size = new System.Drawing.Size(532, 286);
+            // 
+            // tcMain
+            // 
+            this.tcMain.SelectedTabPage = this.pageMain;
             // 
             // pageMain
             // 

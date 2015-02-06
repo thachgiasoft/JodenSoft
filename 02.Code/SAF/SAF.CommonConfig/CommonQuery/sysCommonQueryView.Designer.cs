@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonConfig.CommonQuery
+﻿namespace SAF.CommonConfig
 {
     partial class sysCommonQueryView
     {
@@ -53,6 +53,10 @@
             // pcMain
             // 
             this.pcMain.Size = new System.Drawing.Size(778, 26);
+            // 
+            // tcMain
+            // 
+            this.tcMain.SelectedTabPage = this.pageMain;
             // 
             // sysCommonQueryView
             // 
