@@ -19,7 +19,7 @@ using DevExpress.Utils;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.CommonConfig.Entities;
 
-namespace SAF.CommonConfig
+namespace SAF.CommonConfig.CommonBill
 {
     [BusinessObject("通用单据")]
     public partial class sysCommonBillView : MasterDetailView

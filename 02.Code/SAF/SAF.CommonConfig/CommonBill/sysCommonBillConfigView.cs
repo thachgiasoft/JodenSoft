@@ -15,7 +15,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraLayout.Utils;
 using SAF.Foundation;
 
-namespace SAF.CommonConfig
+namespace SAF.CommonConfig.CommonBill
 {
     [BusinessObject("通用单据配置")]
     public partial class sysCommonBillConfigView : SingleView

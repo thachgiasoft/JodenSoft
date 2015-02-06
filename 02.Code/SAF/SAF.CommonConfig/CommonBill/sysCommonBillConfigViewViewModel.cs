@@ -9,7 +9,7 @@ using SAF.EntityFramework;
 using SAF.CommonConfig.Entities;
 using SAF.Foundation.ComponentModel;
 
-namespace SAF.CommonConfig
+namespace SAF.CommonConfig.CommonBill
 {
     public class sysCommonBillConfigViewViewModel : SingleViewViewModel<sysCommonBillConfig, sysCommonBillConfig>
     {

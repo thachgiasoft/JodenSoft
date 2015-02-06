@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace SAF.CommonConfig
+namespace SAF.CommonConfig.CommonBill
 {
     /// <summary>
     /// 通用单据配置

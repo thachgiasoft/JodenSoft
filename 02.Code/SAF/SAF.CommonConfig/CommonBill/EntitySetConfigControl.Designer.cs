@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonConfig
+﻿namespace SAF.CommonConfig.CommonBill
 {
     partial class EntitySetConfigControl
     {
