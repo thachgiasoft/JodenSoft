@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class sysCommonBillView
     {

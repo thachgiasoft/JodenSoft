@@ -6,10 +6,10 @@ using System.Text;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
-using SAF.CommonBill.Entities;
+using SAF.CommonConfig.Entities;
 using SAF.Foundation.ComponentModel;
 
-namespace SAF.CommonBill
+namespace SAF.CommonConfig
 {
     public class sysCommonBillConfigViewViewModel : SingleViewViewModel<sysCommonBillConfig, sysCommonBillConfig>
     {
@@ -43,7 +43,6 @@ namespace SAF.CommonBill
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.Name = string.Empty;
-            e.CurrentEntity.Layout = CommonBillLayout.Single;
             e.CurrentEntity.Config = string.Empty;
         }
 

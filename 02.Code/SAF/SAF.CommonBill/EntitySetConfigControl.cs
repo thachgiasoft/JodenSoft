@@ -10,7 +10,7 @@ using SAF.Framework.Controls;
 using SAF.Foundation;
 using DevExpress.XtraLayout.Utils;
 
-namespace SAF.CommonBill
+namespace SAF.CommonConfig
 {
     [ToolboxItem(true)]
     public partial class EntitySetConfigControl : BaseUserControl

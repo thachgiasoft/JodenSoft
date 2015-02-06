@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class sysCommonBillConfigView
     {
@@ -45,17 +45,17 @@
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcConfig = new DevExpress.XtraTab.XtraTabControl();
             this.pageIndexConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.indexConfig = new SAF.CommonBill.EntitySetConfigControl();
+            this.indexConfig = new SAF.CommonConfig.EntitySetConfigControl();
             this.pageMainConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.mainConfig = new SAF.CommonBill.EntitySetConfigControl();
+            this.mainConfig = new SAF.CommonConfig.EntitySetConfigControl();
             this.pageDetailConfig = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.pnlDetailEntityConfig = new DevExpress.XtraEditors.PanelControl();
             this.listDetailEntitySet = new DevExpress.XtraEditors.ListBoxControl();
             this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.detailConfig = new SAF.CommonBill.EntitySetConfigControl();
+            this.detailConfig = new SAF.CommonConfig.EntitySetConfigControl();
             this.pageQueryConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.queryConfig = new SAF.CommonBill.QueryConfigControl();
+            this.queryConfig = new SAF.CommonConfig.QueryConfigControl();
             this.barDetailEntitySet = new DevExpress.XtraBars.Bar();
             this.btnDetailEntitySetConfigAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnDetailEntitySetConfigDelete = new DevExpress.XtraBars.BarButtonItem();
@@ -118,11 +118,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.CommonBill.Entities.sysCommonBillConfig);
+            this.bsIndex.DataSource = typeof(SAF.CommonConfig.Entities.sysCommonBillConfig);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.CommonBill.Entities.sysCommonBillConfig);
+            this.bsMain.DataSource = typeof(SAF.CommonConfig.Entities.sysCommonBillConfig);
             // 
             // pnlQueryControl
             // 
@@ -454,7 +454,7 @@
             // btnDetailEntitySetConfigAdd
             // 
             this.btnDetailEntitySetConfigAdd.Caption = "新增";
-            this.btnDetailEntitySetConfigAdd.Glyph = global::SAF.CommonBill.Properties.Resources.Action_New_16x16;
+            this.btnDetailEntitySetConfigAdd.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_New_16x16;
             this.btnDetailEntitySetConfigAdd.Id = 6;
             this.btnDetailEntitySetConfigAdd.Name = "btnDetailEntitySetConfigAdd";
             this.btnDetailEntitySetConfigAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -463,7 +463,7 @@
             // btnDetailEntitySetConfigDelete
             // 
             this.btnDetailEntitySetConfigDelete.Caption = "删除";
-            this.btnDetailEntitySetConfigDelete.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Delete_16x16;
+            this.btnDetailEntitySetConfigDelete.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Delete_16x16;
             this.btnDetailEntitySetConfigDelete.Id = 7;
             this.btnDetailEntitySetConfigDelete.Name = "btnDetailEntitySetConfigDelete";
             this.btnDetailEntitySetConfigDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;

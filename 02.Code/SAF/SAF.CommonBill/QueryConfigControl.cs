@@ -10,7 +10,7 @@ using SAF.Framework.Controls;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 
-namespace SAF.CommonBill
+namespace SAF.CommonConfig
 {
     [ToolboxItem(true)]
     public partial class QueryConfigControl : BaseUserControl

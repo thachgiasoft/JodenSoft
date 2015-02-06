@@ -7,8 +7,8 @@
     <ProjectGuid>{C43A0047-5D4E-40F7-8D85-82B98C7D8598}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SAF.CommonBill</RootNamespace>
-    <AssemblyName>SAF.CommonBill</AssemblyName>
+    <RootNamespace>SAF.CommonConfig</RootNamespace>
+    <AssemblyName>SAF.CommonConfig</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonBillConfig.cs" />
-    <Compile Include="CommonBillInfo.cs" />
+    <Compile Include="CommonConfigInfo.cs" />
     <Compile Include="EntitySetConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,9 +144,6 @@
   <ItemGroup>
     <None Include="Properties\DataSources\EntitySetConfig.datasource" />
     <None Include="Properties\DataSources\EntitySetField.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysCommonBillHdr.datasource" />
-    <None Include="Properties\DataSources\sdOrder.datasource" />
-    <None Include="Properties\DataSources\sdOrderDtl.datasource" />
     <None Include="Properties\DataSources\sysCommonBillConfig.datasource" />
   </ItemGroup>
   <ItemGroup>

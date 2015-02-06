@@ -15,7 +15,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraLayout.Utils;
 using SAF.Foundation;
 
-namespace SAF.CommonBill
+namespace SAF.CommonConfig
 {
     [BusinessObject("通用单据配置")]
     public partial class sysCommonBillConfigView : SingleView
@@ -73,7 +73,7 @@ namespace SAF.CommonBill
             set
             {
                 if (value == null)
-                    _CommonBillConfig = new CommonBill.CommonBillConfig();
+                    _CommonBillConfig = new CommonBillConfig();
                 else
                     _CommonBillConfig = value;
 

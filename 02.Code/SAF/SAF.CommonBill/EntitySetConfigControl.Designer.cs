@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class EntitySetConfigControl
     {
@@ -140,7 +140,7 @@
             // 
             // bsConfig
             // 
-            this.bsConfig.DataSource = typeof(SAF.CommonBill.EntitySetConfig);
+            this.bsConfig.DataSource = typeof(SAF.CommonConfig.EntitySetConfig);
             // 
             // bmEntitySetConfig
             // 
@@ -183,7 +183,7 @@
             // btnEntitySetConfigFieldParse
             // 
             this.btnEntitySetConfigFieldParse.Caption = "解析";
-            this.btnEntitySetConfigFieldParse.Glyph = global::SAF.CommonBill.Properties.Resources.ShowDependencies_16;
+            this.btnEntitySetConfigFieldParse.Glyph = global::SAF.CommonConfig.Properties.Resources.ShowDependencies_16;
             this.btnEntitySetConfigFieldParse.Id = 0;
             this.btnEntitySetConfigFieldParse.Name = "btnEntitySetConfigFieldParse";
             this.btnEntitySetConfigFieldParse.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -192,7 +192,7 @@
             // btnEntitySetConfigFieldAddNew
             // 
             this.btnEntitySetConfigFieldAddNew.Caption = "新增";
-            this.btnEntitySetConfigFieldAddNew.Glyph = global::SAF.CommonBill.Properties.Resources.Action_New_16x16;
+            this.btnEntitySetConfigFieldAddNew.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_New_16x16;
             this.btnEntitySetConfigFieldAddNew.Id = 1;
             this.btnEntitySetConfigFieldAddNew.Name = "btnEntitySetConfigFieldAddNew";
             this.btnEntitySetConfigFieldAddNew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -201,7 +201,7 @@
             // btnEntitySetConfigFieldDelete
             // 
             this.btnEntitySetConfigFieldDelete.Caption = "删除";
-            this.btnEntitySetConfigFieldDelete.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Delete_16x16;
+            this.btnEntitySetConfigFieldDelete.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Delete_16x16;
             this.btnEntitySetConfigFieldDelete.Id = 2;
             this.btnEntitySetConfigFieldDelete.Name = "btnEntitySetConfigFieldDelete";
             this.btnEntitySetConfigFieldDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -210,7 +210,7 @@
             // btnEntitySetConfigFieldUp
             // 
             this.btnEntitySetConfigFieldUp.Caption = "上移";
-            this.btnEntitySetConfigFieldUp.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Up_16x16;
+            this.btnEntitySetConfigFieldUp.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Up_16x16;
             this.btnEntitySetConfigFieldUp.Id = 3;
             this.btnEntitySetConfigFieldUp.Name = "btnEntitySetConfigFieldUp";
             this.btnEntitySetConfigFieldUp.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -219,7 +219,7 @@
             // btnEntitySetConfigFieldDown
             // 
             this.btnEntitySetConfigFieldDown.Caption = "上移";
-            this.btnEntitySetConfigFieldDown.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Down_16x16;
+            this.btnEntitySetConfigFieldDown.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Down_16x16;
             this.btnEntitySetConfigFieldDown.Id = 4;
             this.btnEntitySetConfigFieldDown.Name = "btnEntitySetConfigFieldDown";
             this.btnEntitySetConfigFieldDown.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -278,7 +278,7 @@
             // 
             // bsFields
             // 
-            this.bsFields.DataSource = typeof(SAF.CommonBill.EntitySetField);
+            this.bsFields.DataSource = typeof(SAF.CommonConfig.EntitySetField);
             // 
             // grvFields
             // 

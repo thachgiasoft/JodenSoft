@@ -5,10 +5,10 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 
-namespace SAF.CommonBill
+namespace SAF.CommonConfig
 {
     [Export(typeof(ISubProductInfo))]
-    public class CommonBillInfo : AbstractSubProductInfo
+    public class CommonConfigInfo : AbstractSubProductInfo
     {
         public override int OrderIndex
         {
@@ -19,17 +19,17 @@ namespace SAF.CommonBill
         }
         public override string Description
         {
-            get { return "系统通用单据"; }
+            get { return "系统通用配置，包括通用单据，查询平台，报表中心"; }
         }
 
         public override string Name
         {
-            get { return "System Common Bill"; }
+            get { return "System Common Config"; }
         }
 
         public override string Title
         {
-            get { return "系统通用单据"; }
+            get { return "系统通用配置"; }
         }
     }
 }

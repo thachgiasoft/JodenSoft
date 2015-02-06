@@ -1,4 +1,4 @@
-﻿namespace SAF.CommonBill
+﻿namespace SAF.CommonConfig
 {
     partial class QueryConfigControl
     {
@@ -300,7 +300,7 @@
             // btnAdd
             // 
             this.btnAdd.Caption = "新增";
-            this.btnAdd.Glyph = global::SAF.CommonBill.Properties.Resources.Action_New_16x16;
+            this.btnAdd.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_New_16x16;
             this.btnAdd.Id = 0;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -309,7 +309,7 @@
             // btnDelete
             // 
             this.btnDelete.Caption = "删除";
-            this.btnDelete.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Delete_16x16;
+            this.btnDelete.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Delete_16x16;
             this.btnDelete.Id = 1;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -318,7 +318,7 @@
             // btnUp
             // 
             this.btnUp.Caption = "上移";
-            this.btnUp.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Up_16x16;
+            this.btnUp.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Up_16x16;
             this.btnUp.Id = 2;
             this.btnUp.Name = "btnUp";
             this.btnUp.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -327,7 +327,7 @@
             // btnDown
             // 
             this.btnDown.Caption = "下移";
-            this.btnDown.Glyph = global::SAF.CommonBill.Properties.Resources.Action_Down_16x16;
+            this.btnDown.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Down_16x16;
             this.btnDown.Id = 3;
             this.btnDown.Name = "btnDown";
             this.btnDown.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
