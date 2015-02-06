@@ -153,20 +153,5 @@ namespace SAF.CommonBill
             this.bsDetailEntitySetConfig.RemoveCurrent();
         }
 
-        private void cbxLayout_EditValueChanged(object sender, EventArgs e)
-        {
-            var editor = sender as ImageComboBoxEdit;
-            if (editor == null) return;
-
-            if ((CommonBillLayout)editor.EditValue == CommonBillLayout.Single)
-            {
-                pageDetailConfig.PageVisible = false;
-            }
-            else
-            {
-                pageDetailConfig.PageVisible = true;
-            }
-        }
-
     }
 }
