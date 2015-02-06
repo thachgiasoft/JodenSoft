@@ -64,7 +64,7 @@ namespace SAF.CommonConfig.CommonBill
             }
 
             //验证树需要的字段
-            if (ControlType == EntitySetControlType.TreeList)
+            if (ControlType == EntitySetControlType.TreeListControl)
             {
                 ControlKeyFieldName.CheckNotNullOrEmpty("{0}控件主字段".FormatEx(configName));
                 ControlParentFieldName.CheckNotNullOrEmpty("{0}控件父字段".FormatEx(configName));
@@ -151,7 +151,9 @@ namespace SAF.CommonConfig.CommonBill
         [Display(Name = "表格控件")]
         GridControl = 1,
         [Display(Name = "树形控件")]
-        TreeList = 2
+        TreeListControl = 2,
+        [Display(Name = "布局控件")]
+        LayoutControl=3
     }
     /// <summary>
     /// 根据类型决定是否显示界面控件

@@ -114,7 +114,7 @@ namespace SAF.CommonConfig.CommonBill
             var editor = sender as ImageComboBoxEdit;
             if (editor == null) return;
 
-            if ((EntitySetControlType)editor.EditValue == EntitySetControlType.GridControl)
+            if (!editor.EditValue.IsEmpty() && ((EntitySetControlType)editor.EditValue).In(EntitySetControlType.GridControl, EntitySetControlType.None, EntitySetControlType.LayoutControl))
             {
                 lciControlKeyField.Visibility = LayoutVisibility.Never;
                 lciControlParentField.Visibility = LayoutVisibility.Never;
