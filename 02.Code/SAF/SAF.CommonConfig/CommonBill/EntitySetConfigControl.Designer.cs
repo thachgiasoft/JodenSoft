@@ -140,7 +140,7 @@
             // 
             // bsConfig
             // 
-            this.bsConfig.DataSource = typeof(SAF.CommonConfig.EntitySetConfig);
+            this.bsConfig.DataSource = typeof(SAF.CommonConfig.CommonBill.EntitySetConfig);
             // 
             // bmEntitySetConfig
             // 
@@ -278,7 +278,7 @@
             // 
             // bsFields
             // 
-            this.bsFields.DataSource = typeof(SAF.CommonConfig.EntitySetField);
+            this.bsFields.DataSource = typeof(SAF.CommonConfig.CommonBill.EntitySetField);
             // 
             // grvFields
             // 

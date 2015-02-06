@@ -67,6 +67,27 @@
     <Compile Include="CommonBill\EntitySetConfigControl.Designer.cs">
       <DependentUpon>EntitySetConfigControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonQuery\sysCommonQueryConfigView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonQuery\sysCommonQueryConfigView.Designer.cs">
+      <DependentUpon>sysCommonQueryConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonQuery\sysCommonQueryConfigViewViewModel.cs" />
+    <Compile Include="CommonQuery\sysCommonQueryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonQuery\sysCommonQueryView.Designer.cs">
+      <DependentUpon>sysCommonQueryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonQuery\sysCommonQueryViewViewModel.cs" />
+    <Compile Include="CommonReport\sysCommonReportConfigView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonReport\sysCommonReportConfigView.Designer.cs">
+      <DependentUpon>sysCommonReportConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonReport\sysCommonReportConfigViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\sysCommonBillConfig.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -125,6 +146,15 @@
     <EmbeddedResource Include="CommonBill\EntitySetConfigControl.resx">
       <DependentUpon>EntitySetConfigControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommonQuery\sysCommonQueryConfigView.resx">
+      <DependentUpon>sysCommonQueryConfigView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonQuery\sysCommonQueryView.resx">
+      <DependentUpon>sysCommonQueryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonReport\sysCommonReportConfigView.resx">
+      <DependentUpon>sysCommonReportConfigView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,9 +200,7 @@
   <ItemGroup>
     <None Include="Resources\Action_Up_16x16.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommonQuery\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
