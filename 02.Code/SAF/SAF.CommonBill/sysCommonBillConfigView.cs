@@ -44,16 +44,6 @@ namespace SAF.CommonBill
             this.AccessFocusControl = this.txtName;
         }
 
-
-
-        protected override void OnInitUI()
-        {
-            base.OnInitUI();
-
-            this.cbxLayout.Properties.Items.AddEnum(typeof(CommonBillLayout), true);
-            this.colcbxLayout.Items.AddEnum(typeof(CommonBillLayout), true);
-        }
-
         protected override void OnRefreshUI()
         {
             base.OnRefreshUI();
