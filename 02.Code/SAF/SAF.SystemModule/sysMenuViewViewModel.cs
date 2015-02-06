@@ -87,6 +87,13 @@ from [sysMenu] a with(nolock)
 LEFT JOIN dbo.sysBusinessView b WITH(NOLOCK) ON a.BusinessViewId=b.Iden
 where a.Iden=:Iden", key);
 
+            QueryParent(key);
+
+            QueryMenuParam();
+        }
+
+        public void QueryParent(object key)
+        {
             string sql = @"
 ;WITH tree AS 
 (
@@ -104,8 +111,6 @@ WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree])
     AND MenuType=0
 ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
             this.ParentEntitySet.Query(sql);
-
-            QueryMenuParam();
         }
 
         public void QueryMenuParam()
@@ -161,7 +166,8 @@ LEFT JOIN
 
         protected override void OnDelete()
         {
-            this.ExecuteCache.Execute(0, "delete [sysMenuParam] where menuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
+            this.ExecuteCache.Execute(0, "DELETE [sysMenuParam] WHERE MenuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
+            this.ExecuteCache.Execute(0, "DELETE [sysRoleMenu] WHERE MenuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
             base.OnDelete();
 
         }

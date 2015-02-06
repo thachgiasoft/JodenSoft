@@ -339,7 +339,7 @@ namespace SAF.Framework.View
         public void IndexRowChange()
         {
             if (ViewModel == null) return;
-            if (ViewModel.IndexEntitySet.IsBusy) return;
+
             OnIndexRowChange();
             RefreshUI();
         }
@@ -348,9 +348,11 @@ namespace SAF.Framework.View
         {
             if (ViewModel == null) return;
 
-            var key = ViewModel.IndexEntitySet.CurrentKey;
-
-            ViewModel.QueryChild(key);
+            if (!ViewModel.IndexEntitySet.IsBusy)
+            {
+                var key = ViewModel.IndexEntitySet.CurrentKey;
+                ViewModel.QueryChild(key);
+            }
         }
         /// <summary>
         /// 送审

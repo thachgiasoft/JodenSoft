@@ -49,7 +49,7 @@ namespace SAF.SystemModule
 
             InitMenuType();
 
-            this.treeMenu.GetSelectImage += treeList1_GetSelectImage;
+            this.treeMenu.GetSelectImage += treeMenu_GetSelectImage;
             this.gseBusinessView.EditValueChanged += gseBusinessView_EditValueChanged;
 
         }
@@ -75,30 +75,38 @@ namespace SAF.SystemModule
             this.ViewModel.QueryMenuParam();
         }
 
-        void treeList1_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
+        void treeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
         {
-            var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
-
-            if (!drv.IsEmpty())
+            treeMenu.BeginUpdate();
+            try
             {
-                if (drv["MenuType"].IsEmpty())
+                var drv = this.treeMenu.GetDataRecordByNode(e.Node) as DataRowView;
+
+                if (!drv.IsEmpty())
                 {
-                    e.NodeImageIndex = 0;
+                    if (drv["MenuType"].IsEmpty())
+                    {
+                        e.NodeImageIndex = 0;
+                    }
+                    else
+                    {
+                        var menuType = (sysMenuType)Convert.ToInt32(drv["MenuType"]);
+                        if (menuType.In(sysMenuType.Catalog))
+                            e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+                        else if (menuType.In(sysMenuType.Menu))
+                            e.NodeImageIndex = 2;
+                        else
+                            e.NodeImageIndex = 3;
+                    }
                 }
                 else
                 {
-                    var menuType = (sysMenuType)Convert.ToInt32(drv["MenuType"]);
-                    if (menuType.In(sysMenuType.Catalog))
-                        e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
-                    else if (menuType.In(sysMenuType.Menu))
-                        e.NodeImageIndex = 2;
-                    else
-                        e.NodeImageIndex = 3;
+                    e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
                 }
             }
-            else
+            finally
             {
-                e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+                this.treeMenu.EndUpdate();
             }
         }
 
@@ -173,6 +181,11 @@ ORDER BY [Iden]";
 
         private void InitParentTreeList()
         {
+            if (this.ViewModel.MainEntitySet.CurrentEntity == null)
+                this.ViewModel.QueryParent(0);
+            else
+                this.ViewModel.QueryParent(this.ViewModel.MainEntitySet.CurrentEntity.Iden);
+
             this.tluParent.Properties.DataSource = this.ViewModel.ParentEntitySet.DefaultView;
             this.tluParent.Properties.ValueMember = "Iden";
             this.tluParent.Properties.DisplayMember = "Name";
