@@ -107,6 +107,7 @@
             // 
             this.bbiAddNew.Caption = "新增";
             this.bbiAddNew.Id = 1;
+            this.bbiAddNew.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N));
             this.bbiAddNew.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_New_32x32;
             this.bbiAddNew.Name = "bbiAddNew";
             this.bbiAddNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAddNew_ItemClick);
@@ -115,6 +116,7 @@
             // 
             this.bbiEdit.Caption = "编辑";
             this.bbiEdit.Id = 2;
+            this.bbiEdit.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E));
             this.bbiEdit.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Edit_32x32;
             this.bbiEdit.Name = "bbiEdit";
             this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
@@ -123,6 +125,7 @@
             // 
             this.bbiSave.Caption = "保存";
             this.bbiSave.Id = 3;
+            this.bbiSave.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
             this.bbiSave.LargeGlyph = global::SAF.Framework.Properties.Resources.Action_Save_32x32;
             this.bbiSave.Name = "bbiSave";
             this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);

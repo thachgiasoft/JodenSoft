@@ -377,6 +377,21 @@ namespace SAF.Client
         {
             if (e.KeyData == Keys.Enter)
             {
+                if (TreeMenu.FocusedNode != null)
+                {
+                    var drv = TreeMenu.GetDataRecordByNode(TreeMenu.FocusedNode) as DataRowView;
+                    if (drv != null)
+                    {
+                        sysMenu entity = new sysMenu() { DataRowView = drv };
+                        if (entity.MenuType == (int)sysMenuType.Catalog)
+                        {
+                            TreeMenu.FocusedNode.Expanded = !TreeMenu.FocusedNode.Expanded;
+                            e.Handled = true;
+                            return;
+                        }
+                    }
+                }
+
                 this.ShowView(this.TreeMenu);
                 e.Handled = true;
             }
@@ -592,7 +607,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 colName.VisibleIndex = 0;
             }
 
-            this.TreeMenu.DataSource = new BindingSource() { DataSource = MainEntitySet };
+            this.TreeMenu.DataSource = new BindingSource() { DataSource = MainEntitySet.DefaultView };
             this.TreeMenu.KeyFieldName = "Iden";
             this.TreeMenu.ParentFieldName = "ParentId";
             if (this.TreeMenu.Nodes.Count > 0)
@@ -623,26 +638,27 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
         {
             if (tree.FocusedNode != null)
             {
-                var drv = tree.GetDataRecordByNode(tree.FocusedNode) as sysMenu;
+                var drv = tree.GetDataRecordByNode(tree.FocusedNode) as DataRowView;
                 if (drv != null)
                 {
-                    if (drv.MenuType == (int)sysMenuType.Menu)
+                    sysMenu entity = new sysMenu() { DataRowView = drv };
+                    if (entity.MenuType == (int)sysMenuType.Menu)
                     {
-                        ShowBusinessView(drv.DataRowView);
+                        ShowBusinessView(entity.DataRowView);
                     }
-                    else if (drv.MenuType.In((int)sysMenuType.ExternalForm))
+                    else if (entity.MenuType.In((int)sysMenuType.ExternalForm))
                     {
-                        string fileName = Path.Combine(Application.StartupPath, drv.GetFieldValue<string>("MenuFileName"));
+                        string fileName = Path.Combine(Application.StartupPath, entity.GetFieldValue<string>("MenuFileName"));
                         if (!File.Exists(fileName))
                         {
                             MessageService.ShowErrorFormatted("菜单对应的文件名不存在.文件名称为:{0}", fileName);
                             return;
                         }
-                        var param = ParseFileParameter(drv.FileParameter);
+                        var param = ParseFileParameter(entity.FileParameter);
                         ProcessStartInfo startInfo = new ProcessStartInfo(fileName);
                         startInfo.Arguments = param;
                         var customProcess = Process.Start(startInfo);
-                        if (drv.IsShowDialog)
+                        if (entity.IsShowDialog)
                             customProcess.WaitForExit();
                     }
                 }
@@ -788,14 +804,23 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             {
                 this.mainEntitySet.DefaultView.RowFilter = null;
                 this.txtFind.EditValue = null;
+
+                if (this.TreeMenu.Nodes.Count > 0)
+                {
+                    this.TreeMenu.Nodes[0].Expanded = true;
+                }
             }
+
+
         }
 
         void TreeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
         {
-            var menu = (sender as TreeList).GetDataRecordByNode(e.Node) as sysMenu;
+            var drv = (sender as TreeList).GetDataRecordByNode(e.Node) as DataRowView;
 
-            if (menu == null) return;
+            if (drv == null) return;
+
+            var menu = new sysMenu() { DataRowView = drv };
 
             if (menu.MenuType == 1)
             {
@@ -913,6 +938,16 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             this.NotifyMessage("初始化登录界面...");
             this.OnInitialize();
             this.NotifyMessage("就绪...");
+        }
+
+        private void Shell_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Q)
+            {
+                this.txtFind.SelectAll();
+                this.txtFind.Focus();
+                e.Handled = true;
+            }
         }
     }
 }
