@@ -28,7 +28,11 @@ namespace FSDProdPlan.NeiCai
             get { return base.GetFieldValue<string>(P => P.sOrderNo); }
             set { base.SetFieldValue(P => P.sOrderNo, value); }
         }
-       
+        public int sMaterialIden
+        {
+            get { return base.GetFieldValue<int>(P => P.sMaterialIden); }
+            set { base.SetFieldValue(P => P.sMaterialIden, value); }
+        }
         public string sMaterialNo
         {
             get { return base.GetFieldValue<string>(P => P.sMaterialNo); }
