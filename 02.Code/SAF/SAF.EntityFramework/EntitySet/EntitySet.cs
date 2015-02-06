@@ -531,7 +531,9 @@ namespace SAF.EntityFramework
             {
                 if (this.DataTable == null)
                     throw new Exception("实体对应的数据表为NULL");
-                return this.DataTable.GetChanges(DataRowState.Deleted).Rows.Count > 0;
+
+                var obj = this.DataTable.GetChanges(DataRowState.Deleted);
+                return obj != null && obj.Rows.Count > 0;
             }
         }
 
@@ -541,7 +543,9 @@ namespace SAF.EntityFramework
             {
                 if (this.DataTable == null)
                     throw new Exception("实体对应的数据表为NULL");
-                return this.DataTable.GetChanges(DataRowState.Added).Rows.Count > 0;
+
+                var obj = this.DataTable.GetChanges(DataRowState.Added);
+                return obj != null && obj.Rows.Count > 0;
             }
         }
 
@@ -551,7 +555,9 @@ namespace SAF.EntityFramework
             {
                 if (this.DataTable == null)
                     throw new Exception("实体对应的数据表为NULL");
-                return this.DataTable.GetChanges(DataRowState.Modified).Rows.Count > 0;
+
+                var obj = this.DataTable.GetChanges(DataRowState.Modified);
+                return obj != null && obj.Rows.Count > 0;
             }
         }
 
@@ -561,7 +567,8 @@ namespace SAF.EntityFramework
             {
                 if (this.DataTable == null)
                     throw new Exception("实体对应的数据表为NULL");
-                return this.DataTable.GetChanges(DataRowState.Added | DataRowState.Modified).Rows.Count > 0;
+                var obj = this.DataTable.GetChanges(DataRowState.Modified | DataRowState.Added);
+                return obj != null && obj.Rows.Count > 0;
             }
         }
     }

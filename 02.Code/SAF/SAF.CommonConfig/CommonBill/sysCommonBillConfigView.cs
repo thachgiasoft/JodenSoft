@@ -115,7 +115,7 @@ namespace SAF.CommonConfig
 
         protected override bool OnSave()
         {
-            if (this.ViewModel.MainEntitySet.Count > 0 && this.ViewModel.MainEntitySet.IsAddedOrModified)
+            if (this.ViewModel.MainEntitySet.Count > 0 && (this.ViewModel.MainEntitySet.IsAddedOrModified || this.IsAddNew || this.IsEdit))
             {
                 var config = XmlSerializerHelper.Serialize(this.CommonBillConfig);
                 this.ViewModel.MainEntitySet.CurrentEntity.Config = config;

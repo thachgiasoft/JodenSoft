@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SAF.Framework.Controls;
 using SAF.Foundation;
 using DevExpress.XtraLayout.Utils;
+using DevExpress.XtraEditors;
 
 namespace SAF.CommonConfig.CommonBill
 {
@@ -106,6 +107,26 @@ namespace SAF.CommonConfig.CommonBill
         {
             this.grvFields.PostEditor();
             this.bsFields.MoveCurrentDown();
+        }
+
+        private void cbmControlType_EditValueChanged(object sender, EventArgs e)
+        {
+            var editor = sender as ImageComboBoxEdit;
+            if (editor == null) return;
+
+            if ((EntitySetControlType)editor.EditValue == EntitySetControlType.GridControl)
+            {
+                lciControlKeyField.Visibility = LayoutVisibility.Never;
+                lciControlParentField.Visibility = LayoutVisibility.Never;
+
+                txtControlKeyField.EditValue = string.Empty;
+                txtControlParentField.EditValue = string.Empty;
+            }
+            else
+            {
+                lciControlKeyField.Visibility = LayoutVisibility.Always;
+                lciControlParentField.Visibility = LayoutVisibility.Always;
+            }
         }
     }
 

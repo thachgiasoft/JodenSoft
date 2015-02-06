@@ -8,6 +8,8 @@ using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.CommonConfig.Entities;
 using SAF.Foundation.ComponentModel;
+using SAF.CommonConfig.CommonBill;
+using SAF.Foundation;
 
 namespace SAF.CommonConfig
 {
@@ -44,6 +46,35 @@ namespace SAF.CommonConfig
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.Name = string.Empty;
             e.CurrentEntity.Config = string.Empty;
+        }
+
+        protected override bool OnPreHandle()
+        {
+            if (this.MainEntitySet.IsAddedOrModified)
+            {
+                var config = XmlSerializerHelper.Deserialize<CommonBillConfig>(this.MainEntitySet.CurrentEntity.Config);
+
+                config.CheckNotNull("通用单据配置");
+
+                config.QueryConfig.CheckNotNull("查询配置");
+                config.QueryConfig.Validate();
+
+                config.IndexEntitySetConfig.CheckNotNull("索引配置");
+                config.IndexEntitySetConfig.Validate(EntitySetType.Index);
+
+                config.MainEntitySetConfig.CheckNotNull("主数据配置");
+                config.MainEntitySetConfig.Validate(EntitySetType.Main);
+
+                if (config.DetailEntitySetConfigs != null)
+                {
+                    foreach (var item in config.DetailEntitySetConfigs)
+                    {
+                        item.Validate(EntitySetType.Detail);
+                    }
+                }
+            }
+
+            return base.OnPreHandle();
         }
 
     }

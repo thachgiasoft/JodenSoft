@@ -26,7 +26,7 @@ namespace SAF.Foundation
         }
 
         /// <summary>
-        /// 验证指定值的断言表达式是否为真，不为值抛出<see cref="Exception"/>异常
+        /// 验证指定值的断言表达式是否为真，不为真抛出<see cref="Exception"/>异常
         /// </summary>
         /// <param name="value"></param>
         /// <param name="assertionFunc">要验证的断言表达式</param>

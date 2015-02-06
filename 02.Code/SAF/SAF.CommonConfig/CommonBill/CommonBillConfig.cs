@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using SAF.Foundation;
 
 namespace SAF.CommonConfig.CommonBill
 {
@@ -48,6 +49,31 @@ namespace SAF.CommonConfig.CommonBill
 
         public string Caption { get; set; }
 
+        public void Validate(EntitySetType entitySetType)
+        {
+            var configName = entitySetType.GetDisplayName();
+
+            ControlType.Required(p => p != EntitySetControlType.None, "{0}控件类型不能为'无'".FormatEx(configName));
+            DbTableName.CheckNotNullOrEmpty("{0}表名".FormatEx(configName));
+            PrimaryKeyName.CheckNotNullOrEmpty("{0}主键名".FormatEx(configName));
+            SqlScript.CheckNotNullOrEmpty("{0}查询脚本");
+
+            if (entitySetType == EntitySetType.Detail)
+            {
+                Caption.CheckNotNullOrEmpty("{0}实体标题".FormatEx(configName));
+            }
+
+            //验证树需要的字段
+            if (ControlType == EntitySetControlType.TreeList)
+            {
+                ControlKeyFieldName.CheckNotNullOrEmpty("{0}控件主字段".FormatEx(configName));
+                ControlParentFieldName.CheckNotNullOrEmpty("{0}控件父字段".FormatEx(configName));
+            }
+            Fields.CheckNotNullOrEmpty("{0}字段列表".FormatEx(configName));
+            Fields.Required(p => !p.Any(a => a.Caption.IsEmpty() || a.FieldName.IsEmpty()), "{0}字段标题或字段名不能为空。".FormatEx(configName));
+            Fields.Required(p => !p.Any(a => a.FieldType.In(EntitySetFieldType.GridSearch, EntitySetFieldType.Lookup) && a.SqlScript.IsEmpty()), "{0}字段类型为‘查找或表格查找’，但没有配置查询脚本。".FormatEx(configName));
+        }
+
         public EntitySetConfig()
         {
             ControlType = EntitySetControlType.GridControl;
@@ -70,7 +96,7 @@ namespace SAF.CommonConfig.CommonBill
         public string FieldName { get; set; }
         public string Caption { get; set; }
         public EntitySetFieldType FieldType { get; set; }
-        public string Sql { get; set; }
+        public string SqlScript { get; set; }
         public bool IsReadOnly { get; set; }
 
         public EntitySetField()
@@ -92,7 +118,7 @@ namespace SAF.CommonConfig.CommonBill
             this.FieldName = fieldName;
             this.Caption = caption;
             this.FieldType = fieldType;
-            this.Sql = string.Empty;
+            this.SqlScript = string.Empty;
             this.IsReadOnly = isReadOnly;
         }
 
@@ -132,9 +158,13 @@ namespace SAF.CommonConfig.CommonBill
     /// </summary>
     public enum EntitySetType
     {
+        [Display(Name = "无")]
         None = 0,
+        [Display(Name = "索引配置")]
         Index = 1,
+        [Display(Name = "主数据配置")]
         Main = 2,
+        [Display(Name = "明细数据配置")]
         Detail = 3
     }
 

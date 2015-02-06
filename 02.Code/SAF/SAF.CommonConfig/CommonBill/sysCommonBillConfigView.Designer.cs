@@ -38,8 +38,8 @@
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcbxLayout = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcbxLayout = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -268,13 +268,6 @@
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
             // 
-            // colcbxLayout
-            // 
-            this.colcbxLayout.AutoHeight = false;
-            this.colcbxLayout.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colcbxLayout.Name = "colcbxLayout";
-            // 
             // colIden
             // 
             this.colIden.Caption = "序号";
@@ -282,6 +275,13 @@
             this.colIden.Name = "colIden";
             this.colIden.Visible = true;
             this.colIden.VisibleIndex = 0;
+            // 
+            // colcbxLayout
+            // 
+            this.colcbxLayout.AutoHeight = false;
+            this.colcbxLayout.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.colcbxLayout.Name = "colcbxLayout";
             // 
             // splitContainerControl3
             // 
