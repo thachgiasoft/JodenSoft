@@ -1,18 +1,16 @@
-﻿using SAF.Foundation;
-using SAF.Foundation.MetaAttributes;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SAF.SystemModule")]
-[assembly: AssemblyDescription("系统管理工具")]
+[assembly: AssemblyTitle("SAF.CommonQuery")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(AssemblyInfoHelper.Company)]
-[assembly: AssemblyProduct("SAF.SystemModule")]
-[assembly: AssemblyCopyright(AssemblyInfoHelper.Copyright)]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SAF.CommonQuery")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -22,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("ad3eaed1-69dd-4c42-a00b-edfe98724f00")]
+[assembly: Guid("0d0fe442-1291-44b3-b320-f98f3baeee2a")]
 
 // 程序集的版本信息由下面四个值组成: 
 //
@@ -34,5 +32,5 @@ using System.Runtime.InteropServices;
 // 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: 
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(AssemblyInfoHelper.Version)]
-[assembly: AssemblyFileVersion(AssemblyInfoHelper.FileVersion)]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

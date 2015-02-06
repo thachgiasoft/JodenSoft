@@ -42,11 +42,11 @@ namespace SAF.Foundation
             return assembly.GetAllTypeMarked<TAttribute>().ToList();
         }
 
-        public bool IsBusinessModule()
+        public bool IsComposeModule()
         {
             try
             {
-                if (assembly != null && assembly.HasMarked<IsBusinessModuleAttribute>())
+                if (assembly != null && assembly.HasMarked<IsComposeModuleAttribute>())
                 {
                     return true;
                 }

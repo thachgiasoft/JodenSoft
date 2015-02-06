@@ -81,7 +81,7 @@
     <Compile Include="AssemblyInfoHelper.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="MetaAttributes\BusinessObjectAttribute.cs" />
-    <Compile Include="MetaAttributes\IsBusinessModuleAttribute.cs" />
+    <Compile Include="MetaAttributes\IsComposeModuleAttribute.cs" />
     <Compile Include="ComponentModel\AutoWaitCursor.cs" />
     <Compile Include="Cache\CacheService.cs" />
     <Compile Include="Cache\DefaultCacheStrategy.cs" />

@@ -130,7 +130,7 @@ namespace SAF.Client
             {
                 var dllFiles = Directory.GetFiles(Application.StartupPath);
 
-                AppDomain ad = AppDomain.CreateDomain("Test DLL Marked IsBusinessModule");
+                AppDomain ad = AppDomain.CreateDomain("Test DLL Marked IsComposeModule");
                 try
                 {
                     LoadAssemblyProxyObject obj = (LoadAssemblyProxyObject)ad.CreateInstanceFromAndUnwrap(LoadAssemblyProxyObject.AssemblyFileName, LoadAssemblyProxyObject.ProxyObjectTypeName);
@@ -141,9 +141,9 @@ namespace SAF.Client
                             && !Path.GetExtension(fileName).Equals(".exe", StringComparison.InvariantCultureIgnoreCase)) continue;
 
                         obj.LoadAssembly(fileName);
-                        if (obj.IsBusinessModule())
+                        if (obj.IsComposeModule())
                         {
-                            SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载模块 {0}".FormatEx(Path.GetFileName(fileName)));
+                            SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载合并模块 {0}".FormatEx(Path.GetFileName(fileName)));
                             CompositionHelper.Current.AddFile(fileName);
                         }
                     }
