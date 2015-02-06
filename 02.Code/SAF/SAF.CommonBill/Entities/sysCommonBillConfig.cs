@@ -28,12 +28,6 @@ namespace SAF.CommonBill.Entities
             set { base.SetFieldValue(P => P.Name, value); }
         }
 
-        public CommonBillLayout Layout
-        {
-            get { return (CommonBillLayout)base.GetFieldValue<int>(P => P.Layout); }
-            set { base.SetFieldValue(P => P.Layout, (int)value); }
-        }
-
         public string Config
         {
             get { return base.GetFieldValue<string>(P => P.Config); }
