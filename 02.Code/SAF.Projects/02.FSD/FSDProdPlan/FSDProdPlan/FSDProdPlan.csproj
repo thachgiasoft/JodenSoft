@@ -113,7 +113,21 @@
     <Compile Include="jdMoorderViewViewModel.cs" />
     <Compile Include="NeiCai\emEquipmentCapacityProduceRouting.cs" />
     <Compile Include="NeiCai\jdMoorderNeiCai.cs" />
+    <Compile Include="NeiCai\jdMoorderNeiCaiView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NeiCai\jdMoorderNeiCaiView.Designer.cs">
+      <DependentUpon>jdMoorderNeiCaiView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeiCai\jdMoorderNeiCaiViewViewModel.cs" />
     <Compile Include="NeiCai\sMaterial.cs" />
+    <Compile Include="NeiCai\sMaterialRoutingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NeiCai\sMaterialRoutingView.Designer.cs">
+      <DependentUpon>sMaterialRoutingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NeiCai\sMaterialRoutingViewViewModel.cs" />
     <Compile Include="NeiCai\woRouting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -135,6 +149,12 @@
     <EmbeddedResource Include="jdMoorderView.resx">
       <DependentUpon>jdMoorderView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NeiCai\jdMoorderNeiCaiView.resx">
+      <DependentUpon>jdMoorderNeiCaiView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeiCai\sMaterialRoutingView.resx">
+      <DependentUpon>sMaterialRoutingView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,6 +165,10 @@
     <None Include="Properties\DataSources\emEquipmentCapacityProduce.datasource" />
     <None Include="Properties\DataSources\emEquipmentEx.datasource" />
     <None Include="Properties\DataSources\emModel.datasource" />
+    <None Include="Properties\DataSources\FSDProdPlan.NeiCai.emEquipmentCapacityProduceRouting.datasource" />
+    <None Include="Properties\DataSources\FSDProdPlan.NeiCai.jdMoorderNeiCai.datasource" />
+    <None Include="Properties\DataSources\FSDProdPlan.NeiCai.sMaterial.datasource" />
+    <None Include="Properties\DataSources\FSDProdPlan.NeiCai.woRouting.datasource" />
     <None Include="Properties\DataSources\jdMomorder.datasource" />
     <None Include="Properties\DataSources\jdMoorder.datasource" />
     <None Include="Properties\DataSources\jdProcess.datasource" />

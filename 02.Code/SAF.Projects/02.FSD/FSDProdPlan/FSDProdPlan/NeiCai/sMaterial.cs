@@ -38,5 +38,11 @@ namespace FSDProdPlan.NeiCai
             get { return base.GetFieldValue<string>(P => P.state); }
             set { base.SetFieldValue(P => P.state, value); }
         }
+
+        public string mark
+        {
+            get { return base.GetFieldValue<string>(P => P.mark); }
+            set { base.SetFieldValue(P => P.mark, value); }
+        }
     }
 }
