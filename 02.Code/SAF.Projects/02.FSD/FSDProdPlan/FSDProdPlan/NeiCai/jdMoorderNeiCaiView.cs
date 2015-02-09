@@ -40,7 +40,12 @@ namespace FSDProdPlan.NeiCai
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
                 this.ViewModel.DetailEntitySet.SetBindingSource(bsDetail);
                 this.ViewModel.emModelEntity.SetBindingSource(bsEmodel);
+                this.ViewModel.sMaterialEntity.SetBindingSource(bsch);
             }
+            this.slusMaterialNo.Properties.DataSource = this.ViewModel.sMaterialEntity.DefaultView;
+            this.slusMaterialNo.Properties.DisplayMember = "sMaterialNo";
+            this.slusMaterialNo.Properties.ValueMember = "sMaterialNo";
+
             this.riGluEdit1.DataSource = this.ViewModel.emModelEntity.DefaultView;
             riGluEdit1.DisplayMember = "sEquipmentModelNo";
             riGluEdit1.ValueMember = "sEquipmentModelNo";
@@ -81,6 +86,34 @@ namespace FSDProdPlan.NeiCai
             //this.ViewModel.MainEntitySet.CurrentEntity.sEquipmentName = objinventory.sEquipmentModelName;
             this.ViewModel.DetailEntitySet.CurrentEntity.uemEquipmentModelName = objinventory.sEquipmentModelName;
             // this.ViewModel.DetailEntitySet.CurrentEntity.uemEquipmentModelNo = objinventory.sEquipmentModelNo;
+            // this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
+        }
+
+        private void slusMaterialNo_EditValueChanged(object sender, EventArgs e)
+        {
+            var grid = sender as SearchLookUpEdit;
+                        
+            var drv = grid.Properties.View.GetFocusedDataRow() as DataRow;
+            if (drv == null) return;
+
+            var objinventory = this.ViewModel.sMaterialEntity.FirstOrDefault(p => p.Iden == Convert.ToInt32(drv["Iden"]));
+
+            //方法二:适合与同一实体集
+            //var objinventory = this.ViewModel.jd_v_inventory.CurrentEntity;
+            //var drv = grid.GetSelectedDataRow() as DataRowView;
+            //var objinventory = this.ViewModel.jd_v_inventoryEntity.CreateEntity(drv);
+
+            if (objinventory == null)
+            {
+                MessageBox.Show("产品不存在");
+                return;
+            }
+           
+            this.ViewModel.MainEntitySet.CurrentEntity.sMaterialIden = objinventory.Iden;
+            this.ViewModel.MainEntitySet.CurrentEntity.sMaterialName = objinventory.sMaterialName;
+            this.ViewModel.MainEntitySet.CurrentEntity.sMaterialNo = objinventory.sMaterialNo;
+
+           // this.ViewModel.MainEntitySet.CurrentEntity.uemEquipmentModelNo = objinventory.sEquipmentModelNo;
             // this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
         }
 

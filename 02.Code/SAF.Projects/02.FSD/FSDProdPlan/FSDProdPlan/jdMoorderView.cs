@@ -54,9 +54,9 @@ namespace FSDProdPlan
             }
             
             this.ViewModel.emEquipmentCapacityProduceEntity.SetBindingSource(bsch);
-            //this.lusMaterialNo.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
-            //this.lusMaterialNo.Properties.DisplayMember = "sMaterialNo";
-            //this.lusMaterialNo.Properties.ValueMember = "sMaterialNo";
+            this.sluchbm.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
+            this.sluchbm.Properties.DisplayMember = "sMaterialNo";
+            this.sluchbm.Properties.ValueMember = "sMaterialNo";
         }
 
         protected override void OnInitConfig()
@@ -140,6 +140,11 @@ namespace FSDProdPlan
             DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection,"jd_zdpj");
             ProgressService.Close();
             MessageService.ShowMessage("排机完成");
+
+        }
+
+        private void sluchbm_EditValueChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

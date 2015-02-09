@@ -67,12 +67,17 @@ namespace FSDProdPlan.NeiCai
         ////}
 
 
-        public int sMaterialIden
-        {
-            get { return base.GetFieldValue<int>(P => P.sMaterialIden); }
-            set { base.SetFieldValue(P => P.sMaterialIden, value); }
-        }
+        //public int sMaterialIden
+        //{
+        //    get { return base.GetFieldValue<int>(P => P.sMaterialIden); }
+        //    set { base.SetFieldValue(P => P.sMaterialIden, value); }
+        //}
 
+        public int banzhi
+        {
+            get { return base.GetFieldValue<int>(P => P.banzhi); }
+            set { base.SetFieldValue(P => P.banzhi, value); }
+        }
         public string routingState
         {
             get { return base.GetFieldValue<string>(P => P.routingState); }

@@ -41,11 +41,16 @@
             this.colnPlanQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.slusMaterialNo = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bsch = new System.Windows.Forms.BindingSource(this.components);
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Iden2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sMaterialNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sMaterialName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtstate = new DevExpress.XtraEditors.TextEdit();
             this.spnPlanQty = new DevExpress.XtraEditors.SpinEdit();
             this.dedDeliveryDate = new DevExpress.XtraEditors.DateEdit();
             this.txtsMaterialName = new DevExpress.XtraEditors.TextEdit();
-            this.txtsMaterialNo = new DevExpress.XtraEditors.TextEdit();
             this.txtsOrderNo = new DevExpress.XtraEditors.TextEdit();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -69,12 +74,14 @@
             this.colroutingState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluemEquipmentModelGUID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluemEquipmentModelNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riGluEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coluemEquipmentModelName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnCapacity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.banzhi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.bsEmodel = new System.Windows.Forms.BindingSource(this.components);
-            this.riGluEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -100,12 +107,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slusMaterialNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtstate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPlanQty.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dedDeliveryDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dedDeliveryDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsMaterialName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsMaterialNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsOrderNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -118,9 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -285,11 +295,11 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.slusMaterialNo);
             this.layoutControl1.Controls.Add(this.txtstate);
             this.layoutControl1.Controls.Add(this.spnPlanQty);
             this.layoutControl1.Controls.Add(this.dedDeliveryDate);
             this.layoutControl1.Controls.Add(this.txtsMaterialName);
-            this.layoutControl1.Controls.Add(this.txtsMaterialNo);
             this.layoutControl1.Controls.Add(this.txtsOrderNo);
             this.layoutControl1.Controls.Add(this.txtIden);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -300,9 +310,66 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // slusMaterialNo
+            // 
+            this.slusMaterialNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sMaterialNo", true));
+            this.slusMaterialNo.EditValue = "";
+            this.slusMaterialNo.Location = new System.Drawing.Point(63, 36);
+            this.slusMaterialNo.MenuManager = this.ribbonMain;
+            this.slusMaterialNo.Name = "slusMaterialNo";
+            this.slusMaterialNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.slusMaterialNo.Properties.DataSource = this.bsch;
+            this.slusMaterialNo.Properties.View = this.searchLookUpEdit1View;
+            this.slusMaterialNo.Size = new System.Drawing.Size(434, 20);
+            this.slusMaterialNo.StyleController = this.layoutControl1;
+            this.slusMaterialNo.TabIndex = 11;
+            this.slusMaterialNo.EditValueChanged += new System.EventHandler(this.slusMaterialNo_EditValueChanged);
+            // 
+            // bsch
+            // 
+            this.bsch.DataSource = typeof(FSDProdPlan.NeiCai.sMaterial);
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.Iden2,
+            this.sMaterialNo,
+            this.sMaterialName});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ColumnAutoWidth = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // Iden2
+            // 
+            this.Iden2.Caption = "序号";
+            this.Iden2.FieldName = "Iden";
+            this.Iden2.Name = "Iden2";
+            this.Iden2.Visible = true;
+            this.Iden2.VisibleIndex = 0;
+            // 
+            // sMaterialNo
+            // 
+            this.sMaterialNo.Caption = "产品编码";
+            this.sMaterialNo.FieldName = "sMaterialNo";
+            this.sMaterialNo.Name = "sMaterialNo";
+            this.sMaterialNo.Visible = true;
+            this.sMaterialNo.VisibleIndex = 1;
+            // 
+            // sMaterialName
+            // 
+            this.sMaterialName.Caption = "产品名称";
+            this.sMaterialName.FieldName = "sMaterialName";
+            this.sMaterialName.Name = "sMaterialName";
+            this.sMaterialName.Visible = true;
+            this.sMaterialName.VisibleIndex = 2;
+            // 
             // txtstate
             // 
             this.txtstate.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "state", true));
+            this.txtstate.Enabled = false;
             this.txtstate.Location = new System.Drawing.Point(63, 108);
             this.txtstate.MenuManager = this.ribbonMain;
             this.txtstate.Name = "txtstate";
@@ -314,7 +381,7 @@
             // 
             this.spnPlanQty.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "nPlanQty", true));
             this.spnPlanQty.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -323,6 +390,16 @@
             this.spnPlanQty.Name = "spnPlanQty";
             this.spnPlanQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spnPlanQty.Properties.MaxValue = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
+            this.spnPlanQty.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spnPlanQty.Size = new System.Drawing.Size(198, 20);
             this.spnPlanQty.StyleController = this.layoutControl1;
             this.spnPlanQty.TabIndex = 9;
@@ -351,16 +428,6 @@
             this.txtsMaterialName.Size = new System.Drawing.Size(434, 20);
             this.txtsMaterialName.StyleController = this.layoutControl1;
             this.txtsMaterialName.TabIndex = 7;
-            // 
-            // txtsMaterialNo
-            // 
-            this.txtsMaterialNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sMaterialNo", true));
-            this.txtsMaterialNo.Location = new System.Drawing.Point(63, 36);
-            this.txtsMaterialNo.MenuManager = this.ribbonMain;
-            this.txtsMaterialNo.Name = "txtsMaterialNo";
-            this.txtsMaterialNo.Size = new System.Drawing.Size(434, 20);
-            this.txtsMaterialNo.StyleController = this.layoutControl1;
-            this.txtsMaterialNo.TabIndex = 6;
             // 
             // txtsOrderNo
             // 
@@ -469,7 +536,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.txtsMaterialNo;
+            this.layoutControlItem3.Control = this.slusMaterialNo;
             this.layoutControlItem3.CustomizationFormText = "产品编码";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -487,7 +554,8 @@
             this.grdDetail.MenuManager = this.ribbonMain;
             this.grdDetail.Name = "grdDetail";
             this.grdDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riGluEdit1});
+            this.riGluEdit1,
+            this.repositoryItemComboBox1});
             this.grdDetail.Size = new System.Drawing.Size(526, 112);
             this.grdDetail.TabIndex = 1;
             this.grdDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -509,7 +577,8 @@
             this.coluemEquipmentModelNo,
             this.coluemEquipmentModelName,
             this.colnCapacity,
-            this.colPersonQty});
+            this.colPersonQty,
+            this.banzhi});
             this.grvDetail.GridControl = this.grdDetail;
             this.grvDetail.Name = "grvDetail";
             // 
@@ -589,6 +658,23 @@
             this.coluemEquipmentModelNo.VisibleIndex = 3;
             this.coluemEquipmentModelNo.Width = 61;
             // 
+            // riGluEdit1
+            // 
+            this.riGluEdit1.AutoHeight = false;
+            this.riGluEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riGluEdit1.Name = "riGluEdit1";
+            this.riGluEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.riGluEdit1.View = this.repositoryItemGridLookUpEdit1View;
+            this.riGluEdit1.EditValueChanged += new System.EventHandler(this.riGluEdit1_EditValueChanged);
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // coluemEquipmentModelName
             // 
             this.coluemEquipmentModelName.Caption = "机型名称";
@@ -616,26 +702,28 @@
             this.colPersonQty.VisibleIndex = 6;
             this.colPersonQty.Width = 61;
             // 
+            // banzhi
+            // 
+            this.banzhi.Caption = "班制";
+            this.banzhi.ColumnEdit = this.repositoryItemComboBox1;
+            this.banzhi.FieldName = "banzhi";
+            this.banzhi.Name = "banzhi";
+            this.banzhi.Visible = true;
+            this.banzhi.VisibleIndex = 8;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown)});
+            this.repositoryItemComboBox1.Items.AddRange(new object[] {
+            "12",
+            "24"});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
             // bsEmodel
             // 
             this.bsEmodel.DataSource = typeof(FSDProdPlan.emModel);
-            // 
-            // riGluEdit1
-            // 
-            this.riGluEdit1.AutoHeight = false;
-            this.riGluEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riGluEdit1.Name = "riGluEdit1";
-            this.riGluEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.riGluEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            this.riGluEdit1.EditValueChanged += new System.EventHandler(this.riGluEdit1_EditValueChanged);
-            // 
-            // repositoryItemGridLookUpEdit1View
-            // 
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // jdMoorderNeiCaiView
             // 
@@ -667,12 +755,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.slusMaterialNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtstate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPlanQty.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dedDeliveryDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dedDeliveryDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsMaterialName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsMaterialNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsOrderNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -685,9 +775,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -711,7 +802,6 @@
         private DevExpress.XtraEditors.SpinEdit spnPlanQty;
         private DevExpress.XtraEditors.DateEdit dedDeliveryDate;
         private DevExpress.XtraEditors.TextEdit txtsMaterialName;
-        private DevExpress.XtraEditors.TextEdit txtsMaterialNo;
         private DevExpress.XtraEditors.TextEdit txtsOrderNo;
         private DevExpress.XtraEditors.TextEdit txtIden;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
@@ -721,7 +811,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraGrid.GridControl grdDetail;
         private DevExpress.XtraGrid.Views.Grid.GridView grvDetail;
         private DevExpress.XtraGrid.Columns.GridColumn colIden1;
@@ -741,5 +830,14 @@
         private System.Windows.Forms.BindingSource bsEmodel;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit riGluEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private DevExpress.XtraEditors.SearchLookUpEdit slusMaterialNo;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private System.Windows.Forms.BindingSource bsch;
+        private DevExpress.XtraGrid.Columns.GridColumn Iden2;
+        private DevExpress.XtraGrid.Columns.GridColumn sMaterialNo;
+        private DevExpress.XtraGrid.Columns.GridColumn sMaterialName;
+        private DevExpress.XtraGrid.Columns.GridColumn banzhi;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
     }
 }

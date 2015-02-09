@@ -380,6 +380,7 @@
             this.sluchbm.Size = new System.Drawing.Size(170, 20);
             this.sluchbm.StyleController = this.layoutControl1;
             this.sluchbm.TabIndex = 19;
+            this.sluchbm.EditValueChanged += new System.EventHandler(this.sluchbm_EditValueChanged_1);
             // 
             // searchLookUpEdit1View
             // 
