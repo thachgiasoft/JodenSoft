@@ -84,6 +84,7 @@ namespace SAF.Framework.Diaglogs
                 if (dr == DialogResult.OK)
                 {
                     value = inputBox.txtMessage.EditValue.ToStringEx();
+                    inputBox._predicate = null;
                     return true;
                 }
                 else
@@ -121,6 +122,7 @@ namespace SAF.Framework.Diaglogs
                 if (dr == DialogResult.OK)
                 {
                     value = inputBox.menoMessage.EditValue.ToStringEx();
+                    inputBox._predicate = null;
                     return true;
                 }
                 else
