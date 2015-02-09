@@ -11,6 +11,9 @@ using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using DevExpress.XtraEditors;
+using SAF.EntityFramework;
+using SAF.Framework.Controls;
+using SAF.Foundation.ServiceModel;
 
 namespace FSDProdPlan.NeiCai
 {
@@ -117,5 +120,48 @@ namespace FSDProdPlan.NeiCai
             // this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
         }
 
+        private void ricmb1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var combox=sender as ComboBoxEdit;
+            this.ViewModel.DetailEntitySet.CurrentEntity.banzhi =Convert.ToInt32(combox.Text);
+        }
+
+       
+
+        protected override void OnInitCustomRibbonMenuCommands()
+        {
+            base.OnInitCustomRibbonMenuCommands();
+            var MyExport = new DefaultRibbonMenuCommand("加载工序", MyExportExcute) { LargeGlyph = Properties.Resources.Action_Refresh_32x32 };
+            this.AddRibbonMenuCommand(MyExport);
+            var MyExport1 = new DefaultRibbonMenuCommand("自动排机", MyExportExcute1) { LargeGlyph = Properties.Resources.Action_PublishEntity_32x32 };
+            this.AddRibbonMenuCommand(MyExport1);
+        }
+
+        private void MyExportExcute(object obj)
+        {
+            try
+            {
+                ProgressService.Show("正在加载工序....");
+                jdMoorderNeiCai entity = this.ViewModel.MainEntitySet.CurrentEntity;
+                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "exec JD_P_GeneratWoRouting @woiden=:woiden,@createdby=:createdby", entity.Iden, Session.Current.UserId);
+                ProgressService.Close();
+                MessageService.ShowMessage("加载完成");
+            }
+            catch (Exception ex)
+            {
+                MessageService.ShowMessage("错误:  "+ex.Message);
+                ProgressService.Close();
+            }
+        }
+
+        private void MyExportExcute1(object obj)
+        {
+            ProgressService.Show("正在自动排机....");
+            // PreProcessMessage    MessageService.ShowMessage("正在自动排机...");
+            DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "jd_zdpj");
+            ProgressService.Close();
+            MessageService.ShowMessage("排机完成");
+
+        }
     }
 }

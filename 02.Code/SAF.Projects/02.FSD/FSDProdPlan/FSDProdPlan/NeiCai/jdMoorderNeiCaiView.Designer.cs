@@ -80,7 +80,7 @@
             this.colnCapacity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.banzhi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.ricmb1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.bsEmodel = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
@@ -129,19 +129,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmb1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
             // 
             this.tcDtl.SelectedTabPage = this.pageDtl;
-            this.tcDtl.Size = new System.Drawing.Size(532, 141);
+            this.tcDtl.Size = new System.Drawing.Size(681, 317);
             // 
             // pageDtl
             // 
             this.pageDtl.Controls.Add(this.grdDetail);
-            this.pageDtl.Size = new System.Drawing.Size(526, 135);
+            this.pageDtl.Size = new System.Drawing.Size(675, 311);
             this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdDetail, 0);
             // 
@@ -149,18 +149,28 @@
             // 
             this.bsDetail.DataSource = typeof(FSDProdPlan.NeiCai.woRouting);
             // 
+            // standaloneDtl
+            // 
+            this.standaloneDtl.Size = new System.Drawing.Size(675, 23);
+            // 
             // barDtl
             // 
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
             // 
+            // bsiDtlImport
+            // 
+            this.bsiDtlImport.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonMain
             // 
             this.ribbonMain.ExpandCollapseItem.Id = 0;
+            this.ribbonMain.Size = new System.Drawing.Size(968, 120);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
+            this.splitMain.Size = new System.Drawing.Size(968, 466);
             // 
             // bsIndex
             // 
@@ -170,24 +180,33 @@
             // 
             this.bsMain.DataSource = typeof(FSDProdPlan.NeiCai.jdMoorderNeiCai);
             // 
+            // pnlQueryControl
+            // 
+            this.pnlQueryControl.Size = new System.Drawing.Size(968, 28);
+            // 
+            // pnlPageControl
+            // 
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 615);
+            this.pnlPageControl.Size = new System.Drawing.Size(968, 31);
+            // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(815, 26);
+            this.pcMain.Size = new System.Drawing.Size(964, 26);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(532, 286);
+            this.splitRight.Size = new System.Drawing.Size(681, 462);
             this.splitRight.SplitterPosition = 140;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(532, 140);
+            this.tcMain.Size = new System.Drawing.Size(681, 140);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
-            this.pageMain.Size = new System.Drawing.Size(526, 134);
+            this.pageMain.Size = new System.Drawing.Size(675, 134);
             // 
             // grdIndex
             // 
@@ -198,7 +217,7 @@
             this.grdIndex.MainView = this.grvIndex;
             this.grdIndex.MenuManager = this.ribbonMain;
             this.grdIndex.Name = "grdIndex";
-            this.grdIndex.Size = new System.Drawing.Size(282, 286);
+            this.grdIndex.Size = new System.Drawing.Size(282, 462);
             this.grdIndex.TabIndex = 0;
             this.grdIndex.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvIndex});
@@ -219,6 +238,8 @@
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
             this.grvIndex.OptionsView.ColumnAutoWidth = false;
+            this.grvIndex.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colsOrderNo, DevExpress.Data.ColumnSortOrder.Descending)});
             this.grvIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvIndex_FocusedRowChanged);
             // 
             // colIden
@@ -306,7 +327,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(526, 134);
+            this.layoutControl1.Size = new System.Drawing.Size(675, 134);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -321,7 +342,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.slusMaterialNo.Properties.DataSource = this.bsch;
             this.slusMaterialNo.Properties.View = this.searchLookUpEdit1View;
-            this.slusMaterialNo.Size = new System.Drawing.Size(434, 20);
+            this.slusMaterialNo.Size = new System.Drawing.Size(583, 20);
             this.slusMaterialNo.StyleController = this.layoutControl1;
             this.slusMaterialNo.TabIndex = 11;
             this.slusMaterialNo.EditValueChanged += new System.EventHandler(this.slusMaterialNo_EditValueChanged);
@@ -373,7 +394,7 @@
             this.txtstate.Location = new System.Drawing.Point(63, 108);
             this.txtstate.MenuManager = this.ribbonMain;
             this.txtstate.Name = "txtstate";
-            this.txtstate.Size = new System.Drawing.Size(181, 20);
+            this.txtstate.Size = new System.Drawing.Size(253, 20);
             this.txtstate.StyleController = this.layoutControl1;
             this.txtstate.TabIndex = 10;
             // 
@@ -385,7 +406,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Location = new System.Drawing.Point(299, 84);
+            this.spnPlanQty.Location = new System.Drawing.Point(371, 84);
             this.spnPlanQty.MenuManager = this.ribbonMain;
             this.spnPlanQty.Name = "spnPlanQty";
             this.spnPlanQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -400,7 +421,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Size = new System.Drawing.Size(198, 20);
+            this.spnPlanQty.Size = new System.Drawing.Size(275, 20);
             this.spnPlanQty.StyleController = this.layoutControl1;
             this.spnPlanQty.TabIndex = 9;
             // 
@@ -415,7 +436,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dedDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dedDeliveryDate.Size = new System.Drawing.Size(181, 20);
+            this.dedDeliveryDate.Size = new System.Drawing.Size(253, 20);
             this.dedDeliveryDate.StyleController = this.layoutControl1;
             this.dedDeliveryDate.TabIndex = 8;
             // 
@@ -425,7 +446,7 @@
             this.txtsMaterialName.Location = new System.Drawing.Point(63, 60);
             this.txtsMaterialName.MenuManager = this.ribbonMain;
             this.txtsMaterialName.Name = "txtsMaterialName";
-            this.txtsMaterialName.Size = new System.Drawing.Size(434, 20);
+            this.txtsMaterialName.Size = new System.Drawing.Size(583, 20);
             this.txtsMaterialName.StyleController = this.layoutControl1;
             this.txtsMaterialName.TabIndex = 7;
             // 
@@ -435,7 +456,7 @@
             this.txtsOrderNo.Location = new System.Drawing.Point(63, 12);
             this.txtsOrderNo.MenuManager = this.ribbonMain;
             this.txtsOrderNo.Name = "txtsOrderNo";
-            this.txtsOrderNo.Size = new System.Drawing.Size(295, 20);
+            this.txtsOrderNo.Size = new System.Drawing.Size(444, 20);
             this.txtsOrderNo.StyleController = this.layoutControl1;
             this.txtsOrderNo.TabIndex = 5;
             // 
@@ -443,7 +464,7 @@
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
             this.txtIden.Enabled = false;
-            this.txtIden.Location = new System.Drawing.Point(391, 12);
+            this.txtIden.Location = new System.Drawing.Point(540, 12);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
             this.txtIden.Size = new System.Drawing.Size(106, 20);
@@ -465,7 +486,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(509, 140);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(658, 140);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -473,7 +494,7 @@
             // 
             this.layoutControlItem1.Control = this.txtIden;
             this.layoutControlItem1.CustomizationFormText = "序号";
-            this.layoutControlItem1.Location = new System.Drawing.Point(350, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(499, 0);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(139, 24);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(139, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -490,7 +511,7 @@
             this.layoutControlItem2.CustomizationFormText = "工单号";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(350, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(499, 24);
             this.layoutControlItem2.Text = "工单号";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -500,7 +521,7 @@
             this.layoutControlItem5.CustomizationFormText = "发货日期";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(236, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(308, 24);
             this.layoutControlItem5.Text = "发货日期";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -510,7 +531,7 @@
             this.layoutControlItem4.CustomizationFormText = "产品名称";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(489, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(638, 24);
             this.layoutControlItem4.Text = "产品名称";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -518,9 +539,9 @@
             // 
             this.layoutControlItem6.Control = this.spnPlanQty;
             this.layoutControlItem6.CustomizationFormText = "数量";
-            this.layoutControlItem6.Location = new System.Drawing.Point(236, 72);
+            this.layoutControlItem6.Location = new System.Drawing.Point(308, 72);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(253, 48);
+            this.layoutControlItem6.Size = new System.Drawing.Size(330, 48);
             this.layoutControlItem6.Text = "数量";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -530,7 +551,7 @@
             this.layoutControlItem7.CustomizationFormText = "状态";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(236, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(308, 24);
             this.layoutControlItem7.Text = "状态";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -540,7 +561,7 @@
             this.layoutControlItem3.CustomizationFormText = "产品编码";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(489, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(638, 24);
             this.layoutControlItem3.Text = "产品编码";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -555,8 +576,8 @@
             this.grdDetail.Name = "grdDetail";
             this.grdDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riGluEdit1,
-            this.repositoryItemComboBox1});
-            this.grdDetail.Size = new System.Drawing.Size(526, 112);
+            this.ricmb1});
+            this.grdDetail.Size = new System.Drawing.Size(675, 288);
             this.grdDetail.TabIndex = 1;
             this.grdDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDetail});
@@ -705,21 +726,26 @@
             // banzhi
             // 
             this.banzhi.Caption = "班制";
-            this.banzhi.ColumnEdit = this.repositoryItemComboBox1;
+            this.banzhi.ColumnEdit = this.ricmb1;
             this.banzhi.FieldName = "banzhi";
             this.banzhi.Name = "banzhi";
+            this.banzhi.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.banzhi.Visible = true;
             this.banzhi.VisibleIndex = 8;
             // 
-            // repositoryItemComboBox1
+            // ricmb1
             // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown)});
-            this.repositoryItemComboBox1.Items.AddRange(new object[] {
+            this.ricmb1.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ricmb1.AutoHeight = false;
+            this.ricmb1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ricmb1.HideSelection = false;
+            this.ricmb1.Items.AddRange(new object[] {
             "12",
             "24"});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            this.ricmb1.Name = "ricmb1";
+            this.ricmb1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.ricmb1.SelectedValueChanged += new System.EventHandler(this.ricmb1_SelectedValueChanged);
             // 
             // bsEmodel
             // 
@@ -730,6 +756,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "jdMoorderNeiCaiView";
+            this.Size = new System.Drawing.Size(970, 647);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
@@ -777,7 +804,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricmb1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -838,6 +865,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn sMaterialNo;
         private DevExpress.XtraGrid.Columns.GridColumn sMaterialName;
         private DevExpress.XtraGrid.Columns.GridColumn banzhi;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmb1;
     }
 }
