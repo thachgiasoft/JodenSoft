@@ -61,14 +61,14 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(469, 195);
+            this.layoutControl1.Size = new System.Drawing.Size(469, 198);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(397, 161);
+            this.btnCancel.Location = new System.Drawing.Point(397, 164);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(60, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -78,7 +78,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(333, 161);
+            this.btnOK.Location = new System.Drawing.Point(333, 164);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(60, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -90,7 +90,7 @@
             // 
             this.menoMessage.Location = new System.Drawing.Point(12, 70);
             this.menoMessage.Name = "menoMessage";
-            this.menoMessage.Size = new System.Drawing.Size(445, 87);
+            this.menoMessage.Size = new System.Drawing.Size(445, 90);
             this.menoMessage.StyleController = this.layoutControl1;
             this.menoMessage.TabIndex = 5;
             this.menoMessage.UseOptimizedRendering = true;
@@ -116,7 +116,7 @@
             this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(469, 195);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(469, 198);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -137,7 +137,7 @@
             this.lciMemo.CustomizationFormText = "请输入：";
             this.lciMemo.Location = new System.Drawing.Point(0, 41);
             this.lciMemo.Name = "lciMemo";
-            this.lciMemo.Size = new System.Drawing.Size(449, 108);
+            this.lciMemo.Size = new System.Drawing.Size(449, 111);
             this.lciMemo.Text = "请输入：";
             this.lciMemo.TextLocation = DevExpress.Utils.Locations.Top;
             this.lciMemo.TextSize = new System.Drawing.Size(48, 14);
@@ -146,7 +146,7 @@
             // 
             this.layoutControlItem3.Control = this.btnOK;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(321, 149);
+            this.layoutControlItem3.Location = new System.Drawing.Point(321, 152);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -161,7 +161,7 @@
             // 
             this.layoutControlItem4.Control = this.btnCancel;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(385, 149);
+            this.layoutControlItem4.Location = new System.Drawing.Point(385, 152);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -176,7 +176,7 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 149);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 152);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(321, 26);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(469, 195);
+            this.ClientSize = new System.Drawing.Size(469, 198);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

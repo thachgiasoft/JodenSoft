@@ -20,7 +20,7 @@ namespace SAF.Framework.Test
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string obj = string.Empty;
-            InputBox.Show(out obj, p => { return true; });
+            InputBox.ShowMemo(out obj, p => { return true; });
 
             MessageBox.Show(obj);
         }

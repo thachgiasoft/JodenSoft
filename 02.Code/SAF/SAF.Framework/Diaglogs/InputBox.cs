@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SAF.Foundation;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.Framework.Diaglogs
 {
@@ -24,6 +25,13 @@ namespace SAF.Framework.Diaglogs
         private InputBox()
         {
             InitializeComponent();
+
+            if (ApplicationService.Current.MainForm != null)
+            {
+                this.Icon = ApplicationService.Current.MainForm.Icon;
+            }
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -108,6 +116,7 @@ namespace SAF.Framework.Diaglogs
                 inputBox.lciMemo.Text = caption;
                 inputBox.lciText.Visibility = LayoutVisibility.Never;
                 inputBox._predicate = predicate;
+                inputBox.Height = 200;
                 var dr = inputBox.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
