@@ -90,6 +90,7 @@ namespace SAF.Framework.Diaglogs
                 else
                 {
                     value = string.Empty;
+                    inputBox._predicate = null;
                     return false;
                 }
             }
@@ -128,6 +129,7 @@ namespace SAF.Framework.Diaglogs
                 else
                 {
                     value = string.Empty;
+                    inputBox._predicate = null;
                     return false;
                 }
             }
