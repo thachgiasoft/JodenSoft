@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SAF.Framework.Test
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace SAF.Framework.Test
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string obj = string.Empty;
-            InputBox.ShowMemo(out obj, p => { return true; });
+            InputBox.Show(out obj, p => { if (string.IsNullOrWhiteSpace(p)) { MessageBox.Show("输入空值了。"); return false; } else return true; });
 
             MessageBox.Show(obj);
         }
