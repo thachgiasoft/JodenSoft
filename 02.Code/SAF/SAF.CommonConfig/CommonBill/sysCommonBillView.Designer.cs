@@ -30,11 +30,7 @@
         {
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lcgMain = new DevExpress.XtraLayout.LayoutControlGroup();
-            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
-            this.tcDtl.SuspendLayout();
-            this.pageDtl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).BeginInit();
+            this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -53,15 +49,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tcDtl
-            // 
-            this.tcDtl.SelectedTabPage = this.pageDtl;
-            // 
-            // barDtl
-            // 
-            this.barDtl.OptionsBar.AllowQuickCustomization = false;
             // 
             // ribbonMain
             // 
@@ -70,19 +59,22 @@
             // 
             // pcMain
             // 
-            this.pcMain.Size = new System.Drawing.Size(815, 26);
+            this.pcMain.Size = new System.Drawing.Size(778, 26);
             // 
             // splitRight
             // 
-            this.splitRight.Size = new System.Drawing.Size(532, 286);
+            this.splitRight.Panel2.Controls.Add(this.tcDtl);
+            this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
+            this.tcMain.Size = new System.Drawing.Size(495, 132);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
+            this.pageMain.Size = new System.Drawing.Size(489, 126);
             // 
             // lcMain
             // 
@@ -90,9 +82,9 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(526, 124);
+            this.lcMain.Size = new System.Drawing.Size(489, 126);
             this.lcMain.TabIndex = 0;
-            this.lcMain.Text = "layoutControl1";
+            this.lcMain.Text = "lcMain";
             // 
             // lcgMain
             // 
@@ -102,20 +94,23 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(526, 124);
+            this.lcgMain.Size = new System.Drawing.Size(489, 126);
             this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
+            // 
+            // tcDtl
+            // 
+            this.tcDtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcDtl.Location = new System.Drawing.Point(0, 0);
+            this.tcDtl.Name = "tcDtl";
+            this.tcDtl.Size = new System.Drawing.Size(495, 147);
+            this.tcDtl.TabIndex = 0;
             // 
             // sysCommonBillView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "sysCommonBillView";
-            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
-            this.tcDtl.ResumeLayout(false);
-            this.pageDtl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pmuImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
@@ -134,6 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +139,6 @@
 
         private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMain;
+        private DevExpress.XtraTab.XtraTabControl tcDtl;
     }
 }

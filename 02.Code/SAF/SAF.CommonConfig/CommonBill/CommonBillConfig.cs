@@ -35,12 +35,14 @@ namespace SAF.CommonConfig.CommonBill
     [Serializable]
     public sealed class EntitySetConfig
     {
+        public Guid UniqueId { get; set; }
         public EntitySetControlType ControlType { get; set; }
         public string ControlKeyFieldName { get; set; }
         public string ControlParentFieldName { get; set; }
 
         public string DbTableName { get; set; }
         public string PrimaryKeyName { get; set; }
+        public string ForeignKey { get; set; }
         public string SqlScript { get; set; }
 
         [System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
@@ -64,7 +66,7 @@ namespace SAF.CommonConfig.CommonBill
             }
 
             //验证树需要的字段
-            if (ControlType == EntitySetControlType.TreeListControl)
+            if (ControlType == EntitySetControlType.TreeList)
             {
                 ControlKeyFieldName.CheckNotNullOrEmpty("{0}控件主字段".FormatEx(configName));
                 ControlParentFieldName.CheckNotNullOrEmpty("{0}控件父字段".FormatEx(configName));
@@ -76,6 +78,8 @@ namespace SAF.CommonConfig.CommonBill
 
         public EntitySetConfig()
         {
+            this.UniqueId = Guid.NewGuid();
+
             ControlType = EntitySetControlType.GridControl;
             ControlKeyFieldName = string.Empty;
             ControlParentFieldName = string.Empty;
@@ -85,6 +89,7 @@ namespace SAF.CommonConfig.CommonBill
             PrimaryKeyName = "Iden";
             IsReadOnly = false;
             Caption = string.Empty;
+
         }
     }
     /// <summary>
@@ -151,9 +156,9 @@ namespace SAF.CommonConfig.CommonBill
         [Display(Name = "表格控件")]
         GridControl = 1,
         [Display(Name = "树形控件")]
-        TreeListControl = 2,
+        TreeList = 2,
         [Display(Name = "布局控件")]
-        LayoutControl=3
+        LayoutControl = 3
     }
     /// <summary>
     /// 根据类型决定是否显示界面控件

@@ -8,30 +8,30 @@ using SAF.SystemEntities;
 using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
 using SAF.EntityFramework;
+using SAF.CommonConfig.Entities;
+using SAF.CommonConfig.CommonBill;
 
 namespace SAF.CommonConfig
 {
-    public class sysCommonBillViewViewModel : MasterDetailViewViewModel<QueryEntity, QueryEntity, QueryEntity>
+    public class sysCommonBillViewViewModel : SingleViewViewModel<QueryEntity, QueryEntity>
     {
-        public sysCommonBillView View { get; set; }
-
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            if (!View.CommonBillConfig.IndexEntitySetConfig.SqlScript.IsEmpty())
-                IndexEntitySet.Query(View.CommonBillConfig.IndexEntitySetConfig.SqlScript);
+            if (CommonBillConfig != null && !CommonBillConfig.IndexEntitySetConfig.SqlScript.IsEmpty())
+                IndexEntitySet.Query(CommonBillConfig.IndexEntitySetConfig.SqlScript.FormatEx(sCondition));
         }
 
         protected override void OnQueryChild(object key)
         {
-            if (!View.CommonBillConfig.MainEntitySetConfig.SqlScript.IsEmpty())
-                this.MainEntitySet.Query(View.CommonBillConfig.MainEntitySetConfig.SqlScript, key);
+            if (CommonBillConfig != null && !CommonBillConfig.MainEntitySetConfig.SqlScript.IsEmpty())
+                this.MainEntitySet.Query(CommonBillConfig.MainEntitySetConfig.SqlScript, key);
 
-            for (int i = 0; i < View.dtlEntitys.Count; i++)
+            for (int i = 0; i < CommonBillConfig.DetailEntitySetConfigs.Count; i++)
             {
-                var config = View.CommonBillConfig.DetailEntitySetConfigs[i];
+                var config = CommonBillConfig.DetailEntitySetConfigs[i];
                 if (!config.SqlScript.IsEmpty())
                 {
-                    View.dtlEntitys[i].Query(config.SqlScript, key);
+                    detailEntities[config.UniqueId].Query(config.SqlScript, key);
                 }
             }
         }
@@ -39,7 +39,55 @@ namespace SAF.CommonConfig
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
         {
             base.OnInitQueryConfig(queryConfig);
-            queryConfig.QuickQuery = View.CommonBillConfig.QueryConfig.QuickQuery;
+            queryConfig.QuickQuery = CommonBillConfig.QueryConfig.QuickQuery;
         }
+
+        #region 通用配置
+
+        private Dictionary<Guid, EntitySet<QueryEntity>> detailEntities = new Dictionary<Guid, EntitySet<QueryEntity>>();
+
+        public EntitySetBase CreateDetailEntitySet(EntitySetConfig config)
+        {
+            var es = new EntitySet<QueryEntity>(this.ExecuteCache);
+            es.DbTableName = config.DbTableName;
+            es.PrimaryKeyName = config.PrimaryKeyName;
+            es.IsReadOnly = config.IsReadOnly;
+
+            detailEntities.Add(config.UniqueId, es);
+            this.MainEntitySet.ChildEntitySets.Add(es);
+            return es;
+        }
+
+        /// <summary>
+        /// 通用配置
+        /// </summary>
+        public CommonBillConfig CommonBillConfig
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 查询通用单据配置
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public void QueryBillConfig(object key)
+        {
+            var configEntitySet = new EntitySet<sysCommonBillConfig>();
+
+            string sql = @"
+            SELECT a.Iden,a.Config
+            FROM dbo.sysCommonBillConfig a WITH(NOLOCK)
+            WHERE Iden=:Iden";
+            configEntitySet.Query(sql, key);
+
+            if (configEntitySet.CurrentEntity == null || configEntitySet.CurrentEntity.Config.IsEmpty())
+                CommonBillConfig = null;
+            CommonBillConfig = (CommonBillConfig)XmlSerializerHelper.Deserialize<CommonBillConfig>(configEntitySet.CurrentEntity.Config);
+        }
+
+        #endregion
+
     }
 }

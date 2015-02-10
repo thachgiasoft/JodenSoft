@@ -19,11 +19,16 @@ using DevExpress.Utils;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.CommonConfig.Entities;
 using SAF.CommonConfig.CommonBill;
+using SAF.Foundation.ComponentModel;
+using SAF.Foundation.ServiceModel;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraBars;
+using SAF.CommonConfig.Properties;
 
 namespace SAF.CommonConfig
 {
     [BusinessObject("通用单据")]
-    public partial class sysCommonBillView : MasterDetailView
+    public partial class sysCommonBillView : SingleView
     {
         public sysCommonBillView()
         {
@@ -42,7 +47,7 @@ namespace SAF.CommonConfig
 
         protected override Framework.ViewModel.IBaseViewViewModel OnCreateViewModel()
         {
-            return new sysCommonBillViewViewModel() { View = this };
+            return new sysCommonBillViewViewModel();
         }
 
         public new sysCommonBillViewViewModel ViewModel
@@ -61,20 +66,19 @@ namespace SAF.CommonConfig
             }
         }
 
-        private CommonBillConfig config = new CommonBillConfig();
-
         protected override void OnInitCommonBill()
         {
             base.OnInitCommonBill();
 
-            var config = QueryBillConfg(this.CommonBillConfigId);
+            this.ViewModel.QueryBillConfig(this.CommonBillConfigId);
 
-            CreateIndexControl(config.IndexEntitySetConfig);
+            CreateIndexControl(this.ViewModel.CommonBillConfig.IndexEntitySetConfig);
 
-            CreateMainControl(config.MainEntitySetConfig);
+            CreateMainControl(this.ViewModel.CommonBillConfig.MainEntitySetConfig);
 
-            CreateDetailsControl(config.DetailEntitySetConfigs);
+            CreateDetailsControl(this.ViewModel.CommonBillConfig.DetailEntitySetConfigs);
         }
+
 
         private void CreateDetailsControl(IList<EntitySetConfig> dtlConfigs)
         {
@@ -93,48 +97,84 @@ namespace SAF.CommonConfig
             else
                 this.tcDtl.ShowTabHeader = DefaultBoolean.True;
 
-
             for (int i = 0; i < dtlConfigs.Count; i++)
             {
-                var config = dtlConfigs[i];
+                var dtlConfig = dtlConfigs[i];
 
                 var page = this.tcDtl.TabPages.Add();
                 page.Padding = new System.Windows.Forms.Padding(1);
-                page.Text = config.Caption.IsEmpty() ? "明细数据" + i : config.Caption;
+                page.Text = dtlConfig.Caption.IsEmpty() ? "明细数据" + i : dtlConfig.Caption;
+
                 var bsDtl = new BindingSource();
 
-                var dtlEntity = new EntitySet<QueryEntity>(this.ViewModel.ExecuteCache);
-                dtlEntity.IsReadOnly = config.IsReadOnly;
-                this.dtlEntitys.Add(dtlEntity);
+                var dtlEntity = this.ViewModel.CreateDetailEntitySet(dtlConfig);
                 dtlEntity.SetBindingSource(bsDtl);
 
-                if (config.ControlType == EntitySetControlType.GridControl)
+                if (dtlConfig.ControlType == EntitySetControlType.GridControl)
                 {
-                    var grdDtl = new GridControl() { Name = "grdDtl_" + i };
-                    var grvDtl = new GridView(grdDtl) { Name = "grvDtl_" + i };
-                    gridViews.Add(grvDtl);
-                    grvDtl.OptionsView.ColumnAutoWidth = false;
-                    grvDtl.OptionsBehavior.Editable = true;
+                    var standalone = CreateStandaloneBarDockControl(dtlConfig);
+                    standalone.Dock = DockStyle.Top;
+                    page.Controls.Add(standalone);
 
-                    grdDtl.ViewCollection.Add(grvDtl);
-                    grdDtl.MainView = grvDtl;
+                    var bar = CreateDetailToolbar(dtlConfig);
+                    bar.StandaloneBarDockControl = standalone;
 
+                    var grdDtl = this.CreateGridControl(dtlConfig);
+                    var grvDtl = grdDtl.MainView as GridView;
                     page.Controls.Add(grdDtl);
                     grdDtl.Dock = DockStyle.Fill;
+                    grdDtl.BringToFront();
                     grdDtl.DataSource = bsDtl;
-                    this.ViewModel.IndexEntitySet.SetBindingSource(this.bsIndex);
-
-                    foreach (var field in config.Fields)
-                    {
-                        var column = grvDtl.Columns.AddField(field.FieldName);
-                        column.Caption = field.Caption.IsEmpty() ? field.FieldName : field.Caption;
-                        column.OptionsColumn.ReadOnly = field.IsReadOnly;
-                        column.OptionsColumn.AllowEdit = !field.IsReadOnly;
-                        column.Visible = true;
-                    }
-
+                }
+                else
+                {
+                    MessageService.ShowError("索引区控件类型只支持GridControl");
                 }
             }
+        }
+
+        private StandaloneBarDockControl CreateStandaloneBarDockControl(EntitySetConfig dtlConfig)
+        {
+            var standalone = new StandaloneBarDockControl();
+            standalone.Name = "barStandalone_" + dtlConfig.UniqueId.ToString("N");
+            standalone.Text = "barStandalone_" + dtlConfig.Caption;
+            standalone.Height = 28;
+            bmMain.DockControls.Add(standalone);
+            return standalone;
+        }
+
+        private Bar CreateDetailToolbar(EntitySetConfig dtlConfig)
+        {
+            var bar = new Bar();
+
+            bar.BarName = "bar_" + dtlConfig.UniqueId.ToString("N");
+            bar.Text = "bar" + dtlConfig.Caption;
+            bar.CanDockStyle = BarCanDockStyle.Standalone;
+            bar.DockStyle = BarDockStyle.Standalone;
+            bar.DockCol = 0;
+            bar.DockRow = 0;
+            bar.OptionsBar.AllowQuickCustomization = false;
+            bar.OptionsBar.DrawDragBorder = false;
+            bar.OptionsBar.UseWholeRow = true;
+            this.bmMain.Bars.Add(bar);
+
+            BarButtonItem bbiDtl = new BarButtonItem(bmMain, "新增");
+            bbiDtl.Glyph = Resources.Action_New_16x16;
+            bbiDtl.Id = 1;
+            bbiDtl.Name = "bbiDtl_" + dtlConfig.UniqueId.ToString("N");
+            bbiDtl.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            bbiDtl.Tag = dtlConfig.UniqueId;
+            bar.LinksPersistInfo.Add(new LinkPersistInfo(bbiDtl, true));
+
+            bbiDtl = new BarButtonItem(bmMain, "删除");
+            bbiDtl.Glyph = Resources.Action_Delete_16x16;
+            bbiDtl.Id = 2;
+            bbiDtl.Name = "bbiDtl_" + dtlConfig.UniqueId.ToString("N");
+            bbiDtl.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            bbiDtl.Tag = dtlConfig.UniqueId;
+            bar.LinksPersistInfo.Add(new LinkPersistInfo(bbiDtl));
+
+            return bar;
         }
 
         private void CreateMainControl(EntitySetConfig mainConfig)
@@ -147,15 +187,21 @@ namespace SAF.CommonConfig
 
             this.ViewModel.MainEntitySet.SetBindingSource(this.bsMain);
 
-            int i = 0;
-            foreach (var field in mainConfig.Fields)
+            if (mainConfig.ControlType == EntitySetControlType.LayoutControl)
             {
-                LayoutControlItem lci = this.lcMain.Root.AddItem(field.Caption);
-                i++;
-                lci.Name = "lci_" + i;
-                var edt = new TextEdit() { Name = "edt_" + i };
-                edt.DataBindings.Add("EditValue", this.bsMain, field.FieldName);
-                lci.Control = edt;
+                foreach (var field in mainConfig.Fields)
+                {
+                    LayoutControlItem lci = this.lcMain.Root.AddItem(field.Caption.IsEmpty() ? field.FieldName : field.Caption);
+                    var name = Guid.NewGuid().ToString("N");
+                    lci.Name = "lci_" + name;
+                    var edt = new TextEdit() { Name = "lci_edt_" + name };
+                    edt.DataBindings.Add("EditValue", this.bsMain, field.FieldName);
+                    lci.Control = edt;
+                }
+            }
+            else
+            {
+                MessageService.ShowError("索引区控件类型只支持LayoutControl");
             }
 
         }
@@ -167,97 +213,87 @@ namespace SAF.CommonConfig
             this.ViewModel.IndexEntitySet.DbTableName = indexConfig.DbTableName;
             this.ViewModel.IndexEntitySet.PrimaryKeyName = indexConfig.PrimaryKeyName;
             this.ViewModel.IndexEntitySet.IsReadOnly = indexConfig.IsReadOnly;
+            this.ViewModel.IndexEntitySet.SetBindingSource(this.bsIndex);
 
             if (indexConfig.ControlType == EntitySetControlType.GridControl)
             {
-                var grdIndex = new GridControl() { Name = "grdIndex" };
-                var grvIndex = new GridView(grdIndex) { Name = "grvIndex" };
-                gridViews.Add(grvIndex);
-                grvIndex.OptionsView.ColumnAutoWidth = false;
-                grvIndex.OptionsBehavior.Editable = false;
-
+                var grdIndex = this.CreateGridControl(indexConfig);
+                var grvIndex = grdIndex.MainView as GridView;
                 grvIndex.FocusedRowChanged += (s, e) => { this.IndexRowChange(); };
-
-                grdIndex.ViewCollection.Add(grvIndex);
-                grdIndex.MainView = grvIndex;
-
                 this.splitMain.Panel1.Controls.Add(grdIndex);
                 grdIndex.Dock = DockStyle.Fill;
                 grdIndex.DataSource = this.bsIndex;
-                this.ViewModel.IndexEntitySet.SetBindingSource(this.bsIndex);
+                grvIndex.OptionsBehavior.Editable = false;
 
-                foreach (var field in indexConfig.Fields)
-                {
-                    var column = grvIndex.Columns.AddField(field.FieldName);
-                    column.Caption = field.Caption.IsEmpty() ? field.FieldName : field.Caption;
-                    column.Visible = true;
-                }
+            }
+            else if (indexConfig.ControlType == EntitySetControlType.TreeList)
+            {
+                var treeList = this.CreateTreeList(indexConfig);
+                treeList.FocusedNodeChanged += (s, e) => { this.IndexRowChange(); };
+                this.splitMain.Panel1.Controls.Add(treeList);
+                treeList.Dock = DockStyle.Fill;
+                treeList.DataSource = this.bsIndex;
+                treeList.OptionsBehavior.Editable = false;
+            }
+            else
+            {
+                MessageService.ShowError("索引区控件类型只支持GridControl和TreeList");
             }
         }
-        /// <summary>
-        /// 通用单据配置
-        /// </summary>
-        public CommonBillConfig CommonBillConfig = new CommonBillConfig();
-        /// <summary>
-        /// 通用单据查询实体
-        /// </summary>
-        public EntitySet<sysCommonBillConfig> CommonBillConfigEntitySet = new EntitySet<sysCommonBillConfig>();
-        /// <summary>
-        /// 所有明细实体集列表
-        /// </summary>
-        public List<EntitySet<QueryEntity>> dtlEntitys = new List<EntitySet<QueryEntity>>();
-        /// <summary>
-        /// 查询通用单据配置
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public CommonBillConfig QueryBillConfg(object key)
+
+        private GridControl CreateGridControl(EntitySetConfig config)
         {
-            //            string sql = @"
-            //SELECT a.Iden,a.Config,a.CreatedBy,a.CreatedOn,a.ModifiedBy,a.ModifiedOn,a.VersionNumber
-            //FROM dbo.sysCommonBillConfig a WITH(NOLOCK)
-            //WHERE Iden=:Iden";
-            //            IndexEntitySet.Query(sql, key);
-            //            if (IndexEntitySet.CurrentEntity == null || IndexEntitySet.CurrentEntity.Config.IsEmpty())
-            //                return null;
-            //            return XmlSerializerHelper.Deserialize<CommonBillConfig>(IndexEntitySet.CurrentEntity.Config);
+            var grd = new GridControl() { Name = "grd_" + config.UniqueId.ToString("N") };
+            var grv = new GridView(grd) { Name = "grv_" + config.UniqueId.ToString("N") };
+            gridViews.Add(grv);
+            grv.OptionsView.ColumnAutoWidth = false;
 
-            CommonBillConfig.QueryConfig.QuickQuery.QueryFields.Add(new QueryField("OrderNo", "订单号"));
+            grd.ViewCollection.Add(grv);
+            grd.MainView = grv;
 
-            CommonBillConfig.IndexEntitySetConfig.DbTableName = "sdOrder";
-            CommonBillConfig.IndexEntitySetConfig.PrimaryKeyName = "Iden";
-            CommonBillConfig.IndexEntitySetConfig.SqlScript = "SELECT * FROM dbo.sdOrder with(nolock)";
-            CommonBillConfig.IndexEntitySetConfig.IsReadOnly = true;
-            CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
-            CommonBillConfig.IndexEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
+            foreach (var field in config.Fields)
+            {
+                var column = grv.Columns.AddField(field.FieldName);
+                column.Caption = field.Caption.IsEmpty() ? field.FieldName : field.Caption;
+                column.Visible = true;
+            }
 
-            CommonBillConfig.MainEntitySetConfig.DbTableName = "sdOrder";
-            CommonBillConfig.MainEntitySetConfig.PrimaryKeyName = "Iden";
-            CommonBillConfig.MainEntitySetConfig.SqlScript = "SELECT * FROM dbo.sdOrder with(nolock) where Iden=:Iden";
-            CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("Iden", "序号"));
-            CommonBillConfig.MainEntitySetConfig.Fields.Add(new EntitySetField("OrderNo", "订单号"));
-
-            //var dtlConfig = new DetailEntitySetConfig();
-            //dtlConfig.DbTableName = "sdOrderDtl";
-            //dtlConfig.PrimaryKeyName = "Iden";
-            //dtlConfig.Caption = "订单明细";
-            //dtlConfig.Sql = " SELECT * FROM [dbo].[sdOrderDtl] WITH(NOLOCK) WHERE OrderId=:Iden";
-            //dtlConfig.Fields.Add(new EntitySetField("Iden", "序号", true));
-            //dtlConfig.Fields.Add(new EntitySetField("Qty", "数量"));
-            //CommonBillConfig.DetailEntitySetConfigs.Add(dtlConfig);
-
-            //dtlConfig = new DetailEntitySetConfig();
-            //dtlConfig.DbTableName = "sdOrderDtl";
-            //dtlConfig.PrimaryKeyName = "Iden";
-            //dtlConfig.Caption = "订单明细2";
-            //dtlConfig.Sql = " SELECT * FROM [dbo].[sdOrderDtl] WITH(NOLOCK) WHERE OrderId=:Iden";
-            //dtlConfig.Fields.Add(new EntitySetField("Iden", "序号", true));
-            //dtlConfig.Fields.Add(new EntitySetField("Qty", "数量"));
-            //CommonBillConfig.DetailEntitySetConfigs.Add(dtlConfig);
-
-            return CommonBillConfig;
-
+            return grd;
         }
 
+        private TreeList CreateTreeList(EntitySetConfig config)
+        {
+            var treeList = new TreeList();
+            treeList.KeyFieldName = config.ControlKeyFieldName;
+            treeList.ParentFieldName = config.ControlParentFieldName;
+
+            treeList.OptionsBehavior.AutoPopulateColumns = false;
+
+            if (config.Fields.Count <= 1)
+            {
+                treeList.OptionsView.ShowColumns = false;
+                treeList.OptionsView.ShowHorzLines = false;
+                treeList.OptionsView.ShowIndicator = false;
+                treeList.OptionsView.ShowVertLines = false;
+            }
+
+            for (int i = 0; i < config.Fields.Count; i++)
+            {
+                var field = config.Fields[0];
+
+                var colName = treeList.Columns.Add();
+                colName.Caption = field.Caption.IsEmpty() ? field.FieldName : field.Caption;
+                colName.FieldName = field.FieldName;
+                colName.Name = "treeList_col_" + Guid.NewGuid().ToString("N");
+                colName.OptionsColumn.AllowEdit = false;
+                colName.OptionsColumn.AllowMove = false;
+                colName.OptionsColumn.AllowSort = false;
+                colName.OptionsColumn.ReadOnly = true;
+                colName.Visible = true;
+                colName.VisibleIndex = i;
+            }
+
+            return treeList;
+        }
     }
 }

@@ -43,6 +43,10 @@ namespace SAF.CommonConfig
         {
             base.OnInitConfig();
             this.AccessFocusControl = this.txtName;
+
+            this.indexConfig.EntitySetType = EntitySetType.Index;
+            this.mainConfig.EntitySetType = EntitySetType.Main;
+            this.detailConfig.EntitySetType = EntitySetType.Detail;
         }
 
         protected override void OnRefreshUI()
@@ -50,9 +54,13 @@ namespace SAF.CommonConfig
             base.OnRefreshUI();
             UIController.RefreshControl(this.txtIden, false);
 
-            this.indexConfig.EntitySetType = EntitySetType.Index;
-            this.mainConfig.EntitySetType = EntitySetType.Main;
-            this.detailConfig.EntitySetType = EntitySetType.Detail;
+            //if (this.IsEdit || this.IsAddNew)
+            //{
+            //    if (CommonBillConfig != null && CommonBillConfig.DetailEntitySetConfigs.Count <= 0)
+            //        UIController.RefreshControl(this.detailConfig, false, true);
+            //}
+
+
         }
 
         protected override void OnInitEvent()
@@ -105,12 +113,6 @@ namespace SAF.CommonConfig
                 if (CommonBillConfig == null)
                     CommonBillConfig = new CommonBillConfig();
             }
-        }
-
-        protected override void OnAddNew()
-        {
-            CommonBillConfig = new CommonBillConfig();
-            base.OnAddNew();
         }
 
         protected override bool OnSave()
