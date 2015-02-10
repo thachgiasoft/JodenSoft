@@ -32,7 +32,7 @@ namespace FSDProdPlan
         {
             base.OnQueryChild(key);
             this.MainEntitySet.Query("SELECT  *  FROM  jdMoorder with(nolock) where Iden='{0}'".FormatEx(key));
-            this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo  AS sMaterialNo,sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
+            this.emEquipmentCapacityProduceEntity.Query("select Iden,uGuid,uEquipmentGuid,sEquipmentNo,sMaterialNo+'-'+sEquipmentNo  AS sMaterialNo,sMaterialName,uemEquipmentModelGUID,nCapacity from emEquipmentCapacityProduce with(nolock)");
            
         }
 

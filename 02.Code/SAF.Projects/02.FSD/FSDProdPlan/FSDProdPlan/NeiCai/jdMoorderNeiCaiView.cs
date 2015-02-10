@@ -158,7 +158,7 @@ namespace FSDProdPlan.NeiCai
         {
             ProgressService.Show("正在自动排机....");
             // PreProcessMessage    MessageService.ShowMessage("正在自动排机...");
-            DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "jd_zdpj");
+            DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "jd_zdpjnc");
             ProgressService.Close();
             MessageService.ShowMessage("排机完成");
 

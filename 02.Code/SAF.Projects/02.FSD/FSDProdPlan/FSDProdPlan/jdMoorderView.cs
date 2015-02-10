@@ -54,7 +54,7 @@ namespace FSDProdPlan
             }
             
             this.ViewModel.emEquipmentCapacityProduceEntity.SetBindingSource(bsch);
-            this.sluchbm.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
+           // this.sluchbm.Properties.DataSource = this.ViewModel.emEquipmentCapacityProduceEntity.DefaultView;
             this.sluchbm.Properties.DisplayMember = "sMaterialNo";
             this.sluchbm.Properties.ValueMember = "sMaterialNo";
         }
