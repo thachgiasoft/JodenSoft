@@ -12,6 +12,14 @@ namespace GTMS.PB
 {
     public class pbMaterialTypeViewViewModel : SingleViewViewModel<pbMaterialType, pbMaterialType>
     {
+        protected override void OnAfterSave(bool saveSucceed)
+        {
+            base.OnAfterSave(saveSucceed);
+            if (saveSucceed==true)
+            {
+              //
+            }
+        }
 
         protected override void OnInitEvents()
         {
@@ -25,11 +33,12 @@ namespace GTMS.PB
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.Usabled = true;
         }
+     
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
             string sql = @"
-SELECT  Iden, MaterialTypeId, MaterialTypeCode, MaterialTypeName, sDescription, Usabled, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn
+SELECT  Iden, MaterialTypeId, MaterialTypeCode, MaterialTypeName,MaterialCode=ISNULL(MaterialTypeCode,'')+ISNULL(MaterialTypeName,''), sDescription, Usabled, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn
 FROM dbo.pbMaterialType A WITH(NOLOCK)
 WHERE {0} ORDER BY MaterialTypeId".FormatEx(sCondition);
 
@@ -53,5 +62,6 @@ WHERE A.Iden=:Iden", key);
             queryConfig.QuickQuery.QueryFields.Add(new QueryField() { Caption = "物料类别名称", FieldName = "MaterialTypeName" });
   
         }
+
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.treeMenu = new DevExpress.XtraTreeList.TreeList();
-            this.colKey = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colMaterialTypeName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.treeList = new DevExpress.XtraEditors.TreeListLookUpEdit();
             this.treeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
@@ -103,7 +103,8 @@
             // treeMenu
             // 
             this.treeMenu.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colKey});
+            this.colMaterialTypeName});
+            this.treeMenu.CustomizationFormBounds = new System.Drawing.Rectangle(115, 373, 216, 190);
             this.treeMenu.DataSource = this.bsIndex;
             this.treeMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeMenu.KeyFieldName = "Iden";
@@ -121,7 +122,6 @@
             this.treeMenu.OptionsPrint.PrintHorzLines = false;
             this.treeMenu.OptionsPrint.PrintVertLines = false;
             this.treeMenu.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.treeMenu.OptionsView.ShowColumns = false;
             this.treeMenu.OptionsView.ShowFocusedFrame = false;
             this.treeMenu.OptionsView.ShowHorzLines = false;
             this.treeMenu.OptionsView.ShowIndicator = false;
@@ -129,16 +129,16 @@
             this.treeMenu.ParentFieldName = "MaterialTypeId";
             this.treeMenu.Size = new System.Drawing.Size(282, 284);
             this.treeMenu.TabIndex = 2;
+            this.treeMenu.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeMenu_FocusedNodeChanged_1);
             // 
-            // colKey
+            // colMaterialTypeName
             // 
-            this.colKey.Caption = "Name";
-            this.colKey.FieldName = "Name";
-            this.colKey.MinWidth = 33;
-            this.colKey.Name = "colKey";
-            this.colKey.SummaryFooterStrFormat = "";
-            this.colKey.Visible = true;
-            this.colKey.VisibleIndex = 0;
+            this.colMaterialTypeName.Caption = "全部物料类别";
+            this.colMaterialTypeName.FieldName = "MaterialCode";
+            this.colMaterialTypeName.Name = "colMaterialTypeName";
+            this.colMaterialTypeName.Visible = true;
+            this.colMaterialTypeName.VisibleIndex = 0;
+            this.colMaterialTypeName.Width = 20;
             // 
             // lcMain
             // 
@@ -335,7 +335,6 @@
         #endregion
 
         private DevExpress.XtraTreeList.TreeList treeMenu;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colKey;
         private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraEditors.TreeListLookUpEdit treeList;
         private DevExpress.XtraTreeList.TreeList treeListLookUpEdit1TreeList;
@@ -349,5 +348,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colMaterialTypeName;
     }
 }

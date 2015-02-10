@@ -39,24 +39,26 @@ namespace GTMS.PB
                 return base.ViewModel as pbMaterialTypeViewViewModel;
             }
         }
-        protected override void OnIndexRowChange()
+        protected override void OnAfterInit()
         {
-            base.OnIndexRowChange();
+            base.OnAfterInit();
             InitChooseTreeList();
         }
         private void InitChooseTreeList()
-        {   
-            this.treeList.Properties.DataSource = this.ViewModel.MainEntitySet.DefaultView;
-            this.treeList.Properties.ValueMember = "Iden";
-            this.treeList.Properties.DisplayMember = "MaterialTypeName";
-            this.treeList.Properties.TreeList.KeyFieldName = "Iden";
-            this.treeList.Properties.TreeList.ParentFieldName = "MaterialTypeId";
-            this.treeList.Properties.TreeList.OptionsView.ShowColumns = false;
-            this.treeList.Properties.TreeList.OptionsView.ShowIndicator = false;
-            this.treeList.Properties.TreeList.OptionsView.ShowHorzLines = false;
-            this.treeList.Properties.TreeList.OptionsView.ShowVertLines = false;
+        {  
+            this.treeList.Properties.SetDataSource(this.ViewModel.IndexEntitySet.DefaultView, "Iden", "MaterialTypeName", "MaterialTypeId");
         }
- 
+
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+            this.treeMenu.FocusedNodeChanged += treeMenu_FocusedNodeChanged;
+        }
+
+        void treeMenu_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            this.IndexRowChange();
+        }
 
         private void treeList_ParseEditValue(object sender, ConvertEditValueEventArgs e)
         {
@@ -64,6 +66,11 @@ namespace GTMS.PB
         }
 
         private void searchLookUpEdit_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void treeMenu_FocusedNodeChanged_1(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
 
         }
