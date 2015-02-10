@@ -44,9 +44,37 @@ namespace SAF.CommonConfig
             base.OnInitConfig();
             this.AccessFocusControl = this.txtName;
 
-            this.indexConfig.EntitySetType = EntitySetType.Index;
-            this.mainConfig.EntitySetType = EntitySetType.Main;
-            this.detailConfig.EntitySetType = EntitySetType.Detail;
+            this.indexConfigControl.EntitySetType = EntitySetType.Index;
+            this.mainConfigControl.EntitySetType = EntitySetType.Main;
+        }
+
+        protected override void OnInitBinding()
+        {
+            base.OnInitBinding();
+
+            this.DataBindings.Add("Config", this.bsMain, "Config");
+        }
+
+        private CommonBillConfig _CommonBillConfig = new CommonBillConfig();
+
+        public string Config
+        {
+            get { return XmlSerializerHelper.Serialize<CommonBillConfig>(_CommonBillConfig); }
+            set
+            {
+                var obj = XmlSerializerHelper.Deserialize<CommonBillConfig>(value);
+                if (obj == null)
+                    _CommonBillConfig = new CommonBillConfig();
+                else
+                    _CommonBillConfig = obj;
+
+                this.indexConfigControl.EntitySetConfig = _CommonBillConfig.IndexEntitySetConfig;
+                this.mainConfigControl.EntitySetConfig = _CommonBillConfig.MainEntitySetConfig;
+
+                this.detailEntitySetConfigControl.DetailEntitySetConfigs = _CommonBillConfig.DetailEntitySetConfigs;
+
+                this.queryConfigControl.QueryConfig = _CommonBillConfig.QueryConfig;
+            }
         }
 
         protected override void OnRefreshUI()
@@ -54,19 +82,15 @@ namespace SAF.CommonConfig
             base.OnRefreshUI();
             UIController.RefreshControl(this.txtIden, false);
 
-            //if (this.IsEdit || this.IsAddNew)
-            //{
-            //    if (CommonBillConfig != null && CommonBillConfig.DetailEntitySetConfigs.Count <= 0)
-            //        UIController.RefreshControl(this.detailConfig, false, true);
-            //}
-
-
+            if (this.IsEdit || this.IsAddNew)
+            {
+                detailEntitySetConfigControl.RefreshUI();
+            }
         }
 
         protected override void OnInitEvent()
         {
             base.OnInitEvent();
-
             this.grvIndex.FocusedRowChanged += grvIndex_FocusedRowChanged;
         }
 
@@ -74,77 +98,5 @@ namespace SAF.CommonConfig
         {
             this.IndexRowChange();
         }
-
-        private CommonBillConfig _CommonBillConfig = new CommonBillConfig();
-        public CommonBillConfig CommonBillConfig
-        {
-            get { return _CommonBillConfig; }
-            set
-            {
-                if (value == null)
-                    _CommonBillConfig = new CommonBillConfig();
-                else
-                    _CommonBillConfig = value;
-
-                BindingCommonBillConfig();
-            }
-        }
-
-        private void BindingCommonBillConfig()
-        {
-            this.indexConfig.EntitySetConfig = CommonBillConfig.IndexEntitySetConfig;
-            this.mainConfig.EntitySetConfig = CommonBillConfig.MainEntitySetConfig;
-
-            this.queryConfig.QueryConfig = CommonBillConfig.QueryConfig;
-
-            this.bsDetailEntitySetConfig.DataSource = CommonBillConfig.DetailEntitySetConfigs;
-            this.listDetailEntitySet.DataSource = bsDetailEntitySetConfig;
-            this.listDetailEntitySet.DisplayMember = "Caption";
-            this.listDetailEntitySet.ValueMember = "Caption";
-        }
-
-        protected override void OnIndexRowChange()
-        {
-            base.OnIndexRowChange();
-
-            if (this.ViewModel.MainEntitySet.CurrentEntity != null)
-            {
-                CommonBillConfig = XmlSerializerHelper.Deserialize<CommonBillConfig>(this.ViewModel.MainEntitySet.CurrentEntity.Config);
-                if (CommonBillConfig == null)
-                    CommonBillConfig = new CommonBillConfig();
-            }
-        }
-
-        protected override bool OnSave()
-        {
-            if (this.ViewModel.MainEntitySet.Count > 0 && (this.IsAddNew || this.IsEdit))
-            {
-                var config = XmlSerializerHelper.Serialize(this.CommonBillConfig);
-                this.ViewModel.MainEntitySet.CurrentEntity.Config = config;
-            }
-            return base.OnSave();
-        }
-
-        private void listDetailEntitySet_SelectedValueChanged(object sender, EventArgs e)
-        {
-            this.detailConfig.EntitySetConfig = listDetailEntitySet.SelectedItem as EntitySetConfig;
-        }
-
-        private int EntitySetIndex = 0;
-        private void btnDetailEntitySetConfigAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            var obj = this.bsDetailEntitySetConfig.AddNew() as EntitySetConfig;
-
-            obj.Caption = "EntitySet " + EntitySetIndex++;
-            this.bsDetailEntitySetConfig.EndEdit();
-            this.bsDetailEntitySetConfig.ResetBindings(false);
-            this.detailConfig.ResetBindings();
-        }
-
-        private void btnDetailEntitySetConfigDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.bsDetailEntitySetConfig.RemoveCurrent();
-        }
-
     }
 }

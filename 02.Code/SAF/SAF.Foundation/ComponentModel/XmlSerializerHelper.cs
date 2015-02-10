@@ -21,6 +21,8 @@ namespace SAF.Foundation.ComponentModel
 
         public static T Deserialize<T>(string s)
         {
+            if (s.IsEmpty()) return default(T);
+
             using (StringReader sr = new StringReader(s))
             {
                 XmlSerializer xz = new XmlSerializer(typeof(T));

@@ -106,12 +106,11 @@ namespace SAF.Framework
             if (aControl == null)
                 return;
             Color colorTrue = Color.White;
-            Color colorFalse = Color.Red; //Color.WhiteSmoke;
+            Color colorFalse = Color.WhiteSmoke;
             if (aControl is GridControl)
             {
                 GridControl grid = aControl as GridControl;
                 GridView view = grid.MainView as GridView;
-                RefreshControl(grid, bEnabled);
                 RefreshControl(view, bEnabled);
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel

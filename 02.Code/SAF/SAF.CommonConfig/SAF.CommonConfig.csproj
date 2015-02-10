@@ -60,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonBill\CommonBillConfig.cs" />
+    <Compile Include="CommonBill\DetailEntitySetConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonBill\DetailEntitySetConfigControl.Designer.cs">
+      <DependentUpon>DetailEntitySetConfigControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonConfigInfo.cs" />
     <Compile Include="CommonBill\EntitySetConfigControl.cs">
       <SubType>UserControl</SubType>
@@ -143,6 +149,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CommonBill\DetailEntitySetConfigControl.resx">
+      <DependentUpon>DetailEntitySetConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonBill\EntitySetConfigControl.resx">
       <DependentUpon>EntitySetConfigControl.cs</DependentUpon>
     </EmbeddedResource>

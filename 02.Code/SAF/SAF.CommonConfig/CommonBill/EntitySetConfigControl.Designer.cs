@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lcEntitySet = new DevExpress.XtraLayout.LayoutControl();
-            this.txtCaption = new DevExpress.XtraEditors.TextEdit();
+            this.txtForeignKey = new DevExpress.XtraEditors.TextEdit();
             this.bsConfig = new System.Windows.Forms.BindingSource(this.components);
             this.bmEntitySetConfig = new DevExpress.XtraBars.BarManager(this.components);
             this.barEntitySetFields = new DevExpress.XtraBars.Bar();
@@ -44,6 +44,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.txtCaption = new DevExpress.XtraEditors.TextEdit();
             this.grdFields = new DevExpress.XtraGrid.GridControl();
             this.bsFields = new System.Windows.Forms.BindingSource(this.components);
             this.grvFields = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -58,7 +59,7 @@
             this.txtControlKeyField = new DevExpress.XtraEditors.TextEdit();
             this.cbmControlType = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.txtTableName = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtPrimaryKey = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtPrimaryKey = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -68,18 +69,19 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciControlKeyField = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
             this.lciCaption = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciControlParentField = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lciForeignKey = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lcEntitySet)).BeginInit();
             this.lcEntitySet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCaption.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtForeignKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmEntitySetConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCaption.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdFields)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFields)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFields)).BeginInit();
@@ -99,17 +101,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciControlKeyField)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciControlParentField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciForeignKey)).BeginInit();
             this.SuspendLayout();
             // 
             // lcEntitySet
             // 
+            this.lcEntitySet.Controls.Add(this.txtForeignKey);
             this.lcEntitySet.Controls.Add(this.txtCaption);
             this.lcEntitySet.Controls.Add(this.barDockFields);
             this.lcEntitySet.Controls.Add(this.grdFields);
@@ -128,15 +131,15 @@
             this.lcEntitySet.TabIndex = 1;
             this.lcEntitySet.Text = "lcIndexEntitySet";
             // 
-            // txtCaption
+            // txtForeignKey
             // 
-            this.txtCaption.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "Caption", true));
-            this.txtCaption.Location = new System.Drawing.Point(241, 3);
-            this.txtCaption.MenuManager = this.bmEntitySetConfig;
-            this.txtCaption.Name = "txtCaption";
-            this.txtCaption.Size = new System.Drawing.Size(122, 20);
-            this.txtCaption.StyleController = this.lcEntitySet;
-            this.txtCaption.TabIndex = 9;
+            this.txtForeignKey.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "ForeignKey", true));
+            this.txtForeignKey.Location = new System.Drawing.Point(66, 75);
+            this.txtForeignKey.MenuManager = this.bmEntitySetConfig;
+            this.txtForeignKey.Name = "txtForeignKey";
+            this.txtForeignKey.Size = new System.Drawing.Size(297, 20);
+            this.txtForeignKey.StyleController = this.lcEntitySet;
+            this.txtForeignKey.TabIndex = 11;
             // 
             // bsConfig
             // 
@@ -213,7 +216,6 @@
             this.btnEntitySetConfigFieldUp.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Up_16x16;
             this.btnEntitySetConfigFieldUp.Id = 3;
             this.btnEntitySetConfigFieldUp.Name = "btnEntitySetConfigFieldUp";
-            this.btnEntitySetConfigFieldUp.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnEntitySetConfigFieldUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEntitySetConfigFieldUp_ItemClick);
             // 
             // btnEntitySetConfigFieldDown
@@ -222,7 +224,6 @@
             this.btnEntitySetConfigFieldDown.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Down_16x16;
             this.btnEntitySetConfigFieldDown.Id = 4;
             this.btnEntitySetConfigFieldDown.Name = "btnEntitySetConfigFieldDown";
-            this.btnEntitySetConfigFieldDown.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnEntitySetConfigFieldDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEntitySetConfigFieldDown_ItemClick);
             // 
             // barDockFields
@@ -261,6 +262,16 @@
             this.barDockControlRight.Location = new System.Drawing.Point(718, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 355);
             // 
+            // txtCaption
+            // 
+            this.txtCaption.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "Caption", true));
+            this.txtCaption.Location = new System.Drawing.Point(241, 3);
+            this.txtCaption.MenuManager = this.bmEntitySetConfig;
+            this.txtCaption.Name = "txtCaption";
+            this.txtCaption.Size = new System.Drawing.Size(122, 20);
+            this.txtCaption.StyleController = this.lcEntitySet;
+            this.txtCaption.TabIndex = 9;
+            // 
             // grdFields
             // 
             this.grdFields.Cursor = System.Windows.Forms.Cursors.Default;
@@ -271,7 +282,7 @@
             this.grdFields.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.memoSql,
             this.cbxFieldType});
-            this.grdFields.Size = new System.Drawing.Size(339, 277);
+            this.grdFields.Size = new System.Drawing.Size(339, 282);
             this.grdFields.TabIndex = 1;
             this.grdFields.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvFields});
@@ -345,9 +356,9 @@
             // 
             this.txtSqlScript.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfig, "SqlScript", true));
             this.txtSqlScript.IsReadOnly = false;
-            this.txtSqlScript.Location = new System.Drawing.Point(7, 102);
+            this.txtSqlScript.Location = new System.Drawing.Point(7, 126);
             this.txtSqlScript.Name = "txtSqlScript";
-            this.txtSqlScript.Size = new System.Drawing.Size(352, 241);
+            this.txtSqlScript.Size = new System.Drawing.Size(352, 222);
             this.txtSqlScript.TabIndex = 0;
             // 
             // txtControlParentField
@@ -396,8 +407,6 @@
             this.txtPrimaryKey.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsConfig, "PrimaryKeyName", true));
             this.txtPrimaryKey.Location = new System.Drawing.Point(241, 51);
             this.txtPrimaryKey.Name = "txtPrimaryKey";
-            this.txtPrimaryKey.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtPrimaryKey.Size = new System.Drawing.Size(122, 20);
             this.txtPrimaryKey.StyleController = this.lcEntitySet;
             this.txtPrimaryKey.TabIndex = 8;
@@ -411,13 +420,13 @@
             this.tabbedControlGroup1,
             this.tabbedControlGroup2,
             this.lciControlKeyField,
-            this.splitterItem1,
             this.splitterItem2,
             this.lciCaption,
             this.layoutControlItem3,
             this.lciControlParentField,
             this.layoutControlItem6,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.lciForeignKey});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
@@ -428,12 +437,12 @@
             // tabbedControlGroup1
             // 
             this.tabbedControlGroup1.CustomizationFormText = "查询脚本";
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 72);
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 96);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup6;
             this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(364, 276);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(364, 257);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup6});
             this.tabbedControlGroup1.Text = "查询脚本";
@@ -445,7 +454,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(356, 245);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(356, 226);
             this.layoutControlGroup6.Text = "查询脚本";
             // 
             // layoutControlItem4
@@ -454,7 +463,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(356, 245);
+            this.layoutControlItem4.Size = new System.Drawing.Size(356, 226);
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
@@ -468,7 +477,7 @@
             this.tabbedControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.tabbedControlGroup2.SelectedTabPage = this.layoutControlGroup7;
             this.tabbedControlGroup2.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup2.Size = new System.Drawing.Size(347, 348);
+            this.tabbedControlGroup2.Size = new System.Drawing.Size(347, 353);
             this.tabbedControlGroup2.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup7});
             this.tabbedControlGroup2.Text = "字段";
@@ -481,7 +490,7 @@
             this.layoutControlItem8});
             this.layoutControlGroup7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(339, 317);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(339, 322);
             this.layoutControlGroup7.Text = "索引字段";
             // 
             // layoutControlItem5
@@ -491,7 +500,7 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlItem5.Size = new System.Drawing.Size(339, 277);
+            this.layoutControlItem5.Size = new System.Drawing.Size(339, 282);
             this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextToControlDistance = 0;
@@ -519,21 +528,13 @@
             this.lciControlKeyField.Text = "控件主字段";
             this.lciControlKeyField.TextSize = new System.Drawing.Size(60, 14);
             // 
-            // splitterItem1
-            // 
-            this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(0, 348);
-            this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(716, 5);
-            // 
             // splitterItem2
             // 
             this.splitterItem2.AllowHotTrack = true;
             this.splitterItem2.CustomizationFormText = "splitterItem2";
             this.splitterItem2.Location = new System.Drawing.Point(364, 0);
             this.splitterItem2.Name = "splitterItem2";
-            this.splitterItem2.Size = new System.Drawing.Size(5, 348);
+            this.splitterItem2.Size = new System.Drawing.Size(5, 353);
             // 
             // lciCaption
             // 
@@ -585,6 +586,16 @@
             this.layoutControlItem7.Text = "表主键名";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
             // 
+            // lciForeignKey
+            // 
+            this.lciForeignKey.Control = this.txtForeignKey;
+            this.lciForeignKey.CustomizationFormText = "表外键";
+            this.lciForeignKey.Location = new System.Drawing.Point(0, 72);
+            this.lciForeignKey.Name = "lciForeignKey";
+            this.lciForeignKey.Size = new System.Drawing.Size(364, 24);
+            this.lciForeignKey.Text = "表外键";
+            this.lciForeignKey.TextSize = new System.Drawing.Size(60, 14);
+            // 
             // EntitySetConfigControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -598,9 +609,10 @@
             this.Size = new System.Drawing.Size(718, 355);
             ((System.ComponentModel.ISupportInitialize)(this.lcEntitySet)).EndInit();
             this.lcEntitySet.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtCaption.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtForeignKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmEntitySetConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCaption.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdFields)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFields)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFields)).EndInit();
@@ -620,13 +632,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciControlKeyField)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciCaption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciControlParentField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciForeignKey)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -660,7 +672,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem lciControlParentField;
-        private DevExpress.XtraLayout.SplitterItem splitterItem1;
         private DevExpress.XtraBars.BarManager bmEntitySetConfig;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -678,6 +689,8 @@
         private System.Windows.Forms.BindingSource bsFields;
         private DevExpress.XtraLayout.SplitterItem splitterItem2;
         private DevExpress.XtraEditors.ComboBoxEdit txtTableName;
-        private DevExpress.XtraEditors.ComboBoxEdit txtPrimaryKey;
+        private DevExpress.XtraEditors.TextEdit txtForeignKey;
+        private DevExpress.XtraLayout.LayoutControlItem lciForeignKey;
+        private DevExpress.XtraEditors.TextEdit txtPrimaryKey;
     }
 }

@@ -223,12 +223,13 @@ namespace SAF.Framework.ViewModel
         {
             try
             {
-                OnAddNew();
                 this.EditState = EditState.AddNew;
+                OnAddNew();
             }
             catch
             {
                 this.Cancel();
+                this.EditState = EditState.Browse;
                 throw;
             }
         }
@@ -259,8 +260,8 @@ namespace SAF.Framework.ViewModel
 
         public void Edit()
         {
-            OnEdit();
             this.EditState = EditState.Edit;
+            OnEdit();       
         }
 
         protected virtual void OnEdit()
@@ -274,9 +275,9 @@ namespace SAF.Framework.ViewModel
             this.MainEntitySet.IsBusy = true;
             try
             {
+                this.EditState = EditState.Browse;
                 OnDelete();
                 Save();
-                this.EditState = EditState.Browse;
             }
             finally
             {
@@ -302,8 +303,8 @@ namespace SAF.Framework.ViewModel
 
         public void Cancel()
         {
-            OnCancel();
             this.EditState = EditState.Browse;
+            OnCancel();         
         }
 
         protected virtual void OnCancel()

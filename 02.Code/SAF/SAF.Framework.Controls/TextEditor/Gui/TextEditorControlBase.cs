@@ -132,8 +132,20 @@ namespace SAF.Framework.Controls.TextEditor
             }
             set
             {
-                Document.TextContent = value;
+                //Document.TextContent = value;
+
+                if (Document.TextContent != value)
+                {
+                    Document.TextContent = value;
+                    Document.RequestUpdate(new TextAreaUpdate(TextAreaUpdateType.WholeTextArea));
+                    Document.CommitUpdate();
+                }
             }
+        }
+
+        public void Clear()
+        {
+            Text = string.Empty;
         }
 
         [EditorBrowsable(EditorBrowsableState.Always), Browsable(true)]

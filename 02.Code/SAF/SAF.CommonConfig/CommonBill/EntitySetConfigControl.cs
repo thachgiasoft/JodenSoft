@@ -26,6 +26,12 @@ namespace SAF.CommonConfig.CommonBill
             {
                 _EntitySetType = value;
                 lciCaption.Visibility = (_EntitySetType.In(EntitySetType.Index, EntitySetType.Main) ? LayoutVisibility.Never : LayoutVisibility.Always);
+                lciForeignKey.Visibility = (_EntitySetType.In(EntitySetType.Index, EntitySetType.Main) ? LayoutVisibility.Never : LayoutVisibility.Always);
+
+                if (_EntitySetType.In(EntitySetType.Index, EntitySetType.Main))
+                {
+                    txtForeignKey.EditValue = string.Empty;
+                }
             }
         }
 
@@ -45,15 +51,14 @@ namespace SAF.CommonConfig.CommonBill
                 this.bsConfig.DataSource = _EntitySetConfig;
                 this.bsFields.DataSource = _EntitySetConfig.Fields;
 
-                this.bsConfig.ResetBindings(false);
-                this.bsFields.ResetBindings(false);
+                ResetBindingSource();
             }
         }
 
-        public void ResetBindings()
+        public void ResetBindingSource()
         {
-            this.bsConfig.ResetBindings(false);
-            this.bsFields.ResetBindings(false);
+            this.bsConfig.ResetBindings(true);
+            this.bsFields.ResetBindings(true);
         }
 
         public EntitySetConfigControl()

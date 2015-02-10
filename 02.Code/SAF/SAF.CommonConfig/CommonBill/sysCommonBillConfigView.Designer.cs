@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -45,21 +44,13 @@
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tcConfig = new DevExpress.XtraTab.XtraTabControl();
             this.pageIndexConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.indexConfig = new SAF.CommonConfig.CommonBill.EntitySetConfigControl();
-            this.pageMainConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.mainConfig = new SAF.CommonConfig.CommonBill.EntitySetConfigControl();
-            this.pageDetailConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.pnlDetailEntityConfig = new DevExpress.XtraEditors.PanelControl();
-            this.listDetailEntitySet = new DevExpress.XtraEditors.ListBoxControl();
-            this.standaloneBarDockControl1 = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.detailConfig = new SAF.CommonConfig.CommonBill.EntitySetConfigControl();
+            this.indexConfigControl = new SAF.CommonConfig.CommonBill.EntitySetConfigControl();
             this.pageQueryConfig = new DevExpress.XtraTab.XtraTabPage();
-            this.queryConfig = new SAF.CommonConfig.CommonBill.QueryConfigControl();
-            this.barDetailEntitySet = new DevExpress.XtraBars.Bar();
-            this.btnDetailEntitySetConfigAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDetailEntitySetConfigDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.bsDetailEntitySetConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.queryConfigControl = new SAF.CommonConfig.CommonBill.QueryConfigControl();
+            this.pageMainConfig = new DevExpress.XtraTab.XtraTabPage();
+            this.mainConfigControl = new SAF.CommonConfig.CommonBill.EntitySetConfigControl();
+            this.pageDetailConfig = new DevExpress.XtraTab.XtraTabPage();
+            this.detailEntitySetConfigControl = new SAF.CommonConfig.CommonBill.DetailEntitySetConfigControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -93,15 +84,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcConfig)).BeginInit();
             this.tcConfig.SuspendLayout();
             this.pageIndexConfig.SuspendLayout();
+            this.pageQueryConfig.SuspendLayout();
             this.pageMainConfig.SuspendLayout();
             this.pageDetailConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDetailEntityConfig)).BeginInit();
-            this.pnlDetailEntityConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listDetailEntitySet)).BeginInit();
-            this.pageQueryConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDetailEntitySetConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -115,14 +100,6 @@
             this.splitMain.Panel1.Controls.Add(this.grdIndex);
             this.splitMain.Size = new System.Drawing.Size(993, 296);
             this.splitMain.SplitterPosition = 233;
-            // 
-            // bsIndex
-            // 
-            this.bsIndex.DataSource = typeof(SAF.CommonConfig.Entities.sysCommonBillConfig);
-            // 
-            // bsMain
-            // 
-            this.bsMain.DataSource = typeof(SAF.CommonConfig.Entities.sysCommonBillConfig);
             // 
             // pnlQueryControl
             // 
@@ -156,12 +133,6 @@
             // 
             // bmMain
             // 
-            this.bmMain.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.barDetailEntitySet});
-            this.bmMain.DockControls.Add(this.standaloneBarDockControl1);
-            this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnDetailEntitySetConfigAdd,
-            this.btnDetailEntitySetConfigDelete});
             this.bmMain.MaxItemId = 8;
             // 
             // layoutControl1
@@ -325,149 +296,70 @@
             this.tcConfig.TabIndex = 0;
             this.tcConfig.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageIndexConfig,
+            this.pageQueryConfig,
             this.pageMainConfig,
-            this.pageDetailConfig,
-            this.pageQueryConfig});
+            this.pageDetailConfig});
             // 
             // pageIndexConfig
             // 
-            this.pageIndexConfig.Controls.Add(this.indexConfig);
+            this.pageIndexConfig.Controls.Add(this.indexConfigControl);
             this.pageIndexConfig.Name = "pageIndexConfig";
             this.pageIndexConfig.Size = new System.Drawing.Size(749, 219);
             this.pageIndexConfig.Text = "索引配置";
             // 
-            // indexConfig
+            // indexConfigControl
             // 
-            this.indexConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.indexConfig.Location = new System.Drawing.Point(0, 0);
-            this.indexConfig.Name = "indexConfig";
-            this.indexConfig.Size = new System.Drawing.Size(749, 219);
-            this.indexConfig.TabIndex = 0;
-            // 
-            // pageMainConfig
-            // 
-            this.pageMainConfig.Controls.Add(this.mainConfig);
-            this.pageMainConfig.Name = "pageMainConfig";
-            this.pageMainConfig.Size = new System.Drawing.Size(538, 211);
-            this.pageMainConfig.Text = "主数据配置";
-            // 
-            // mainConfig
-            // 
-            this.mainConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainConfig.Location = new System.Drawing.Point(0, 0);
-            this.mainConfig.Name = "mainConfig";
-            this.mainConfig.Size = new System.Drawing.Size(538, 211);
-            this.mainConfig.TabIndex = 0;
-            // 
-            // pageDetailConfig
-            // 
-            this.pageDetailConfig.Controls.Add(this.splitContainerControl1);
-            this.pageDetailConfig.Name = "pageDetailConfig";
-            this.pageDetailConfig.Size = new System.Drawing.Size(538, 211);
-            this.pageDetailConfig.Text = "明细数据配置";
-            // 
-            // splitContainerControl1
-            // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.pnlDetailEntityConfig);
-            this.splitContainerControl1.Panel1.Controls.Add(this.standaloneBarDockControl1);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.detailConfig);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(538, 211);
-            this.splitContainerControl1.SplitterPosition = 149;
-            this.splitContainerControl1.TabIndex = 1;
-            this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // pnlDetailEntityConfig
-            // 
-            this.pnlDetailEntityConfig.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnlDetailEntityConfig.Controls.Add(this.listDetailEntitySet);
-            this.pnlDetailEntityConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDetailEntityConfig.Location = new System.Drawing.Point(0, 28);
-            this.pnlDetailEntityConfig.Name = "pnlDetailEntityConfig";
-            this.pnlDetailEntityConfig.Padding = new System.Windows.Forms.Padding(1);
-            this.pnlDetailEntityConfig.Size = new System.Drawing.Size(149, 183);
-            this.pnlDetailEntityConfig.TabIndex = 2;
-            // 
-            // listDetailEntitySet
-            // 
-            this.listDetailEntitySet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listDetailEntitySet.Location = new System.Drawing.Point(1, 1);
-            this.listDetailEntitySet.Name = "listDetailEntitySet";
-            this.listDetailEntitySet.Size = new System.Drawing.Size(147, 181);
-            this.listDetailEntitySet.TabIndex = 0;
-            this.listDetailEntitySet.SelectedValueChanged += new System.EventHandler(this.listDetailEntitySet_SelectedValueChanged);
-            // 
-            // standaloneBarDockControl1
-            // 
-            this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
-            this.standaloneBarDockControl1.Size = new System.Drawing.Size(149, 28);
-            this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
-            // 
-            // detailConfig
-            // 
-            this.detailConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailConfig.Location = new System.Drawing.Point(0, 0);
-            this.detailConfig.Name = "detailConfig";
-            this.detailConfig.Size = new System.Drawing.Size(384, 211);
-            this.detailConfig.TabIndex = 1;
+            this.indexConfigControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.indexConfigControl.Location = new System.Drawing.Point(0, 0);
+            this.indexConfigControl.Name = "indexConfigControl";
+            this.indexConfigControl.Size = new System.Drawing.Size(749, 219);
+            this.indexConfigControl.TabIndex = 0;
             // 
             // pageQueryConfig
             // 
-            this.pageQueryConfig.Controls.Add(this.queryConfig);
+            this.pageQueryConfig.Controls.Add(this.queryConfigControl);
             this.pageQueryConfig.Name = "pageQueryConfig";
             this.pageQueryConfig.Padding = new System.Windows.Forms.Padding(1);
-            this.pageQueryConfig.Size = new System.Drawing.Size(538, 211);
+            this.pageQueryConfig.Size = new System.Drawing.Size(749, 219);
             this.pageQueryConfig.Text = "查询配置";
             // 
-            // queryConfig
+            // queryConfigControl
             // 
-            this.queryConfig.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.queryConfig.Location = new System.Drawing.Point(1, 1);
-            this.queryConfig.Name = "queryConfig";
-            this.queryConfig.Size = new System.Drawing.Size(536, 209);
-            this.queryConfig.TabIndex = 0;
+            this.queryConfigControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.queryConfigControl.Location = new System.Drawing.Point(1, 1);
+            this.queryConfigControl.Name = "queryConfigControl";
+            this.queryConfigControl.Size = new System.Drawing.Size(747, 217);
+            this.queryConfigControl.TabIndex = 0;
             // 
-            // barDetailEntitySet
+            // pageMainConfig
             // 
-            this.barDetailEntitySet.BarName = "barDetailEntitySet";
-            this.barDetailEntitySet.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Standalone;
-            this.barDetailEntitySet.DockCol = 0;
-            this.barDetailEntitySet.DockRow = 0;
-            this.barDetailEntitySet.DockStyle = DevExpress.XtraBars.BarDockStyle.Standalone;
-            this.barDetailEntitySet.FloatLocation = new System.Drawing.Point(455, 357);
-            this.barDetailEntitySet.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailEntitySetConfigAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailEntitySetConfigDelete)});
-            this.barDetailEntitySet.OptionsBar.AllowQuickCustomization = false;
-            this.barDetailEntitySet.OptionsBar.DrawDragBorder = false;
-            this.barDetailEntitySet.OptionsBar.UseWholeRow = true;
-            this.barDetailEntitySet.StandaloneBarDockControl = this.standaloneBarDockControl1;
-            this.barDetailEntitySet.Text = "barDetailEntitySet";
+            this.pageMainConfig.Controls.Add(this.mainConfigControl);
+            this.pageMainConfig.Name = "pageMainConfig";
+            this.pageMainConfig.Size = new System.Drawing.Size(749, 219);
+            this.pageMainConfig.Text = "主数据配置";
             // 
-            // btnDetailEntitySetConfigAdd
+            // mainConfigControl
             // 
-            this.btnDetailEntitySetConfigAdd.Caption = "新增";
-            this.btnDetailEntitySetConfigAdd.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_New_16x16;
-            this.btnDetailEntitySetConfigAdd.Id = 6;
-            this.btnDetailEntitySetConfigAdd.Name = "btnDetailEntitySetConfigAdd";
-            this.btnDetailEntitySetConfigAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnDetailEntitySetConfigAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetailEntitySetConfigAdd_ItemClick);
+            this.mainConfigControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainConfigControl.Location = new System.Drawing.Point(0, 0);
+            this.mainConfigControl.Name = "mainConfigControl";
+            this.mainConfigControl.Size = new System.Drawing.Size(749, 219);
+            this.mainConfigControl.TabIndex = 0;
             // 
-            // btnDetailEntitySetConfigDelete
+            // pageDetailConfig
             // 
-            this.btnDetailEntitySetConfigDelete.Caption = "删除";
-            this.btnDetailEntitySetConfigDelete.Glyph = global::SAF.CommonConfig.Properties.Resources.Action_Delete_16x16;
-            this.btnDetailEntitySetConfigDelete.Id = 7;
-            this.btnDetailEntitySetConfigDelete.Name = "btnDetailEntitySetConfigDelete";
-            this.btnDetailEntitySetConfigDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnDetailEntitySetConfigDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetailEntitySetConfigDelete_ItemClick);
+            this.pageDetailConfig.Controls.Add(this.detailEntitySetConfigControl);
+            this.pageDetailConfig.Name = "pageDetailConfig";
+            this.pageDetailConfig.Size = new System.Drawing.Size(749, 219);
+            this.pageDetailConfig.Text = "明细数据配置";
+            // 
+            // detailEntitySetConfigControl1
+            // 
+            this.detailEntitySetConfigControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.detailEntitySetConfigControl.Location = new System.Drawing.Point(0, 0);
+            this.detailEntitySetConfigControl.Name = "detailEntitySetConfigControl1";
+            this.detailEntitySetConfigControl.Size = new System.Drawing.Size(749, 219);
+            this.detailEntitySetConfigControl.TabIndex = 0;
             // 
             // sysCommonBillConfigView
             // 
@@ -514,15 +406,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tcConfig)).EndInit();
             this.tcConfig.ResumeLayout(false);
             this.pageIndexConfig.ResumeLayout(false);
+            this.pageQueryConfig.ResumeLayout(false);
             this.pageMainConfig.ResumeLayout(false);
             this.pageDetailConfig.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlDetailEntityConfig)).EndInit();
-            this.pnlDetailEntityConfig.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listDetailEntitySet)).EndInit();
-            this.pageQueryConfig.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDetailEntitySetConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,18 +434,10 @@
         private DevExpress.XtraTab.XtraTabPage pageMainConfig;
         private DevExpress.XtraTab.XtraTabPage pageDetailConfig;
         private DevExpress.XtraTab.XtraTabPage pageQueryConfig;
-        private SAF.CommonConfig.CommonBill.EntitySetConfigControl indexConfig;
-        private SAF.CommonConfig.CommonBill.EntitySetConfigControl mainConfig;
-        private DevExpress.XtraBars.StandaloneBarDockControl standaloneBarDockControl1;
-        private DevExpress.XtraBars.Bar barDetailEntitySet;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraEditors.ListBoxControl listDetailEntitySet;
-        private DevExpress.XtraBars.BarButtonItem btnDetailEntitySetConfigAdd;
-        private DevExpress.XtraBars.BarButtonItem btnDetailEntitySetConfigDelete;
-        private SAF.CommonConfig.CommonBill.EntitySetConfigControl detailConfig;
-        private System.Windows.Forms.BindingSource bsDetailEntitySetConfig;
-        private SAF.CommonConfig.CommonBill.QueryConfigControl queryConfig;
-        private DevExpress.XtraEditors.PanelControl pnlDetailEntityConfig;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox colcbxLayout;
+        private CommonBill.EntitySetConfigControl indexConfigControl;
+        private CommonBill.EntitySetConfigControl mainConfigControl;
+        private CommonBill.QueryConfigControl queryConfigControl;
+        private CommonBill.DetailEntitySetConfigControl detailEntitySetConfigControl;
     }
 }
