@@ -57,7 +57,7 @@ LEFT JOIN pbCustomer B WITH(NOLOCK) ON A.CustomerId=B.Iden WHERE A.Iden=:Iden ",
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.Qty = 0;
             e.CurrentEntity.Amount = 0;
-            e.CurrentEntity.OrderNo = BillNoGenerator.NewBillNo("sdOrderNo",0);
+            e.CurrentEntity.OrderNo = BillNoGenerator.NewBillNo(1);
         }
     }
 }

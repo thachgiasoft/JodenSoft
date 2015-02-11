@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,7 +86,7 @@
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -336,6 +337,7 @@
             // 
             // textEdit5
             // 
+            this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
             this.textEdit5.Location = new System.Drawing.Point(75, 180);
             this.textEdit5.MenuManager = this.ribbonMain;
             this.textEdit5.Name = "textEdit5";
@@ -345,6 +347,7 @@
             // 
             // checkEdit1
             // 
+            this.checkEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Tax", true));
             this.checkEdit1.Location = new System.Drawing.Point(362, 156);
             this.checkEdit1.MenuManager = this.ribbonMain;
             this.checkEdit1.Name = "checkEdit1";
@@ -355,6 +358,7 @@
             // 
             // gridLookUpEdit4
             // 
+            this.gridLookUpEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Currency", true));
             this.gridLookUpEdit4.Location = new System.Drawing.Point(242, 156);
             this.gridLookUpEdit4.MenuManager = this.ribbonMain;
             this.gridLookUpEdit4.Name = "gridLookUpEdit4";
@@ -374,6 +378,7 @@
             // 
             // spinEdit5
             // 
+            this.spinEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ShortPercent", true));
             this.spinEdit5.EditValue = new decimal(new int[] {
             0,
             0,
@@ -390,6 +395,7 @@
             // 
             // spinEdit4
             // 
+            this.spinEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "OverPercent", true));
             this.spinEdit4.EditValue = new decimal(new int[] {
             0,
             0,
@@ -406,6 +412,7 @@
             // 
             // comboBoxEdit4
             // 
+            this.comboBoxEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "PaymentMode", true));
             this.comboBoxEdit4.Location = new System.Drawing.Point(75, 132);
             this.comboBoxEdit4.MenuManager = this.ribbonMain;
             this.comboBoxEdit4.Name = "comboBoxEdit4";
@@ -417,6 +424,7 @@
             // 
             // comboBoxEdit3
             // 
+            this.comboBoxEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "TradeMode", true));
             this.comboBoxEdit3.Location = new System.Drawing.Point(242, 132);
             this.comboBoxEdit3.MenuManager = this.ribbonMain;
             this.comboBoxEdit3.Name = "comboBoxEdit3";
@@ -428,6 +436,7 @@
             // 
             // comboBoxEdit2
             // 
+            this.comboBoxEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "BalanceType", true));
             this.comboBoxEdit2.Location = new System.Drawing.Point(423, 108);
             this.comboBoxEdit2.MenuManager = this.ribbonMain;
             this.comboBoxEdit2.Name = "comboBoxEdit2";
@@ -439,6 +448,7 @@
             // 
             // comboBoxEdit1
             // 
+            this.comboBoxEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "OrderType", true));
             this.comboBoxEdit1.Location = new System.Drawing.Point(242, 108);
             this.comboBoxEdit1.MenuManager = this.ribbonMain;
             this.comboBoxEdit1.Name = "comboBoxEdit1";
@@ -450,6 +460,7 @@
             // 
             // textEdit4
             // 
+            this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CustomerOrderNo", true));
             this.textEdit4.Location = new System.Drawing.Point(75, 108);
             this.textEdit4.MenuManager = this.ribbonMain;
             this.textEdit4.Name = "textEdit4";
@@ -459,6 +470,7 @@
             // 
             // dateEdit2
             // 
+            this.dateEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "DeliveryDate", true));
             this.dateEdit2.EditValue = null;
             this.dateEdit2.Location = new System.Drawing.Point(423, 84);
             this.dateEdit2.MenuManager = this.ribbonMain;
@@ -473,6 +485,7 @@
             // 
             // gridLookUpEdit3
             // 
+            this.gridLookUpEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "FinallyCustomerId", true));
             this.gridLookUpEdit3.Location = new System.Drawing.Point(75, 84);
             this.gridLookUpEdit3.MenuManager = this.ribbonMain;
             this.gridLookUpEdit3.Name = "gridLookUpEdit3";
@@ -492,6 +505,7 @@
             // 
             // textEdit3
             // 
+            this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ExchangeRate", true));
             this.textEdit3.Location = new System.Drawing.Point(242, 84);
             this.textEdit3.MenuManager = this.ribbonMain;
             this.textEdit3.Name = "textEdit3";
@@ -501,6 +515,7 @@
             // 
             // gridLookUpEdit2
             // 
+            this.gridLookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "FollowerId", true));
             this.gridLookUpEdit2.Location = new System.Drawing.Point(75, 36);
             this.gridLookUpEdit2.MenuManager = this.ribbonMain;
             this.gridLookUpEdit2.Name = "gridLookUpEdit2";
@@ -520,6 +535,7 @@
             // 
             // gridLookUpEdit1
             // 
+            this.gridLookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "SalesId", true));
             this.gridLookUpEdit1.Location = new System.Drawing.Point(423, 12);
             this.gridLookUpEdit1.MenuManager = this.ribbonMain;
             this.gridLookUpEdit1.Name = "gridLookUpEdit1";
@@ -539,6 +555,7 @@
             // 
             // spinEdit3
             // 
+            this.spinEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "AdditionalAmount", true));
             this.spinEdit3.EditValue = new decimal(new int[] {
             0,
             0,
@@ -555,6 +572,7 @@
             // 
             // spinEdit2
             // 
+            this.spinEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "DiscountAmount", true));
             this.spinEdit2.EditValue = new decimal(new int[] {
             0,
             0,
@@ -587,6 +605,7 @@
             // 
             // textEdit2
             // 
+            this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Amount", true));
             this.textEdit2.Location = new System.Drawing.Point(422, 36);
             this.textEdit2.MenuManager = this.ribbonMain;
             this.textEdit2.Name = "textEdit2";
@@ -596,6 +615,7 @@
             // 
             // dateEdit1
             // 
+            this.dateEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ReceivedDate", true));
             this.dateEdit1.EditValue = null;
             this.dateEdit1.Location = new System.Drawing.Point(242, 36);
             this.dateEdit1.MenuManager = this.ribbonMain;
@@ -610,6 +630,7 @@
             // 
             // searchLookUpEdit1
             // 
+            this.searchLookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "CustomerId", true));
             this.searchLookUpEdit1.EditValue = "";
             this.searchLookUpEdit1.Location = new System.Drawing.Point(241, 12);
             this.searchLookUpEdit1.MenuManager = this.ribbonMain;
@@ -630,6 +651,7 @@
             // 
             // textEdit1
             // 
+            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "OrderNo", true));
             this.textEdit1.Location = new System.Drawing.Point(75, 12);
             this.textEdit1.MenuManager = this.ribbonMain;
             this.textEdit1.Name = "textEdit1";
