@@ -393,6 +393,7 @@
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ColumnAutoWidth = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // Iden1
@@ -402,6 +403,7 @@
             this.Iden1.Name = "Iden1";
             this.Iden1.Visible = true;
             this.Iden1.VisibleIndex = 0;
+            this.Iden1.Width = 38;
             // 
             // sEquipmentNo1
             // 
@@ -410,6 +412,7 @@
             this.sEquipmentNo1.Name = "sEquipmentNo1";
             this.sEquipmentNo1.Visible = true;
             this.sEquipmentNo1.VisibleIndex = 1;
+            this.sEquipmentNo1.Width = 85;
             // 
             // sMaterialNo1
             // 
@@ -418,6 +421,7 @@
             this.sMaterialNo1.Name = "sMaterialNo1";
             this.sMaterialNo1.Visible = true;
             this.sMaterialNo1.VisibleIndex = 2;
+            this.sMaterialNo1.Width = 170;
             // 
             // sMaterialName1
             // 
@@ -426,6 +430,7 @@
             this.sMaterialName1.Name = "sMaterialName1";
             this.sMaterialName1.Visible = true;
             this.sMaterialName1.VisibleIndex = 3;
+            this.sMaterialName1.Width = 215;
             // 
             // nCapacity1
             // 
@@ -434,6 +439,7 @@
             this.nCapacity1.Name = "nCapacity1";
             this.nCapacity1.Visible = true;
             this.nCapacity1.VisibleIndex = 4;
+            this.nCapacity1.Width = 44;
             // 
             // spnCapacity
             // 

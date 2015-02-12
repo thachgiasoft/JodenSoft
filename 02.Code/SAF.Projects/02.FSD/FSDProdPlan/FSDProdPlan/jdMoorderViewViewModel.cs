@@ -25,7 +25,7 @@ namespace FSDProdPlan
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
-            IndexEntitySet.Query(@"SELECT *  from jdMoorder with(nolock) where ({0})".FormatEx(sCondition));//
+            IndexEntitySet.Query(@"SELECT *  from jdMoorder with(nolock) where ({0})  ORDER BY sOrderNo DESC ".FormatEx(sCondition));//
         }
         
         protected override void OnQueryChild(object key)
