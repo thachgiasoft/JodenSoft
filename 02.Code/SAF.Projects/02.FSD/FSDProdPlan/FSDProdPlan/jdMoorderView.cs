@@ -15,6 +15,7 @@ using SAF.Foundation.ServiceModel;
 using SAF.EntityFramework;
 using SAF.Framework.Controls;
 
+
 namespace FSDProdPlan
 {
     [BusinessObject("jdMoorderView")]
@@ -131,6 +132,40 @@ namespace FSDProdPlan
             base.OnInitCustomRibbonMenuCommands();
             var MyExport = new DefaultRibbonMenuCommand("自动排机", MyExportExcute) { LargeGlyph = Properties.Resources.Action_PublishEntity_32x32 };
             this.AddRibbonMenuCommand(MyExport);
+            var MyExport1 = new DefaultRibbonMenuCommand("工单完工", MyExportExcute1) { LargeGlyph = Properties.Resources.Action_Mark_32x32 };
+            this.AddRibbonMenuCommand(MyExport1);
+        }
+
+        private void MyExportExcute1(object obj)
+        {
+            if (this.ViewModel.MainEntitySet.CurrentEntity == null)
+            {
+                MessageService.ShowMessage("请选择需要完工的工单");
+                return;
+            }
+            if ("完工".Equals(this.ViewModel.MainEntitySet.CurrentEntity.state))
+            {
+                MessageService.ShowMessage("该工单已经完工");
+                return;
+            }
+            try
+            { 
+                    string sbillno = this.ViewModel.MainEntitySet.CurrentEntity.sBillNO;
+                    if(MessageService.AskQuestion("确定要完工工单  " + sbillno + "  吗?"))
+                    { 
+                     string sql1 = "update jdmoorder set state='完工' where sbillno=:sbillno";
+                     DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql1, sbillno);
+                     string sql = "UPDATE dbo.psWpp SET bFinish=1 WHERE sBillNo=:sbillno ";
+                     DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql, sbillno);
+                     MessageService.ShowMessage("工单完工操作完成");
+                     
+                    }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void MyExportExcute(object obj)

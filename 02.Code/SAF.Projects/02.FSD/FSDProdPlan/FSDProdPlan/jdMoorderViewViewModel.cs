@@ -40,6 +40,7 @@ namespace FSDProdPlan
         {
             base.OnInitQueryConfig(queryConfig);
             queryConfig.QuickQuery.QueryFields.Add(new QueryField("sOrderNo", "工单号"));
+            queryConfig.QuickQuery.QueryFields.Add(new QueryField("sEquipmentModelName", "机台编号"));
         }
         protected override void OnInitEvents()
         {
