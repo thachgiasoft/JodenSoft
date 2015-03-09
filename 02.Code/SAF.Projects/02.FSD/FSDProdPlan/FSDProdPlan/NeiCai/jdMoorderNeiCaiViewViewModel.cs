@@ -71,6 +71,7 @@ namespace FSDProdPlan.NeiCai
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<jdMoorderNeiCai> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.sOrderNo = BillNoGenerator.NewBillNo(12);
         }
     }
 }

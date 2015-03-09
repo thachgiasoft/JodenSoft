@@ -137,6 +137,7 @@ namespace FSDProdPlan.NeiCai
             this.AddRibbonMenuCommand(MyExport1);
         }
 
+        //加载工序
         private void MyExportExcute(object obj)
         {
             try
@@ -154,6 +155,7 @@ namespace FSDProdPlan.NeiCai
             }
         }
 
+        //自动排机
         private void MyExportExcute1(object obj)
         {
             ProgressService.Show("正在自动排机....");

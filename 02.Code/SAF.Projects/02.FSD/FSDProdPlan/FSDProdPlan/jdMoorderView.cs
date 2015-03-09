@@ -105,6 +105,7 @@ namespace FSDProdPlan
             this.IndexRowChange();
         }
 
+       
         protected override void OnAddNew()
         {
             base.OnAddNew();

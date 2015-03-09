@@ -79,6 +79,11 @@ namespace FSDProdPlan.NeiCai
             get { return base.GetFieldValue<decimal>(P => P.nCapacity); }
             set { base.SetFieldValue(P => P.nCapacity, value); }
         }
+        public int BasePersonQty
+        {
+            get { return base.GetFieldValue<int>(P => P.BasePersonQty); }
+            set { base.SetFieldValue(P => P.BasePersonQty, value); }
+        }
         public string cDefine1
         {
             get { return base.GetFieldValue<string>(P => P.cDefine1); }

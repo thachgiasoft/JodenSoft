@@ -62,6 +62,7 @@
             this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bsEmodel = new System.Windows.Forms.BindingSource(this.components);
+            this.BasePersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -390,6 +391,7 @@
             this.coluemEquipmentModelGUID,
             this.coluemEquipmentModelNo,
             this.coluemEquipmentModelName,
+            this.BasePersonQty,
             this.colnCapacity});
             this.grvDetail.GridControl = this.grdDetail;
             this.grvDetail.Name = "grvDetail";
@@ -521,6 +523,14 @@
             // 
             this.bsEmodel.DataSource = typeof(FSDProdPlan.emModel);
             // 
+            // BasePersonQty
+            // 
+            this.BasePersonQty.Caption = "基础人工";
+            this.BasePersonQty.FieldName = "BasePersonQty";
+            this.BasePersonQty.Name = "BasePersonQty";
+            this.BasePersonQty.Visible = true;
+            this.BasePersonQty.VisibleIndex = 5;
+            // 
             // sMaterialRoutingView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -609,5 +619,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private System.Windows.Forms.BindingSource bsEmodel;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn BasePersonQty;
     }
 }

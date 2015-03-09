@@ -78,6 +78,7 @@
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coluemEquipmentModelName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnCapacity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.BasePersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.banzhi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ricmb1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -136,12 +137,12 @@
             // tcDtl
             // 
             this.tcDtl.SelectedTabPage = this.pageDtl;
-            this.tcDtl.Size = new System.Drawing.Size(681, 317);
+            this.tcDtl.Size = new System.Drawing.Size(681, 310);
             // 
             // pageDtl
             // 
             this.pageDtl.Controls.Add(this.grdDetail);
-            this.pageDtl.Size = new System.Drawing.Size(675, 311);
+            this.pageDtl.Size = new System.Drawing.Size(675, 304);
             this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdDetail, 0);
             // 
@@ -196,17 +197,17 @@
             // splitRight
             // 
             this.splitRight.Size = new System.Drawing.Size(681, 462);
-            this.splitRight.SplitterPosition = 140;
+            this.splitRight.SplitterPosition = 147;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(681, 140);
+            this.tcMain.Size = new System.Drawing.Size(681, 147);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.layoutControl1);
-            this.pageMain.Size = new System.Drawing.Size(675, 134);
+            this.pageMain.Size = new System.Drawing.Size(675, 141);
             // 
             // grdIndex
             // 
@@ -327,7 +328,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(675, 134);
+            this.layoutControl1.Size = new System.Drawing.Size(675, 141);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -342,7 +343,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.slusMaterialNo.Properties.DataSource = this.bsch;
             this.slusMaterialNo.Properties.View = this.searchLookUpEdit1View;
-            this.slusMaterialNo.Size = new System.Drawing.Size(583, 20);
+            this.slusMaterialNo.Size = new System.Drawing.Size(600, 20);
             this.slusMaterialNo.StyleController = this.layoutControl1;
             this.slusMaterialNo.TabIndex = 11;
             this.slusMaterialNo.EditValueChanged += new System.EventHandler(this.slusMaterialNo_EditValueChanged);
@@ -394,7 +395,7 @@
             this.txtstate.Location = new System.Drawing.Point(63, 108);
             this.txtstate.MenuManager = this.ribbonMain;
             this.txtstate.Name = "txtstate";
-            this.txtstate.Size = new System.Drawing.Size(253, 20);
+            this.txtstate.Size = new System.Drawing.Size(261, 20);
             this.txtstate.StyleController = this.layoutControl1;
             this.txtstate.TabIndex = 10;
             // 
@@ -406,7 +407,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Location = new System.Drawing.Point(371, 84);
+            this.spnPlanQty.Location = new System.Drawing.Point(379, 84);
             this.spnPlanQty.MenuManager = this.ribbonMain;
             this.spnPlanQty.Name = "spnPlanQty";
             this.spnPlanQty.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -421,7 +422,7 @@
             0,
             0,
             0});
-            this.spnPlanQty.Size = new System.Drawing.Size(275, 20);
+            this.spnPlanQty.Size = new System.Drawing.Size(284, 20);
             this.spnPlanQty.StyleController = this.layoutControl1;
             this.spnPlanQty.TabIndex = 9;
             // 
@@ -436,7 +437,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dedDeliveryDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dedDeliveryDate.Size = new System.Drawing.Size(253, 20);
+            this.dedDeliveryDate.Size = new System.Drawing.Size(261, 20);
             this.dedDeliveryDate.StyleController = this.layoutControl1;
             this.dedDeliveryDate.TabIndex = 8;
             // 
@@ -446,17 +447,18 @@
             this.txtsMaterialName.Location = new System.Drawing.Point(63, 60);
             this.txtsMaterialName.MenuManager = this.ribbonMain;
             this.txtsMaterialName.Name = "txtsMaterialName";
-            this.txtsMaterialName.Size = new System.Drawing.Size(583, 20);
+            this.txtsMaterialName.Size = new System.Drawing.Size(600, 20);
             this.txtsMaterialName.StyleController = this.layoutControl1;
             this.txtsMaterialName.TabIndex = 7;
             // 
             // txtsOrderNo
             // 
             this.txtsOrderNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sOrderNo", true));
+            this.txtsOrderNo.Enabled = false;
             this.txtsOrderNo.Location = new System.Drawing.Point(63, 12);
             this.txtsOrderNo.MenuManager = this.ribbonMain;
             this.txtsOrderNo.Name = "txtsOrderNo";
-            this.txtsOrderNo.Size = new System.Drawing.Size(444, 20);
+            this.txtsOrderNo.Size = new System.Drawing.Size(461, 20);
             this.txtsOrderNo.StyleController = this.layoutControl1;
             this.txtsOrderNo.TabIndex = 5;
             // 
@@ -464,7 +466,7 @@
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
             this.txtIden.Enabled = false;
-            this.txtIden.Location = new System.Drawing.Point(540, 12);
+            this.txtIden.Location = new System.Drawing.Point(557, 12);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
             this.txtIden.Size = new System.Drawing.Size(106, 20);
@@ -486,7 +488,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(658, 140);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(675, 141);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -494,7 +496,7 @@
             // 
             this.layoutControlItem1.Control = this.txtIden;
             this.layoutControlItem1.CustomizationFormText = "序号";
-            this.layoutControlItem1.Location = new System.Drawing.Point(499, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(516, 0);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(139, 24);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(139, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -511,7 +513,7 @@
             this.layoutControlItem2.CustomizationFormText = "工单号";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(499, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(516, 24);
             this.layoutControlItem2.Text = "工单号";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -521,7 +523,7 @@
             this.layoutControlItem5.CustomizationFormText = "发货日期";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(308, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(316, 24);
             this.layoutControlItem5.Text = "发货日期";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -531,7 +533,7 @@
             this.layoutControlItem4.CustomizationFormText = "产品名称";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(638, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(655, 24);
             this.layoutControlItem4.Text = "产品名称";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -539,9 +541,9 @@
             // 
             this.layoutControlItem6.Control = this.spnPlanQty;
             this.layoutControlItem6.CustomizationFormText = "数量";
-            this.layoutControlItem6.Location = new System.Drawing.Point(308, 72);
+            this.layoutControlItem6.Location = new System.Drawing.Point(316, 72);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(330, 48);
+            this.layoutControlItem6.Size = new System.Drawing.Size(339, 49);
             this.layoutControlItem6.Text = "数量";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -551,7 +553,7 @@
             this.layoutControlItem7.CustomizationFormText = "状态";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(308, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(316, 25);
             this.layoutControlItem7.Text = "状态";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -561,7 +563,7 @@
             this.layoutControlItem3.CustomizationFormText = "产品编码";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(638, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(655, 24);
             this.layoutControlItem3.Text = "产品编码";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -577,7 +579,7 @@
             this.grdDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riGluEdit1,
             this.ricmb1});
-            this.grdDetail.Size = new System.Drawing.Size(675, 288);
+            this.grdDetail.Size = new System.Drawing.Size(675, 281);
             this.grdDetail.TabIndex = 1;
             this.grdDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDetail});
@@ -598,6 +600,7 @@
             this.coluemEquipmentModelNo,
             this.coluemEquipmentModelName,
             this.colnCapacity,
+            this.BasePersonQty,
             this.colPersonQty,
             this.banzhi});
             this.grvDetail.GridControl = this.grdDetail;
@@ -625,7 +628,7 @@
             this.colsBillNO.Name = "colsBillNO";
             this.colsBillNO.Visible = true;
             this.colsBillNO.VisibleIndex = 0;
-            this.colsBillNO.Width = 74;
+            this.colsBillNO.Width = 73;
             // 
             // colroutingId
             // 
@@ -634,7 +637,7 @@
             this.colroutingId.Name = "colroutingId";
             this.colroutingId.Visible = true;
             this.colroutingId.VisibleIndex = 1;
-            this.colroutingId.Width = 61;
+            this.colroutingId.Width = 60;
             // 
             // colroutingName
             // 
@@ -643,7 +646,7 @@
             this.colroutingName.Name = "colroutingName";
             this.colroutingName.Visible = true;
             this.colroutingName.VisibleIndex = 2;
-            this.colroutingName.Width = 61;
+            this.colroutingName.Width = 60;
             // 
             // coluGuid
             // 
@@ -661,8 +664,8 @@
             this.colroutingState.FieldName = "routingState";
             this.colroutingState.Name = "colroutingState";
             this.colroutingState.Visible = true;
-            this.colroutingState.VisibleIndex = 7;
-            this.colroutingState.Width = 68;
+            this.colroutingState.VisibleIndex = 8;
+            this.colroutingState.Width = 52;
             // 
             // coluemEquipmentModelGUID
             // 
@@ -677,7 +680,7 @@
             this.coluemEquipmentModelNo.Name = "coluemEquipmentModelNo";
             this.coluemEquipmentModelNo.Visible = true;
             this.coluemEquipmentModelNo.VisibleIndex = 3;
-            this.coluemEquipmentModelNo.Width = 61;
+            this.coluemEquipmentModelNo.Width = 60;
             // 
             // riGluEdit1
             // 
@@ -703,7 +706,7 @@
             this.coluemEquipmentModelName.Name = "coluemEquipmentModelName";
             this.coluemEquipmentModelName.Visible = true;
             this.coluemEquipmentModelName.VisibleIndex = 4;
-            this.coluemEquipmentModelName.Width = 61;
+            this.coluemEquipmentModelName.Width = 60;
             // 
             // colnCapacity
             // 
@@ -712,26 +715,37 @@
             this.colnCapacity.Name = "colnCapacity";
             this.colnCapacity.Visible = true;
             this.colnCapacity.VisibleIndex = 5;
-            this.colnCapacity.Width = 61;
+            this.colnCapacity.Width = 60;
+            // 
+            // BasePersonQty
+            // 
+            this.BasePersonQty.Caption = "基础人员配置";
+            this.BasePersonQty.FieldName = "BasePersonQty";
+            this.BasePersonQty.Name = "BasePersonQty";
+            this.BasePersonQty.OptionsColumn.AllowEdit = false;
+            this.BasePersonQty.Visible = true;
+            this.BasePersonQty.VisibleIndex = 6;
+            this.BasePersonQty.Width = 70;
             // 
             // colPersonQty
             // 
-            this.colPersonQty.Caption = "人员配置数";
+            this.colPersonQty.Caption = "实际人员配置数";
             this.colPersonQty.FieldName = "PersonQty";
             this.colPersonQty.Name = "colPersonQty";
             this.colPersonQty.Visible = true;
-            this.colPersonQty.VisibleIndex = 6;
-            this.colPersonQty.Width = 61;
+            this.colPersonQty.VisibleIndex = 7;
+            this.colPersonQty.Width = 104;
             // 
             // banzhi
             // 
-            this.banzhi.Caption = "班制";
+            this.banzhi.Caption = "班制时长";
             this.banzhi.ColumnEdit = this.ricmb1;
             this.banzhi.FieldName = "banzhi";
             this.banzhi.Name = "banzhi";
             this.banzhi.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.banzhi.Visible = true;
-            this.banzhi.VisibleIndex = 8;
+            this.banzhi.VisibleIndex = 9;
+            this.banzhi.Width = 58;
             // 
             // ricmb1
             // 
@@ -866,5 +880,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn sMaterialName;
         private DevExpress.XtraGrid.Columns.GridColumn banzhi;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmb1;
+        private DevExpress.XtraGrid.Columns.GridColumn BasePersonQty;
     }
 }

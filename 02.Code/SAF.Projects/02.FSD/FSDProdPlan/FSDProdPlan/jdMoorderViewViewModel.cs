@@ -64,12 +64,28 @@ namespace FSDProdPlan
                 MessageService.ShowMessage("此订单在排产,不能删除!");
                 return;
             }
+            else
+            {
+                try
+                {
+                    string sorderno = this.MainEntitySet.CurrentEntity.sOrderNo;
+                    string sql1 = "DELETE psWpp WHERE sOrderNo=:sOrderNo";
+                    DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql1, sorderno);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
             base.OnDelete();
+
+          
         }
 
         private bool checkisExists(string p)
         {
-            string sql = "SELECT  COUNT(*)  FROM psWpp WHERE sOrderNo='{0}'".FormatEx(p);
+            string sql = "SELECT  COUNT(*)  FROM psWpp WHERE (bfinish=1 or tFactStartTime IS NOT NULL) and sOrderNo='{0}'".FormatEx(p);
             return Convert.ToInt32(DataPortal.ExecuteScalar(ConfigContext.DefaultConnection,sql))>0;
         }
     }
