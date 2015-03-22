@@ -47,18 +47,22 @@ namespace FSDProdPlan.NeiCai
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
                 this.ViewModel.DetailEntitySet.SetBindingSource(bsDetail);
                 this.ViewModel.emModelEntity.SetBindingSource(bsEmodel);
+                this.ViewModel.routingBaseEntity.SetBindingSource(bsrouting);
             }
             this.riGluEdit1.DataSource = this.ViewModel.emModelEntity.DefaultView;
             riGluEdit1.DisplayMember = "sEquipmentModelNo";
             riGluEdit1.ValueMember = "sEquipmentModelNo";
-            
+
+            this.riglerouting.DataSource = this.ViewModel.routingBaseEntity.DefaultView;
+            riglerouting.DisplayMember = "Routingname";
+            riglerouting.ValueMember = "Routingname";
         }
         protected override void OnInitConfig()
         {
             base.OnInitConfig();
             UIController.SetupGridControl(this.grdIndex);
         }
-
+        
         private void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             this.IndexRowChange();
@@ -89,6 +93,11 @@ namespace FSDProdPlan.NeiCai
             this.ViewModel.DetailEntitySet.CurrentEntity.uemEquipmentModelName = objinventory.sEquipmentModelName;
            // this.ViewModel.DetailEntitySet.CurrentEntity.uemEquipmentModelNo = objinventory.sEquipmentModelNo;
            // this.ViewModel.MainEntitySet.CurrentEntity.nDailyOuputQty = 0;
+        }
+
+        private void riglerouting_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
 
 

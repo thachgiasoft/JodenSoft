@@ -21,6 +21,16 @@ namespace FSDProdPlan.NeiCai
                 return _emModelEntity;
             }
         }
+        private EntitySet<routingBase> _routingBaseEntity = null;
+        public EntitySet<routingBase> routingBaseEntity
+        {
+            get
+            {
+                if (_routingBaseEntity == null)
+                    _routingBaseEntity = new EntitySet<routingBase>(ConfigContext.DefaultConnection, null, 0);
+                return _routingBaseEntity;
+            }
+        }
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
            // base.OnQuery(sCondition, parameterValues);
@@ -33,6 +43,7 @@ namespace FSDProdPlan.NeiCai
             this.MainEntitySet.Query("select * from sMaterial with(nolock) where Iden={0}".FormatEx(key));
             this.DetailEntitySet.Query("select * from emEquipmentCapacityProduceRouting with(nolock) where sMaterialIden={0}".FormatEx(key));
             this.emModelEntity.Query("select Iden   ,sEquipmentModelNo  ,sEquipmentModelName ,uGuid  from emModel with(nolock)");
+            this.routingBaseEntity.Query("select Iden,Routingname from routingBase with(nolock)");
         }//
 
         protected override void OnInitQueryConfig(QueryConfig queryConfig)
@@ -52,6 +63,9 @@ namespace FSDProdPlan.NeiCai
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.uGuid = Guid.NewGuid();
             e.CurrentEntity.sMaterialIden = this.MainEntitySet.CurrentEntity.Iden;
+            e.CurrentEntity.BasePersonQty = 1;
+            e.CurrentEntity.routingId = this.DetailEntitySet.Count;
+            
         }
 
         void MainEntitySet_AfterAdd(object sender, SAF.EntityFramework.EntitySetAddEventArgs<sMaterial> e)

@@ -1,6 +1,6 @@
-﻿namespace FSDProdPlan
+﻿namespace FSDProdPlan.NeiCai
 {
-    partial class emModelView
+    partial class routingBaseView
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -31,18 +31,13 @@
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coluGuid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colssEquipmentModelNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRoutingname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.cmbWorkCenter = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtsEquipmentName = new DevExpress.XtraEditors.TextEdit();
-            this.txtsEquipmentNo = new DevExpress.XtraEditors.TextEdit();
+            this.txtRoutingname = new DevExpress.XtraEditors.TextEdit();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -63,15 +58,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbWorkCenter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoutingname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -85,11 +76,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(FSDProdPlan.emModel);
+            this.bsIndex.DataSource = typeof(FSDProdPlan.NeiCai.routingBase);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(FSDProdPlan.emModel);
+            this.bsMain.DataSource = typeof(FSDProdPlan.NeiCai.routingBase);
             // 
             // pcMain
             // 
@@ -117,13 +108,11 @@
             // 
             this.grvIndex.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIden,
-            this.coluGuid,
-            this.colssEquipmentModelNo});
+            this.colRoutingname});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
             this.grvIndex.OptionsView.ColumnAutoWidth = false;
-            this.grvIndex.OptionsView.ShowGroupPanel = false;
             this.grvIndex.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvIndex_FocusedRowChanged);
             // 
             // colIden
@@ -134,25 +123,18 @@
             this.colIden.Visible = true;
             this.colIden.VisibleIndex = 0;
             // 
-            // coluGuid
+            // colRoutingname
             // 
-            this.coluGuid.FieldName = "uGuid";
-            this.coluGuid.Name = "coluGuid";
-            // 
-            // colssEquipmentModelNo
-            // 
-            this.colssEquipmentModelNo.Caption = "机型编码";
-            this.colssEquipmentModelNo.FieldName = "sEquipmentModelNo";
-            this.colssEquipmentModelNo.Name = "colssEquipmentModelNo";
-            this.colssEquipmentModelNo.Visible = true;
-            this.colssEquipmentModelNo.VisibleIndex = 1;
-            this.colssEquipmentModelNo.Width = 149;
+            this.colRoutingname.Caption = "工序名称";
+            this.colRoutingname.FieldName = "Routingname";
+            this.colRoutingname.Name = "colRoutingname";
+            this.colRoutingname.Visible = true;
+            this.colRoutingname.VisibleIndex = 1;
+            this.colRoutingname.Width = 176;
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.cmbWorkCenter);
-            this.layoutControl1.Controls.Add(this.txtsEquipmentName);
-            this.layoutControl1.Controls.Add(this.txtsEquipmentNo);
+            this.layoutControl1.Controls.Add(this.txtRoutingname);
             this.layoutControl1.Controls.Add(this.txtIden);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -162,40 +144,15 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // cmbWorkCenter
+            // txtRoutingname
             // 
-            this.cmbWorkCenter.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "WorkCenter", true));
-            this.cmbWorkCenter.Location = new System.Drawing.Point(63, 84);
-            this.cmbWorkCenter.MenuManager = this.ribbonMain;
-            this.cmbWorkCenter.Name = "cmbWorkCenter";
-            this.cmbWorkCenter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbWorkCenter.Properties.Items.AddRange(new object[] {
-            "注塑车间",
-            "内材车间"});
-            this.cmbWorkCenter.Size = new System.Drawing.Size(414, 20);
-            this.cmbWorkCenter.StyleController = this.layoutControl1;
-            this.cmbWorkCenter.TabIndex = 7;
-            // 
-            // txtsEquipmentName
-            // 
-            this.txtsEquipmentName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelName", true));
-            this.txtsEquipmentName.Location = new System.Drawing.Point(63, 60);
-            this.txtsEquipmentName.MenuManager = this.ribbonMain;
-            this.txtsEquipmentName.Name = "txtsEquipmentName";
-            this.txtsEquipmentName.Size = new System.Drawing.Size(414, 20);
-            this.txtsEquipmentName.StyleController = this.layoutControl1;
-            this.txtsEquipmentName.TabIndex = 6;
-            // 
-            // txtsEquipmentNo
-            // 
-            this.txtsEquipmentNo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "sEquipmentModelNo", true));
-            this.txtsEquipmentNo.Location = new System.Drawing.Point(63, 36);
-            this.txtsEquipmentNo.MenuManager = this.ribbonMain;
-            this.txtsEquipmentNo.Name = "txtsEquipmentNo";
-            this.txtsEquipmentNo.Size = new System.Drawing.Size(414, 20);
-            this.txtsEquipmentNo.StyleController = this.layoutControl1;
-            this.txtsEquipmentNo.TabIndex = 5;
+            this.txtRoutingname.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Routingname", true));
+            this.txtRoutingname.Location = new System.Drawing.Point(63, 36);
+            this.txtRoutingname.MenuManager = this.ribbonMain;
+            this.txtRoutingname.Name = "txtRoutingname";
+            this.txtRoutingname.Size = new System.Drawing.Size(414, 20);
+            this.txtRoutingname.StyleController = this.layoutControl1;
+            this.txtRoutingname.TabIndex = 5;
             // 
             // txtIden
             // 
@@ -215,9 +172,7 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(489, 278);
@@ -236,39 +191,19 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txtsEquipmentNo;
-            this.layoutControlItem2.CustomizationFormText = "机器编码";
+            this.layoutControlItem2.Control = this.txtRoutingname;
+            this.layoutControlItem2.CustomizationFormText = "工序名称";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(469, 24);
-            this.layoutControlItem2.Text = "机型编码";
+            this.layoutControlItem2.Size = new System.Drawing.Size(469, 234);
+            this.layoutControlItem2.Text = "工序名称";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtsEquipmentName;
-            this.layoutControlItem3.CustomizationFormText = "机器名称";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(469, 24);
-            this.layoutControlItem3.Text = "机型名称";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.cmbWorkCenter;
-            this.layoutControlItem4.CustomizationFormText = "所属车间";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(469, 186);
-            this.layoutControlItem4.Text = "所属车间";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // emModelView
+            // routingBaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "emModelView";
+            this.Name = "routingBaseView";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
@@ -289,15 +224,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbWorkCenter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtsEquipmentNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoutingname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,17 +239,12 @@
         private DevExpress.XtraGrid.GridControl grdIndex;
         private DevExpress.XtraGrid.Views.Grid.GridView grvIndex;
         private DevExpress.XtraGrid.Columns.GridColumn colIden;
-        private DevExpress.XtraGrid.Columns.GridColumn coluGuid;
-        private DevExpress.XtraGrid.Columns.GridColumn colssEquipmentModelNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colRoutingname;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit txtsEquipmentName;
-        private DevExpress.XtraEditors.TextEdit txtsEquipmentNo;
+        private DevExpress.XtraEditors.TextEdit txtRoutingname;
         private DevExpress.XtraEditors.TextEdit txtIden;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbWorkCenter;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

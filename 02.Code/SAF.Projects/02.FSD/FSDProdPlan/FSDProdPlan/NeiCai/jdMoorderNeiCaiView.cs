@@ -165,5 +165,32 @@ namespace FSDProdPlan.NeiCai
             MessageService.ShowMessage("排机完成");
 
         }
+
+        private void barcancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string routingname = this.ViewModel.DetailEntitySet.CurrentEntity.routingName;
+            string sbillno = this.ViewModel.DetailEntitySet.CurrentEntity.sBillNO;
+            int iden = this.ViewModel.DetailEntitySet.CurrentEntity.Iden;
+            string sOrderNo = this.ViewModel.DetailEntitySet.CurrentEntity.sOrderNo;
+            if (MessageService.AskQuestion("确定要取消工序[  " + routingname + "  ]的派工吗?"))
+            { 
+                try
+                {
+                    DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "exec jd_CancelPaigong :sbillno", sbillno);
+
+                    //string sql1 = "DELETE psWppex WHERE sbillno like ':sOrderNo%'";
+                    //DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql1, sbillno);
+                    //string sql2 = "update worouting set routingstate='' WHERE iden in (:iden)";
+                    //DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql2, iden);
+                    //string sql3 = "delete dbo.psWppSplit WHERE sbillno like ':sbillno%'";
+                    //DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql3, sbillno);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
     }
 }

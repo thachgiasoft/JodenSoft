@@ -6,6 +6,7 @@ using SAF.Framework.ViewModel;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.EntityFramework;
 using SAF.Foundation;
+using SAF.Foundation.ServiceModel;
 
 namespace FSDProdPlan.NeiCai
 {
@@ -72,6 +73,44 @@ namespace FSDProdPlan.NeiCai
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
             e.CurrentEntity.sOrderNo = BillNoGenerator.NewBillNo(12);
+        }
+
+        protected override void OnDelete()
+        {
+
+            if (checkisExists(this.MainEntitySet.CurrentEntity.sOrderNo))
+            {
+                MessageService.ShowMessage("此订单在排产,不能删除!");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string sorderno = this.MainEntitySet.CurrentEntity.sOrderNo;
+                    int woiden = this.MainEntitySet.CurrentEntity.Iden;
+                    string sql1 = "DELETE psWppex WHERE sOrderNo in (:sOrderNo)";
+                    DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql1, sorderno);
+                    string sql2 = "DELETE worouting WHERE woiden in (:woiden)";
+                    DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql2, woiden);
+                    string sql3 = "delete dbo.psWppSplit WHERE sOrderNo in (:sOrderNo)";
+                    DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, sql3, sorderno);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            base.OnDelete();
+
+
+        }
+
+        private bool checkisExists(string p)
+        {
+            string sql = "SELECT  COUNT(*)  FROM psWppex WHERE (bfinish=1 or tFactStartTime IS NOT NULL) and sOrderNo='{0}'".FormatEx(p);
+            return Convert.ToInt32(DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, sql)) > 0;
         }
     }
 }

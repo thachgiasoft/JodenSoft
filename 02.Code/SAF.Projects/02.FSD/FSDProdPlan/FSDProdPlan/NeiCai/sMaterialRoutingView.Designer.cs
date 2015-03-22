@@ -50,6 +50,8 @@
             this.colIden1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colroutingId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colroutingName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riglerouting = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coluGuid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsMaterialIden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluemEquipmentModelGUID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,12 +59,13 @@
             this.riGluEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coluemEquipmentModelName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.BasePersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnCapacity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bsEmodel = new System.Windows.Forms.BindingSource(this.components);
-            this.BasePersonQty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bsrouting = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -99,12 +102,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riglerouting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsrouting)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDtl
@@ -374,7 +380,8 @@
             this.grdDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemSearchLookUpEdit1,
             this.riGluEdit1,
-            this.repositoryItemSpinEdit1});
+            this.repositoryItemSpinEdit1,
+            this.riglerouting});
             this.grdDetail.Size = new System.Drawing.Size(670, 202);
             this.grdDetail.TabIndex = 1;
             this.grdDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -414,11 +421,29 @@
             // colroutingName
             // 
             this.colroutingName.Caption = "工序名称";
+            this.colroutingName.ColumnEdit = this.riglerouting;
             this.colroutingName.FieldName = "routingName";
             this.colroutingName.Name = "colroutingName";
             this.colroutingName.Visible = true;
             this.colroutingName.VisibleIndex = 1;
             this.colroutingName.Width = 238;
+            // 
+            // riglerouting
+            // 
+            this.riglerouting.AutoHeight = false;
+            this.riglerouting.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riglerouting.Name = "riglerouting";
+            this.riglerouting.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.riglerouting.View = this.gridView1;
+            this.riglerouting.EditValueChanged += new System.EventHandler(this.riglerouting_EditValueChanged);
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // coluGuid
             // 
@@ -478,6 +503,14 @@
             this.coluemEquipmentModelName.VisibleIndex = 3;
             this.coluemEquipmentModelName.Width = 238;
             // 
+            // BasePersonQty
+            // 
+            this.BasePersonQty.Caption = "基础人工";
+            this.BasePersonQty.FieldName = "BasePersonQty";
+            this.BasePersonQty.Name = "BasePersonQty";
+            this.BasePersonQty.Visible = true;
+            this.BasePersonQty.VisibleIndex = 5;
+            // 
             // colnCapacity
             // 
             this.colnCapacity.Caption = "产能周期(秒)";
@@ -523,13 +556,9 @@
             // 
             this.bsEmodel.DataSource = typeof(FSDProdPlan.emModel);
             // 
-            // BasePersonQty
+            // bsrouting
             // 
-            this.BasePersonQty.Caption = "基础人工";
-            this.BasePersonQty.FieldName = "BasePersonQty";
-            this.BasePersonQty.Name = "BasePersonQty";
-            this.BasePersonQty.Visible = true;
-            this.BasePersonQty.VisibleIndex = 5;
+            this.bsrouting.DataSource = typeof(FSDProdPlan.NeiCai.routingBase);
             // 
             // sMaterialRoutingView
             // 
@@ -573,12 +602,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riglerouting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riGluEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmodel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsrouting)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -620,5 +652,8 @@
         private System.Windows.Forms.BindingSource bsEmodel;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn BasePersonQty;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit riglerouting;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource bsrouting;
     }
 }

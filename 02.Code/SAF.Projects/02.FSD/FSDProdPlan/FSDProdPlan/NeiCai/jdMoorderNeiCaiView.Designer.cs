@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colroutingState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdIndex = new DevExpress.XtraGrid.GridControl();
             this.grvIndex = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIden = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,7 +47,6 @@
             this.colsColorNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldDeliveryDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnPlanQty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.slusMaterialNo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bsch = new System.Windows.Forms.BindingSource(this.components);
@@ -71,7 +78,6 @@
             this.colroutingName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluGuid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsMaterialIden1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colroutingState = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluemEquipmentModelGUID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coluemEquipmentModelNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riGluEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
@@ -83,6 +89,7 @@
             this.banzhi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ricmb1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.bsEmodel = new System.Windows.Forms.BindingSource(this.components);
+            this.barcancel = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -156,6 +163,8 @@
             // 
             // barDtl
             // 
+            this.barDtl.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barcancel)});
             this.barDtl.OptionsBar.AllowQuickCustomization = false;
             // 
             // bsiDtlImport
@@ -209,6 +218,30 @@
             this.pageMain.Controls.Add(this.layoutControl1);
             this.pageMain.Size = new System.Drawing.Size(675, 141);
             // 
+            // bmMain
+            // 
+            this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barcancel});
+            this.bmMain.MaxItemId = 6;
+            // 
+            // colstate
+            // 
+            this.colstate.Caption = "状态";
+            this.colstate.FieldName = "state";
+            this.colstate.Name = "colstate";
+            this.colstate.Visible = true;
+            this.colstate.VisibleIndex = 6;
+            this.colstate.Width = 47;
+            // 
+            // colroutingState
+            // 
+            this.colroutingState.Caption = "工序状态";
+            this.colroutingState.FieldName = "routingState";
+            this.colroutingState.Name = "colroutingState";
+            this.colroutingState.Visible = true;
+            this.colroutingState.VisibleIndex = 8;
+            this.colroutingState.Width = 52;
+            // 
             // grdIndex
             // 
             this.grdIndex.Cursor = System.Windows.Forms.Cursors.Default;
@@ -235,6 +268,27 @@
             this.coldDeliveryDate,
             this.colnPlanQty,
             this.colstate});
+            styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            styleFormatCondition4.Appearance.Options.UseBackColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.colstate;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = "开工";
+            styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            styleFormatCondition5.Appearance.Options.UseBackColor = true;
+            styleFormatCondition5.ApplyToRow = true;
+            styleFormatCondition5.Column = this.colstate;
+            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition5.Value1 = "已派工";
+            styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.Red;
+            styleFormatCondition6.Appearance.Options.UseBackColor = true;
+            styleFormatCondition6.ApplyToRow = true;
+            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition6.Value1 = "完工";
+            this.grvIndex.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition4,
+            styleFormatCondition5,
+            styleFormatCondition6});
             this.grvIndex.GridControl = this.grdIndex;
             this.grvIndex.Name = "grvIndex";
             this.grvIndex.OptionsBehavior.Editable = false;
@@ -305,15 +359,6 @@
             this.colnPlanQty.Visible = true;
             this.colnPlanQty.VisibleIndex = 5;
             this.colnPlanQty.Width = 63;
-            // 
-            // colstate
-            // 
-            this.colstate.Caption = "状态";
-            this.colstate.FieldName = "state";
-            this.colstate.Name = "colstate";
-            this.colstate.Visible = true;
-            this.colstate.VisibleIndex = 6;
-            this.colstate.Width = 47;
             // 
             // layoutControl1
             // 
@@ -603,6 +648,28 @@
             this.BasePersonQty,
             this.colPersonQty,
             this.banzhi});
+            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            styleFormatCondition1.Appearance.Options.UseBackColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colroutingState;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "已派工";
+            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            styleFormatCondition2.Appearance.Options.UseBackColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.colroutingState;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "开工";
+            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.Red;
+            styleFormatCondition3.Appearance.Options.UseBackColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.colroutingState;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "完工";
+            this.grvDetail.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1,
+            styleFormatCondition2,
+            styleFormatCondition3});
             this.grvDetail.GridControl = this.grdDetail;
             this.grvDetail.Name = "grvDetail";
             // 
@@ -657,15 +724,6 @@
             // 
             this.colsMaterialIden1.FieldName = "sMaterialIden";
             this.colsMaterialIden1.Name = "colsMaterialIden1";
-            // 
-            // colroutingState
-            // 
-            this.colroutingState.Caption = "工序状态";
-            this.colroutingState.FieldName = "routingState";
-            this.colroutingState.Name = "colroutingState";
-            this.colroutingState.Visible = true;
-            this.colroutingState.VisibleIndex = 8;
-            this.colroutingState.Width = 52;
             // 
             // coluemEquipmentModelGUID
             // 
@@ -764,6 +822,13 @@
             // bsEmodel
             // 
             this.bsEmodel.DataSource = typeof(FSDProdPlan.emModel);
+            // 
+            // barcancel
+            // 
+            this.barcancel.Caption = "取消工序派工";
+            this.barcancel.Id = 5;
+            this.barcancel.Name = "barcancel";
+            this.barcancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barcancel_ItemClick);
             // 
             // jdMoorderNeiCaiView
             // 
@@ -881,5 +946,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn banzhi;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ricmb1;
         private DevExpress.XtraGrid.Columns.GridColumn BasePersonQty;
+        private DevExpress.XtraBars.BarButtonItem barcancel;
     }
 }

@@ -41,6 +41,11 @@ namespace FSDProdPlan
             get { return base.GetFieldValue<string>(P => P.sEquipmentModelName); }
             set { base.SetFieldValue(P => P.sEquipmentModelName, value); }
         }
+        public string WorkCenter
+        {
+            get { return base.GetFieldValue<string>(P => P.WorkCenter); }
+            set { base.SetFieldValue(P => P.WorkCenter, value); }
+        }
         #region 创建人&创建时间&修改人&修改时间&版本号
 
         public int? CreatedBy
@@ -68,6 +73,7 @@ namespace FSDProdPlan
         {
             get { return base.GetFieldValue<int>(p => p.VersionNumber, 0); }
         }
+       
 
         #endregion
     }
