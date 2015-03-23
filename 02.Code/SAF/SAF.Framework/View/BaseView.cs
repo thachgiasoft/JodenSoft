@@ -364,11 +364,8 @@ namespace SAF.Framework.View
         }
 
         [Browsable(false)]
-        //[ViewParam("单据类型")]
         public virtual int BillTypeId
         {
-            //get { return Convert.ToInt32(this.GetViewParam("BillTypeId")); }
-            //set { this.SetViewParam("BillTypeId", value.ToString()); }
             get { return 0; }
         }
 
