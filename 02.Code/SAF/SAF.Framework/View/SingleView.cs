@@ -572,6 +572,7 @@ namespace SAF.Framework.View
 
                 RefreshPageControl();
             }
+            this.RefreshUI();
         }
 
         private void bbiAddToFavorite_ItemClick(object sender, ItemClickEventArgs e)

@@ -586,20 +586,6 @@ namespace SAF.EntityFramework
             return this.DataTable.Columns[fieldName].DataType;
         }
 
-        private int _BillTypeId = 0;
-        /// <summary>
-        /// 单据类型
-        /// </summary>
-        public int BillTypeId
-        {
-            get { return this._BillTypeId; }
-            set
-            {
-                _BillTypeId = value;
-                QueryBillRight();
-            }
-        }
-
         /// <summary>
         /// 单据权限
         /// </summary>
@@ -620,12 +606,11 @@ namespace SAF.EntityFramework
         /// 查询单据权限
         /// </summary>
         /// <param name="billTypeId">单据类型</param>
-        /// <param name="userId">用户ID</param>
         /// <param name="organizationId">部门ID(组织架构)</param>
-        public void QueryBillRight(int organizationId = 0)
+        public void QueryBillRight(int billTypeID, int organizationId = 0)
         {
-            if (this.BillTypeId > 0)
-                BillRightInfo = BillRight.QueryBillRight(this.BillTypeId, Session.Current.UserId, organizationId);
+            if (billTypeID > 0)
+                BillRightInfo = BillRight.QueryBillRight(billTypeID, Session.Current.UserId, organizationId);
         }
 
         /// <summary>

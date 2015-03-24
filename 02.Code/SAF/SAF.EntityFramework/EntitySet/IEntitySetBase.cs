@@ -43,10 +43,6 @@ namespace SAF.EntityFramework
         /// 主键名称
         /// </summary>
         string PrimaryKeyName { get; }
-        /// <summary>
-        ///  单据类型
-        /// </summary>
-        int BillTypeId { get; set; }
 
         BillOperateRight BillOperateRight { get; }
 

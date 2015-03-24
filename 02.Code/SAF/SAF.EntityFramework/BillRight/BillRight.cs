@@ -33,8 +33,8 @@ WHERE Iden=:BillTypeId AND IsActive=1
 
 --查询操作权限
 DECLARE @BillRight INT
-IF NOT EXISTS(SELECT TOP 1 1 FROM dbo.sysBillOperateRight WITH(NOLOCK) WHERE Iden=:BillTypeId AND IsActive=1)
-    SELECT BillRight=2048
+IF NOT EXISTS(SELECT TOP 1 1 FROM dbo.pbBillType WITH(NOLOCK) WHERE Iden=:BillTypeId AND UseBillOperateRight=1 AND IsActive=1)
+    SELECT BillRight=65536
 ELSE
 BEGIN
     SET @BillRight=0
@@ -152,7 +152,7 @@ GROUP BY D.Iden,D.Code
         private static BillDataRight CalcCurrentEntityBillDataRight(string fieldName, BillRightInfo billRight, BillDataRight destBillDataRight, IEntityBase entity)
         {
             bool temp = false;
-            string CreateBy = entity.FieldIsExists(BillRightInfo.CreatedByField) ? entity.GetFieldValue<string>(BillRightInfo.CreatedByField) : string.Empty;
+            string CreatedBy = entity.FieldIsExists(BillRightInfo.CreatedByField) ? entity.GetFieldValue<string>(BillRightInfo.CreatedByField) : string.Empty;
             int OrganizationId = entity.FieldIsExists(BillRightInfo.OrganizationIdField) ? entity.GetFieldValue<int>(BillRightInfo.OrganizationIdField) : -1;
 
             string OrganizationCode = entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField);
@@ -160,7 +160,7 @@ GROUP BY D.Iden,D.Code
             {
                 //部门为空，则表示针对所有部门都是此角色
                 bool bAllOrganization = dr.IsNull(RES.OrganizationId);
-                bool bSameCreator = CreateBy.Equals(dr[RES.CreateBy].ToString().Trim(), StringComparison.CurrentCultureIgnoreCase);
+                bool bSameCreator = CreatedBy.Equals(dr[RES.CreatedBy].ToString().Trim(), StringComparison.CurrentCultureIgnoreCase);
                 bool bSameOrganizationId = OrganizationId == Convert.ToInt32(dr[RES.OrganizationId]);
                 bool bSameOrganizationCode = OrganizationCode.StartsWith(dr[RES.OrganizationCode].ToString(), StringComparison.OrdinalIgnoreCase);
                 switch ((BillRightType)Convert.ToInt32(dr[fieldName]))

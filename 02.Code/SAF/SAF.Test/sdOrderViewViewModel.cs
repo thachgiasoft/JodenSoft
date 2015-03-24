@@ -19,6 +19,13 @@ namespace SAF.Test
             }
         }
 
+        protected override void OnInitConfig()
+        {
+            base.OnInitConfig();
+
+            this.MainEntitySet.QueryBillRight(this.BillTypeId);
+        }
+
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             var rightFilter = "/*QueryRight(sdOrder,{0},CreatedBy,OrganizationId)*/".FormatEx(this.BillTypeId);
