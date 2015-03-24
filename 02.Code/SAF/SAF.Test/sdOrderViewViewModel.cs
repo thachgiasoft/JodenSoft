@@ -28,18 +28,11 @@ namespace SAF.Test
 
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            //权限到个人及部门
-            //var rightFilter = "/*QueryRight(a)*/";
-            //var commandText = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.Current.UserId);
-
-            //string sql = "SELECT Iden,OrderNo FROM dbo.sdOrder a WITH(NOLOCK) WHERE ({0}){1}".FormatEx(sCondition, commandText);
-            //this.IndexEntitySet.Query(sql);
-
-            //权限到子部门
             var rightFilter = "/*QueryRight(a)*/";
-            var commandText = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.Current.UserId);
+            rightFilter = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.Current.UserId);
 
             string sql = @"
+--查询时要查出 CreatedBy,OrganizationId,OrganizationCode,三个字段缺一不可.
 with result as
 (           
 SELECT A.*,OrganizationCode=[dbo].[sysGetOrganizationCode](a.OrganizationId)
@@ -49,7 +42,7 @@ FROM dbo.sdOrder a WITH(NOLOCK)
 SELECT Iden, OrderNo
 FROM result A
 WHERE ({0}){1}
-".FormatEx(sCondition, commandText);
+".FormatEx(sCondition, rightFilter);
             this.IndexEntitySet.Query(sql);
 
         }
