@@ -49,7 +49,7 @@ where {0}
 ORDER BY [Iden]";
             this.gseOrg.Properties.DisplayMember = "Name";
             this.gseOrg.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
-            this.gseOrg.Properties.AutoFillFieldNames = "OrganiaztionId=Iden,OrganiaztionName=Name";
+            this.gseOrg.Properties.AutoFillFieldNames = "OrganizationId=Iden,OrganizationName=Name";
             this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
             this.gseOrg.Properties.Query();
         }

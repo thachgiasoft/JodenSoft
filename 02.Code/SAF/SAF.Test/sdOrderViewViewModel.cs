@@ -38,9 +38,9 @@ namespace SAF.Test
         protected override void OnQueryChild(object key)
         {
             string mainSql = @"
-SELECT a.*,OrganiaztionName= b.Name
+SELECT a.*,OrganizationName= b.Name
 FROM dbo.sdOrder a WITH(NOLOCK)
-LEFT JOIN dbo.sysOrganization b WITH(NOLOCK) ON a.OrganiaztionId=b.Iden
+LEFT JOIN dbo.sysOrganization b WITH(NOLOCK) ON a.OrganizationId=b.Iden
 WHERE A.Iden=:Iden
 ORDER BY A.Iden";
             this.MainEntitySet.Query(mainSql, key);

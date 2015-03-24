@@ -28,10 +28,10 @@ namespace SAF.Test
             set { base.SetFieldValue(P => P.OrderNo, value); }
         }
 
-        public int OrganiaztionId
+        public int OrganizationId
         {
-            get { return base.GetFieldValue<int>(P => P.OrganiaztionId); }
-            set { base.SetFieldValue(P => P.OrganiaztionId, value); }
+            get { return base.GetFieldValue<int>(P => P.OrganizationId); }
+            set { base.SetFieldValue(P => P.OrganizationId, value); }
         }
 
         public int Remark

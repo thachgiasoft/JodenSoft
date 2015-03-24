@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[sdOrder] (
     [Iden]            INT           NOT NULL,
     [OrderNo]         NVARCHAR (50) NULL,
-    [OrganiaztionId] INT           NULL,
+    [OrganizationId] INT           NULL,
     [Remark] NVARCHAR(MAX) NULL,
 	[CreatedBy]     INT            NULL,
     [CreatedOn]     DATETIME       NULL,

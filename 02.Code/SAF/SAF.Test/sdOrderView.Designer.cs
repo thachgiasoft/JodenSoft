@@ -201,7 +201,7 @@
             // 
             // gseOrg
             // 
-            this.gseOrg.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "OrganiaztionName", true));
+            this.gseOrg.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "OrganizationName", true));
             this.gseOrg.Location = new System.Drawing.Point(51, 36);
             this.gseOrg.MenuManager = this.ribbonMain;
             this.gseOrg.Name = "gseOrg";

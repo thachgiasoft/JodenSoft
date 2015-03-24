@@ -5,7 +5,7 @@
     <Property Name="ElementType" Value="SqlSimpleColumn" />
     <Property Name="ParentElementName" Value="[dbo].[sdOrder]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="OrganiaztionId" />
+    <Property Name="NewName" Value="OrganizationId" />
   </Operation>
   <Operation Name="Rename Refactor" Key="6b18b13b-8e40-44e9-84f4-f0cbe66e56ff" ChangeDateTime="01/17/2015 12:21:16">
     <Property Name="ElementName" Value="[dbo].[sysCommonBillConfig].[Id]" />
@@ -20,5 +20,12 @@
     <Property Name="ParentElementName" Value="[dbo].[sysCommonBillConfig]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Config" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="12bfa596-2e6d-458d-b6a6-1366f5ac5020" ChangeDateTime="03/24/2015 08:15:49">
+    <Property Name="ElementName" Value="[dbo].[sdOrder].[OrganizationId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sdOrder]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrganizationId" />
   </Operation>
 </Operations>
