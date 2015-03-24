@@ -39,7 +39,10 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// 单据ID
         /// </summary>
-        public int BillTypeId { get; set; }
+        public virtual int BillTypeId
+        {
+            get { return 0; }
+        }
 
         private EditState _editState = EditState.Browse;
         /// <summary>

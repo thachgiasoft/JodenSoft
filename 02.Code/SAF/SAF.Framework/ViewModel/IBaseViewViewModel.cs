@@ -13,7 +13,7 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// 单据类型ID
         /// </summary>
-        int BillTypeId { get; set; }
+        int BillTypeId { get; }
         /// <summary>
         /// UI唯一标识
         /// </summary>

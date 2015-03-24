@@ -12,7 +12,7 @@ namespace SAF.EntityFramework
         public DataTable DataRights { get; set; }
         public BillOperateRight OperateRight { get; set; }
 
-        public static readonly string CreateByField = "CreateBy";
+        public static readonly string CreatedByField = "CreatedBy";
         public static readonly string OrganizationCodeField = "OrganizationCode";
         public static readonly string OrganizationIdField = "OrganizationId";
 

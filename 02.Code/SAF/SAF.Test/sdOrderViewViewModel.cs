@@ -11,10 +11,20 @@ namespace SAF.Test
 {
     public class sdOrderViewViewModel : MasterDetailViewViewModel<sdOrder, sdOrder, sdOrderDtl>
     {
+        public override int BillTypeId
+        {
+            get
+            {
+                return 4;
+            }
+        }
+
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            var rightFilter = "/*QueryRight()*/";
-            string sql = "SELECT Iden,OrderNo FROM dbo.sdOrder WITH(NOLOCK) WHERE ({0})".FormatEx(sCondition);
+            var rightFilter = "/*QueryRight(sdOrder,{0},CreatedBy,OrganizationId)*/".FormatEx(this.BillTypeId);
+            var commandText = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.Current.UserId);
+
+            string sql = "SELECT Iden,OrderNo FROM dbo.sdOrder WITH(NOLOCK) WHERE ({0}){1}".FormatEx(sCondition, commandText);
             this.IndexEntitySet.Query(sql);
         }
 

@@ -237,9 +237,6 @@ namespace SAF.EntityFramework
 
             DataSet ds;
 
-            if (this.BillTypeId > 0)
-                commandText = BillRight.CalcBillQueryRight(commandText, this.BillTypeId, Session.Current.UserId);
-
             if (this.PageSize <= 0)
             {
                 ds = DataPortal.ExecuteDataset(this.ConnectionName, commandText, parameterValues);

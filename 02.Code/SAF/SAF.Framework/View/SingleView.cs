@@ -26,13 +26,6 @@ namespace SAF.Framework.View
             InitializeComponent();
         }
 
-        protected override void OnInitBillRight()
-        {
-            base.OnInitBillRight();
-
-            this.ViewModel.MainEntitySet.BillTypeId = this.BillTypeId;
-        }
-
         protected override void OnInitQueryConfig()
         {
             base.OnInitQueryConfig();

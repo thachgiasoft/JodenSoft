@@ -16,7 +16,7 @@ namespace SAF.EntityFramework
             public const string UseBillDataRight = @"UseBillDataRight";
             public const string BillTypeId = @"BillTypeId";
             public const string QueryRight = @"QueryRight";
-            public const string CreateBy = @"CreateBy";
+            public const string CreatedBy = @"CreatedBy";
             public const string OrganizationId = @"OrganizationId";
             public const string OrganizationCode = @"OrganizationCode";
         }
@@ -39,17 +39,17 @@ ELSE
 BEGIN
     SET @BillRight=0
     SELECT @BillRight=@BillRight | (
-          CASE InsertRight WHEN 1 THEN 1 ELSE 0 END
-        | CASE ExtendRigth1 WHEN 1 THEN 2 ELSE 0 END
-        | CASE ExtendRigth2 WHEN 1 THEN 4 ELSE 0 END
-        | CASE ExtendRigth3 WHEN 1 THEN 8 ELSE 0 END
-        | CASE ExtendRigth4 WHEN 1 THEN 16 ELSE 0 END
-        | CASE ExtendRigth5 WHEN 1 THEN 32 ELSE 0 END
-        | CASE ExtendRigth6 WHEN 1 THEN 64 ELSE 0 END
-        | CASE ExtendRigth7 WHEN 1 THEN 128 ELSE 0 END
-        | CASE ExtendRigth8 WHEN 1 THEN 256 ELSE 0 END
-        | CASE ExtendRigth9 WHEN 1 THEN 512 ELSE 0 END
-        | CASE ExtendRigth10 WHEN 1 THEN 1024 ELSE 0 END
+          CASE AddNew WHEN 1 THEN 1 ELSE 0 END
+        | CASE ExtendRight1 WHEN 1 THEN 2 ELSE 0 END
+        | CASE ExtendRight2 WHEN 1 THEN 4 ELSE 0 END
+        | CASE ExtendRight3 WHEN 1 THEN 8 ELSE 0 END
+        | CASE ExtendRight4 WHEN 1 THEN 16 ELSE 0 END
+        | CASE ExtendRight5 WHEN 1 THEN 32 ELSE 0 END
+        | CASE ExtendRight6 WHEN 1 THEN 64 ELSE 0 END
+        | CASE ExtendRight7 WHEN 1 THEN 128 ELSE 0 END
+        | CASE ExtendRight8 WHEN 1 THEN 256 ELSE 0 END
+        | CASE ExtendRight9 WHEN 1 THEN 512 ELSE 0 END
+        | CASE ExtendRight10 WHEN 1 THEN 1024 ELSE 0 END
     )
     FROM dbo.sysUserDataRole A WITH(NOLOCK)
     JOIN dbo.sysBillOperateRight B WITH(NOLOCK) ON B.DataRoleId=A.DataRoleId
@@ -116,8 +116,8 @@ GROUP BY D.Iden,D.Code
             string sTableName = entity.DbTableName;
             if (billRightInfo == null || billRightInfo.BillTypeId <= 0 || !billRightInfo.UseDataRight)
                 return BillDataRight.All;
-            if (!entity.FieldIsExists(BillRightInfo.CreateByField))
-                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.CreateByField));
+            if (!entity.FieldIsExists(BillRightInfo.CreatedByField))
+                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.CreatedByField));
 
             if (!entity.FieldIsExists(BillRightInfo.OrganizationIdField))
                 throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.OrganizationIdField));
@@ -152,7 +152,7 @@ GROUP BY D.Iden,D.Code
         private static BillDataRight CalcCurrentEntityBillDataRight(string fieldName, BillRightInfo billRight, BillDataRight destBillDataRight, IEntityBase entity)
         {
             bool temp = false;
-            string CreateBy = entity.FieldIsExists(BillRightInfo.CreateByField) ? entity.GetFieldValue<string>(BillRightInfo.CreateByField) : string.Empty;
+            string CreateBy = entity.FieldIsExists(BillRightInfo.CreatedByField) ? entity.GetFieldValue<string>(BillRightInfo.CreatedByField) : string.Empty;
             int OrganizationId = entity.FieldIsExists(BillRightInfo.OrganizationIdField) ? entity.GetFieldValue<int>(BillRightInfo.OrganizationIdField) : -1;
 
             string OrganizationCode = entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField);
@@ -238,13 +238,13 @@ WHERE Iden IN ({0}) AND UseBillDataRight=1 AND IsActive=1";
         private static DataTable QueryBillQueryRight(int userId, IEnumerable<int> bills)
         {
             const string sql = @"
-SELECT OrganizationId=C.Iden,OrganizationCode=C.Code,B.BillTypeId,D.AllowRightType,QueryRight=MAX(B.QueryRight)
+SELECT OrganizationId=C.Iden,OrganizationCode=C.Code,B.BillTypeId,QueryRight=MAX(B.QueryRight)
 FROM dbo.sysUserDataRole A WITH(NOLOCK)
-JOIN dbo.sysBillDataRight B WITH(NOLOCK) ON B.DataRoleId=A.DataRoleId AND B.IsActive=1 B.BillTypeId IN ({0}) 
+JOIN dbo.sysBillDataRight B WITH(NOLOCK) ON B.DataRoleId=A.DataRoleId AND B.IsActive=1 AND B.BillTypeId IN ({0}) 
 JOIN dbo.sysBillType D WITH(NOLOCK) ON D.Iden=B.BillTypeId AND D.IsActive=1 AND D.UseBillDataRight=1--单据有效且启用数据权限
 LEFT JOIN dbo.sysOrganization C WITH(NOLOCK) ON C.Iden=A.OrganizationId AND C.IsActive=1
-WHERE AND A.UserId=:UserId     
-GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
+WHERE A.UserId=:UserId     
+GROUP BY B.BillTypeId,C.Iden,C.Code";
             string s = bills.IsEmpty() ? "0" : bills.Select(x => x.ToString()).JoinText(",");
             s = string.Format(sql, s);
             return DataPortal.ExecuteDataset(ConfigContext.DefaultConnection, s, userId).Tables[0];
@@ -293,7 +293,7 @@ GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
                 return string.Empty;
             }
             //计算字段名
-            string CreateByField = info.CreateByField.IsEmpty() ? string.Format("{0}.CreateBy", info.sPrefix) : info.CreateByField;
+            string CreateByField = info.CreateByField.IsEmpty() ? string.Format("{0}.CreatedBy", info.sPrefix) : info.CreateByField;
             string sDepartmentIdField = info.OrganizationIdField.IsEmpty() ? string.Format("{0}.OrganizationId", info.sPrefix) : info.OrganizationIdField;
             string sDepartmentCodeField = info.OrganizationCodeField.IsEmpty() ? string.Format("{0}.OrganizationCode", info.sPrefix) : info.OrganizationCodeField;
             //开始计算权限
@@ -301,7 +301,7 @@ GROUP BY B.BillTypeId,D.AllowRightType,C.Iden,C.Code";
             foreach (DataRow a in rights)
             {
                 bool bAllDepartment = a.IsNull(RES.OrganizationId);
-                int iDepartmentId = a.Field<int>(RES.OrganizationId);
+                int iDepartmentId = a.IsNull(RES.OrganizationId) ? -1 : a.Field<int>(RES.OrganizationId);
                 string sDepartmentCode = a.Field<string>(RES.OrganizationCode);
                 BillRightType iQueryRight = (BillRightType)a.Field<int>(RES.QueryRight);
 

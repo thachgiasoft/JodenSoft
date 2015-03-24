@@ -310,7 +310,7 @@ namespace SAF.Framework.View
         }
 
         /// <summary>
-        /// 视图唯一ID
+        /// 视图对应的菜单ID
         /// </summary>
         [Browsable(false)]
         public int UniqueId
@@ -331,7 +331,6 @@ namespace SAF.Framework.View
                     if (_viewModel != null)
                     {
                         _viewModel.UniqueId = this.UniqueId;
-                        _viewModel.BillTypeId = this.BillTypeId;
                     }
                 }
                 return _viewModel;
@@ -364,9 +363,9 @@ namespace SAF.Framework.View
         }
 
         [Browsable(false)]
-        public virtual int BillTypeId
+        public int BillTypeId
         {
-            get { return 0; }
+            get { return ViewModel == null ? 0 : ViewModel.BillTypeId; }
         }
 
         protected virtual string CalcCondition(string condition)
