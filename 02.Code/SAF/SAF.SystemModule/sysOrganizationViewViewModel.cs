@@ -50,7 +50,7 @@ namespace SAF.SystemModule
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysOrganization> e)
         {
             e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
-            e.CurrentEntity.IsActive = false;
+            e.CurrentEntity.IsActive = true;
             e.CurrentEntity.Code = string.Empty;
 
             if (e.OriginalEntity != null)
@@ -72,7 +72,7 @@ namespace SAF.SystemModule
 (
     SELECT Iden,ParentId
     FROM [dbo].sysOrganization with(nolock)
-    WHERE [IsActive]=0 and {0}
+    WHERE [IsActive]=1 and {0}
     UNION ALL
     SELECT b.Iden,b.ParentId
     FROM [tree] a 
@@ -116,7 +116,7 @@ ORDER BY a.[ParentId]".FormatEx(sCondition);
 )
 SELECT Iden,Name,[ParentId]
 FROM [dbo].sysOrganization with(nolock)
-WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree])
+WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree]) and IsActive=1
 ORDER BY [ParentId], [Code]".FormatEx(key ?? int.MinValue);
             this.ParentEntitySet.Query(sqlParent);
         }

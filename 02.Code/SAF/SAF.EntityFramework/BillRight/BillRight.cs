@@ -33,7 +33,7 @@ WHERE Iden=:BillTypeId AND IsActive=1
 
 --查询操作权限
 DECLARE @BillRight INT
-IF NOT EXISTS(SELECT TOP 1 1 FROM dbo.pbBillType WITH(NOLOCK) WHERE Iden=:BillTypeId AND UseBillOperateRight=1 AND IsActive=1)
+IF NOT EXISTS(SELECT TOP 1 1 FROM dbo.sysBillType WITH(NOLOCK) WHERE Iden=:BillTypeId AND UseBillOperateRight=1 AND IsActive=1)
     SELECT BillRight=65536
 ELSE
 BEGIN
