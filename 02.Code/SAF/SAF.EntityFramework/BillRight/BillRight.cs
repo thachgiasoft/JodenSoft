@@ -152,17 +152,46 @@ GROUP BY D.Iden,D.Code
         private static BillDataRight CalcCurrentEntityBillDataRight(string fieldName, BillRightInfo billRight, BillDataRight destBillDataRight, IEntityBase entity)
         {
             bool temp = false;
-            string CreatedBy = entity.FieldIsExists(BillRightInfo.CreatedByField) ? entity.GetFieldValue<string>(BillRightInfo.CreatedByField) : string.Empty;
-            int OrganizationId = entity.FieldIsExists(BillRightInfo.OrganizationIdField) ? entity.GetFieldValue<int>(BillRightInfo.OrganizationIdField) : -1;
+            int CreatedBy = -1;
+            if (entity.FieldIsExists(BillRightInfo.CreatedByField) && !entity.FieldIsNull(BillRightInfo.CreatedByField) && entity.GetFieldValue<int>(BillRightInfo.CreatedByField) > 0)
+            {
+                CreatedBy = entity.GetFieldValue<int>(BillRightInfo.CreatedByField);
+            }
 
-            string OrganizationCode = entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField);
+            int OrganizationId = -1;
+            if (entity.FieldIsExists(BillRightInfo.OrganizationIdField) && !entity.FieldIsNull(BillRightInfo.OrganizationIdField))
+            {
+                OrganizationId = entity.GetFieldValue<int>(BillRightInfo.OrganizationIdField);
+            }
+
+            string OrganizationCode = "XXXXXX";
+            if (entity.FieldIsExists(BillRightInfo.OrganizationCodeField) && !entity.FieldIsNull(BillRightInfo.OrganizationCodeField))
+            {
+                OrganizationCode = entity.GetFieldValue<string>(BillRightInfo.OrganizationCodeField);
+            }
+
             foreach (DataRow dr in billRight.DataRights.Rows)
             {
                 //部门为空，则表示针对所有部门都是此角色
                 bool bAllOrganization = dr.IsNull(RES.OrganizationId);
-                bool bSameCreator = CreatedBy.Equals(dr[RES.CreatedBy].ToString().Trim(), StringComparison.CurrentCultureIgnoreCase);
-                bool bSameOrganizationId = OrganizationId == Convert.ToInt32(dr[RES.OrganizationId]);
-                bool bSameOrganizationCode = OrganizationCode.StartsWith(dr[RES.OrganizationCode].ToString(), StringComparison.OrdinalIgnoreCase);
+
+                bool bSameCreator = false;
+                if (!dr.IsNull(RES.CreatedBy))
+                {
+                    bSameCreator = (CreatedBy == Convert.ToInt32(dr[RES.CreatedBy]));
+                }
+
+                bool bSameOrganizationId = false;
+                if (!dr.IsNull(RES.OrganizationId))
+                {
+                    bSameOrganizationId = (OrganizationId == Convert.ToInt32(dr[RES.OrganizationId]));
+                }
+
+                bool bSameOrganizationCode = false;
+                if (!dr.IsNull(RES.OrganizationCode))
+                {
+                    bSameOrganizationCode = OrganizationCode.StartsWith(dr[RES.OrganizationCode].ToString(), StringComparison.OrdinalIgnoreCase);
+                }
                 switch ((BillRightType)Convert.ToInt32(dr[fieldName]))
                 {
                     case BillRightType.None: continue;

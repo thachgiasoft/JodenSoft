@@ -60,5 +60,16 @@ ORDER BY [Iden]";
 
             UIController.RefreshControl(this.txtIden, false);
         }
+
+        protected override void OnInitEvent()
+        {
+            base.OnInitEvent();
+            this.grvIndex.FocusedRowChanged += grvIndex_FocusedRowChanged;
+        }
+
+        void grvIndex_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            this.IndexRowChange();
+        }
     }
 }
