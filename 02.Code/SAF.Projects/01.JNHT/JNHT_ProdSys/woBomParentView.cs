@@ -35,6 +35,13 @@ namespace JNHT_ProdSys
                 return base.ViewModel as woBomParentViewViewModel;
             }
         }
+        public override int BillTypeId
+        {
+            get
+            {
+                return base.BillTypeId;
+            }
+        }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -45,20 +52,24 @@ namespace JNHT_ProdSys
         {
             base.OnInitBinding();
             this.ViewModel.woOrderEntity.SetBindingSource(bswo);
+            this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
         }
 
         private void grvwo_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            ProgressService.Show("正在生成工单结构树...");
-            Common.InitBomTree(this.ViewModel.woOrderEntity.CurrentEntity,treeBom);
-            ProgressService.Close();
-        }
-
-        private void treeBom_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            string bomparentid = treeBom.SelectedNode.Tag.ToString();
-            var woid = this.ViewModel.woOrderEntity.CurrentEntity.Iden;
+            //ProgressService.Show("正在生成工单结构树...");
+            //Common.InitBomTree(this.ViewModel.woOrderEntity.CurrentEntity,treeBom);
+            //ProgressService.Close();
+            this.ViewModel.queryMain();
 
         }
+
+        //private void treeBom_AfterSelect(object sender, TreeViewEventArgs e)
+        //{
+        //    string bomparentid = treeBom.SelectedNode.Tag.ToString();
+        //    var woid = this.ViewModel.woOrderEntity.CurrentEntity.Iden;
+
+        //}
+
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.EntityFramework;
+using SAF.Foundation;
 
 namespace JNHT_ProdSys
 {
@@ -34,9 +35,14 @@ namespace JNHT_ProdSys
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
+            queryMain();
+        }
+
+        public void queryMain()
+        {
             this.woOrderEntity.Query("select * from woorder with(nolock) order by iden desc");
             var woid = this.woOrderEntity.CurrentEntity.Iden;
-            this.MainEntitySet.Query("select *  from woBomParent with(nolock) where 1=0 ");
+            this.MainEntitySet.Query("select *  from woBomParent with(nolock) where woid='{0}'".FormatEx(woid));
         }
 
         protected override void OnQueryChild(object key)

@@ -102,6 +102,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\person.cs" />
     <Compile Include="bomChild.cs" />
     <Compile Include="bomChildView.cs">
       <SubType>UserControl</SubType>
@@ -246,6 +247,7 @@
     <None Include="Properties\DataSources\JNHT_ProdSys.Properties.Resources.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\woBomParent.datasource" />
     <None Include="Properties\DataSources\woDetail.datasource" />
     <None Include="Properties\DataSources\woOrder.datasource" />
     <None Include="Properties\DataSources\woOrderView.datasource" />

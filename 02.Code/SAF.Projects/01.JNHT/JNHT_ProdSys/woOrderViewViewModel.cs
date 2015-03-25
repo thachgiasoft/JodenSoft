@@ -63,10 +63,11 @@ namespace JNHT_ProdSys
         protected override void OnQueryChild(object key)
         {
             base.OnQueryChild(key);
-            this.MainEntitySet.Query("SELECT  Iden ,BomId, WoCode, WoVersion , CParentId, CParentName, Qty ,Isclose  FROM  woOrder where Iden='{0}'".FormatEx(key));
+            this.MainEntitySet.Query(@"SELECT  wo.*,OrganizationName=b.name  
+            FROM  woOrder wo left join sysOrganization b on wo.OrganizationId=b.iden where wo.Iden='{0}'".FormatEx(key));
             this.jd_v_parentidEntity.Query("select  Iden,产品代号,产品名称,产品区分号  from jd_v_parentid");
 
-            this.bomParentEntity.Query("select * from bomParent wit(nolock) where 1=0");
+            this.bomParentEntity.Query("select * from bomParent with(nolock) where 1=0");
             this.bomChildEntity.Query("select * from bomChild with(nolock) where 1=0");
         }
 

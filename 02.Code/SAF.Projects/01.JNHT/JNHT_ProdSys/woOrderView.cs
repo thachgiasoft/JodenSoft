@@ -46,38 +46,38 @@ namespace JNHT_ProdSys
             if (this.ViewModel != null)
             {
                 this.ViewModel.IndexEntitySet.SetBindingSource(bsIndex);
-
                 this.ViewModel.MainEntitySet.SetBindingSource(bsMain);
+               // this.ViewModel.jd_v_parentidEntity.SetBindingSource(bsProd);
             }
             //this.bsProd.DataSource= this.ViewModel.jd_v_parentidEntity.DefaultView;
-            this.ViewModel.jd_v_parentidEntity.SetBindingSource(bsProd);
-            // this.luparentid.Properties.DataSource = this.ViewModel.jd_v_parentidEntity.DefaultView;
-            //this.luparentid.Properties.DisplayMember = "产品代码";
-            // this.luparentid.Properties.ValueMember = "Iden";
+            
+            this.luparentid.Properties.DataSource = this.ViewModel.jd_v_parentidEntity.DefaultView;
+            this.luparentid.Properties.DisplayMember = "产品代号";
+            this.luparentid.Properties.ValueMember = "产品代号";
 
 
         }
         protected override void OnInitUI()
         {
             base.OnInitUI();
-           // InitOrgGridSearch();
+             InitOrgGridSearch();
 
             this.AccessFocusControl = this.txtwocode;
         }
 
-//        private void InitOrgGridSearch()
-//        {
-//            this.gseOrg.Properties.CommandText = @"
-//SELECT Iden,Name 
-//FROM dbo.sysOrganization a WITH(NOLOCK)
-//where {0}
-//ORDER BY [Iden]";
-//            this.gseOrg.Properties.DisplayMember = "Name";
-//            this.gseOrg.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
-//            this.gseOrg.Properties.AutoFillFieldNames = "OrganiaztionId=Iden,OrganiaztionName=Name";
-//            this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
-//            this.gseOrg.Properties.Query();
-//        }
+        private void InitOrgGridSearch()
+        {
+            this.gseOrg.Properties.CommandText = @"
+SELECT Iden,Name 
+FROM dbo.sysOrganization a WITH(NOLOCK)
+where {0}
+ORDER BY [Iden]";
+            this.gseOrg.Properties.DisplayMember = "Name";
+            this.gseOrg.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
+            this.gseOrg.Properties.AutoFillFieldNames = "OrganizationId=Iden,OrganizationName=Name";
+            this.gseOrg.Properties.ColumnHeaders = "组织序号,组织名称";
+            this.gseOrg.Properties.Query();
+        }
 
         protected override void OnInitConfig()
         {
@@ -99,12 +99,18 @@ namespace JNHT_ProdSys
             this.spdqty.Enabled = false;
             this.txtwoversion.Enabled = false;
             this.txtparentname.Enabled = false;
+            this.gseOrg.Enabled = false;
         }
 
         protected override void OnAddNew()
         {
             base.OnAddNew();
-
+            this.txtwocode.Enabled = true;
+            this.txtwocode.Enabled = true;
+            this.luparentid.Enabled = true;
+            this.spdqty.Enabled = true;
+            this.txtwoversion.Enabled = true;
+            this.txtparentname.Enabled = true;
 
         }
 
@@ -115,13 +121,7 @@ namespace JNHT_ProdSys
             {
                 //InsertWodetail(this.ViewModel.MainEntitySet.CurrentEntity);
                woOrder entity=this.ViewModel.MainEntitySet.CurrentEntity;
-               // this.ViewModel.woDetailEntity.SaveChanges();
-                //SqlParameter[] parm=new SqlParameter[]{ new SqlParameter("@woid",entity.Iden),
-                //                                        new SqlParameter("@userid",Session.Current.UserId),
-                //                                        new SqlParameter("@organiaztionid",1),//entity.OrganiaztionId
-                //                                        new SqlParameter("@qty",entity.Qty)};
-
-                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "exec JD_P_GetRotingMaterial @woid=:woid,@userid=:userid,@organiaztionid=:organiaztionid,@qty=:qty", entity.Iden, Session.Current.UserId, 1, entity.Qty);
+                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "exec JD_P_GetRotingMaterial @woid=:woid,@userid=:userid,@organizationid=:organizationid,@qty=:qty", entity.Iden, Session.Current.UserId, entity.OrganizationId, entity.Qty);
                 return true;
             }
             catch (Exception )

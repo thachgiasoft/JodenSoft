@@ -141,10 +141,10 @@ namespace JNHT_ProdSys
             get { return base.GetFieldValue<DateTime>(P => P.FactEDate); }
             set { base.SetFieldValue(P => P.FactEDate, value); }
         }
-        public int OrganiaztionId
+        public int OrganizationId
         {
-            get { return base.GetFieldValue<int>(P => P.OrganiaztionId); }
-            set { base.SetFieldValue(P => P.OrganiaztionId, value); }
+            get { return base.GetFieldValue<int>(P => P.OrganizationId); }
+            set { base.SetFieldValue(P => P.OrganizationId, value); }
         }
         //TODO:添加其他字段
         #region 创建人&创建时间&修改人&修改时间&版本号
