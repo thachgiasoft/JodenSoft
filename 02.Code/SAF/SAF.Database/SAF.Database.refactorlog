@@ -1,1 +1,24 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4857bc57-b30f-45c5-a6d4-4a99c41584b3" ChangeDateTime="03/26/2015 03:44:44">
+    <Property Name="ElementName" Value="[dbo].[sysReportConfig].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysReportConfig]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Iden" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7dbca8c5-e65c-40e9-a622-c93600921961" ChangeDateTime="03/26/2015 03:46:42">
+    <Property Name="ElementName" Value="[dbo].[sysReportConfig].[TableNames]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysReportConfig]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TableList" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6e91d249-8c66-4c91-ab69-9633e8a5bdb0" ChangeDateTime="03/26/2015 03:47:17">
+    <Property Name="ElementName" Value="[dbo].[sysReportConfig].[ParamTestValueList]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysReportConfig]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParamValueList" />
+  </Operation>
+</Operations>

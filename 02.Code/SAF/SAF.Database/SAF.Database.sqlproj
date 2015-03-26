@@ -99,6 +99,8 @@
     <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
     <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
     <Build Include="dbo\Tables\sysCommonBillConfig.sql" />
+    <Build Include="dbo\Tables\sysReportConfig.sql" />
+    <Build Include="dbo\Tables\sysReportConfigFormat.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SAF.Database.refactorlog" />
