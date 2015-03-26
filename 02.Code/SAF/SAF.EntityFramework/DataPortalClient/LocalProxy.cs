@@ -44,6 +44,21 @@ namespace SAF.EntityFramework.DataPortalClient
         {
             return _portal.LoadDataSetByTransaction(connectionName, dataSet, commandText, parameterValues);
         }
+
+        public Server.OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            return _portal.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+        }
+
+        public Server.OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            return _portal.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
+        }
+
+        public Server.OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            return _portal.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -143,5 +158,7 @@ namespace SAF.EntityFramework.DataPortalClient
         {
             return _portal.ExecuteDatasetByPage(connectionName, pageInfo, commandText, parameterValues);
         }
+
+
     }
 }

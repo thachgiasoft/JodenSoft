@@ -18,6 +18,8 @@ namespace SAF.Framework.Controls.Test
         public Form1()
         {
             InitializeComponent();
+
+            ReportService.InitializeReport(this.bbiReport, 0);
         }
 
     }

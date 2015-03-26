@@ -55,6 +55,7 @@ namespace SAF.Framework.Component
 
         private void InitUserInfo()
         {
+            Session.Current.RetriveUserImage();
             this.picUserPicture.Image = Session.Current.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
 
             this.lblUserName.Text = "{0} ({1})".FormatEx(Session.Current.UserName, Session.Current.UserFullName);
@@ -95,7 +96,10 @@ namespace SAF.Framework.Component
                 var es = new EntitySet<sysUser>();
                 es.Query("Select * from sysUser with(nolock) where Iden=:UserId", Session.Current.UserId);
                 if (es.Count > 0)
+                {
                     Session.Current.Assign(es.CurrentEntity);
+                    Session.Current.RetriveUserImage();
+                }
                 InitUserInfo();
             };
 

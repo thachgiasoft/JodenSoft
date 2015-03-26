@@ -41,6 +41,31 @@ namespace SAF.EntityFramework.Server
         /// </summary>
         /// <param name="connectionName"></param>
         /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
+                {
+                    db.LoadDataSet(cmd, dataSet, tableNames);
+                    return new OperationResult() { Data = true, IsSucess = true };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
@@ -74,7 +99,87 @@ namespace SAF.EntityFramework.Server
             {
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
-        }        
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                using (var connection = db.GetNewOpenConnection())
+                {
+                    using (var trans = connection.BeginTransaction())
+                    {
+                        using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
+                        {
+                            try
+                            {
+                                db.LoadDataSet(cmd, dataSet, tableNames, trans);
+                                trans.Commit();
+                                return new OperationResult() { Data = true, IsSucess = true };
+                            }
+                            catch
+                            {
+                                trans.Rollback();
+                                throw;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        public OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                using (var connection = db.GetNewOpenConnection())
+                {
+                    using (var trans = connection.BeginTransaction())
+                    {
+                        using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
+                        {
+                            try
+                            {
+                                db.LoadDataSet(cmd, dataSet, tableNames, trans);
+                                trans.Rollback();
+                                return new OperationResult() { Data = true, IsSucess = true };
+                            }
+                            catch
+                            {
+                                trans.Rollback();
+                                throw;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
+            }
+        }
         /// <summary>
         /// 
         /// </summary>

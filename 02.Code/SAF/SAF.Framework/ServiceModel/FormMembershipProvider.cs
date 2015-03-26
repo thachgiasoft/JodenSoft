@@ -314,7 +314,7 @@ namespace SAF.Framework
             //}
 #endif
             const string sql = @"
-select top 1 Iden, UserName, UserFullName, Password, Email, TelephoneNo, UserImage, IsActive, IsDeleted, IsSystem 
+select top 1 Iden, UserName, UserFullName, Password, Email, TelephoneNo, IsActive, IsDeleted, IsSystem 
 from sysUser with(nolock) 
 where UserName=:UserName
 ";
@@ -342,6 +342,7 @@ where UserName=:UserName
             }
 
             Session.Current.Assign(users.CurrentEntity);
+            Session.Current.RetriveUserImage();
 
             message = string.Empty;
             return true;

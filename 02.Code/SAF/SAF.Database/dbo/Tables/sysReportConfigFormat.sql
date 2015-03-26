@@ -4,6 +4,7 @@
 	[ReportConfigId] INT NOT NULL,
 	[RowNo]          INT NOT NULL,
 	[Name]           NVARCHAR(50) NOT NULL,
+	[FormatData]     Image NULL,
 	[IsDefault]      BIT cONSTRAINT [DF_sysReportConfigFormat_IsDefault] DEFAULT((0)) NOT NULL,
 	[IsActive]       BIT CONSTRAINT [DF_sysReportConfigFormat_IsActive] DEFAULT ((1)) NOT NULL,
 	[Remark]         NVARCHAR(MAX) NULL,

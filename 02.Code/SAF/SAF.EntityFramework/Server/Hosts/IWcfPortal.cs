@@ -27,6 +27,9 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <returns></returns>
         [OperationContract]
         OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
+
+        [OperationContract]
+        OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -37,6 +40,12 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <returns></returns>
         [OperationContract]
         OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
+
+        [OperationContract]
+        OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+
+        [OperationContract]
+        OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
 
         /// <summary>
         /// 

@@ -74,6 +74,17 @@ namespace SAF.EntityFramework
             if (!result.IsSucess)
                 throw new Exception(result.Message);
         }
+
+        public static void LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            OperationResult result = null;
+
+            DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
+            result = proxy.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+
+            if (!result.IsSucess)
+                throw new Exception(result.Message);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -87,6 +98,17 @@ namespace SAF.EntityFramework
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
             result = proxy.LoadDataSetByTransaction(connectionName, dataSet, commandText, parameterValues);
+
+            if (!result.IsSucess)
+                throw new Exception(result.Message);
+        }
+
+        public static void LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            OperationResult result = null;
+
+            DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
+            result = proxy.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -277,6 +299,17 @@ namespace SAF.EntityFramework
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data as DataSet;
+        }
+
+        public static void LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            OperationResult result = null;
+
+            DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
+            result = proxy.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+
+            if (!result.IsSucess)
+                throw new Exception(result.Message);
         }
     }
 }

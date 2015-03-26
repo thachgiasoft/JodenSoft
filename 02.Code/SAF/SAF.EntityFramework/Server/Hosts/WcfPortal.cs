@@ -38,6 +38,19 @@ namespace SAF.EntityFramework.Server.Hosts
                 return new OperationResult() { Message = ex.Message };
             }
         }
+
+        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +72,31 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
+        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
 
+        public OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
         /// <summary>
         /// 
         /// </summary>

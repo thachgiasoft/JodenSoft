@@ -143,17 +143,7 @@ namespace SAF.EntityFramework
             if (entity.FieldIsExists("TelephoneNo") && !entity.FieldIsNull("TelephoneNo"))
                 this.TelephoneNo = entity.GetFieldValue<string>("TelephoneNo");
 
-            if (entity.FieldIsExists("UserImage") && !entity.FieldIsNull("UserImage"))
-            {
-                var bytes = entity.GetFieldValue<byte[]>("UserImage");
-                this.UserImage = new Bitmap(new MemoryStream(bytes));
-            }
 
-            if (entity.FieldIsExists("UserSignImage") && !entity.FieldIsNull("UserSignImage"))
-            {
-                var bytes = entity.GetFieldValue<byte[]>("UserSignImage");
-                this.UserSignImage = new Bitmap(new MemoryStream(bytes));
-            }
         }
 
         public void Clear()
@@ -174,6 +164,23 @@ namespace SAF.EntityFramework
             {
                 return this.UserId == -1;
             }
+        }
+
+        public void RetriveUserImage()
+        {
+            var es = new EntitySet<sysUser>();
+            es.Query("SELECT UserImage,UserSignImage FROM dbo.sysUser where Iden=:Iden", this.UserId);
+
+            if (es.Count < 0)
+            {
+                this.UserImage = null;
+                this.UserSignImage = null;
+                return;
+            }
+
+            this.UserImage = new Bitmap(new MemoryStream(es[0].UserImage));
+            this.UserSignImage = new Bitmap(new MemoryStream(es[0].UserSignImage));
+
         }
     }
 }

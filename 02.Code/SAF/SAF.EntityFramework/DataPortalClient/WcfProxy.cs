@@ -135,6 +135,63 @@ namespace SAF.EntityFramework.DataPortalClient
             }
             return result;
         }
+
+        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            ChannelFactory<IWcfPortal> cf = GetChannelFactory();
+            IWcfPortal svr = GetProxy(cf);
+            OperationResult result = null;
+            try
+            {
+                result = svr.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+                if (cf != null)
+                    cf.Close();
+            }
+            catch
+            {
+                cf.Abort();
+                throw;
+            }
+            return result;
+        }
+
+        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            ChannelFactory<IWcfPortal> cf = GetChannelFactory();
+            IWcfPortal svr = GetProxy(cf);
+            OperationResult result = null;
+            try
+            {
+                result = svr.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
+                if (cf != null)
+                    cf.Close();
+            }
+            catch
+            {
+                cf.Abort();
+                throw;
+            }
+            return result;
+        }
+
+        public OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        {
+            ChannelFactory<IWcfPortal> cf = GetChannelFactory();
+            IWcfPortal svr = GetProxy(cf);
+            OperationResult result = null;
+            try
+            {
+                result = svr.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+                if (cf != null)
+                    cf.Close();
+            }
+            catch
+            {
+                cf.Abort();
+                throw;
+            }
+            return result;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -359,5 +416,7 @@ namespace SAF.EntityFramework.DataPortalClient
             }
             return result;
         }
+
+
     }
 }

@@ -48,6 +48,9 @@
     <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Service, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v14.1.Extensions, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -176,6 +179,7 @@
       <DependentUpon>XtraPropertyGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysRegInfo.cs" />
+    <Compile Include="Entities\sysReportConfigFormat.cs" />
     <Compile Include="FileUpgradeHelper.cs" />
     <Compile Include="fmFileUpgrade.cs">
       <SubType>Form</SubType>
@@ -232,6 +236,7 @@
     <Compile Include="QueryControlHelper.cs" />
     <Compile Include="RegInfoHelper.cs" />
     <Compile Include="ReportService\ReportService.cs" />
+    <Compile Include="Entities\sysReportConfig.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
