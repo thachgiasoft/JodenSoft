@@ -174,7 +174,12 @@ Order by RowNo";
             //解析表名和关系
 
             //解析参数
-            var QueryPparams = CurrReport.ParamList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var QueryParams = CurrReport.ParamList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var QueryParamValues = new List<object>();
+            foreach (var item in QueryParams)
+            {
+                //从数据集中获取数据
+            }
 
             //加载数据
             DataPortal.LoadReportDataSet(ConfigContext.DefaultConnection, ds, tableNames, CurrReport.SqlScript, null);
