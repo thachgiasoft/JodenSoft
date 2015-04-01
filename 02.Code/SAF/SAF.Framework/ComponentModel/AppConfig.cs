@@ -29,7 +29,7 @@ namespace SAF.Framework.ComponentModel
         public void Load()
         {
             var es = new EntitySet<sysAppConfig>();
-            es.Query("select * from sysAppConfig with(nolock) where UserId=:UserId", Session.Current.UserId);
+            es.Query("select * from sysAppConfig with(nolock) where UserId=:UserId", Session.UserInfo.UserId);
             if (es.Count > 0)
             {
                 var str = es.CurrentEntity.GetFieldValue<string>("AppConfig");
@@ -47,7 +47,7 @@ namespace SAF.Framework.ComponentModel
         public void Save()
         {
             var es = new EntitySet<sysAppConfig>();
-            es.Query("select * from sysAppConfig with(nolock) where UserId=:UserId", Session.Current.UserId);
+            es.Query("select * from sysAppConfig with(nolock) where UserId=:UserId", Session.UserInfo.UserId);
             sysAppConfig entity = null;
             if (es.Count <= 0)
             {
@@ -57,7 +57,7 @@ namespace SAF.Framework.ComponentModel
             else
                 entity = es.First();
 
-            entity.UserId = Session.Current.UserId;
+            entity.UserId = Session.UserInfo.UserId;
             entity.AppConfig = XmlSerializerHelper.Serialize<AppConfig>(this);
             es.SaveChanges();
         }

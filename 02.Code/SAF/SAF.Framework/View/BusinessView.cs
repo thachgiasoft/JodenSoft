@@ -40,13 +40,13 @@ namespace SAF.Framework.View
         protected void AddMenuToFavorite()
         {
             var query = new EntitySet<sysMyFavoriteMenu>();
-            query.Query("SELECT TOP 1 * FROM dbo.sysMyFavoriteMenu WITH(NOLOCK) WHERE UserId=:UserId and MenuId=:MenuId", Session.Current.UserId, this.UniqueId);
+            query.Query("SELECT TOP 1 * FROM dbo.sysMyFavoriteMenu WITH(NOLOCK) WHERE UserId=:UserId and MenuId=:MenuId", Session.UserInfo.UserId, this.UniqueId);
             if (query.Count <= 0)
             {
                 var obj = query.AddNew();
                 obj.Iden = IdenGenerator.NewIden(obj.DbTableName);
                 obj.MenuId = this.UniqueId;
-                obj.UserId = Session.Current.UserId;
+                obj.UserId = Session.UserInfo.UserId;
                 obj.RowNumber = 10000;
                 query.SaveChanges();
             }

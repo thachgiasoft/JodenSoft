@@ -37,7 +37,7 @@ namespace SAF.Framework.Component
         private void InitVersionInfo()
         {
             string productName = AssemblyInfoHelper.ProductName;
-            string productId = Session.Current.ProductId;
+            string productId = Session.ProductCode;
 
             var shell = ApplicationService.Current.MainForm as IShellBase;
             if (shell != null)

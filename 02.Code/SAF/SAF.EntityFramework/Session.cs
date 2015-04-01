@@ -1,5 +1,6 @@
 ﻿using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
+using SAF.Foundation.Security;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,47 +15,45 @@ namespace SAF.EntityFramework
     /// 系统级会话信息
     /// </summary>
     [Serializable]
-    public class Session
+    public static class Session
     {
-        #region Machine Properties
-        /// <summary>
-        /// 机器名
-        /// </summary>
-        public string MachineName { get; private set; }
-        /// <summary>
-        /// 机器用户
-        /// </summary>
-        public string MachineUser { get; private set; }
-        /// <summary>
-        /// 机器码
-        /// </summary>
-        public string MachineCode { get; private set; }
-        /// <summary>
-        /// 产品ID
-        /// </summary>
-        public string ProductId { get; private set; }
-        #endregion
+        public static UserInfo UserInfo { get; private set; }
+        public static MachineInfo MachineInfo { get; private set; }
 
-        /// <summary>
-        /// 加密
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        private static string Encrypt(string value)
+        private static string _ProductCode = string.Empty;
+        public static string ProductCode
         {
-            string retValue = string.Empty;
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            get
             {
-                byte[] retByte = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(value));
-                for (int i = 0; i < retByte.Length; i++)
-                {
-                    retValue += retByte[i].ToString("X").PadLeft(2, '0');
-                }
-                return new Guid(retValue).ToString("D").ToUpper();
+                if (_ProductCode.IsEmpty())
+                    _ProductCode = MD5Helper.Hash("{0}-[{1}]".FormatEx(MachineInfo.MachineCode, AssemblyInfoHelper.ProductName));
+                return _ProductCode;
             }
         }
 
+        static Session()
+        {
+            UserInfo = new UserInfo();
+            MachineInfo = new MachineInfo();
+        }
+
+        public static bool IsInvalid
+        {
+            get
+            {
+                return UserInfo == null || UserInfo.UserId == -1;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 用户信息
+    /// </summary>
+    [Serializable]
+    public class UserInfo
+    {
         #region properties
+
         /// <summary>
         /// 用户Iden
         /// </summary>
@@ -87,36 +86,13 @@ namespace SAF.EntityFramework
         /// 用户签名图片
         /// </summary>
         public Image UserSignImage { get; private set; }
+
         #endregion
 
-        private Session()
+        public UserInfo()
         {
-            this.MachineName = Environment.MachineName;
-            this.MachineUser = Environment.UserName;
-            this.MachineCode = HardwareInfo.GetHardwareId();
-            this.ProductId = Encrypt("{0}-{1}".FormatEx(this.MachineCode, AssemblyInfoHelper.ProductName));
+            this.Clear();
         }
-
-        #region Session Singleton
-
-        private static object _lockObj = new object();
-        private static Session _Session = null;
-        public static Session Current
-        {
-            get
-            {
-                if (_Session == null)
-                {
-                    lock (_lockObj)
-                    {
-                        if (_Session == null)
-                            _Session = new Session();
-                    }
-                }
-                return _Session;
-            }
-        }
-        #endregion
 
         public void Assign(IEntityBase entity)
         {
@@ -125,24 +101,31 @@ namespace SAF.EntityFramework
                 this.Clear();
                 return;
             }
-            if (entity.FieldIsExists("Iden") && !entity.FieldIsNull("Iden"))
-                this.UserId = entity.GetFieldValue<int>("Iden");
+            if (entity.FieldIsExists("Iden"))
+                this.UserId = entity.GetFieldValue<int>("Iden", -1);
 
-            if (entity.FieldIsExists("UserName") && !entity.FieldIsNull("UserName"))
-                this.UserName = entity.GetFieldValue<string>("UserName");
+            if (entity.FieldIsExists("UserName"))
+                this.UserName = entity.GetFieldValue<string>("UserName", string.Empty);
 
-            if (entity.FieldIsExists("Password") && !entity.FieldIsNull("Password"))
-                this.Password = entity.GetFieldValue<string>("Password");
+            if (entity.FieldIsExists("Password"))
+                this.Password = entity.GetFieldValue<string>("Password", string.Empty);
 
-            if (entity.FieldIsExists("UserFullName") && !entity.FieldIsNull("UserFullName"))
-                this.UserFullName = entity.GetFieldValue<string>("UserFullName");
+            if (entity.FieldIsExists("UserFullName"))
+                this.UserFullName = entity.GetFieldValue<string>("UserFullName", string.Empty);
 
-            if (entity.FieldIsExists("Email") && !entity.FieldIsNull("Email"))
-                this.Email = entity.GetFieldValue<string>("Email");
+            if (entity.FieldIsExists("Email"))
+                this.Email = entity.GetFieldValue<string>("Email", string.Empty);
 
-            if (entity.FieldIsExists("TelephoneNo") && !entity.FieldIsNull("TelephoneNo"))
-                this.TelephoneNo = entity.GetFieldValue<string>("TelephoneNo");
+            if (entity.FieldIsExists("TelephoneNo"))
+                this.TelephoneNo = entity.GetFieldValue<string>("TelephoneNo", string.Empty);
 
+            this.UserImage = null;
+            if (entity.FieldIsExists("UserImage") && !entity.FieldIsNull("UserImage"))
+                this.UserImage = new Bitmap(new MemoryStream(entity.GetFieldValue<byte[]>("UserImage")));
+
+            this.UserSignImage = null;
+            if (entity.FieldIsExists("UserSignImage") && !entity.FieldIsNull("UserSignImage"))
+                this.UserSignImage = new Bitmap(new MemoryStream(entity.GetFieldValue<byte[]>("UserSignImage")));
 
         }
 
@@ -158,29 +141,24 @@ namespace SAF.EntityFramework
             this.UserSignImage = null;
         }
 
-        public bool IsInvalid
-        {
-            get
-            {
-                return this.UserId == -1;
-            }
-        }
-
-        public void RetriveUserImage()
+        public void RetriveImage()
         {
             var es = new EntitySet<sysUser>();
-            es.Query("SELECT UserImage,UserSignImage FROM dbo.sysUser where Iden=:Iden", this.UserId);
+            es.Query("SELECT Iden,UserImage,UserSignImage FROM dbo.sysUser where Iden=:Iden", this.UserId);
+            if (es.Count <= 0)
+                Clear();
+            else
+                this.Assign(es[0]);
+        }
 
-            if (es.Count < 0)
-            {
-                this.UserImage = null;
-                this.UserSignImage = null;
-                return;
-            }
-
-            this.UserImage = new Bitmap(new MemoryStream(es[0].UserImage));
-            this.UserSignImage = new Bitmap(new MemoryStream(es[0].UserSignImage));
-
+        public void Retrive()
+        {
+            var es = new EntitySet<sysUser>();
+            es.Query("SELECT * FROM dbo.sysUser where Iden=:Iden", this.UserId);
+            if (es.Count <= 0)
+                Clear();
+            else
+                this.Assign(es[0]);
         }
     }
 }

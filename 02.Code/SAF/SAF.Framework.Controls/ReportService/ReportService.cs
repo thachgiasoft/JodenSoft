@@ -196,8 +196,8 @@ Order by RowNo";
 
             dt.Columns.Add("UserImage", typeof(byte[]));
             dt.Columns.Add("UserSignImage", typeof(byte[]));
-            dt.Rows.Add(Session.Current.UserId, Session.Current.UserName, Session.Current.UserFullName, Session.Current.Email, Session.Current.TelephoneNo,
-                Session.Current.UserImage, Session.Current.UserSignImage);
+            dt.Rows.Add(Session.UserInfo.UserId, Session.UserInfo.UserName, Session.UserInfo.UserFullName, Session.UserInfo.Email, Session.UserInfo.TelephoneNo,
+                Session.UserInfo.UserImage, Session.UserInfo.UserSignImage);
 
             ds.Tables.Add(dt);
 

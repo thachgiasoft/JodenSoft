@@ -55,11 +55,11 @@ namespace SAF.Framework.Component
 
         private void InitUserInfo()
         {
-            Session.Current.RetriveUserImage();
-            this.picUserPicture.Image = Session.Current.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
+            Session.UserInfo.RetriveImage();
+            this.picUserPicture.Image = Session.UserInfo.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
 
-            this.lblUserName.Text = "{0} ({1})".FormatEx(Session.Current.UserName, Session.Current.UserFullName);
-            this.lblEmail.Text = Session.Current.Email;
+            this.lblUserName.Text = "{0} ({1})".FormatEx(Session.UserInfo.UserName, Session.UserInfo.UserFullName);
+            this.lblEmail.Text = Session.UserInfo.Email;
         }
 
         void chkShowWorkSpace_EditValueChanged(object sender, EventArgs e)
@@ -94,11 +94,10 @@ namespace SAF.Framework.Component
             form.AfterPictureChanged += (s, args) =>
             {
                 var es = new EntitySet<sysUser>();
-                es.Query("Select * from sysUser with(nolock) where Iden=:UserId", Session.Current.UserId);
+                es.Query("Select * from sysUser with(nolock) where Iden=:UserId", Session.UserInfo.UserId);
                 if (es.Count > 0)
                 {
-                    Session.Current.Assign(es.CurrentEntity);
-                    Session.Current.RetriveUserImage();
+                    Session.UserInfo.Assign(es.CurrentEntity);
                 }
                 InitUserInfo();
             };

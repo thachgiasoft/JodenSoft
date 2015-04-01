@@ -341,8 +341,7 @@ where UserName=:UserName
                 return false;
             }
 
-            Session.Current.Assign(users.CurrentEntity);
-            Session.Current.RetriveUserImage();
+            Session.UserInfo.Assign(users.CurrentEntity);
 
             message = string.Empty;
             return true;

@@ -29,7 +29,7 @@ namespace SAF.Test
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             var rightFilter = "/*QueryRight(a)*/";
-            rightFilter = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.Current.UserId);
+            rightFilter = BillRight.CalcBillQueryRight(rightFilter, this.BillTypeId, Session.UserInfo.UserId);
 
             string sql = @"
 --查询时要查出 CreatedBy,OrganizationId,OrganizationCode,三个字段缺一不可.

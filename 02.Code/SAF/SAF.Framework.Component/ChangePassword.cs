@@ -26,7 +26,7 @@ namespace SAF.Framework.Component
 
         void ChangePassword_Shown(object sender, EventArgs e)
         {
-            this.txtUserName.Text = "{0}.{1}".FormatEx(Session.Current.UserId, Session.Current.UserName);
+            this.txtUserName.Text = "{0}.{1}".FormatEx(Session.UserInfo.UserId, Session.UserInfo.UserName);
             this.txtOldPassword.Focus();
         }
 
@@ -38,7 +38,7 @@ namespace SAF.Framework.Component
         private void btnOK_Click(object sender, EventArgs e)
         {
             var es = new EntitySet<sysUser>();
-            es.Query("SELECT Iden,UserName,Password,IsActive,IsDeleted FROM dbo.sysUser where Iden=:UserId", Session.Current.UserId);
+            es.Query("SELECT Iden,UserName,Password,IsActive,IsDeleted FROM dbo.sysUser where Iden=:UserId", Session.UserInfo.UserId);
             if (es.Count <= 0)
             {
                 MessageService.ShowError("在系统中未找到用户,无法修改密码.");

@@ -7,6 +7,7 @@ using SAF.EntityFramework;
 using SAF.Foundation;
 using SAF.Foundation.Security;
 using SAF.Foundation.ServiceModel;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.Framework.Controls
 {
@@ -15,7 +16,7 @@ namespace SAF.Framework.Controls
         public static string GetRegInfo()
         {
             var es = new EntitySet<sysRegInfo>();
-            es.Query("SELECT * FROM dbo.sysRegInfo WITH(NOLOCK) WHERE ProductId=@ProductId", Session.Current.ProductId);
+            es.Query("SELECT * FROM dbo.sysRegInfo WITH(NOLOCK) WHERE ProductId=@ProductId", Session.ProductCode);
             if (es.IsEmpty() || !es.CurrentEntity.FieldIsExists(P => P.RegInfo) || es.CurrentEntity.RegInfo.IsEmpty())
             {
                 return string.Empty;
@@ -35,12 +36,12 @@ namespace SAF.Framework.Controls
         public static void WriteRegInfo(string pollCode)
         {
             var es = new EntitySet<sysRegInfo>();
-            es.Query("SELECT * FROM dbo.sysRegInfo WITH(NOLOCK) WHERE ProductId=@ProductId", Session.Current.ProductId);
+            es.Query("SELECT * FROM dbo.sysRegInfo WITH(NOLOCK) WHERE ProductId=@ProductId", Session.ProductCode);
             var entity = es.AddNew();
             entity.Iden = IdenGenerator.NewIden(entity.DbTableName);
-            entity.ProductId = Session.Current.ProductId;
-            entity.ComputerName = Session.Current.MachineName;
-            entity.ComputerUserName = Session.Current.MachineUser;
+            entity.ProductId = Session.ProductCode;
+            entity.ComputerName = Session.MachineInfo.MachineName;
+            entity.ComputerUserName = Session.MachineInfo.MachineUser;
             entity.RegInfo = DESHelper.Encrypt(pollCode);
             entity.LastLoginTime = DateTime.Now;
             es.SaveChanges();
@@ -50,7 +51,7 @@ namespace SAF.Framework.Controls
         {
             try
             {
-                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "update sysRegInfo set LastLoginTime=getdate() where ProductId=@ProductId", Session.Current.ProductId);
+                DataPortal.ExecuteNonQuery(ConfigContext.DefaultConnection, "update sysRegInfo set LastLoginTime=getdate() where ProductId=@ProductId", Session.ProductCode);
             }
             catch (Exception ex)
             {

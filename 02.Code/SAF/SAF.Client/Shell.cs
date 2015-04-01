@@ -194,7 +194,7 @@ namespace SAF.Client
                 UserConfig.Current.SavePassword = e.SavePassword;
                 if (e.SavePassword)
                 {
-                    UserConfig.Current.Password = DESHelper.Encrypt(e.Password, HardwareInfo.GetHardwareId());
+                    UserConfig.Current.Password = DESHelper.Encrypt(e.Password,Session.MachineInfo.MachineCode);
                 }
                 UserConfig.Current.Save();
 
@@ -333,7 +333,7 @@ namespace SAF.Client
             root.Name = "我收藏的菜单";
             root.MenuOrder = -1;
 
-            MyFavoriteMenu.Query("SELECT a.Iden, a.MenuId,RowNumber FROM dbo.sysMyFavoriteMenu a with(nolock) WHERE UserId=:UserId", Session.Current.UserId);
+            MyFavoriteMenu.Query("SELECT a.Iden, a.MenuId,RowNumber FROM dbo.sysMyFavoriteMenu a with(nolock) WHERE UserId=:UserId", Session.UserInfo.UserId);
 
             var list = this.MainEntitySet.Where(p => MyFavoriteMenu.Any(x => x.MenuId == p.Iden));
 
@@ -586,7 +586,7 @@ END
 
 SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 ";
-            MainEntitySet.Query(sql, Session.Current.UserId);
+            MainEntitySet.Query(sql, Session.UserInfo.UserId);
 
             if (this.TreeMenu.Columns.ColumnByFieldName("Name") == null)
             {
@@ -669,29 +669,29 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
         {
             string param = sileParameter + " ";
             Regex paramReg = new Regex(@":UserId\s+");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString());
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString());
 
             paramReg = new Regex(@":UserId\s?,");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString() + ",");
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString() + ",");
 
             paramReg = new Regex(@":UserId" + "\\s?\"\\s+");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString() + "\"");
 
             paramReg = new Regex(@":UserId" + "\\s?\"\\s?,");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString() + "\",");
 
             //替换UserName
             paramReg = new Regex(@":UserName\s+");
-            param = paramReg.Replace(param, Session.Current.UserName.ToString());
+            param = paramReg.Replace(param, Session.UserInfo.UserName.ToString());
 
             paramReg = new Regex(@":UserName\s?,");
-            param = paramReg.Replace(param, Session.Current.UserName.ToString() + ",");
+            param = paramReg.Replace(param, Session.UserInfo.UserName.ToString() + ",");
 
             paramReg = new Regex(@":UserName" + "\\s?\"\\s+");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\"");
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString() + "\"");
 
             paramReg = new Regex(@":UserName" + "\\s?\"\\s?,");
-            param = paramReg.Replace(param, Session.Current.UserId.ToString() + "\",");
+            param = paramReg.Replace(param, Session.UserInfo.UserId.ToString() + "\",");
 
             return param;
         }
@@ -934,7 +934,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 return;
             }
             Application.DoEvents();
-            Session.Current.Clear();
+            Session.UserInfo.Clear();
             this.NotifyMessage("初始化登录界面...");
             this.OnInitialize();
             this.NotifyMessage("就绪...");

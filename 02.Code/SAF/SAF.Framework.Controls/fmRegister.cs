@@ -20,12 +20,12 @@ namespace SAF.Framework.Controls
         {
             InitializeComponent();
 
-            this.txtProductId.EditValue = Session.Current.ProductId;
+            this.txtProductId.EditValue = Session.ProductCode;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (!RegisterHelper.Validate(this.txtPollCode.Text.Trim(), Session.Current.ProductId))
+            if (!RegisterHelper.Validate(this.txtPollCode.Text.Trim(), Session.ProductCode))
             {
                 var message = string.Format("注册码错误!{0}请联系系统供应商获取注册码.", Environment.NewLine);
                 XtraMessageBox.Show(message, "注册失败", MessageBoxButtons.OK, MessageBoxIcon.Error);

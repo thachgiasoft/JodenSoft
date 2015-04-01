@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using SAF.Foundation.ServiceModel;
 using SAF.Foundation.ComponentModel;
 using SAF.Foundation.Security;
+using SAF.EntityFramework;
 
 namespace SAF.Framework.Controls
 {
@@ -178,7 +179,7 @@ namespace SAF.Framework.Controls
             {
                 try
                 {
-                    Password = DESHelper.Decrypt(UserConfig.Current.Password, HardwareInfo.GetHardwareId());
+                    Password = DESHelper.Decrypt(UserConfig.Current.Password, Session.MachineInfo.MachineCode);
                 }
                 catch
                 {

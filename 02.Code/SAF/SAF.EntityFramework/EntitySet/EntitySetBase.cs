@@ -610,7 +610,7 @@ namespace SAF.EntityFramework
         public void QueryBillRight(int billTypeID, int organizationId = 0)
         {
             if (billTypeID > 0)
-                BillRightInfo = BillRight.QueryBillRight(billTypeID, Session.Current.UserId, organizationId);
+                BillRightInfo = BillRight.QueryBillRight(billTypeID, Session.UserInfo.UserId, organizationId);
         }
 
         /// <summary>

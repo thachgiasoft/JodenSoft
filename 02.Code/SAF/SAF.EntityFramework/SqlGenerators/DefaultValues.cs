@@ -29,11 +29,11 @@ namespace SAF.EntityFramework.SqlGenerators
             switch (value.ToStringEx())
             {
                 case DefaultValues.UserId:
-                    return "{0}".FormatEx(Session.Current.UserId);
+                    return "{0}".FormatEx(Session.UserInfo.UserId);
                 case DefaultValues.UserName:
-                    return "'{0}'".FormatEx(Session.Current.UserName);
+                    return "'{0}'".FormatEx(Session.UserInfo.UserName);
                 case DefaultValues.UserFullName:
-                    return "'{0}'".FormatEx(Session.Current.UserFullName);
+                    return "'{0}'".FormatEx(Session.UserInfo.UserFullName);
                 case DefaultValues.GetDate:
                     return "GETDATE()";
                 default:

@@ -130,7 +130,7 @@
     <Compile Include="ComponentModel\UserConfig.cs" />
     <Compile Include="ComponentModel\Comparison.cs" />
     <Compile Include="ComponentModel\Equality.cs" />
-    <Compile Include="ComponentModel\HardwareInfo.cs" />
+    <Compile Include="ComponentModel\MachineInfo.cs" />
     <Compile Include="ComponentModel\MoneyHelper.cs" />
     <Compile Include="ComponentModel\StringCompress.cs" />
     <Compile Include="AssemblyInfo.cs" />

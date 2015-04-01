@@ -24,7 +24,7 @@ namespace SAF.Framework.Component
             this.StartPosition = FormStartPosition.CenterParent;
             this.Icon = ApplicationService.Current.MainForm.Icon;
 
-            userSet.Query("SELECT Iden,UserImage,UserSignImage FROM dbo.sysUser where Iden=:UserId", Session.Current.UserId);
+            userSet.Query("SELECT Iden,UserImage,UserSignImage FROM dbo.sysUser where Iden=:UserId", Session.UserInfo.UserId);
 
             if (this.userSet.Count > 0)
             {
