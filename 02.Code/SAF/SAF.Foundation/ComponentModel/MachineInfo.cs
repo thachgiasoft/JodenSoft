@@ -58,11 +58,11 @@ namespace SAF.Foundation.ComponentModel
             get
             {
                 if (string.IsNullOrWhiteSpace(_MachineCode))
-                    _MachineCode = MD5Helper.Hash(string.Format("[{0}]-[{1}]-[{2}]-[{3}]-[{5}]", MachineName, UUID, ProcessorId, BiosSerialNumber, BaseBoardSerialNumber));
+                    _MachineCode = MD5Helper.Hash(string.Format("[{0}]-[{1}]-[{2}]-[{3}]-[{4}]", MachineName, UUID, ProcessorId, BiosSerialNumber, BaseBoardSerialNumber),true);
                 return _MachineCode;
             }
         }
-        
+
         /// <summary>
         /// 取CPU编号
         /// </summary>

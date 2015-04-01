@@ -16,7 +16,7 @@ namespace SAF.Foundation.Security
         /// </summary>
         /// <param name="strSource"></param>
         /// <returns></returns>
-        public static string Hash(string strSource)
+        public static string Hash(string strSource, bool guidFormat = false)
         {
             if (string.IsNullOrWhiteSpace(strSource))
             {
@@ -31,8 +31,11 @@ namespace SAF.Foundation.Security
                 {
                     ret.AppendFormat("{0:X2}", retByte[i]);
                 }
+                if (guidFormat)
+                    return new Guid(ret.ToString()).ToString("D").ToUpper();
                 return ret.ToString();
             }
         }
+
     }
 }
