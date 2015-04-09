@@ -18,29 +18,6 @@ namespace SAF.EntityFramework
     {
         #region Config Settings
 
-        private static string _dataPortalProxy;
-        /// <summary>
-        /// Gets or sets the full type name (or 'Local') of
-        /// the data portal proxy object to be used when
-        /// communicating with the data portal server.
-        /// </summary>
-        public static string DataPortalProxy
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_dataPortalProxy))
-                {
-                    _dataPortalProxy = ConfigurationManager.AppSettings["DataPortalProxy"];
-                    if (string.IsNullOrEmpty(_dataPortalProxy))
-                        _dataPortalProxy = "Local";
-                }
-                return _dataPortalProxy;
-            }
-            set
-            {
-                _dataPortalProxy = value;
-            }
-        }
         /// <summary>
         /// 
         /// </summary>
@@ -76,7 +53,7 @@ namespace SAF.EntityFramework
         private static string _dataPortalUrl = null;
         /// <summary>
         /// Gets or sets the data portal URL string.
-        /// If not set on Get will read CslaDataPortalUrl from config file. 
+        /// If not set on Get will read DataPortalUrl from config file. 
         /// </summary>
         /// <value>The data portal URL string.</value>
         public static string DataPortalUrlString

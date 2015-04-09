@@ -15,11 +15,5 @@ namespace SAF.EntityFramework.DataPortalClient
         /// </summary>
         IDataPortalProxy Create();
 
-        /// <summary>
-        /// Resets the data portal proxy type, so the
-        /// next data portal call will reload the proxy
-        /// type based on current configuration values.
-        /// </summary>
-        void ResetProxyType();
     }
 }

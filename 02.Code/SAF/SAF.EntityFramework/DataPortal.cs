@@ -24,34 +24,11 @@ namespace SAF.EntityFramework
 
         private static DataPortalClient.IDataPortalProxy GetDataPortalProxy()
         {
-            // load dataportal factory if loaded 
             if (_dataProxyFactory == null)
             {
                 _dataProxyFactory = new DataPortalClient.DefaultPortalProxyFactory();
             }
             return _dataProxyFactory.Create();
-        }
-
-        /// <summary>
-        /// Resets the data portal proxy type, so the
-        /// next data portal call will reload the proxy
-        /// type based on current configuration values.
-        /// </summary>
-        public static void ResetProxyFactory()
-        {
-            _dataProxyFactory = null;
-        }
-        /// <summary>
-        /// Resets the data portal proxy type, so the
-        /// next data portal call will reload the proxy
-        /// type based on current configuration values.
-        /// </summary>
-        public static void ResetProxyType()
-        {
-            if (_dataProxyFactory != null)
-            {
-                _dataProxyFactory.ResetProxyType();
-            }
         }
 
         #endregion
