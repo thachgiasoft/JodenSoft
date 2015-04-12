@@ -1,9 +1,12 @@
 ﻿using DevExpress.LookAndFeel;
+using SAF.Framework.ServiceModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using SAF.Foundation.ServiceModel;
+using SAF.Framework.Controls;
 
 namespace SAF.ServiceManager
 {
@@ -15,6 +18,8 @@ namespace SAF.ServiceManager
         [STAThread]
         static void Main()
         {
+            SAF.Foundation.ServiceModel.ServiceManager.Instance = new SAFServiceManager();
+
             SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器...");
 
             System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
@@ -26,6 +31,7 @@ namespace SAF.ServiceManager
             DevExpress.Skins.SkinManager.EnableFormSkins();
 
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
+            ProgressService.SkinName = "Office 2013";
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

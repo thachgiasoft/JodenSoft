@@ -163,6 +163,10 @@
       <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
       <Name>SAF.Framework.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Services\SAF.Framework.Services.csproj">
+      <Project>{916492c7-4ca2-4d9e-be81-895c126ed8c9}</Project>
+      <Name>SAF.Framework.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Action_Exit_32x32.png" />
