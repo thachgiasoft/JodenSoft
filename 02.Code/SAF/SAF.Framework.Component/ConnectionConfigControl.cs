@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls;
 using System.ComponentModel.Composition;
+using SAF.Framework.Diaglogs;
 
 namespace SAF.Framework.Component
 {
@@ -31,229 +32,53 @@ namespace SAF.Framework.Component
             this.Load += AppConfigControl_Load;
         }
 
-        private const string DataPortalProxy = "DataPortalProxy";
         private const string DataPortalUrl = "DataPortalUrl";
-
-        private const string WcfProxy = "SAF.EntityFramework.DataPortalClient.WcfProxy, SAF.EntityFramework";
-
-        private const string LocalProxy = "local";
-
-        private const string DefaultConnection = "Default";
 
         void AppConfigControl_Load(object sender, EventArgs e)
         {
             if (this.DesignMode) return;
 
-            //如果是本地访问
-            var dataPortalProxy = ApplicationConfig.GetAppSetting(DataPortalProxy);
-            if (dataPortalProxy.IsEmpty() || dataPortalProxy.Equals(LocalProxy, StringComparison.InvariantCultureIgnoreCase))
-            {
-                this.cbxAccessMode.SelectedIndex = 0;
-
-                string conStr = ApplicationConfig.GetConnectionString(DefaultConnection);
-                if (!conStr.IsEmpty())
-                {
-                    SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder(conStr);
-                    this.txtServer.EditValue = csb.DataSource;
-                    this.txtDatabase.EditValue = csb.InitialCatalog;
-                    this.txtUserName.EditValue = csb.UserID;
-                    this.txtPassword.EditValue = csb.Password;
-                }
-                else
-                {
-                    this.txtServer.EditValue = null;
-                    this.txtDatabase.EditValue = null;
-                    this.txtUserName.EditValue = null;
-                    this.txtPassword.EditValue = null;
-                }
-            }
-            else
-            {
-                this.cbxAccessMode.SelectedIndex = 1;
-
-                string url = ApplicationConfig.GetAppSetting(DataPortalUrl);
-
-            }
+            string url = ApplicationConfig.GetAppSetting(DataPortalUrl);
+            this.txtDataPortalUrl.EditValue = url;
 
             RefreshUI();
         }
 
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
-            if (this.cbxAccessMode.SelectedIndex == 0)
+            if (this.txtDataPortalUrl.EditValue.ToStringEx().IsEmpty())
             {
-                if (ConnectionStringParamHaError()) return;
-                SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
-                csb.DataSource = this.txtServer.EditValue.ToStringEx();
-                csb.InitialCatalog = this.txtDatabase.EditValue.ToStringEx();
-                csb.UserID = this.txtUserName.EditValue.ToStringEx();
-                csb.Password = this.txtPassword.EditValue.ToStringEx();
-                csb.ConnectTimeout = 10;
-                TestLocalSqlConnection(csb.ConnectionString);
+                MessageService.ShowError("数据服务地址为空,请先输入数据服务地址.");
+                this.txtDataPortalUrl.Focus();
+                return;
             }
-            else
-            {
-                if (DataPortalUrlHasError()) return;
 
-                ApplicationConfig.SetAppSetting(DataPortalProxy, WcfProxy);
-                ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+            ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
 
-                TestWcfProxy();
-            }
+            TestWcfProxy();
         }
 
         private void TestWcfProxy()
         {
+            ProgressService.Show("正在尝试连接远程服务器,请稍等...");
             try
             {
                 var es = new EntitySet<QueryEntity>();
                 es.Query("select getdate()");
+                ProgressService.Close();
                 MessageService.ShowMessage("连接成功!");
             }
             catch (Exception ex)
             {
+                ProgressService.Close();
                 MessageService.ShowException(ex, "连接失败!");
             }
         }
 
-        private bool DataPortalUrlHasError()
-        {
-            if (this.txtDataPortalUrl.EditValue.IsEmpty())
-            {
-                MessageService.ShowError("请输入数据服务地址.");
-                this.txtDataPortalUrl.Focus();
-                return true;
-            }
-            return false;
-        }
-
-        private void TestLocalSqlConnection(string connectionString)
-        {
-            using (var connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    var cmd = connection.CreateCommand();
-                    cmd.CommandTimeout = 5;
-                    cmd.CommandText = "select getdate()";
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteScalar();
-                    MessageService.ShowMessage("连接成功!");
-                }
-                catch (Exception ex)
-                {
-                    MessageService.ShowException(ex, "连接失败!");
-                }
-            }
-        }
-
-        private bool ConnectionStringParamHaError()
-        {
-            if (this.txtServer.EditValue.IsEmpty())
-            {
-                MessageService.ShowError("请输入服务器名称或服务器IP地址.");
-                this.txtServer.Focus();
-                return true;
-            }
-
-            if (this.txtDatabase.EditValue.IsEmpty())
-            {
-                MessageService.ShowError("请输入数据库名称.");
-                this.txtDatabase.Focus();
-                return true;
-            }
-
-            if (this.txtUserName.EditValue.IsEmpty())
-            {
-                MessageService.ShowError("请输入用户名.");
-                this.txtUserName.Focus();
-                return true;
-            }
-
-            if (this.txtPassword.EditValue.IsEmpty())
-            {
-                MessageService.ShowError("请输入密码.");
-                this.txtPassword.Focus();
-                return true;
-            }
-
-            return false;
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if (this.cbxAccessMode.SelectedIndex == 0)
-            {
-                if (ConnectionStringParamHaError()) return;
-                SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
-                csb.DataSource = this.txtServer.EditValue.ToStringEx();
-                csb.InitialCatalog = this.txtDatabase.EditValue.ToStringEx();
-                csb.UserID = this.txtUserName.EditValue.ToStringEx();
-                csb.Password = this.txtPassword.EditValue.ToStringEx();
-
-                ApplicationConfig.SetConnectionString(DefaultConnection, csb.ConnectionString, "System.Data.SqlClient");
-
-                ApplicationConfig.SetAppSetting(DataPortalProxy, LocalProxy);
-
-                ApplicationConfig.RemoveAppSetting(DataPortalUrl);
-
-                MessageService.ShowMessage("保存成功!");
-            }
-            else
-            {
-                if (DataPortalUrlHasError()) return;
-
-                ApplicationConfig.RemoveConnectionString(DefaultConnection);
-
-                ApplicationConfig.SetAppSetting(DataPortalProxy, WcfProxy);
-                ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
-
-                MessageService.ShowMessage("保存成功!");
-            }
-        }
-
-        private void cbxAccessMode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshUI();
-        }
-
         protected override void OnRefreshUI()
         {
-            if (this.cbxAccessMode.SelectedIndex == 0)
-            {
-                lciServerName.Visibility = LayoutVisibility.Always;
-                lciServerName.Control.Enabled = true;
-
-                lciDataBaseName.Visibility = LayoutVisibility.Always;
-                lciDataBaseName.Control.Enabled = true;
-
-                lciUserName.Visibility = LayoutVisibility.Always;
-                lciUserName.Control.Enabled = true;
-
-                lciPassword.Visibility = LayoutVisibility.Always;
-                lciPassword.Control.Enabled = true;
-
-                lciRemote.Visibility = LayoutVisibility.Never;
-                lciRemote.Control.Enabled = false;
-            }
-            else
-            {
-                lciServerName.Visibility = LayoutVisibility.Never;
-                lciServerName.Control.Enabled = false;
-
-                lciDataBaseName.Visibility = LayoutVisibility.Never;
-                lciDataBaseName.Control.Enabled = false;
-
-                lciUserName.Visibility = LayoutVisibility.Never;
-                lciUserName.Control.Enabled = false;
-
-                lciPassword.Visibility = LayoutVisibility.Never;
-                lciPassword.Control.Enabled = false;
-
-                lciRemote.Visibility = LayoutVisibility.Always;
-                lciRemote.Control.Enabled = true;
-            }
+            lciRemote.Visibility = LayoutVisibility.Always;
+            lciRemote.Control.Enabled = true;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -265,6 +90,16 @@ namespace SAF.Framework.Component
         public override string Caption
         {
             get { return "连接配置"; }
+        }
+
+        private void txtDataPortalUrl_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var url = this.txtDataPortalUrl.EditValue.ToStringEx();
+            if (InputBox.Show("请输入数据服务地址", "数据服务地址：", ref url))
+            {
+                this.txtDataPortalUrl.EditValue = url;
+                ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+            }
         }
 
 

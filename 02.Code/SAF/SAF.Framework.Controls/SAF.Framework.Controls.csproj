@@ -178,6 +178,12 @@
     <Compile Include="Charts\UserControls\XtraPropertyGrid.Designer.cs">
       <DependentUpon>XtraPropertyGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectionStringDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectionStringDialog.Designer.cs">
+      <DependentUpon>ConnectionStringDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\sysRegInfo.cs" />
     <Compile Include="Entities\sysReportConfigFormat.cs" />
     <Compile Include="FileUpgradeHelper.cs" />
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Charts\UserControls\XtraPropertyGrid.resx">
       <DependentUpon>XtraPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionStringDialog.resx">
+      <DependentUpon>ConnectionStringDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmFileUpgrade.resx">
       <DependentUpon>fmFileUpgrade.cs</DependentUpon>

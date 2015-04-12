@@ -25,10 +25,18 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "LoadDataSet")]
         OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
-
-        [OperationContract]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        [OperationContract(Name = "LoadDataSetByTableNames")]
         OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
@@ -38,15 +46,30 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "LoadDataSetByTransaction")]
         OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
-
-        [OperationContract]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        [OperationContract(Name = "LoadDataSetByTableNamesAndTransaction")]
         OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
-
-        [OperationContract]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="connectionName"></param>
+        /// <param name="dataSet"></param>
+        /// <param name="tableNames"></param>
+        /// <param name="commandText"></param>
+        /// <param name="parameterValues"></param>
+        /// <returns></returns>
+        [OperationContract(Name = "LoadReportDataSet")]
         OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
-
         /// <summary>
         /// 
         /// </summary>
@@ -54,7 +77,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteDataset")]
         OperationResult ExecuteDataset(string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
@@ -63,9 +86,8 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteDatasetByTransaction")]
         OperationResult ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues);
-
         /// <summary>
         /// 
         /// </summary>
@@ -73,7 +95,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteScalar")]
         OperationResult ExecuteScalar(string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
@@ -82,9 +104,8 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteScalarByTransaction")]
         OperationResult ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues);
-
         /// <summary>
         /// 
         /// </summary>
@@ -92,7 +113,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteNonQuery")]
         OperationResult ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
@@ -101,9 +122,8 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteNonQueryByTransaction")]
         OperationResult ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues);
-
         /// <summary>
         /// 
         /// </summary>
@@ -128,7 +148,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="commandText"></param>
         /// <param name="parameterValues"></param>
         /// <returns></returns>
-        [OperationContract]
+        [OperationContract(Name = "ExecuteDatasetByPage")]
         OperationResult ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues);
     }
 }

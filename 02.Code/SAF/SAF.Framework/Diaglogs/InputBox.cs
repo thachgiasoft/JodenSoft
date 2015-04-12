@@ -61,17 +61,17 @@ namespace SAF.Framework.Diaglogs
 
         #region Show
 
-        public static bool Show(out string value, Predicate<string> predicate = null)
+        public static bool Show(ref string value, Predicate<string> predicate = null)
         {
-            return Show("请输入数据", "请输入：", out value, predicate);
+            return Show("请输入数据", "请输入：", ref value, predicate);
         }
 
-        public static bool Show(string caption, out string value, Predicate<string> predicate = null)
+        public static bool Show(string caption, ref string value, Predicate<string> predicate = null)
         {
-            return Show("请输入数据", caption, out value, predicate);
+            return Show("请输入数据", caption, ref value, predicate);
         }
 
-        public static bool Show(string title, string caption, out string value, Predicate<string> predicate = null)
+        public static bool Show(string title, string caption, ref string value, Predicate<string> predicate = null)
         {
             using (var inputBox = new InputBox())
             {
@@ -80,6 +80,7 @@ namespace SAF.Framework.Diaglogs
                 inputBox.lciMemo.Visibility = LayoutVisibility.Never;
                 inputBox._predicate = predicate;
                 inputBox.Height = 140;
+                inputBox.txtMessage.EditValue = value ?? string.Empty;
                 var dr = inputBox.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
@@ -100,17 +101,17 @@ namespace SAF.Framework.Diaglogs
 
         #region ShowMemo
 
-        public static bool ShowMemo(out string value, Predicate<string> predicate = null)
+        public static bool ShowMemo(ref string value, Predicate<string> predicate = null)
         {
-            return ShowMemo("请输入数据", "请输入：", out value, predicate);
+            return ShowMemo("请输入数据", "请输入：", ref value, predicate);
         }
 
-        public static bool ShowMemo(string caption, out string value, Predicate<string> predicate = null)
+        public static bool ShowMemo(string caption, ref string value, Predicate<string> predicate = null)
         {
-            return ShowMemo("请输入数据", caption, out value, predicate);
+            return ShowMemo("请输入数据", caption, ref value, predicate);
         }
 
-        public static bool ShowMemo(string title, string caption, out string value, Predicate<string> predicate = null)
+        public static bool ShowMemo(string title, string caption, ref string value, Predicate<string> predicate = null)
         {
             using (var inputBox = new InputBox())
             {
@@ -119,6 +120,7 @@ namespace SAF.Framework.Diaglogs
                 inputBox.lciText.Visibility = LayoutVisibility.Never;
                 inputBox._predicate = predicate;
                 inputBox.Height = 200;
+                inputBox.txtMessage.EditValue = value ?? string.Empty;
                 var dr = inputBox.ShowDialog();
                 if (dr == DialogResult.OK)
                 {

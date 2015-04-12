@@ -53,7 +53,7 @@ namespace SAF.Client
             ServiceManager.Instance = new SAFServiceManager();
 
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在更新系统");
-            Upgrade();
+            //Upgrade();
 
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载组件");
             ComposeModules();

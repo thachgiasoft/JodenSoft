@@ -51,7 +51,7 @@ namespace SAF.EntityFramework.Server
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
-        
+
         /// <summary>
         /// 报表专用
         /// </summary>

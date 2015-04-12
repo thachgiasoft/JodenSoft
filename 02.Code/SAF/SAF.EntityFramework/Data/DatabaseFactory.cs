@@ -6,6 +6,7 @@ using SAF.Foundation;
 using System.Configuration;
 using SAF.Foundation.Security;
 using System.Data.SqlClient;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.EntityFramework
 {
@@ -54,7 +55,7 @@ namespace SAF.EntityFramework
 
             try
             {
-                connectionString = AESHelper.Decrypt(connectionString);
+                connectionString = ApplicationConfig.DecryptConnectionString(connectionString);
             }
             catch (Exception ex)
             {

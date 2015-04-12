@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DevExpress.LookAndFeel;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,8 +15,21 @@ namespace SAF.ServiceManager
         [STAThread]
         static void Main()
         {
+            SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器...");
+
+            System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
+            System.Threading.Thread.CurrentThread.CurrentCulture = zhHans;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = zhHans;
+
+            DevExpress.UserSkins.BonusSkins.Register();
+            DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9);
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+
+            UserLookAndFeel.Default.SetSkinStyle("Office 2013");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Shell());
         }
     }

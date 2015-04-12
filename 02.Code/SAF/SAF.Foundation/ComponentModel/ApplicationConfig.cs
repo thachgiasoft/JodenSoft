@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -9,6 +10,39 @@ namespace SAF.Foundation.ComponentModel
 {
     public static class ApplicationConfig
     {
+        public static string EncryptConnectionString(string connectionString)
+        {
+            if (connectionString.IsEmpty()) return connectionString;
+
+            var sb = new SqlConnectionStringBuilder(connectionString);
+            if (!sb.IntegratedSecurity)
+            {
+                try
+                {
+                    sb.Password = AESHelper.Encrypt(sb.Password);
+                }
+                catch { }
+            }
+            return sb.ConnectionString;
+        }
+
+        public static string DecryptConnectionString(string connectionString)
+        {
+            if (connectionString.IsEmpty()) return connectionString;
+
+            var sb = new SqlConnectionStringBuilder(connectionString);
+            if (!sb.IntegratedSecurity)
+            {
+                try
+                {
+                    sb.Password = AESHelper.Decrypt(sb.Password);
+                }
+                catch { }
+            }
+            return sb.ConnectionString;
+        }
+
+
         public static string GetConnectionString(string name)
         {
             if (name.IsEmpty())
@@ -18,7 +52,7 @@ namespace SAF.Foundation.ComponentModel
             {
                 try
                 {
-                    return AESHelper.Decrypt(ConfigurationManager.ConnectionStrings[name].ConnectionString);
+                    return ConfigurationManager.ConnectionStrings[name].ConnectionString;
                 }
                 catch
                 {
@@ -26,6 +60,11 @@ namespace SAF.Foundation.ComponentModel
                 }
             }
             return string.Empty;
+        }
+
+        public static void SetConnectionString(string name, string connectionString)
+        {
+            SetConnectionString(name, connectionString, "System.Data.SqlClient");
         }
 
         public static void SetConnectionString(string name, string connectionString, string providerName)
@@ -42,11 +81,11 @@ namespace SAF.Foundation.ComponentModel
             Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             if (cfa.ConnectionStrings.ConnectionStrings[name] == null)
             {
-                cfa.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings(name, AESHelper.Encrypt(connectionString), providerName));
+                cfa.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings(name, connectionString, providerName));
             }
             else
             {
-                cfa.ConnectionStrings.ConnectionStrings[name].ConnectionString = AESHelper.Encrypt(connectionString);
+                cfa.ConnectionStrings.ConnectionStrings[name].ConnectionString = connectionString;
                 cfa.ConnectionStrings.ConnectionStrings[name].ProviderName = providerName;
             }
             cfa.Save(ConfigurationSaveMode.Modified);

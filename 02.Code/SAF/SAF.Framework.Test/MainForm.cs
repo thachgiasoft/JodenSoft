@@ -20,7 +20,7 @@ namespace SAF.Framework.Test
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string obj = string.Empty;
-            InputBox.Show(out obj, p => { if (string.IsNullOrWhiteSpace(p)) { MessageBox.Show("输入空值了。"); return false; } else return true; });
+            InputBox.Show(ref obj, p => { if (string.IsNullOrWhiteSpace(p)) { MessageBox.Show("输入空值了。"); return false; } else return true; });
 
             MessageBox.Show(obj);
         }
