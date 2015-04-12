@@ -16,6 +16,7 @@ using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls;
 using System.ComponentModel.Composition;
 using SAF.Framework.Diaglogs;
+using DevExpress.XtraEditors.Controls;
 
 namespace SAF.Framework.Component
 {
@@ -77,8 +78,22 @@ namespace SAF.Framework.Component
 
         protected override void OnRefreshUI()
         {
-            lciRemote.Visibility = LayoutVisibility.Always;
-            lciRemote.Control.Enabled = true;
+            if (Session.IsInvalid)
+            {
+                foreach (EditorButton item in this.txtDataPortalUrl.Properties.Buttons)
+                {
+                    item.Enabled = true;
+                    item.Visible = true;
+                }
+            }
+            else
+            {
+                foreach (EditorButton item in this.txtDataPortalUrl.Properties.Buttons)
+                {
+                    item.Enabled = false;
+                    item.Visible = false;
+                }
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
