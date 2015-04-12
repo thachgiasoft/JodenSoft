@@ -89,7 +89,7 @@ namespace SAF.Framework.Controls
                 sb.ConnectionString = value;
 
                 this.cbxServer.EditValue = sb.DataSource;
-                this.cbxDatabase.EditValue = sb.InitialCatalog;
+
                 if (sb.IntegratedSecurity)
                 {
                     this.chkWindows.Checked = true;
@@ -100,6 +100,8 @@ namespace SAF.Framework.Controls
                     this.txtUserId.EditValue = sb.UserID;
                     this.txtPassword.EditValue = sb.Password;
                 }
+
+                this.cbxDatabase.EditValue = sb.InitialCatalog;
             }
         }
 
@@ -205,6 +207,9 @@ namespace SAF.Framework.Controls
                 this.txtUserId.Enabled = true;
                 this.txtPassword.Enabled = true;
             }
+
+            cbxDatabase.Properties.Items.Clear();
+            cbxDatabase.EditValue = string.Empty;
         }
 
         private bool ConnectionParamHasError()
