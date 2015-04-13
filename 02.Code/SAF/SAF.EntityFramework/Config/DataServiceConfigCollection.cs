@@ -8,25 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace SAF.ServiceManager
+namespace SAF.EntityFramework.Config
 {
-    [Serializable]
-    public class DataServiceConfig
-    {
-        [XmlAttribute]
-        public string ServiceName { get; set; }
-        [XmlAttribute]
-        public Guid UniqueId { get; set; }
-
-        public ConnectionStringConfigCollection ConnectionStringConfigs { get; set; }
-
-        public DataServiceConfig()
-        {
-            ConnectionStringConfigs = new ConnectionStringConfigCollection();
-            UniqueId = Guid.NewGuid();
-        }
-    }
-
     [XmlRoot(ElementName = "DataServiceConfigs")]
     [Serializable]
     public class DataServiceConfigCollection : Collection<DataServiceConfig>
@@ -80,5 +63,4 @@ namespace SAF.ServiceManager
             }
         }
     }
-
 }

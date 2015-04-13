@@ -12,19 +12,11 @@ namespace SAF.EntityFramework.Server
     /// </summary>
     public class DataPortal : IDataPortalServer
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
+        public OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     db.LoadDataSet(cmd, dataSet);
@@ -36,20 +28,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+
+        public OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     db.LoadDataSet(cmd, dataSet, tableNames);
@@ -61,19 +45,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
+
+        public OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -100,20 +77,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+
+        public OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -140,20 +109,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+
+        public OperationResult LoadReportDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -180,18 +141,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDataset(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteDataset(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     var result = db.ExecuteDataSet(cmd);
@@ -203,18 +158,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteDatasetByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -241,18 +190,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteScalar(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteScalar(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     var result = db.ExecuteScalar(cmd);
@@ -264,18 +207,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteScalarByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -302,18 +239,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteNonQuery(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     var result = db.ExecuteNonQuery(cmd);
@@ -325,18 +256,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -363,17 +288,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlScrips"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQuery(string connectionName, SqlCommandObject[] sqlScrips)
+
+        public OperationResult ExecuteNonQuery(string serviceName, string connectionName, SqlCommandObject[] sqlScrips)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 int result = 0;
                 foreach (var item in sqlScrips)
                 {
@@ -389,17 +309,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlScrips"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQueryByTransaction(string connectionName, SqlCommandObject[] sqlScrips)
+
+        public OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, SqlCommandObject[] sqlScrips)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {
                     using (var trans = connection.BeginTransaction())
@@ -430,19 +345,12 @@ namespace SAF.EntityFramework.Server
                 return new OperationResult() { Message = ex.GetAllMessage(), IsSucess = false };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="pageInfo"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues)
+
+        public OperationResult ExecuteDatasetByPage(string serviceName, string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues)
         {
             try
             {
-                Database db = DatabaseFactory.CreateDatabase(connectionName);
+                Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var cmd = db.GetSqlStringCommand(commandText, parameterValues))
                 {
                     var result = db.ExecuteDatasetByPage(cmd, pageInfo);

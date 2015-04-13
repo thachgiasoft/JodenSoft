@@ -26,7 +26,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "LoadDataSet")]
-        OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -37,7 +37,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "LoadDataSetByTableNames")]
-        OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -47,7 +47,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "LoadDataSetByTransaction")]
-        OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -58,7 +58,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "LoadDataSetByTableNamesAndTransaction")]
-        OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -69,7 +69,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "LoadReportDataSet")]
-        OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+        OperationResult LoadReportDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -78,7 +78,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteDataset")]
-        OperationResult ExecuteDataset(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteDataset(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -87,7 +87,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteDatasetByTransaction")]
-        OperationResult ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteDatasetByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -96,7 +96,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteScalar")]
-        OperationResult ExecuteScalar(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteScalar(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -105,7 +105,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteScalarByTransaction")]
-        OperationResult ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteScalarByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -114,7 +114,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteNonQuery")]
-        OperationResult ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteNonQuery(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -123,7 +123,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteNonQueryByTransaction")]
-        OperationResult ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
         /// <summary>
         /// 
         /// </summary>
@@ -131,7 +131,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="sqlScrips"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteSqlCommandObjectNonQueryByTransaction")]
-        OperationResult ExecuteNonQueryByTransaction(string connectionName, SqlCommandObject[] sqlScrips);
+        OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, SqlCommandObject[] sqlScrips);
         /// <summary>
         /// 
         /// </summary>
@@ -139,7 +139,7 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="sqlScripts"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteSqlCommandObjectNonQuery")]
-        OperationResult ExecuteNonQuery(string connectionName, SqlCommandObject[] sqlScripts);
+        OperationResult ExecuteNonQuery(string serviceName, string connectionName, SqlCommandObject[] sqlScripts);
         /// <summary>
         /// 
         /// </summary>
@@ -149,6 +149,6 @@ namespace SAF.EntityFramework.Server.Hosts
         /// <param name="parameterValues"></param>
         /// <returns></returns>
         [OperationContract(Name = "ExecuteDatasetByPage")]
-        OperationResult ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues);
+        OperationResult ExecuteDatasetByPage(string serviceName, string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues);
     }
 }

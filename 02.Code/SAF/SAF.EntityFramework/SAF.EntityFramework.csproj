@@ -61,6 +61,10 @@
     <Compile Include="BillRight\BillRightType.cs" />
     <Compile Include="BillRight\BillRight.cs" />
     <Compile Include="BillRight\BillState.cs" />
+    <Compile Include="Config\ConnectionStringConfig.cs" />
+    <Compile Include="Config\ConnectionStringConfigCollection.cs" />
+    <Compile Include="Config\DataServiceConfig.cs" />
+    <Compile Include="Config\DataServiceConfigCollection.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />
@@ -74,7 +78,6 @@
     <Compile Include="DataPortalClient\DefaultPortalProxyFactory.cs" />
     <Compile Include="DataPortalClient\IDataPortalProxy.cs" />
     <Compile Include="DataPortalClient\IDataPortalProxyFactory.cs" />
-    <Compile Include="DataPortalClient\LocalProxy.cs" />
     <Compile Include="DataPortalClient\WcfProxy.cs" />
     <Compile Include="Extensions\EntityHelper.cs" />
     <Compile Include="EntitySet\DisposableObject.cs" />

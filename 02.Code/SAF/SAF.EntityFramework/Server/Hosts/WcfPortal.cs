@@ -18,20 +18,12 @@ namespace SAF.EntityFramework.Server.Hosts
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class WcfPortal : IWcfPortal
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
+        public OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.LoadDataSet(connectionName, dataSet, commandText, parameterValues);
+                return portal.LoadDataSet(serviceName, connectionName, dataSet, commandText, parameterValues);
             }
             catch (Exception ex)
             {
@@ -39,32 +31,12 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
-        public OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        public OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResult() { Message = ex.Message };
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
-        {
-            try
-            {
-                DataPortal portal = new DataPortal();
-                return portal.LoadDataSetByTransaction(connectionName, dataSet, commandText, parameterValues);
+                return portal.LoadDataSet(serviceName, connectionName, dataSet, tableNames, commandText, parameterValues);
             }
             catch (Exception ex)
             {
@@ -72,12 +44,12 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
-        public OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        public OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
+                return portal.LoadDataSetByTransaction(serviceName, connectionName, dataSet, commandText, parameterValues);
             }
             catch (Exception ex)
             {
@@ -85,50 +57,12 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
-        public OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
+        public OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResult() { Message = ex.Message };
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDataset(string connectionName, string commandText, params object[] parameterValues)
-        {
-            try
-            {
-                DataPortal portal = new DataPortal();
-                return portal.ExecuteDataset(connectionName, commandText, parameterValues);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResult() { Message = ex.Message };
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues)
-        {
-            try
-            {
-                DataPortal portal = new DataPortal();
-                return portal.ExecuteDatasetByTransaction(connectionName, commandText, parameterValues);
+                return portal.LoadDataSetByTransaction(serviceName, connectionName, dataSet, tableNames, commandText, parameterValues);
             }
             catch (Exception ex)
             {
@@ -136,39 +70,12 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteScalar(string connectionName, string commandText, params object[] parameterValues)
+        public OperationResult LoadReportDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteScalar(connectionName, commandText, parameterValues);
-            }
-            catch (Exception ex)
-            {
-                return new OperationResult() { Message = ex.Message };
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues)
-        {
-            try
-            {
-                DataPortal portal = new DataPortal();
-                return portal.ExecuteScalarByTransaction(connectionName, commandText, parameterValues);
+                return portal.LoadReportDataSet(serviceName, connectionName, dataSet, tableNames, commandText, parameterValues);
             }
             catch (Exception ex)
             {
@@ -176,94 +83,116 @@ namespace SAF.EntityFramework.Server.Hosts
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues)
+        public OperationResult ExecuteDataset(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteNonQuery(connectionName, commandText, parameterValues);
+                return portal.ExecuteDataset(serviceName, connectionName, commandText, parameterValues);
             }
             catch (Exception ex)
             {
                 return new OperationResult() { Message = ex.Message };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues)
+
+        public OperationResult ExecuteDatasetByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteNonQueryByTransaction(connectionName, commandText, parameterValues);
+                return portal.ExecuteDatasetByTransaction(serviceName, connectionName, commandText, parameterValues);
             }
             catch (Exception ex)
             {
                 return new OperationResult() { Message = ex.Message };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlScripts"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQuery(string connectionName, SqlCommandObject[] sqlScripts)
+
+        public OperationResult ExecuteScalar(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteNonQuery(connectionName, sqlScripts);
+                return portal.ExecuteScalar(serviceName, connectionName, commandText, parameterValues);
             }
             catch (Exception ex)
             {
                 return new OperationResult() { Message = ex.Message };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlScripts"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteNonQueryByTransaction(string connectionName, SqlCommandObject[] sqlScripts)
+
+        public OperationResult ExecuteScalarByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteNonQueryByTransaction(connectionName, sqlScripts);
+                return portal.ExecuteScalarByTransaction(serviceName, connectionName, commandText, parameterValues);
             }
             catch (Exception ex)
             {
                 return new OperationResult() { Message = ex.Message };
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="pageInfo"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        public OperationResult ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues)
+
+        public OperationResult ExecuteNonQuery(string serviceName, string connectionName, string commandText, params object[] parameterValues)
         {
             try
             {
                 DataPortal portal = new DataPortal();
-                return portal.ExecuteDatasetByPage(connectionName, pageInfo, commandText, parameterValues);
+                return portal.ExecuteNonQuery(serviceName, connectionName, commandText, parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
+
+        public OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.ExecuteNonQueryByTransaction(serviceName, connectionName, commandText, parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
+
+        public OperationResult ExecuteNonQuery(string serviceName, string connectionName, SqlCommandObject[] sqlScripts)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.ExecuteNonQuery(serviceName, connectionName, sqlScripts);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
+
+        public OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, SqlCommandObject[] sqlScripts)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.ExecuteNonQueryByTransaction(serviceName, connectionName, sqlScripts);
+            }
+            catch (Exception ex)
+            {
+                return new OperationResult() { Message = ex.Message };
+            }
+        }
+
+        public OperationResult ExecuteDatasetByPage(string serviceName, string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues)
+        {
+            try
+            {
+                DataPortal portal = new DataPortal();
+                return portal.ExecuteDatasetByPage(serviceName, connectionName, pageInfo, commandText, parameterValues);
             }
             catch (Exception ex)
             {

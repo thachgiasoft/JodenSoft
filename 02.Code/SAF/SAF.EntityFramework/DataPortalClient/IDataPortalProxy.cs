@@ -12,9 +12,6 @@ namespace SAF.EntityFramework.DataPortalClient
     /// </summary>
     public interface IDataPortalProxy : IDataPortalServer
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        bool IsServerRemote { get; }
+
     }
 }

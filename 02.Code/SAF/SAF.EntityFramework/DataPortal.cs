@@ -18,6 +18,11 @@ namespace SAF.EntityFramework
     {
         private DataPortal() { }
 
+        public static string ServiceName
+        {
+            get { return string.Empty; }
+        }
+
         #region DataPortal Proxy
 
         private static DataPortalClient.IDataPortalProxyFactory _dataProxyFactory;
@@ -34,19 +39,13 @@ namespace SAF.EntityFramework
         #endregion
 
         #region LoadDataSet
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
+
         public static void LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.LoadDataSet(connectionName, dataSet, commandText, parameterValues);
+            result = proxy.LoadDataSet(ServiceName, connectionName, dataSet, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -57,24 +56,18 @@ namespace SAF.EntityFramework
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.LoadDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+            result = proxy.LoadDataSet(ServiceName, connectionName, dataSet, tableNames, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
+
         public static void LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.LoadDataSetByTransaction(connectionName, dataSet, commandText, parameterValues);
+            result = proxy.LoadDataSetByTransaction(ServiceName, connectionName, dataSet, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -85,7 +78,7 @@ namespace SAF.EntityFramework
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.LoadDataSetByTransaction(connectionName, dataSet, tableNames, commandText, parameterValues);
+            result = proxy.LoadDataSetByTransaction(ServiceName, connectionName, dataSet, tableNames, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -94,37 +87,25 @@ namespace SAF.EntityFramework
         #endregion
 
         #region ExecuteDataset
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static DataSet ExecuteDataset(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteDataset(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteDataset(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data as DataSet;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static DataSet ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteDatasetByTransaction(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteDatasetByTransaction(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -134,37 +115,25 @@ namespace SAF.EntityFramework
         #endregion
 
         #region ExecuteScalar
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static object ExecuteScalar(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteScalar(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteScalar(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static object ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteScalarByTransaction(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteScalarByTransaction(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -174,71 +143,49 @@ namespace SAF.EntityFramework
         #endregion
 
         #region ExecuteNonQuery
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static int ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteNonQuery(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteNonQuery(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data.To<int>();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
+
         public static int ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteNonQueryByTransaction(connectionName, commandText, parameterValues);
+            result = proxy.ExecuteNonQueryByTransaction(ServiceName, connectionName, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data.To<int>();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlCommandObjects"></param>
-        /// <returns></returns>
+
         public static int ExecuteNonQuery(string connectionName, List<SqlCommandObject> sqlCommandObjects)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteNonQuery(connectionName, sqlCommandObjects.ToArray());
+            result = proxy.ExecuteNonQuery(ServiceName, connectionName, sqlCommandObjects.ToArray());
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
             return result.Data.To<int>();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlCommandObjects"></param>
-        /// <returns></returns>
+
         public static int ExecuteNonQueryByTransaction(string connectionName, List<SqlCommandObject> sqlCommandObjects)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteNonQueryByTransaction(connectionName, sqlCommandObjects.ToArray());
+            result = proxy.ExecuteNonQueryByTransaction(ServiceName, connectionName, sqlCommandObjects.ToArray());
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -258,20 +205,12 @@ namespace SAF.EntityFramework
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="pageInfo"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
         public static DataSet ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, params object[] parameterValues)
         {
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.ExecuteDatasetByPage(connectionName, pageInfo, commandText, parameterValues);
+            result = proxy.ExecuteDatasetByPage(ServiceName, connectionName, pageInfo, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);
@@ -283,7 +222,7 @@ namespace SAF.EntityFramework
             OperationResult result = null;
 
             DataPortalClient.IDataPortalProxy proxy = GetDataPortalProxy();
-            result = proxy.LoadReportDataSet(connectionName, dataSet, tableNames, commandText, parameterValues);
+            result = proxy.LoadReportDataSet(ServiceName, connectionName, dataSet, tableNames, commandText, parameterValues);
 
             if (!result.IsSucess)
                 throw new Exception(result.Message);

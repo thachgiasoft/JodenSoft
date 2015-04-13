@@ -72,8 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionStringConfig.cs" />
-    <Compile Include="DataServiceConfig.cs" />
     <Compile Include="DataServiceConfigControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +92,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadServiceHost.cs" />
     <EmbeddedResource Include="DataServiceConfigControl.resx">
       <DependentUpon>DataServiceConfigControl.cs</DependentUpon>
     </EmbeddedResource>

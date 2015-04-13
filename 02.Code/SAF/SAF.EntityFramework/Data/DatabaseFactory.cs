@@ -17,7 +17,7 @@ namespace SAF.EntityFramework
         /// </summary>
         /// <param name="connectionName"></param>
         /// <returns></returns>
-        public static Database CreateDatabase(string connectionName)
+        public static Database CreateDatabase(string serviceName, string connectionName)
         {
             if (connectionName.IsEmpty())
                 throw new ArgumentNullException("connectionName");

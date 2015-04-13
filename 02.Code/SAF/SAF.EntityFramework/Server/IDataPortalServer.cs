@@ -5,7 +5,6 @@ using System.Text;
 using System.Data;
 using System.Data.Common;
 
-
 namespace SAF.EntityFramework.Server
 {
     /// <summary>
@@ -13,130 +12,32 @@ namespace SAF.EntityFramework.Server
     /// </summary>
     public interface IDataPortalServer
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult LoadDataSet(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult LoadDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult LoadDataSetByTransaction(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 报表专用
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="dataSet"></param>
-        /// <param name="tableNames"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult LoadReportDataSet(string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteDataset(string connectionName, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteDatasetByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteScalar(string connectionName, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteScalarByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult LoadDataSetByTransaction(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteNonQuery(string connectionName, string commandText, params object[] parameterValues);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteNonQueryByTransaction(string connectionName, string commandText, params object[] parameterValues);
+        OperationResult LoadReportDataSet(string serviceName, string connectionName, DataSet dataSet, string[] tableNames, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlCommandObjects"></param>
-        /// <returns></returns>
-        OperationResult ExecuteNonQueryByTransaction(string connectionName, SqlCommandObject[] sqlCommandObjects);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="sqlCommandObjects"></param>
-        /// <returns></returns>
-        OperationResult ExecuteNonQuery(string connectionName, SqlCommandObject[] sqlCommandObjects);
+        OperationResult ExecuteDataset(string serviceName, string connectionName, string commandText, params object[] parameterValues);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionName"></param>
-        /// <param name="pageInfo"></param>
-        /// <param name="commandText"></param>
-        /// <param name="parameterValues"></param>
-        /// <returns></returns>
-        OperationResult ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues);
+        OperationResult ExecuteDatasetByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
+
+        OperationResult ExecuteScalar(string serviceName, string connectionName, string commandText, params object[] parameterValues);
+
+        OperationResult ExecuteScalarByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
+
+        OperationResult ExecuteNonQuery(string serviceName, string connectionName, string commandText, params object[] parameterValues);
+
+        OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, string commandText, params object[] parameterValues);
+
+        OperationResult ExecuteNonQueryByTransaction(string serviceName, string connectionName, SqlCommandObject[] sqlCommandObjects);
+
+        OperationResult ExecuteNonQuery(string serviceName, string connectionName, SqlCommandObject[] sqlCommandObjects);
+
+        OperationResult ExecuteDatasetByPage(string serviceName, string connectionName, PageInfo pageInfo, string commandText, object[] parameterValues);
     }
 }
