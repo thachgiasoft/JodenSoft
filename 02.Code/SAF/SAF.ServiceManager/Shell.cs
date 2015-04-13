@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using SAF.EntityFramework.Config;
 using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
 using SAF.Foundation.ServiceModel;

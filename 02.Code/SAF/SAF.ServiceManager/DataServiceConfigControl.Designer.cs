@@ -212,7 +212,7 @@
             // 
             // bsService
             // 
-            this.bsService.DataSource = typeof(SAF.ServiceManager.DataServiceConfig);
+            this.bsService.DataSource = typeof(SAF.EntityFramework.Config.DataServiceConfig);
             // 
             // layoutControlGroup1
             // 

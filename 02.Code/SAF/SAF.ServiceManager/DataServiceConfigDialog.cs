@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SAF.Foundation;
+using SAF.EntityFramework.Config;
 
 namespace SAF.ServiceManager
 {
