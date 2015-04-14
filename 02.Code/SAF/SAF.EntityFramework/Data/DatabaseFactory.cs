@@ -7,6 +7,7 @@ using System.Configuration;
 using SAF.Foundation.Security;
 using System.Data.SqlClient;
 using SAF.Foundation.ComponentModel;
+using SAF.EntityFramework.Config;
 
 namespace SAF.EntityFramework
 {
@@ -22,50 +23,26 @@ namespace SAF.EntityFramework
             if (connectionName.IsEmpty())
                 throw new ArgumentNullException("connectionName");
 
-            if (connectionName.Equals(ConfigContext.DefaultConnection, StringComparison.CurrentCultureIgnoreCase))
-            {
-                return CreateDatabase();
-            }
-            else
-            {
-                throw new ApplicationException("不存在名称为'{0}'的数据库连接字符串,请使用默认连接.".FormatEx(connectionName));
-            }
-        }
+            var service = DataServiceConfigCollection.Current.FirstOrDefault(p => p.ServiceName == serviceName);
+            if (service == null)
+                throw new Exception("不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
 
-        /// <summary>
-        /// 获取系统默认的数据库连接
-        /// <para>此连接配置在app.config文件中,名称必须为:DefaultDatabase</para>
-        /// </summary>
-        /// <returns></returns>
-        public static Database CreateDatabase()
-        {
-            var connectionConfig = ConfigurationManager.ConnectionStrings[ConfigContext.DefaultConnection];
-            if (connectionConfig == null)
-                throw new ConfigurationErrorsException(String.Format("Database name not found in config file ('{0}')", ConfigContext.DefaultConnection));
+            var connection = service.ConnectionStringConfigs.FirstOrDefault(p => p.Name == connectionName);
+            if (connection == null)
+                throw new Exception("服务\"{0}\"中不存在名称为\"{1}\"的连接配置.".FormatEx(serviceName, connectionName));
 
-            string connectionString = ConfigurationManager.ConnectionStrings[ConfigContext.DefaultConnection].ConnectionString;
-            if (connectionString.IsEmpty())
-                throw new ConfigurationErrorsException(String.Format("The connection string of ('{0}') is null or empty.", ConfigContext.DefaultConnection));
-
-            string provider = ConfigurationManager.ConnectionStrings[ConfigContext.DefaultConnection].ProviderName;
-            if (provider.IsEmpty())
-            {
-                provider = "System.Data.SqlClient";
-            }
-
+            var connectionString = connection.ConnectionString;
             try
             {
                 connectionString = ApplicationConfig.DecryptConnectionString(connectionString);
             }
             catch (Exception ex)
             {
-                throw new CoreException("系统默认连接字符串不合法,可能未加密.", ex);
+                throw new Exception("服务\"{0}\"中名称为\"{1}\"的连接配置格式错误.{2}{3}".FormatEx(serviceName, connectionName, Environment.NewLine, ex.Message));
             }
 
-            if (provider.Equals("System.Data.SqlClient", StringComparison.InvariantCultureIgnoreCase))
-                return new SqlDatabase(connectionString);
-            else
-                return new SqlDatabase(connectionString);
+            return new SqlDatabase(connectionString);
         }
+
     }
 }

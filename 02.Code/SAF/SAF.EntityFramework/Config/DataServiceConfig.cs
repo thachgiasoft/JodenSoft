@@ -16,6 +16,8 @@ namespace SAF.EntityFramework.Config
         public string ServiceName { get; set; }
         [XmlAttribute]
         public Guid UniqueId { get; set; }
+        [XmlAttribute]
+        public string BaseAddress { get; set; }
 
         public ConnectionStringConfigCollection ConnectionStringConfigs { get; set; }
 

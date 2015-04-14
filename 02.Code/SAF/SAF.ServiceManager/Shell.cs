@@ -139,7 +139,7 @@ namespace SAF.ServiceManager
                 var index = this.bsService.IndexOf(obj);
                 this.bsService[index] = obj2;
                 this.bsService.EndEdit();
-                this.dataServiceConfigControl.DataServiceConfig = obj2 ;
+                this.dataServiceConfigControl.DataServiceConfig = obj2;
                 DataServiceConfigCollection.Current.Save();
             }
 
@@ -163,8 +163,8 @@ namespace SAF.ServiceManager
             this.RefreshUI();
         }
 
-
         private bool ServiceIsStart = false;
+        ThreadServiceHost host = null;
 
         private void bbiStartService_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -174,14 +174,17 @@ namespace SAF.ServiceManager
             ProgressService.Show("正在启动服务...");
             try
             {
+                host = new ThreadServiceHost(null);
+
                 ServiceIsStart = true;
                 this.RefreshUI();
                 ProgressService.Close();
             }
-            catch
+            catch(Exception ex)
             {
                 this.RefreshUI();
                 ProgressService.Abort();
+                throw ex;
             }
 
         }
@@ -194,14 +197,17 @@ namespace SAF.ServiceManager
             ProgressService.Show("正在停止服务...");
             try
             {
+                if (host.IsActive)
+                    host.Stop();
                 ServiceIsStart = false;
                 this.RefreshUI();
                 ProgressService.Close();
             }
-            catch
+            catch (Exception ex)
             {
                 this.RefreshUI();
                 ProgressService.Abort();
+                throw ex;
             }
         }
     }
