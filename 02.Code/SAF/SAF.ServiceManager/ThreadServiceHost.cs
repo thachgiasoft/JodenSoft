@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using SAF.Foundation;
 using System.Runtime.Serialization;
+using System.Reflection;
+using System.ServiceModel.Dispatcher;
 
 namespace SAF.ServiceManager
 {
@@ -28,20 +30,21 @@ namespace SAF.ServiceManager
 
         public ThreadServiceHost(DataServiceConfig serviceConfig)
         {
-            string httpHostName = "localhost";
-            int httpPort = 8732;
-            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(httpHostName, httpPort);
+            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(serviceConfig.HostAddress, serviceConfig.HostPort);
             Uri httpUri = new Uri(httpEndPstr);
 
             _serviceHost = new ServiceHost(typeof(SAF.EntityFramework.Server.Hosts.WcfPortal), httpUri);
 
-            //if (_serviceHost.Description.Behaviors.Find<DataContractSerializer>() == null)
-            //{
-            //    var behavior = new DataContractSerializer();
+            Type t = _serviceHost.GetType();
+            object obj = t.Assembly.CreateInstance("System.ServiceModel.Dispatcher.DataContractSerializerServiceBehavior", true,
+                BindingFlags.CreateInstance | BindingFlags.Instance | BindingFlags.NonPublic, null,
+                new object[] { false, Int32.MaxValue }, null, null);
+            IServiceBehavior myServiceBehavior = obj as IServiceBehavior;
 
-            //    //将行为添加到宿主上
-            //    _serviceHost.Description.Behaviors.Add(behavior);
-            //}
+            if (myServiceBehavior != null)
+            {
+                _serviceHost.Description.Behaviors.Add(myServiceBehavior);
+            }
 
             if (_serviceHost.Description.Behaviors.Find<ServiceMetadataBehavior>() == null)
             {

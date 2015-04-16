@@ -30,11 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.grdConnectionString = new DevExpress.XtraGrid.GridControl();
-            this.bsConnectionString = new System.Windows.Forms.BindingSource(this.components);
-            this.grvConnectionString = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colConnectionString = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPort = new DevExpress.XtraEditors.SpinEdit();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bbiConfigConnectionString = new DevExpress.XtraBars.BarButtonItem();
@@ -43,6 +41,12 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.txtHostAddress = new DevExpress.XtraEditors.TextEdit();
+            this.grdConnectionString = new DevExpress.XtraGrid.GridControl();
+            this.bsConnectionString = new System.Windows.Forms.BindingSource(this.components);
+            this.grvConnectionString = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colConnectionString = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtServiceName = new DevExpress.XtraEditors.TextEdit();
             this.bsService = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -51,12 +55,19 @@
             this.lciConnectionString = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHostAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdConnectionString)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConnectionString)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvConnectionString)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServiceName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -65,10 +76,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciConnectionString)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControl2);
+            this.layoutControl1.Controls.Add(this.labelControl1);
+            this.layoutControl1.Controls.Add(this.txtPort);
+            this.layoutControl1.Controls.Add(this.txtHostAddress);
             this.layoutControl1.Controls.Add(this.grdConnectionString);
             this.layoutControl1.Controls.Add(this.standaloneBarDockControl1);
             this.layoutControl1.Controls.Add(this.txtServiceName);
@@ -80,53 +100,40 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // grdConnectionString
+            // labelControl2
             // 
-            this.grdConnectionString.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grdConnectionString.DataSource = this.bsConnectionString;
-            this.grdConnectionString.Location = new System.Drawing.Point(9, 86);
-            this.grdConnectionString.MainView = this.grvConnectionString;
-            this.grdConnectionString.MenuManager = this.barManager;
-            this.grdConnectionString.Name = "grdConnectionString";
-            this.grdConnectionString.Size = new System.Drawing.Size(503, 130);
-            this.grdConnectionString.TabIndex = 6;
-            this.grdConnectionString.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvConnectionString});
+            this.labelControl2.Location = new System.Drawing.Point(403, 28);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(58, 14);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 11;
+            this.labelControl2.Text = "/WcfPortal";
             // 
-            // grvConnectionString
+            // labelControl1
             // 
-            this.grvConnectionString.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colName,
-            this.colConnectionString});
-            this.grvConnectionString.FixedLineWidth = 1;
-            this.grvConnectionString.GridControl = this.grdConnectionString;
-            this.grvConnectionString.Name = "grvConnectionString";
-            this.grvConnectionString.OptionsBehavior.Editable = false;
-            this.grvConnectionString.OptionsCustomization.AllowColumnMoving = false;
-            this.grvConnectionString.OptionsCustomization.AllowFilter = false;
-            this.grvConnectionString.OptionsCustomization.AllowGroup = false;
-            this.grvConnectionString.OptionsCustomization.AllowQuickHideColumns = false;
-            this.grvConnectionString.OptionsCustomization.AllowSort = false;
-            this.grvConnectionString.OptionsDetail.EnableMasterViewMode = false;
-            this.grvConnectionString.OptionsView.ColumnAutoWidth = false;
-            this.grvConnectionString.OptionsView.ShowGroupPanel = false;
+            this.labelControl1.Location = new System.Drawing.Point(55, 28);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(38, 14);
+            this.labelControl1.StyleController = this.layoutControl1;
+            this.labelControl1.TabIndex = 10;
+            this.labelControl1.Text = "http://";
             // 
-            // colName
+            // txtPort
             // 
-            this.colName.Caption = "连接名称";
-            this.colName.FieldName = "Name";
-            this.colName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
-            // 
-            // colConnectionString
-            // 
-            this.colConnectionString.Caption = "连接字符串";
-            this.colConnectionString.FieldName = "ConnectionString";
-            this.colConnectionString.Name = "colConnectionString";
-            this.colConnectionString.Visible = true;
-            this.colConnectionString.VisibleIndex = 1;
+            this.txtPort.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsService, "HostPort", true));
+            this.txtPort.EditValue = new decimal(new int[] {
+            8732,
+            0,
+            0,
+            0});
+            this.txtPort.Location = new System.Drawing.Point(319, 28);
+            this.txtPort.MenuManager = this.barManager;
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Properties.IsFloatValue = false;
+            this.txtPort.Properties.Mask.EditMask = "N00";
+            this.txtPort.Size = new System.Drawing.Size(80, 20);
+            this.txtPort.StyleController = this.layoutControl1;
+            this.txtPort.TabIndex = 9;
             // 
             // barManager
             // 
@@ -168,7 +175,7 @@
             // standaloneBarDockControl1
             // 
             this.standaloneBarDockControl1.CausesValidation = false;
-            this.standaloneBarDockControl1.Location = new System.Drawing.Point(9, 51);
+            this.standaloneBarDockControl1.Location = new System.Drawing.Point(9, 75);
             this.standaloneBarDockControl1.Name = "standaloneBarDockControl1";
             this.standaloneBarDockControl1.Size = new System.Drawing.Size(503, 31);
             this.standaloneBarDockControl1.Text = "standaloneBarDockControl1";
@@ -201,6 +208,65 @@
             this.barDockControlRight.Location = new System.Drawing.Point(521, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 376);
             // 
+            // txtHostAddress
+            // 
+            this.txtHostAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsService, "HostAddress", true));
+            this.txtHostAddress.EditValue = "localhost";
+            this.txtHostAddress.Location = new System.Drawing.Point(97, 28);
+            this.txtHostAddress.MenuManager = this.barManager;
+            this.txtHostAddress.Name = "txtHostAddress";
+            this.txtHostAddress.Size = new System.Drawing.Size(209, 20);
+            this.txtHostAddress.StyleController = this.layoutControl1;
+            this.txtHostAddress.TabIndex = 8;
+            // 
+            // grdConnectionString
+            // 
+            this.grdConnectionString.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grdConnectionString.DataSource = this.bsConnectionString;
+            this.grdConnectionString.Location = new System.Drawing.Point(9, 110);
+            this.grdConnectionString.MainView = this.grvConnectionString;
+            this.grdConnectionString.MenuManager = this.barManager;
+            this.grdConnectionString.Name = "grdConnectionString";
+            this.grdConnectionString.Size = new System.Drawing.Size(503, 149);
+            this.grdConnectionString.TabIndex = 6;
+            this.grdConnectionString.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvConnectionString});
+            // 
+            // grvConnectionString
+            // 
+            this.grvConnectionString.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName,
+            this.colConnectionString});
+            this.grvConnectionString.FixedLineWidth = 1;
+            this.grvConnectionString.GridControl = this.grdConnectionString;
+            this.grvConnectionString.Name = "grvConnectionString";
+            this.grvConnectionString.OptionsBehavior.Editable = false;
+            this.grvConnectionString.OptionsCustomization.AllowColumnMoving = false;
+            this.grvConnectionString.OptionsCustomization.AllowFilter = false;
+            this.grvConnectionString.OptionsCustomization.AllowGroup = false;
+            this.grvConnectionString.OptionsCustomization.AllowQuickHideColumns = false;
+            this.grvConnectionString.OptionsCustomization.AllowSort = false;
+            this.grvConnectionString.OptionsDetail.EnableMasterViewMode = false;
+            this.grvConnectionString.OptionsView.ColumnAutoWidth = false;
+            this.grvConnectionString.OptionsView.ShowGroupPanel = false;
+            // 
+            // colName
+            // 
+            this.colName.Caption = "连接名称";
+            this.colName.FieldName = "Name";
+            this.colName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            // 
+            // colConnectionString
+            // 
+            this.colConnectionString.Caption = "连接字符串";
+            this.colConnectionString.FieldName = "ConnectionString";
+            this.colConnectionString.Name = "colConnectionString";
+            this.colConnectionString.Visible = true;
+            this.colConnectionString.VisibleIndex = 1;
+            // 
             // txtServiceName
             // 
             this.txtServiceName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsService, "ServiceName", true));
@@ -222,7 +288,12 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlGroup2,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -246,10 +317,10 @@
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lciConnectionString,
             this.layoutControlItem3});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 48);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 0, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(517, 197);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(517, 216);
             this.layoutControlGroup2.Text = "数据连接配置";
             // 
             // lciConnectionString
@@ -270,7 +341,7 @@
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 35);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(507, 134);
+            this.layoutControlItem3.Size = new System.Drawing.Size(507, 153);
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextToControlDistance = 0;
@@ -280,11 +351,67 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 221);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 264);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(517, 151);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(517, 108);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txtHostAddress;
+            this.layoutControlItem2.CustomizationFormText = "服务地址";
+            this.layoutControlItem2.Location = new System.Drawing.Point(93, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(213, 24);
+            this.layoutControlItem2.Text = "服务地址";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextToControlDistance = 0;
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtPort;
+            this.layoutControlItem4.CustomizationFormText = ":";
+            this.layoutControlItem4.Location = new System.Drawing.Point(306, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(93, 24);
+            this.layoutControlItem4.Text = ":";
+            this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(4, 14);
+            this.layoutControlItem4.TextToControlDistance = 5;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.labelControl1;
+            this.layoutControlItem5.CustomizationFormText = "服务地址";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(93, 24);
+            this.layoutControlItem5.Text = "服务地址";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.labelControl2;
+            this.layoutControlItem6.CustomizationFormText = "/WcfPortal";
+            this.layoutControlItem6.Location = new System.Drawing.Point(399, 24);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(62, 24);
+            this.layoutControlItem6.Text = "/WcfPortal";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextToControlDistance = 0;
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(461, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(56, 24);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // DataServiceConfigControl
             // 
@@ -299,10 +426,12 @@
             this.Size = new System.Drawing.Size(521, 376);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHostAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdConnectionString)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConnectionString)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvConnectionString)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServiceName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -311,6 +440,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciConnectionString)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,5 +473,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colConnectionString;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.BindingSource bsService;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SpinEdit txtPort;
+        private DevExpress.XtraEditors.TextEdit txtHostAddress;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

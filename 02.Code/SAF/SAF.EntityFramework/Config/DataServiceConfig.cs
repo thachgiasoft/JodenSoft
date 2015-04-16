@@ -14,10 +14,12 @@ namespace SAF.EntityFramework.Config
     {
         [XmlAttribute]
         public string ServiceName { get; set; }
+
         [XmlAttribute]
         public Guid UniqueId { get; set; }
-        [XmlAttribute]
-        public string BaseAddress { get; set; }
+
+        public string HostAddress { get; set; }
+        public int HostPort { get; set; }
 
         public ConnectionStringConfigCollection ConnectionStringConfigs { get; set; }
 

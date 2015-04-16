@@ -39,6 +39,18 @@ namespace SAF.Foundation
         }
         #endregion
 
+        /// <summary>
+        /// 是否是IP4地址
+        /// </summary>
+        public static bool IsIP4(this string value)
+        {
+            if (value.IsEmpty())
+                return false;
+
+            const string pattern = @"((?:(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(?:25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d))))";
+            return Regex.IsMatch(value, pattern);
+        }
+
         #region FormatEx
         /// <summary>
         /// 格式化字符串

@@ -52,24 +52,6 @@ namespace SAF.ServiceManager
 
         }
 
-        //void serviceWorker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    try
-        //    {
-        //        serviceHost = new ServiceHost(typeof(SAF.EntityFramework.Server.Hosts.WcfPortal));
-        //        if (serviceHost.State != CommunicationState.Opened)
-        //        {
-        //            serviceHost.Open();
-        //        }
-
-        //        e.Result = "正常";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        e.Result = ex;
-        //    }
-        //}
-
         private void RefreshUI()
         {
             dataServiceConfigControl.RefreshUI();
