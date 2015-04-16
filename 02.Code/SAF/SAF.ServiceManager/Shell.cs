@@ -58,27 +58,40 @@ namespace SAF.ServiceManager
             this.dataServiceConfigControl.IsPreviewModel = true;
             this.grvService.BestFitColumns();
 
-            bool currIsNull = (this.bsService.Current == null);
-            this.bbiAddNewService.Enabled = !this.ServiceIsStart;
-            this.bbiEditService.Enabled = !currIsNull && !this.ServiceIsStart;
-            this.bbiDeleteService.Enabled = !currIsNull && !this.ServiceIsStart;
+            var curr = this.bsService.Current as DataServiceConfig;
 
-            this.bbiStartService.Enabled = !currIsNull && !this.ServiceIsStart;
-            this.bbiStopService.Enabled = !currIsNull && this.ServiceIsStart;
+            bool currIsNull = curr == null;
 
-            this.lblMessage.Caption = this.ServiceIsStart ? "服务已启动,正在监听..." : "服务已停止.";
+            bool ServiceIsStart = false;
+
+            if (!currIsNull)
+            {
+                ServiceIsStart = this.HostList.Any(p => p.UniqueId == curr.UniqueId);
+            }
+
+            string ServiceName = currIsNull ? "服务" : curr.ServiceName;
+
+            this.bbiAddNewService.Enabled = !ServiceIsStart;
+            this.bbiEditService.Enabled = !currIsNull && !ServiceIsStart;
+            this.bbiDeleteService.Enabled = !currIsNull && !ServiceIsStart;
+
+            this.bbiStartService.Enabled = !currIsNull && !ServiceIsStart;
+            this.bbiStopService.Enabled = !currIsNull && ServiceIsStart;
+
+            this.lblMessage.Caption = ServiceIsStart ? "[{0}]已启动,正在监听...".FormatEx(ServiceName) : "[{0}]已停止.".FormatEx(ServiceName);
+
         }
 
         private void grvService_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             var obj = this.bsService.Current as DataServiceConfig;
             this.dataServiceConfigControl.DataServiceConfig = obj;
+            this.RefreshUI();
         }
 
         private void bbiAddNewService_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var obj = new DataServiceConfig();
-            obj.ServiceName = "未命名服务";
 
             var dlg = CreateConfigDialog();
             dlg.DataServiceConfig = obj;
@@ -145,8 +158,7 @@ namespace SAF.ServiceManager
             this.RefreshUI();
         }
 
-        private bool ServiceIsStart = false;
-        ThreadServiceHost host = null;
+        List<ThreadServiceHost> HostList = new List<ThreadServiceHost>();
 
         private void bbiStartService_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -156,13 +168,18 @@ namespace SAF.ServiceManager
             ProgressService.Show("正在启动服务...");
             try
             {
-                host = new ThreadServiceHost(null);
+                var config = this.bsService.Current as DataServiceConfig;
+                if (HostList.Any(p => p.UniqueId == config.UniqueId))
+                    throw new Exception("服务已启动.");
+                //这里加服务
+                var host = new ThreadServiceHost(config);
 
-                ServiceIsStart = true;
+                HostList.Add(host);
+
                 this.RefreshUI();
                 ProgressService.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 this.RefreshUI();
                 ProgressService.Abort();
@@ -179,9 +196,17 @@ namespace SAF.ServiceManager
             ProgressService.Show("正在停止服务...");
             try
             {
+                var config = this.bsService.Current as DataServiceConfig;
+
+                var host = HostList.FirstOrDefault(p => p.UniqueId == config.UniqueId);
+                if (host == null)
+                    throw new Exception("服务未启动.");
+
                 if (host.IsActive)
                     host.Stop();
-                ServiceIsStart = false;
+
+                HostList.Remove(host);
+
                 this.RefreshUI();
                 ProgressService.Close();
             }

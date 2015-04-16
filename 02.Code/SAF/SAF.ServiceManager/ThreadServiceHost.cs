@@ -10,6 +10,7 @@ using SAF.Foundation;
 using System.Runtime.Serialization;
 using System.Reflection;
 using System.ServiceModel.Dispatcher;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.ServiceManager
 {
@@ -19,6 +20,12 @@ namespace SAF.ServiceManager
         private ServiceHost _serviceHost = null;
         private Thread _thread;
         private bool _isRunning;
+
+        private Guid _UniqueId = Guid.Empty;
+        public Guid UniqueId
+        {
+            get { return _UniqueId; }
+        }
 
         public bool IsActive
         {
@@ -30,6 +37,7 @@ namespace SAF.ServiceManager
 
         public ThreadServiceHost(DataServiceConfig serviceConfig)
         {
+            this._UniqueId = serviceConfig.UniqueId;
             string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(serviceConfig.HostAddress, serviceConfig.HostPort);
             Uri httpUri = new Uri(httpEndPstr);
 
@@ -90,8 +98,10 @@ namespace SAF.ServiceManager
             }
             catch (Exception ex)
             {
-                if (_serviceHost != null)
+                if (_serviceHost != null && _serviceHost.State.In(CommunicationState.Opened, CommunicationState.Opening))
                     _serviceHost.Close();
+                //MessageService.ShowException(ex);
+
                 throw ex;
             }
         }

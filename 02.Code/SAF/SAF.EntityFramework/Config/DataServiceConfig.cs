@@ -23,10 +23,14 @@ namespace SAF.EntityFramework.Config
 
         public ConnectionStringConfigCollection ConnectionStringConfigs { get; set; }
 
+        private int i = 1;
         public DataServiceConfig()
         {
             ConnectionStringConfigs = new ConnectionStringConfigCollection();
             UniqueId = Guid.NewGuid();
+            ServiceName = "服务" + i++;
+            HostAddress = "Localhost";
+            HostPort = 8732;
         }
     }
 }

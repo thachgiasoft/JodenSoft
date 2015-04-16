@@ -62,6 +62,9 @@ namespace SAF.ServiceManager
                     this.bbiConfigConnectionString.Enabled = !_IsPreviewModel;
                     this.txtServiceName.Properties.ReadOnly = _IsPreviewModel;
                     this.lciConnectionString.Visibility = _IsPreviewModel ? LayoutVisibility.Never : LayoutVisibility.Always;
+
+                    this.txtHostAddress.Properties.ReadOnly = _IsPreviewModel;
+                    this.txtPort.Properties.ReadOnly = _IsPreviewModel;
                 }
             }
         }
