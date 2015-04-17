@@ -20,7 +20,7 @@ namespace SAF.EntityFramework
 
         public static string ServiceName
         {
-            get { return string.Empty; }
+            get { return ConfigContext.ServiceName; }
         }
 
         #region DataPortal Proxy

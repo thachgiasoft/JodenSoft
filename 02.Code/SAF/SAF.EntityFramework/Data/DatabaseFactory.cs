@@ -25,7 +25,7 @@ namespace SAF.EntityFramework
 
             var service = DataServiceConfigCollection.Current.FirstOrDefault(p => p.ServiceName == serviceName);
             if (service == null)
-                throw new Exception("不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
+                throw new Exception("服务端配置文件中不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
 
             var connection = service.ConnectionStringConfigs.FirstOrDefault(p => p.Name == connectionName);
             if (connection == null)

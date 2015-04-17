@@ -34,13 +34,15 @@ namespace SAF.Framework.Component
         }
 
         private const string DataPortalUrl = "DataPortalUrl";
+        private const string ServiceName = "ServiceName";
 
         void AppConfigControl_Load(object sender, EventArgs e)
         {
             if (this.DesignMode) return;
 
-            string url = ApplicationConfig.GetAppSetting(DataPortalUrl);
-            this.txtDataPortalUrl.EditValue = url;
+            this.txtDataPortalUrl.EditValue = ApplicationConfig.GetAppSetting(DataPortalUrl);
+
+            this.txtServiceName.EditValue = ApplicationConfig.GetAppSetting(ServiceName);
 
             RefreshUI();
         }
@@ -54,8 +56,15 @@ namespace SAF.Framework.Component
                 return;
             }
 
-            ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+            if (this.txtServiceName.EditValue.ToStringEx().IsEmpty())
+            {
+                MessageService.ShowError("数据服务名称为空,请先输入数据服务名称.");
+                this.txtServiceName.Focus();
+                return;
+            }
 
+            ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+            ApplicationConfig.SetAppSetting(ServiceName, this.txtServiceName.EditValue.ToStringEx());
             TestWcfProxy();
         }
 
@@ -85,10 +94,20 @@ namespace SAF.Framework.Component
                     item.Enabled = true;
                     item.Visible = true;
                 }
+                foreach (EditorButton item in this.txtServiceName.Properties.Buttons)
+                {
+                    item.Enabled = true;
+                    item.Visible = true;
+                }
             }
             else
             {
                 foreach (EditorButton item in this.txtDataPortalUrl.Properties.Buttons)
+                {
+                    item.Enabled = false;
+                    item.Visible = false;
+                }
+                foreach (EditorButton item in this.txtServiceName.Properties.Buttons)
                 {
                     item.Enabled = false;
                     item.Visible = false;
@@ -114,6 +133,16 @@ namespace SAF.Framework.Component
             {
                 this.txtDataPortalUrl.EditValue = url;
                 ApplicationConfig.SetAppSetting(DataPortalUrl, this.txtDataPortalUrl.EditValue.ToStringEx());
+            }
+        }
+
+        private void txtServiceName_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            var serviceName = this.txtServiceName.EditValue.ToStringEx();
+            if (InputBox.Show("请输入数据服务名称", "数据服务名称：", ref serviceName))
+            {
+                this.txtServiceName.EditValue = serviceName;
+                ApplicationConfig.SetAppSetting(ServiceName, this.txtServiceName.EditValue.ToStringEx());
             }
         }
 

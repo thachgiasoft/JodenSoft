@@ -38,6 +38,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtServiceName = new DevExpress.XtraEditors.ButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataPortalUrl.Properties)).BeginInit();
@@ -47,6 +49,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServiceName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // backstageViewLabel1
@@ -67,6 +71,7 @@
             // 
             this.layoutControl1.Controls.Add(this.btnTestConnection);
             this.layoutControl1.Controls.Add(this.txtDataPortalUrl);
+            this.layoutControl1.Controls.Add(this.txtServiceName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(20, 55);
             this.layoutControl1.Name = "layoutControl1";
@@ -77,7 +82,7 @@
             // 
             // btnTestConnection
             // 
-            this.btnTestConnection.Location = new System.Drawing.Point(332, 36);
+            this.btnTestConnection.Location = new System.Drawing.Point(332, 60);
             this.btnTestConnection.Name = "btnTestConnection";
             this.btnTestConnection.Size = new System.Drawing.Size(83, 22);
             this.btnTestConnection.StyleController = this.layoutControl1;
@@ -109,7 +114,8 @@
             this.layoutControlItem4,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.emptySpaceItem3});
+            this.emptySpaceItem3,
+            this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(701, 212);
@@ -130,7 +136,7 @@
             // 
             this.layoutControlItem4.Control = this.btnTestConnection;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(320, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(320, 48);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -145,7 +151,7 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(320, 26);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
@@ -155,9 +161,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 50);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 74);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(407, 142);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(407, 118);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -170,6 +176,28 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(274, 192);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.txtServiceName;
+            this.layoutControlItem1.CustomizationFormText = "数据服务名称";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(407, 24);
+            this.layoutControlItem1.Text = "数据服务名称";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // txtServiceName
+            // 
+            this.txtServiceName.Location = new System.Drawing.Point(87, 36);
+            this.txtServiceName.Name = "txtServiceName";
+            this.txtServiceName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtServiceName.Properties.ReadOnly = true;
+            this.txtServiceName.Size = new System.Drawing.Size(328, 20);
+            this.txtServiceName.StyleController = this.layoutControl1;
+            this.txtServiceName.TabIndex = 8;
+            this.txtServiceName.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtServiceName_ButtonClick);
             // 
             // ConnectionConfigControl
             // 
@@ -191,6 +219,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServiceName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,6 +237,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraEditors.ButtonEdit txtDataPortalUrl;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.ButtonEdit txtServiceName;
 
     }
 }

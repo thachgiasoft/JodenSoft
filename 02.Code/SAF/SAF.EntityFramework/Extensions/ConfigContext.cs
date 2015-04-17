@@ -49,6 +49,21 @@ namespace SAF.EntityFramework
                 return "Default";
             }
         }
+        /// <summary>
+        /// 数据服务名称
+        /// </summary>
+        public static string ServiceName
+        {
+            get
+            {
+                var serviceName = ConfigurationManager.AppSettings["ServiceName"];
+                if (!string.IsNullOrEmpty(serviceName))
+                {
+                    return serviceName.ToString();
+                }
+                return "SAF";
+            }
+        }
 
         private static string _dataPortalUrl = null;
         /// <summary>
