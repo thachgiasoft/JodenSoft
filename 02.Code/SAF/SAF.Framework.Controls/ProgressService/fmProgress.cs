@@ -85,10 +85,17 @@ namespace SAF.Framework.Controls
             tmr.Interval = 1000;
             tmr.Tick += new EventHandler(tmr_Tick);
 
-            dotTmr.Interval = 300;
+            dotTmr.Interval = 250;
             dotTmr.Tick += dotTmr_Tick;
 
             this.Load += new EventHandler(fmProgress_Load);
+            this.FormClosed += fmProgress_FormClosed;
+        }
+
+        void fmProgress_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.dotTmr.Stop();
+            this.tmr.Stop();
         }
 
         void dotTmr_Tick(object sender, EventArgs e)
