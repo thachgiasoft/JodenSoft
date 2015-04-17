@@ -35,7 +35,7 @@ namespace SAF.Framework.Controls
         /// 测试连接
         /// </summary>
         /// <returns></returns>
-        public bool TryConnect()
+        public bool Connect()
         {
             Thread makeConnectionThread = new Thread(TestConnection);
             makeConnectionThread.IsBackground = true;
@@ -43,8 +43,6 @@ namespace SAF.Framework.Controls
             makeConnectionThread.Start();
 
             int sleepTimes = 0;
-
-            ProgressService.Show("正在尝试连接数据库...");
 
             while (!_ConnectSuccess || sleepTimes < _MinTimes)
             {
@@ -54,15 +52,9 @@ namespace SAF.Framework.Controls
                 if (sleepTimes > _MaxTimes)
                 {
                     makeConnectionThread.Abort();
-                    ProgressService.Close();
-
-                    if (!_ConnectSuccess)
-                        MessageService.ShowError("无法与数据库服务器建立连结，请确认配置信息是否正确。");
-
                     return false;
                 }
             }
-            MessageService.ShowMessage("与数据库服务器建立连结成功。");
             return true;
         }
 

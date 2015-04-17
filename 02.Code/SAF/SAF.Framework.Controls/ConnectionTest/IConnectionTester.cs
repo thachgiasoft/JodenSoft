@@ -7,7 +7,7 @@ namespace SAF.Framework.Controls
 {
     public interface IConnectionTester
     {
-        bool TryConnect();
+        bool Connect();
         string ConnectionString { get; }
     }
 }

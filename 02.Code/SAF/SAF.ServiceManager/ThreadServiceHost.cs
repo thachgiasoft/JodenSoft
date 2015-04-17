@@ -99,42 +99,63 @@ namespace SAF.ServiceManager
         {
             try
             {
+                ShowProgressService("正在启动服务...");
+
                 _isRunning = true;
                 _serviceHost.Open();
                 _hostList.Add(this);
 
-                if (_shell.InvokeRequired)
-                {
-                    _shell.Invoke(new Action(_shell.CloseProgressAndRefreshUI));
-                }
-                else
-                {
-                    _shell.CloseProgressAndRefreshUI();
-                }
+                CloseProgressAndRefreshUI();
 
                 while (_isRunning)
                 {
                     Thread.Sleep(SleepTime);
                 }
+
+                ShowProgressService("正在停止服务...");
+
                 _serviceHost.Close();
                 ((IDisposable)_serviceHost).Dispose();
+
+                _hostList.Remove(this);
+
+                CloseProgressAndRefreshUI();
+
             }
             catch (Exception ex)
             {
                 if (_serviceHost != null && _serviceHost.State.In(CommunicationState.Opened, CommunicationState.Opening))
                     _serviceHost.Close();
 
-                if (_shell.InvokeRequired)
-                {
-                    _shell.Invoke(new Action(_shell.CloseProgressAndRefreshUI));
+                CloseProgressAndRefreshUI(ex);
+            }
+        }
 
+        private void ShowProgressService(string message)
+        {
+            if (_shell.InvokeRequired)
+            {
+                _shell.Invoke(new Action<string>(_shell.ShowProgressService), message);
+            }
+            else
+            {
+                _shell.ShowProgressService(message);
+            }
+        }
+
+        private void CloseProgressAndRefreshUI(Exception ex = null)
+        {
+            if (_shell.InvokeRequired)
+            {
+                _shell.Invoke(new Action(_shell.CloseProgressAndRefreshUI));
+                if (ex != null)
                     _shell.Invoke(new Action<Exception>(_shell.ShowThreadException), ex);
-                }
-                else
-                {
-                    _shell.CloseProgressAndRefreshUI();
+            }
+            else
+            {
+                _shell.CloseProgressAndRefreshUI();
+                if (ex != null)
                     _shell.ShowThreadException(ex);
-                }
             }
         }
 

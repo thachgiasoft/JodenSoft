@@ -73,6 +73,16 @@ namespace SAF.ServiceManager.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Close_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Delete_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Delete_32x32", resourceCulture);
@@ -113,9 +123,29 @@ namespace SAF.ServiceManager.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Run_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Run_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Run_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Run_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Stop_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Stop_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -127,6 +157,16 @@ namespace SAF.ServiceManager.Properties {
             get {
                 object obj = ResourceManager.GetObject("Action_Stop_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon App {
+            get {
+                object obj = ResourceManager.GetObject("App", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

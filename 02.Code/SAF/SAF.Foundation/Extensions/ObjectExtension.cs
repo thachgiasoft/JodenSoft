@@ -83,6 +83,14 @@ namespace SAF.Foundation
 
             return c.Any(i => i.Equals(t));
         }
+
+        public static bool In<T>(this T t, IEnumerable<T> c)
+        {
+            if (t == null) return false;
+            if (c.IsEmpty()) return false;
+
+            return c.Any(i => i.Equals(t));
+        }
         /// <summary>
         /// 
         /// </summary>

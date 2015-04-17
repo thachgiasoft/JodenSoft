@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraTreeList;
 using SAF.EntityFramework.Config;
 using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
@@ -25,12 +26,61 @@ namespace SAF.ServiceManager
         public Shell()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.App;
+
+            InitNotifyIcon();
+
             this.StartPosition = FormStartPosition.CenterScreen;
             this.lblRight.Caption = AssemblyInfoHelper.Company;
 
             InitData();
 
             this.Shown += Shell_Shown;
+            this.FormClosing += Shell_FormClosing;
+            this.treeService.GetSelectImage += treeService_GetSelectImage;
+        }
+
+        void treeService_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
+        {
+            var obj = (sender as TreeList).GetDataRecordByNode(e.Node) as DataServiceConfig;
+
+            if (obj != null)
+            {
+                if (HostList.Any(p => p.UniqueId == obj.UniqueId))
+                    e.NodeImageIndex = 0;
+                else
+                    e.NodeImageIndex = 1;
+            }
+            else
+            {
+                e.NodeImageIndex = 1;
+            }
+        }
+
+        void Shell_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.HostList.Any(p => p.IsActive))
+            {
+                var list = this.HostList.Where(p => p.IsActive).Select(x => x.UniqueId);
+                var services = DataServiceConfigCollection.Current.Where(p => p.UniqueId.In(list)).Select(x => x.ServiceName).JoinText();
+
+                MessageService.ShowWarningFormatted("[{0}] 已启动,系统将最小化! 如果需要退出系统,请停止所有服务再退出.", services);
+
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+            }
+            else
+            {
+                if (!MessageService.AskQuestion("确定要退出系统吗?"))
+                    e.Cancel = true;
+            }
+        }
+
+        private void InitNotifyIcon()
+        {
+            this.notifyIcon.Icon = Properties.Resources.App;
+            this.notifyIcon.Text = this.Text;
         }
 
         private void InitData()
@@ -56,7 +106,6 @@ namespace SAF.ServiceManager
         {
             dataServiceConfigControl.RefreshUI();
             this.dataServiceConfigControl.IsPreviewModel = true;
-            this.grvService.BestFitColumns();
 
             var curr = this.bsService.Current as DataServiceConfig;
 
@@ -80,13 +129,7 @@ namespace SAF.ServiceManager
 
             this.lblMessage.Caption = ServiceIsStart ? "[{0}]已启动,正在监听...".FormatEx(ServiceName) : "[{0}]已停止.".FormatEx(ServiceName);
 
-        }
-
-        private void grvService_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            var obj = this.bsService.Current as DataServiceConfig;
-            this.dataServiceConfigControl.DataServiceConfig = obj;
-            this.RefreshUI();
+            this.treeService.Refresh();
         }
 
         private void bbiAddNewService_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -165,20 +208,29 @@ namespace SAF.ServiceManager
             if (!MessageService.AskQuestion("确定要启动服务吗?"))
                 return;
 
-            ProgressService.Show("正在启动服务...");
-
             var config = this.bsService.Current as DataServiceConfig;
             if (HostList.Any(p => p.UniqueId == config.UniqueId))
                 throw new Exception("服务已启动.");
-            //这里加服务
+
+            ProgressService.Show("正在尝试连接数据库...");
+            //测试数据库连接
+            foreach (var item in config.ConnectionStringConfigs)
+            {
+                var tester = new SqlConnectionTester(ApplicationConfig.DecryptConnectionString(item.ConnectionString));
+                if (!tester.Connect())
+                {
+                    ProgressService.Abort();
+                    MessageService.ShowErrorFormatted("数据库连接失败,请检查[{0}]的连接字符串[{1}].", config.ServiceName, item.Name);
+                    return;
+                }
+            }
+
             new ThreadServiceHost(this, HostList, config).Start();
-
         }
-
 
         public void CloseProgressAndRefreshUI()
         {
-            ProgressService.Close();
+            ProgressService.Abort();
             this.RefreshUI();
         }
 
@@ -192,29 +244,58 @@ namespace SAF.ServiceManager
             if (!MessageService.AskQuestion("确定要停止服务吗?"))
                 return;
 
-            ProgressService.Show("正在停止服务...");
-            try
+            var config = this.bsService.Current as DataServiceConfig;
+
+            var host = HostList.FirstOrDefault(p => p.UniqueId == config.UniqueId);
+            if (host == null)
+                throw new Exception("服务未启动.");
+
+            if (host.IsActive)
+                host.Stop();
+
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
             {
-                var config = this.bsService.Current as DataServiceConfig;
-
-                var host = HostList.FirstOrDefault(p => p.UniqueId == config.UniqueId);
-                if (host == null)
-                    throw new Exception("服务未启动.");
-
-                if (host.IsActive)
-                    host.Stop();
-
-                HostList.Remove(host);
-
-                this.RefreshUI();
-                ProgressService.Close();
+                this.WindowState = FormWindowState.Maximized;
+                this.ShowInTaskbar = true;
             }
-            catch (Exception ex)
+            else
             {
-                this.RefreshUI();
-                ProgressService.Abort();
-                throw ex;
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
             }
+        }
+
+        private void treeService_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            var obj = this.bsService.Current as DataServiceConfig;
+            this.dataServiceConfigControl.DataServiceConfig = obj;
+            this.RefreshUI();
+        }
+
+        private void Shell_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
+            else
+            {
+                this.ShowInTaskbar = true;
+            }
+        }
+
+        private void bbiExitApplication_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        internal void ShowProgressService(string message)
+        {
+            ProgressService.Show(message);
         }
     }
 }
