@@ -52,7 +52,7 @@ namespace SAF.ServiceManager
 
         }
 
-        private void RefreshUI()
+        public void RefreshUI()
         {
             dataServiceConfigControl.RefreshUI();
             this.dataServiceConfigControl.IsPreviewModel = true;
@@ -166,26 +166,25 @@ namespace SAF.ServiceManager
                 return;
 
             ProgressService.Show("正在启动服务...");
-            try
-            {
-                var config = this.bsService.Current as DataServiceConfig;
-                if (HostList.Any(p => p.UniqueId == config.UniqueId))
-                    throw new Exception("服务已启动.");
-                //这里加服务
-                var host = new ThreadServiceHost(config);
 
-                HostList.Add(host);
+            var config = this.bsService.Current as DataServiceConfig;
+            if (HostList.Any(p => p.UniqueId == config.UniqueId))
+                throw new Exception("服务已启动.");
+            //这里加服务
+            new ThreadServiceHost(this, HostList, config).Start();
 
-                this.RefreshUI();
-                ProgressService.Close();
-            }
-            catch (Exception ex)
-            {
-                this.RefreshUI();
-                ProgressService.Abort();
-                throw ex;
-            }
+        }
 
+
+        public void CloseProgressAndRefreshUI()
+        {
+            ProgressService.Close();
+            this.RefreshUI();
+        }
+
+        public void ShowThreadException(Exception ex)
+        {
+            MessageService.ShowException(ex);
         }
 
         private void bbiStopService_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

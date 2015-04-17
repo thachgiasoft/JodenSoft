@@ -184,6 +184,8 @@
     <Compile Include="ConnectionStringDialog.Designer.cs">
       <DependentUpon>ConnectionStringDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectionTest\IConnectionTester.cs" />
+    <Compile Include="ConnectionTest\SqlConnectionTester.cs" />
     <Compile Include="Entities\sysRegInfo.cs" />
     <Compile Include="Entities\sysReportConfigFormat.cs" />
     <Compile Include="FileUpgradeHelper.cs" />

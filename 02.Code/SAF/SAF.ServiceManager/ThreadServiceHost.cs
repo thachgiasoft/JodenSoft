@@ -11,6 +11,7 @@ using System.Runtime.Serialization;
 using System.Reflection;
 using System.ServiceModel.Dispatcher;
 using SAF.Foundation.ServiceModel;
+using System.Windows.Forms;
 
 namespace SAF.ServiceManager
 {
@@ -35,10 +36,21 @@ namespace SAF.ServiceManager
             }
         }
 
-        public ThreadServiceHost(DataServiceConfig serviceConfig)
+        private List<ThreadServiceHost> _hostList = new List<ThreadServiceHost>();
+        private DataServiceConfig _serviceConfig = null;
+        private Shell _shell = null;
+
+        public ThreadServiceHost(Shell shell, List<ThreadServiceHost> hostList, DataServiceConfig serviceConfig)
         {
-            this._UniqueId = serviceConfig.UniqueId;
-            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(serviceConfig.HostAddress, serviceConfig.HostPort);
+            _shell = shell;
+            _hostList = hostList;
+            _serviceConfig = serviceConfig;
+        }
+
+        public void Start()
+        {
+            this._UniqueId = _serviceConfig.UniqueId;
+            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(_serviceConfig.HostAddress, _serviceConfig.HostPort);
             Uri httpUri = new Uri(httpEndPstr);
 
             _serviceHost = new ServiceHost(typeof(SAF.EntityFramework.Server.Hosts.WcfPortal), httpUri);
@@ -89,6 +101,17 @@ namespace SAF.ServiceManager
             {
                 _isRunning = true;
                 _serviceHost.Open();
+                _hostList.Add(this);
+
+                if (_shell.InvokeRequired)
+                {
+                    _shell.Invoke(new Action(_shell.CloseProgressAndRefreshUI));
+                }
+                else
+                {
+                    _shell.CloseProgressAndRefreshUI();
+                }
+
                 while (_isRunning)
                 {
                     Thread.Sleep(SleepTime);
@@ -100,9 +123,18 @@ namespace SAF.ServiceManager
             {
                 if (_serviceHost != null && _serviceHost.State.In(CommunicationState.Opened, CommunicationState.Opening))
                     _serviceHost.Close();
-                //MessageService.ShowException(ex);
 
-                throw ex;
+                if (_shell.InvokeRequired)
+                {
+                    _shell.Invoke(new Action(_shell.CloseProgressAndRefreshUI));
+
+                    _shell.Invoke(new Action<Exception>(_shell.ShowThreadException), ex);
+                }
+                else
+                {
+                    _shell.CloseProgressAndRefreshUI();
+                    _shell.ShowThreadException(ex);
+                }
             }
         }
 

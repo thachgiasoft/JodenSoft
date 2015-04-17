@@ -7,6 +7,7 @@ using SAF.Framework.Controls;
 using System.Windows.Forms;
 using SAF.Foundation;
 using DevExpress.XtraEditors;
+using DevExpress.LookAndFeel;
 
 namespace SAF.Framework.ServiceModel
 {
@@ -39,22 +40,22 @@ namespace SAF.Framework.ServiceModel
 
         public void ShowError(string message)
         {
-            XtraMessageBox.Show(DialogOwner, message, MessageBoxTitle + "- 出错了", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 出错了", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void ShowWarning(string message)
         {
-            XtraMessageBox.Show(DialogOwner, message, MessageBoxTitle + "- 警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public bool AskQuestion(string question)
         {
-            return XtraMessageBox.Show(DialogOwner, question, MessageBoxTitle + "- 确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            return XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, question, MessageBoxTitle + "- 确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
         public void ShowMessage(string message)
         {
-            XtraMessageBox.Show(DialogOwner, message, MessageBoxTitle + "- 消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
