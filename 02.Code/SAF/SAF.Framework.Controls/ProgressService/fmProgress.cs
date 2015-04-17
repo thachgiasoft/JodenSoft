@@ -85,7 +85,7 @@ namespace SAF.Framework.Controls
             tmr.Interval = 1000;
             tmr.Tick += new EventHandler(tmr_Tick);
 
-            dotTmr.Interval = 400;
+            dotTmr.Interval = 300;
             dotTmr.Tick += dotTmr_Tick;
 
             this.Load += new EventHandler(fmProgress_Load);
