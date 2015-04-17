@@ -18,6 +18,7 @@ using System.Reflection;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using SAF.Framework.ComponentModel;
+using System.Linq;
 
 namespace SAF.Client
 {
@@ -27,7 +28,7 @@ namespace SAF.Client
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             SAF.Framework.Controls.SplashScreen.ShowSplashScreen("系统正在启动");
 
@@ -52,8 +53,17 @@ namespace SAF.Client
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在初始化服务");
             ServiceManager.Instance = new SAFServiceManager();
 
-            SAF.Framework.Controls.SplashScreen.ShowMessage("正在更新系统");
-            //Upgrade();
+            string autoUpgrade = args.Length > 0 ? args[0].Split(',').FirstOrDefault().ToLower() : "false";
+            bool bAutoUpgrade = false;
+            if (!Boolean.TryParse(autoUpgrade, out bAutoUpgrade))
+            {
+                bAutoUpgrade = false;
+            }
+            if (bAutoUpgrade)
+            {
+                SAF.Framework.Controls.SplashScreen.ShowMessage("正在初始化服务");
+                Upgrade();
+            }
 
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载组件");
             ComposeModules();

@@ -722,7 +722,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         if (!System.IO.File.Exists(fileName))
                             throw new Exception("文件{0}不存在,无法创建业务窗口.".FormatEx(fileName));
 
-                        ProgressService.Show("正在创建业务窗口...");
+                        ProgressService.Show("正在创建业务窗口");
                         try
                         {
                             object obj = Assembly.LoadFrom(fileName).CreateInstance(className, true);

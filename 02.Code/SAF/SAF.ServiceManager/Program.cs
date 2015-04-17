@@ -20,7 +20,7 @@ namespace SAF.ServiceManager
         {
             SAF.Foundation.ServiceModel.ServiceManager.Instance = new SAFServiceManager();
 
-            SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器...");
+            SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器");
 
             System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
             System.Threading.Thread.CurrentThread.CurrentCulture = zhHans;

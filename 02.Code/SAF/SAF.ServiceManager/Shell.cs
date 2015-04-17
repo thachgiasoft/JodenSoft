@@ -212,7 +212,7 @@ namespace SAF.ServiceManager
             if (HostList.Any(p => p.UniqueId == config.UniqueId))
                 throw new Exception("服务已启动.");
 
-            ProgressService.Show("正在尝试连接数据库...");
+            ProgressService.Show("正在尝试连接数据库");
             //测试数据库连接
             foreach (var item in config.ConnectionStringConfigs)
             {

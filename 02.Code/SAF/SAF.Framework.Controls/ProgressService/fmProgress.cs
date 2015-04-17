@@ -46,6 +46,8 @@ namespace SAF.Framework.Controls
             {
                 this.lblMessage.Text = message;
                 this.msg = message;
+                dotTmr.Stop();
+                dotTmr.Start();
             }
         }
 
@@ -55,6 +57,7 @@ namespace SAF.Framework.Controls
         }
 
         System.Windows.Forms.Timer tmr = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer dotTmr = new System.Windows.Forms.Timer();
 
         int seconds = 0;
         /// <summary>
@@ -81,7 +84,18 @@ namespace SAF.Framework.Controls
 
             tmr.Interval = 1000;
             tmr.Tick += new EventHandler(tmr_Tick);
+
+            dotTmr.Interval = 400;
+            dotTmr.Tick += dotTmr_Tick;
+
             this.Load += new EventHandler(fmProgress_Load);
+        }
+
+        void dotTmr_Tick(object sender, EventArgs e)
+        {
+            if (++dotCount > 3) dotCount = 0;
+
+            this.lblMessage.Text = string.Format("{0}{1}", this.msg, GetDots(dotCount));
         }
 
         void tmr_Tick(object sender, EventArgs e)
@@ -89,7 +103,9 @@ namespace SAF.Framework.Controls
             seconds++;
             ShowTitle();
         }
+
         public string sTitle = string.Empty;
+        int dotCount = 0;
 
         private void ShowTitle()
         {
@@ -99,7 +115,7 @@ namespace SAF.Framework.Controls
             }
             else
             {
-                string sCaption = string.Format("正在执行...( {0}s ) ", seconds);
+                string sCaption = string.Format("正在执行( {0}s)", seconds);
                 if (!sTitle.IsEmpty())
                     sCaption = string.Format("{0}  {1}", sTitle, sCaption);
                 this.Text = sCaption;
@@ -115,6 +131,12 @@ namespace SAF.Framework.Controls
             ProgressProxy.SplashManualResetEvent.Set();
         }
 
+        string GetDots(int count)
+        {
+            string ret = string.Empty;
+            for (int i = 0; i < count; i++) ret += ". ";
+            return ret;
+        }
         /// <summary>
         /// 步进Value
         /// </summary>

@@ -73,7 +73,7 @@ namespace SAF.SystemModule
 
         internal void UpdateFiles(List<string> list)
         {
-            ProgressService.Show("正在上传文件...");
+            ProgressService.Show("正在上传文件");
             try
             {
                 foreach (var fileName in list)

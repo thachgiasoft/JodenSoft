@@ -61,7 +61,7 @@ namespace SAF.Framework.Component
 
         private void TestWcfProxy()
         {
-            ProgressService.Show("正在尝试连接远程服务器,请稍等...");
+            ProgressService.Show("正在尝试连接远程服务器,请稍等");
             try
             {
                 var es = new EntitySet<QueryEntity>();

@@ -99,7 +99,7 @@ namespace SAF.ServiceManager
         {
             try
             {
-                ShowProgressService("正在启动服务...");
+                ShowProgressService("正在启动服务");
 
                 _isRunning = true;
                 _serviceHost.Open();
@@ -112,7 +112,7 @@ namespace SAF.ServiceManager
                     Thread.Sleep(SleepTime);
                 }
 
-                ShowProgressService("正在停止服务...");
+                ShowProgressService("正在停止服务");
 
                 _serviceHost.Close();
                 ((IDisposable)_serviceHost).Dispose();
