@@ -64,11 +64,12 @@ namespace SAF.ServiceManager
                 var list = this.HostList.Where(p => p.IsActive).Select(x => x.UniqueId);
                 var services = DataServiceConfigCollection.Current.Where(p => p.UniqueId.In(list)).Select(x => x.ServiceName).JoinText();
 
-                MessageService.ShowWarningFormatted("[{0}] 已启动,系统将最小化! 如果需要退出系统,请停止所有服务再退出.", services);
-
                 e.Cancel = true;
-                this.WindowState = FormWindowState.Minimized;
-                this.ShowInTaskbar = false;
+                if (MessageService.AskQuestionFormatted("[{0}] 已启动,系统只能最小化.确定要最小化系统吗?{1}如果要退出系统,请停止所有服务再退出.", services, Environment.NewLine))
+                {
+                    this.WindowState = FormWindowState.Minimized;
+                    this.ShowInTaskbar = false;
+                }
             }
             else
             {
