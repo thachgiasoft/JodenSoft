@@ -38,7 +38,7 @@
             this.navMainMenu = new DevExpress.XtraNavBar.NavBarControl();
             this.navGroupSystemMenu = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
-            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.TreeMenu = new DevExpress.XtraTreeList.TreeList();
             this.splitterMain = new DevExpress.XtraEditors.SplitterControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -46,7 +46,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).BeginInit();
             this.navMainMenu.SuspendLayout();
             this.navBarGroupControlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TreeMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonMain
@@ -60,8 +60,10 @@
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageSystem});
             this.ribbonMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
+            this.ribbonMain.ShowToolbarCustomizeItem = false;
             this.ribbonMain.Size = new System.Drawing.Size(729, 147);
             this.ribbonMain.StatusBar = this.statusMain;
+            this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             // 
             // pageSystem
             // 
@@ -102,9 +104,9 @@
             this.navGroupSystemMenu});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
-            this.navMainMenu.OptionsNavPane.ExpandedWidth = 140;
+            this.navMainMenu.OptionsNavPane.ExpandedWidth = 193;
             this.navMainMenu.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navMainMenu.Size = new System.Drawing.Size(140, 310);
+            this.navMainMenu.Size = new System.Drawing.Size(193, 310);
             this.navMainMenu.TabIndex = 3;
             this.navMainMenu.Text = "navBarControl";
             // 
@@ -119,27 +121,28 @@
             // 
             // navBarGroupControlContainer1
             // 
-            this.navBarGroupControlContainer1.Controls.Add(this.treeList1);
+            this.navBarGroupControlContainer1.Controls.Add(this.TreeMenu);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(140, 206);
+            this.navBarGroupControlContainer1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(193, 206);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
-            // treeList1
+            // TreeMenu
             // 
-            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeList1.Location = new System.Drawing.Point(0, 0);
-            this.treeList1.Name = "treeList1";
-            this.treeList1.OptionsSelection.InvertSelection = true;
-            this.treeList1.OptionsView.ShowColumns = false;
-            this.treeList1.OptionsView.ShowHorzLines = false;
-            this.treeList1.OptionsView.ShowIndicator = false;
-            this.treeList1.OptionsView.ShowVertLines = false;
-            this.treeList1.Size = new System.Drawing.Size(140, 206);
-            this.treeList1.TabIndex = 0;
+            this.TreeMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TreeMenu.Location = new System.Drawing.Point(1, 0);
+            this.TreeMenu.Name = "TreeMenu";
+            this.TreeMenu.OptionsSelection.InvertSelection = true;
+            this.TreeMenu.OptionsView.ShowColumns = false;
+            this.TreeMenu.OptionsView.ShowHorzLines = false;
+            this.TreeMenu.OptionsView.ShowIndicator = false;
+            this.TreeMenu.OptionsView.ShowVertLines = false;
+            this.TreeMenu.Size = new System.Drawing.Size(192, 206);
+            this.TreeMenu.TabIndex = 0;
             // 
             // splitterMain
             // 
-            this.splitterMain.Location = new System.Drawing.Point(140, 147);
+            this.splitterMain.Location = new System.Drawing.Point(193, 147);
             this.splitterMain.Name = "splitterMain";
             this.splitterMain.Size = new System.Drawing.Size(5, 310);
             this.splitterMain.TabIndex = 4;
@@ -164,7 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).EndInit();
             this.navMainMenu.ResumeLayout(false);
             this.navBarGroupControlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TreeMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +185,7 @@
         private DevExpress.XtraNavBar.NavBarGroup navGroupSystemMenu;
         private DevExpress.XtraEditors.SplitterControl splitterMain;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
-        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.TreeList TreeMenu;
     }
 }
 

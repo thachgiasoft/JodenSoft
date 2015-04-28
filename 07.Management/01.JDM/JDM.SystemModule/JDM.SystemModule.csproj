@@ -30,8 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerRegsterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ServerRegsterView.Designer.cs">
+      <DependentUpon>ServerRegsterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerRegsterViewViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ServerRegsterView.resx">
+      <DependentUpon>ServerRegsterView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\02.Code\SAF\SAF.EntityFramework\SAF.EntityFramework.csproj">
+      <Project>{2f6a089c-dd0b-47af-b44d-ea510f2b4376}</Project>
+      <Name>SAF.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\02.Code\SAF\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\02.Code\SAF\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
+      <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
+      <Name>SAF.Framework.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\02.Code\SAF\SAF.Framework\SAF.Framework.csproj">
+      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
+      <Name>SAF.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JDM.Framework\JDM.Framework.csproj">
+      <Project>{3d0b8f93-7184-4d1e-b0b2-8dd44e9e6847}</Project>
+      <Name>JDM.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

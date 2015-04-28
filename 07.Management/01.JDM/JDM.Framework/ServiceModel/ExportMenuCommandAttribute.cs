@@ -13,11 +13,11 @@ namespace JDM.Framework.ServiceModel
         public ExportMenuCommandAttribute()
             : base("MainMenuCommand", typeof(IMenuCommand))
         {
-            this.MenuId = Guid.NewGuid();
+            this.MenuId = Guid.NewGuid().ToString("D");
             this.MenuOrder = 0;
         }
 
-        public Guid MenuId
+        public string MenuId
         {
             get;
             private set;
@@ -29,19 +29,13 @@ namespace JDM.Framework.ServiceModel
             set;
         }
 
-        public string MenuCategory
+        public MenuCategory MenuCategory
         {
             get;
             set;
         }
 
         public double MenuOrder
-        {
-            get;
-            set;
-        }
-
-        public Type MenuType
         {
             get;
             set;

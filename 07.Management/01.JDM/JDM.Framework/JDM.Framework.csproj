@@ -48,6 +48,7 @@
     <Compile Include="ServiceModel\ExportMenuCommandAttribute.cs" />
     <Compile Include="ServiceModel\IJDMShell.cs" />
     <Compile Include="ServiceModel\IMenuCommandMetadata.cs" />
+    <Compile Include="ServiceModel\MenuCategory.cs" />
     <Compile Include="ServiceModel\MenuCommand.cs" />
   </ItemGroup>
   <ItemGroup>

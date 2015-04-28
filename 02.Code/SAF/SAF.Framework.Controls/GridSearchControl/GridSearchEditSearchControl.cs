@@ -17,10 +17,6 @@ namespace SAF.Framework.Controls
     [DesignTimeVisible(false)]
     public partial class GridSearchEditSearchControl : BaseUserControl
     {
-        public class QueryEntity : Entity<QueryEntity>
-        {
-        }
-
         private EntitySet<QueryEntity> _QueryEntitySet = null;
         protected EntitySet<QueryEntity> QueryEntitySet
         {

@@ -53,7 +53,7 @@ namespace JDM
             ComposeModules();
 
             SAF.Framework.Controls.SplashScreen.ShowMessage("初始化主界面");
-            var shell = CompositionHelper.Current.GetExportedValue<IJDMShell>("JDMShell");
+            var shell = new Shell();
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在处理...");
             Application.Run(shell.View);
         }
@@ -81,7 +81,6 @@ namespace JDM
                             CompositionHelper.Current.AddFile(fileName);
                         }
                     }
-                    CompositionHelper.Current.AddAssembly(Assembly.GetExecutingAssembly());
                     CompositionHelper.Current.ComposeParts();
                 }
                 finally

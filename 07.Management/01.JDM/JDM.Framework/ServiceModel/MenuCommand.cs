@@ -8,15 +8,15 @@ namespace JDM.Framework.ServiceModel
 {
     public interface IMenuCommand
     {
-        void Execute(Form mdiParent, object parameter);
-        bool CanExecute(Form mdiParent, object parameter);
+        void Execute(object parameter);
+        bool CanExecute(object parameter);
     }
 
-    public abstract class MenuCommand
+    public abstract class MenuCommand : IMenuCommand
     {
-        public abstract void Execute(Form mdiParent, object parameter);
+        public abstract void Execute(object parameter);
 
-        public virtual bool CanExecute(Form mdiParent, object parameter)
+        public virtual bool CanExecute(object parameter)
         {
             return true;
         }

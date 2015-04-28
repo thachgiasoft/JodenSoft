@@ -7,10 +7,9 @@ namespace JDM.Framework.ServiceModel
 {
     public interface IMenuCommandMetadata
     {
-        Guid MenuId { get; }
+        string MenuId { get; }
         string Menu { get; }
-        string MenuCategory { get; }
+        MenuCategory MenuCategory { get; }
         double MenuOrder { get; }
-        Type MenuType { get; }
     }
 }
