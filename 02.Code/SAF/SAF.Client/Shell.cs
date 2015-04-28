@@ -72,6 +72,8 @@ namespace SAF.Client
             this.WindowState = FormWindowState.Maximized;
             this.Icon = Properties.Resources.SAF_Icon;
 
+            ApplicationService.Current.MainForm = this;
+
             OnInitialize();
 
 #if DEBUG
@@ -82,7 +84,6 @@ namespace SAF.Client
             this.Shown += Shell_Shown;
             this.FormClosing += Shell_FormClosing;
 
-            ApplicationService.Current.MainForm = this;
         }
 
         void Shell_FormClosing(object sender, FormClosingEventArgs e)
