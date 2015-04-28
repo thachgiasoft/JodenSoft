@@ -153,7 +153,7 @@ namespace SAF.Client
                         obj.LoadAssembly(fileName);
                         if (obj.IsComposeModule())
                         {
-                            SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载合并模块 {0}".FormatEx(Path.GetFileName(fileName)));
+                            SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载模块 {0}".FormatEx(Path.GetFileName(fileName)));
                             CompositionHelper.Current.AddFile(fileName);
                         }
                     }

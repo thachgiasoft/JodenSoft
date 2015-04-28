@@ -194,7 +194,7 @@ namespace SAF.Client
                 UserConfig.Current.SavePassword = e.SavePassword;
                 if (e.SavePassword)
                 {
-                    UserConfig.Current.Password = DESHelper.Encrypt(e.Password,Session.MachineInfo.MachineCode);
+                    UserConfig.Current.Password = DESHelper.Encrypt(e.Password, Session.MachineInfo.MachineCode);
                 }
                 UserConfig.Current.Save();
 
@@ -788,9 +788,8 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
 
         private void btnRefreshMenu_Click(object sender, EventArgs e)
         {
-            var node = this.TreeMenu.FocusedNode;
             InitMenuTree();
-            this.TreeMenu.FocusedNode = node;
+            this.txtFind_EditValueChanged(this.txtFind, EventArgs.Empty);
         }
 
         private void txtFind_EditValueChanged(object sender, EventArgs e)
@@ -810,8 +809,6 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                     this.TreeMenu.Nodes[0].Expanded = true;
                 }
             }
-
-
         }
 
         void TreeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
