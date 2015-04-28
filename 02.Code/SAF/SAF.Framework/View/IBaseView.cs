@@ -16,7 +16,7 @@ namespace SAF.Framework.View
         /// <summary>
         /// UI唯一标识
         /// </summary>
-        int UniqueId { get; }
+        object UniqueId { get; }
         /// <summary>
         /// 
         /// </summary>

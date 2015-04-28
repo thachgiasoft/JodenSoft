@@ -36,7 +36,7 @@ namespace SAF.CommonConfig.CommonBill
             }
         }
 
-        public void ResetBindings()
+        public void ResetBinding()
         {
             this.bsQuickQuery.ResetBindings(false);
             this.bsQuickQueryFields.ResetBindings(false);

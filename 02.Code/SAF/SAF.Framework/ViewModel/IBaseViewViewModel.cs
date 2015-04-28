@@ -17,7 +17,7 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// UI唯一标识
         /// </summary>
-        int UniqueId { get; set; }
+        object UniqueId { get; set; }
         /// <summary>
         /// 
         /// </summary>

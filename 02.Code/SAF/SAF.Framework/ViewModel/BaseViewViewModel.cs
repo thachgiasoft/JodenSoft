@@ -35,7 +35,7 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// 
         /// </summary>
-        public int UniqueId { get; set; }
+        public object UniqueId { get; set; }
         /// <summary>
         /// 单据ID
         /// </summary>

@@ -45,7 +45,7 @@ namespace SAF.Framework.View
             {
                 var obj = query.AddNew();
                 obj.Iden = IdenGenerator.NewIden(obj.DbTableName);
-                obj.MenuId = this.UniqueId;
+                obj.MenuId = Convert.ToInt32(this.UniqueId);
                 obj.UserId = Session.UserInfo.UserId;
                 obj.RowNumber = 10000;
                 query.SaveChanges();

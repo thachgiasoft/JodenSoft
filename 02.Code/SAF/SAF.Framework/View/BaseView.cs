@@ -313,7 +313,7 @@ namespace SAF.Framework.View
         /// 视图对应的菜单ID
         /// </summary>
         [Browsable(false)]
-        public int UniqueId
+        public object UniqueId
         {
             get;
             set;

@@ -7,9 +7,9 @@ namespace SAF.Framework.Controls.TextEditor.Document
 	/// </summary>
 	public class AbstractSegment : ISegment
 	{
-		[CLSCompliant(false)]
+        //[CLSCompliant(false)]
 		protected int offset = -1;
-		[CLSCompliant(false)]
+        //[CLSCompliant(false)]
 		protected int length = -1;
 
         #region SAF.Framework.Controls.TextEditor.Document.ISegment interface implementation

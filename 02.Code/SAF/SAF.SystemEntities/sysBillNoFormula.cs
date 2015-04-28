@@ -84,34 +84,5 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.Suffix, value); }
         }
 
-        #region 创建人&创建时间&修改人&修改时间&版本号
-
-        public int? CreatedBy
-        {
-            get { return base.GetFieldValue<int?>(p => p.CreatedBy, null); }
-            set { base.SetFieldValue(p => p.CreatedBy, value); }
-        }
-        public DateTime? CreatedOn
-        {
-            get { return base.GetFieldValue<DateTime?>(p => p.CreatedOn, null); }
-            set { base.SetFieldValue(p => p.CreatedOn, value); }
-        }
-
-        public int? ModifiedBy
-        {
-            get { return base.GetFieldValue<int?>(p => p.ModifiedBy, null); }
-            set { base.SetFieldValue(p => p.ModifiedBy, value); }
-        }
-        public DateTime? ModifiedOn
-        {
-            get { return base.GetFieldValue<DateTime?>(p => p.ModifiedOn, null); }
-            set { base.SetFieldValue(p => p.ModifiedOn, value); }
-        }
-        public int VersionNumber
-        {
-            get { return base.GetFieldValue<int>(p => p.VersionNumber, 0); }
-        }
-
-        #endregion
     }
 }

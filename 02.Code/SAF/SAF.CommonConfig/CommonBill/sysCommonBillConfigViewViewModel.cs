@@ -9,7 +9,6 @@ using SAF.EntityFramework;
 using SAF.CommonConfig.Entities;
 using SAF.Foundation.ComponentModel;
 using SAF.CommonConfig.CommonBill;
-using SAF.Foundation;
 
 namespace SAF.CommonConfig
 {
