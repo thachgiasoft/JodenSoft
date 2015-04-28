@@ -37,9 +37,9 @@
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.navMainMenu = new DevExpress.XtraNavBar.NavBarControl();
             this.navGroupSystemMenu = new DevExpress.XtraNavBar.NavBarGroup();
-            this.splitterMain = new DevExpress.XtraEditors.SplitterControl();
             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.splitterMain = new DevExpress.XtraEditors.SplitterControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
@@ -102,6 +102,7 @@
             this.navGroupSystemMenu});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
+            this.navMainMenu.OptionsNavPane.ExpandedWidth = 140;
             this.navMainMenu.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
             this.navMainMenu.Size = new System.Drawing.Size(140, 310);
             this.navMainMenu.TabIndex = 3;
@@ -116,14 +117,6 @@
             this.navGroupSystemMenu.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.navGroupSystemMenu.Name = "navGroupSystemMenu";
             // 
-            // splitterMain
-            // 
-            this.splitterMain.Location = new System.Drawing.Point(140, 147);
-            this.splitterMain.Name = "splitterMain";
-            this.splitterMain.Size = new System.Drawing.Size(5, 310);
-            this.splitterMain.TabIndex = 4;
-            this.splitterMain.TabStop = false;
-            // 
             // navBarGroupControlContainer1
             // 
             this.navBarGroupControlContainer1.Controls.Add(this.treeList1);
@@ -136,8 +129,21 @@
             this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeList1.Location = new System.Drawing.Point(0, 0);
             this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsSelection.InvertSelection = true;
+            this.treeList1.OptionsView.ShowColumns = false;
+            this.treeList1.OptionsView.ShowHorzLines = false;
+            this.treeList1.OptionsView.ShowIndicator = false;
+            this.treeList1.OptionsView.ShowVertLines = false;
             this.treeList1.Size = new System.Drawing.Size(140, 206);
             this.treeList1.TabIndex = 0;
+            // 
+            // splitterMain
+            // 
+            this.splitterMain.Location = new System.Drawing.Point(140, 147);
+            this.splitterMain.Name = "splitterMain";
+            this.splitterMain.Size = new System.Drawing.Size(5, 310);
+            this.splitterMain.TabIndex = 4;
+            this.splitterMain.TabStop = false;
             // 
             // Shell
             // 
