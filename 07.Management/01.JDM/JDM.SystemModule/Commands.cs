@@ -7,12 +7,14 @@ using System.Text;
 
 namespace JDM.SystemModule
 {
-    [ExportMenuCommand(Menu = "服务端注册", MenuCategory = MenuCategory.SystemManagement, MenuOrder = 1)]
-    internal class ServerRegsterViewCommand : MenuCommand
+    [JdmExportMenuCommand(Header = "服务端注册", Category = JdmMenuCategory.SystemManagement, Order = 1)]
+    internal class ServerRegsterViewCommand : JdmMenuCommand
     {
         public override void Execute(object parameter)
         {
-            MessageService.ShowError("234123");
+            var menu = parameter as JdmMenuInfo;
+            var shell = (ApplicationService.Current.MainForm as IJdmShell);
+            shell.ShowForm<ServerRegsterView>(menu.Id, menu.MenuHeader);
         }
     }
 }

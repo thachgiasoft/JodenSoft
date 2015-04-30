@@ -8,34 +8,34 @@ namespace JDM.Framework.ServiceModel
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class ExportMenuCommandAttribute : ExportAttribute, IMenuCommandMetadata
+    public class JdmExportMenuCommandAttribute : ExportAttribute, IJdmMenuCommandMetadata
     {
-        public ExportMenuCommandAttribute()
-            : base("MainMenuCommand", typeof(IMenuCommand))
+        public JdmExportMenuCommandAttribute()
+            : base("MainMenuCommand", typeof(IJdmMenuCommand))
         {
-            this.MenuId = Guid.NewGuid().ToString("D");
-            this.MenuOrder = 0;
+            this.Id = Guid.NewGuid().ToString("D");
+            this.Order = 0;
         }
 
-        public string MenuId
+        public string Id
         {
             get;
             private set;
         }
 
-        public string Menu
+        public string Header
         {
             get;
             set;
         }
 
-        public MenuCategory MenuCategory
+        public JdmMenuCategory Category
         {
             get;
             set;
         }
 
-        public double MenuOrder
+        public double Order
         {
             get;
             set;

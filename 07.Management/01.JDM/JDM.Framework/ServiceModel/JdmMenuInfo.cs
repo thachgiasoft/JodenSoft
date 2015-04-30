@@ -5,17 +5,12 @@ using System.Text;
 
 namespace JDM.Framework.ServiceModel
 {
-    public enum MenuCategory
-    {
-        SystemManagement = 0
-    }
-
-    public class MenuInfo
+    public class JdmMenuInfo
     {
         public string Id { get; set; }
         public string MenuHeader { get; set; }
         public string ParentId { get; set; }
         public double MenuOrder { get; set; }
-        public IMenuCommand Command { get; set; }
+        public IJdmMenuCommand Command { get; set; }
     }
 }

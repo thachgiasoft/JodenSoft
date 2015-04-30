@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Ribbon;
 using SAF.Foundation;
+using SAF.Framework.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace JDM.Framework.ServiceModel
 {
-    public interface IJDMShell
+    public interface IJdmShell
     {
         /// <summary>
         /// 视图
@@ -18,5 +19,7 @@ namespace JDM.Framework.ServiceModel
         /// 主菜单
         /// </summary>
         RibbonControl RibbonControl { get; }
+
+        void ShowForm<T>(string menuId, string menuHeader) where T : BaseView;
     }
 }

@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,18 +45,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceModel\IJdmBackstageCommand.cs" />
+    <Compile Include="ServiceModel\IJdmMenuCommand.cs" />
+    <Compile Include="ServiceModel\JdmBaseBackstageTabItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceModel\ExportMenuCommandAttribute.cs" />
-    <Compile Include="ServiceModel\IJDMShell.cs" />
-    <Compile Include="ServiceModel\IMenuCommandMetadata.cs" />
-    <Compile Include="ServiceModel\MenuCategory.cs" />
-    <Compile Include="ServiceModel\MenuCommand.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceModel\JdmExportMenuCommandAttribute.cs" />
+    <Compile Include="ServiceModel\IJdmBackstageTabItem.cs" />
+    <Compile Include="ServiceModel\IJdmShell.cs" />
+    <Compile Include="ServiceModel\IJdmMenuCommandMetadata.cs" />
+    <Compile Include="ServiceModel\JdmBaseBackstageCommand.cs" />
+    <Compile Include="ServiceModel\JdmMenuCategory.cs" />
+    <Compile Include="ServiceModel\JdmMenuCommand.cs" />
+    <Compile Include="ServiceModel\JdmMenuInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\02.Code\SAF\SAF.Foundation\SAF.Foundation.csproj">
       <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
       <Name>SAF.Foundation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\02.Code\SAF\SAF.Framework\SAF.Framework.csproj">
+      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
+      <Name>SAF.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ServiceModel\JdmBaseBackstageTabItem.resx">
+      <DependentUpon>JdmBaseBackstageTabItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,13 +6,8 @@ using System.Windows.Forms;
 
 namespace JDM.Framework.ServiceModel
 {
-    public interface IMenuCommand
-    {
-        void Execute(object parameter);
-        bool CanExecute(object parameter);
-    }
-
-    public abstract class MenuCommand : IMenuCommand
+   
+    public abstract class JdmMenuCommand : IJdmMenuCommand
     {
         public abstract void Execute(object parameter);
 
