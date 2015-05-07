@@ -23,15 +23,31 @@ namespace SAF.EntityFramework
             if (connectionName.IsEmpty())
                 throw new ArgumentNullException("connectionName");
 
-            var service = DataServiceConfigCollection.Current.FirstOrDefault(p => p.ServiceName == serviceName);
-            if (service == null)
-                throw new Exception("服务端配置文件中不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
+            string connectionString = string.Empty;
 
-            var connection = service.ConnectionStringConfigs.FirstOrDefault(p => p.Name == connectionName);
-            if (connection == null)
-                throw new Exception("服务\"{0}\"中不存在名称为\"{1}\"的连接配置.".FormatEx(serviceName, connectionName));
+            if (serviceName.Equals("local", StringComparison.CurrentCultureIgnoreCase))
+            {
+                var connectionConfig = ConfigurationManager.ConnectionStrings[connectionName];
+                if (connectionConfig == null)
+                    throw new ConfigurationErrorsException(String.Format("Database name not found in config file ('{0}')", connectionName));
 
-            var connectionString = connection.ConnectionString;
+                connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+                if (connectionString.IsEmpty())
+                    throw new ConfigurationErrorsException(String.Format("The connection string of ('{0}') is null or empty.", connectionName));
+            }
+            else
+            {
+                var service = DataServiceConfigCollection.Current.FirstOrDefault(p => p.ServiceName.Equals(serviceName, StringComparison.CurrentCultureIgnoreCase));
+                if (service == null)
+                    throw new Exception("服务端配置文件中不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
+
+                var connection = service.ConnectionStringConfigs.FirstOrDefault(p => p.Name.Equals(connectionName, StringComparison.CurrentCultureIgnoreCase));
+                if (connection == null)
+                    throw new Exception("服务\"{0}\"中不存在名称为\"{1}\"的连接配置.".FormatEx(serviceName, connectionName));
+
+                connectionString = connection.ConnectionString;
+            }
+
             try
             {
                 connectionString = ApplicationConfig.DecryptConnectionString(connectionString);

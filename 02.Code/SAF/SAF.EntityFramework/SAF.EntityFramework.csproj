@@ -65,6 +65,7 @@
     <Compile Include="Config\ConnectionStringConfigCollection.cs" />
     <Compile Include="Config\DataServiceConfig.cs" />
     <Compile Include="Config\DataServiceConfigCollection.cs" />
+    <Compile Include="DataPortalClient\LocalProxy.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\SqlDatabase.cs" />
     <Compile Include="EntitySet\EntityConsts.cs" />

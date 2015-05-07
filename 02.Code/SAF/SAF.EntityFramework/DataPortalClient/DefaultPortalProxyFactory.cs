@@ -14,7 +14,11 @@ namespace SAF.EntityFramework.DataPortalClient
         /// <returns></returns>
         public IDataPortalProxy Create()
         {
-            return new SAF.EntityFramework.DataPortalClient.WcfProxy();
+            string proxyTypeName = ConfigContext.DataPortalProxy;
+            if (proxyTypeName.Equals("Local", StringComparison.CurrentCultureIgnoreCase))
+                return new SAF.EntityFramework.DataPortalClient.LocalProxy();
+            else
+                return new SAF.EntityFramework.DataPortalClient.WcfProxy();
         }
 
     }

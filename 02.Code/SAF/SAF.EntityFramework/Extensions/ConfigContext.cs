@@ -16,6 +16,18 @@ namespace SAF.EntityFramework
     /// </summary>
     public static class ConfigContext
     {
+        public static string DataPortalProxy
+        {
+            get
+            {
+                var _dataPortalProxy = ConfigurationManager.AppSettings["DataPortalProxy"];
+                if (!string.IsNullOrWhiteSpace(_dataPortalProxy))
+                    return _dataPortalProxy.ToString();
+
+                return "Remote";
+            }
+        }
+
         #region Config Settings
 
         /// <summary>
@@ -26,7 +38,7 @@ namespace SAF.EntityFramework
             get
             {
                 var pageSize = ConfigurationManager.AppSettings["DefaultPageSize"];
-                if (!string.IsNullOrEmpty(pageSize))
+                if (!string.IsNullOrWhiteSpace(pageSize))
                 {
                     return Convert.ToInt32(pageSize);
                 }
@@ -42,7 +54,7 @@ namespace SAF.EntityFramework
             get
             {
                 var conName = ConfigurationManager.AppSettings["DefaultConnection"];
-                if (!string.IsNullOrEmpty(conName))
+                if (!string.IsNullOrWhiteSpace(conName))
                 {
                     return conName.ToString();
                 }
@@ -57,7 +69,7 @@ namespace SAF.EntityFramework
             get
             {
                 var serviceName = ConfigurationManager.AppSettings["ServiceName"];
-                if (!string.IsNullOrEmpty(serviceName))
+                if (!string.IsNullOrWhiteSpace(serviceName))
                 {
                     return serviceName.ToString();
                 }
@@ -81,10 +93,6 @@ namespace SAF.EntityFramework
                 }
                 return _dataPortalUrl;
             }
-            set
-            {
-                _dataPortalUrl = value;
-            }
         }
 
         /// <summary>
@@ -106,7 +114,7 @@ namespace SAF.EntityFramework
             get
             {
                 var password = ConfigurationManager.AppSettings["DefaultPassword"];
-                if (!string.IsNullOrEmpty(password))
+                if (!string.IsNullOrWhiteSpace(password))
                 {
                     return SHA1Helper.Hash(password.ToString());
                 }
