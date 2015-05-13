@@ -442,16 +442,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SAF.EntityFramework\SAF.EntityFramework.csproj">
-      <Project>{2f6a089c-dd0b-47af-b44d-ea510f2b4376}</Project>
-      <Name>SAF.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
-      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
-      <Name>SAF.Foundation</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Action_Search_16x16.png" />
     <EmbeddedResource Include="TextEditor\Resources\ASPX.xshd" />
     <EmbeddedResource Include="TextEditor\Resources\BAT-Mode.xshd" />
