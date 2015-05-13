@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls;
+using System.Diagnostics;
 
 namespace SAF.ServiceManager
 {
@@ -18,25 +19,39 @@ namespace SAF.ServiceManager
         [STAThread]
         static void Main()
         {
-            SAF.Foundation.ServiceModel.ServiceManager.Instance = new SAFServiceManager();
+            var identity = System.Security.Principal.WindowsIdentity.GetCurrent();
+            var principal = new System.Security.Principal.WindowsPrincipal(identity);
 
-            SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器");
+            if (principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator))
+            {
 
-            System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
-            System.Threading.Thread.CurrentThread.CurrentCulture = zhHans;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = zhHans;
+                SAF.Foundation.ServiceModel.ServiceManager.Instance = new SAFServiceManager();
 
-            DevExpress.UserSkins.BonusSkins.Register();
-            DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9);
-            DevExpress.Skins.SkinManager.EnableFormSkins();
+                SAF.Framework.Controls.SplashScreen.ShowSplashScreen("正在启动服务管理器");
 
-            UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-            ProgressService.SkinName = "Office 2013";
+                System.Globalization.CultureInfo zhHans = new System.Globalization.CultureInfo("zh-Hans");
+                System.Threading.Thread.CurrentThread.CurrentCulture = zhHans;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = zhHans;
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+                DevExpress.UserSkins.BonusSkins.Register();
+                DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", 9);
+                DevExpress.Skins.SkinManager.EnableFormSkins();
 
-            Application.Run(new Shell());
+                UserLookAndFeel.Default.SetSkinStyle("Office 2013");
+                ProgressService.SkinName = "Office 2013";
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                Application.Run(new Shell());
+            }
+            else
+            {
+                var startInfo = Process.GetCurrentProcess().StartInfo;
+                startInfo.FileName = System.Reflection.Assembly.GetEntryAssembly().Location;
+                startInfo.Verb = "runas";
+                Process.Start(startInfo);
+            }
         }
     }
 }
