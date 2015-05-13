@@ -77,6 +77,26 @@
     <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\04.Release\SAF\SAF.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Foundation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\04.Release\SAF\SAF.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\04.Release\SAF\SAF.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\04.Release\SAF\SAF.Framework.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SAF.Framework.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\04.Release\SAF\SAF.Framework.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
@@ -149,29 +169,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SAF.EntityFramework\SAF.EntityFramework.csproj">
-      <Project>{2f6a089c-dd0b-47af-b44d-ea510f2b4376}</Project>
-      <Name>SAF.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
-      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
-      <Name>SAF.Foundation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SAF.Framework.Component\SAF.Framework.Component.csproj">
       <Project>{86b4fe45-ad27-49c5-a4f2-a05f2695add7}</Project>
       <Name>SAF.Framework.Component</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
-      <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
-      <Name>SAF.Framework.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SAF.Framework.Services\SAF.Framework.Services.csproj">
-      <Project>{916492c7-4ca2-4d9e-be81-895c126ed8c9}</Project>
-      <Name>SAF.Framework.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SAF.Framework\SAF.Framework.csproj">
-      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
-      <Name>SAF.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SAF.SystemModule\SAF.SystemModule.csproj">
       <Project>{96513691-2b18-4101-bdeb-81130d83189d}</Project>
