@@ -94,6 +94,20 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
+      <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
+      <Name>SAF.Framework.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework\SAF.Framework.csproj">
+      <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
+      <Name>SAF.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
