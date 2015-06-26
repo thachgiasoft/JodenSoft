@@ -25,7 +25,9 @@ namespace SAF.EntityFramework
 
             string connectionString = string.Empty;
 
-            if (serviceName.Equals("local", StringComparison.CurrentCultureIgnoreCase))
+            string proxyTypeName = ConfigContext.DataPortalProxy;
+
+            if (proxyTypeName.Equals("local", StringComparison.CurrentCultureIgnoreCase))
             {
                 var connectionConfig = ConfigurationManager.ConnectionStrings[connectionName];
                 if (connectionConfig == null)
