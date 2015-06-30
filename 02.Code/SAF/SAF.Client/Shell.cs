@@ -734,6 +734,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                             if (ctl != null)
                             {
                                 ctl.UniqueId = iMenuId;
+                                ctl.InitViewParam();
                                 ctl.Init();
                                 ctl.Text = drv["Name"].ToString();
 
