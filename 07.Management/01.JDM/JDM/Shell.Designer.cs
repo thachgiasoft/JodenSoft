@@ -32,6 +32,9 @@
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.pageSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupHelp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiHomepage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHelp = new DevExpress.XtraBars.BarButtonItem();
             this.statusMain = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
@@ -56,6 +59,7 @@
             this.ribbonMain.ExpandCollapseItem});
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonMain.MaxItemId = 1;
+            this.ribbonMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageSystem});
@@ -76,9 +80,36 @@
             // 
             this.groupHelp.AllowMinimize = false;
             this.groupHelp.AllowTextClipping = false;
+            this.groupHelp.ItemLinks.Add(this.bbiHomepage);
+            this.groupHelp.ItemLinks.Add(this.bbiAbout);
+            this.groupHelp.ItemLinks.Add(this.bbiHelp);
+            this.groupHelp.MergeOrder = 100000;
             this.groupHelp.Name = "groupHelp";
             this.groupHelp.ShowCaptionButton = false;
             this.groupHelp.Text = "帮助";
+            // 
+            // bbiHomepage
+            // 
+            this.bbiHomepage.Caption = "主页";
+            this.bbiHomepage.Description = "公司主页";
+            this.bbiHomepage.Id = 5;
+            this.bbiHomepage.LargeGlyph = global::JDM.Properties.Resources.Home_32x32;
+            this.bbiHomepage.Name = "bbiHomepage";
+            // 
+            // bbiAbout
+            // 
+            this.bbiAbout.Caption = "关于";
+            this.bbiAbout.Description = "关于系统";
+            this.bbiAbout.Id = 3;
+            this.bbiAbout.LargeGlyph = global::JDM.Properties.Resources.Action_About_32x32;
+            this.bbiAbout.Name = "bbiAbout";
+            // 
+            // bbiHelp
+            // 
+            this.bbiHelp.Caption = "帮助";
+            this.bbiHelp.Id = 4;
+            this.bbiHelp.LargeGlyph = global::JDM.Properties.Resources.Action_Help_32x32;
+            this.bbiHelp.Name = "bbiHelp";
             // 
             // statusMain
             // 
@@ -89,7 +120,7 @@
             // 
             // documentManager
             // 
-            this.documentManager.ContainerControl = this;
+            this.documentManager.MdiParent = this;
             this.documentManager.MenuManager = this.ribbonMain;
             this.documentManager.View = this.tabbedView;
             this.documentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
@@ -159,6 +190,7 @@
             this.Controls.Add(this.navMainMenu);
             this.Controls.Add(this.statusMain);
             this.Controls.Add(this.ribbonMain);
+            this.IsMdiContainer = true;
             this.Name = "Shell";
             this.Ribbon = this.ribbonMain;
             this.StatusBar = this.statusMain;
@@ -188,6 +220,9 @@
         private DevExpress.XtraEditors.SplitterControl splitterMain;
         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
         private DevExpress.XtraTreeList.TreeList TreeMenu;
+        protected DevExpress.XtraBars.BarButtonItem bbiAbout;
+        protected DevExpress.XtraBars.BarButtonItem bbiHelp;
+        protected DevExpress.XtraBars.BarButtonItem bbiHomepage;
     }
 }
 

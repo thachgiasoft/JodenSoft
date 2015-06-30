@@ -41,7 +41,6 @@ namespace JDM
             InitMainMenu();
 
             InitBackstageView();
-
         }
 
         [ImportMany(typeof(IJdmBackstageTabItem))]
