@@ -58,12 +58,13 @@ namespace SAF.Framework.View
         #region 初始化
 
         public virtual Control AccessFocusControl { get; set; }
-
+        /// <summary>
+        /// 全局初始化
+        /// </summary>
         public void Init()
         {
             if (this.DesignMode) return;
 
-            OnInitViewParam();
             OnInitCommonBill();
             OnInitBillRight();
             GenarateCustomRibbonMenu();
@@ -85,18 +86,24 @@ namespace SAF.Framework.View
         {
 
         }
-
+        /// <summary>
+        /// 初始化结束后
+        /// </summary>
         protected virtual void OnAfterInit()
         {
 
         }
-
+        /// <summary>
+        /// 初始化单据权限
+        /// </summary>
         protected virtual void OnInitBillRight()
         {
 
         }
-
-        protected virtual void OnInitViewParam()
+        /// <summary>
+        /// 初始化菜单参数
+        /// </summary>
+        public virtual void InitViewParam()
         {
             var es = new EntitySet<QueryEntity>();
             es.Query("SELECT Name,[Value] FROM  [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
@@ -187,7 +194,7 @@ namespace SAF.Framework.View
         }
 
         /// <summary>
-        /// 
+        /// 刷新界面
         /// </summary>
         public void RefreshUI()
         {
@@ -283,6 +290,9 @@ namespace SAF.Framework.View
 
         }
 
+        /// <summary>
+        /// 标题
+        /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Browsable(true)]
         public override string Text
@@ -342,7 +352,7 @@ namespace SAF.Framework.View
             return null;
         }
         /// <summary>
-        /// 
+        /// 提交界面数据
         /// </summary>
         public void PostUIData()
         {
@@ -361,7 +371,9 @@ namespace SAF.Framework.View
         {
 
         }
-
+        /// <summary>
+        /// 单据类型ID
+        /// </summary>
         [Browsable(false)]
         public int BillTypeId
         {
@@ -372,7 +384,9 @@ namespace SAF.Framework.View
         {
             return condition.IsEmpty() ? NullCondition : condition;
         }
-
+        /// <summary>
+        /// 空条件
+        /// </summary>
         [Browsable(false)]
         public virtual string NullCondition
         {
