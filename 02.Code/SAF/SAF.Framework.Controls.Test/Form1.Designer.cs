@@ -28,65 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiReport = new DevExpress.XtraBars.BarButtonItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            this.simpleButton1 = new HuanSi.XtraEditors.SimpleButton();
+            this.textEdit1 = new HuanSi.XtraEditors.TextEdit();
+            this.memoEdit1 = new HuanSi.XtraEditors.MemoEdit();
+            this.toggleSwitch1 = new HuanSi.XtraEditors.ToggleSwitch();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonControl1
+            // simpleButton1
             // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
-            this.bbiReport});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 2;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(703, 145);
+            this.simpleButton1.Location = new System.Drawing.Point(392, 134);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.RefCondition = null;
+            this.simpleButton1.RefId = 0;
+            this.simpleButton1.refreshMode = HuanSi.Data.RefreshMode.Normal;
+            this.simpleButton1.Size = new System.Drawing.Size(100, 26);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // ribbonPage1
+            // textEdit1
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.textEdit1.FirstFoucsAutoSelectAll = false;
+            this.textEdit1.Location = new System.Drawing.Point(357, 234);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.RefCondition = null;
+            this.textEdit1.RefId = 0;
+            this.textEdit1.refreshMode = HuanSi.Data.RefreshMode.Normal;
+            this.textEdit1.Size = new System.Drawing.Size(100, 20);
+            this.textEdit1.TabIndex = 1;
             // 
-            // ribbonPageGroup1
+            // memoEdit1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiReport);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.memoEdit1.FirstFoucsAutoSelectAll = false;
+            this.memoEdit1.Location = new System.Drawing.Point(64, 56);
+            this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.RefCondition = null;
+            this.memoEdit1.RefId = 0;
+            this.memoEdit1.refreshMode = HuanSi.Data.RefreshMode.Normal;
+            this.memoEdit1.Size = new System.Drawing.Size(238, 104);
+            this.memoEdit1.TabIndex = 2;
+            this.memoEdit1.UseOptimizedRendering = true;
             // 
-            // bbiReport
+            // toggleSwitch1
             // 
-            this.bbiReport.Caption = "预览";
-            this.bbiReport.Id = 1;
-            this.bbiReport.Name = "bbiReport";
+            this.toggleSwitch1.FirstFoucsAutoSelectAll = false;
+            this.toggleSwitch1.Location = new System.Drawing.Point(403, 56);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.OffText = "Off";
+            this.toggleSwitch1.Properties.OnText = "On";
+            this.toggleSwitch1.RefCondition = null;
+            this.toggleSwitch1.RefId = 0;
+            this.toggleSwitch1.refreshMode = HuanSi.Data.RefreshMode.Normal;
+            this.toggleSwitch1.Size = new System.Drawing.Size(108, 25);
+            this.toggleSwitch1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 385);
-            this.Controls.Add(this.ribbonControl1);
+            this.Controls.Add(this.toggleSwitch1);
+            this.Controls.Add(this.memoEdit1);
+            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.simpleButton1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem bbiReport;
+        private HuanSi.XtraEditors.SimpleButton simpleButton1;
+        private HuanSi.XtraEditors.TextEdit textEdit1;
+        private HuanSi.XtraEditors.MemoEdit memoEdit1;
+        private HuanSi.XtraEditors.ToggleSwitch toggleSwitch1;
+
 
 
 

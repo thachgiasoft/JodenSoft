@@ -33,29 +33,29 @@ namespace SAF.Framework.ServiceModel
         public virtual void ShowException(Exception ex, string message)
         {
             if (message.IsEmpty())
-                ShowError(string.Format("{0}", ex.GetAllMessage()));
+                ShowError(ex.Message, ex.GetAllMessage());
             else
-                ShowError(string.Format("{0}{1}{2}", message, Environment.NewLine, ex.GetAllMessage()));
+                ShowError(message, ex.GetAllMessage());
         }
 
-        public void ShowError(string message)
+        public void ShowError(string message, string messageDtl = null)
         {
-            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 出错了", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxEx.Show(message, MessageBoxTitle + "- 出错了", messageDtl, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void ShowWarning(string message)
         {
-            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBoxEx.Show(message, MessageBoxTitle + "- 警告", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public bool AskQuestion(string question)
         {
-            return XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, question, MessageBoxTitle + "- 确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            return MessageBoxEx.Show(question, MessageBoxTitle + "- 确认", string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
         public void ShowMessage(string message)
         {
-            XtraMessageBox.Show(UserLookAndFeel.Default, DialogOwner, message, MessageBoxTitle + "- 消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBoxEx.Show(message, MessageBoxTitle + "- 消息", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

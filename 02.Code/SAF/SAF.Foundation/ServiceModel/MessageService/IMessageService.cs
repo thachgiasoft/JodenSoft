@@ -13,7 +13,7 @@ namespace SAF.Foundation.ServiceModel
         /// <summary>
         /// Shows an error.
         /// </summary>
-        void ShowError(string message);
+        void ShowError(string message, string messageDetail);
         /// <summary>
         /// Shows an exception.
         /// </summary>

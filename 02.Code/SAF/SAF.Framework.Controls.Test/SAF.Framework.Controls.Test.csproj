@@ -37,8 +37,16 @@
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="HuanSi.Data.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=a260b49e465b4cfb" />
+    <Reference Include="HuanSi.Printing.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=a260b49e465b4cfb" />
+    <Reference Include="HuanSi.Sparkline.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=a260b49e465b4cfb" />
+    <Reference Include="HuanSi.Utils.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=a260b49e465b4cfb" />
+    <Reference Include="HuanSi.XtraEditors.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=a260b49e465b4cfb" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

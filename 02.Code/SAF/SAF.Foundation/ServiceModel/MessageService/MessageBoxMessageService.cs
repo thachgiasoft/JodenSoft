@@ -19,9 +19,9 @@ namespace SAF.Foundation.ServiceModel
             get { return "System"; }
         }
 
-        public void ShowError(string message)
+        public void ShowError(string message, string messageDetail)
         {
-            MessageBox.Show(message, MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(message + messageDetail, MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void ShowException(Exception ex, string message)
@@ -30,7 +30,7 @@ namespace SAF.Foundation.ServiceModel
             {
                 message += Environment.NewLine + "Exception occurred: " + ex.ToString();
             }
-            ShowError(message);
+            ShowError(message, string.Empty);
         }
 
         public void ShowWarning(string message)

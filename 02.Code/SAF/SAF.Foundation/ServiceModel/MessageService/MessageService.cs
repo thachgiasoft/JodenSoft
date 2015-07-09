@@ -15,20 +15,15 @@ namespace SAF.Foundation.ServiceModel
         /// <summary>
         /// Shows an error using a message box.
         /// </summary>
-        public static void ShowError(string message)
+        public static void ShowError(string message, string messageDtl = null)
         {
             LoggingService.ErrorFormatted("ShowError{0}\tError Message:{1}", Environment.NewLine, message);
-            ServiceManager.Instance.MessageService.ShowError(message);
+            ServiceManager.Instance.MessageService.ShowError(message, messageDtl);
         }
-        /// <summary>
-        /// Shows an error using a message box.
-        /// <paramref name="formatMessage"/> is first passed through the
-        /// <see cref="StringParser"/>,
-        /// then through <see cref="string.Format(string, object)"/>, using the formatitems as arguments.
-        /// </summary>
-        public static void ShowErrorFormatted(string formatMessage, params object[] formatitems)
+
+        public static void ShowErrorFormatted(string formatstring, params object[] formatitems)
         {
-            ShowError(Format(formatMessage, formatitems));
+            ShowError(Format(formatstring, formatitems), string.Empty);
         }
 
         #endregion
@@ -40,7 +35,7 @@ namespace SAF.Foundation.ServiceModel
         /// </summary>
         public static void ShowException(Exception ex)
         {
-            ShowException(ex, null);
+            ShowException(ex, string.Empty);
         }
         /// <summary>
         /// Shows an exception.

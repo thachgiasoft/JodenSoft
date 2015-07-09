@@ -19,7 +19,17 @@ namespace SAF.Framework.Controls.Test
         {
             InitializeComponent();
 
-            ReportService.InitializeReport(this.bbiReport, 0);
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           // XtraPanel
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            MessageBoxEx.Show("asdfsadf", "asfdsadfasasfdsadfasasfdsadfasasfdsadfas", string.Empty);
         }
 
     }

@@ -214,6 +214,22 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IBaseUserControl.cs" />
+    <Compile Include="MessageBoxControl\AttachMessageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageBoxControl\MessageBoxEx.cs" />
+    <Compile Include="MessageBoxControl\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxControl\MessageViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageBoxControl\PanelBasic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageBoxControl\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ObjectHelper.cs" />
     <Compile Include="PageControl.cs">
       <SubType>UserControl</SubType>
@@ -421,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GridSearchControl\GridSearchEditSearchControl.resx">
       <DependentUpon>GridSearchEditSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxControl\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageControl.resx">
       <DependentUpon>PageControl.cs</DependentUpon>
