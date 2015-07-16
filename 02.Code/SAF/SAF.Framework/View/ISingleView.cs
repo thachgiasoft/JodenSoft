@@ -12,5 +12,7 @@ namespace SAF.Framework.View
         /// 索引行改变
         /// </summary>
         void IndexRowChange();
+
+        string InitCondition { get; }
     }
 }

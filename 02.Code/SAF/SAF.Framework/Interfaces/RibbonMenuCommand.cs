@@ -28,7 +28,7 @@ namespace SAF.Framework
         public virtual bool BeginGroup { get; set; }
         public virtual PopupControl DropDownControl { get; set; }
         public virtual Image LargeGlyph { get; set; }
-        public Image Glyph { get; set; }
+        public virtual Image Glyph { get; set; }
         public BarShortcut ItemShortcut { get; set; }
 
         public DefaultRibbonMenuCommand(string caption, Action<object> execute, Predicate<object> canExecute)

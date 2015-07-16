@@ -14,7 +14,7 @@ namespace SAF.EntityFramework
     {
         public sysUser()
         {
-            this.DbTableName = "sysUser";
+            this.TableName = "sysUser";
             this.PrimaryKeyName = "Iden";
         }
         /// <summary>

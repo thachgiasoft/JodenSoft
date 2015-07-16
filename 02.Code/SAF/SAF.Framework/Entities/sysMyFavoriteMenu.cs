@@ -12,7 +12,7 @@ namespace SAF.Framework.Entities
         {
             base.OnInit();
 
-            this.DbTableName = "sysMyFavoriteMenu";
+            this.TableName = "sysMyFavoriteMenu";
             this.PrimaryKeyName = "Iden";
         }
 

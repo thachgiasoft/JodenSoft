@@ -195,12 +195,6 @@
     <Compile Include="fmFileUpgrade.Designer.cs">
       <DependentUpon>fmFileUpgrade.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fmRegister.Designer.cs">
-      <DependentUpon>fmRegister.cs</DependentUpon>
-    </Compile>
     <Compile Include="GridSearchControl\GridSearchEdit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -258,7 +252,6 @@
       <DependentUpon>QueryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryControlHelper.cs" />
-    <Compile Include="RegInfoHelper.cs" />
     <Compile Include="ReportService\ReportService.cs" />
     <Compile Include="Entities\sysReportConfig.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
@@ -431,9 +424,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fmFileUpgrade.resx">
       <DependentUpon>fmFileUpgrade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fmRegister.resx">
-      <DependentUpon>fmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GridSearchControl\GridSearchEditSearchControl.resx">
       <DependentUpon>GridSearchEditSearchControl.cs</DependentUpon>

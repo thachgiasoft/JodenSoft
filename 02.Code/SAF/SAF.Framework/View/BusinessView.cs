@@ -37,14 +37,14 @@ namespace SAF.Framework.View
             return new BusinessViewViewModel();
         }
 
-        protected void AddMenuToFavorite()
+        protected virtual void OnAddMenuToFavorite()
         {
             var query = new EntitySet<sysMyFavoriteMenu>();
             query.Query("SELECT TOP 1 * FROM dbo.sysMyFavoriteMenu WITH(NOLOCK) WHERE UserId=:UserId and MenuId=:MenuId", Session.UserInfo.UserId, this.UniqueId);
             if (query.Count <= 0)
             {
                 var obj = query.AddNew();
-                obj.Iden = IdenGenerator.NewIden(obj.DbTableName);
+                obj.Iden = IdenGenerator.NewIden(obj.TableName);
                 obj.MenuId = Convert.ToInt32(this.UniqueId);
                 obj.UserId = Session.UserInfo.UserId;
                 obj.RowNumber = 10000;

@@ -38,7 +38,9 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 数据库表名
         /// </summary>
-        string DbTableName { get; }
+        string TableName { get; }
+
+        string IdenGroup { get; }
         /// <summary>
         /// 主键名称
         /// </summary>

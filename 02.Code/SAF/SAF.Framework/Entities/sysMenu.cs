@@ -11,7 +11,7 @@ namespace SAF.Framework.Entities
     {
         public sysMenu()
         {
-            this.DbTableName = "sysMenu";
+            this.TableName = "sysMenu";
             this.PrimaryKeyName = "Iden";
         }
 

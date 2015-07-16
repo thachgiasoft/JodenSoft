@@ -113,7 +113,7 @@ GROUP BY D.Iden,D.Code
         {
             if (entity == null)
                 return BillDataRight.None;
-            string sTableName = entity.DbTableName;
+            string sTableName = entity.TableName;
             if (billRightInfo == null || billRightInfo.BillTypeId <= 0 || !billRightInfo.UseDataRight)
                 return BillDataRight.All;
             if (!entity.FieldIsExists(BillRightInfo.CreatedByField))

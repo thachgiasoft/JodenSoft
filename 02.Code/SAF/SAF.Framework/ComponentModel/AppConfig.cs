@@ -52,7 +52,7 @@ namespace SAF.Framework.ComponentModel
             if (es.Count <= 0)
             {
                 entity = es.AddNew();
-                entity.Iden = IdenGenerator.NewIden(entity.DbTableName);
+                entity.Iden = IdenGenerator.NewIden(entity.TableName);
             }
             else
                 entity = es.First();

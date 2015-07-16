@@ -25,7 +25,9 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 数据库表名
         /// </summary>
-        public abstract string DbTableName { get; set; }
+        public abstract string TableName { get; set; }
+
+        public abstract string IdenGroup { get; set; }
 
         /// <summary>
         /// 数据库表的主键名称

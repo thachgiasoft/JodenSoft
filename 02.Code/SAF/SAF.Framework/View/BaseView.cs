@@ -65,6 +65,8 @@ namespace SAF.Framework.View
         {
             if (this.DesignMode) return;
 
+            OnInitViewParam();
+
             OnInitCommonBill();
             OnInitBillRight();
             GenarateCustomRibbonMenu();
@@ -103,18 +105,9 @@ namespace SAF.Framework.View
         /// <summary>
         /// 初始化菜单参数
         /// </summary>
-        public virtual void InitViewParam()
+        protected virtual void OnInitViewParam()
         {
-            var es = new EntitySet<QueryEntity>();
-            es.Query("SELECT Name,[Value] FROM  [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
-            if (!es.IsEmpty())
-            {
-                foreach (var entity in es)
-                {
-                    if (!entity.GetFieldValue<string>("Value").IsEmpty())
-                        this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
-                }
-            }
+
         }
 
         #endregion

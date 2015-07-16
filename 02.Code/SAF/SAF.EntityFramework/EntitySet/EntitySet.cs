@@ -291,7 +291,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public override void SaveChanges(DataRowState entityState = DataRowState.Unchanged)
         {
-            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.DbTableName, this.DataTable, entityState);
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.TableName, this.DataTable, entityState);
             if (list.Count <= 0) return;
             try
             {
@@ -320,7 +320,7 @@ namespace SAF.EntityFramework
         /// </summary>
         public override void SubmitToDatabase()
         {
-            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.DbTableName, this.DataTable, DataRowState.Unchanged);
+            var list = SqlCommandObjectGenerator.GeneratorCommand(this.ConnectionName, this.TableName, this.DataTable, DataRowState.Unchanged);
             if (list.Count <= 0) return;
             try
             {
@@ -499,17 +499,30 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 数据库表名
         /// </summary>
-        public override string DbTableName
+        public override string TableName
         {
             get
             {
-                return innerEntity.DbTableName;
+                return innerEntity.TableName;
             }
             set
             {
-                innerEntity.DbTableName = value;
+                innerEntity.TableName = value;
             }
         }
+
+        public override string IdenGroup
+        {
+            get
+            {
+                return innerEntity.IdenGroup;
+            }
+            set
+            {
+                innerEntity.IdenGroup = value;
+            }
+        }
+
         /// <summary>
         /// 数据库主键名
         /// </summary>

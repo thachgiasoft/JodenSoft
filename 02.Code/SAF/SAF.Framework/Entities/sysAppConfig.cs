@@ -12,7 +12,7 @@ namespace SAF.Framework.Entities
         {
             base.OnInit();
 
-            this.DbTableName = "sysAppConfig";
+            this.TableName = "sysAppConfig";
             this.PrimaryKeyName = "Iden";
         }
 

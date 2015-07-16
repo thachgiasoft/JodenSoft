@@ -42,6 +42,22 @@ namespace SAF.Framework.View
             this.ribbonMain.Visible = false;
         }
 
+        protected override void OnInitViewParam()
+        {
+            base.OnInitViewParam();
+
+            var es = new EntitySet<QueryEntity>();
+            es.Query("SELECT Name,[Value] FROM  [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
+            if (!es.IsEmpty())
+            {
+                foreach (var entity in es)
+                {
+                    if (!entity.GetFieldValue<string>("Value").IsEmpty())
+                        this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
+                }
+            }
+        }
+
         void pageControlMain_PageIndexChanged(object sender, EventArgs e)
         {
             var condition = pcMain.GetQueryArgs(QueryArgs_Condition).ToStringEx();
@@ -63,6 +79,11 @@ namespace SAF.Framework.View
             {
                 return this.groupCustom;
             }
+        }
+
+        public virtual string InitCondition
+        {
+            get { return "1=2"; }
         }
 
         #region Button Actions
@@ -446,8 +467,10 @@ namespace SAF.Framework.View
         {
             base.OnInitData();
 
-            this.Query(string.Empty);
+            this.Query(this.InitCondition);
         }
+
+
         /// <summary>
         /// 是否浏览状态
         /// </summary>
@@ -571,12 +594,13 @@ namespace SAF.Framework.View
                 OnAfterQuery();
 
                 RefreshPageControl();
+                RefreshUI();
             }
         }
 
         private void bbiAddToFavorite_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.AddMenuToFavorite();
+            this.OnAddMenuToFavorite();
         }
     }
 }

@@ -16,14 +16,21 @@ namespace SAF.EntityFramework
     {
         private string _DbTableName = string.Empty;
         private string _PrimaryKeyName = string.Empty;
+        private string _IdenGroup = string.Empty;
 
         /// <summary>
         /// 数据库表名
         /// </summary>
-        public string DbTableName
+        public string TableName
         {
-            get { return IsInner ? _DbTableName : OwnerEntitySet.DbTableName; }
+            get { return IsInner ? _DbTableName : OwnerEntitySet.TableName; }
             set { _DbTableName = value; }
+        }
+
+        public string IdenGroup
+        {
+            get { return IsInner ? _IdenGroup : OwnerEntitySet.IdenGroup; }
+            set { _IdenGroup = value; }
         }
         /// <summary>
         /// 主键名称

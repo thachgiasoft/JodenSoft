@@ -54,6 +54,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -63,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activation.cs" />
+    <Compile Include="ApplicationVersion.cs" />
     <Compile Include="ComponentModel\ApplicationConfig.cs" />
     <Compile Include="ComponentModel\XmlSerializerHelper.cs" />
     <Compile Include="EditStatus.cs" />
@@ -76,7 +79,8 @@
     <Compile Include="Interop\FormHijack.cs" />
     <Compile Include="LoadAssemblyProxyObject.cs" />
     <Compile Include="RefreshMode.cs" />
-    <Compile Include="Security\RegisterHelper.cs" />
+    <Compile Include="Security\RSAKey.cs" />
+    <Compile Include="Security\RSASignatureHelper.cs" />
     <Compile Include="ServiceModel\ApplicationService.cs" />
     <Compile Include="AssemblyInfoHelper.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
