@@ -60,10 +60,17 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\sysRegisteCode.sql" />
+    <Build Include="dbo\Tables\sysRegistrationInfo.sql" />
     <Build Include="dbo\Tables\sysCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
+    <Build Include="dbo\Stored Procedures\sysGenerateIden.sql" />
+    <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
+    <Build Include="dbo\Tables\sysBillNoFormula.sql" />
+    <Build Include="dbo\Tables\sysTableColumn.sql" />
+    <Build Include="dbo\Tables\sysIden.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="JDM.Database.refactorlog" />

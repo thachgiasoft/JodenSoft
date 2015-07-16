@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDM.SystemModule", "JDM.Sys
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "JDM.Database", "JDM.Database\JDM.Database.sqlproj", "{D207FA48-E283-4660-8D9F-F8C3ACAD0BD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDM.Entity", "JDM.Entity\JDM.Entity.csproj", "{99C2EC35-739E-49B7-8F80-80D74589B94D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{D207FA48-E283-4660-8D9F-F8C3ACAD0BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D207FA48-E283-4660-8D9F-F8C3ACAD0BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D207FA48-E283-4660-8D9F-F8C3ACAD0BD4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{99C2EC35-739E-49B7-8F80-80D74589B94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C2EC35-739E-49B7-8F80-80D74589B94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C2EC35-739E-49B7-8F80-80D74589B94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C2EC35-739E-49B7-8F80-80D74589B94D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

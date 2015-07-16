@@ -31,9 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\04.Release\SAF\SAF.EntityFramework.dll</HintPath>
@@ -70,34 +74,48 @@
       <DependentUpon>JdmConnectionConfigControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ComponentModel\JdmExitApplicationCommand.cs" />
+    <Compile Include="CustomerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerView.Designer.cs">
+      <DependentUpon>CustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ServerRegsterView.cs">
+    <Compile Include="RegistrationInfoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ServerRegsterView.Designer.cs">
-      <DependentUpon>ServerRegsterView.cs</DependentUpon>
+    <Compile Include="RegistrationInfoView.Designer.cs">
+      <DependentUpon>RegistrationInfoView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServerRegsterViewViewModel.cs" />
+    <Compile Include="RegistrationInfoViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ComponentModel\JdmConnectionConfigControl.resx">
       <DependentUpon>JdmConnectionConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerView.resx">
+      <DependentUpon>CustomerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServerRegsterView.resx">
-      <DependentUpon>ServerRegsterView.cs</DependentUpon>
+    <EmbeddedResource Include="RegistrationInfoView.resx">
+      <DependentUpon>RegistrationInfoView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JDM.Entity\JDM.Entity.csproj">
+      <Project>{99c2ec35-739e-49b7-8f80-80d74589b94d}</Project>
+      <Name>JDM.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JDM.Framework\JDM.Framework.csproj">
       <Project>{3d0b8f93-7184-4d1e-b0b2-8dd44e9e6847}</Project>
       <Name>JDM.Framework</Name>
@@ -105,6 +123,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Properties\DataSources\JDM.Entity.sysCustomer.datasource" />
+    <None Include="Properties\DataSources\JDM.Entity.sysRegistrationInfo.datasource" />
     <None Include="Resources\Action_Close_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

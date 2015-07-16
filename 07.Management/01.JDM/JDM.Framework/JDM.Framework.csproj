@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Security\RSAKey.cs" />
     <Compile Include="ServiceModel\IJdmBackstageCommand.cs" />
     <Compile Include="ServiceModel\IJdmMenuCommand.cs" />
     <Compile Include="ServiceModel\JdmBaseBackstageTabItem.cs">
