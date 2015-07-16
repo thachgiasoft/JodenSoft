@@ -48,9 +48,9 @@
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SAF.DLL\SAF.EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\04.Release\SAF\SAF.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="SAF.Foundation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -170,12 +170,6 @@
     <Compile Include="sysUserViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntities.csproj">
-      <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
-      <Name>SAF.SystemEntities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -260,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Form_Out_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntities.csproj">
+      <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
+      <Name>SAF.SystemEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -78,14 +78,14 @@ ORDER BY A.Iden";
         void DetailEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sdOrderDtl> e)
         {
             //子表的字段赋值
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.OrderId = this.MainEntitySet.CurrentEntity.Iden;
             e.CurrentEntity.Qty = 0;
         }
 
         void MainEntitySet_AfterAdd(object sender, EntityFramework.EntitySetAddEventArgs<sdOrder> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             //其他字段也可以在这里赋值
         }
     }

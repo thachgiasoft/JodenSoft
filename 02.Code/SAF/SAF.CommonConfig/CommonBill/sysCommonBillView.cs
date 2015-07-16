@@ -181,7 +181,7 @@ namespace SAF.CommonConfig
         {
             if (mainConfig == null) return;
 
-            this.ViewModel.MainEntitySet.DbTableName = mainConfig.DbTableName;
+            this.ViewModel.MainEntitySet.TableName = mainConfig.DbTableName;
             this.ViewModel.MainEntitySet.PrimaryKeyName = mainConfig.PrimaryKeyName;
             this.ViewModel.MainEntitySet.IsReadOnly = mainConfig.IsReadOnly;
 
@@ -210,7 +210,7 @@ namespace SAF.CommonConfig
         {
             if (indexConfig == null) return;
 
-            this.ViewModel.IndexEntitySet.DbTableName = indexConfig.DbTableName;
+            this.ViewModel.IndexEntitySet.TableName = indexConfig.DbTableName;
             this.ViewModel.IndexEntitySet.PrimaryKeyName = indexConfig.PrimaryKeyName;
             this.ViewModel.IndexEntitySet.IsReadOnly = indexConfig.IsReadOnly;
             this.ViewModel.IndexEntitySet.SetBindingSource(this.bsIndex);

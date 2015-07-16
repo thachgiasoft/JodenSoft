@@ -39,7 +39,7 @@ namespace SAF.SystemModule
 
         void MainEntitySet_AfterAdd(object sender, EntityFramework.EntitySetAddEventArgs<sysMenuChart> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.FileData = null;
         }
     }

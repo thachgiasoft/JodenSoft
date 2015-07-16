@@ -49,7 +49,7 @@ namespace SAF.CommonConfig
         public EntitySetBase CreateDetailEntitySet(EntitySetConfig config)
         {
             var es = new EntitySet<QueryEntity>(this.ExecuteCache);
-            es.DbTableName = config.DbTableName;
+            es.TableName = config.DbTableName;
             es.PrimaryKeyName = config.PrimaryKeyName;
             es.IsReadOnly = config.IsReadOnly;
 

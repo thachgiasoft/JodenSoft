@@ -11,7 +11,8 @@ namespace SAF.SystemEntities
         protected override void OnInit()
         {
             base.OnInit();
-            this.DbTableName = "sysRole";
+            this.TableName = "sysRole";
+            this.IdenGroup = "sysRole";
             this.PrimaryKeyName = "Iden";
         }
 

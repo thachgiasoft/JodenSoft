@@ -69,7 +69,7 @@ namespace SAF.SystemModule
 
         void sysBillDataRightEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillDataRight> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;
             e.CurrentEntity.QueryRight = (int)BillDataRight.None;
             e.CurrentEntity.UpdateRight = (int)BillDataRight.None;
@@ -92,7 +92,7 @@ namespace SAF.SystemModule
 
         void sysBillOperateRightEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillOperateRight> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;
             e.CurrentEntity.AddNew = false;
             e.CurrentEntity.ExtendRight1 = false;
@@ -110,7 +110,7 @@ namespace SAF.SystemModule
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysBillType> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsActive = true;
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.UseBillDataRight = true;
@@ -214,7 +214,7 @@ namespace SAF.SystemModule
                 if (obj == null)
                 {
                     obj = this.sysBillRightDefineEntitySet.AddNew();
-                    obj.Iden = IdenGenerator.NewIden(obj.DbTableName);
+                    obj.Iden = IdenGenerator.NewIden(obj.IdenGroup);
                     obj.BillTypeId = this.MainEntitySet.CurrentEntity.Iden;
                     obj.FieldName = item["FieldName"].ToString();
                 }

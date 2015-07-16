@@ -54,7 +54,7 @@ namespace SAF.SystemModule
 
         void MainEntitySet_AfterAdd(object sender, EntityFramework.EntitySetAddEventArgs<sysFile> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsActive = true;
         }
 
@@ -210,7 +210,7 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
                 if (viewInfo == null)
                 {
                     viewInfo = BusinessViewEntitySet.AddNew();
-                    viewInfo.Iden = IdenGenerator.NewIden(viewInfo.DbTableName);
+                    viewInfo.Iden = IdenGenerator.NewIden(viewInfo.IdenGroup);
                     viewInfo.ClassName = type.TypeName;
                     viewInfo.FileId = GetFileId(type.FileName);
                     viewInfo.Description = type.Description;
@@ -226,7 +226,7 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
                 {
                     var attr = param.GetCustomAttribute<ViewParamAttribute>();
                     var p = this.BusinessViewParamEntitySet.AddNew();
-                    p.Iden = IdenGenerator.NewIden(p.DbTableName);
+                    p.Iden = IdenGenerator.NewIden(p.IdenGroup);
                     p.Name = param.Name;
                     p.Description = attr.Desctiption;
                     p.BusinessViewId = viewInfo.Iden;

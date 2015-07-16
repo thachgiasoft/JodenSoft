@@ -12,7 +12,8 @@ namespace SAF.CommonConfig.Entities
         {
             base.OnInit();
 
-            this.DbTableName = "sysCommonBillConfig";
+            this.TableName = "sysCommonBillConfig";
+            this.IdenGroup = "sysCommonBillConfig";
             this.PrimaryKeyName = "Iden";
         }
 

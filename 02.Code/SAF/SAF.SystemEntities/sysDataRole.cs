@@ -12,7 +12,8 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
 
-            this.DbTableName = "sysDataRole";
+            this.TableName = "sysDataRole";
+            this.IdenGroup = "sysDataRole";
             this.PrimaryKeyName = "Iden";
         }
 

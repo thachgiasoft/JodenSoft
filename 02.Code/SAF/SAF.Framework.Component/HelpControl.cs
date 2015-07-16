@@ -76,10 +76,7 @@ namespace SAF.Framework.Component
 
         private void lblProductKey_Click(object sender, EventArgs e)
         {
-            if (fmRegister.ShowRegister() == DialogResult.OK)
-            {
-                MessageService.ShowMessage("×¢²á³É¹¦!");
-            }
+
         }
 
         private void lblAboutBox_Click(object sender, EventArgs e)

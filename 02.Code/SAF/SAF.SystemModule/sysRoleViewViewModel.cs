@@ -92,13 +92,13 @@ WHERE a.[RoleId]=:Iden AND B.MenuType>0";
 
         void RoleMenuEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysRoleMenu> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.RoleId = this.MainEntitySet.CurrentEntity.Iden;
         }
 
         void MainEntitySet_AfterAdd(object sender, EntityFramework.EntitySetAddEventArgs<sysRole> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsDeleted = false;
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.IsAdministrator = false;

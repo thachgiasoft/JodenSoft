@@ -42,7 +42,7 @@ namespace SAF.CommonConfig
 
         void MainEntitySet_AfterAdd(object sender, EntityFramework.EntitySetAddEventArgs<sysCommonBillConfig> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.Name = string.Empty;
             e.CurrentEntity.Config = string.Empty;
         }

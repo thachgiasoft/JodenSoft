@@ -12,7 +12,8 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
 
-            this.DbTableName = "sysMenuParam";
+            this.TableName = "sysMenuParam";
+            this.IdenGroup = "sysMenuParam";
             this.PrimaryKeyName = "Iden";
         }
 

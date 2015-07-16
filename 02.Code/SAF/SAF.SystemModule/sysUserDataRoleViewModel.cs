@@ -52,7 +52,7 @@ WHERE IsActive=1 AND IsDeleted=0 AND ({0})";
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysUserDataRole> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.UserId = IndexEntitySet.CurrentEntity.Iden;
         }
 

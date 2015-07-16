@@ -12,7 +12,8 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
 
-            this.DbTableName = "sysBillNoFormula";
+            this.TableName = "sysBillNoFormula";
+            this.IdenGroup = "sysBillNoFormula";
             this.PrimaryKeyName = "Iden";
         }
 
@@ -22,7 +23,6 @@ namespace SAF.SystemEntities
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
-        //TODO:添加其他字段
         public string BillNoType
         {
             get { return base.GetFieldValue<string>(P => P.BillNoType); }

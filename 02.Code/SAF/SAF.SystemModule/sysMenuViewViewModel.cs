@@ -145,7 +145,7 @@ LEFT JOIN
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysMenu> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.MenuOrder = 0;
             e.CurrentEntity.IsAutoOpen = false;
@@ -184,7 +184,7 @@ LEFT JOIN
                 {
                     item.DataRowView.Row.AcceptChanges();
                     item.DataRowView.Row.SetAdded();
-                    item.Iden = IdenGenerator.NewIden(item.DbTableName);
+                    item.Iden = IdenGenerator.NewIden(item.IdenGroup);
                     item.MenuId = this.MainEntitySet.CurrentEntity.Iden;
                 }
 

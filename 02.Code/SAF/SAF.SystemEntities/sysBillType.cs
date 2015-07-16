@@ -12,7 +12,8 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
 
-            this.DbTableName = "sysBillType";
+            this.TableName = "sysBillType";
+            this.IdenGroup = "sysBillType";
             this.PrimaryKeyName = "Iden";
         }
 

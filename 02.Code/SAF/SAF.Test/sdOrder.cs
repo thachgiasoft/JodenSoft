@@ -12,7 +12,8 @@ namespace SAF.Test
         {
             base.OnInit();
 
-            this.DbTableName = "sdOrder";
+            this.TableName = "sdOrder";
+            this.IdenGroup = "sdOrder";
             this.PrimaryKeyName = "Iden";
         }
 

@@ -49,7 +49,7 @@ namespace SAF.SystemModule
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysOrganization> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsActive = true;
             e.CurrentEntity.Code = string.Empty;
 

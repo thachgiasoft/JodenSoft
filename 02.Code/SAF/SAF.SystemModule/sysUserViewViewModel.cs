@@ -104,7 +104,7 @@ order by Iden";
 
         void MainEntitySet_AfterAdd(object sender, EntitySetAddEventArgs<sysUser> e)
         {
-            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.DbTableName);
+            e.CurrentEntity.Iden = IdenGenerator.NewIden(e.CurrentEntity.IdenGroup);
             e.CurrentEntity.IsSystem = false;
             e.CurrentEntity.IsActive = true;
             e.CurrentEntity.IsDeleted = false;
@@ -121,7 +121,7 @@ order by Iden";
                 if (!item.GetValue("Iden").IsEmpty())
                 {
                     var entity = this.UserRoleEntitySet.AddNew();
-                    entity.Iden = IdenGenerator.NewIden(entity.DbTableName);
+                    entity.Iden = IdenGenerator.NewIden(entity.IdenGroup);
                     entity.UserId = this.MainEntitySet.CurrentEntity.Iden;
                     entity.RoleId = Convert.ToInt32(item.GetValue("Iden"));
                 }

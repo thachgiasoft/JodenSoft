@@ -12,7 +12,8 @@ namespace SAF.SystemEntities
         {
             base.OnInit();
 
-            this.DbTableName = "sysBusinessViewParam";
+            this.TableName = "sysBusinessViewParam";
+            this.IdenGroup = "sysBusinessViewParam";
             this.PrimaryKeyName = "Iden";
         }
 

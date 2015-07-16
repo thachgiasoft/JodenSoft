@@ -6,7 +6,7 @@ exec dbo.sysPageQuery 'select Iden, Name, FileName, FileVersion, FileSize, LastW
 */
 
 CREATE PROCEDURE [dbo].[sysPageQuery]
-@CommandText NVARCHAR(4000), --查询字符串
+@CommandText NVARCHAR(MAX), --查询字符串
 @PageSize INT, --每页行数
 @CurrPage INT --第N页
 AS
