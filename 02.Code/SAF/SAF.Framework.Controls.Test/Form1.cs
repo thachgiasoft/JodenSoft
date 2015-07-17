@@ -19,18 +19,19 @@ namespace SAF.Framework.Controls.Test
         {
             InitializeComponent();
 
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // XtraPanel
+          
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBoxEx.Show("asdfsadf", "asfdsadfasasfdsadfasasfdsadfasasfdsadfas", string.Empty);
+            ReportService.InitializeReport(this.barButtonItem1, "1,2");
         }
+
 
     }
 }

@@ -671,5 +671,10 @@ namespace SAF.EntityFramework
         {
             get;
         }
+        
+        public virtual bool TableIsExists()
+        {
+            return DataPortal.TableIsExists(this.ConnectionName, this.TableName);
+        }
     }
 }

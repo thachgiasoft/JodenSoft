@@ -39,23 +39,27 @@ namespace SAF.Framework.View
 
         protected virtual void OnAddMenuToFavorite()
         {
-            var query = new EntitySet<sysMyFavoriteMenu>();
-            query.Query("SELECT TOP 1 * FROM dbo.sysMyFavoriteMenu WITH(NOLOCK) WHERE UserId=:UserId and MenuId=:MenuId", Session.UserInfo.UserId, this.UniqueId);
-            if (query.Count <= 0)
+            var es = new EntitySet<sysMyFavoriteMenu>();
+
+            if (es.TableIsExists())
             {
-                var obj = query.AddNew();
-                obj.Iden = IdenGenerator.NewIden(obj.TableName);
-                obj.MenuId = Convert.ToInt32(this.UniqueId);
-                obj.UserId = Session.UserInfo.UserId;
-                obj.RowNumber = 10000;
-                query.SaveChanges();
+                es.Query("SELECT TOP 1 * FROM dbo.sysMyFavoriteMenu WITH(NOLOCK) WHERE UserId=:UserId and MenuId=:MenuId", Session.UserInfo.UserId, this.UniqueId);
+                if (es.Count <= 0)
+                {
+                    var obj = es.AddNew();
+                    obj.Iden = IdenGenerator.NewIden(obj.TableName);
+                    obj.MenuId = Convert.ToInt32(this.UniqueId);
+                    obj.UserId = Session.UserInfo.UserId;
+                    obj.RowNumber = 10000;
+                    es.SaveChanges();
+                }
+
+                MessageService.ShowMessage("菜单已经收藏至我的工作台.");
+
+                var shell = ApplicationService.Current.MainForm as IShell;
+                if (shell != null)
+                    shell.RefreshFavorite();
             }
-
-            MessageService.ShowMessage("菜单已经收藏至我的工作台.");
-
-            var shell = ApplicationService.Current.MainForm as IShell;
-            if (shell != null)
-                shell.RefreshFavorite();
         }
     }
 }

@@ -386,31 +386,22 @@ namespace SAF.Framework.View
             get { return " (1=1) "; }
         }
 
+        public virtual ParameterDictionary OutParameters
+        {
+            get
+            {
+                return new ParameterDictionary(this.ViewParameters);
+            }
+        }
+
         #region 界面参数
 
-        private Dictionary<string, string> viewParams = new Dictionary<string, string>();
-        /// <summary>
-        /// 添加界面参数,如果存在则更新,不存在则新增
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        public virtual void SetViewParam(string name, string value)
+        private ParameterDictionary _viewParameters = new ParameterDictionary();
+
+        public ParameterDictionary ViewParameters
         {
-            if (this.viewParams.ContainsKey(name))
-                this.viewParams[name] = value;
-            else
-                this.viewParams.Add(name, value);
-        }
-        /// <summary>
-        /// 获取界面参数
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        protected virtual string GetViewParam(string name)
-        {
-            if (this.viewParams.ContainsKey(name))
-                return this.viewParams[name];
-            return null;
+            get { return _viewParameters; }
+            set { _viewParameters = value; }
         }
 
         #endregion

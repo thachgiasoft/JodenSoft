@@ -6,13 +6,14 @@ using System.Text;
 
 namespace SAF.Framework.Controls.Entities
 {
-    public class sysReportConfig : Entity<sysReportConfig>
+    public class sysReport : Entity<sysReport>
     {
         protected override void OnInit()
         {
             base.OnInit();
 
-            this.TableName = "sysReportConfig";
+            this.TableName = "sysReport";
+            this.IdenGroup = "sysReport";
             this.PrimaryKeyName = "Iden";
         }
 
@@ -34,10 +35,10 @@ namespace SAF.Framework.Controls.Entities
             set { base.SetFieldValue(P => P.SqlScript, value); }
         }
 
-        public string TableList
+        public string DataSetAlias
         {
-            get { return base.GetFieldValue<string>(P => P.TableList); }
-            set { base.SetFieldValue(P => P.TableList, value); }
+            get { return base.GetFieldValue<string>(P => P.DataSetAlias); }
+            set { base.SetFieldValue(P => P.DataSetAlias, value); }
         }
 
         public string ParamList

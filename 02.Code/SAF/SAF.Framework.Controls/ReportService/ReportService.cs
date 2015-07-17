@@ -22,30 +22,44 @@ namespace SAF.Framework.Controls
     /// </summary>
     public sealed class ReportService
     {
-        private EntitySet<sysReportConfig> reportConfigEntitySet = new EntitySet<sysReportConfig>();
-        private EntitySet<sysReportConfigFormat> reportConfigFormatEntitySet = new EntitySet<sysReportConfigFormat>();
+        private EntitySet<sysReport> reportEntitySet = new EntitySet<sysReport>();
+        private EntitySet<sysReportFormat> reportFormatEntitySet = new EntitySet<sysReportFormat>();
 
         private BarButtonItem bbiReport;
-        private int reportConfigId;
+        private string reportIds;
         private RibbonControl mainRibbonControl;
 
         private PopupMenu reportPopupMenu = new PopupMenu();
         private BarButtonItem bbiReport_Print = new BarButtonItem();
-        private BarButtonItem bbiReport_Priview = new BarButtonItem();
-        private BarSubItem bbiReport_ReportFormatList = new BarSubItem();
 
-        private sysReportConfigFormat currReportFormat = null;
+        private List<BarSubItem> listReportBarItems = new List<BarSubItem>();
+        private List<BarCheckItem> listReportFormatBarItems = new List<BarCheckItem>();
 
-
-        public sysReportConfig CurrReport
+        public sysReportFormat CurrReportFormat
         {
-            get { return reportConfigEntitySet[0]; }
+            get
+            {
+                var format = this.listReportFormatBarItems.FirstOrDefault(p => p.Checked);
+                if (format == null)
+                    throw new Exception("未找到默认报表");
+                return format.Tag as sysReportFormat;
+            }
         }
 
-        public ReportService(BarButtonItem bbiReport, int reportConfigId)
+        private sysReport CurrReport
+        {
+            get
+            {
+                if (this.CurrReportFormat != null)
+                    return reportEntitySet.FirstOrDefault(p => p.Iden == this.CurrReportFormat.ReportId);
+                return null;
+            }
+        }
+
+        public ReportService(BarButtonItem bbiReport, string reportIds)
         {
             this.bbiReport = bbiReport;
-            this.reportConfigId = reportConfigId;
+            this.reportIds = reportIds;
         }
 
         private void Initialize()
@@ -53,8 +67,8 @@ namespace SAF.Framework.Controls
             if (!(this.bbiReport.Manager is RibbonBarManager))
                 throw new Exception("参数bbiReport必须包含在RibbonControl中.");
 
-            QueryReportConfig();
-            QueryReportConfigFormat();
+            QueryReport();
+            QueryReportFormat();
 
             mainRibbonControl = (this.bbiReport.Manager as RibbonBarManager).Ribbon;
             InitializeReportPopupMenu();
@@ -63,105 +77,110 @@ namespace SAF.Framework.Controls
             this.bbiReport.DropDownControl = reportPopupMenu;
         }
 
-        private void QueryReportConfigFormat()
+        private void QueryReport()
         {
             const string sql = @"
-SELECT Iden,Name,SqlScript,TableList,ParamList,ParamValueList
-FROM dbo.sysReportConfig WITH(NOLOCK)
-WHERE Iden=:Iden AND IsActive=1";
-            reportConfigEntitySet.Query(sql, this.reportConfigId);
-
+SELECT a.Iden,a.Name,a.SqlScript,a.DataSetAlias,a.ParamList,a.ParamValueList
+FROM dbo.sysReport a WITH(NOLOCK)
+JOIN dbo.SplitString(:Idens,',') b ON A.Iden=b.Item
+WHERE IsActive=1";
+            reportEntitySet.Query(sql, this.reportIds);
         }
 
-        private void QueryReportConfig()
+        private void QueryReportFormat()
         {
             const string sql = @"
-SELECT Iden,ReportConfigId,RowNo,Name,IsDefault,Remark,FormatData=CAST(NULL AS IMAGE)
-FROM dbo.sysReportConfigFormat WITH(NOLOCK)
-WHERE ReportConfigId=:ReportConfigId
-Order by RowNo";
+SELECT a.Iden,a.ReportId,a.OrderIndex,a.Name,a.IsDefault,a.Remark,FormatData=CAST(NULL AS VARBINARY)
+FROM dbo.sysReportFormat a WITH(NOLOCK)
+JOIN dbo.SplitString(:Idens,',') b ON A.ReportId=b.Item
+WHERE a.IsActive=1
+Order by a.OrderIndex";
 
-            reportConfigFormatEntitySet.Query(sql, this.reportConfigId);
+            reportFormatEntitySet.Query(sql, this.reportIds);
         }
 
         private void InitializeReportPopupMenu()
         {
-            reportPopupMenu.Name = "popupMenu_RerortConfig";
+            reportPopupMenu.Name = "popupMenu_Rerort";
             reportPopupMenu.Ribbon = this.mainRibbonControl;
-
-            string defaultFormatName = string.Empty;
-            if (this.reportConfigFormatEntitySet.Count > 0)
-            {
-                var defaultFormat = this.reportConfigFormatEntitySet.FirstOrDefault(p => p.IsDefault);
-                if (defaultFormat == null)
-                    defaultFormat = this.reportConfigFormatEntitySet.First();
-
-                defaultFormatName = defaultFormat.Name;
-            }
 
             bbiReport.ItemClick += bbiReport_Priview_ItemClick;
 
             bbiReport_Print = new BarButtonItem();
-            bbiReport_Print.Caption = "打印 {0}".FormatEx(defaultFormatName);
             bbiReport_Print.Name = "bbiReport_Print";
+            bbiReport_Print.Glyph = Properties.Resources.Action_Print_16x16;
             bbiReport_Print.ItemClick += bbiReport_Print_ItemClick;
             this.mainRibbonControl.Items.Add(bbiReport_Print);
             reportPopupMenu.ItemLinks.Add(bbiReport_Print);
 
-            bbiReport_Priview = new BarButtonItem();
-            bbiReport_Priview.Caption = "预览 {0}".FormatEx(defaultFormatName);
-            bbiReport_Priview.Name = "bbiReport_Priview";
-            bbiReport_Priview.ItemClick += bbiReport_Priview_ItemClick;
-            this.mainRibbonControl.Items.Add(bbiReport_Priview);
-            reportPopupMenu.ItemLinks.Add(bbiReport_Priview);
-
-            if (reportConfigFormatEntitySet.Count > 0)
+            //生成报表菜单
+            foreach (var subItem in this.reportEntitySet)
             {
-                //初始化报表格式
-                bbiReport_ReportFormatList.Caption = "报表格式";
-                bbiReport_ReportFormatList.Name = "bbiReport_ReportFormatList";
-                this.mainRibbonControl.Items.Add(bbiReport_ReportFormatList);
-                reportPopupMenu.ItemLinks.Add(bbiReport_ReportFormatList, true);
+                var formatList = reportFormatEntitySet.Where(p => p.ReportId == subItem.Iden);
+                bool hasDefaultFormat = reportFormatEntitySet.Any(p => p.IsDefault);
 
-                foreach (var item in reportConfigFormatEntitySet)
+                if (formatList.Count() <= 0) continue;
+
+                var barSubItem = new BarSubItem();
+                barSubItem.Caption = subItem.Name;
+                barSubItem.Glyph = Properties.Resources.BO_Report;
+                this.mainRibbonControl.Items.Add(barSubItem);
+                reportPopupMenu.ItemLinks.Add(barSubItem);
+                listReportBarItems.Add(barSubItem);
+
+                foreach (var item in formatList)
                 {
                     var barCheckItem = new BarCheckItem();
                     barCheckItem.Caption = item.Name;
                     barCheckItem.Name = "bbiReport_ReportFormatList_{0}".FormatEx(item.Iden);
-                    barCheckItem.GroupIndex = 12345678;
+                    barCheckItem.GroupIndex = 100000;
                     barCheckItem.Checked = item.IsDefault;
                     barCheckItem.Tag = item;
-                    if (item.IsDefault)
-                    {
-                        currReportFormat = item;
-                        bbiReport.Hint = item.Name;
-                    }
+
                     barCheckItem.CheckedChanged += barCheckItem_CheckedChanged;
                     this.mainRibbonControl.Items.Add(barCheckItem);
-                    bbiReport_ReportFormatList.ItemLinks.Add(barCheckItem);
+                    barSubItem.ItemLinks.Add(barCheckItem);
+
+                    listReportFormatBarItems.Add(barCheckItem);
+                }
+
+                if (!hasDefaultFormat && listReportFormatBarItems.Count > 0)
+                {
+                    listReportFormatBarItems[0].Checked = true;
                 }
             }
 
+            RefreshReportBarItemCaption();
         }
 
-        private XtraReport GetReport()
+        private void RefreshReportBarItemCaption()
+        {
+            bbiReport_Print.Caption = "打印 {0}".FormatEx(CurrReportFormat.Name);
+            bbiReport.Caption = "预览\n{0}".FormatEx(CurrReportFormat.Name);
+        }
+
+        private XtraReport GetCurrentReportFormat()
         {
             XtraReport report = null;
-            if (currReportFormat == null)
-                report = new XtraReport();
-            else if (currReportFormat.FormatData == null || currReportFormat.FormatData.Length < 1)
+            if (CurrReportFormat == null)
             {
-                var es = new EntitySet<sysReportConfigFormat>();
-                es.Query("SELECT FormatData FROM dbo.sysReportConfigFormat WITH(NOLOCK) WHERE Iden=:Iden", currReportFormat.Iden);
-                if (es.Count > 0)
-                    currReportFormat.FormatData = es[0].FormatData;
+                report = new XtraReport();
+                return report;
             }
 
-            if (currReportFormat.FormatData == null || currReportFormat.FormatData.Length < 1)
+            if (CurrReportFormat.FormatData == null || CurrReportFormat.FormatData.Length < 1)
+            {
+                var es = new EntitySet<sysReportFormat>();
+                es.Query("SELECT FormatData FROM dbo.sysReportFormat WITH(NOLOCK) WHERE Iden=:Iden", CurrReportFormat.Iden);
+                if (es.Count > 0)
+                    CurrReportFormat.FormatData = es[0].FormatData;
+            }
+
+            if (CurrReportFormat.FormatData == null || CurrReportFormat.FormatData.Length < 1)
                 report = new XtraReport();
             else
-                report = XtraReport.FromStream(new MemoryStream(currReportFormat.FormatData), true);
-            report.DisplayName = currReportFormat.Name;
+                report = XtraReport.FromStream(new MemoryStream(CurrReportFormat.FormatData), true);
+            report.DisplayName = CurrReportFormat.Name;
 
             report.DataSource = GetReportDataSource();
             return report;
@@ -170,7 +189,7 @@ Order by RowNo";
         private DataSet GetReportDataSource()
         {
             var ds = new DataSet("报表数据源");
-            var tableNames = CurrReport.TableList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var tableNames = CurrReport.DataSetAlias.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             //解析表名和关系
 
             //解析参数
@@ -193,7 +212,6 @@ Order by RowNo";
             dt.Columns.Add("UserFullName", typeof(string));
             dt.Columns.Add("Email", typeof(string));
             dt.Columns.Add("TelephoneNo", typeof(string));
-
             dt.Columns.Add("UserImage", typeof(byte[]));
             dt.Columns.Add("UserSignImage", typeof(byte[]));
             dt.Rows.Add(Session.UserInfo.UserId, Session.UserInfo.UserName, Session.UserInfo.UserFullName, Session.UserInfo.Email, Session.UserInfo.TelephoneNo,
@@ -207,19 +225,12 @@ Order by RowNo";
 
         void barCheckItem_CheckedChanged(object sender, ItemClickEventArgs e)
         {
-            var checkItem = sender as BarCheckItem;
-            var format = checkItem.Tag as sysReportConfigFormat;
-
-            this.bbiReport_Print.Caption = "打印 {0}".FormatEx(format.Name);
-            this.bbiReport_Priview.Caption = "预览 {0}".FormatEx(format.Name);
-
-            currReportFormat = format;
-            bbiReport.Hint = format.Name;
+            RefreshReportBarItemCaption();
         }
 
         void bbiReport_Priview_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var report = GetReport();
+            var report = GetCurrentReportFormat();
             if (report != null)
             {
                 PrintPreviewRibbonFormEx PreviewRibbonForm = new PrintPreviewRibbonFormEx();
@@ -250,11 +261,12 @@ Order by RowNo";
 
         void bbiReport_Print_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var report = GetReport();
+            var report = GetCurrentReportFormat();
 
             if (report != null)
             {
-                report.PrintDialog();
+                ReportPrintTool printTool = new ReportPrintTool(report);
+                printTool.PrintDialog();
             }
             else
             {
@@ -262,9 +274,9 @@ Order by RowNo";
             }
         }
 
-        public static ReportService InitializeReport(BarButtonItem bbiReport, int reportConfigId)
+        public static ReportService InitializeReport(BarButtonItem bbiReport, string reportIds)
         {
-            var reportService = new ReportService(bbiReport, reportConfigId);
+            var reportService = new ReportService(bbiReport, reportIds);
             reportService.Initialize();
             return reportService;
         }

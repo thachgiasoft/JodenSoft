@@ -192,6 +192,7 @@ namespace SAF.EntityFramework
 
         private void AssignParameterValues(DbCommand command, object[] values)
         {
+            if (values == null) return;
             int parameterIndexShift = UserParametersStartIndex(); // DONE magic number, depends on the database
             for (int i = 0; i < values.Length; i++)
             {
@@ -210,7 +211,7 @@ namespace SAF.EntityFramework
         protected virtual bool SameNumberOfParametersAndValues(DbCommand command, object[] values)
         {
             int numberOfParametersToStoredProcedure = command.Parameters.Count;
-            int numberOfValuesProvidedForStoredProcedure = values.Length;
+            int numberOfValuesProvidedForStoredProcedure = values == null ? 0 : values.Length;
             return numberOfParametersToStoredProcedure == numberOfValuesProvidedForStoredProcedure;
         }
 

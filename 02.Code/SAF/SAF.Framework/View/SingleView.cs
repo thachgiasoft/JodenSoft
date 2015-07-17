@@ -47,14 +47,27 @@ namespace SAF.Framework.View
             base.OnInitViewParam();
 
             var es = new EntitySet<QueryEntity>();
-            es.Query("SELECT Name,[Value] FROM  [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
-            if (!es.IsEmpty())
+
+            if (DataPortal.TableIsExists(es.ConnectionName, "[dbo].[sysMenuParam]"))
             {
-                foreach (var entity in es)
+                es.Query("SELECT Name,[Value] FROM [dbo].[sysMenuParam] with(nolock) WHERE [MenuId]=:MenuId", this.UniqueId);
+                if (!es.IsEmpty())
                 {
-                    if (!entity.GetFieldValue<string>("Value").IsEmpty())
-                        this.SetViewParam(entity.GetFieldValue<string>("Name"), entity.GetFieldValue<string>("Value"));
+                    foreach (var entity in es)
+                    {
+                        this.ViewParameters[entity.GetFieldValue<string>("Name")] = entity.GetFieldValue<string>("Value");
+                    }
                 }
+            }
+        }
+
+        public override SAF.Framework.View.ParameterDictionary OutParameters
+        {
+            get
+            {
+                if (this.ViewModel != null && this.ViewModel.MainEntitySet.Count > 0)
+                    base.OutParameters.Copy(this.ViewModel.MainEntitySet.CurrentEntity);
+                return base.OutParameters;
             }
         }
 

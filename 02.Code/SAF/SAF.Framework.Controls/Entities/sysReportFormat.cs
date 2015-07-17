@@ -6,13 +6,14 @@ using System.Text;
 
 namespace SAF.Framework.Controls.Entities
 {
-    public class sysReportConfigFormat : Entity<sysReportConfigFormat>
+    public class sysReportFormat : Entity<sysReportFormat>
     {
         protected override void OnInit()
         {
             base.OnInit();
 
-            this.TableName = "sysReportConfigFormat";
+            this.TableName = "sysReportFormat";
+            this.IdenGroup = "sysReportFormat";
             this.PrimaryKeyName = "Iden";
         }
 
@@ -22,16 +23,16 @@ namespace SAF.Framework.Controls.Entities
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
-        public int ReportConfigId
+        public int ReportId
         {
-            get { return base.GetFieldValue<int>(P => P.ReportConfigId); }
-            set { base.SetFieldValue(P => P.ReportConfigId, value); }
+            get { return base.GetFieldValue<int>(P => P.ReportId); }
+            set { base.SetFieldValue(P => P.ReportId, value); }
         }
 
-        public int RowNo
+        public int OrderIndex
         {
-            get { return base.GetFieldValue<int>(P => P.RowNo); }
-            set { base.SetFieldValue(P => P.RowNo, value); }
+            get { return base.GetFieldValue<int>(P => P.OrderIndex); }
+            set { base.SetFieldValue(P => P.OrderIndex, value); }
         }
 
         public string Name

@@ -186,8 +186,7 @@
     </Compile>
     <Compile Include="ConnectionTest\IConnectionTester.cs" />
     <Compile Include="ConnectionTest\SqlConnectionTester.cs" />
-    <Compile Include="Entities\sysRegInfo.cs" />
-    <Compile Include="Entities\sysReportConfigFormat.cs" />
+    <Compile Include="Entities\sysReportFormat.cs" />
     <Compile Include="FileUpgradeHelper.cs" />
     <Compile Include="fmFileUpgrade.cs">
       <SubType>Form</SubType>
@@ -253,7 +252,7 @@
     </Compile>
     <Compile Include="QueryControlHelper.cs" />
     <Compile Include="ReportService\ReportService.cs" />
-    <Compile Include="Entities\sysReportConfig.cs" />
+    <Compile Include="Entities\sysReport.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -501,6 +500,8 @@
     <None Include="Resources\NewViaWizard_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BO_Report_32X32.png" />
+    <None Include="Resources\BO_Report.png" />
     <EmbeddedResource Include="TextEditor\Resources\RightArrow.cur" />
     <EmbeddedResource Include="TextEditor\Resources\SyntaxModes.xml" />
     <EmbeddedResource Include="TextEditor\Resources\TextEditorControl.bmp" />
@@ -557,6 +558,10 @@
     <None Include="Resources\Action_Save.png" />
     <None Include="Resources\Action_SaveAs.png" />
     <None Include="Resources\Action_SendToBack.png" />
+    <None Include="Resources\Action_Print_32x32.png" />
+    <None Include="Resources\Action_Preview_16x16.png" />
+    <None Include="Resources\Action_Preview_32x32.png" />
+    <None Include="Resources\Action_Print_16x16.png" />
     <Content Include="Resources\Action_Tools_16x16.png" />
     <None Include="Resources\HSImage.png" />
     <None Include="Resources\JodenSoft.png" />

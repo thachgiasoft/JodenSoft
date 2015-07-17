@@ -191,5 +191,6 @@ namespace SAF.EntityFramework
         /// </summary>
         void AcceptChanges();
 
+        bool TableIsExists();
     }
 }

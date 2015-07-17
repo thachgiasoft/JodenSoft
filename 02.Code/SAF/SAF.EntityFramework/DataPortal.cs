@@ -204,6 +204,19 @@ namespace SAF.EntityFramework
                 return Convert.ToDateTime(DataPortal.ExecuteScalar(ConfigContext.DefaultConnection, "SELECT GetDate()"));
             }
         }
+        /// <summary>
+        /// 判断表在数据库中是否存在
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public static bool TableIsExists(string connectionName, string tableName)
+        {
+            var obj = DataPortal.ExecuteScalar(connectionName,
+                    @" SELECT Iden=id
+                        FROM dbo.sysobjects WITH(NOLOCK)
+                        WHERE id = OBJECT_ID(N'{0}') AND OBJECTPROPERTY(id, N'IsTable') = 1", tableName);
+            return !(obj == null);
+        }
 
         public static DataSet ExecuteDatasetByPage(string connectionName, PageInfo pageInfo, string commandText, params object[] parameterValues)
         {
