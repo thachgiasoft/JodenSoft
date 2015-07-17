@@ -1,6 +1,6 @@
 ﻿namespace SAF.CommonConfig
 {
-    partial class sysCommonReportConfigView
+    partial class sysCommonReportView
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -53,10 +53,6 @@
             // pcMain
             // 
             this.pcMain.Size = new System.Drawing.Size(778, 26);
-            // 
-            // tcMain
-            // 
-            this.tcMain.SelectedTabPage = this.pageMain;
             // 
             // sysCommonReportConfigView
             // 

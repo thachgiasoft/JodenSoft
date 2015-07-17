@@ -65,7 +65,6 @@
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\sysRegInfo.sql" />
     <Build Include="dbo\Tables\sysOrganization.sql" />
     <Build Include="dbo\Tables\sysBillDataRight.sql" />
     <Build Include="dbo\Tables\sysIden.sql" />
@@ -97,8 +96,8 @@
     <Build Include="dbo\Stored Procedures\sysGenerateBillNo.sql" />
     <Build Include="dbo\Stored Procedures\sysPageQuery.sql" />
     <Build Include="dbo\Tables\sysCommonBillConfig.sql" />
-    <Build Include="dbo\Tables\sysReportConfig.sql" />
-    <Build Include="dbo\Tables\sysReportConfigFormat.sql" />
+    <Build Include="dbo\Tables\sysReport.sql" />
+    <Build Include="dbo\Tables\sysReportFormat.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SAF.Database.refactorlog" />

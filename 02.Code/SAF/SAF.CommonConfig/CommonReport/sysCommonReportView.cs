@@ -13,9 +13,9 @@ using SAF.Foundation.MetaAttributes;
 namespace SAF.CommonConfig
 {
     [BusinessObject("报表中心配置")]
-    public partial class sysCommonReportConfigView : SingleView
+    public partial class sysCommonReportView : SingleView
     {
-        public sysCommonReportConfigView()
+        public sysCommonReportView()
         {
             InitializeComponent();
         }
