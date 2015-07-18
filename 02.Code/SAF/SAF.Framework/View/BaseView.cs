@@ -191,13 +191,13 @@ namespace SAF.Framework.View
         /// </summary>
         public void RefreshUI()
         {
+            OnRefreshUI();
+
             OnRefreshRibbonMenu();
 
             OnRefreshCustomRibbonMenu();
 
             OnRefreshDetailToolBar();
-
-            OnRefreshUI();
 
             FocusFirstEditControl();
         }
