@@ -67,5 +67,7 @@ namespace SAF.Framework.View
         /// 
         /// </summary>
         RibbonControl Ribbon { get; }
+
+        ParameterDictionary OutParameters { get; }
     }
 }

@@ -46,6 +46,9 @@
     <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Service, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -92,6 +95,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportService\ReportService.cs" />
+    <Compile Include="ReportService\TableReleation.cs" />
     <Compile Include="ServiceModel\FormMembershipProvider.cs" />
     <Compile Include="Interfaces\IDataEdit.cs" />
     <Compile Include="Interfaces\IDataSelect.cs" />
@@ -240,6 +245,8 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BO_Report_32X32.png" />
+    <None Include="Resources\BO_Report.png" />
     <None Include="Resources\Action_Up_16x16.png" />
     <None Include="Resources\Action_UnSendToAudit_16x16.png" />
     <None Include="Resources\Action_UnSendToAudit_32x32.png" />
