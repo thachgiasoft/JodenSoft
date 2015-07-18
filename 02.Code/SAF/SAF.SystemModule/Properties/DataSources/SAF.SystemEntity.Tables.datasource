@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="sysMenuParam" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SAF.SystemEntities.sysMenuParam, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</TypeInfo>
+<GenericObjectDataSource DisplayName="Tables" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>SAF.SystemEntity.Tables, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</TypeInfo>
 </GenericObjectDataSource>

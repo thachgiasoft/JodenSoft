@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="sysBillDataRight" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SAF.SystemEntities.sysBillDataRight, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</TypeInfo>
+<GenericObjectDataSource DisplayName="sysBillRightDefine" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>SAF.SystemEntity.sysBillRightDefine, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</TypeInfo>
 </GenericObjectDataSource>

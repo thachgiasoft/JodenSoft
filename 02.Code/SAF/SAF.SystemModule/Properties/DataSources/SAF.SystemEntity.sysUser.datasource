@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="sysRoleMenu" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SAF.SystemEntities.sysRoleMenu, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="sysUser" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>SAF.SystemEntity.sysUser, SAF.SystemEntities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b</TypeInfo>
 </GenericObjectDataSource>

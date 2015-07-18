@@ -214,24 +214,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\SAF.EntityFramework.sysUser.datasource" />
-    <None Include="Properties\DataSources\SAF.Framework.Entities.sysMenu.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillDataRight.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillOperateRight.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillRightDefine.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysBillType.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysDataRole.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysFile.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenu.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenuChart.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysMenuParam.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysOrganization.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysRole.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysRoleMenu.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysTableColumn.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysUser.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysUserDataRole.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.sysUserRole.datasource" />
-    <None Include="Properties\DataSources\SAF.SystemEntities.Tables.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysBillDataRight.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysBillOperateRight.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysBillRightDefine.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysBillType.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysDataRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysFile.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysMenu.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysMenuParam.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysOrganization.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysRoleMenu.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysTableColumn.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysUser.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysUserDataRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.sysUserRole.datasource" />
+    <None Include="Properties\DataSources\SAF.SystemEntity.Tables.datasource" />
     <None Include="Resources\Action_PublishEntity_32x32.png" />
   </ItemGroup>
   <ItemGroup>
