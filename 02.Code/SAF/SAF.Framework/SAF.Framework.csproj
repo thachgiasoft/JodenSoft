@@ -146,7 +146,7 @@
     <Compile Include="View\MasterDataView.Designer.cs">
       <DependentUpon>MasterDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\OutParameter.cs" />
+    <Compile Include="View\ParameterDictionary.cs" />
     <Compile Include="View\ViewParamAttribute.cs" />
     <Compile Include="View\SingleView.cs">
       <SubType>UserControl</SubType>
