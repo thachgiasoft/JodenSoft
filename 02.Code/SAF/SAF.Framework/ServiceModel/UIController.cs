@@ -85,7 +85,8 @@ namespace SAF.Framework
                 }
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
-                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl))
+                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl
+                 || aControl is StandaloneBarDockControl))
             {
                 foreach (Control c in aControl.Controls)
                 {
@@ -115,7 +116,6 @@ namespace SAF.Framework
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
                  || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl
-                    || aControl is StandaloneBarDockControl
                 ))
             {
                 foreach (Control c in aControl.Controls)
@@ -156,10 +156,12 @@ namespace SAF.Framework
                 {
                     item.Item.Enabled = bEnabled;
                 }
+                return;
             }
             else if (aComponent is StandaloneBarDockControl)
             {
                 (aComponent as StandaloneBarDockControl).Enabled = true;
+                return;
             }
 
             if (aComponent is GridColumn)
