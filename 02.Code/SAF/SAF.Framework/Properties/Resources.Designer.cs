@@ -363,6 +363,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_Report_ShowDesigner_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Report_ShowDesigner_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Report_ShowDesigner_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Report_ShowDesigner_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Save_16x16", resourceCulture);

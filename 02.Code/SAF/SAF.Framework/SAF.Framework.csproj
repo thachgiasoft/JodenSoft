@@ -279,6 +279,8 @@
     <None Include="Resources\Action_Refresh_16x16.png" />
     <None Include="Resources\Action_Reject_16x16.png" />
     <None Include="Resources\Action_Reject_32x32.png" />
+    <None Include="Resources\Action_Report_ShowDesigner_16x16.png" />
+    <None Include="Resources\Action_Report_ShowDesigner_32x32.png" />
     <Content Include="Resources\Action_SaveAs_16x16.png" />
     <Content Include="Resources\Action_SaveAs_32x32.png" />
     <Content Include="Resources\Action_Save_16x16.png" />

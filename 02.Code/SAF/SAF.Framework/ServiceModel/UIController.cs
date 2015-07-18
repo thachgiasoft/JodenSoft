@@ -114,7 +114,9 @@ namespace SAF.Framework
                 RefreshControl(view, bEnabled);
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
-                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl))
+                 || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl
+                    || aControl is StandaloneBarDockControl
+                ))
             {
                 foreach (Control c in aControl.Controls)
                 {
@@ -147,6 +149,19 @@ namespace SAF.Framework
                 }
                 return;
             }
+            else if (aComponent is Bar)
+            {
+                var bar = aComponent as Bar;
+                foreach (BarItemLink item in bar.ItemLinks)
+                {
+                    item.Item.Enabled = bEnabled;
+                }
+            }
+            else if (aComponent is StandaloneBarDockControl)
+            {
+                (aComponent as StandaloneBarDockControl).Enabled = true;
+            }
+
             if (aComponent is GridColumn)
             {
                 GridColumn col = aComponent as GridColumn;
