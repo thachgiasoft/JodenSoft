@@ -567,7 +567,7 @@ namespace SAF.Framework.View
             pcMain.Enabled = IsBrowse;
 
             UIController.RefreshControl(splitMain.Panel1, this.ViewModel.EditState, true, RefreshMode.Unnatural);
-            //UIController.RefreshControl(splitMain.Panel2, this.ViewModel.EditState);
+            UIController.RefreshControl(splitMain.Panel2, this.ViewModel.EditState);
         }
 
         private static readonly string QueryArgs_Condition = "Condition";
