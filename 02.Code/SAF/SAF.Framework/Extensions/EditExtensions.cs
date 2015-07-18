@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.Framework.Extensions
+namespace SAF.Framework
 {
     public static class EditExtensions
     {
