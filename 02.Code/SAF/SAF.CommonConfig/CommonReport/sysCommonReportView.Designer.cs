@@ -108,12 +108,12 @@
             // 
             // tcDtl
             // 
-            this.tcDtl.Size = new System.Drawing.Size(580, 120);
+            this.tcDtl.Size = new System.Drawing.Size(580, 176);
             // 
             // pageDtl
             // 
             this.pageDtl.Controls.Add(this.grdDtl);
-            this.pageDtl.Size = new System.Drawing.Size(574, 114);
+            this.pageDtl.Size = new System.Drawing.Size(574, 170);
             this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdDtl, 0);
             // 
@@ -162,17 +162,17 @@
             // 
             this.splitRight.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitRight.Size = new System.Drawing.Size(580, 360);
-            this.splitRight.SplitterPosition = 120;
+            this.splitRight.SplitterPosition = 176;
             // 
             // tcMain
             // 
             this.tcMain.ShowTabHeader = DevExpress.Utils.DefaultBoolean.Default;
-            this.tcMain.Size = new System.Drawing.Size(580, 235);
+            this.tcMain.Size = new System.Drawing.Size(580, 179);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(574, 206);
+            this.pageMain.Size = new System.Drawing.Size(574, 150);
             this.pageMain.Text = "报表配置";
             // 
             // bmMain
@@ -236,7 +236,7 @@
             this.grdDtl.MainView = this.grvDtl;
             this.grdDtl.MenuManager = this.ribbonMain;
             this.grdDtl.Name = "grdDtl";
-            this.grdDtl.Size = new System.Drawing.Size(574, 91);
+            this.grdDtl.Size = new System.Drawing.Size(574, 147);
             this.grdDtl.TabIndex = 1;
             this.grdDtl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDtl});
@@ -307,7 +307,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(574, 206);
+            this.lcMain.Size = new System.Drawing.Size(574, 150);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -351,7 +351,7 @@
             // txtParamValues
             // 
             this.txtParamValues.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParamValueList", true));
-            this.txtParamValues.Location = new System.Drawing.Point(352, 183);
+            this.txtParamValues.Location = new System.Drawing.Point(352, 127);
             this.txtParamValues.MenuManager = this.ribbonMain;
             this.txtParamValues.Name = "txtParamValues";
             this.txtParamValues.Size = new System.Drawing.Size(219, 20);
@@ -361,7 +361,7 @@
             // txtParamList
             // 
             this.txtParamList.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParamList", true));
-            this.txtParamList.Location = new System.Drawing.Point(66, 183);
+            this.txtParamList.Location = new System.Drawing.Point(66, 127);
             this.txtParamList.MenuManager = this.ribbonMain;
             this.txtParamList.Name = "txtParamList";
             this.txtParamList.Size = new System.Drawing.Size(219, 20);
@@ -371,7 +371,7 @@
             // txtDataSetAlias
             // 
             this.txtDataSetAlias.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "DataSetAlias", true));
-            this.txtDataSetAlias.Location = new System.Drawing.Point(66, 159);
+            this.txtDataSetAlias.Location = new System.Drawing.Point(66, 103);
             this.txtDataSetAlias.MenuManager = this.ribbonMain;
             this.txtDataSetAlias.Name = "txtDataSetAlias";
             this.txtDataSetAlias.Size = new System.Drawing.Size(505, 20);
@@ -385,7 +385,7 @@
             this.txtSqlScript.IsReadOnly = false;
             this.txtSqlScript.Location = new System.Drawing.Point(66, 51);
             this.txtSqlScript.Name = "txtSqlScript";
-            this.txtSqlScript.Size = new System.Drawing.Size(505, 104);
+            this.txtSqlScript.Size = new System.Drawing.Size(505, 48);
             this.txtSqlScript.TabIndex = 9;
             // 
             // checkEdit1
@@ -437,7 +437,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(574, 206);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(574, 150);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -485,7 +485,7 @@
             this.lciSqlScript.CustomizationFormText = "查询脚本";
             this.lciSqlScript.Location = new System.Drawing.Point(0, 48);
             this.lciSqlScript.Name = "lciSqlScript";
-            this.lciSqlScript.Size = new System.Drawing.Size(572, 108);
+            this.lciSqlScript.Size = new System.Drawing.Size(572, 52);
             this.lciSqlScript.Text = "查询脚本";
             this.lciSqlScript.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -493,7 +493,7 @@
             // 
             this.lciDataSetAlias.Control = this.txtDataSetAlias;
             this.lciDataSetAlias.CustomizationFormText = "别名及关系";
-            this.lciDataSetAlias.Location = new System.Drawing.Point(0, 156);
+            this.lciDataSetAlias.Location = new System.Drawing.Point(0, 100);
             this.lciDataSetAlias.Name = "lciDataSetAlias";
             this.lciDataSetAlias.Size = new System.Drawing.Size(572, 24);
             this.lciDataSetAlias.Text = "别名及关系";
@@ -503,7 +503,7 @@
             // 
             this.lciParamList.Control = this.txtParamList;
             this.lciParamList.CustomizationFormText = "参数列表";
-            this.lciParamList.Location = new System.Drawing.Point(0, 180);
+            this.lciParamList.Location = new System.Drawing.Point(0, 124);
             this.lciParamList.Name = "lciParamList";
             this.lciParamList.Size = new System.Drawing.Size(286, 24);
             this.lciParamList.Text = "参数列表";
@@ -513,7 +513,7 @@
             // 
             this.lciParamValues.Control = this.txtParamValues;
             this.lciParamValues.CustomizationFormText = "测试值";
-            this.lciParamValues.Location = new System.Drawing.Point(286, 180);
+            this.lciParamValues.Location = new System.Drawing.Point(286, 124);
             this.lciParamValues.Name = "lciParamValues";
             this.lciParamValues.Size = new System.Drawing.Size(286, 24);
             this.lciParamValues.Text = "测试值";
