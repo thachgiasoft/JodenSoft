@@ -407,7 +407,7 @@
             // 
             // bsRole
             // 
-            this.bsRole.DataSource = typeof(SAF.SystemEntities.sysRole);
+            this.bsRole.DataSource = typeof(SAF.SystemEntity.sysRole);
             // 
             // grdIndex
             // 

@@ -191,7 +191,7 @@
             // 
             // bsDetail
             // 
-            this.bsDetail.DataSource = typeof(SAF.SystemEntities.sysBillOperateRight);
+            this.bsDetail.DataSource = typeof(SAF.SystemEntity.sysBillOperateRight);
             // 
             // standaloneDtl
             // 
@@ -215,11 +215,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysBillType);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysBillType);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysBillType);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysBillType);
             // 
             // pnlQueryControl
             // 
@@ -563,7 +563,7 @@
             // 
             // bsDataRight
             // 
-            this.bsDataRight.DataSource = typeof(SAF.SystemEntities.sysBillDataRight);
+            this.bsDataRight.DataSource = typeof(SAF.SystemEntity.sysBillDataRight);
             // 
             // grvDataRight
             // 
@@ -812,7 +812,7 @@
             // 
             // bsRightDefine
             // 
-            this.bsRightDefine.DataSource = typeof(SAF.SystemEntities.sysBillRightDefine);
+            this.bsRightDefine.DataSource = typeof(SAF.SystemEntity.sysBillRightDefine);
             // 
             // grvRightDefine
             // 

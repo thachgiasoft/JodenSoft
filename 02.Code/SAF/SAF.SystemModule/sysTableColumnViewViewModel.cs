@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SAF.Framework.Controls.ViewConfig;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 
 namespace SAF.SystemModule
 {

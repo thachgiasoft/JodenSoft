@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace SAF.SystemEntities
+namespace SAF.SystemEntity
 {
     public class sysOrganization : Entity<sysOrganization>
     {

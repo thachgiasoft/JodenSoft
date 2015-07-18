@@ -95,11 +95,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysMenuChart);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysMenuChart);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysMenuChart);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysMenuChart);
             // 
             // pcMain
             // 

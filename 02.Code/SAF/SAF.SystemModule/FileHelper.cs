@@ -7,7 +7,7 @@ using SAF.Foundation;
 using System.IO;
 using SAF.Foundation.ComponentModel;
 using System.Diagnostics;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 
 namespace SAF.SystemModule
 {

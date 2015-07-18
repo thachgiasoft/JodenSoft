@@ -7,7 +7,7 @@ using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.Foundation.ServiceModel;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 
 namespace SAF.SystemModule
 {

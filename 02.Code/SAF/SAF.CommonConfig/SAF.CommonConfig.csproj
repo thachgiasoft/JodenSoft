@@ -139,7 +139,7 @@
     <Compile Include="CommonBill\sysCommonBillViewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SAF.SystemEntities\SAF.SystemEntity.csproj">
+    <ProjectReference Include="..\SAF.SystemEntity\SAF.SystemEntity.csproj">
       <Project>{6549cdb7-bd86-4715-a288-7b997fea3fd5}</Project>
       <Name>SAF.SystemEntity</Name>
     </ProjectReference>

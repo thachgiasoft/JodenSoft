@@ -1,5 +1,5 @@
 ﻿using SAF.Framework.ViewModel;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

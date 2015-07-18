@@ -100,11 +100,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysFile);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysFile);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysFile);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysFile);
             // 
             // pnlQueryControl
             // 

@@ -76,11 +76,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.Tables);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.Tables);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysTableColumn);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysTableColumn);
             // 
             // pcMain
             // 

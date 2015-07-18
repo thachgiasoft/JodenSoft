@@ -89,11 +89,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysOrganization);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysOrganization);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysOrganization);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysOrganization);
             // 
             // pnlQueryControl
             // 

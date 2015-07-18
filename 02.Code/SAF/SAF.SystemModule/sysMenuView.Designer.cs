@@ -605,7 +605,7 @@
             // 
             // bsParams
             // 
-            this.bsParams.DataSource = typeof(SAF.SystemEntities.sysMenuParam);
+            this.bsParams.DataSource = typeof(SAF.SystemEntity.sysMenuParam);
             // 
             // grvParams
             // 

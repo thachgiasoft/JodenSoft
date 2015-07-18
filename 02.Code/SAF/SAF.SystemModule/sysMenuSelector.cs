@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 using DevExpress.XtraTreeList;
 using SAF.Framework;
 using DevExpress.XtraBars;

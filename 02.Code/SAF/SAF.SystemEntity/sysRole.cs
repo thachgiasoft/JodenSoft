@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.SystemEntities
+namespace SAF.SystemEntity
 {
     public class sysRole : Entity<sysRole>
     {

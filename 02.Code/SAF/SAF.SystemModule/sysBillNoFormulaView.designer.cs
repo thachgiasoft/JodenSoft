@@ -128,11 +128,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysBillNoFormula);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysBillNoFormula);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysBillNoFormula);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysBillNoFormula);
             // 
             // pnlQueryControl
             // 

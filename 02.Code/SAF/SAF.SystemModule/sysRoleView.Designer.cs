@@ -104,11 +104,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.SystemEntities.sysRole);
+            this.bsIndex.DataSource = typeof(SAF.SystemEntity.sysRole);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysRole);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysRole);
             // 
             // pcMain
             // 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SAF.Framework.ViewModel;
 using SAF.Framework.Controls.ViewConfig;
-using SAF.SystemEntities;
+using SAF.SystemEntity;
 using SAF.EntityFramework;
 using SAF.Foundation;
 using System.Data;

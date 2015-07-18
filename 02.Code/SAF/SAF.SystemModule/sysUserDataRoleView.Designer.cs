@@ -85,7 +85,7 @@
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.SystemEntities.sysUserDataRole);
+            this.bsMain.DataSource = typeof(SAF.SystemEntity.sysUserDataRole);
             // 
             // pcMain
             // 
