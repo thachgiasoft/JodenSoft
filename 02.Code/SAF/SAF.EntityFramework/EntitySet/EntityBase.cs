@@ -14,7 +14,7 @@ namespace SAF.EntityFramework
     [Serializable]
     public abstract class EntityBase : DisposableObject, IEntityBase
     {
-        private string _DbTableName = string.Empty;
+        private string _TableName = string.Empty;
         private string _PrimaryKeyName = string.Empty;
         private string _IdenGroup = string.Empty;
 
@@ -23,13 +23,19 @@ namespace SAF.EntityFramework
         /// </summary>
         public string TableName
         {
-            get { return IsInner ? _DbTableName : OwnerEntitySet.TableName; }
-            set { _DbTableName = value; }
+            get { return IsInner ? _TableName : OwnerEntitySet.TableName; }
+            set { _TableName = value; }
         }
 
         public string IdenGroup
         {
-            get { return IsInner ? _IdenGroup : OwnerEntitySet.IdenGroup; }
+            get
+            {
+                var result = IsInner ? _IdenGroup : OwnerEntitySet.IdenGroup;
+                if (result.IsEmpty())
+                    result = this.TableName;
+                return result;
+            }
             set { _IdenGroup = value; }
         }
         /// <summary>
