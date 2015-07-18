@@ -7,7 +7,7 @@ using System.Text;
 using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.Framework.Controls.ViewConfig;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 
 namespace SAF.SystemModule
 {

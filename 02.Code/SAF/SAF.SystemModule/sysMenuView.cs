@@ -13,7 +13,7 @@ using SAF.Framework.Controls;
 using SAF.Foundation;
 using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 using DevExpress.XtraLayout.Utils;
 
 namespace SAF.SystemModule

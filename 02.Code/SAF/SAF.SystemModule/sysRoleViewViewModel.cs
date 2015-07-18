@@ -9,7 +9,7 @@ using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation.ServiceModel;
 using SAF.EntityFramework;
 using DevExpress.XtraTreeList.Nodes;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 
 namespace SAF.SystemModule
 {

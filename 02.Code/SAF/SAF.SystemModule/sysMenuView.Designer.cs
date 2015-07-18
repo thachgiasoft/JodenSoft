@@ -136,11 +136,11 @@
             // 
             // bsIndex
             // 
-            this.bsIndex.DataSource = typeof(SAF.Framework.Entities.sysMenu);
+            this.bsIndex.DataSource = typeof(SAF.Framework.Entity.sysMenu);
             // 
             // bsMain
             // 
-            this.bsMain.DataSource = typeof(SAF.Framework.Entities.sysMenu);
+            this.bsMain.DataSource = typeof(SAF.Framework.Entity.sysMenu);
             // 
             // pnlQueryControl
             // 

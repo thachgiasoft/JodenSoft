@@ -41,8 +41,8 @@ namespace SAF.CommonConfig
         [ViewParam("通用单据配置ID")]
         public virtual int CommonBillConfigId
         {
-            get { return Convert.ToInt32(this.GetViewParam("CommonBillConfigId")); }
-            set { this.SetViewParam("CommonBillConfigId", value.ToString()); }
+            get { return this.ViewParameters["CommonBillConfigId"] == null ? 0 : Convert.ToInt32(this.ViewParameters["CommonBillConfigId"]); }
+            set { this.ViewParameters["CommonBillConfigId"] = value; }
         }
 
         protected override Framework.ViewModel.IBaseViewViewModel OnCreateViewModel()

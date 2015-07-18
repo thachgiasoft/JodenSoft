@@ -12,7 +12,7 @@ using SAF.Foundation.MetaAttributes;
 using DevExpress.XtraTreeList.Nodes;
 using SAF.Foundation;
 using SAF.Framework;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 
 namespace SAF.SystemModule
 {
