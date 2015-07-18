@@ -37,6 +37,7 @@ namespace SAF.Framework.View
             return new BusinessViewViewModel();
         }
 
+        [Browsable(false)]
         [ViewParameter("是否允许添加到收藏夹")]
         public bool AllowAddToFavorite
         {
