@@ -32,19 +32,6 @@ namespace SAF.SystemModule
             }
         }
 
-        private EntitySet<sysBusinessViewParam> _BusinessViewParamEntitySet = null;
-        public EntitySet<sysBusinessViewParam> BusinessViewParamEntitySet
-        {
-            get
-            {
-                if (_BusinessViewParamEntitySet == null)
-                {
-                    _BusinessViewParamEntitySet = new EntitySet<sysBusinessViewParam>(this.ExecuteCache, 0);
-                }
-                return _BusinessViewParamEntitySet;
-            }
-        }
-
         protected override void OnInitEvents()
         {
             base.OnInitEvents();
@@ -110,8 +97,7 @@ namespace SAF.SystemModule
                     }
                 }
                 ParseBusinessView(list);
-                Save();
-                ProgressService.Close();
+                ProgressService.Close();         
             }
             catch
             {
@@ -125,7 +111,6 @@ namespace SAF.SystemModule
         {
             base.OnApplySave();
             this.BusinessViewEntitySet.SaveChanges();
-            this.BusinessViewParamEntitySet.SaveChanges();
         }
 
         protected override void OnAfterSave(bool saveSucceed)
@@ -134,9 +119,6 @@ namespace SAF.SystemModule
 
             this.BusinessViewEntitySet.AcceptChanges();
             this.BusinessViewEntitySet.Clear();
-
-            this.BusinessViewParamEntitySet.AcceptChanges();
-            this.BusinessViewParamEntitySet.Clear();
         }
 
         class ViewTypeInfo
@@ -144,7 +126,6 @@ namespace SAF.SystemModule
             public string FileName { get; set; }
             public string TypeName { get; set; }
             public string Description { get; set; }
-            public IEnumerable<PropertyInfo> ViewParams { get; set; }
         }
 
         private void ParseBusinessView(List<string> files)
@@ -174,9 +155,8 @@ namespace SAF.SystemModule
 
                             foreach (Type item in types)
                             {
-                                var list = item.GetAllPropertyMarked<ViewParamAttribute>();
                                 var boAttr = item.GetCustomAttribute<BusinessObjectAttribute>();
-                                var view = new ViewTypeInfo() { FileName = Path.GetFileName(fileName), TypeName = item.FullName, ViewParams = list };
+                                var view = new ViewTypeInfo() { FileName = Path.GetFileName(fileName), TypeName = item.FullName };
                                 view.Description = boAttr == null ? string.Empty : boAttr.Description;
                                 listView.Add(view);
                             }
@@ -198,12 +178,6 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
 
             BusinessViewEntitySet.Query(sql);
 
-            var idens = BusinessViewEntitySet.Select(p => p.Iden.ToString()).JoinText(",");
-            if (idens.IsEmpty())
-                idens = "-1";
-            string paramSql = "select * from sysBusinessViewParam with(nolock) where BusinessViewId in({0})".FormatEx(idens);
-            BusinessViewParamEntitySet.Query(paramSql);
-
             foreach (var type in listView)
             {
                 var viewInfo = BusinessViewEntitySet.FirstOrDefault(p => p.GetFieldValue<string>("FileName") == type.FileName && p.ClassName == type.TypeName);
@@ -220,17 +194,6 @@ WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
                     viewInfo.Description = type.Description;
                 }
                 viewInfo.IsDeleted = false;
-
-                this.BusinessViewParamEntitySet.Where(p => p.BusinessViewId == viewInfo.Iden).Delete();
-                foreach (var param in type.ViewParams)
-                {
-                    var attr = param.GetCustomAttribute<ViewParamAttribute>();
-                    var p = this.BusinessViewParamEntitySet.AddNew();
-                    p.Iden = IdenGenerator.NewIden(p.IdenGroup);
-                    p.Name = param.Name;
-                    p.Description = attr.Desctiption;
-                    p.BusinessViewId = viewInfo.Iden;
-                }
             }
         }
 

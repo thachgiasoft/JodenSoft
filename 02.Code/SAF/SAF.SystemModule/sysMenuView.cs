@@ -239,6 +239,12 @@ ORDER BY [Iden]";
 
         }
 
-
+        public override string InitCondition
+        {
+            get
+            {
+                return "1=1";
+            }
+        }
     }
 }

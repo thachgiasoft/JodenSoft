@@ -8,6 +8,7 @@
     [LastWriteTime] DATETIME       NOT NULL,
     [Remark]        NVARCHAR (MAX) NULL,
     [IsActive]      BIT            CONSTRAINT [DF_SystemFile_IsActive] DEFAULT ((1)) NOT NULL,
+	[IsSystem]      BIT            CONSTRAINT [DF_SystemFile_IsSystem] DEFAULT ((0)) NOT NULL,
     [CreatedBy]     INT            NULL,
     [CreatedOn]     DATETIME       NULL,
     [ModifiedBy]    INT            NULL,

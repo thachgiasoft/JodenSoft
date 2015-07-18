@@ -70,7 +70,6 @@
     <Build Include="dbo\Tables\sysIden.sql" />
     <Build Include="dbo\Tables\sysUserDataRole.sql" />
     <Build Include="dbo\Tables\sysCodeTemplate.sql" />
-    <Build Include="dbo\Tables\sysBusinessViewParam.sql" />
     <Build Include="dbo\Tables\sysFile.sql" />
     <Build Include="dbo\Tables\sysMenuParam.sql" />
     <Build Include="dbo\Tables\sysDataRole.sql" />
@@ -81,7 +80,6 @@
     <Build Include="dbo\Tables\sysBillOperateRight.sql" />
     <Build Include="dbo\Tables\sysRole.sql" />
     <Build Include="dbo\Tables\sysRoleMenu.sql" />
-    <Build Include="dbo\Tables\sysMenuChart.sql" />
     <Build Include="dbo\Tables\sysMyFavoriteMenu.sql" />
     <Build Include="dbo\Tables\sysMenu.sql" />
     <Build Include="dbo\Tables\sysTableColumn.sql" />

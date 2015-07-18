@@ -67,5 +67,10 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(p => p.IsActive, value); }
         }
 
+        public bool IsSystem
+        {
+            get { return base.GetFieldValue<bool>(p => p.IsSystem); }
+            set { base.SetFieldValue(p => p.IsSystem, value); }
+        }
     }
 }

@@ -2,6 +2,8 @@
 (
 	[Iden] INT NOT NULL, 
     [Name] NVARCHAR(50) NOT NULL, 
+	[ParentId] INT NOT NULL,
+	[NodeType] INT NOT NULL,
     [SqlScript] NVARCHAR(MAX) NOT NULL, 
     [DataSetAlias] NVARCHAR(400) NOT NULL, 
     [ParamList] NVARCHAR(MAX) NULL, 

@@ -197,5 +197,6 @@ LEFT JOIN
             base.OnEndEdit();
             this.MenuParamEntitySet.EndEdit();
         }
+
     }
 }

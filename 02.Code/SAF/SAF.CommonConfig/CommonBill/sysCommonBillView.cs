@@ -38,7 +38,7 @@ namespace SAF.CommonConfig
         }
 
         [Browsable(false)]
-        [ViewParam("通用单据配置ID")]
+        [ViewParameter("通用单据配置ID")]
         public virtual int CommonBillConfigId
         {
             get { return this.ViewParameters["CommonBillConfigId"] == null ? 0 : Convert.ToInt32(this.ViewParameters["CommonBillConfigId"]); }

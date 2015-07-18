@@ -47,12 +47,17 @@ namespace SAF.SystemModule
             UIController.RefreshControl(this.txtFileSize, false);
             UIController.RefreshControl(this.txtId, false);
 
-            this.grvIndex.BestFitColumns();
+            try
+            {
+                this.grvIndex.BestFitColumns();
+            }
+            catch { }
         }
 
         void fileDragDropManager_FileDroppedEvent(object sender, FileDroppedEventArgs e)
         {
             this.ViewModel.UpdateFiles(e.Files);
+            this.Save();
         }
 
         protected new sysFileViewViewModel ViewModel
