@@ -186,7 +186,6 @@
     </Compile>
     <Compile Include="ConnectionTest\IConnectionTester.cs" />
     <Compile Include="ConnectionTest\SqlConnectionTester.cs" />
-    <Compile Include="Entities\sysReportFormat.cs" />
     <Compile Include="FileUpgradeHelper.cs" />
     <Compile Include="fmFileUpgrade.cs">
       <SubType>Form</SubType>
@@ -251,7 +250,6 @@
       <DependentUpon>QueryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryControlHelper.cs" />
-    <Compile Include="Entities\sysReport.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
