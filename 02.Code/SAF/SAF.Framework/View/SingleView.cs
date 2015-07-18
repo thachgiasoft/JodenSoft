@@ -533,6 +533,8 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiSend, IsBrowse && this.BillTypeId > 0 && curr != null && canSendToAudit && curr.BillState == BillState.Draft);
 
             UIController.RefreshControl(this.bbiPreview, IsBrowse && curr != null && canPreview);
+            UIController.RefreshControl(this.bbiAddToFavorite, AllowAddToFavorite);
+            UIController.ShowBarItem(AllowAddToFavorite, bbiAddToFavorite);
 
             if (curr != null)
             {
@@ -613,6 +615,7 @@ namespace SAF.Framework.View
 
         private void bbiAddToFavorite_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (!AllowAddToFavorite) return;
             this.OnAddMenuToFavorite();
         }
     }

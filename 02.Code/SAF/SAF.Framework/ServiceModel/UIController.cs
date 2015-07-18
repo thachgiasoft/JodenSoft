@@ -86,7 +86,7 @@ namespace SAF.Framework
             }
             else if (bRecursion && (aControl is PanelControl || aControl is LayoutControl || aControl is SplitGroupPanel
                  || aControl is Form || aControl is XtraTabPage || aControl is XtraTabControl || aControl is BaseUserControl
-                 || aControl is SplitContainerControl ))
+                 || aControl is SplitContainerControl))
             {
                 foreach (Control c in aControl.Controls)
                 {
@@ -246,23 +246,23 @@ namespace SAF.Framework
         /// 
         /// </summary>
         /// <param name="barItems"></param>
-        public static void HideMenu(params BarItem[] barItems)
+        public static void ShowBarItem(bool visible, params BarItem[] barItems)
         {
             if (barItems == null) return;
             foreach (var item in barItems)
             {
-                item.Enabled = false;
-                item.Visibility = BarItemVisibility.Never;
+                item.Enabled = visible;
+                item.Visibility = visible ? BarItemVisibility.Always : BarItemVisibility.Never;
             }
         }
 
-        public static void HideMenu(params RibbonPageGroup[] groups)
+        public static void ShowRibbonPageGroup(bool visible, params RibbonPageGroup[] groups)
         {
             if (groups == null) return;
             foreach (var group in groups)
             {
-                group.Enabled = false;
-                group.Visible = false;
+                group.Enabled = visible;
+                group.Visible = visible;
             }
         }
     }
