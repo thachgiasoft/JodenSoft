@@ -82,6 +82,7 @@
     <Compile Include="Entity\sysMenuType.cs" />
     <Compile Include="Entity\sysReport.cs" />
     <Compile Include="Entity\sysReportFormat.cs" />
+    <Compile Include="Extensions\EditExtensions.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
     <Compile Include="Extensions\LookUpEditExtensions.cs" />
