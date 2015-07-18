@@ -9,11 +9,12 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
+using SAF.Framework;
 
 namespace SAF.CommonConfig
 {
     [BusinessObject("报表中心配置")]
-    public partial class sysCommonReportView : SingleView
+    public partial class sysCommonReportView : MasterDetailView
     {
         public sysCommonReportView()
         {
@@ -31,6 +32,14 @@ namespace SAF.CommonConfig
             {
                 return base.ViewModel as sysCommonReportConfigViewViewModel;
             }
+        }
+
+        protected override void OnRefreshUI()
+        {
+            base.OnRefreshUI();
+
+            UIController.RefreshControl(txtIden, false);
+            UIController.RefreshControl(txtParamList, false);
         }
 
     }
