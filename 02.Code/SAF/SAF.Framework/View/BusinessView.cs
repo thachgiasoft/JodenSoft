@@ -10,7 +10,7 @@ using DevExpress.XtraBars.Ribbon;
 using SAF.Framework.ViewModel;
 using SAF.Foundation;
 using SAF.EntityFramework;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 using SAF.Foundation.ServiceModel;
 
 namespace SAF.Framework.View

@@ -1,6 +1,6 @@
 ﻿using SAF.EntityFramework;
 using SAF.Foundation;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 using SAF.Framework.View;
 using System;
 using System.Collections.Generic;

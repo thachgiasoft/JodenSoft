@@ -4,7 +4,7 @@ using SAF.EntityFramework;
 using SAF.Foundation.ComponentModel;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls;
-using SAF.Framework.Entities;
+using SAF.Framework.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;

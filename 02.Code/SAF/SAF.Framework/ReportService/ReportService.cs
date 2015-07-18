@@ -1,7 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using SAF.EntityFramework;
-using SAF.Framework.Controls.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.Parameters;
 using System.Data;
 using SAF.Framework.View;
+using SAF.Framework.Entity;
 
 namespace SAF.Framework
 {

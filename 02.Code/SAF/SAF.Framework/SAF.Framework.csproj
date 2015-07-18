@@ -76,10 +76,12 @@
     <Compile Include="Controls\LoginAuthenticate.Designer.cs">
       <DependentUpon>LoginAuthenticate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sysAppConfig.cs" />
-    <Compile Include="Entities\sysMyFavoriteMenu.cs" />
-    <Compile Include="Entities\sysMenu.cs" />
-    <Compile Include="Entities\sysMenuType.cs" />
+    <Compile Include="Entity\sysAppConfig.cs" />
+    <Compile Include="Entity\sysMyFavoriteMenu.cs" />
+    <Compile Include="Entity\sysMenu.cs" />
+    <Compile Include="Entity\sysMenuType.cs" />
+    <Compile Include="Entity\sysReport.cs" />
+    <Compile Include="Entity\sysReportFormat.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
     <Compile Include="Extensions\LookUpEditExtensions.cs" />
