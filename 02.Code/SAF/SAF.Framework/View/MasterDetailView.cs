@@ -30,7 +30,10 @@ namespace SAF.Framework.View
         {
             base.OnInitBinding();
 
-            this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
+            if (this.ViewModel != null)
+            {
+                this.ViewModel.DetailEntitySet.SetBindingSource(this.bsDetail);
+            }
         }
 
         protected override void OnRefreshDetailToolBar()
@@ -97,6 +100,6 @@ namespace SAF.Framework.View
         }
         #endregion
 
-        
+
     }
 }
