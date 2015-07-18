@@ -8,7 +8,7 @@ using SAF.SystemEntity;
 using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
 using SAF.EntityFramework;
-using SAF.CommonConfig.Entities;
+using SAF.CommonConfig.Entity;
 using SAF.CommonConfig.CommonBill;
 
 namespace SAF.CommonConfig

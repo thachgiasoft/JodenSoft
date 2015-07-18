@@ -17,7 +17,7 @@ using DevExpress.XtraEditors;
 using SAF.EntityFramework;
 using DevExpress.Utils;
 using SAF.Framework.Controls.ViewConfig;
-using SAF.CommonConfig.Entities;
+using SAF.CommonConfig.Entity;
 using SAF.CommonConfig.CommonBill;
 using SAF.Foundation.ComponentModel;
 using SAF.Foundation.ServiceModel;
