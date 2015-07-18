@@ -176,11 +176,13 @@ namespace SAF.Framework
                         d.Enabled = bEnabled;
                     }
                 }
+                return;
             }
             else if (aComponent is BarItem)
             {
                 BarItem item = aComponent as BarItem;
                 item.Enabled = bEnabled;
+                return;
             }
 
             Control aControl = aComponent as Control;
