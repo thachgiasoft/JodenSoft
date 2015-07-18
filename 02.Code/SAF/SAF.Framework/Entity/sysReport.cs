@@ -29,6 +29,18 @@ namespace SAF.Framework.Entity
             set { base.SetFieldValue(P => P.Name, value); }
         }
 
+        public int ParentId
+        {
+            get { return base.GetFieldValue<int>(P => P.ParentId, 0); }
+            set { base.SetFieldValue(P => P.ParentId, value); }
+        }
+
+        public int NodeType
+        {
+            get { return base.GetFieldValue<int>(P => P.NodeType, 0); }
+            set { base.SetFieldValue(P => P.NodeType, value); }
+        }
+
         public string SqlScript
         {
             get { return base.GetFieldValue<string>(P => P.SqlScript); }
