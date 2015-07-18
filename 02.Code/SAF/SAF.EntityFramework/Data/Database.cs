@@ -11,6 +11,7 @@ using SAF.EntityFramework.Properties;
 using System.Text.RegularExpressions;
 using SAF.EntityFramework.Server;
 using SAF.Foundation.Security;
+using SAF.EntityFramework;
 
 namespace SAF.EntityFramework
 {
@@ -271,7 +272,7 @@ namespace SAF.EntityFramework
         /// <param name="commandText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public DbCommand GetSqlStringCommandFromSqlCommandObject(Server.SqlCommandObject cmdObj)
+        public DbCommand GetSqlStringCommandFromSqlCommandObject(SAF.EntityFramework.Server.SqlCommandObject cmdObj)
         {
             if (cmdObj == null)
                 throw new ArgumentNullException("cmdObj");

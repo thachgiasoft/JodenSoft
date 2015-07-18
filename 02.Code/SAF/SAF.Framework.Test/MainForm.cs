@@ -1,5 +1,4 @@
-﻿using SAF.Framework.Diaglogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +16,17 @@ namespace SAF.Framework.Test
             InitializeComponent();
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            string obj = string.Empty;
-            InputBox.Show(ref obj, p => { if (string.IsNullOrWhiteSpace(p)) { MessageBox.Show("输入空值了。"); return false; } else return true; });
+            ReportService.InitializeReport(null, this.barButtonItem1, "1,2");
+        }
 
-            MessageBox.Show(obj);
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var item = new TableReleation("a.Iden=b.iden");
+
+            item.Validate();
+
         }
     }
 }

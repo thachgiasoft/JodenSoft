@@ -251,7 +251,6 @@
       <DependentUpon>QueryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryControlHelper.cs" />
-    <Compile Include="ReportService\ReportService.cs" />
     <Compile Include="Entities\sysReport.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>

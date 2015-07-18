@@ -29,7 +29,6 @@ namespace SAF.Framework.Controls.Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReportService.InitializeReport(this.barButtonItem1, "1,2");
         }
 
 

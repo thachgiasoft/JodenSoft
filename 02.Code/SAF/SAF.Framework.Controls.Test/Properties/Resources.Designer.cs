@@ -59,15 +59,5 @@ namespace SAF.Framework.Controls.Test.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Preview_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Preview_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
