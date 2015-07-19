@@ -197,7 +197,7 @@ Order by a.OrderIndex";
 
         private DataSet GetReportDataSource()
         {
-            var ds = new DataSet("报表数据源");
+            var ds = new DataSet("ReportDataSet");
             var tableNames = CurrReport.DataSetAlias.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             //解析表名和关系
             var listReleation = new List<TableReleation>();
@@ -240,7 +240,7 @@ Order by a.OrderIndex";
             }
 
             //添加当前用户信息
-            var dt = new DataTable("图片");
+            var dt = new DataTable("UserInfo");
             dt.Columns.Add("UserId", typeof(string));
             dt.Columns.Add("UserName", typeof(string));
             dt.Columns.Add("UserFullName", typeof(string));
