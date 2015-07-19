@@ -42,12 +42,12 @@
             this.treeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
             this.cbxNodeType = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.txtParamValues = new DevExpress.XtraEditors.TextEdit();
-            this.txtParamList = new DevExpress.XtraEditors.TextEdit();
             this.txtDataSetAlias = new DevExpress.XtraEditors.TextEdit();
             this.txtSqlScript = new SAF.Framework.Controls.TextEditor.TextEditorControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.txtIden = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.txtParamList = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -89,11 +89,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpEdit1TreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxNodeType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParamValues.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParamList.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataSetAlias.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParamList.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -139,7 +139,7 @@
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.treeIndex);
-            this.splitMain.Size = new System.Drawing.Size(819, 364);
+            this.splitMain.Size = new System.Drawing.Size(819, 402);
             this.splitMain.SplitterPosition = 234;
             // 
             // bsIndex
@@ -152,7 +152,7 @@
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(1, 513);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 551);
             // 
             // pcMain
             // 
@@ -161,18 +161,18 @@
             // splitRight
             // 
             this.splitRight.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitRight.Size = new System.Drawing.Size(580, 360);
+            this.splitRight.Size = new System.Drawing.Size(580, 398);
             this.splitRight.SplitterPosition = 176;
             // 
             // tcMain
             // 
             this.tcMain.ShowTabHeader = DevExpress.Utils.DefaultBoolean.Default;
-            this.tcMain.Size = new System.Drawing.Size(580, 179);
+            this.tcMain.Size = new System.Drawing.Size(580, 217);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(574, 150);
+            this.pageMain.Size = new System.Drawing.Size(574, 188);
             this.pageMain.Text = "报表配置";
             // 
             // bmMain
@@ -205,7 +205,7 @@
             this.treeIndex.OptionsView.ShowIndicator = false;
             this.treeIndex.OptionsView.ShowVertLines = false;
             this.treeIndex.ParentFieldName = "ParentId";
-            this.treeIndex.Size = new System.Drawing.Size(234, 360);
+            this.treeIndex.Size = new System.Drawing.Size(234, 398);
             this.treeIndex.TabIndex = 0;
             // 
             // colName
@@ -297,17 +297,17 @@
             this.lcMain.Controls.Add(this.cbxParent);
             this.lcMain.Controls.Add(this.cbxNodeType);
             this.lcMain.Controls.Add(this.txtParamValues);
-            this.lcMain.Controls.Add(this.txtParamList);
             this.lcMain.Controls.Add(this.txtDataSetAlias);
             this.lcMain.Controls.Add(this.txtSqlScript);
             this.lcMain.Controls.Add(this.checkEdit1);
             this.lcMain.Controls.Add(this.txtIden);
             this.lcMain.Controls.Add(this.txtName);
+            this.lcMain.Controls.Add(this.txtParamList);
             this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup1;
-            this.lcMain.Size = new System.Drawing.Size(574, 150);
+            this.lcMain.Size = new System.Drawing.Size(574, 188);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
@@ -351,27 +351,17 @@
             // txtParamValues
             // 
             this.txtParamValues.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParamValueList", true));
-            this.txtParamValues.Location = new System.Drawing.Point(352, 127);
+            this.txtParamValues.Location = new System.Drawing.Point(66, 165);
             this.txtParamValues.MenuManager = this.ribbonMain;
             this.txtParamValues.Name = "txtParamValues";
-            this.txtParamValues.Size = new System.Drawing.Size(219, 20);
+            this.txtParamValues.Size = new System.Drawing.Size(505, 20);
             this.txtParamValues.StyleController = this.lcMain;
             this.txtParamValues.TabIndex = 12;
-            // 
-            // txtParamList
-            // 
-            this.txtParamList.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParamList", true));
-            this.txtParamList.Location = new System.Drawing.Point(66, 127);
-            this.txtParamList.MenuManager = this.ribbonMain;
-            this.txtParamList.Name = "txtParamList";
-            this.txtParamList.Size = new System.Drawing.Size(219, 20);
-            this.txtParamList.StyleController = this.lcMain;
-            this.txtParamList.TabIndex = 11;
             // 
             // txtDataSetAlias
             // 
             this.txtDataSetAlias.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "DataSetAlias", true));
-            this.txtDataSetAlias.Location = new System.Drawing.Point(66, 103);
+            this.txtDataSetAlias.Location = new System.Drawing.Point(66, 117);
             this.txtDataSetAlias.MenuManager = this.ribbonMain;
             this.txtDataSetAlias.Name = "txtDataSetAlias";
             this.txtDataSetAlias.Size = new System.Drawing.Size(505, 20);
@@ -385,7 +375,7 @@
             this.txtSqlScript.IsReadOnly = false;
             this.txtSqlScript.Location = new System.Drawing.Point(66, 51);
             this.txtSqlScript.Name = "txtSqlScript";
-            this.txtSqlScript.Size = new System.Drawing.Size(505, 48);
+            this.txtSqlScript.Size = new System.Drawing.Size(505, 62);
             this.txtSqlScript.TabIndex = 9;
             // 
             // checkEdit1
@@ -419,6 +409,19 @@
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 4;
             // 
+            // txtParamList
+            // 
+            this.txtParamList.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "ParamList", true));
+            this.txtParamList.Location = new System.Drawing.Point(66, 141);
+            this.txtParamList.MenuManager = this.ribbonMain;
+            this.txtParamList.Name = "txtParamList";
+            this.txtParamList.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search)});
+            this.txtParamList.Size = new System.Drawing.Size(505, 20);
+            this.txtParamList.StyleController = this.lcMain;
+            this.txtParamList.TabIndex = 11;
+            this.txtParamList.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtParamList_ButtonClick);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -431,13 +434,13 @@
             this.lciSqlScript,
             this.lciDataSetAlias,
             this.lciParamList,
-            this.lciParamValues,
             this.layoutControlItem8,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.lciParamValues});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(574, 150);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(574, 188);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -485,7 +488,7 @@
             this.lciSqlScript.CustomizationFormText = "查询脚本";
             this.lciSqlScript.Location = new System.Drawing.Point(0, 48);
             this.lciSqlScript.Name = "lciSqlScript";
-            this.lciSqlScript.Size = new System.Drawing.Size(572, 52);
+            this.lciSqlScript.Size = new System.Drawing.Size(572, 66);
             this.lciSqlScript.Text = "查询脚本";
             this.lciSqlScript.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -493,7 +496,7 @@
             // 
             this.lciDataSetAlias.Control = this.txtDataSetAlias;
             this.lciDataSetAlias.CustomizationFormText = "别名及关系";
-            this.lciDataSetAlias.Location = new System.Drawing.Point(0, 100);
+            this.lciDataSetAlias.Location = new System.Drawing.Point(0, 114);
             this.lciDataSetAlias.Name = "lciDataSetAlias";
             this.lciDataSetAlias.Size = new System.Drawing.Size(572, 24);
             this.lciDataSetAlias.Text = "别名及关系";
@@ -503,9 +506,9 @@
             // 
             this.lciParamList.Control = this.txtParamList;
             this.lciParamList.CustomizationFormText = "参数列表";
-            this.lciParamList.Location = new System.Drawing.Point(0, 124);
+            this.lciParamList.Location = new System.Drawing.Point(0, 138);
             this.lciParamList.Name = "lciParamList";
-            this.lciParamList.Size = new System.Drawing.Size(286, 24);
+            this.lciParamList.Size = new System.Drawing.Size(572, 24);
             this.lciParamList.Text = "参数列表";
             this.lciParamList.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -513,9 +516,9 @@
             // 
             this.lciParamValues.Control = this.txtParamValues;
             this.lciParamValues.CustomizationFormText = "测试值";
-            this.lciParamValues.Location = new System.Drawing.Point(286, 124);
+            this.lciParamValues.Location = new System.Drawing.Point(0, 162);
             this.lciParamValues.Name = "lciParamValues";
-            this.lciParamValues.Size = new System.Drawing.Size(286, 24);
+            this.lciParamValues.Size = new System.Drawing.Size(572, 24);
             this.lciParamValues.Text = "测试值";
             this.lciParamValues.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -553,7 +556,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "sysCommonReportView";
-            this.Size = new System.Drawing.Size(821, 545);
+            this.Size = new System.Drawing.Size(821, 583);
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).EndInit();
             this.tcDtl.ResumeLayout(false);
             this.pageDtl.ResumeLayout(false);
@@ -584,11 +587,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListLookUpEdit1TreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxNodeType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtParamValues.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtParamList.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataSetAlias.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParamList.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -620,7 +623,6 @@
         private Framework.Controls.TextEditor.TextEditorControl txtSqlScript;
         private DevExpress.XtraLayout.LayoutControlItem lciSqlScript;
         private DevExpress.XtraEditors.TextEdit txtParamValues;
-        private DevExpress.XtraEditors.TextEdit txtParamList;
         private DevExpress.XtraEditors.TextEdit txtDataSetAlias;
         private DevExpress.XtraLayout.LayoutControlItem lciDataSetAlias;
         private DevExpress.XtraLayout.LayoutControlItem lciParamList;
@@ -637,5 +639,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraBars.BarButtonItem btnDesignReport;
+        private DevExpress.XtraEditors.ButtonEdit txtParamList;
     }
 }

@@ -9,6 +9,7 @@ using System.ComponentModel;
 using SAF.Foundation;
 using SAF.Framework.Entity;
 using SAF.EntityFramework;
+using System.Text.RegularExpressions;
 
 namespace SAF.CommonConfig
 {
@@ -83,6 +84,30 @@ namespace SAF.CommonConfig
                 e.CurrentEntity.ParentId = e.OriginalEntity.Iden;
             }
         }
+
+        public void ParaseParameters()
+        {
+            List<string> result = new List<string>();
+            Regex paramReg = new Regex(@"[^:](?<p>:\w+)");
+            MatchCollection matches = paramReg.Matches(String.Concat(MainEntitySet.CurrentEntity.SqlScript.ToStringEx(), " "));
+            foreach (Match m in matches)
+            {
+                var param = m.Groups["p"].Value;
+                if (!result.Any(p => p.Equals(param, StringComparison.CurrentCultureIgnoreCase)))
+                    result.Add(param);
+            }
+
+            var str = result.Select(p => p.Substring(1)).JoinText();
+            this.MainEntitySet.CurrentEntity.ParamList = str;
+        }
+
+        protected override bool OnPreHandle()
+        {
+            var result = base.OnPreHandle();
+            ParaseParameters();
+            return result;
+        }
+
     }
 
 
