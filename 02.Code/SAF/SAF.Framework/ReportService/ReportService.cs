@@ -211,9 +211,9 @@ Order by a.OrderIndex";
             var QueryParamValues = new List<object>();
             //从数据集中获取参数值
             var outParameters = view == null ? new ParameterDictionary() : view.OutParameters;
-            outParameters.Add("session.UserId", Session.UserInfo.UserId);
-            outParameters.Add("session.UserName", Session.UserInfo.UserName);
-            outParameters.Add("session.UserFullName", Session.UserInfo.UserFullName);
+            outParameters.Add("session_UserId", Session.UserInfo.UserId);
+            outParameters.Add("session_UserName", Session.UserInfo.UserName);
+            outParameters.Add("session_UserFullName", Session.UserInfo.UserFullName);
 
             foreach (var item in QueryParams)
             {
