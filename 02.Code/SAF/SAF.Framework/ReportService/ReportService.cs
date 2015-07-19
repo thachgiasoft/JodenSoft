@@ -210,10 +210,14 @@ Order by a.OrderIndex";
             var QueryParams = CurrReport.ParamList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             var QueryParamValues = new List<object>();
             //从数据集中获取参数值
+            var outParameters = view == null ? new ParameterDictionary() : view.OutParameters;
+            outParameters.Add("session.UserId", Session.UserInfo.UserId);
+            outParameters.Add("session.UserName", Session.UserInfo.UserName);
+            outParameters.Add("session.UserFullName", Session.UserInfo.UserFullName);
+
             foreach (var item in QueryParams)
             {
-                var dic = view == null ? new ParameterDictionary() : view.OutParameters;
-                QueryParamValues.Add(dic[item.Trim()]);
+                QueryParamValues.Add(outParameters[item.Trim()]);
             }
 
             var tables = listReleation.Select(p => p.PrimaryTableName.Trim()).ToArray();
@@ -229,12 +233,12 @@ Order by a.OrderIndex";
                     var primaryColumn = primaryTable == null ? null : primaryTable.Columns[releation.PrimaryTableKeyName];
 
                     var ForeignTable = ds.Tables[releation.ForeignTableName];
-                    var ForeignColumn = primaryTable == null ? null : primaryTable.Columns[releation.ForeignTableKeyName];
+                    var ForeignColumn = ForeignTable == null ? null : ForeignTable.Columns[releation.ForeignTableKeyName];
 
                     if (primaryColumn != null && ForeignColumn != null)
                     {
-                        var name = "{0}_{1}".FormatEx(releation.PrimaryTableName, releation.ForeignTableName);
-                        ds.Relations.Add(name, primaryColumn, ForeignColumn);
+                        var name = "{0}_{1}".FormatEx(releation.ForeignTableName, releation.PrimaryTableName);
+                        ds.Relations.Add(name, ForeignColumn, primaryColumn);
                     }
                 }
             }

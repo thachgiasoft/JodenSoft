@@ -43,7 +43,7 @@ namespace SAF.Framework
 
         public TableReleation(string sReleation)
         {
-            //a 或者 a.Iden=b.Iden
+            //a 或者 b.Iden=a.Iden
             var tables = sReleation.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
             if (tables.Length > 0)
                 this.PrimaryTableName = tables[0].Trim();

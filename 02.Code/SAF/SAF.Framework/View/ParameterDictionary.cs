@@ -59,6 +59,24 @@ namespace SAF.Framework.View
             }
         }
 
+        public void Add(string key, object value)
+        {
+            this._params.Add(key, value);
+        }
+
+        public bool Remove(string key)
+        {
+            return this._params.Remove(key);
+        }
+
+        public int Count
+        {
+            get
+            {
+                return this._params.Count;
+            }
+        }
+
         public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
         {
             return this._params.GetEnumerator();
