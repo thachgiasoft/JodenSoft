@@ -114,6 +114,9 @@ namespace SAF.EntityFramework.Server
         {
             try
             {
+                if(commandText.IsEmpty())
+                    return new OperationResult() { Data = true, IsSucess = true };
+
                 Database db = DatabaseFactory.CreateDatabase(serviceName, connectionName);
                 using (var connection = db.GetNewOpenConnection())
                 {

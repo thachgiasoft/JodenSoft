@@ -260,7 +260,7 @@ namespace SAF.EntityFramework
         {
             if (commandText.IsEmpty())
             {
-                throw new ArgumentException("commandText");
+                throw new ArgumentNullException("commandText");
             }
             var command = this.CreateCommandByCommandType(CommandType.Text, commandText);
             this.AssignParameters(command, parameterValues);
@@ -278,7 +278,7 @@ namespace SAF.EntityFramework
                 throw new ArgumentNullException("cmdObj");
             if (cmdObj.CommandText.IsEmpty())
             {
-                throw new ArgumentException("commandText");
+                throw new ArgumentNullException("commandText");
             }
             var command = this.CreateCommandByCommandType(CommandType.Text, cmdObj.CommandText);
 
