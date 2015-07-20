@@ -116,24 +116,11 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
         public void QueryMenuParam()
         {
             string sql = @"
-SELECT e.*,f.[MenuId],f.Value,f.[CreatedBy],f.[CreatedOn],f.[ModifiedBy],f.[ModifiedOn],f.[VersionNumber]
-FROM
-(
-    SELECT a.[Iden], a.[Name], a.[Description]
-    FROM [dbo].[sysBusinessViewParam] a WITH(NOLOCK)
-    WHERE a.[BusinessViewId]=:BusinessViewId
-) e
-LEFT JOIN 
-(
     SELECT * 
-    FROM [dbo].[sysMenuParam] 
-    WHERE [MenuId]=:MenuId
-) f ON [f].[Name] = [e].[Name]";
+    FROM [dbo].[sysMenuParam] with(nolock)
+    WHERE [MenuId]=:MenuId";
 
-            if (this.MainEntitySet.IsEmpty())
-                this.MenuParamEntitySet.Query(sql, -1, -1);
-            else
-                this.MenuParamEntitySet.Query(sql, MainEntitySet.CurrentEntity.BusinessViewId, MainEntitySet.CurrentEntity.Iden);
+            this.MenuParamEntitySet.Query(sql, this.MainEntitySet.CurrentKey);
         }
 
         protected override void OnInitEvents()

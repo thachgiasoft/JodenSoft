@@ -15,6 +15,9 @@ using SAF.Foundation.MetaAttributes;
 using SAF.Framework;
 using SAF.Framework.Entity;
 using DevExpress.XtraLayout.Utils;
+using SAF.EntityFramework;
+using System.IO;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.SystemModule
 {
@@ -72,7 +75,54 @@ namespace SAF.SystemModule
 
         void gseBusinessView_EditValueChanged(object sender, EventArgs e)
         {
-            this.ViewModel.QueryMenuParam();
+            ReCreateMenuParam();
+        }
+
+        private void ReCreateMenuParam()
+        {
+            var entity = this.gseBusinessView.Properties.GetSelectedEntity<QueryEntity>();
+            if (entity.IsEmpty()) return;
+            var fileName = entity.GetFieldValue<string>("FileName");
+            if (fileName.IsEmpty()) return;
+            var typeName = entity.GetFieldValue<string>("ClassName");
+            if (typeName.IsEmpty()) return;
+
+            var dllFile = Path.Combine(Application.StartupPath, fileName);
+            if (!File.Exists(dllFile)) return;
+
+            AppDomain ad = AppDomain.CreateDomain("sysMenuView Test DLL Marked ViewParameterAttribute");
+            try
+            {
+                LoadAssemblyProxyObject obj = (LoadAssemblyProxyObject)ad.CreateInstanceFromAndUnwrap(LoadAssemblyProxyObject.AssemblyFileName, LoadAssemblyProxyObject.ProxyObjectTypeName);
+
+                if (!Path.GetExtension(fileName).Equals(".dll", StringComparison.InvariantCultureIgnoreCase)
+                    && !Path.GetExtension(fileName).Equals(".exe", StringComparison.InvariantCultureIgnoreCase)) return;
+
+                obj.LoadAssembly(dllFile);
+                var types = obj.GetType(typeName);
+                if (types == null) return;
+
+                var list = types.GetAllPropertyMarked<ViewParameterAttribute>();
+                if (list.IsEmpty()) return;
+
+                this.ViewModel.MenuParamEntitySet.DeleteAll();
+                foreach (var item in list)
+                {
+                    var attr = item.GetCustomAttribute<ViewParameterAttribute>();
+
+                    var param = this.ViewModel.MenuParamEntitySet.AddNew();
+                    param.Iden = IdenGenerator.NewIden(param.IdenGroup);
+                    param.MenuId = this.ViewModel.MainEntitySet.CurrentEntity.Iden;
+                    param.Name = item.Name;
+                    param.Description = attr.Desctiption;
+                    param.Value = string.Empty;
+                }
+                this.grvParams.BestFitColumns();
+            }
+            finally
+            {
+                AppDomain.Unload(ad);
+            }
         }
 
         void treeMenu_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
@@ -113,9 +163,10 @@ namespace SAF.SystemModule
         private void InitBusinessViewGridSearch()
         {
             this.gseBusinessView.Properties.CommandText = @"
-SELECT Iden,[ClassName],[Description],[IsDeleted]
-FROM [dbo].[sysBusinessView] WITH(NOLOCK)
-where {0}
+SELECT A.[Iden],A.[ClassName],A.[Description],FileName=B.[Name]
+FROM [dbo].[sysBusinessView] A WITH(NOLOCK)
+LEFT JOIN dbo.sysFile B WITH(NOLOCK) ON A.FileId=B.Iden
+WHERE A.IsDeleted=0 AND ({0})
 ORDER BY [Iden]";
             this.gseBusinessView.Properties.DisplayMember = "ClassName";
             this.gseBusinessView.Properties.AutoFillEntitySet = this.ViewModel.MainEntitySet;
@@ -245,6 +296,27 @@ ORDER BY [Iden]";
             {
                 return "1=1";
             }
+        }
+
+        protected override void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection customRibbonMenuCommands)
+        {
+            base.OnInitCustomRibbonMenuCommands(customRibbonMenuCommands);
+
+            var cmd = new RibbonMenuCommand("刷新\n菜单参数", OnRefreshMenuParam, OnCanRefreshMenuParam)
+            {
+                LargeGlyph = SAF.Framework.Properties.Resources.Action_Refresh_32x32
+            };
+            customRibbonMenuCommands.Add(cmd);
+        }
+
+        private bool OnCanRefreshMenuParam(object obj)
+        {
+            return !this.IsBrowse;
+        }
+
+        private void OnRefreshMenuParam(object obj)
+        {
+            ReCreateMenuParam();
         }
     }
 }

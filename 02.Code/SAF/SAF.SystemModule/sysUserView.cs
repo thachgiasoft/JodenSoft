@@ -96,11 +96,14 @@ namespace SAF.SystemModule
             return base.OnSave();
         }
 
-        protected override void OnInitCustomRibbonMenuCommands()
+        protected override void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection customRibbonMenuCommands)
         {
-            base.OnInitCustomRibbonMenuCommands();
-
-            this.AddRibbonMenuCommand(new DefaultRibbonMenuCommand("重置密码", ResetPassword, ResetPassowrdCanExceute) { LargeGlyph = Properties.Resources.Action_ResetPassword_32x32 });
+            base.OnInitCustomRibbonMenuCommands(customRibbonMenuCommands);
+            var cmd = new RibbonMenuCommand("重置密码", ResetPassword, ResetPassowrdCanExceute)
+            {
+                LargeGlyph = Properties.Resources.Action_ResetPassword_32x32
+            };
+            customRibbonMenuCommands.Add(cmd);
         }
 
         private bool ResetPassowrdCanExceute(object obj)
