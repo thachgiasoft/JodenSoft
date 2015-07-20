@@ -433,7 +433,7 @@ namespace SAF.Framework.View
 
         private Dictionary<BarButtonItem, IRibbonMenuCommand> buttons = new Dictionary<BarButtonItem, IRibbonMenuCommand>();
 
-        protected virtual void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection customRibbonMenuCommands)
+        protected virtual void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection commands)
         {
 
         }
