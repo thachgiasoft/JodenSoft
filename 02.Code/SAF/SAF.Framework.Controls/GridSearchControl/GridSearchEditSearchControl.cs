@@ -315,6 +315,8 @@ namespace SAF.Framework.Controls
             var entity = new TEntity();
             var obj = this.grvMain.GetFocusedRow();
             entity.DataRowView = obj as DataRowView;
+            if (entity.DataRowView == null)
+                return null;
             return entity;
         }
 
