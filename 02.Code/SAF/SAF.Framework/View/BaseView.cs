@@ -173,7 +173,7 @@ namespace SAF.Framework.View
         /// </summary>
         protected void GenarateCustomRibbonMenu()
         {
-            OnInitCustomRibbonMenuCommands();
+            OnInitCustomRibbonMenuCommands(this.CustomRibbonMenuCommands);
             GenarateCustomRibbonMenuButtons();
         }
         /// <summary>
@@ -433,12 +433,7 @@ namespace SAF.Framework.View
 
         private Dictionary<BarButtonItem, IRibbonMenuCommand> buttons = new Dictionary<BarButtonItem, IRibbonMenuCommand>();
 
-        protected void AddRibbonMenuCommand(IRibbonMenuCommand cmd)
-        {
-            CustomRibbonMenuCommands.Add(cmd);
-        }
-
-        protected virtual void OnInitCustomRibbonMenuCommands()
+        protected virtual void OnInitCustomRibbonMenuCommands(List<IRibbonMenuCommand> customRibbonMenuCommands)
         {
 
         }
