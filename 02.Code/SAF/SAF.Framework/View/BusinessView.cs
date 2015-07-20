@@ -38,7 +38,7 @@ namespace SAF.Framework.View
         }
 
         [Browsable(false)]
-        [ViewParameter("是否允许添加到收藏夹")]
+        [ViewParameter("是否允许添加到收藏夹", ViewParameterControlType.CheckEdit)]
         public bool AllowAddToFavorite
         {
             get
