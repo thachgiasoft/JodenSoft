@@ -310,7 +310,15 @@ namespace SAF.Framework.Controls
             }
         }
 
-        public object GetSelectValue(string fieldName)
+        public TEntity GetSelectedEntity<TEntity>() where TEntity : Entity<TEntity>, new()
+        {
+            var entity = new TEntity();
+            var obj = this.grvMain.GetFocusedRow();
+            entity.DataRowView = obj as DataRowView;
+            return entity;
+        }
+
+        public object GetSelectedValue(string fieldName)
         {
             if (fieldName.IsEmpty())
                 throw new Exception("字段名不能为空.");
@@ -358,7 +366,7 @@ namespace SAF.Framework.Controls
                             }
                             else
                             {
-                                currentEntity.SetFieldValue(fields[0].Trim(), GetSelectValue(fields[1].Trim()));
+                                currentEntity.SetFieldValue(fields[0].Trim(), GetSelectedValue(fields[1].Trim()));
                             }
                         }
                     }

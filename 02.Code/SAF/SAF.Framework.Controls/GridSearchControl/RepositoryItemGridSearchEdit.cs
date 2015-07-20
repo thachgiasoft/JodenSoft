@@ -105,6 +105,11 @@ namespace SAF.Framework.Controls
             _SearchControl.QueryData();
         }
 
+        public TEntity GetSelectedEntity<TEntity>() where TEntity : Entity<TEntity>, new()
+        {
+            return this._SearchControl.GetSelectedEntity<TEntity>();
+        }
+        
         public bool ShowPageControl
         {
             get { return _SearchControl.ShowPageControl; }
@@ -124,7 +129,7 @@ namespace SAF.Framework.Controls
             if (!_SearchControl.FieldIsExists(DisplayMember))
                 throw new Exception("DisplayMember\"{0}\"不存在.".FormatEx(DisplayMember));
 
-            var obj = _SearchControl.GetSelectValue(this.DisplayMember);
+            var obj = _SearchControl.GetSelectedValue(this.DisplayMember);
             if (obj != null)
                 e.Value = obj;
             else
