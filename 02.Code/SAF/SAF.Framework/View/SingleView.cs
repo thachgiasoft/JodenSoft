@@ -46,7 +46,7 @@ namespace SAF.Framework.View
         {
             base.OnInitViewParam();
 
-            var es = new EntitySet<Entity>();
+            var es = new EntitySet<QueryEntity>();
 
             if (DataPortal.TableIsExists(es.ConnectionName, "[dbo].[sysMenuParam]"))
             {

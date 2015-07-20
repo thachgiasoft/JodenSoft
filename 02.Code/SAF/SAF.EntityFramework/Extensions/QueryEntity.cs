@@ -8,7 +8,7 @@ namespace SAF.EntityFramework
     /// <summary>
     /// 通用的查询实体
     /// </summary>
-    public class Entity : Entity<Entity>
+    public class QueryEntity : Entity<QueryEntity>
     {
         protected override void OnInit()
         {

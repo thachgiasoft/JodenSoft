@@ -17,13 +17,13 @@ namespace SAF.Framework.Controls
     [DesignTimeVisible(false)]
     public partial class GridSearchEditSearchControl : BaseUserControl
     {
-        private EntitySet<Entity> _QueryEntitySet = null;
-        protected EntitySet<Entity> QueryEntitySet
+        private EntitySet<QueryEntity> _QueryEntitySet = null;
+        protected EntitySet<QueryEntity> QueryEntitySet
         {
             get
             {
                 if (_QueryEntitySet == null)
-                    _QueryEntitySet = new EntitySet<Entity>(this.OwnerEdit.ConnectionName, null, this.OwnerEdit.PageSize);
+                    _QueryEntitySet = new EntitySet<QueryEntity>(this.OwnerEdit.ConnectionName, null, this.OwnerEdit.PageSize);
                 _QueryEntitySet.IsReadOnly = true;
                 _QueryEntitySet.PageSize = this.OwnerEdit.PageSize;
                 return _QueryEntitySet;
