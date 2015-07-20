@@ -17,7 +17,7 @@ namespace SAF.Framework.Controls
             var result = new List<string>();
 
             var currFiles = Directory.GetFiles(Application.StartupPath);
-            var es = new EntitySet<QueryEntity>();
+            var es = new EntitySet<Entity>();
             string sql = "SELECT [Name],[FileVersion],[LastWriteTime] FROM [dbo].[sysFile] with(nolock)";
             es.Query(sql);
 
@@ -62,7 +62,7 @@ namespace SAF.Framework.Controls
         {
             CreateUpgradeDirectory();
 
-            var es = new EntitySet<QueryEntity>();
+            var es = new EntitySet<Entity>();
             var newFileList = new List<string>();
             foreach (var item in files)
             {

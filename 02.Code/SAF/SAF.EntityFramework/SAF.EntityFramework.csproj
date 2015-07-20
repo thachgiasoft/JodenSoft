@@ -108,7 +108,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\QueryEntity.cs" />
+    <Compile Include="Extensions\Entity.cs" />
     <Compile Include="Server\DataPortal.cs" />
     <Compile Include="Server\Hosts\IWcfPortal.cs" />
     <Compile Include="Server\Hosts\WcfPortal.cs" />

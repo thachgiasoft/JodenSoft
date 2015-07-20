@@ -8,7 +8,7 @@ namespace SAF.EntityFramework
     /// <summary>
     /// 通用的查询实体
     /// </summary>
-    public class QueryEntity : Entity<QueryEntity>
+    public class Entity : Entity<Entity>
     {
         protected override void OnInit()
         {
@@ -26,8 +26,6 @@ namespace SAF.EntityFramework
         {
             get { return base.GetFieldValue<string>(p => p.BillNo, string.Empty); }
             set { base.SetFieldValue(p => p.BillNo, value); }
-        }
-
-        
+        }        
     }
 }
