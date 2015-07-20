@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -33,5 +34,13 @@ namespace SAF.Framework
         IntSpinEdit = 3,
         FloatSpinEdit = 4,
         ComboboxEdit = 5
+    }
+
+    public enum ViewParameterBoolean
+    {
+        [Description("否")]
+        False = 0,
+        [Description("是")]
+        True = 1
     }
 }
