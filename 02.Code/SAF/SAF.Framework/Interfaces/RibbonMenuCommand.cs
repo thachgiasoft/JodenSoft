@@ -56,7 +56,7 @@ namespace SAF.Framework
         }
     }
 
-    public class DefaultRibbonMenuCommand : IRibbonMenuCommand
+    public class RibbonMenuCommand : IRibbonMenuCommand
     {
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
@@ -68,7 +68,7 @@ namespace SAF.Framework
         public virtual Image Glyph { get; set; }
         public BarShortcut ItemShortcut { get; set; }
 
-        public DefaultRibbonMenuCommand(string caption, Action<object> execute, Predicate<object> canExecute)
+        public RibbonMenuCommand(string caption, Action<object> execute, Predicate<object> canExecute)
         {
             this.Caption = caption;
             _execute = execute;
@@ -76,7 +76,7 @@ namespace SAF.Framework
 
         }
 
-        public DefaultRibbonMenuCommand(string caption, Action<object> execute)
+        public RibbonMenuCommand(string caption, Action<object> execute)
             : this(caption, execute, null)
         {
         }
