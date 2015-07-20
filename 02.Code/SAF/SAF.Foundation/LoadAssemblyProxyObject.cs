@@ -42,6 +42,11 @@ namespace SAF.Foundation
             return assembly.GetAllTypeMarked<TAttribute>().ToList();
         }
 
+        public Type GetType(string name)
+        {
+            return assembly.GetType(name, false, true);
+        }
+
         public bool IsComposeModule()
         {
             try
