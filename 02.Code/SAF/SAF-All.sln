@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Foundation", "SAF.Found
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Controls", "SAF.Framework.Controls\SAF.Framework.Controls.csproj", "{2A654BFF-51B3-4560-B9B6-9197493FB1FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.SystemEntities", "SAF.SystemEntities\SAF.SystemEntities.csproj", "{6549CDB7-BD86-4715-A288-7B997FEA3FD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.SystemEntity", "SAF.SystemEntity\SAF.SystemEntity.csproj", "{6549CDB7-BD86-4715-A288-7B997FEA3FD5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Controls.Test", "SAF.Framework.Controls.Test\SAF.Framework.Controls.Test.csproj", "{8D529273-0298-4BD4-9EE4-259E8E7D503C}"
 EndProject
