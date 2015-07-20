@@ -117,11 +117,12 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
         public void QueryMenuParam()
         {
             string sql = @"
-SELECT A.Iden,A.MenuId,Name,A.ControlType,A.Description,Value=cast( A.Value as SQL_VARIANT),A.CreatedBy,A.CreatedOn,A.ModifiedBy,A.ModifiedOn,A.VersionNumber
+SELECT A.Iden,A.MenuId,Name,A.ControlType,A.Description,ValueAlias=A.Value, A.CreatedBy,A.CreatedOn,A.ModifiedBy,A.ModifiedOn,A.VersionNumber
 FROM dbo.sysMenuParam A WITH(NOLOCK)
 WHERE [MenuId]=:MenuId";
 
             this.MenuParamEntitySet.Query(sql, this.MainEntitySet.CurrentKey);
+            this.MenuParamEntitySet.DataTable.Columns.Add("Value", typeof(object));
 
             foreach (var item in MenuParamEntitySet)
             {
@@ -130,19 +131,22 @@ WHERE [MenuId]=:MenuId";
                 {
                     case ViewParameterControlType.CheckEdit:
                         bool bValue = false;
-                        bool.TryParse(item.Value.ToStringEx(), out bValue);
+                        bool.TryParse(item.ValueAlias.ToStringEx(), out bValue);
                         item.Value = bValue;
                         break;
                     case ViewParameterControlType.ComboboxEdit:
                     case ViewParameterControlType.IntSpinEdit:
                         int iValue;
-                        int.TryParse(item.Value.ToStringEx(), out iValue);
+                        int.TryParse(item.ValueAlias.ToStringEx(), out iValue);
                         item.Value = iValue;
                         break;
                     case ViewParameterControlType.FloatSpinEdit:
                         decimal fValue;
-                        decimal.TryParse(item.Value.ToStringEx(), out fValue);
+                        decimal.TryParse(item.ValueAlias.ToStringEx(), out fValue);
                         item.Value = fValue;
+                        break;
+                    default:
+                        item.Value = item.ValueAlias.ToStringEx();
                         break;
                 }
             }

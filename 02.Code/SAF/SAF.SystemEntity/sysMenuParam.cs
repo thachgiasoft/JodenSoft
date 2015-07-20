@@ -47,6 +47,12 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(P => P.Value, value); }
         }
 
+        public object ValueAlias
+        {
+            get { return base.GetFieldValue<object>(P => P.ValueAlias); }
+            set { base.SetFieldValue(P => P.ValueAlias, value); }
+        }
+
         public string Description
         {
             get { return base.GetFieldValue<string>(P => P.Description); }

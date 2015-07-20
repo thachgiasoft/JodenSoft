@@ -106,19 +106,31 @@ namespace SAF.SystemModule
                 var list = types.GetAllPropertyMarked<ViewParameterAttribute>();
                 if (list.IsEmpty()) return;
 
-                this.ViewModel.MenuParamEntitySet.DeleteAll();
+                var deleteList = this.ViewModel.MenuParamEntitySet.Where(p => !p.Name.In(list.Select(x => x.Name)));
+                foreach (var item in deleteList)
+                {
+                    item.Delete();
+                }
+
                 foreach (var item in list)
                 {
                     var attr = item.GetCustomAttribute<ViewParameterAttribute>();
 
-                    var param = this.ViewModel.MenuParamEntitySet.AddNew();
-                    param.Iden = IdenGenerator.NewIden(param.IdenGroup);
-                    param.MenuId = this.ViewModel.MainEntitySet.CurrentEntity.Iden;
+                    var param = this.ViewModel.MenuParamEntitySet.FirstOrDefault(p => p.Name == item.Name);
+                    if (param == null)
+                    {
+                        param = this.ViewModel.MenuParamEntitySet.AddNew();
+                        param.Iden = IdenGenerator.NewIden(param.IdenGroup);
+                        param.MenuId = this.ViewModel.MainEntitySet.CurrentEntity.Iden;
+                        param.Value = string.Empty;
+                    }
+
                     param.Name = item.Name;
                     param.ControlType = (int)attr.ControlType;
                     param.Description = attr.Desctiption;
-                    param.Value = string.Empty;
                 }
+
+
                 this.grvParams.BestFitColumns();
             }
             finally
@@ -192,10 +204,10 @@ ORDER BY [Iden]";
         {
             if (e.Column.FieldName != "Value") return;
 
-            var curr = this.ViewModel.MenuParamEntitySet.CurrentEntity;
-            if (curr == null) return;
-
-            var controlType = (ViewParameterControlType)curr.ControlType;
+            var dr = this.grvParams.GetDataRow(e.RowHandle) as DataRow;
+            int iControlType = 0;
+            int.TryParse(dr["ControlType"].ToStringEx(), out iControlType);
+            var controlType = (ViewParameterControlType)iControlType;
 
             RepositoryItem item = new RepositoryItemTextEdit();
             switch (controlType)
