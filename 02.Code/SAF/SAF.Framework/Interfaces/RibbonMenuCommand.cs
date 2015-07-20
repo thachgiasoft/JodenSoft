@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraBars;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,41 @@ namespace SAF.Framework
         Image Glyph { get; }
         void Execute(object parameter);
         bool CanExecute(object parameter);
+    }
+
+    public sealed class RibbonMenuCommandCollection : IEnumerable<IRibbonMenuCommand>
+    {
+        private List<IRibbonMenuCommand> commands = new List<IRibbonMenuCommand>();
+
+        public void Add(IRibbonMenuCommand cmd)
+        {
+            this.commands.Add(cmd);
+        }
+
+        public bool Remove(IRibbonMenuCommand cmd)
+        {
+            return this.commands.Remove(cmd);
+        }
+
+        public int Count
+        {
+            get { return commands.Count; }
+        }
+
+        public void Clear()
+        {
+            this.commands.Clear();
+        }
+
+        public IEnumerator<IRibbonMenuCommand> GetEnumerator()
+        {
+            return commands.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
     }
 
     public class DefaultRibbonMenuCommand : IRibbonMenuCommand

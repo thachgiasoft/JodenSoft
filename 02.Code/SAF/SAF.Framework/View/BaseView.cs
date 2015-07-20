@@ -429,11 +429,11 @@ namespace SAF.Framework.View
             }
         }
 
-        private List<IRibbonMenuCommand> CustomRibbonMenuCommands = new List<IRibbonMenuCommand>();
+        private RibbonMenuCommandCollection CustomRibbonMenuCommands = new RibbonMenuCommandCollection();
 
         private Dictionary<BarButtonItem, IRibbonMenuCommand> buttons = new Dictionary<BarButtonItem, IRibbonMenuCommand>();
 
-        protected virtual void OnInitCustomRibbonMenuCommands(List<IRibbonMenuCommand> customRibbonMenuCommands)
+        protected virtual void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection customRibbonMenuCommands)
         {
 
         }
