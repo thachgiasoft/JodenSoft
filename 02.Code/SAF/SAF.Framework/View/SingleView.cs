@@ -21,6 +21,20 @@ namespace SAF.Framework.View
     [ToolboxItem(false)]
     public partial class SingleView : BusinessView, ISingleView
     {
+        [Browsable(false)]
+        [ViewParameter("报表ID", ViewParameterControlType.TextEdit)]
+        public string ReportId
+        {
+            get
+            {
+                return ViewParameters["ReportId"].ToStringEx();
+            }
+            set
+            {
+                ViewParameters["ReportId"] = value;
+            }
+        }
+
         public SingleView()
         {
             InitializeComponent();
