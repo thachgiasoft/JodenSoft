@@ -66,19 +66,27 @@ namespace SAF.Framework.View
             if (this.DesignMode) return;
 
             OnInitViewParam();
-
             OnInitCommonBill();
             OnInitBillRight();
-            GenarateCustomRibbonMenu();
+            OnGenarateCustomRibbonMenu();
+            OnInitReport();
             OnInitConfig();
             OnInitUI();
             OnInitEvent();
             OnInitQueryConfig();
             OnInitData();
             OnInitBinding();
-            OnInitDefaultActions();
+            OnInitShortCut();
             OnAfterInit();
             RefreshUI();
+        }
+
+        /// <summary>
+        /// 初始化报表
+        /// </summary>
+        protected virtual void OnInitReport()
+        {
+
         }
 
         /// <summary>
@@ -155,7 +163,7 @@ namespace SAF.Framework.View
         /// <summary>
         /// 初始化快捷键事件
         /// </summary>
-        protected virtual void OnInitDefaultActions()
+        protected virtual void OnInitShortCut()
         {
         }
 
@@ -171,10 +179,10 @@ namespace SAF.Framework.View
         /// <summary>
         /// 添加主菜单项
         /// </summary>
-        protected void GenarateCustomRibbonMenu()
+        protected void OnGenarateCustomRibbonMenu()
         {
             OnInitCustomRibbonMenuCommands(this.CustomRibbonMenuCommands);
-            GenarateCustomRibbonMenuButtons();
+            OnGenarateCustomRibbonMenuButtons();
         }
         /// <summary>
         /// 将焦点定位到输入控件
@@ -438,7 +446,7 @@ namespace SAF.Framework.View
 
         }
 
-        protected void GenarateCustomRibbonMenuButtons()
+        protected void OnGenarateCustomRibbonMenuButtons()
         {
             if (this.CustomRibbonMenuCommands == null || CustomRibbonMenuCommands.Count <= 0) return;
 

@@ -315,6 +315,9 @@ Order by a.OrderIndex";
 
         public static ReportService InitializeReport(IBaseView view, BarButtonItem bbiReport, string reportIds)
         {
+            if (reportIds.IsEmpty())
+                return null;
+
             var reportService = new ReportService(view, bbiReport, reportIds);
             reportService.Initialize();
             return reportService;

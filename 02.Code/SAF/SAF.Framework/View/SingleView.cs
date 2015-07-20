@@ -23,7 +23,7 @@ namespace SAF.Framework.View
     {
         [Browsable(false)]
         [ViewParameter("报表ID", ViewParameterControlType.TextEdit)]
-        public string ReportId
+        public string ReportIds
         {
             get
             {
@@ -38,6 +38,12 @@ namespace SAF.Framework.View
         public SingleView()
         {
             InitializeComponent();
+        }
+
+        protected override void OnInitReport()
+        {
+            base.OnInitReport();
+            ReportService.InitializeReport(this, this.bbiPreview, this.ReportIds);
         }
 
         protected override void OnInitQueryConfig()
