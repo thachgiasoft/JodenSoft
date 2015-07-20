@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SAF.Foundation;
 
 namespace SAF.EntityFramework
 {
@@ -12,18 +13,16 @@ namespace SAF.EntityFramework
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="entitySet"></param>
-        public static void Delete<TEntity>(this IEnumerable<TEntity> entitySet) where TEntity : IEntityBase
+        public static void Delete<TEntity>(this EntitySet<TEntity> entitySet, IEnumerable<TEntity> el) where TEntity : Entity<TEntity>,new()
         {
-            if (entitySet == null || entitySet.Count() <= 0) return;
+            if (entitySet == null || entitySet.Count <= 0) return;
 
-            var en = entitySet.First();
-            if (en.DataRowView == null || en.DataRowView.Row == null || en.DataRowView.Row.Table == null) return;
+            if (el == null || el.Count() <= 0) return;
 
-            var dt = en.DataRowView.Row.Table;
-            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            var list = entitySet.Where(p => p.DataRowView.In(el.Select(x => x.DataRowView)));
+            foreach (var item in list)
             {
-                if (entitySet.Any(p => p.DataRowView.Row == dt.Rows[i]))
-                    dt.Rows[i].Delete();
+                item.Delete();
             }
         }
     }

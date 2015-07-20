@@ -27,11 +27,11 @@ namespace SAF.Framework.View
         {
             get
             {
-                return ViewParameters["ReportId"].ToStringEx();
+                return ViewParameters["ReportIds"].ToStringEx();
             }
             set
             {
-                ViewParameters["ReportId"] = value;
+                ViewParameters["ReportIds"] = value;
             }
         }
 
