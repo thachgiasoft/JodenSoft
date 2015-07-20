@@ -8,6 +8,7 @@ using SAF.Foundation;
 using SAF.EntityFramework;
 using SAF.Framework.Controls.ViewConfig;
 using SAF.Framework.Entity;
+using SAF.Framework;
 
 namespace SAF.SystemModule
 {
@@ -116,11 +117,35 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
         public void QueryMenuParam()
         {
             string sql = @"
-    SELECT * 
-    FROM [dbo].[sysMenuParam] with(nolock)
-    WHERE [MenuId]=:MenuId";
+SELECT A.Iden,A.MenuId,Name,A.ControlType,A.Description,Value=cast( A.Value as SQL_VARIANT),A.CreatedBy,A.CreatedOn,A.ModifiedBy,A.ModifiedOn,A.VersionNumber
+FROM dbo.sysMenuParam A WITH(NOLOCK)
+WHERE [MenuId]=:MenuId";
 
             this.MenuParamEntitySet.Query(sql, this.MainEntitySet.CurrentKey);
+
+            foreach (var item in MenuParamEntitySet)
+            {
+                var type = (ViewParameterControlType)item.ControlType;
+                switch (type)
+                {
+                    case ViewParameterControlType.CheckEdit:
+                        bool bValue = false;
+                        bool.TryParse(item.Value.ToStringEx(), out bValue);
+                        item.Value = bValue;
+                        break;
+                    case ViewParameterControlType.ComboboxEdit:
+                    case ViewParameterControlType.IntSpinEdit:
+                        int iValue;
+                        int.TryParse(item.Value.ToStringEx(), out iValue);
+                        item.Value = iValue;
+                        break;
+                    case ViewParameterControlType.FloatSpinEdit:
+                        decimal fValue;
+                        decimal.TryParse(item.Value.ToStringEx(), out fValue);
+                        item.Value = fValue;
+                        break;
+                }
+            }
         }
 
         protected override void OnInitEvents()
@@ -153,30 +178,15 @@ ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
 
         protected override void OnDelete()
         {
-            this.ExecuteCache.Execute(0, "DELETE [sysMenuParam] WHERE MenuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
             this.ExecuteCache.Execute(0, "DELETE [sysRoleMenu] WHERE MenuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
+            this.MenuParamEntitySet.DeleteAll();
             base.OnDelete();
-
         }
 
         protected override void OnApplySave()
         {
             base.OnApplySave();
-
-            if (this.EditState.In(EditState.AddNew, EditState.Edit))
-            {
-                this.ExecuteCache.Execute(0, "delete [sysMenuParam] where menuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
-
-                foreach (var item in this.MenuParamEntitySet)
-                {
-                    item.DataRowView.Row.AcceptChanges();
-                    item.DataRowView.Row.SetAdded();
-                    item.Iden = IdenGenerator.NewIden(item.IdenGroup);
-                    item.MenuId = this.MainEntitySet.CurrentEntity.Iden;
-                }
-
-                this.MenuParamEntitySet.SaveChanges();
-            }
+            this.MenuParamEntitySet.SaveChanges();
         }
 
         protected override void OnEndEdit()

@@ -35,9 +35,15 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(P => P.Name, value); }
         }
 
-        public string Value
+        public int ControlType
         {
-            get { return base.GetFieldValue<string>(P => P.Value); }
+            get { return base.GetFieldValue<int>(P => P.ControlType); }
+            set { base.SetFieldValue(P => P.ControlType, value); }
+        }
+
+        public object Value
+        {
+            get { return base.GetFieldValue<object>(P => P.Value); }
             set { base.SetFieldValue(P => P.Value, value); }
         }
 

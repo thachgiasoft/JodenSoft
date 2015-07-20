@@ -18,6 +18,7 @@ using DevExpress.XtraLayout.Utils;
 using SAF.EntityFramework;
 using System.IO;
 using SAF.Foundation.ServiceModel;
+using DevExpress.XtraEditors.Repository;
 
 namespace SAF.SystemModule
 {
@@ -114,6 +115,7 @@ namespace SAF.SystemModule
                     param.Iden = IdenGenerator.NewIden(param.IdenGroup);
                     param.MenuId = this.ViewModel.MainEntitySet.CurrentEntity.Iden;
                     param.Name = item.Name;
+                    param.ControlType = (int)attr.ControlType;
                     param.Description = attr.Desctiption;
                     param.Value = string.Empty;
                 }
@@ -182,7 +184,48 @@ ORDER BY [Iden]";
             this.AccessFocusControl = this.gluMenuType;
 
             UIController.SetupTreelist(this.treeMenu);
+
+            this.grvParams.CustomRowCellEdit += grvParams_CustomRowCellEdit;
         }
+
+        void grvParams_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
+        {
+            if (e.Column.FieldName != "Value") return;
+
+            var curr = this.ViewModel.MenuParamEntitySet.CurrentEntity;
+            if (curr == null) return;
+
+            var controlType = (ViewParameterControlType)curr.ControlType;
+
+            RepositoryItem item = new RepositoryItemTextEdit();
+            switch (controlType)
+            {
+                case ViewParameterControlType.CheckEdit:
+                    var temp = new RepositoryItemCheckEdit() { AllowGrayed = false };
+                    item = temp;
+                    break;
+                case ViewParameterControlType.ComboboxEdit:
+                    item = new RepositoryItemGridSearchEdit();
+                    break;
+                case ViewParameterControlType.FloatSpinEdit:
+                    item = new RepositoryItemSpinEdit() { IsFloatValue = true };
+                    break;
+                case ViewParameterControlType.IntSpinEdit:
+                    item = new RepositoryItemSpinEdit() { IsFloatValue = false };
+                    break;
+                case ViewParameterControlType.RichTextEdit:
+                    item = new RepositoryItemMemoExEdit() { ShowIcon = false };
+                    break;
+                case ViewParameterControlType.TextEdit:
+                    item = new RepositoryItemTextEdit();
+                    break;
+                default:
+                    item = new RepositoryItemTextEdit();
+                    break;
+            }
+            e.RepositoryItem = item;
+        }
+
 
         protected override void OnInitBinding()
         {
@@ -318,5 +361,6 @@ ORDER BY [Iden]";
         {
             ReCreateMenuParam();
         }
+
     }
 }
