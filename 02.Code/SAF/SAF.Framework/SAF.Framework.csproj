@@ -133,7 +133,7 @@
     <Compile Include="View\DetailDataView.Designer.cs">
       <DependentUpon>DetailDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Exceptions.cs" />
+    <Compile Include="Generic\Exceptions.cs" />
     <Compile Include="Diaglogs\InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,8 +147,8 @@
     <Compile Include="View\MasterDataView.Designer.cs">
       <DependentUpon>MasterDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ParameterDictionary.cs" />
-    <Compile Include="ViewParameterAttribute.cs" />
+    <Compile Include="Generic\ParameterDictionary.cs" />
+    <Compile Include="Generic\ViewParameterAttribute.cs" />
     <Compile Include="View\SingleView.cs">
       <SubType>UserControl</SubType>
     </Compile>

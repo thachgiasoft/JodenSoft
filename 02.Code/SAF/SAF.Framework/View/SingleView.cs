@@ -61,7 +61,7 @@ namespace SAF.Framework.View
             }
         }
 
-        public override SAF.Framework.View.ParameterDictionary OutParameters
+        public override SAF.Framework.ParameterDictionary OutParameters
         {
             get
             {

@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace SAF.Framework.View
+namespace SAF.Framework
 {
     public class ParameterDictionary : IEnumerable<KeyValuePair<string, object>>
     {

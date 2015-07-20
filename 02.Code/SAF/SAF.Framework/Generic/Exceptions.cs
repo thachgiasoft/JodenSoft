@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SAF.Framework.View
+namespace SAF.Framework
 {
     [Serializable()]
     public class SaveException : Exception
