@@ -26,7 +26,7 @@ namespace SAF.Framework.Component
 
         void ChangePassword_Shown(object sender, EventArgs e)
         {
-            this.txtUserName.Text = "{0}.{1}".FormatEx(Session.UserInfo.UserId, Session.UserInfo.UserName);
+            this.txtUserName.Text = "{0}.{1}".FormatWith(Session.UserInfo.UserId, Session.UserInfo.UserName);
             this.txtOldPassword.Focus();
         }
 

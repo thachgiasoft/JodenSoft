@@ -120,7 +120,7 @@ namespace SAF.SystemModule
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             const string sql = "SELECT Iden,Name,IsActive,IsSystem FROM dbo.sysBillType WITH(NOLOCK) Where ({0})";
-            this.IndexEntitySet.Query(sql.FormatEx(sCondition));
+            this.IndexEntitySet.Query(sql.FormatWith(sCondition));
         }
 
         protected override void OnQueryChild(object key)
@@ -177,11 +177,11 @@ namespace SAF.SystemModule
 
             for (int i = 1; i <= 10; i++)
             {
-                _dtDataRightDefine.Rows.Add("操作权限", "ExtendRight{0}".FormatEx(i), string.Empty, false);
+                _dtDataRightDefine.Rows.Add("操作权限", "ExtendRight{0}".FormatWith(i), string.Empty, false);
             }
             for (int i = 1; i <= 10; i++)
             {
-                _dtDataRightDefine.Rows.Add("数据权限", "ExtendRight{0}".FormatEx(i), string.Empty, false);
+                _dtDataRightDefine.Rows.Add("数据权限", "ExtendRight{0}".FormatWith(i), string.Empty, false);
             }
         }
 

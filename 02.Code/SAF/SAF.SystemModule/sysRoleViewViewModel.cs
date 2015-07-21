@@ -57,7 +57,7 @@ ORDER BY [ParentId],[MenuOrder] ";
             base.OnQuery(condition, parameterValues);
 
             const string sql = @"SELECT Iden,[Name], [IsSystem], [IsAdministrator] FROM [dbo].[sysRole] WITH(nolock) WHERE [IsDeleted]=0 AND {0}";
-            this.IndexEntitySet.Query(sql.FormatEx(condition));
+            this.IndexEntitySet.Query(sql.FormatWith(condition));
         }
 
         protected override void OnQueryChild(object key)
@@ -118,7 +118,7 @@ WHERE a.[RoleId]=:Iden AND B.MenuType>0";
             }
             if (!canDelete)
             {
-                MessageService.ShowError("角色\"{0}\"是系统预定义的角色,无法删除!".FormatEx(roleName));
+                MessageService.ShowError("角色\"{0}\"是系统预定义的角色,无法删除!".FormatWith(roleName));
             }
 
             return canDelete;
@@ -138,7 +138,7 @@ WHERE a.[RoleId]=:Iden AND B.MenuType>0";
             }
             if (!canEdit)
             {
-                MessageService.ShowWarning("角色\"{0}\"是系统预定义的角色,无法编辑!".FormatEx(roleName));
+                MessageService.ShowWarning("角色\"{0}\"是系统预定义的角色,无法编辑!".FormatWith(roleName));
             }
 
             return canEdit;

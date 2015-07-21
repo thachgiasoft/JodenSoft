@@ -120,7 +120,7 @@ namespace SAF.SystemModule
 
             if (this.ViewModel.MainEntitySet.CurrentEntity.IsSystem)
             {
-                MessageService.ShowWarning("用户\"{0}\"是系统预定义的用户,无法重置密码!".FormatEx(this.ViewModel.MainEntitySet.CurrentEntity.UserName));
+                MessageService.ShowWarning("用户\"{0}\"是系统预定义的用户,无法重置密码!".FormatWith(this.ViewModel.MainEntitySet.CurrentEntity.UserName));
                 return;
             }
 

@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle(AssemblyInfoHelper.ProductName)]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(AssemblyInfoHelper.Company)]
+[assembly: AssemblyCompany(AssemblyInfoHelper.AssemblyCompany)]
 [assembly: AssemblyProduct(AssemblyInfoHelper.ProductName)]
-[assembly: AssemblyCopyright(AssemblyInfoHelper.Copyright)]
+[assembly: AssemblyCopyright(AssemblyInfoHelper.AssemblyCopyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

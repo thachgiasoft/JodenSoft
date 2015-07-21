@@ -220,7 +220,7 @@ ORDER BY ParentId, Iden
 
                     if (primaryColumn != null && ForeignColumn != null)
                     {
-                        var name = "{0}_{1}".FormatEx(releation.ForeignTableName, releation.PrimaryTableName);
+                        var name = "{0}_{1}".FormatWith(releation.ForeignTableName, releation.PrimaryTableName);
                         ds.Relations.Add(name, ForeignColumn, primaryColumn);
                     }
                 }

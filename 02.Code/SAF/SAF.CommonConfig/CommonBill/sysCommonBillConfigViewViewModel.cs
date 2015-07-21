@@ -16,7 +16,7 @@ namespace SAF.CommonConfig
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            string sql = "SELECT a.Iden,a.Name FROM dbo.sysCommonBillConfig a WITH(NOLOCK) where ({0})".FormatEx(sCondition);
+            string sql = "SELECT a.Iden,a.Name FROM dbo.sysCommonBillConfig a WITH(NOLOCK) where ({0})".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql);
         }
 

@@ -42,7 +42,7 @@ FROM dbo.sdOrder a WITH(NOLOCK)
 SELECT Iden, OrderNo
 FROM result A
 WHERE ({0}){1}
-".FormatEx(sCondition, rightFilter);
+".FormatWith(sCondition, rightFilter);
             this.IndexEntitySet.Query(sql);
 
         }

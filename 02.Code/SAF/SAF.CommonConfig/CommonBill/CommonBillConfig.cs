@@ -55,25 +55,25 @@ namespace SAF.CommonConfig.CommonBill
         {
             var configName = entitySetType.GetDisplayName();
 
-            ControlType.Required(p => p != EntitySetControlType.None, "{0}控件类型不能为'无'".FormatEx(configName));
-            DbTableName.CheckNotNullOrEmpty("{0}表名".FormatEx(configName));
-            PrimaryKeyName.CheckNotNullOrEmpty("{0}主键名".FormatEx(configName));
+            ControlType.Required(p => p != EntitySetControlType.None, "{0}控件类型不能为'无'".FormatWith(configName));
+            DbTableName.CheckNotNullOrEmpty("{0}表名".FormatWith(configName));
+            PrimaryKeyName.CheckNotNullOrEmpty("{0}主键名".FormatWith(configName));
             SqlScript.CheckNotNullOrEmpty("{0}查询脚本");
 
             if (entitySetType == EntitySetType.Detail)
             {
-                Caption.CheckNotNullOrEmpty("{0}实体标题".FormatEx(configName));
+                Caption.CheckNotNullOrEmpty("{0}实体标题".FormatWith(configName));
             }
 
             //验证树需要的字段
             if (ControlType == EntitySetControlType.TreeList)
             {
-                ControlKeyFieldName.CheckNotNullOrEmpty("{0}控件主字段".FormatEx(configName));
-                ControlParentFieldName.CheckNotNullOrEmpty("{0}控件父字段".FormatEx(configName));
+                ControlKeyFieldName.CheckNotNullOrEmpty("{0}控件主字段".FormatWith(configName));
+                ControlParentFieldName.CheckNotNullOrEmpty("{0}控件父字段".FormatWith(configName));
             }
-            Fields.CheckNotNullOrEmpty("{0}字段列表".FormatEx(configName));
-            Fields.Required(p => !p.Any(a => a.Caption.IsEmpty() || a.FieldName.IsEmpty()), "{0}字段标题或字段名不能为空。".FormatEx(configName));
-            Fields.Required(p => !p.Any(a => a.FieldType.In(EntitySetFieldType.GridSearch, EntitySetFieldType.Lookup) && a.SqlScript.IsEmpty()), "{0}字段类型为‘查找或表格查找’，但没有配置查询脚本。".FormatEx(configName));
+            Fields.CheckNotNullOrEmpty("{0}字段列表".FormatWith(configName));
+            Fields.Required(p => !p.Any(a => a.Caption.IsEmpty() || a.FieldName.IsEmpty()), "{0}字段标题或字段名不能为空。".FormatWith(configName));
+            Fields.Required(p => !p.Any(a => a.FieldType.In(EntitySetFieldType.GridSearch, EntitySetFieldType.Lookup) && a.SqlScript.IsEmpty()), "{0}字段类型为‘查找或表格查找’，但没有配置查询脚本。".FormatWith(configName));
         }
 
         public EntitySetConfig()

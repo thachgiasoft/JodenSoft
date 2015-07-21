@@ -42,17 +42,21 @@ namespace SAF.Framework.Component
             var shell = ApplicationService.Current.MainForm as IShellBase;
             if (shell != null)
             {
-                lblProductInclude.Text = "本产品包含：{0}.".FormatEx(shell.SubProductInfos.OrderBy(p => p.OrderIndex).Select(p => "{0}({1})".FormatEx(p.Title, p.Name)).JoinText(", "));
+                lblProductInclude.Text = "本产品包含：{0}.".FormatWith(shell.SubProductInfos.OrderBy(p => p.OrderIndex).Select(p => "{0}({1})".FormatWith(p.Title, p.Name)).JoinText(", "));
             }
             else
             {
-                lblProductInclude.Text = "本产品包含：{0}.".FormatEx(productName);
+                lblProductInclude.Text = "本产品包含：{0}.".FormatWith(productName);
             }
 
-            lblInfo.Text = AssemblyInfoHelper.AllVersionInfo;
-            lblProductId.Text = "产品ID：{0}".FormatEx(productId);
-            lblAbout.Text = "关于 {0}".FormatEx(productName);
-            lblSetTool.Text = "设置 {0} 的工具".FormatEx(productName);
+            if (Session.CompanyInfo.IsValid)
+                lblInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name);
+            else
+                lblInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany);
+
+            lblProductId.Text = "产品ID：{0}".FormatWith(productId);
+            lblAbout.Text = "关于 {0}".FormatWith(productName);
+            lblSetTool.Text = "设置 {0} 的工具".FormatWith(productName);
 
 
         }

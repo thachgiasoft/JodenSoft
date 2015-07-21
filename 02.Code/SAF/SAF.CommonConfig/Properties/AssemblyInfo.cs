@@ -10,9 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SAF.CommonConfig")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(AssemblyInfoHelper.Company)]
+[assembly: AssemblyCompany(AssemblyInfoHelper.AssemblyCompany)]
 [assembly: AssemblyProduct("SAF.CommonConfig")]
-[assembly: AssemblyCopyright(AssemblyInfoHelper.Copyright)]
+[assembly: AssemblyCopyright(AssemblyInfoHelper.AssemblyCopyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

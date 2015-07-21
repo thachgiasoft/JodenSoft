@@ -10,9 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SAF.SystemModule")]
 [assembly: AssemblyDescription("系统管理工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(AssemblyInfoHelper.Company)]
+[assembly: AssemblyCompany(AssemblyInfoHelper.AssemblyCompany)]
 [assembly: AssemblyProduct("SAF.SystemModule")]
-[assembly: AssemblyCopyright(AssemblyInfoHelper.Copyright)]
+[assembly: AssemblyCopyright(AssemblyInfoHelper.AssemblyCopyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

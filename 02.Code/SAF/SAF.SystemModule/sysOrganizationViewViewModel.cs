@@ -82,7 +82,7 @@ namespace SAF.SystemModule
 SELECT a.*
 FROM dbo.sysOrganization a WITH(NOLOCK)
 JOIN (SELECT DISTINCT * FROM tree) b ON a.Iden=b.Iden
-ORDER BY a.[ParentId]".FormatEx(sCondition);
+ORDER BY a.[ParentId]".FormatWith(sCondition);
 
             this.IndexEntitySet.Query(sql, parameterValues);
         }
@@ -117,7 +117,7 @@ ORDER BY a.[ParentId]".FormatEx(sCondition);
 SELECT Iden,Name,[ParentId]
 FROM [dbo].sysOrganization with(nolock)
 WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree]) and IsActive=1
-ORDER BY [ParentId], [Code]".FormatEx(key ?? int.MinValue);
+ORDER BY [ParentId], [Code]".FormatWith(key ?? int.MinValue);
             this.ParentEntitySet.Query(sqlParent);
         }
 
@@ -175,7 +175,7 @@ BEGIN
     JOIN @result b ON a.Iden=b.Iden
 
     SET @index=@index+1
-END".FormatEx(idens);
+END".FormatWith(idens);
 
             this.ExecuteCache.Execute(sqlUpdateCode);
         }

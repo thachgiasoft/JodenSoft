@@ -15,7 +15,7 @@ namespace SAF.SystemModule
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            IndexEntitySet.Query(@"SELECT Iden,BillNoType from sysBillNoFormula with(nolock) where ({0}) order by Iden".FormatEx(sCondition));
+            IndexEntitySet.Query(@"SELECT Iden,BillNoType from sysBillNoFormula with(nolock) where ({0}) order by Iden".FormatWith(sCondition));
         }
 
         protected override void OnQueryChild(object key)

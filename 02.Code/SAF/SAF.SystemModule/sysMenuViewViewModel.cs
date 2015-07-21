@@ -61,7 +61,7 @@ SELECT Iden,Name,[ParentId],[MenuOrder] ,IsAutoOpen,MenuType,[IsShowDialog],
     BusinessView=(SELECT top 1 [ClassName] FROM dbo.sysBusinessView with(nolock) WHERE [Iden]=a.BusinessViewId)
 FROM [dbo].[sysMenu] a with(nolock)
 where {0}
-ORDER BY [ParentId],[MenuOrder]".FormatEx(sCondition);
+ORDER BY [ParentId],[MenuOrder]".FormatWith(sCondition);
 
             this.IndexEntitySet.Query(sql, parameterValues);
         }
@@ -110,7 +110,7 @@ SELECT Iden,Name,[ParentId]
 FROM [dbo].[sysMenu]  with(nolock)
 WHERE [Iden] NOT IN(SELECT [Iden] FROM [tree])
     AND MenuType=0
-ORDER BY [ParentId],[MenuOrder]".FormatEx(key ?? int.MinValue);
+ORDER BY [ParentId],[MenuOrder]".FormatWith(key ?? int.MinValue);
             this.ParentEntitySet.Query(sql);
         }
 

@@ -26,7 +26,7 @@ namespace SAF.SystemModule
 FROM dbo.sysUser a WITH(NOLOCK) 
 WHERE IsActive=1 AND IsDeleted=0 AND ({0})";
 
-            IndexEntitySet.Query(sql.FormatEx(sCondition));
+            IndexEntitySet.Query(sql.FormatWith(sCondition));
         }
 
         protected override void OnQueryChild(object key)

@@ -58,7 +58,7 @@ namespace SAF.Framework.Component
             Session.UserInfo.RetriveImage();
             this.picUserPicture.Image = Session.UserInfo.UserImage ?? AssemblyInfoHelper.UserDefaultImage;
 
-            this.lblUserName.Text = "{0} ({1})".FormatEx(Session.UserInfo.UserName, Session.UserInfo.UserFullName);
+            this.lblUserName.Text = "{0} ({1})".FormatWith(Session.UserInfo.UserName, Session.UserInfo.UserFullName);
             this.lblEmail.Text = Session.UserInfo.Email;
         }
 

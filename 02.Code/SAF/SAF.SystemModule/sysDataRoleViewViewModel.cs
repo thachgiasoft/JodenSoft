@@ -31,7 +31,7 @@ namespace SAF.SystemModule
             base.OnQuery(sCondition, parameterValues);
 
             const string sql = @"SELECT Iden,[Name],[IsSystem] FROM [dbo].[sysDataRole] WITH(NOLOCK) WHERE [IsDeleted]=0 and {0}";
-            this.IndexEntitySet.Query(sql.FormatEx(sCondition));
+            this.IndexEntitySet.Query(sql.FormatWith(sCondition));
         }
 
         protected override void OnQueryChild(object key)
@@ -63,7 +63,7 @@ namespace SAF.SystemModule
             }
             if (!canDelete)
             {
-                MessageService.ShowError("角色\"{0}\"是系统预定义的数据角色,无法删除!".FormatEx(roleName));
+                MessageService.ShowError("角色\"{0}\"是系统预定义的数据角色,无法删除!".FormatWith(roleName));
             }
 
             return canDelete;
@@ -83,7 +83,7 @@ namespace SAF.SystemModule
             }
             if (!canEdit)
             {
-                MessageService.ShowWarning("角色\"{0}\"是系统预定义的数据角色,无法编辑!".FormatEx(roleName));
+                MessageService.ShowWarning("角色\"{0}\"是系统预定义的数据角色,无法编辑!".FormatWith(roleName));
             }
 
             return canEdit;

@@ -48,7 +48,7 @@ namespace SAF.SystemModule
         protected override void OnQuery(string sCondition, params object[] parameterValues)
         {
             base.OnQuery(sCondition, parameterValues);
-            this.IndexEntitySet.Query("select Iden, Name, FileVersion, FileSize from sysFile with(nolock) where {0}".FormatEx(sCondition), parameterValues);
+            this.IndexEntitySet.Query("select Iden, Name, FileVersion, FileSize from sysFile with(nolock) where {0}".FormatWith(sCondition), parameterValues);
         }
 
         protected override void OnQueryChild(object key)
@@ -174,7 +174,7 @@ SELECT a.Iden, a.ClassName,a.Description, a.FileId, a.Remark, a.IsDeleted,FileNa
     a.CreatedBy, a.CreatedOn, a.ModifiedBy, a.ModifiedOn, a.VersionNumber 
 FROM [dbo].[sysBusinessView] a with(nolock)
 JOIN [dbo].[sysFile] b with(nolock) ON a.[FileId]=b.[Iden]
-WHERE b.[Name] in ({0})".FormatEx("'" + listFile.JoinText("','") + "'");
+WHERE b.[Name] in ({0})".FormatWith("'" + listFile.JoinText("','") + "'");
 
             BusinessViewEntitySet.Query(sql);
 

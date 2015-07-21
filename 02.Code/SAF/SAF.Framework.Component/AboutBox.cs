@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Text;
 using SAF.Foundation;
+using SAF.EntityFramework;
 
 namespace SAF.Framework.Component
 {
@@ -25,7 +26,12 @@ namespace SAF.Framework.Component
         {
 
             this.Text = String.Format("关于 {0}", AssemblyInfoHelper.ProductName);
-            this.txtVersionInfo.Text = AssemblyInfoHelper.AllVersionInfo;
+
+            if (Session.CompanyInfo.IsValid)
+                this.txtVersionInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name);
+            else
+                this.txtVersionInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany);
+
             this.txtWarningMessage.Text = AssemblyInfoHelper.WarningMessage;
 
             this.picLogo.Image = AssemblyInfoHelper.ApplicationImage;
@@ -48,7 +54,11 @@ namespace SAF.Framework.Component
         private void CopyVersionInfo()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(AssemblyInfoHelper.AllVersionInfo);
+
+            if (Session.CompanyInfo.IsValid)
+                sb.AppendLine(AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name));
+            else
+                sb.AppendLine(AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany));
 
             foreach (var com in SubSystemInfos.OrderBy(p => p.OrderIndex))
             {

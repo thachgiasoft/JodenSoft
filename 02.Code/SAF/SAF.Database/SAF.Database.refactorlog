@@ -21,4 +21,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ParamValueList" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="66fee11d-64b5-4482-8413-a47f8318a53d" ChangeDateTime="07/21/2015 07:16:07">
+    <Property Name="ElementName" Value="[dbo].[sysCompany].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysCompany]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Iden" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="087835c6-67fb-4556-b642-d2f43125047f" ChangeDateTime="07/21/2015 07:17:00">
+    <Property Name="ElementName" Value="[dbo].[sysCompany].[Logo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysCompany]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Sp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="88dee94f-0b6b-41d4-b871-b8c07dbd83f1" ChangeDateTime="07/21/2015 07:17:40">
+    <Property Name="ElementName" Value="[dbo].[sysCompany].[Sp]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysCompany]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SplashPicture" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bc30ebdd-0219-443b-8fc0-7b46b7211379" ChangeDateTime="07/21/2015 07:41:55">
+    <Property Name="ElementName" Value="[dbo].[sysCompany].[SplashPicture]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[sysCompany]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SplashImage" />
+  </Operation>
 </Operations>
