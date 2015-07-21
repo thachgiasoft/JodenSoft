@@ -13,25 +13,20 @@ namespace SAF.Foundation
         /// </summary>
         public const string ProductName = "Simplified Application Framework";
 
-#if DEBUG
         /// <summary>
         /// 程序集版权
         /// </summary>
-        public const string Copyright = "Copyright (c) 2013-{0} 上海环思信息技术有限公司";
+        public const string AssemblyCopyright = "Copyright (c) 2013-2015 苏州聚达信息服务咨询有限公司";
+
+        /// <summary>
+        /// 显示版权
+        /// </summary>
+        public const string CopyrightFormat = "Copyright (c) 2013-{0} {1}";
+
         /// <summary>
         /// 程序开发公司
         /// </summary>
-        public const string Company = "上海环思信息技术有限公司";
-#else
-        /// <summary>
-        /// 程序集版权
-        /// </summary>
-        public const string Copyright = "Copyright (c) 2013-{0} 苏州聚达信息服务咨询有限公司";
-        /// <summary>
-        /// 程序开发公司
-        /// </summary>
-        public const string Company = "苏州聚达信息服务咨询有限公司";
-#endif
+        public const string AssemblyCompany = "苏州聚达信息服务咨询有限公司";
 
         /// <summary>
         /// 程序集版本号
@@ -80,18 +75,15 @@ namespace SAF.Foundation
         /// <summary>
         /// 详细版权说明
         /// </summary>
-        public static string AllVersionInfo
+        public static string GetAllVersionInfo(string companyName)
         {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(ProductName);
-                sb.AppendLine(string.Format("文件版本 {0}", FileVersion));
-                sb.AppendLine(string.Format("程序集版本 {0}", Version));
-                sb.AppendLine(string.Format("{0}", Copyright.FormatWith(DateTime.Now.Year)));
-                sb.AppendLine(string.Format("保留所有权利"));
-                return sb.ToString();
-            }
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(ProductName);
+            sb.AppendLine(string.Format("文件版本 {0}", FileVersion));
+            sb.AppendLine(string.Format("程序集版本 {0}", Version));
+            sb.AppendLine(string.Format("{0}", CopyrightFormat.FormatWith(DateTime.Now.Year, companyName)));
+            sb.AppendLine(string.Format("保留所有权利"));
+            return sb.ToString();
         }
     }
 }

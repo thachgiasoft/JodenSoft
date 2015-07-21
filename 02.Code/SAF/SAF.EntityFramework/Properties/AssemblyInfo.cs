@@ -9,9 +9,9 @@ using SAF.Foundation;
 [assembly: AssemblyTitle("SAF.EntityFramework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(AssemblyInfoHelper.Company)]
+[assembly: AssemblyCompany(AssemblyInfoHelper.AssemblyCompany)]
 [assembly: AssemblyProduct("SAF.EntityFramework")]
-[assembly: AssemblyCopyright(AssemblyInfoHelper.Copyright)]
+[assembly: AssemblyCopyright(AssemblyInfoHelper.AssemblyCopyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

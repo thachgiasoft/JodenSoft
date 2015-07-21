@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using SAF.Foundation;
+using SAF.EntityFramework;
 
 namespace SAF.Framework.Controls
 {
@@ -32,10 +33,24 @@ namespace SAF.Framework.Controls
 
         void SplashScreen_Shown(object sender, EventArgs e)
         {
-            
-            label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。", Environment.NewLine, GetYearString(), AssemblyInfoHelper.Company);
+            if (Session.CompanyInfo.IsValid)
+            {
+                label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。"
+                    , Environment.NewLine, GetYearString()
+                    , Session.CompanyInfo.Name);
+
+                this.picHS.Image = Session.CompanyInfo.SplashImage;
+            }
+            else
+            {
+                label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。"
+                   , Environment.NewLine, GetYearString()
+                   , AssemblyInfoHelper.AssemblyCompany);
+
+                this.picHS.Image = Properties.Resources.JodenSoft;
+            }
+
             label1.Text += "{0}保留所有权利。".FormatWith(Environment.NewLine);
-            this.picHS.Image = Properties.Resources.JodenSoft;
 
             this.marqueeProgressBarControl1.Top = this.panel1.Top - this.marqueeProgressBarControl1.Height - 10;
             var top = this.marqueeProgressBarControl1.Top - this.txtMessage.Height - 5;
