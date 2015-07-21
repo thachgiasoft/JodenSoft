@@ -15,7 +15,7 @@ namespace SAF.Foundation
         }
 
         public OutOfRangeException(int index, int min, int max)
-            : base("value must between {0} and {1}.current value is {2}".FormatEx(index, min, max))
+            : base("value must between {0} and {1}.current value is {2}".FormatWith(index, min, max))
         {
         }
 

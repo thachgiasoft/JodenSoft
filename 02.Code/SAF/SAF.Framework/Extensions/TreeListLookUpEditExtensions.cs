@@ -31,7 +31,7 @@ namespace SAF.Framework
             properties.TreeList.Columns.Clear();
 
             if (fieldAndCaptionList.IsEmpty())
-                fieldAndCaptionList = "{0}|{0}".FormatEx(displayMember);
+                fieldAndCaptionList = "{0}|{0}".FormatWith(displayMember);
 
             var fieldArray = fieldAndCaptionList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 

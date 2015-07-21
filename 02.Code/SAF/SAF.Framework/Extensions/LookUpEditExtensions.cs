@@ -19,7 +19,7 @@ namespace SAF.Framework
             if (fieldAndCaptionList.IsEmpty())
             {
                 properties.ShowHeader = false;
-                fieldAndCaptionList = "{0}|{0}".FormatEx(displayMember);
+                fieldAndCaptionList = "{0}|{0}".FormatWith(displayMember);
             }
 
             var fieldArray = fieldAndCaptionList.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);

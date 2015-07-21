@@ -596,10 +596,10 @@ namespace SAF.Framework.View
             string result = string.Empty;
 
             if (!condition.IsEmpty())
-                result = "({0})".FormatEx(condition);
+                result = "({0})".FormatWith(condition);
 
             if (!qcMain.AdditionalCondition.IsEmpty())
-                result = result.IsEmpty() ? " ({0}) ".FormatEx(qcMain.AdditionalCondition) : result + " AND ({1})".FormatEx(qcMain.AdditionalCondition);
+                result = result.IsEmpty() ? " ({0}) ".FormatWith(qcMain.AdditionalCondition) : result + " AND ({1})".FormatWith(qcMain.AdditionalCondition);
 
             return result.IsEmpty() ? " (1=1) " : result;
         }

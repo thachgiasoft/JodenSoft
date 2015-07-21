@@ -570,7 +570,7 @@ namespace SAF.EntityFramework
             if (this.DataTable == null)
                 throw new Exception("FieldAllowDBNull: DataRowView is null.");
             if (!FieldIsExists(fieldName))
-                throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatEx(fieldName));
+                throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatWith(fieldName));
             return this.DataTable.Columns[fieldName].AllowDBNull;
         }
 
@@ -584,7 +584,7 @@ namespace SAF.EntityFramework
             if (this.DataTable == null)
                 throw new Exception("FieldDataType: DataRowView is null.");
             if (!FieldIsExists(fieldName))
-                throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatEx(fieldName));
+                throw new FieldNotFoundException("字段\"{0}\"不存在.".FormatWith(fieldName));
             return this.DataTable.Columns[fieldName].DataType;
         }
 

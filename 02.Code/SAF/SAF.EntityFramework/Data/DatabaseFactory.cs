@@ -41,11 +41,11 @@ namespace SAF.EntityFramework
             {
                 var service = DataServiceConfigCollection.Current.FirstOrDefault(p => p.ServiceName.Equals(serviceName, StringComparison.CurrentCultureIgnoreCase));
                 if (service == null)
-                    throw new Exception("服务端配置文件中不存在名称为\"{0}\"的服务.".FormatEx(serviceName));
+                    throw new Exception("服务端配置文件中不存在名称为\"{0}\"的服务.".FormatWith(serviceName));
 
                 var connection = service.ConnectionStringConfigs.FirstOrDefault(p => p.Name.Equals(connectionName, StringComparison.CurrentCultureIgnoreCase));
                 if (connection == null)
-                    throw new Exception("服务\"{0}\"中不存在名称为\"{1}\"的连接配置.".FormatEx(serviceName, connectionName));
+                    throw new Exception("服务\"{0}\"中不存在名称为\"{1}\"的连接配置.".FormatWith(serviceName, connectionName));
 
                 connectionString = connection.ConnectionString;
             }
@@ -56,7 +56,7 @@ namespace SAF.EntityFramework
             }
             catch (Exception ex)
             {
-                throw new Exception("服务\"{0}\"中名称为\"{1}\"的连接配置格式错误.{2}{3}".FormatEx(serviceName, connectionName, Environment.NewLine, ex.Message));
+                throw new Exception("服务\"{0}\"中名称为\"{1}\"的连接配置格式错误.{2}{3}".FormatWith(serviceName, connectionName, Environment.NewLine, ex.Message));
             }
 
             return new SqlDatabase(connectionString);

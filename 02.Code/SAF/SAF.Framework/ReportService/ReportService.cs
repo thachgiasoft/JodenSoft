@@ -141,7 +141,7 @@ Order by a.OrderIndex";
                 {
                     var barCheckItem = new BarCheckItem();
                     barCheckItem.Caption = item.Name;
-                    barCheckItem.Name = "bbiReport_ReportFormatList_{0}".FormatEx(item.Iden);
+                    barCheckItem.Name = "bbiReport_ReportFormatList_{0}".FormatWith(item.Iden);
                     barCheckItem.GroupIndex = 100000;
                     barCheckItem.Checked = item.IsDefault;
                     barCheckItem.Tag = item;
@@ -164,8 +164,8 @@ Order by a.OrderIndex";
 
         private void RefreshReportBarItemCaption()
         {
-            bbiReport_Print.Caption = "打印 {0}".FormatEx(CurrReportFormat.Name);
-            bbiReport.Caption = "预览\n{0}".FormatEx(CurrReportFormat.Name);
+            bbiReport_Print.Caption = "打印 {0}".FormatWith(CurrReportFormat.Name);
+            bbiReport.Caption = "预览\n{0}".FormatWith(CurrReportFormat.Name);
         }
 
         private XtraReport GetCurrentReportFormat()
@@ -237,7 +237,7 @@ Order by a.OrderIndex";
 
                     if (primaryColumn != null && ForeignColumn != null)
                     {
-                        var name = "{0}_{1}".FormatEx(releation.ForeignTableName, releation.PrimaryTableName);
+                        var name = "{0}_{1}".FormatWith(releation.ForeignTableName, releation.PrimaryTableName);
                         ds.Relations.Add(name, ForeignColumn, primaryColumn);
                     }
                 }

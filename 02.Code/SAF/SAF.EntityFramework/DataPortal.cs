@@ -214,7 +214,7 @@ namespace SAF.EntityFramework
             var obj = DataPortal.ExecuteScalar(connectionName,
                     @" SELECT Iden=id
                         FROM dbo.sysobjects WITH(NOLOCK)
-                        WHERE id = OBJECT_ID(N'{0}') AND OBJECTPROPERTY(id, N'IsTable') = 1".FormatEx(tableName));
+                        WHERE id = OBJECT_ID(N'{0}') AND OBJECTPROPERTY(id, N'IsTable') = 1".FormatWith(tableName));
             return !(obj == null);
         }
 

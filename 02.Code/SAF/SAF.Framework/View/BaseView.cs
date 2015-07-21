@@ -38,7 +38,7 @@ namespace SAF.Framework.View
         {
             if (this.IsDirty && e.CloseReason == CloseReason.UserClosing)
             {
-                string message = "确定要关闭\"{0}\"吗?{1}关闭操作将丢弃所有未更改的保存.".FormatEx(this.Text, Environment.NewLine);
+                string message = "确定要关闭\"{0}\"吗?{1}关闭操作将丢弃所有未更改的保存.".FormatWith(this.Text, Environment.NewLine);
                 var result = MessageService.AskQuestion(message);
                 if (!result)
                     e.Cancel = true;

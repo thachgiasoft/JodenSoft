@@ -12,5 +12,6 @@ namespace SAF.Foundation
         {
             return dr != null && !fieldName.IsEmpty() && dr.Table.Columns.Contains(fieldName);
         }
+        
     }
 }

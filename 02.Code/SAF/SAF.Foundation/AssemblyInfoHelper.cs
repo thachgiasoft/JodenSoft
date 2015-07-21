@@ -88,7 +88,7 @@ namespace SAF.Foundation
                 sb.AppendLine(ProductName);
                 sb.AppendLine(string.Format("文件版本 {0}", FileVersion));
                 sb.AppendLine(string.Format("程序集版本 {0}", Version));
-                sb.AppendLine(string.Format("{0}", Copyright.FormatEx(DateTime.Now.Year)));
+                sb.AppendLine(string.Format("{0}", Copyright.FormatWith(DateTime.Now.Year)));
                 sb.AppendLine(string.Format("保留所有权利"));
                 return sb.ToString();
             }

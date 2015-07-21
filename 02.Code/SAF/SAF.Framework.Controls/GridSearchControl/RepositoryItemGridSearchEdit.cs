@@ -127,7 +127,7 @@ namespace SAF.Framework.Controls
                 throw new Exception("请设置DisplayMember.");
 
             if (!_SearchControl.FieldIsExists(DisplayMember))
-                throw new Exception("DisplayMember\"{0}\"不存在.".FormatEx(DisplayMember));
+                throw new Exception("DisplayMember\"{0}\"不存在.".FormatWith(DisplayMember));
 
             var obj = _SearchControl.GetSelectedValue(this.DisplayMember);
             if (obj != null)

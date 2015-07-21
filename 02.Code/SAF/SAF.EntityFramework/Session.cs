@@ -26,7 +26,7 @@ namespace SAF.EntityFramework
             get
             {
                 if (_ProductCode.IsEmpty())
-                    _ProductCode = MD5Helper.Hash("{0}-[{1}]".FormatEx(MachineInfo.MachineCode, AssemblyInfoHelper.ProductName), true);
+                    _ProductCode = MD5Helper.Hash("{0}-[{1}]".FormatWith(MachineInfo.MachineCode, AssemblyInfoHelper.ProductName), true);
                 return _ProductCode;
             }
         }

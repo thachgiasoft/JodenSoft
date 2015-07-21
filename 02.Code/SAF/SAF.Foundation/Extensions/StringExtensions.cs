@@ -51,17 +51,22 @@ namespace SAF.Foundation
             return Regex.IsMatch(value, pattern);
         }
 
-        #region FormatEx
+        #region FormatWith
         /// <summary>
         /// 格式化字符串
         /// </summary>
         /// <param name="s"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static string FormatEx(this string s, params object[] args)
+        public static string FormatWith(this string s, params object[] args)
         {
             if (s.IsEmpty()) return s;
             return string.Format(s, args);
+        }
+
+        public static string FormatWith(this string text, IFormatProvider provider, params object[] args)
+        {
+            return string.Format(provider, text, args);
         }
 
         /// <summary>
@@ -87,6 +92,30 @@ namespace SAF.Foundation
         public static string TrimToLength(this string s, int length)
         {
             return (s.IsEmpty() || s.Length <= length) ? s : s.Substring(0, length);
+        }
+
+        /// <summary>
+        /// Truncates the string to a specified length and replace the truncated to a ...
+        /// </summary>
+        /// <param name="maxLength">total length of characters to maintain before the truncate happens</param>
+        /// <returns>truncated string</returns>
+        public static string Truncate(this string text, int maxLength)
+        {
+            // replaces the truncated string to a ...
+            const string suffix = "...";
+            string truncatedString = text;
+
+            if (maxLength <= 0) return truncatedString;
+            int strLength = maxLength - suffix.Length;
+
+            if (strLength <= 0) return truncatedString;
+
+            if (text == null || text.Length <= maxLength) return truncatedString;
+
+            truncatedString = text.Substring(0, strLength);
+            truncatedString = truncatedString.TrimEnd();
+            truncatedString += suffix;
+            return truncatedString;
         }
 
         /// <summary>
@@ -160,6 +189,34 @@ namespace SAF.Foundation
             return s.After(word, false);
         }
 
+        public static string Between(this string s, string preWord, string afterWord, bool bIncludeSelf, ref int iStart)
+        {
+            if (preWord.IsEmpty() && afterWord.IsEmpty())
+                return string.Empty;
+            else if (preWord.IsEmpty())
+                return Before(s, afterWord, bIncludeSelf);
+            else if (afterWord.IsEmpty())
+                return After(s, preWord, bIncludeSelf);
+            else
+            {
+                if (iStart < 0)
+                    iStart = 0;
+                int iLen = preWord.Length;
+                iStart = s.IndexOf(preWord, iStart, StringComparison.OrdinalIgnoreCase);
+                int j = s.IndexOf(afterWord, iStart + iLen, StringComparison.OrdinalIgnoreCase);
+                if (iStart == -1 && j == -1)
+                    return string.Empty;
+                else if (iStart == -1 && j != -1)
+                    return Before(s, afterWord, bIncludeSelf);
+                else if (iStart != -1 && j == -1)
+                    return After(s, preWord, bIncludeSelf);
+                else if (bIncludeSelf)
+                    return s.Substring(iStart, j - iStart + afterWord.Length);
+                else
+                    return s.Substring(iStart + iLen, j - iStart - iLen);
+            }
+        }
+
         public static string Before(this string s, string word, bool bIncludeSelf)
         {
             int num = s.IndexOf(word, StringComparison.OrdinalIgnoreCase);
@@ -207,16 +264,41 @@ namespace SAF.Foundation
 
         #region ToCamel/ToPascal
 
-        public static string ToCamel(this string s)
+        /// <summary>
+        /// Converts string to a Name-Format where each first letter is Uppercase.
+        /// </summary>
+        /// <param name="value">The string value.</param>
+        /// <returns></returns>
+        public static string ToPascal(this string value)
         {
-            if (s.IsEmpty()) return s;
-            return s[0].ToString().ToLower() + s.Substring(1);
-        }
-
-        public static string ToPascal(this string s)
-        {
-            if (s.IsEmpty()) return s;
-            return s[0].ToString().ToUpper() + s.Substring(1);
+            if (string.IsNullOrEmpty(value)) return "";
+            char[] valuearray = value.ToLower().ToCharArray();
+            bool nextupper = true;
+            for (int i = 0; i < (valuearray.Count() - 1); i++)
+            {
+                if (nextupper)
+                {
+                    valuearray[i] = char.Parse(valuearray[i].ToString().ToUpper());
+                    nextupper = false;
+                }
+                else
+                {
+                    switch (valuearray[i])
+                    {
+                        case ' ':
+                        case '-':
+                        case '.':
+                        case ':':
+                        case '\n':
+                            nextupper = true;
+                            break;
+                        default:
+                            nextupper = false;
+                            break;
+                    }
+                }
+            }
+            return new string(valuearray);
         }
 
         #endregion
@@ -349,6 +431,12 @@ namespace SAF.Foundation
         {
             File.WriteAllText(path, data, encoding);
         }
+
+        public static System.IO.MemoryStream ToStream(this string Source)
+        {
+            byte[] Bytes = System.Text.Encoding.ASCII.GetBytes(Source);
+            return new System.IO.MemoryStream(Bytes);
+        }
         #endregion
 
         #region Reverse
@@ -365,32 +453,6 @@ namespace SAF.Foundation
 
         #endregion
 
-        public static string Between(this string s, string preWord, string afterWord, bool bIncludeSelf, ref int iStart)
-        {
-            if (preWord.IsEmpty() && afterWord.IsEmpty())
-                return string.Empty;
-            else if (preWord.IsEmpty())
-                return Before(s, afterWord, bIncludeSelf);
-            else if (afterWord.IsEmpty())
-                return After(s, preWord, bIncludeSelf);
-            else
-            {
-                if (iStart < 0)
-                    iStart = 0;
-                int iLen = preWord.Length;
-                iStart = s.IndexOf(preWord, iStart, StringComparison.OrdinalIgnoreCase);
-                int j = s.IndexOf(afterWord, iStart + iLen, StringComparison.OrdinalIgnoreCase);
-                if (iStart == -1 && j == -1)
-                    return string.Empty;
-                else if (iStart == -1 && j != -1)
-                    return Before(s, afterWord, bIncludeSelf);
-                else if (iStart != -1 && j == -1)
-                    return After(s, preWord, bIncludeSelf);
-                else if (bIncludeSelf)
-                    return s.Substring(iStart, j - iStart + afterWord.Length);
-                else
-                    return s.Substring(iStart + iLen, j - iStart - iLen);
-            }
-        }
+
     }
 }

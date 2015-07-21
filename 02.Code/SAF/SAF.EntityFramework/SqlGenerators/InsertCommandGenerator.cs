@@ -59,7 +59,7 @@ namespace SAF.EntityFramework.SqlGenerators
                     if (dr[fieldName] != null && dr[fieldName] != DBNull.Value)
                     {
                         fieldParamsBuilder.Append(string.Format("@Curr_{0}, ", fieldName));
-                        paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatEx(fieldName), DataType = field.DataType, Value = dr[fieldName] });
+                        paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatWith(fieldName), DataType = field.DataType, Value = dr[fieldName] });
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace SAF.EntityFramework.SqlGenerators
                         else
                         {
                             fieldParamsBuilder.Append(string.Format("@Curr_{0}, ", fieldName));
-                            paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatEx(fieldName), DataType = field.DataType, Value = DBNull.Value });
+                            paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatWith(fieldName), DataType = field.DataType, Value = DBNull.Value });
                         }
                     }
                 }

@@ -624,7 +624,7 @@ namespace SAF.EntityFramework
                 foreach (DbParameter param in command.Parameters)
                 {
                     string name = param.ParameterName;
-                    commandText = commandText.Replace(name, (param.Value == null || param.Value == DBNull.Value) ? "NULL" : "'{0}'".FormatEx(param.Value));
+                    commandText = commandText.Replace(name, (param.Value == null || param.Value == DBNull.Value) ? "NULL" : "'{0}'".FormatWith(param.Value));
                 }
                 command.Parameters.Clear();
                 command.CommandText = "sysPageQuery";

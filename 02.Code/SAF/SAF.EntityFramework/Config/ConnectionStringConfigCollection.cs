@@ -16,7 +16,7 @@ namespace SAF.EntityFramework.Config
                 throw new Exception("连接配置名称为空.");
 
             if (this.Any(p => p.Name == item.Name))
-                throw new Exception("连接配置[{0}]已经存在.".FormatEx(item.Name));
+                throw new Exception("连接配置[{0}]已经存在.".FormatWith(item.Name));
 
             base.InsertItem(index, item);
         }

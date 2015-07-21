@@ -54,7 +54,7 @@ namespace SAF.EntityFramework.SqlGenerators
                     if (field.IsPrimaryKey)
                     {
                         whereBuilder.Append(string.Format("[{0}] = @Orig_{1} ", fieldName, fieldName));
-                        paramList.Add(new SqlCommandParameter() { Name = "@Orig_{0}".FormatEx(fieldName), Value = dr[fieldName, DataRowVersion.Original] });
+                        paramList.Add(new SqlCommandParameter() { Name = "@Orig_{0}".FormatWith(fieldName), Value = dr[fieldName, DataRowVersion.Original] });
                     }
 
                     if (!dr[fieldName].Equals(dr[fieldName, DataRowVersion.Original]))
@@ -67,7 +67,7 @@ namespace SAF.EntityFramework.SqlGenerators
                         else
                         {
                             setBuilder.Append(string.Format("[{0}] = @Curr_{1}, ", fieldName, fieldName));
-                            paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatEx(fieldName), DataType = field.DataType, Value = dr[fieldName] });
+                            paramList.Add(new SqlCommandParameter() { Name = "@Curr_{0}".FormatWith(fieldName), DataType = field.DataType, Value = dr[fieldName] });
                         }
                     }
                     else

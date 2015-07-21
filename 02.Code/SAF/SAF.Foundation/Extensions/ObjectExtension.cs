@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAF.Foundation.ComponentModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,5 +168,73 @@ namespace SAF.Foundation
                 fieldInfo.SetValue(aObject, aPropertyValue);
             }
         }
+
+        public static string ToXml<T>(this T o) //where T : new()
+        {
+            if (o.IsEmpty()) return string.Empty;
+            return XmlSerializerHelper.Serialize<T>(o);
+        }
+
+        /// <summary>
+        /// min<= me< max
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="me"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static bool Between<T>(this T me, T min, T max) where T : IComparable<T>
+        {
+            return me.CompareTo(min) >= 0 && me.CompareTo(max) < 0;
+        }
+        /// <summary>
+        /// min<= me<= max
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="me"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static bool BetweenAndEqual<T>(this T me, T min, T max) where T : IComparable<T>
+        {
+            return me.CompareTo(min) >= 0 && me.CompareTo(max) <= 0;
+        }
+
+        #region PercentOf
+
+        public static decimal PercentOf(this decimal position, decimal total, int decimals, MidpointRounding mode)
+        {
+            decimal result = 0;
+            if (position > 0 && total > 0)
+                result = Math.Round((decimal)((decimal)position / (decimal)total * 100), decimals, mode);
+            return result;
+        }
+
+        public static decimal PercentOf(this decimal position, decimal total, int decimals)
+        {
+            return position.PercentOf(total, decimals, MidpointRounding.AwayFromZero);
+        }
+
+        public static decimal PercentOf(this decimal position, decimal total)
+        {
+            return position.PercentOf(total, 2, MidpointRounding.AwayFromZero);
+        }
+
+        public static decimal PercentOf(this int position, decimal total, int decimals, MidpointRounding mode)
+        {
+            return ((decimal)position).PercentOf(total, decimals, mode);
+        }
+
+        public static decimal PercentOf(this int position, decimal total, int decimals)
+        {
+            return ((decimal)position).PercentOf(total, decimals, MidpointRounding.AwayFromZero);
+        }
+
+        public static decimal PercentOf(this int position, decimal total)
+        {
+            return ((decimal)position).PercentOf(total, 2, MidpointRounding.AwayFromZero);
+        }
+
+        #endregion
     }
 }

@@ -53,7 +53,7 @@ namespace SAF.Framework.Controls
             }
             else
             {
-                this.lblMessage.Text = "系统共有 {0} 个文件需要更新.".FormatEx(files.Count);
+                this.lblMessage.Text = "系统共有 {0} 个文件需要更新.".FormatWith(files.Count);
                 this.progress.Visible = false;
                 this.btnUpgrade.Visible = true;
                 this.btnUpgrade.Enabled = true;

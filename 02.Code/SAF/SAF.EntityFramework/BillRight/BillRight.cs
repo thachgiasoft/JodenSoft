@@ -117,13 +117,13 @@ GROUP BY D.Iden,D.Code
             if (billRightInfo == null || billRightInfo.BillTypeId <= 0 || !billRightInfo.UseDataRight)
                 return BillDataRight.All;
             if (!entity.FieldIsExists(BillRightInfo.CreatedByField))
-                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.CreatedByField));
+                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatWith(sTableName, BillRightInfo.CreatedByField));
 
             if (!entity.FieldIsExists(BillRightInfo.OrganizationIdField))
-                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.OrganizationIdField));
+                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatWith(sTableName, BillRightInfo.OrganizationIdField));
 
             if (!entity.FieldIsExists(BillRightInfo.OrganizationCodeField))
-                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatEx(sTableName, BillRightInfo.OrganizationCodeField));
+                throw new ArgumentNullException("数据集[{0}]中缺少字段[{1}]，无法应用单据权限".FormatWith(sTableName, BillRightInfo.OrganizationCodeField));
 
             return CalcCurrentEntityBillDataRight("UpdateRight", billRightInfo, BillDataRight.Edit, entity)
                 | CalcCurrentEntityBillDataRight("DeleteRight", billRightInfo, BillDataRight.Delete, entity)

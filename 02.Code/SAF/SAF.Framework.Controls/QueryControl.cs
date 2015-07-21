@@ -151,7 +151,7 @@ namespace SAF.Framework.Controls
                 bbi.Name = "bbiFields_" + Guid.NewGuid().ToString("N");
                 bbi.Caption = item.Caption;
                 bbi.Tag = item.FieldName;
-                string nullText = "按 \"{0}\" 进行查询".FormatEx(item.Caption);
+                string nullText = "按 \"{0}\" 进行查询".FormatWith(item.Caption);
                 if (item.IsDefault)
                 {
                     this.txtSearchText.Properties.NullText = nullText;

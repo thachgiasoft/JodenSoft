@@ -48,7 +48,7 @@ namespace SAF.Foundation
         {
             get
             {
-                return "{0} — {1}".FormatEx(Name, Title);
+                return "{0} — {1}".FormatWith(Name, Title);
             }
         }
     }

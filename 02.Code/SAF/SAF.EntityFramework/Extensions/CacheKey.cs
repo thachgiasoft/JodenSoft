@@ -15,27 +15,27 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string ConnectionStringCachePrefix = "ConnectionString_{0}_".FormatEx(flag);
+        public static readonly string ConnectionStringCachePrefix = "ConnectionString_{0}_".FormatWith(flag);
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string sysConnectionString = "ConnectionString_{0}_sysConnectionString".FormatEx(flag);
+        public static readonly string sysConnectionString = "ConnectionString_{0}_sysConnectionString".FormatWith(flag);
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string EntityPropertiesPrefix = "EntityProperties_{0}_".FormatEx(flag);
+        public static readonly string EntityPropertiesPrefix = "EntityProperties_{0}_".FormatWith(flag);
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string EntityTableNamePrefix = "EntityTableName_{0}_".FormatEx(flag);
+        public static readonly string EntityTableNamePrefix = "EntityTableName_{0}_".FormatWith(flag);
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string EntityPrimaryKeyPrefix = "EntityPrimaryKey_{0}_".FormatEx(flag);
+        public static readonly string EntityPrimaryKeyPrefix = "EntityPrimaryKey_{0}_".FormatWith(flag);
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string EntityTableFieldsKeyPrefix = "EntityTableFields_{0}_".FormatEx(flag);
+        public static readonly string EntityTableFieldsKeyPrefix = "EntityTableFields_{0}_".FormatWith(flag);
 
     }
 }

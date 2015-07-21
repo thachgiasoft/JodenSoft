@@ -125,9 +125,9 @@ namespace SAF.Framework.Controls
                 result.Append(QueryControlHelper.GenerateQuickQueryCondition(sFieldName, sValue, QuickQueryType.Combinatorial));
             }
             if (result.Length > 0)
-                return commandText.FormatEx(result.ToString());
+                return commandText.FormatWith(result.ToString());
 
-            return commandText.FormatEx(" (1=1) ");
+            return commandText.FormatWith(" (1=1) ");
         }
 
         private void InitGridColumns()
@@ -329,7 +329,7 @@ namespace SAF.Framework.Controls
             if (obj == null) return null;
 
             if (!FieldIsExists(fieldName))
-                throw new Exception("字段\"{0}\"不存在.".FormatEx(fieldName));
+                throw new Exception("字段\"{0}\"不存在.".FormatWith(fieldName));
 
             var drv = obj as DataRowView;
             if (drv != null)

@@ -29,15 +29,15 @@ namespace SAF.EntityFramework.SqlGenerators
             switch (value.ToStringEx())
             {
                 case DefaultValues.UserId:
-                    return "{0}".FormatEx(Session.UserInfo.UserId);
+                    return "{0}".FormatWith(Session.UserInfo.UserId);
                 case DefaultValues.UserName:
-                    return "'{0}'".FormatEx(Session.UserInfo.UserName);
+                    return "'{0}'".FormatWith(Session.UserInfo.UserName);
                 case DefaultValues.UserFullName:
-                    return "'{0}'".FormatEx(Session.UserInfo.UserFullName);
+                    return "'{0}'".FormatWith(Session.UserInfo.UserFullName);
                 case DefaultValues.GetDate:
                     return "GETDATE()";
                 default:
-                    return "'{0}'".FormatEx(value);
+                    return "'{0}'".FormatWith(value);
             }
         }
     }

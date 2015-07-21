@@ -56,7 +56,7 @@ namespace SAF.EntityFramework.SqlGenerators
                     if (dr.Table.Columns.Contains(fieldName))
                     {
                         whereBuilder.Append(string.Format("[{0}]=@Orig_{1} AND ", fieldName, fieldName));
-                        paramList.Add(new SqlCommandParameter() { Name = "@Orig_{0}".FormatEx(fieldName), DataType = field.DataType, Value = dr[fieldName, DataRowVersion.Original] });
+                        paramList.Add(new SqlCommandParameter() { Name = "@Orig_{0}".FormatWith(fieldName), DataType = field.DataType, Value = dr[fieldName, DataRowVersion.Original] });
                     }
                 }
             }

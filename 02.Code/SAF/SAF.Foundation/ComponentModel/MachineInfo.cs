@@ -46,7 +46,7 @@ namespace SAF.Foundation.ComponentModel
             get
             {
                 if (_ProductCode.IsEmpty())
-                    _ProductCode = MD5Helper.Hash("{0}-{1}".FormatEx(MachineCode, AssemblyInfoHelper.ProductName));
+                    _ProductCode = MD5Helper.Hash("{0}-{1}".FormatWith(MachineCode, AssemblyInfoHelper.ProductName));
                 return _ProductCode;
             }
         }
