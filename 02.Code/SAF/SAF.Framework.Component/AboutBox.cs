@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using System.Text;
 using SAF.Foundation;
 using SAF.EntityFramework;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.Framework.Component
 {
@@ -27,8 +28,9 @@ namespace SAF.Framework.Component
 
             this.Text = String.Format("关于 {0}", AssemblyInfoHelper.ProductName);
 
-            if (Session.CompanyInfo.IsValid)
-                this.txtVersionInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name);
+            var company = ApplicationConfig.CompanyOfConfig;
+            if (!company.IsEmpty())
+                this.txtVersionInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(company);
             else
                 this.txtVersionInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany);
 
@@ -55,8 +57,9 @@ namespace SAF.Framework.Component
         {
             StringBuilder sb = new StringBuilder();
 
-            if (Session.CompanyInfo.IsValid)
-                sb.AppendLine(AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name));
+            var company = ApplicationConfig.CompanyOfConfig;
+            if (!company.IsEmpty())
+                sb.AppendLine(AssemblyInfoHelper.GetAllVersionInfo(company));
             else
                 sb.AppendLine(AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany));
 

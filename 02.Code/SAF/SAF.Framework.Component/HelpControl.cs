@@ -13,6 +13,7 @@ using SAF.EntityFramework;
 using SAF.Framework.Controls;
 using System.ComponentModel.Composition;
 using System.Linq;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.Framework.Component
 {
@@ -49,8 +50,9 @@ namespace SAF.Framework.Component
                 lblProductInclude.Text = "本产品包含：{0}.".FormatWith(productName);
             }
 
-            if (Session.CompanyInfo.IsValid)
-                lblInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(Session.CompanyInfo.Name);
+            var company = ApplicationConfig.CompanyOfConfig;
+            if (!company.IsEmpty())
+                lblInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(company);
             else
                 lblInfo.Text = AssemblyInfoHelper.GetAllVersionInfo(AssemblyInfoHelper.AssemblyCompany);
 
