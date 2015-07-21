@@ -50,7 +50,7 @@ namespace SAF.SystemModule
         {
             base.OnQuery(sCondition, parameterValues);
 
-            string sql = "SELECT [Iden],[UserName],[UserFullName] FROM [dbo].[sysUser] WITH(nolock) WHERE [IsDeleted]=0 AND ({0})".FormatEx(sCondition);
+            string sql = "SELECT [Iden],[UserName],[UserFullName] FROM [dbo].[sysUser] WITH(nolock) WHERE [IsDeleted]=0 AND ({0})".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql);
         }
 
@@ -151,7 +151,7 @@ order by Iden";
             }
             if (!canDelete)
             {
-                MessageService.ShowError("用户\"{0}\"是系统预定义的用户,无法删除!".FormatEx(name));
+                MessageService.ShowError("用户\"{0}\"是系统预定义的用户,无法删除!".FormatWith(name));
             }
 
             return canDelete;
@@ -171,7 +171,7 @@ order by Iden";
             }
             if (!canEdit)
             {
-                MessageService.ShowWarning("用户\"{0}\"是系统预定义的用户,无法编辑!".FormatEx(name));
+                MessageService.ShowWarning("用户\"{0}\"是系统预定义的用户,无法编辑!".FormatWith(name));
             }
 
             return canEdit;

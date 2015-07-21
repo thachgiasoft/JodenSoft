@@ -18,7 +18,7 @@ namespace SAF.CommonConfig
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
             if (CommonBillConfig != null && !CommonBillConfig.IndexEntitySetConfig.SqlScript.IsEmpty())
-                IndexEntitySet.Query(CommonBillConfig.IndexEntitySetConfig.SqlScript.FormatEx(sCondition));
+                IndexEntitySet.Query(CommonBillConfig.IndexEntitySetConfig.SqlScript.FormatWith(sCondition));
         }
 
         protected override void OnQueryChild(object key)

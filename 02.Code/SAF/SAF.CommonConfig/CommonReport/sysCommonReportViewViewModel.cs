@@ -17,7 +17,7 @@ namespace SAF.CommonConfig
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            string sql = @"SELECT * FROM dbo.sysReport A WITH(NOLOCK) WHERE ({0})".FormatEx(sCondition);
+            string sql = @"SELECT * FROM dbo.sysReport A WITH(NOLOCK) WHERE ({0})".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql, parameterValues);
         }
 

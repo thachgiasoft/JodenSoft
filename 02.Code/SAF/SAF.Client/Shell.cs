@@ -92,7 +92,7 @@ namespace SAF.Client
                 var s = this.GetAllDirtyViewCpations();
                 if (!s.IsEmpty())
                 {
-                    string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}{0}{0}确定要退出系统吗?".FormatEx(Environment.NewLine, s);
+                    string question = "以下界面的数据未保存,关闭将丢失更改:{0}{1}{0}{0}确定要退出系统吗?".FormatWith(Environment.NewLine, s);
                     var allowClose = MessageService.AskQuestion(question);
                     e.Cancel = !allowClose;
                 }
@@ -720,14 +720,14 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         var startupPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
                         string fileName = System.IO.Path.Combine(startupPath, drv["FileName"].ToString());
                         if (!System.IO.File.Exists(fileName))
-                            throw new Exception("文件{0}不存在,无法创建业务窗口.".FormatEx(fileName));
+                            throw new Exception("文件{0}不存在,无法创建业务窗口.".FormatWith(fileName));
 
                         ProgressService.Show("正在创建业务窗口");
                         try
                         {
                             object obj = Assembly.LoadFrom(fileName).CreateInstance(className, true);
                             if (obj == null)
-                                throw new Exception("业务窗口'{0}'类型错误,无法创建.该类型在Dll文件中不存在.".FormatEx(className));
+                                throw new Exception("业务窗口'{0}'类型错误,无法创建.该类型在Dll文件中不存在.".FormatWith(className));
 
                             var ctl = obj as SAF.Framework.View.BaseView;
                             if (ctl != null)
@@ -743,7 +743,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                                 frm.Show();
                             }
                             else
-                                throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatEx(className));
+                                throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatWith(className));
 
                             ProgressService.Close(ApplicationService.Current.MainForm);
                         }
@@ -797,7 +797,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             var filter = this.txtFind.EditValue.ToStringEx().Trim();
             if (!filter.IsEmpty())
             {
-                this.mainEntitySet.DefaultView.RowFilter = "(Name Like '%{0}%' or ClassName Like '%{0}%') and ClassName Is NOT NULL".FormatEx(filter);
+                this.mainEntitySet.DefaultView.RowFilter = "(Name Like '%{0}%' or ClassName Like '%{0}%') and ClassName Is NOT NULL".FormatWith(filter);
             }
             else
             {
