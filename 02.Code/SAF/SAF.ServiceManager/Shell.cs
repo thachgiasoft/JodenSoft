@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraTreeList;
+using SAF.EntityFramework;
 using SAF.EntityFramework.Config;
 using SAF.Foundation;
 using SAF.Foundation.ComponentModel;
@@ -31,7 +32,12 @@ namespace SAF.ServiceManager
             InitNotifyIcon();
 
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.lblRight.Caption = AssemblyInfoHelper.Company;
+
+            var company = ApplicationConfig.CompanyOfConfig;
+            if (!company.IsEmpty())
+                this.lblRight.Caption = company;
+            else
+                this.lblRight.Caption = AssemblyInfoHelper.AssemblyCompany;
 
             InitData();
 
@@ -128,7 +134,7 @@ namespace SAF.ServiceManager
             this.bbiStartService.Enabled = !currIsNull && !ServiceIsStart;
             this.bbiStopService.Enabled = !currIsNull && ServiceIsStart;
 
-            this.lblMessage.Caption = ServiceIsStart ? "[{0}]已启动,正在监听...".FormatEx(ServiceName) : "[{0}]已停止.".FormatEx(ServiceName);
+            this.lblMessage.Caption = ServiceIsStart ? "[{0}]已启动,正在监听...".FormatWith(ServiceName) : "[{0}]已停止.".FormatWith(ServiceName);
 
             this.treeService.Refresh();
         }

@@ -50,7 +50,7 @@ namespace SAF.ServiceManager
         public void Start()
         {
             this._UniqueId = _serviceConfig.UniqueId;
-            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatEx(_serviceConfig.HostAddress, _serviceConfig.HostPort);
+            string httpEndPstr = @"http://{0}:{1}/WcfPortal".FormatWith(_serviceConfig.HostAddress, _serviceConfig.HostPort);
             Uri httpUri = new Uri(httpEndPstr);
 
             _serviceHost = new ServiceHost(typeof(SAF.EntityFramework.Server.Hosts.WcfPortal), httpUri);
