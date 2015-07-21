@@ -46,6 +46,29 @@ namespace SAF.EntityFramework
         }
     }
 
+    [Serializable]
+    public class CompanyInfo
+    {
+        public int Iden { get; set; }
+        public string Name { get; set; }
+        public Image SplashImage { get; set; }
+
+        public CompanyInfo()
+        {
+            var es = new EntitySet<sysCompany>();
+            es.Query("SELECT top 1 * FROM dbo.sysCompany order by Iden");
+            if (es.Count > 0)
+            {
+                this.Iden = es[0].Iden;
+                this.Name = es[0].Name;
+                if (es[0].FieldIsExists("SplashImage") && !es[0].FieldIsNull("SplashImage"))
+                    this.SplashImage = new Bitmap(new MemoryStream(es[0].SplashImage));
+                else
+                    this.SplashImage = null;
+            }
+        }
+    }
+
     /// <summary>
     /// 用户信息
     /// </summary>

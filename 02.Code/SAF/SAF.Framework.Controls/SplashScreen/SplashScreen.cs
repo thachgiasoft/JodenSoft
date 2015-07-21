@@ -23,16 +23,6 @@ namespace SAF.Framework.Controls
             InitializeComponent();
             this.Load += frmSplash_Load;
             this.Shown += SplashScreen_Shown;
-
-            label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。", Environment.NewLine, GetYearString(), AssemblyInfoHelper.Company);
-            label1.Text += "{0}保留所有权利。".FormatWith(Environment.NewLine);
-
-#if DEBUG
-            this.picHS.Image = Properties.Resources.HSImage;
-#else
-            this.picHS.Image = Properties.Resources.JodenSoft;
-#endif
-
         }
 
         int GetYearString()
@@ -42,6 +32,11 @@ namespace SAF.Framework.Controls
 
         void SplashScreen_Shown(object sender, EventArgs e)
         {
+            
+            label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。", Environment.NewLine, GetYearString(), AssemblyInfoHelper.Company);
+            label1.Text += "{0}保留所有权利。".FormatWith(Environment.NewLine);
+            this.picHS.Image = Properties.Resources.JodenSoft;
+
             this.marqueeProgressBarControl1.Top = this.panel1.Top - this.marqueeProgressBarControl1.Height - 10;
             var top = this.marqueeProgressBarControl1.Top - this.txtMessage.Height - 5;
             this.txtMessage.Top = top;
