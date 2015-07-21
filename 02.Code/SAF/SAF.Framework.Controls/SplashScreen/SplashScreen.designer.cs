@@ -34,6 +34,7 @@
             this.picHS = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCompany = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
@@ -57,6 +58,7 @@
             this.panelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Appearance.Options.UseFont = true;
+            this.panelControl1.Controls.Add(this.lblCompany);
             this.panelControl1.Controls.Add(this.txtMessage);
             this.panelControl1.Controls.Add(this.marqueeProgressBarControl1);
             this.panelControl1.Controls.Add(this.picHS);
@@ -112,6 +114,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // lblCompany
+            // 
+            this.lblCompany.Appearance.Font = new System.Drawing.Font("黑体", 24F, System.Drawing.FontStyle.Bold);
+            this.lblCompany.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCompany.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lblCompany.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCompany.Location = new System.Drawing.Point(18, 41);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(408, 52);
+            this.lblCompany.TabIndex = 10;
+            this.lblCompany.Text = "上海环思信息技术有限公司";
+            // 
             // SplashScreen
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -149,5 +163,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
         private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.LabelControl lblCompany;
     }
 }

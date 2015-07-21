@@ -19,7 +19,6 @@ namespace SAF.EntityFramework
     {
         public static UserInfo UserInfo { get; private set; }
         public static MachineInfo MachineInfo { get; private set; }
-        public static CompanyInfo CompanyInfo { get; private set; }
 
         private static string _ProductCode = string.Empty;
         public static string ProductCode
@@ -36,7 +35,6 @@ namespace SAF.EntityFramework
         {
             UserInfo = new UserInfo();
             MachineInfo = new MachineInfo();
-            CompanyInfo = new CompanyInfo();
         }
 
         public static bool IsInvalid
@@ -45,47 +43,6 @@ namespace SAF.EntityFramework
             {
                 return UserInfo == null || UserInfo.UserId == -1;
             }
-        }
-    }
-
-    [Serializable]
-    public class CompanyInfo
-    {
-        public int Iden { get; set; }
-        public string Name { get; set; }
-        public Image SplashImage { get; set; }
-
-        public bool IsValid { get; set; }
-
-        public CompanyInfo()
-        {
-            this.Iden = 0;
-            this.Name = string.Empty;
-            this.SplashImage = null;
-            this.IsValid = false;
-
-            var es = new EntitySet<sysCompany>();
-            if (!es.TableIsExists()) return;
-
-            try
-            {
-                es.Query("SELECT top 1 * FROM dbo.sysCompany order by Iden");
-                if (es.Count > 0)
-                {
-                    this.IsValid = true;
-                    this.Iden = es[0].Iden;
-                    this.Name = es[0].Name;
-                    if (es[0].FieldIsExists("SplashImage") && !es[0].FieldIsNull("SplashImage"))
-                        this.SplashImage = new Bitmap(new MemoryStream(es[0].SplashImage));
-                    else
-                        this.SplashImage = null;
-                }
-            }
-            catch
-            {
-                //
-            }
-
         }
     }
 

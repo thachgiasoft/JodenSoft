@@ -154,5 +154,11 @@ namespace SAF.Foundation.ComponentModel
                 ConfigurationManager.RefreshSection("appSettings");
             }
         }
+
+        public static string CompanyOfConfig
+        {
+            get { return ApplicationConfig.GetAppSetting("Company"); }
+        }
+
     }
 }

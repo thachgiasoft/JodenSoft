@@ -12,6 +12,7 @@ using System.Threading;
 using System.Windows.Forms;
 using SAF.Foundation;
 using SAF.EntityFramework;
+using SAF.Foundation.ComponentModel;
 
 namespace SAF.Framework.Controls
 {
@@ -33,16 +34,20 @@ namespace SAF.Framework.Controls
 
         void SplashScreen_Shown(object sender, EventArgs e)
         {
-            if (Session.CompanyInfo.IsValid)
+            var company = ApplicationConfig.CompanyOfConfig;
+            if (!company.IsEmpty())
             {
                 label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。"
                     , Environment.NewLine, GetYearString()
-                    , Session.CompanyInfo.Name);
+                    , company);
 
-                this.picHS.Image = Session.CompanyInfo.SplashImage;
+                this.lblCompany.Text = company;
+                this.lblCompany.Visible = true;
             }
             else
             {
+                lblCompany.Visible = false;
+                this.picHS.Visible = true;
                 label1.Text = string.Format(@"本计算机程序受著作权法和国际条约保护，详情请参见""帮助""/""关于""。{0}Copyright © 2003 - {1} {2}。"
                    , Environment.NewLine, GetYearString()
                    , AssemblyInfoHelper.AssemblyCompany);

@@ -42,7 +42,7 @@ namespace SAF.Foundation
         {
             return string.IsNullOrWhiteSpace(s);
         }
-        
+
         #endregion
     }
 }
