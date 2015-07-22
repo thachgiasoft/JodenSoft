@@ -324,12 +324,16 @@ ORDER BY ParentId, Iden
 
             var count = this.ViewModel.DetailEntitySet.Count;
             UIController.RefreshControl(this.btnDesignReport, count > 0 && this.IsBrowse);
+
+            UIController.RefreshControl(this.bbiDtlImport, false);
+            UIController.ShowBarItem(false, this.bbiDtlImport);
         }
 
         private void txtParamList_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             this.ViewModel.ParaseParameters();
         }
+
 
 
     }
