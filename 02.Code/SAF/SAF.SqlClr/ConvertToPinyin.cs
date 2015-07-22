@@ -8,7 +8,7 @@ using SAF.SqlClr.Helper;
 public partial class UserDefinedFunctions
 {
     [Microsoft.SqlServer.Server.SqlFunction]
-    public static SqlChars ChineseSpell(SqlChars input)
+    public static SqlChars ConvertToPinyin(SqlChars input)
     {
         if (input.IsNull)
             return input;
