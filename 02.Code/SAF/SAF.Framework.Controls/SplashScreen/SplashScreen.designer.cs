@@ -30,11 +30,11 @@
         {
             this.txtMessage = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lblCompany = new DevExpress.XtraEditors.LabelControl();
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.picHS = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblCompany = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
@@ -70,6 +70,18 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(444, 520);
             this.panelControl1.TabIndex = 10;
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.Appearance.Font = new System.Drawing.Font("黑体", 24F, System.Drawing.FontStyle.Bold);
+            this.lblCompany.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCompany.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.lblCompany.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCompany.Location = new System.Drawing.Point(18, 41);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(408, 52);
+            this.lblCompany.TabIndex = 10;
+            this.lblCompany.Text = "上海环思信息技术有限公司";
             // 
             // marqueeProgressBarControl1
             // 
@@ -113,18 +125,6 @@
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            // 
-            // lblCompany
-            // 
-            this.lblCompany.Appearance.Font = new System.Drawing.Font("黑体", 24F, System.Drawing.FontStyle.Bold);
-            this.lblCompany.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCompany.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lblCompany.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCompany.Location = new System.Drawing.Point(18, 41);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(408, 52);
-            this.lblCompany.TabIndex = 10;
-            this.lblCompany.Text = "上海环思信息技术有限公司";
             // 
             // SplashScreen
             // 
