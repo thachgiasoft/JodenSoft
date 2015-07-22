@@ -15,7 +15,7 @@ namespace SAF.SqlClr.Helper
         /// <returns>汉字拼音首字母，其它字符原样返回</returns>
         public static string GetChineseSpell(string s)
         {
-            if (string.IsNullOrWhiteSpace(s)) return s;
+            if (string.IsNullOrEmpty(s) || s.Trim().Length == 0) return s;
 
             int len = s.Length;
             StringBuilder reVal = new StringBuilder(len);

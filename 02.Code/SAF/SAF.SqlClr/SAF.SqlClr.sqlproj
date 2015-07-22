@@ -25,6 +25,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <GenerateCreateScript>True</GenerateCreateScript>
     <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>D:\MyWorkspaces\JodenSoft\trunk\02.Code\SAF.Output\SqlClr\</OutputPath>
