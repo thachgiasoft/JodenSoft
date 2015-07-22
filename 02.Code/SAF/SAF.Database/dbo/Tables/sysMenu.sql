@@ -16,6 +16,7 @@
     [FileName]       NVARCHAR (MAX) NULL,
     [FileParameter]  NVARCHAR (MAX) NULL,
     [IsShowDialog]   BIT            CONSTRAINT [DF_sysMenu_WaitForExit] DEFAULT ((0)) NOT NULL,
+    [Pinyin] AS ([dbo].[ConvertToPinyin]([Name])),
     CONSTRAINT [PK_sysMenu] PRIMARY KEY CLUSTERED ([Iden] ASC),
     CONSTRAINT [FK_SystemMenu_SystemBusinessView] FOREIGN KEY ([BusinessViewId]) REFERENCES [dbo].[sysBusinessView] ([Iden])
 );

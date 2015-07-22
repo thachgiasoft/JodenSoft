@@ -1,6 +1,6 @@
 ﻿namespace SAF.Framework.Component.WelcomePageControl
 {
-    partial class ToDoList
+    partial class AuditList
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -41,7 +41,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(730, 328);
+            this.gridControl1.Size = new System.Drawing.Size(797, 330);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -52,13 +52,13 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // ToDoList
+            // AuditList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
-            this.Name = "ToDoList";
-            this.Size = new System.Drawing.Size(730, 328);
+            this.Name = "AuditList";
+            this.Size = new System.Drawing.Size(797, 330);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -69,6 +69,5 @@
 
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-
     }
 }

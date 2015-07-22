@@ -179,16 +179,16 @@
             // 
             // navMainMenu
             // 
-            this.navMainMenu.ActiveGroup = this.systemMenuGroup;
+            this.navMainMenu.ActiveGroup = this.sysMyWorkspace;
             this.navMainMenu.Controls.Add(this.navBarGroupControlContainer1);
             this.navMainMenu.Controls.Add(this.navBarGroupControlContainer2);
             this.navMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.navMainMenu.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.sysMyWorkspace,
-            this.systemMenuGroup});
+            this.systemMenuGroup,
+            this.sysMyWorkspace});
             this.navMainMenu.Location = new System.Drawing.Point(0, 147);
             this.navMainMenu.Name = "navMainMenu";
-            this.navMainMenu.NavigationPaneMaxVisibleGroups = 1;
+            this.navMainMenu.NavigationPaneMaxVisibleGroups = 0;
             this.navMainMenu.OptionsNavPane.ExpandedWidth = 181;
             this.navMainMenu.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
             this.navMainMenu.Size = new System.Drawing.Size(181, 289);
@@ -199,7 +199,6 @@
             // 
             this.systemMenuGroup.Caption = "系统菜单";
             this.systemMenuGroup.ControlContainer = this.navBarGroupControlContainer1;
-            this.systemMenuGroup.Expanded = true;
             this.systemMenuGroup.GroupClientHeight = 80;
             this.systemMenuGroup.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.systemMenuGroup.Name = "systemMenuGroup";
@@ -211,7 +210,7 @@
             this.navBarGroupControlContainer1.Controls.Add(this.pnlMenu);
             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
             this.navBarGroupControlContainer1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(181, 184);
+            this.navBarGroupControlContainer1.Size = new System.Drawing.Size(181, 214);
             this.navBarGroupControlContainer1.TabIndex = 0;
             // 
             // TreeMenu
@@ -225,7 +224,7 @@
             this.TreeMenu.OptionsView.ShowHorzLines = false;
             this.TreeMenu.OptionsView.ShowIndicator = false;
             this.TreeMenu.OptionsView.ShowVertLines = false;
-            this.TreeMenu.Size = new System.Drawing.Size(180, 157);
+            this.TreeMenu.Size = new System.Drawing.Size(180, 187);
             this.TreeMenu.TabIndex = 0;
             // 
             // pnlMenu
@@ -266,7 +265,7 @@
             this.navBarGroupControlContainer2.Controls.Add(this.pnlWorkspace);
             this.navBarGroupControlContainer2.Name = "navBarGroupControlContainer2";
             this.navBarGroupControlContainer2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 184);
+            this.navBarGroupControlContainer2.Size = new System.Drawing.Size(181, 214);
             this.navBarGroupControlContainer2.TabIndex = 1;
             // 
             // treeMyMenu
@@ -279,7 +278,7 @@
             this.treeMyMenu.OptionsView.ShowHorzLines = false;
             this.treeMyMenu.OptionsView.ShowIndicator = false;
             this.treeMyMenu.OptionsView.ShowVertLines = false;
-            this.treeMyMenu.Size = new System.Drawing.Size(180, 157);
+            this.treeMyMenu.Size = new System.Drawing.Size(180, 187);
             this.treeMyMenu.TabIndex = 0;
             // 
             // pnlWorkspace
@@ -346,6 +345,7 @@
             // 
             this.sysMyWorkspace.Caption = "我的工作台";
             this.sysMyWorkspace.ControlContainer = this.navBarGroupControlContainer2;
+            this.sysMyWorkspace.Expanded = true;
             this.sysMyWorkspace.GroupClientHeight = 80;
             this.sysMyWorkspace.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.sysMyWorkspace.Name = "sysMyWorkspace";

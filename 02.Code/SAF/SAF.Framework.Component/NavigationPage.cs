@@ -41,16 +41,16 @@ namespace SAF.SystemModule
         {
             base.OnAfterInit();
 
-            this.QueryEntitySet.Query("select * from sysMenuChart with(nolock)");
+            //this.QueryEntitySet.Query("select * from sysMenuChart with(nolock)");
 
-            foreach (var item in QueryEntitySet)
-            {
-                var page = tabControl.TabPages.Add(item.GetFieldValue<string>("Name"));
-                var ctl = new MenuChartControl() { Dock = DockStyle.Fill, Data = item.GetFieldValue<byte[]>("FileData") };
-                ctl.HideMenu();
-                ctl.ActiveDrawArea.DoubleClick += ActiveDrawArea_DoubleClick;
-                page.Controls.Add(ctl);
-            }
+            //foreach (var item in QueryEntitySet)
+            //{
+            //    var page = tabControl.TabPages.Add(item.GetFieldValue<string>("Name"));
+            //    var ctl = new MenuChartControl() { Dock = DockStyle.Fill, Data = item.GetFieldValue<byte[]>("FileData") };
+            //    ctl.HideMenu();
+            //    ctl.ActiveDrawArea.DoubleClick += ActiveDrawArea_DoubleClick;
+            //    page.Controls.Add(ctl);
+            //}
         }
 
         void ActiveDrawArea_DoubleClick(object sender, DrawAreaDoubleClickEventArgs e)

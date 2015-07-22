@@ -343,6 +343,7 @@ namespace SAF.Client
                 obj.Copy(item);
                 obj.ParentId = root.Iden;
                 obj.MenuOrder = MyFavoriteMenu.First(p => p.MenuId == item.Iden).RowNumber;
+                obj.MenuType = (int)sysMenuType.Menu;
             }
 
             this.treeMyMenu.OptionsBehavior.AutoPopulateColumns = false;
@@ -367,7 +368,7 @@ namespace SAF.Client
             }
 
             var source = myMenuEntitySet.OrderBy(p => p.ParentId).OrderBy(p => p.MenuOrder).OrderBy(p => p.Iden);
-            this.treeMyMenu.DataSource = new BindingSource() { DataSource = source };
+            this.treeMyMenu.DataSource = new BindingSource() { DataSource = source.Select(p => p.DataRowView) };
             this.treeMyMenu.KeyFieldName = "Iden";
             this.treeMyMenu.ParentFieldName = "ParentId";
             this.treeMyMenu.ExpandAll();
@@ -486,7 +487,7 @@ namespace SAF.Client
 
         private void bbiHomepage_ItemClick(object sender, ItemClickEventArgs e)
         {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://www.baidu.com");
+            //System.Diagnostics.Process.Start("iexplore.exe", "http://www.baidu.com");
         }
 
         private void bbiAbout_ItemClick(object sender, ItemClickEventArgs e)
@@ -798,6 +799,10 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
             if (!filter.IsEmpty())
             {
                 this.mainEntitySet.DefaultView.RowFilter = "(Name Like '%{0}%' or ClassName Like '%{0}%') and ClassName Is NOT NULL".FormatWith(filter);
+                if (this.TreeMenu.Nodes.Count > 0)
+                {
+                    this.TreeMenu.Nodes[0].Selected = true;
+                }
             }
             else
             {
@@ -807,6 +812,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                 if (this.TreeMenu.Nodes.Count > 0)
                 {
                     this.TreeMenu.Nodes[0].Expanded = true;
+                    this.TreeMenu.Nodes[0].Selected = true;
                 }
             }
         }

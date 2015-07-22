@@ -63,6 +63,8 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="SqlClr" />
+    <Folder Include="SqlClr\Helper" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\sysOrganization.sql" />
@@ -108,5 +110,21 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SqlClr\Helper\MoneyConverter.cs" />
+    <Compile Include="SqlClr\Helper\StringConverter.cs" />
+    <Compile Include="SqlClr\CalcValue.cs" />
+    <Compile Include="SqlClr\ConcatString.cs" />
+    <Compile Include="SqlClr\ConvertMoneyToCN.cs" />
+    <Compile Include="SqlClr\ConvertMoneyToEN.cs" />
+    <Compile Include="SqlClr\ConvertToPinyin.cs" />
+    <Compile Include="SqlClr\ConvertToProperCase.cs" />
+    <Compile Include="SqlClr\ConvertToSimplifiedChinese.cs" />
+    <Compile Include="SqlClr\ConvertToTraditionalChinese.cs" />
+    <Compile Include="SqlClr\Dual.cs" />
+    <Compile Include="SqlClr\PadLeft.cs" />
+    <Compile Include="SqlClr\PadRight.cs" />
+    <Compile Include="SqlClr\SplitString.cs" />
   </ItemGroup>
 </Project>
