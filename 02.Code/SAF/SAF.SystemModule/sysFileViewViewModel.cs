@@ -55,7 +55,7 @@ namespace SAF.SystemModule
         {
             base.OnQueryChild(key);
 
-            this.MainEntitySet.Query("select Iden, Name, FileName, FileVersion, FileData=cast(null as image), FileSize, LastWriteTime, Remark, IsActive, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber from sysFile with(nolock) where Iden=:Iden", key);
+            this.MainEntitySet.Query("select Iden, Name, FileName, FileVersion, FileData=cast(null as image), FileSize, LastWriteTime, Remark, IsActive, IsSystem, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber from sysFile with(nolock) where Iden=:Iden", key);
         }
 
         internal void UpdateFiles(List<string> list)
@@ -66,12 +66,13 @@ namespace SAF.SystemModule
                 foreach (var fileName in list)
                 {
                     string name = Path.GetFileName(fileName).Trim();
-                    var obj = this.MainEntitySet.Select("Select top 1 Iden, Name, FileName, FileVersion,  FileData=cast(null as image),FileSize, LastWriteTime, Remark, IsActive, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber from sysFile with(nolock) where Name=:Name", name);
+                    var obj = this.MainEntitySet.Select("Select top 1 Iden, Name, FileName, FileVersion,  FileData=cast(null as image),FileSize, LastWriteTime, Remark, IsActive,IsSystem, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber from sysFile with(nolock) where Name=:Name", name);
                     if (obj.Count <= 0)
                     {
                         this.AddNew();
                         if (MainEntitySet.CurrentEntity != null)
                         {
+                            MainEntitySet.CurrentEntity.IsSystem = false;
                             FileHelper.SetFileInfo(MainEntitySet.CurrentEntity, fileName);
                             this.SyncIndexEntitySet();
                         }
@@ -97,7 +98,7 @@ namespace SAF.SystemModule
                     }
                 }
                 ParseBusinessView(list);
-                ProgressService.Close();         
+                ProgressService.Close();
             }
             catch
             {
