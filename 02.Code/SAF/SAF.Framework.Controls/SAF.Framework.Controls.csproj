@@ -129,7 +129,6 @@
     <Compile Include="Charts\Extensions\EnumExtensions.cs" />
     <Compile Include="Charts\Extensions\ObjectExtensions.cs" />
     <Compile Include="Charts\Extensions\PropertyExtensions.cs" />
-    <Compile Include="Charts\Extensions\StringExtensions.cs" />
     <Compile Include="Charts\GraphicsCollection.cs" />
     <Compile Include="Charts\GraphicsProperties.cs" />
     <Compile Include="Charts\GraphicsType.cs" />

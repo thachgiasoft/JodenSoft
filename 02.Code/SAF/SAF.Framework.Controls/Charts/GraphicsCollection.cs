@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.ComponentModel;
+using SAF.Foundation;
 
 namespace SAF.Framework.Controls.Charts
 {
@@ -739,7 +740,7 @@ namespace SAF.Framework.Controls.Charts
                 drawObject = (DrawObject)Assembly.GetExecutingAssembly().CreateInstance(typeName);
 
                 if (drawObject == null)
-                    throw new Exception("类型 {0} 创建实例失败.".FormatEx2(typeName));
+                    throw new Exception("类型 {0} 创建实例失败.".FormatWith(typeName));
 
                 drawObject.LoadFromStream(info, i);
 
