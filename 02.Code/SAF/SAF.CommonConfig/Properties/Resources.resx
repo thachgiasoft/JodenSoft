@@ -142,6 +142,18 @@
   <data name="Action_Up_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Action_Up_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_Folder_Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon_folder_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Folder_Opened" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon_folder_opened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Report_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon_report_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Report_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icon_report_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ShowDependencies_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ShowDependencies_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

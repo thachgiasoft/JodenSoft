@@ -202,7 +202,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonBill\QueryConfigControl.resx">
@@ -256,6 +256,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Action_Report_ShowDesigner_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Folder_Closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Folder_Opened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Report_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_Report_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

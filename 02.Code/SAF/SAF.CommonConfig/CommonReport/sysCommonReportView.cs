@@ -33,6 +33,47 @@ namespace SAF.CommonConfig
             InitializeComponent();
         }
 
+        protected override void OnInitEvent()
+        {
+            base.OnInitEvent();
+
+            this.treeIndex.SelectImageList = this.ReportImages;
+            this.treeIndex.GetSelectImage += treeIndex_GetSelectImage;
+        }
+
+        void treeIndex_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
+        {
+            treeIndex.BeginUpdate();
+            try
+            {
+                var drv = this.treeIndex.GetDataRecordByNode(e.Node) as DataRowView;
+
+                if (!drv.IsEmpty())
+                {
+                    if (drv["NodeType"].IsEmpty())
+                    {
+                        e.NodeImageIndex = 0;
+                    }
+                    else
+                    {
+                        var menuType = (NodeType)Convert.ToInt32(drv["NodeType"]);
+                        if (menuType.In(NodeType.Folder))
+                            e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+                        else
+                            e.NodeImageIndex = 2;
+                    }
+                }
+                else
+                {
+                    e.NodeImageIndex = e.Node.Expanded ? 1 : 0;
+                }
+            }
+            finally
+            {
+                this.treeIndex.EndUpdate();
+            }
+        }
+
         protected override IBaseViewViewModel OnCreateViewModel()
         {
             return new sysCommonReportConfigViewViewModel();
