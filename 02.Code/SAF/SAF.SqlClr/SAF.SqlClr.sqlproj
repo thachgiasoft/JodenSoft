@@ -74,6 +74,9 @@
     <Compile Include="PadLeft.cs" />
     <Compile Include="PadRight.cs" />
     <Compile Include="SplitString.cs" />
+    <Compile Include="ConvertToPinyin.cs" />
+    <Compile Include="Helper\StringConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
