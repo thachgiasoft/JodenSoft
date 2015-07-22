@@ -227,5 +227,25 @@ WHERE b.[Name] in ({0})".FormatWith("'" + listFile.JoinText("','") + "'");
 
             queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Name", "文件名称"));
         }
+
+        protected override bool OnAllowDelete()
+        {
+            var canDelete = true;
+            var fileName = string.Empty;
+            if (this.MainEntitySet.CurrentEntity != null)
+            {
+                if (this.MainEntitySet.CurrentEntity.IsSystem)
+                {
+                    canDelete = false;
+                }
+                fileName = this.MainEntitySet.CurrentEntity.Name;
+            }
+            if (!canDelete)
+            {
+                MessageService.ShowError("\"{0}\"是系统文件,不允许删除!".FormatWith(fileName));
+            }
+
+            return canDelete;
+        }
     }
 }

@@ -64,7 +64,6 @@
     <Compile Include="sysBusinessViewParam.cs" />
     <Compile Include="sysDataRole.cs" />
     <Compile Include="sysFile.cs" />
-    <Compile Include="sysMenuChart.cs" />
     <Compile Include="sysMenuParam.cs" />
     <Compile Include="sysOrganization.cs" />
     <Compile Include="sysRole.cs" />
