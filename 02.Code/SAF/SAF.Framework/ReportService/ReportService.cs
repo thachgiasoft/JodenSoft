@@ -132,7 +132,7 @@ Order by a.OrderIndex";
 
                 var barSubItem = new BarSubItem();
                 barSubItem.Caption = subItem.Name;
-                barSubItem.Glyph = Properties.Resources.BO_Report;
+                barSubItem.Glyph = Properties.Resources.Icon_Report_16x16;
                 this.mainRibbonControl.Items.Add(barSubItem);
                 reportPopupMenu.ItemLinks.Add(barSubItem);
                 listReportBarItems.Add(barSubItem);

@@ -63,6 +63,66 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_Add_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Add_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Add_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Add_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_AddFile_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_AddFile_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_AddFile_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_AddFile_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_AddFolder_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_AddFolder_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_AddFolder_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_AddFolder_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_AddToFavorite_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_AddToFavorite_32x32", resourceCulture);
@@ -153,6 +213,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_CloseDetails_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_CloseDetails_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_CloseDetails_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_CloseDetails_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Copy_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Copy_16x16", resourceCulture);
@@ -166,6 +246,26 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Action_Copy_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Copy_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Cut_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Cut_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Cut_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Cut_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +343,206 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToExcel_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToExcel_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToExcel_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToExcel_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToImage_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToImage_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToImage_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToImage_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToPDF_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToPDF_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToPDF_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToPDF_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToText_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToText_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToText_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToText_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToXlsx_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToXlsx_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToXlsx_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToXlsx_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToXML_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToXML_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Export_ToXML_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export_ToXML_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_ExportToCsv_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ExportToCsv_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_ExportToCsv_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ExportToCsv_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_FileAttachment_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_FileAttachment_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_FileAttachment_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_FileAttachment_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Filter_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Filter_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Filter_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Filter_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Hide_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Hide_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Hide_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Hide_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_ImportData_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_ImportData_16x16", resourceCulture);
@@ -256,6 +556,146 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Action_ImportData_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_ImportData_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_LayoutOptions_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_LayoutOptions_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_LayoutOptions_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_LayoutOptions_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_LayoutRotate_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_LayoutRotate_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_LayoutRotate_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_LayoutRotate_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_ListNumbers_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ListNumbers_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_ListNumbers_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ListNumbers_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Mark_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Mark_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Mark_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Mark_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_MarkAll_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_MarkAll_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_MarkAll_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_MarkAll_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_MergeToDocument_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_MergeToDocument_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_MergeToDocument_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_MergeToDocument_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Navigation_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Navigation_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Navigation_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Navigation_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +723,66 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_NewWizard_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_NewWizard_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_NewWizard_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_NewWizard_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Next_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Next_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Next_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Next_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Paste_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Paste_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Paste_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Paste_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Preview_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Preview_16x16", resourceCulture);
@@ -303,6 +803,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_Previous_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Previous_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Previous_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Previous_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Print_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Print_16x16", resourceCulture);
@@ -316,6 +836,26 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Action_Print_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Print_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Redo_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Redo_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Redo_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Redo_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,6 +903,46 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_RemoveFolder_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_RemoveFolder_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_RemoveFolder_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_RemoveFolder_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Replace_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Replace_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Replace_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Replace_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Report_ShowDesigner_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Report_ShowDesigner_16x16", resourceCulture);
@@ -383,6 +963,26 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_ResetPassword_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ResetPassword_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_ResetPassword_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_ResetPassword_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_Save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Save_16x16", resourceCulture);
@@ -396,6 +996,26 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Action_Save_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Save_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_SaveAndClose_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SaveAndClose_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_SaveAndClose_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SaveAndClose_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +1053,36 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Action_Search_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Search_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_SelectAll_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SelectAll_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_SelectAll_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_SelectAll_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Action_SendToAudit_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_SendToAudit_16x16", resourceCulture);
@@ -446,6 +1096,86 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Action_SendToAudit_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_SendToAudit_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Setting_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Setting_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Setting_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Setting_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Sharing_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Sharing_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Sharing_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Sharing_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Unmark_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Unmark_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Unmark_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Unmark_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_UnmarkAll_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_UnmarkAll_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Action_UnmarkAll_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Action_UnmarkAll_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +1213,9 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Bitmap BO_Report {
+        public static System.Drawing.Bitmap Action_Upgrade_16x16 {
             get {
-                object obj = ResourceManager.GetObject("BO_Report", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Upgrade_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,9 +1223,89 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        public static System.Drawing.Bitmap BO_Report_32X32 {
+        public static System.Drawing.Bitmap Action_Upgrade_32x32 {
             get {
-                object obj = ResourceManager.GetObject("BO_Report_32X32", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Upgrade_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Category_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Category_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Category_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Category_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_EMail_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_EMail_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_EMail_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_EMail_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Employee_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Employee_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Employee_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Employee_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_FolderClosed_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_FolderClosed_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_FolderOpened_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_FolderOpened_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,6 +1333,246 @@ namespace SAF.Framework.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap Icon_ItemMarked_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ItemMarked_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_ItemMarked_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_ItemMarked_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Note_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Note_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Note_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Note_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Period_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Period_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Period_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Period_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Properties_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Properties_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Properties_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Properties_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Report_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Report_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Report_32X32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Report_32X32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_RichText_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_RichText_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_RichText_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_RichText_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Scheduler_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Scheduler_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Scheduler_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Scheduler_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Subscript_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Subscript_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Subscript_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Subscript_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Superscript_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Superscript_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Superscript_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Superscript_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Task_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Task_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Tasks_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Tasks_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Tools_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Tools_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Tools_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Tools_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_TopCustomers_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_TopCustomers_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_TopCustomers_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_TopCustomers_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap Icon_Tree_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Tree_16x16", resourceCulture);
@@ -536,6 +1586,26 @@ namespace SAF.Framework.Properties {
         public static System.Drawing.Bitmap Icon_Tree_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Tree_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_View_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_View_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_View_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_View_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
