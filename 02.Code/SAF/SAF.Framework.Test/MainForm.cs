@@ -15,18 +15,5 @@ namespace SAF.Framework.Test
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReportService.InitializeReport(null, this.barButtonItem1, "1,2");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var item = new TableReleation("a.Iden=b.iden");
-
-            item.Validate();
-
-        }
     }
 }
