@@ -98,12 +98,12 @@
     <ProjectReference Include="..\SAF.Framework.Controls\SAF.Framework.Controls.csproj">
       <Project>{2a654bff-51b3-4560-b9b6-9197493fb1ff}</Project>
       <Name>SAF.Framework.Controls</Name>
-      <Private>False</Private>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\SAF.Framework\SAF.Framework.csproj">
       <Project>{11e5de77-ed0b-40cc-b646-4c3938b1c808}</Project>
       <Name>SAF.Framework</Name>
-      <Private>False</Private>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
