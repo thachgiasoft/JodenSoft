@@ -6,8 +6,6 @@ using SAF.Foundation.ServiceModel;
 using SAF.Framework.Controls;
 using System.Windows.Forms;
 using SAF.Foundation;
-using DevExpress.XtraEditors;
-using DevExpress.LookAndFeel;
 
 namespace SAF.Framework.ServiceModel
 {
