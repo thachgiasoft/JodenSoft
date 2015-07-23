@@ -14,7 +14,7 @@ namespace JDM.SystemModule
     {
         protected override void OnQuery(string sCondition, object[] parameterValues)
         {
-            var sql = "SELECT * FROM dbo.sysCustomer WITH(NOLOCK) where ({0}) and IsDeleted=0".FormatEx(sCondition);
+            var sql = "SELECT * FROM dbo.sysCustomer WITH(NOLOCK) where ({0}) and IsDeleted=0".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql, parameterValues);
         }
 

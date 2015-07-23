@@ -21,7 +21,7 @@ namespace JDM.SystemModule
             string sql = @"SELECT A.* ,CustomerName=B.Name
 FROM dbo.sysRegistrationInfo a WITH(NOLOCK) 
 JOIN dbo.sysCustomer B WITH(NOLOCK) ON A.CustomerId=B.Iden 
-WHERE ({0})".FormatEx(sCondition);
+WHERE ({0})".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql, parameterValues);
         }
 

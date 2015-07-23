@@ -108,15 +108,15 @@ ORDER BY [Iden]";
         }
 
 
-        protected override void OnInitCustomRibbonMenuCommands()
+        protected override void OnInitCustomRibbonMenuCommands(RibbonMenuCommandCollection cmds)
         {
-            base.OnInitCustomRibbonMenuCommands();
+            base.OnInitCustomRibbonMenuCommands(cmds);
 
-            var cmd = new DefaultRibbonMenuCommand("导出授权文件", OnExportActivationResponse, OnCanExportActivationResponse)
+            var cmd = new RibbonMenuCommand("导出授权文件", OnExportActivationResponse, OnCanExportActivationResponse)
             {
                 LargeGlyph = SAF.Framework.Properties.Resources.Action_Export_32x32
             };
-            this.AddRibbonMenuCommand(cmd);
+            cmds.Add(cmd);
         }
 
         private bool OnCanExportActivationResponse(object obj)

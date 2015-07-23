@@ -230,7 +230,7 @@ namespace JDM
                 {
                     object obj = Activator.CreateInstance(typeof(T));
                     if (obj == null)
-                        throw new Exception("业务窗口'{0}'类型错误,无法创建.".FormatEx(typeof(T).FullName));
+                        throw new Exception("业务窗口'{0}'类型错误,无法创建.".FormatWith(typeof(T).FullName));
 
                     var ctl = obj as SAF.Framework.View.BaseView;
                     if (ctl != null)
@@ -246,7 +246,7 @@ namespace JDM
                         frm.Show();
                     }
                     else
-                        throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatEx(typeof(T).FullName));
+                        throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatWith(typeof(T).FullName));
 
                     ProgressService.Close(ApplicationService.Current.MainForm);
                 }
