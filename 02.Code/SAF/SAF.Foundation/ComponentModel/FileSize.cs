@@ -6,12 +6,15 @@ using System.Text;
 
 namespace SAF.Foundation.ComponentModel
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class FileSize
     {
         /// <summary>
         /// 计算文件大小函数(保留两位小数),Size为字节大小
         /// </summary>
-        /// <param name="Size">初始文件大小</param>
+        /// <param name="fileName">文件名</param>
         /// <returns></returns>
         public static string GetSize(string fileName)
         {

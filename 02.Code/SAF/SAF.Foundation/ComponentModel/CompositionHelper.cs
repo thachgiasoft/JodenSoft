@@ -79,7 +79,7 @@ namespace SAF.Foundation.ComponentModel
         /// </summary>
         /// <typeparam name="T">要返回的已导出对象的类型。协定名称也派生自此类型参数。</typeparam>
         /// <returns>如果找到匹配项，则为具有从指定的类型参数派生的协定名称的已导出对象；
-        /// <para>否则为空的 System.Collections.ObjectModel.Collection<T>对象。</para>
+        /// <para>否则为空的对象。</para>
         /// </returns>
         public IEnumerable<T> GetExportedValues<T>()
         {
