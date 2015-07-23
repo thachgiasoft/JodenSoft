@@ -61,6 +61,16 @@
             Shell接口
             </summary>
         </member>
+        <member name="P:SAF.Framework.IShell.View">
+            <summary>
+            视图
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.IShell.RibbonControl">
+            <summary>
+            主菜单
+            </summary>
+        </member>
         <member name="M:SAF.Framework.IShell.InitComponent">
             <summary>
             初始化一些特殊的组件,此方法需由接口主动调用
@@ -80,16 +90,6 @@
         <member name="M:SAF.Framework.IShell.Relogin">
             <summary>
             重新登录
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.IShell.View">
-            <summary>
-            视图
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.IShell.RibbonControl">
-            <summary>
-            主菜单
             </summary>
         </member>
         <member name="T:SAF.Framework.Properties.Resources">
@@ -893,6 +893,11 @@
             
             </summary>
         </member>
+        <member name="P:SAF.Framework.FormMembershipProvider.ApplicationName">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:SAF.Framework.FormMembershipProvider.ChangePassword(System.String,System.String,System.String)">
             <summary>
             
@@ -933,6 +938,16 @@
             <param name="username"></param>
             <param name="deleteAllRelatedData"></param>
             <returns></returns>
+        </member>
+        <member name="P:SAF.Framework.FormMembershipProvider.EnablePasswordReset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.FormMembershipProvider.EnablePasswordRetrieval">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:SAF.Framework.FormMembershipProvider.FindUsersByEmail(System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -1000,59 +1015,6 @@
             <param name="email"></param>
             <returns></returns>
         </member>
-        <member name="M:SAF.Framework.FormMembershipProvider.ResetPassword(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="username"></param>
-            <param name="answer"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Framework.FormMembershipProvider.UnlockUser(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="userName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Framework.FormMembershipProvider.UpdateUser(System.Web.Security.MembershipUser)">
-            <summary>
-            
-            </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:SAF.Framework.FormMembershipProvider.ValidateUser(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="username"></param>
-            <param name="password"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Framework.FormMembershipProvider.Login(System.String,System.String,System.String@)">
-            <summary>
-            登录并设置Session的值
-            </summary>
-            <param name="username"></param>
-            <param name="password"></param>
-            <param name="message"></param>
-            <returns></returns>
-        </member>
-        <member name="P:SAF.Framework.FormMembershipProvider.ApplicationName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.FormMembershipProvider.EnablePasswordReset">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.FormMembershipProvider.EnablePasswordRetrieval">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:SAF.Framework.FormMembershipProvider.MaxInvalidPasswordAttempts">
             <summary>
             
@@ -1092,6 +1054,44 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:SAF.Framework.FormMembershipProvider.ResetPassword(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="answer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Framework.FormMembershipProvider.UnlockUser(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Framework.FormMembershipProvider.UpdateUser(System.Web.Security.MembershipUser)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:SAF.Framework.FormMembershipProvider.ValidateUser(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Framework.FormMembershipProvider.Login(System.String,System.String,System.String@)">
+            <summary>
+            登录并设置Session的值
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="message"></param>
+            <returns></returns>
         </member>
         <member name="T:SAF.Framework.IMasterDataEdit">
             <summary>
@@ -1225,26 +1225,6 @@
             设置皮肤
             </summary>
         </member>
-        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.BillTypeId">
-            <summary>
-            单据类型ID
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.UniqueId">
-            <summary>
-            UI唯一标识
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.EditState">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="E:SAF.Framework.ViewModel.IBaseViewViewModel.EditStatusChanged">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:SAF.Framework.ViewModel.BaseViewViewModel.Events">
             <summary>
             获取附加到此 ViewModel 的事件处理程序的列表
@@ -1275,6 +1255,36 @@
             
             </summary>
         </member>
+        <member name="P:SAF.Framework.ViewModel.BusinessViewViewModel.ExecuteCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.ViewModel.BusinessViewViewModel.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.BillTypeId">
+            <summary>
+            单据类型ID
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.UniqueId">
+            <summary>
+            UI唯一标识
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.ViewModel.IBaseViewViewModel.EditState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:SAF.Framework.ViewModel.IBaseViewViewModel.EditStatusChanged">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SAF.Framework.ViewModel.IBusinessViewViewModel">
             <summary>
             
@@ -1285,14 +1295,9 @@
             
              </summary>
         </member>
-        <member name="M:SAF.Framework.ViewModel.BusinessViewViewModel.#ctor">
+        <member name="P:SAF.Framework.ViewModel.ISingleViewViewModel.IndexUseForGroup">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.ViewModel.BusinessViewViewModel.ExecuteCache">
-            <summary>
-            
+            Index仅用于分组显示
             </summary>
         </member>
         <member name="M:SAF.Framework.ViewModel.ISingleViewViewModel.SendToAudit">
@@ -1305,9 +1310,19 @@
             取消送审
             </summary>
         </member>
+        <member name="E:SAF.Framework.ViewModel.ISingleViewViewModel.AfterSave">
+            <summary>
+            保存后事件
+            </summary>
+        </member>
         <member name="M:SAF.Framework.ViewModel.ISingleViewViewModel.EndEdit">
             <summary>
             结束编辑
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.ViewModel.ISingleViewViewModel.QueryConfig">
+            <summary>
+            查询配置
             </summary>
         </member>
         <member name="M:SAF.Framework.ViewModel.ISingleViewViewModel.InitQueryConfig">
@@ -1315,19 +1330,9 @@
             初始查询配置
             </summary>
         </member>
-        <member name="P:SAF.Framework.ViewModel.ISingleViewViewModel.IndexUseForGroup">
+        <member name="P:SAF.Framework.ViewModel.SingleViewViewModel`2.IndexUseForGroup">
             <summary>
-            Index仅用于分组显示
-            </summary>
-        </member>
-        <member name="E:SAF.Framework.ViewModel.ISingleViewViewModel.AfterSave">
-            <summary>
-            保存后事件
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.ViewModel.ISingleViewViewModel.QueryConfig">
-            <summary>
-            查询配置
+            Index做为分组使用
             </summary>
         </member>
         <member name="M:SAF.Framework.ViewModel.SingleViewViewModel`2.OnPreHandle">
@@ -1342,84 +1347,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:SAF.Framework.ViewModel.SingleViewViewModel`2.IndexUseForGroup">
-            <summary>
-            Index做为分组使用
-            </summary>
-        </member>
         <member name="T:SAF.Framework.View.BaseView">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.Close">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.OnClosed(System.Windows.Forms.FormClosedEventArgs)">
-            <summary>
-            触发关闭事件
-            </summary>
-            <param name="args"></param>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.OnClosing(System.Windows.Forms.FormClosingEventArgs)">
-            <summary>
-            触发关闭前事件
-            </summary>
-            <param name="args"></param>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.OnShown">
-            <summary>
-            触发显示事件
-            </summary>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.RefreshUI">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Framework.View.IBaseView.Init">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.IBaseView.BillTypeId">
-            <summary>
-            单据类型ID
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.IBaseView.UniqueId">
-            <summary>
-            UI唯一标识
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.IBaseView.IsDirty">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="E:SAF.Framework.View.IBaseView.Closed">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="E:SAF.Framework.View.IBaseView.Closing">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="E:SAF.Framework.View.IBaseView.Shown">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.IBaseView.Text">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.IBaseView.Ribbon">
             <summary>
             
             </summary>
@@ -1529,6 +1457,21 @@
             初始化事件
             </summary>
         </member>
+        <member name="P:SAF.Framework.View.BaseView.Text">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.BaseView.IsDirty">
+            <summary>
+            关闭时是否需要提示
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.BaseView.UniqueId">
+            <summary>
+            视图对应的菜单ID
+            </summary>
+        </member>
         <member name="M:SAF.Framework.View.BaseView.PostUIData">
             <summary>
             提交界面数据
@@ -1537,6 +1480,21 @@
         <member name="M:SAF.Framework.View.BaseView.OnPostUIData">
             <summary>
             提交界面编辑的数据.
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.BaseView.BillTypeId">
+            <summary>
+            单据类型ID
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.BaseView.NullCondition">
+            <summary>
+            空条件
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.BaseView.GroupCustom">
+            <summary>
+            自定义菜单分组
             </summary>
         </member>
         <member name="F:SAF.Framework.View.BaseView.components">
@@ -1556,36 +1514,6 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
-        <member name="P:SAF.Framework.View.BaseView.Text">
-            <summary>
-            标题
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.BaseView.IsDirty">
-            <summary>
-            关闭时是否需要提示
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.BaseView.UniqueId">
-            <summary>
-            视图对应的菜单ID
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.BaseView.BillTypeId">
-            <summary>
-            单据类型ID
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.BaseView.NullCondition">
-            <summary>
-            空条件
-            </summary>
-        </member>
-        <member name="P:SAF.Framework.View.BaseView.GroupCustom">
-            <summary>
-            自定义菜单分组
-            </summary>
-        </member>
         <member name="F:SAF.Framework.View.BusinessView.components">
             <summary> 
             必需的设计器变量。
@@ -1603,11 +1531,6 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
-        <member name="M:SAF.Framework.IDataAdvancedSearch.AdvancedSearch">
-            <summary>
-            高级查询
-            </summary>
-        </member>
         <member name="F:SAF.Framework.View.DetailDataView.components">
             <summary>
             Required designer variable.
@@ -1620,28 +1543,6 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:SAF.Framework.View.DetailDataView.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="T:SAF.Framework.Diaglogs.InputBox">
-            <summary>
-            TODO:InputBox
-            </summary>
-        </member>
-        <member name="F:SAF.Framework.Diaglogs.InputBox.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:SAF.Framework.Diaglogs.InputBox.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:SAF.Framework.Diaglogs.InputBox.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -1740,6 +1641,21 @@
             取消送审
             </summary>
         </member>
+        <member name="P:SAF.Framework.View.SingleView.IsBrowse">
+            <summary>
+            是否浏览状态
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.SingleView.IsAddNew">
+            <summary>
+            是否新增状态
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.SingleView.IsEdit">
+            <summary>
+            是否编辑状态
+            </summary>
+        </member>
         <member name="F:SAF.Framework.View.SingleView.components">
             <summary> 
             必需的设计器变量。
@@ -1757,19 +1673,76 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
-        <member name="P:SAF.Framework.View.SingleView.IsBrowse">
+        <member name="P:SAF.Framework.View.IBaseView.BillTypeId">
             <summary>
-            是否浏览状态
+            单据类型ID
             </summary>
         </member>
-        <member name="P:SAF.Framework.View.SingleView.IsAddNew">
+        <member name="P:SAF.Framework.View.IBaseView.UniqueId">
             <summary>
-            是否新增状态
+            UI唯一标识
             </summary>
         </member>
-        <member name="P:SAF.Framework.View.SingleView.IsEdit">
+        <member name="P:SAF.Framework.View.IBaseView.IsDirty">
             <summary>
-            是否编辑状态
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:SAF.Framework.View.IBaseView.Closed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.OnClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            触发关闭事件
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="E:SAF.Framework.View.IBaseView.Closing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.OnClosing(System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            触发关闭前事件
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="E:SAF.Framework.View.IBaseView.Shown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.OnShown">
+            <summary>
+            触发显示事件
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.RefreshUI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.View.IBaseView.Init">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.IBaseView.Text">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.View.IBaseView.Ribbon">
+            <summary>
+            
             </summary>
         </member>
         <member name="F:SAF.Framework.View.MasterDetailView.components">
@@ -1787,6 +1760,33 @@
             <summary> 
             设计器支持所需的方法 - 不要
             使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.IDataAdvancedSearch.AdvancedSearch">
+            <summary>
+            高级查询
+            </summary>
+        </member>
+        <member name="T:SAF.Framework.Diaglogs.InputBox">
+            <summary>
+            TODO:InputBox
+            </summary>
+        </member>
+        <member name="F:SAF.Framework.Diaglogs.InputBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SAF.Framework.Diaglogs.InputBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SAF.Framework.Diaglogs.InputBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
     </members>

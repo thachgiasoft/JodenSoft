@@ -84,6 +84,243 @@
             旗舰版
             </summary>
         </member>
+        <member name="T:SAF.Foundation.ComponentModel.AutoWaitCursor">
+            <summary>
+            光标状态
+            </summary>
+            <example>using(new AutoWaitCursor(ctrl){...})</example>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.CompositionHelper">
+            <summary>
+            全局MEF Composition Container
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.AddFile(System.String)">
+            <summary>
+            添加文件
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.AddAssembly(System.Reflection.Assembly)">
+            <summary>
+            添加程序集
+            </summary>
+            <param name="assembly"></param>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.ComposeParts(System.Object[])">
+            <summary>
+            从特性化对象的数组创建可组合部件，并在指定的组合容器中组合这些部件。
+            </summary>
+            <param name="attributedParts">要组合的特性化对象的数组。</param>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.GetExportedValues``1">
+            <summary>
+            获取具有从指定的类型参数派生的协定名称的所有已导出对象。
+            </summary>
+            <typeparam name="T">要返回的已导出对象的类型。协定名称也派生自此类型参数。</typeparam>
+            <returns>如果找到匹配项，则为具有从指定的类型参数派生的协定名称的已导出对象；
+            <para>否则为空的对象。</para>
+            </returns>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.GetExportedValue``1(System.String)">
+            <summary>
+            返回具有从指定的类型参数派生的协定名称的已导出对象。如果不是正好有一个匹配的已导出对象，则将引发异常。
+            </summary>
+            <typeparam name="T">要返回的已导出对象的类型。</typeparam>
+            <param name="contractName">要返回的已导出对象的协定名称，或者为 null 或空字符串 ("") 以使用默认的协定名称。</param>
+            <returns>具有指定的协定名称的已导出对象。</returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.FileSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.FileSize.GetSize(System.String)">
+            <summary>
+            计算文件大小函数(保留两位小数),Size为字节大小
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.NotificationObject">
+            <summary>
+            Base class for items that support property notification.
+            </summary>
+            <remarks>
+            This class provides basic support for implementing the <see cref="T:System.ComponentModel.INotifyPropertyChanged" /> interface and for
+            marshalling execution to the UI thread.
+            </remarks>
+        </member>
+        <member name="E:SAF.Foundation.ComponentModel.NotificationObject.PropertyChanged">
+            <summary>
+            Raised when a property on this object has a new value.
+            </summary>        
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged(System.String)">
+            <summary>
+            Raises this object's PropertyChanged event.
+            </summary>
+            <param name="propertyName">The property that has a new value.</param>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged(System.String[])">
+            <summary>
+            Raises this object's PropertyChanged event for each of the properties.
+            </summary>
+            <param name="propertyNames">The properties that have a new value.</param>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Raises this object's PropertyChanged event.
+            </summary>
+            <typeparam name="T">The type of the property that has a new value</typeparam>
+            <param name="propertyExpression">A Lambda expression representing the property that has a new value.</param>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.PropertySupport">
+            <summary>
+             Provides support for extracting property information based on a property expression.
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.PropertySupport.ExtractPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.UserConfig">
+            <summary>
+            用户配置信息助手
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.MachineInfo">
+            <summary>
+            硬件信息
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.MachineName">
+            <summary>
+            机器名
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.MachineUser">
+            <summary>
+            机器用户
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.ProductCode">
+            <summary>
+            产品ID
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.ProcessorId">
+            <summary>
+            取CPU编号
+            </summary>
+            <returns></returns> 
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.BaseBoardSerialNumber">
+            <summary>
+            取主板编号 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.BiosSerialNumber">
+            <summary>
+            BIOS SerialNumber
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.MachineInfo.IsIP4(System.String)">
+            <summary>
+            是否是IP4地址
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.MoneyHelper">
+            <summary>
+            金额大写转换类
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.MoneyHelper.GetCnString(System.String)">
+            <summary>
+            货币金额中文大写转换方法
+            </summary>
+            <param name="MoneyString">转化金额
+            <para>最大转化金额:9999999999999999.99（16位整数位，2位小数位）</para>
+            </param>
+            <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.MoneyHelper.GetEnString(System.String)">
+            <summary>
+            货币金额英文大写转换方法
+            </summary>
+            <param name="MoneyString">转换金额
+            <para>最大转化金额:999999999999999.99（15位整数位，2位小数位）</para>
+            </param>
+            <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.StringCompress">
+            <summary>
+            字符串压缩/解压
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.StringCompress.Compress(System.String)">
+            <summary>
+            压缩
+            </summary>
+            <param name="strSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.StringCompress.Decompress(System.String)">
+            <summary>
+            解压
+            </summary>
+            <param name="strSource"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.ObjectCloner">
+            <summary>
+            Ìá¹©Éî¸´ÖÆ¹¦ÄÜ
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.ObjectCloner.Clone(System.Object)">
+            <summary>
+            Éî¸´ÖÆÒ»¸ö¶ÔÏó.¶ÔÏó±ØÐë±ê¼ÇÎª Serializable
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.PathHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.PathHelper.GetRelativePath(System.String,System.String)">
+            <summary>
+            获取相对路径
+            </summary>
+            <param name="sToPath">带文件名的全路径</param>
+            <param name="sFromPath">带文件名的全路径</param>
+            <returns>相对路径</returns>
+        </member>
+        <member name="T:SAF.Foundation.ComponentModel.RandomString">
+            <summary>
+            Éú³ÉÖ¸¶¨Î»ÊýËæ»ú×Ö·û´®,×Ö·û½ö°üÀ¨[0-9]ºÍ[A-Z]
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.RandomString.Next">
+            <summary>
+            Éú³É10Î»Ëæ»ú×Ö·û´®
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ComponentModel.RandomString.Next(System.Int32)">
+            <summary>
+            Éú³ÉÖ¸¶¨Î»ÊýµÄËæ»ú×Ö·û´®
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
         <member name="T:SAF.Foundation.EditState">
             <summary>
             界面编辑状态
@@ -127,7 +364,7 @@
         </member>
         <member name="M:SAF.Foundation.ParamterCheckExtensions.Required``2(``0,System.Func{``0,System.Boolean},System.String)">
             <summary>
-            验证指定值的断言表达式是否为真，不为真抛出<typeparam name="TException>"/>异常
+            验证指定值的断言表达式是否为真，不为真抛出<typeparam name="TException>>"/>异常
             </summary>
             <typeparam name="T">要判断的值的类型</typeparam>
             <typeparam name="TException">抛出的异常类型</typeparam>
@@ -311,6 +548,296 @@
             各子系统的产品信息基类
             </summary>
         </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.SetLastError(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dwErrorCode"></param>
+        </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowLongValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.WndProc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.HInstace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.HwndParent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.Style">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.ExtendedStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.UserData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowStyles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.SysMemu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.MinimizeBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.MaximizeBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.ThickFrame">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowExStyles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowExStyles.DlgModalFrame">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.ShowWindowAsync(System.Runtime.InteropServices.HandleRef,System.Int32)">
+            <summary> 
+            该函数设置由不同线程产生的窗口的显示状态。 
+            </summary> 
+            <param name="hWnd">窗口句柄</param> 
+            <param name="cmdShow">指定窗口如何显示。查看允许值列表，请查阅ShowWlndow函数的说明部分。</param> 
+            <returns>如果函数原来可见，返回值为非零；如果函数原来被隐藏，返回值为零。</returns> 
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.HwndOwner">
+            <summary>
+            Handle to the owner window for the dialog box.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Root">
+            <summary>
+            Pointer to an item identifier list (PIDL) specifying the 
+            location of the root folder from which to start browsing.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.DisplayName">
+            <summary>
+            Address of a buffer to receive the display name of the
+            folder selected by the user.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Title">
+            <summary>
+            Address of a null-terminated string that is displayed 
+            above the tree view control in the dialog box.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Flags">
+            <summary>
+            Flags specifying the options for the dialog box.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Callback">
+            <summary>
+            Address of an application-defined function that the
+            dialog box calls when an event occurs.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.LParam">
+            <summary>
+            Application-defined value that the dialog box passes to 
+            the callback function
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Image">
+            <summary>
+            Variable to receive the image associated with the selected folder.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.FolderOnly">
+            <summary>
+            For finding a folder to start document searching
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.FindComputer">
+            <summary>
+            For starting the Find Computer
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowStatusText">
+            <summary>
+            Top of the dialog has 2 lines of text for BROWSEINFO.lpszTitle and 
+            one line if this flag is set.  Passing the message 
+            BFFSETSTATUSTEXTA to the hwnd can set the rest of the text.  
+            This is not used with BIF_USENEWUI and BROWSEINFO.lpszTitle gets
+            all three lines of text.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowEditBox">
+            <summary>
+            Add an editbox to the dialog
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ValidateResult">
+            <summary>
+            insist on valid result (or CANCEL)
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.UseNewStyle">
+            <summary>
+            Use the new dialog layout with the ability to resize
+            Caller needs to call OleInitialize() before using this API
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.AllowUrls">
+            <summary>
+            Allow URLs to be displayed or entered. (Requires BIF_USENEWUI)
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowUsageHint">
+            <summary>
+            Add a UA hint to the dialog, in place of the edit box. May not be
+            combined with BIF_EDITBOX.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.HideNewFolderButton">
+            <summary>
+            Do not add the "New Folder" button to the dialog.  Only applicable 
+            with BIF_NEWDIALOGSTYLE.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.GetShortcuts">
+            <summary>
+            don't traverse target as shortcut
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseComputers">
+            <summary>
+            Browsing for Computers.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowsePrinters">
+            <summary>
+            Browsing for Printers.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseFiles">
+            <summary>
+            Browsing for Everything
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseShares">
+            <summary>
+            sharable resources displayed (remote shares, requires BIF_USENEWUI)
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Icon">
+            <summary>
+            The hIcon member is valid.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Message">
+            <summary>
+            The uCallbackMessage member is valid.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.ToolTip">
+            <summary>
+            The szTip member is valid.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.State">
+            <summary>
+            The dwState and dwStateMask members are valid.
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Balloon">
+            <summary>
+            Use a balloon ToolTip instead of a standard ToolTip. The szInfo, uTimeout, szInfoTitle, and dwInfoFlags members are valid.
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.GetSystemSound(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="soundName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.PlaySound(System.String,System.IntPtr,SAF.Foundation.Interop.NativeMethods.PlaySoundFlags)">
+            <summary>
+            
+            </summary>
+            <param name="soundName"></param>
+            <param name="hmod"></param>
+            <param name="soundFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.PlaySound(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="soundName"></param>
+        </member>
+        <member name="M:SAF.Foundation.Interop.NativeMethods.IntPtrToInt32(System.IntPtr)">
+            <summary>
+            
+            </summary>
+            <param name="intPtr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.Interop.NativeMethods.WndProc">
+            <summary>
+            
+            </summary>
+            <param name="hWnd"></param>
+            <param name="msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
         <member name="T:SAF.Foundation.LoadAssemblyProxyObject">
             <summary>
             需要先执行LoadAssembly
@@ -351,6 +878,70 @@
             <param name="verifyXmlDoc">待验证的xml文档对象</param>
             <returns>验证成功，返回true,否则返回false</returns>
         </member>
+        <member name="F:SAF.Foundation.Security.AESHelper._Key">
+            <summary>
+            默认的加密key
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Security.SHA1Helper.Hash(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strSource">需要加密的明文</param>
+            <returns>返回32位加密结果</returns>
+        </member>
+        <member name="T:SAF.Foundation.Security.DESHelper">
+            <summary>
+            DES加密方法帮助类
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.Security.DESHelper._Key">
+            <summary>
+            默认的加密key
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Security.DESHelper.Encrypt(System.String,System.String)">
+            <summary>
+            用给定的Key进行加密
+            </summary>
+            <param name="key">密钥</param>
+            <param name="encryptString">要加密的字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:SAF.Foundation.Security.DESHelper.Decrypt(System.String,System.String)">
+            <summary>
+            用给定的Key进行解密
+            </summary>
+            <param name="key">密钥</param>
+            <param name="decryptString">要解密的字符串</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:SAF.Foundation.Security.DESHelper.Encrypt(System.String)">
+            <summary>
+            用系统默认的Key加密
+            </summary>
+            <param name="encryptString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.Security.DESHelper.Decrypt(System.String)">
+            <summary>
+            用系统默认的Key解密
+            </summary>
+            <param name="decryptString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.Security.MD5Helper">
+            <summary>
+            MD5 Hash方法帮助类
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Security.MD5Helper.Hash(System.String,System.Boolean)">
+            <summary>
+            Hash
+            </summary>
+            <param name="strSource"></param>
+            <returns></returns>
+        </member>
         <member name="T:SAF.Foundation.ServiceModel.ApplicationService">
             <summary>
             应用程序上下文
@@ -366,266 +957,10 @@
             配置文件路径
             </summary>
         </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.ProductName">
+        <member name="P:SAF.Foundation.ServiceModel.ServiceManager.Instance">
             <summary>
-            主产品名称
+            Gets the static ServiceManager instance.
             </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.AssemblyCopyright">
-            <summary>
-            程序集版权
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.CopyrightFormat">
-            <summary>
-            显示版权
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.AssemblyCompany">
-            <summary>
-            程序开发公司
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.Version">
-            <summary>
-            程序集版本号
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.FileVersion">
-            <summary>
-            文件版本号
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.AssemblyInfoHelper.WarningMessage">
-            <summary>
-            版权警告
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.AssemblyInfoHelper.GetAllVersionInfo(System.String)">
-            <summary>
-            详细版权说明
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfoHelper.ApplicationImage">
-            <summary>
-            应用程序图片
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfoHelper.ApplicationIcon">
-            <summary>
-            应用程序图标
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfoHelper.UserDefaultImage">
-            <summary>
-            用户默认头像
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.MetaAttributes.BusinessObjectAttribute">
-            <summary>
-            标记窗口是否为业务窗口
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.MetaAttributes.BusinessObjectAttribute.#ctor(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="guid"></param>
-            <param name="description"></param>
-        </member>
-        <member name="P:SAF.Foundation.MetaAttributes.BusinessObjectAttribute.Description">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute">
-            <summary>
-            标记程序集是否是业务模块,如果不是业务模块将不拼装到容器内
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute.#ctor(System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="description">程序集描述,将显示在进度窗口中</param>
-        </member>
-        <member name="P:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute.Description">
-            <summary>
-            程序集描述,将显示在进度窗口中
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.AutoWaitCursor">
-            <summary>
-            光标状态
-            </summary>
-            <example>using(new AutoWaitCursor(ctrl){...})</example>
-        </member>
-        <member name="T:SAF.Foundation.CacheService">
-            <summary>
-            Class CacheService
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.CacheService.AddObject(System.String,System.Object)">
-            <summary>
-            将object添加至缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <param name="value">缓存项</param>
-        </member>
-        <member name="M:SAF.Foundation.CacheService.RetriveObject(System.String)">
-            <summary>
-            获取缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <returns>获取成功返回TRUE,否则返回FALSE</returns>
-        </member>
-        <member name="M:SAF.Foundation.CacheService.RemoveObject(System.String)">
-            <summary>
-            移除缓存
-            </summary>
-            <param name="key">缓存Key</param>
-        </member>
-        <member name="M:SAF.Foundation.CacheService.Clear">
-            <summary>
-            清除所有缓存
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Cache.DefaultCacheStrategy">
-            <summary>
-            Class DefaultCacheStrategy
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Cache.ICacheStrategy">
-            <summary>
-            缓存策略接口
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Cache.ICacheStrategy.AddObject(System.String,System.Object)">
-            <summary>
-            将object添加至缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <param name="value">缓存项</param>
-        </member>
-        <member name="M:SAF.Foundation.Cache.ICacheStrategy.RetriveObject(System.String)">
-            <summary>
-            获取缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <returns>获取成功返回TRUE,否则返回FALSE</returns>
-        </member>
-        <member name="M:SAF.Foundation.Cache.ICacheStrategy.RemoveObject(System.String)">
-            <summary>
-            移除缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.Cache.ICacheStrategy.Clear">
-            <summary>
-            清除所有缓存
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.AddObject(System.String,System.Object)">
-            <summary>
-            将object添加至缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <param name="value">缓存项</param>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.RetriveObject(System.String)">
-            <summary>
-            获取缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <returns>获取成功返回TRUE,否则返回FALSE</returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.RemoveObject(System.String)">
-            <summary>
-            移除缓存
-            </summary>
-            <param name="key">缓存Key</param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.Clear">
-            <summary>
-            清除所有缓存
-            </summary>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.CompositionHelper">
-            <summary>
-            全局MEF Composition Container
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.AddFile(System.String)">
-            <summary>
-            添加文件
-            </summary>
-            <param name="fileName"></param>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.AddAssembly(System.Reflection.Assembly)">
-            <summary>
-            添加程序集
-            </summary>
-            <param name="assembly"></param>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.ComposeParts(System.Object[])">
-            <summary>
-            从特性化对象的数组创建可组合部件，并在指定的组合容器中组合这些部件。
-            </summary>
-            <param name="attributedParts">要组合的特性化对象的数组。</param>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.GetExportedValues``1">
-            <summary>
-            获取具有从指定的类型参数派生的协定名称的所有已导出对象。
-            </summary>
-            <typeparam name="T">要返回的已导出对象的类型。协定名称也派生自此类型参数。</typeparam>
-            <returns>如果找到匹配项，则为具有从指定的类型参数派生的协定名称的已导出对象；
-            <para>否则为空的对象。</para>
-            </returns>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.CompositionHelper.GetExportedValue``1(System.String)">
-            <summary>
-            返回具有从指定的类型参数派生的协定名称的已导出对象。如果不是正好有一个匹配的已导出对象，则将引发异常。
-            </summary>
-            <typeparam name="T">要返回的已导出对象的类型。</typeparam>
-            <param name="contractName">要返回的已导出对象的协定名称，或者为 null 或空字符串 ("") 以使用默认的协定名称。</param>
-            <returns>具有指定的协定名称的已导出对象。</returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.FileSize">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.FileSize.GetSize(System.String)">
-            <summary>
-            计算文件大小函数(保留两位小数),Size为字节大小
-            </summary>
-            <param name="fileName">文件名</param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ExceptionExtensions.GetAllMessage(System.Exception)">
-            <summary>
-            显示异常的所有描述信息
-            </summary>
-            <param name="ex"></param>
-            <returns></returns>
-        </member>
-        <member name="F:SAF.Foundation.Security.AESHelper._Key">
-            <summary>
-            默认的加密key
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Security.SHA1Helper.Hash(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="strSource">需要加密的明文</param>
-            <returns>返回32位加密结果</returns>
         </member>
         <member name="M:SAF.Foundation.ServiceModel.ServiceManager.GetService(System.Type)">
             <summary>
@@ -647,11 +982,6 @@
             Gets a service. Throws an exception if service is not found.
             </summary>
         </member>
-        <member name="P:SAF.Foundation.ServiceModel.ServiceManager.Instance">
-            <summary>
-            Gets the static ServiceManager instance.
-            </summary>
-        </member>
         <member name="P:SAF.Foundation.ServiceModel.ServiceManager.LoggingService">
             <summary>
             Gets the logging service.
@@ -662,394 +992,14 @@
             Gets the message service.
             </summary>
         </member>
-        <member name="T:SAF.Foundation.FieldNotFoundException">
-            <summary>
-            表示字段没有找到时发生的错误
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.NoMarkedException">
-            <summary>
-            实体或实体集未标记Attribute引发的异常
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.CoreException">
-            <summary>
-            在SAF内核执行期间发生的错误,此异常会导致应用程序强行关闭
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.CoreException.#ctor">
-            <summary>
-            初始化 CoreException 类的新实例。
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.CoreException.#ctor(System.String)">
-            <summary>
-            使用指定的错误消息初始化 CoreException 类的新实例。
-            </summary>
-            <param name="message">描述错误的消息。</param>
-        </member>
-        <member name="M:SAF.Foundation.CoreException.#ctor(System.String,System.Exception)">
-            <summary>
-            使用指定错误消息和对作为此异常原因的内部异常的引用来初始化 CoreException 类的新实例。
-            </summary>
-            <param name="message">描述错误的消息。</param>
-            <param name="innerException">导致当前异常的异常；如果未指定内部异常，则是一个 null 引用</param>
-        </member>
-        <member name="M:SAF.Foundation.CoreException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            用序列化数据初始化 System.Exception 类的新实例。
-            </summary>
-            <param name="info">System.Runtime.Serialization.SerializationInfo，它存有有关所引发异常的序列化的对象数据。</param>
-            <param name="context">System.Runtime.Serialization.StreamingContext，它包含有关源或目标的上下文信息。</param>
-        </member>
-        <member name="M:SAF.Foundation.ByteExtensions.ToStreamString(System.Byte[])">
-            <summary>
-            将字节数据格式为16进制字符串输出
-            </summary>
-            <param name="bytes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.DictionaryExtensions.TryAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            尝试将键和值添加到字典中：如果不存在，才添加；存在，不添加也不抛导常
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.DictionaryExtensions.AddOrReplace``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            将键和值添加或替换到字典中：如果不存在，则添加；存在，则替换
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.DictionaryExtensions.GetValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
-            <summary>
-            获取与指定的键相关联的值，如果没有则返回输入的默认值,未输入默认值则返回null
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.DictionaryExtensions.AddRange``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Boolean)">
-            <summary>
-            向字典中批量添加键值对
-            </summary>
-            <param name="replaceExisted">如果已存在，是否替换</param>
-        </member>
-        <member name="T:SAF.Foundation.EnumerableExtensions">
-            <summary>
-            Linq 扩展
-            </summary>
-        </member>
-        <!-- 对于成员“M:SAF.Foundation.EnumerableExtensions.JoinText(System.Collections.Generic.IEnumerable{System.String},System.String)”忽略有格式错误的 XML 注释 -->
-        <member name="M:SAF.Foundation.ObjectExtensions.ToStringEx(System.Object)">
-            <summary>
-            返回当前对象的string
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.To``1(System.Object)">
-            <summary>
-            Converts the input string to specified type.
-            </summary>
-            <typeparam name="T">The target type to convert.</typeparam>
-            <param name="s">An input string.</param>
-            <returns>If convertation successfull, returns the converted value with required type; otherwise returns default for specified type.</returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.To``1(System.Object,``0)">
-            <summary>
-            Converts the input string to specified type.
-            </summary>
-            <typeparam name="T">The target type to convert.</typeparam>
-            <param name="s">An input object.</param>
-            <param name="defaultValue">The default value to return is convertation fails.</param>
-            <returns>If convertation successfull, returns the converted value with required type; otherwise returns default value.</returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.In``1(``0,``0[])">
-            <summary>
-            判断对象是否在值列表中
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="t"></param>
-            <param name="c"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.GetProperties``1(System.Object,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="obj"></param>
-            <param name="bIncludeSubClass"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.HasProperty(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="aObject"></param>
-            <param name="sPropertyName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.GetPropertyValue(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="aObject"></param>
-            <param name="sPropertyName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ObjectExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
-            <summary>
-            
-            </summary>
-            <param name="aObject"></param>
-            <param name="sPropertyName"></param>
-            <param name="aPropertyValue"></param>
-        </member>
-        <!-- 对于成员“M:SAF.Foundation.ObjectExtensions.Between``1(``0,``0,``0)”忽略有格式错误的 XML 注释 -->
-        <!-- 对于成员“M:SAF.Foundation.ObjectExtensions.BetweenAndEqual``1(``0,``0,``0)”忽略有格式错误的 XML 注释 -->
-        <member name="T:SAF.Foundation.RandomExtensions">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.RandomExtensions.NextBool(System.Random)">
-            <summary>
-            
-            </summary>
-            <param name="random"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.RandomExtensions.NextEnum``1(System.Random)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="random"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.RandomExtensions.NextBytes(System.Random,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="random"></param>
-            <param name="length"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.RandomExtensions.NextDateTime(System.Random,System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-            <param name="random"></param>
-            <param name="minValue"></param>
-            <param name="maxValue"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.RandomExtensions.NextDateTime(System.Random)">
-            <summary>
-            
-            </summary>
-            <param name="random"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Properties.Resources">
-            <summary>
-              一个强类型的资源类，用于查找本地化的字符串等。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ResourceManager">
-            <summary>
-              返回此类使用的缓存的 ResourceManager 实例。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.Culture">
-            <summary>
-              使用此强类型资源类，为所有资源查找
-              重写当前线程的 CurrentUICulture 属性。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.Cache_EmptyParameterName_Exception">
-            <summary>
-              查找类似 参数名称不能为空. 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.DefaultUserPicture">
-            <summary>
-              查找 System.Drawing.Bitmap 类型的本地化资源。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_Between">
-            <summary>
-              查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_BetweenNotEqual">
-            <summary>
-              查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间，且不能等于“{3}”。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_DirectoryNotExists">
-            <summary>
-              查找类似 指定的目录路径“{0}”不存在。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_FileNotExists">
-            <summary>
-              查找类似 指定的文件路径“{0}”不存在。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotEmpty_Guid">
-            <summary>
-              查找类似 “{0}”的值不能为Guid.Empty 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotGreaterThan">
-            <summary>
-              查找类似 “{0}”的值必须大于“{1}”。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotGreaterThanOrEqual">
-            <summary>
-              查找类似 “{0}”的值必须大于或等于“{1}”。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotLessThan">
-            <summary>
-              查找类似 “{0}”的值必须小于“{1}”。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotLessThanOrEqual">
-            <summary>
-              查找类似 “{0}”的值必须小于或等于“{1}”。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNull">
-            <summary>
-              查找类似 “{0}”不能为空。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNullOrEmpty_Collection">
-            <summary>
-              查找类似 “{0}”不能为空。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNullOrEmpty_String">
-            <summary>
-              查找类似 “{0}”不能为空。 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_ExpressionNotProperty_Exception">
-            <summary>
-              查找类似 The member access expression does not access a property. 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_NotMemberAccessExpression_Exception">
-            <summary>
-              查找类似 The expression is not a member access expression. 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_StaticExpression_Exception">
-            <summary>
-              查找类似 The referenced property is a static property. 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.SAF_Icon">
-            <summary>
-              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.Properties.Resources.SAF_Png">
-            <summary>
-              查找 System.Drawing.Bitmap 类型的本地化资源。
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.NotificationObject">
-            <summary>
-            Base class for items that support property notification.
-            </summary>
-            <remarks>
-            This class provides basic support for implementing the <see cref="T:System.ComponentModel.INotifyPropertyChanged" /> interface and for
-            marshalling execution to the UI thread.
-            </remarks>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged(System.String)">
-            <summary>
-            Raises this object's PropertyChanged event.
-            </summary>
-            <param name="propertyName">The property that has a new value.</param>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged(System.String[])">
-            <summary>
-            Raises this object's PropertyChanged event for each of the properties.
-            </summary>
-            <param name="propertyNames">The properties that have a new value.</param>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.NotificationObject.RaisePropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
-            <summary>
-            Raises this object's PropertyChanged event.
-            </summary>
-            <typeparam name="T">The type of the property that has a new value</typeparam>
-            <param name="propertyExpression">A Lambda expression representing the property that has a new value.</param>
-        </member>
-        <member name="E:SAF.Foundation.ComponentModel.NotificationObject.PropertyChanged">
-            <summary>
-            Raised when a property on this object has a new value.
-            </summary>        
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.PropertySupport">
-            <summary>
-             Provides support for extracting property information based on a property expression.
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.PropertySupport.ExtractPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="propertyExpression"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Reflection.DynamicCtorDelegate">
-            <summary>
-            Delegate for a dynamic constructor method.
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Reflection.DynamicMethodDelegate">
-            <summary>
-            Delegate for a dynamic method.
-            </summary>
-            <param name="target">
-            Object containg method to invoke.
-            </param>
-            <param name="args">
-            Parameters passed to method.
-            </param>
-        </member>
-        <member name="T:SAF.Foundation.Reflection.DynamicMemberGetDelegate">
-            <summary>
-            Delegate for getting a value.
-            </summary>
-            <param name="target">Target object.</param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Reflection.DynamicMemberSetDelegate">
-            <summary>
-            Delegate for setting a value.
-            </summary>
-            <param name="target">Target object.</param>
-            <param name="arg">Argument value.</param>
-        </member>
-        <member name="T:SAF.Foundation.Reflection.MethodCaller">
-            <summary>
-            Provides methods to dynamically find and call methods.
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Reflection.MethodCaller.CreateInstance(System.Type)">
-            <summary>
-            Uses reflection to create an object using its 
-            default constructor.
-            </summary>
-            <param name="objectType">Type of object to create.</param>
-        </member>
         <member name="T:SAF.Foundation.ServiceModel.DebugTextWriter">
             <summary>
             TextWriter that writes into System.Diagnostics.Debug
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.ServiceModel.DebugTextWriter.Encoding">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:SAF.Foundation.ServiceModel.DebugTextWriter.Write(System.Char)">
@@ -1083,14 +1033,9 @@
             </summary>
             <param name="value"></param>
         </member>
-        <member name="P:SAF.Foundation.ServiceModel.DebugTextWriter.Encoding">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:SAF.Foundation.ServiceModel.ILoggingService">
             <summary>
-            记录日志接口
+            ¼ÇÂ¼ÈÕÖ¾½Ó¿Ú
             </summary>
         </member>
         <member name="M:SAF.Foundation.ServiceModel.ILoggingService.Debug(System.Object)">
@@ -1209,6 +1154,11 @@
             TextWriterLoggingService implementation that logs into a TextWriter.
             </summary>
         </member>
+        <member name="P:SAF.Foundation.ServiceModel.MessageBoxMessageService.MessageBoxTitle">
+            <summary>
+            消息框的标题
+            </summary>
+        </member>
         <member name="T:SAF.Foundation.ServiceModel.IMessageService">
             <summary>
             MessageService接口
@@ -1241,14 +1191,9 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="P:SAF.Foundation.ServiceModel.MessageBoxMessageService.MessageBoxTitle">
-            <summary>
-            消息框的标题
-            </summary>
-        </member>
         <member name="T:SAF.Foundation.ServiceModel.LoggingService">
             <summary>
-            日志记录服务
+            ÈÕÖ¾¼ÇÂ¼·þÎñ
             </summary>
         </member>
         <member name="M:SAF.Foundation.ServiceModel.LoggingService.Debug(System.Object)">
@@ -1543,153 +1488,6 @@
             <param name="keyPath">注册表键路径</param>
             <returns></returns>
         </member>
-        <member name="T:SAF.Foundation.ComponentModel.UserConfig">
-            <summary>
-            用户配置信息助手
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.MachineInfo">
-            <summary>
-            硬件信息
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.MachineInfo.IsIP4(System.String)">
-            <summary>
-            是否是IP4地址
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.MachineName">
-            <summary>
-            机器名
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.MachineUser">
-            <summary>
-            机器用户
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.ProductCode">
-            <summary>
-            产品ID
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.ProcessorId">
-            <summary>
-            取CPU编号
-            </summary>
-            <returns></returns> 
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.BaseBoardSerialNumber">
-            <summary>
-            取主板编号 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:SAF.Foundation.ComponentModel.MachineInfo.BiosSerialNumber">
-            <summary>
-            BIOS SerialNumber
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.MoneyHelper">
-            <summary>
-            金额大写转换类
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.MoneyHelper.GetCnString(System.String)">
-            <summary>
-            货币金额中文大写转换方法
-            </summary>
-            <param name="MoneyString">转化金额
-            <para>最大转化金额:9999999999999999.99（16位整数位，2位小数位）</para>
-            </param>
-            <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.MoneyHelper.GetEnString(System.String)">
-            <summary>
-            货币金额英文大写转换方法
-            </summary>
-            <param name="MoneyString">转换金额
-            <para>最大转化金额:999999999999999.99（15位整数位，2位小数位）</para>
-            </param>
-            <returns>转换成功则返回非零长字串,否则返回零长字串</returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.StringCompress">
-            <summary>
-            字符串压缩/解压
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.StringCompress.Compress(System.String)">
-            <summary>
-            压缩
-            </summary>
-            <param name="strSource"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.StringCompress.Decompress(System.String)">
-            <summary>
-            解压
-            </summary>
-            <param name="strSource"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.AssemblyInfo">
-            <summary>
-            程序集特性
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.AssemblyInfo.#ctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.AssemblyInfo.#ctor(System.Object)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="part">类型</param>
-        </member>
-        <member name="M:SAF.Foundation.AssemblyInfo.#ctor(System.Reflection.Assembly)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="assembly">程序集</param>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Title">
-            <summary>
-            程序集标题
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Version">
-            <summary>
-            程序集版本号
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.FileVersion">
-            <summary>
-            程序集文件版本号
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Description">
-            <summary>
-            程序集描述
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Product">
-            <summary>
-            程序集产品名称
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Copyright">
-            <summary>
-            程序集版权
-            </summary>
-        </member>
-        <member name="P:SAF.Foundation.AssemblyInfo.Company">
-            <summary>
-            程序集公司名称
-            </summary>
-        </member>
         <member name="T:SAF.Foundation.ServiceModel.IObjectContainer">
             <summary>
             对象容器接口
@@ -1825,6 +1623,594 @@
             <summary>
             移除所有对象
             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:SAF.Foundation.ServiceModel.ThreadSafeServiceContainer" -->
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.ProductName">
+            <summary>
+            主产品名称
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.AssemblyCopyright">
+            <summary>
+            程序集版权
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.CopyrightFormat">
+            <summary>
+            显示版权
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.AssemblyCompany">
+            <summary>
+            程序开发公司
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.Version">
+            <summary>
+            程序集版本号
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.FileVersion">
+            <summary>
+            文件版本号
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfoHelper.ApplicationImage">
+            <summary>
+            应用程序图片
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfoHelper.ApplicationIcon">
+            <summary>
+            应用程序图标
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfoHelper.UserDefaultImage">
+            <summary>
+            用户默认头像
+            </summary>
+        </member>
+        <member name="F:SAF.Foundation.AssemblyInfoHelper.WarningMessage">
+            <summary>
+            版权警告
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.AssemblyInfoHelper.GetAllVersionInfo(System.String)">
+            <summary>
+            详细版权说明
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.MetaAttributes.BusinessObjectAttribute">
+            <summary>
+            标记窗口是否为业务窗口
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.MetaAttributes.BusinessObjectAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="guid"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:SAF.Foundation.MetaAttributes.BusinessObjectAttribute.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute">
+            <summary>
+            标记程序集是否是业务模块,如果不是业务模块将不拼装到容器内
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute.Description">
+            <summary>
+            程序集描述,将显示在进度窗口中
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.MetaAttributes.IsComposeModuleAttribute.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="description">程序集描述,将显示在进度窗口中</param>
+        </member>
+        <member name="T:SAF.Foundation.CacheService">
+            <summary>
+            Class CacheService
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.CacheService.AddObject(System.String,System.Object)">
+            <summary>
+            将object添加至缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <param name="value">缓存项</param>
+        </member>
+        <member name="M:SAF.Foundation.CacheService.RetriveObject(System.String)">
+            <summary>
+            获取缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <returns>获取成功返回TRUE,否则返回FALSE</returns>
+        </member>
+        <member name="M:SAF.Foundation.CacheService.RemoveObject(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key">缓存Key</param>
+        </member>
+        <member name="M:SAF.Foundation.CacheService.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Cache.DefaultCacheStrategy">
+            <summary>
+            Class DefaultCacheStrategy
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.AddObject(System.String,System.Object)">
+            <summary>
+            将object添加至缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <param name="value">缓存项</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.RetriveObject(System.String)">
+            <summary>
+            获取缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <returns>获取成功返回TRUE,否则返回FALSE</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.RemoveObject(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SAF.Foundation.Cache.DefaultCacheStrategy.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SAF.Foundation.Cache.ICacheStrategy">
+            <summary>
+            缓存策略接口
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Cache.ICacheStrategy.AddObject(System.String,System.Object)">
+            <summary>
+            将object添加至缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <param name="value">缓存项</param>
+        </member>
+        <member name="M:SAF.Foundation.Cache.ICacheStrategy.RetriveObject(System.String)">
+            <summary>
+            获取缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <returns>获取成功返回TRUE,否则返回FALSE</returns>
+        </member>
+        <member name="M:SAF.Foundation.Cache.ICacheStrategy.RemoveObject(System.String)">
+            <summary>
+            移除缓存
+            </summary>
+            <param name="key">缓存Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.Cache.ICacheStrategy.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ExceptionExtensions.GetAllMessage(System.Exception)">
+            <summary>
+            显示异常的所有描述信息
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.FieldNotFoundException">
+            <summary>
+            表示字段没有找到时发生的错误
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.NoMarkedException">
+            <summary>
+            实体或实体集未标记Attribute引发的异常
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.ByteExtensions.ToStreamString(System.Byte[])">
+            <summary>
+            将字节数据格式为16进制字符串输出
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.DictionaryExtensions.TryAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            尝试将键和值添加到字典中：如果不存在，才添加；存在，不添加也不抛导常
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.DictionaryExtensions.AddOrReplace``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            将键和值添加或替换到字典中：如果不存在，则添加；存在，则替换
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.DictionaryExtensions.GetValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            获取与指定的键相关联的值，如果没有则返回输入的默认值,未输入默认值则返回null
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.DictionaryExtensions.AddRange``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Boolean)">
+            <summary>
+            向字典中批量添加键值对
+            </summary>
+            <param name="replaceExisted">如果已存在，是否替换</param>
+        </member>
+        <member name="T:SAF.Foundation.EnumerableExtensions">
+            <summary>
+            Linq 扩展
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SAF.Foundation.EnumerableExtensions.JoinText(System.Collections.Generic.IEnumerable{System.String},System.String)" -->
+        <member name="M:SAF.Foundation.ObjectExtensions.ToStringEx(System.Object)">
+            <summary>
+            返回当前对象的string
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.To``1(System.Object)">
+            <summary>
+            Converts the input string to specified type.
+            </summary>
+            <typeparam name="T">The target type to convert.</typeparam>
+            <param name="s">An input string.</param>
+            <returns>If convertation successfull, returns the converted value with required type; otherwise returns default for specified type.</returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.To``1(System.Object,``0)">
+            <summary>
+            Converts the input string to specified type.
+            </summary>
+            <typeparam name="T">The target type to convert.</typeparam>
+            <param name="s">An input object.</param>
+            <param name="defaultValue">The default value to return is convertation fails.</param>
+            <returns>If convertation successfull, returns the converted value with required type; otherwise returns default value.</returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.In``1(``0,``0[])">
+            <summary>
+            判断对象是否在值列表中
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.GetProperties``1(System.Object,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="bIncludeSubClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.HasProperty(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aObject"></param>
+            <param name="sPropertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aObject"></param>
+            <param name="sPropertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.ObjectExtensions.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="aObject"></param>
+            <param name="sPropertyName"></param>
+            <param name="aPropertyValue"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SAF.Foundation.ObjectExtensions.Between``1(``0,``0,``0)" -->
+        <!-- Badly formed XML comment ignored for member "M:SAF.Foundation.ObjectExtensions.BetweenAndEqual``1(``0,``0,``0)" -->
+        <member name="T:SAF.Foundation.RandomExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.RandomExtensions.NextBool(System.Random)">
+            <summary>
+            
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.RandomExtensions.NextEnum``1(System.Random)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.RandomExtensions.NextBytes(System.Random,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="random"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.RandomExtensions.NextDateTime(System.Random,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="random"></param>
+            <param name="minValue"></param>
+            <param name="maxValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SAF.Foundation.RandomExtensions.NextDateTime(System.Random)">
+            <summary>
+            
+            </summary>
+            <param name="random"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.Cache_EmptyParameterName_Exception">
+            <summary>
+              查找类似 参数名称不能为空. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.DefaultUserPicture">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_Between">
+            <summary>
+              查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_BetweenNotEqual">
+            <summary>
+              查找类似 参数“{0}”的值必须在“{1}”与“{2}”之间，且不能等于“{3}”。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_DirectoryNotExists">
+            <summary>
+              查找类似 指定的目录路径“{0}”不存在。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_FileNotExists">
+            <summary>
+              查找类似 指定的文件路径“{0}”不存在。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotEmpty_Guid">
+            <summary>
+              查找类似 “{0}”的值不能为Guid.Empty 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotGreaterThan">
+            <summary>
+              查找类似 “{0}”的值必须大于“{1}”。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotGreaterThanOrEqual">
+            <summary>
+              查找类似 “{0}”的值必须大于或等于“{1}”。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotLessThan">
+            <summary>
+              查找类似 “{0}”的值必须小于“{1}”。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotLessThanOrEqual">
+            <summary>
+              查找类似 “{0}”的值必须小于或等于“{1}”。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNull">
+            <summary>
+              查找类似 “{0}”不能为空。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNullOrEmpty_Collection">
+            <summary>
+              查找类似 “{0}”不能为空。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.ParameterCheck_NotNullOrEmpty_String">
+            <summary>
+              查找类似 “{0}”不能为空。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_ExpressionNotProperty_Exception">
+            <summary>
+              查找类似 The member access expression does not access a property. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_NotMemberAccessExpression_Exception">
+            <summary>
+              查找类似 The expression is not a member access expression. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.PropertySupport_StaticExpression_Exception">
+            <summary>
+              查找类似 The referenced property is a static property. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.SAF_Icon">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.Properties.Resources.SAF_Png">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Reflection.DynamicCtorDelegate">
+            <summary>
+            Delegate for a dynamic constructor method.
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.Reflection.DynamicMethodDelegate">
+            <summary>
+            Delegate for a dynamic method.
+            </summary>
+            <param name="target">
+            Object containg method to invoke.
+            </param>
+            <param name="args">
+            Parameters passed to method.
+            </param>
+        </member>
+        <member name="T:SAF.Foundation.Reflection.DynamicMemberGetDelegate">
+            <summary>
+            Delegate for getting a value.
+            </summary>
+            <param name="target">Target object.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SAF.Foundation.Reflection.DynamicMemberSetDelegate">
+            <summary>
+            Delegate for setting a value.
+            </summary>
+            <param name="target">Target object.</param>
+            <param name="arg">Argument value.</param>
+        </member>
+        <member name="T:SAF.Foundation.Reflection.MethodCaller">
+            <summary>
+            Provides methods to dynamically find and call methods.
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.Reflection.MethodCaller.CreateInstance(System.Type)">
+            <summary>
+            Uses reflection to create an object using its 
+            default constructor.
+            </summary>
+            <param name="objectType">Type of object to create.</param>
+        </member>
+        <member name="T:SAF.Foundation.AssemblyInfo">
+            <summary>
+            程序集特性
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.AssemblyInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.AssemblyInfo.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="part">类型</param>
+        </member>
+        <member name="M:SAF.Foundation.AssemblyInfo.#ctor(System.Reflection.Assembly)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="assembly">程序集</param>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Title">
+            <summary>
+            程序集标题
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Version">
+            <summary>
+            程序集版本号
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.FileVersion">
+            <summary>
+            程序集文件版本号
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Description">
+            <summary>
+            程序集描述
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Product">
+            <summary>
+            程序集产品名称
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Copyright">
+            <summary>
+            程序集版权
+            </summary>
+        </member>
+        <member name="P:SAF.Foundation.AssemblyInfo.Company">
+            <summary>
+            程序集公司名称
+            </summary>
+        </member>
+        <member name="T:SAF.Foundation.CoreException">
+            <summary>
+            在SAF内核执行期间发生的错误,此异常会导致应用程序强行关闭
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.CoreException.#ctor">
+            <summary>
+            初始化 CoreException 类的新实例。
+            </summary>
+        </member>
+        <member name="M:SAF.Foundation.CoreException.#ctor(System.String)">
+            <summary>
+            使用指定的错误消息初始化 CoreException 类的新实例。
+            </summary>
+            <param name="message">描述错误的消息。</param>
+        </member>
+        <member name="M:SAF.Foundation.CoreException.#ctor(System.String,System.Exception)">
+            <summary>
+            使用指定错误消息和对作为此异常原因的内部异常的引用来初始化 CoreException 类的新实例。
+            </summary>
+            <param name="message">描述错误的消息。</param>
+            <param name="innerException">导致当前异常的异常；如果未指定内部异常，则是一个 null 引用</param>
+        </member>
+        <member name="M:SAF.Foundation.CoreException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            用序列化数据初始化 System.Exception 类的新实例。
+            </summary>
+            <param name="info">System.Runtime.Serialization.SerializationInfo，它存有有关所引发异常的序列化的对象数据。</param>
+            <param name="context">System.Runtime.Serialization.StreamingContext，它包含有关源或目标的上下文信息。</param>
         </member>
         <member name="T:SAF.Foundation.EnumExtensions">
             <summary>
@@ -2057,391 +2443,5 @@
             <param name="s"></param>
             <returns></returns>
         </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.SetLastError(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="dwErrorCode"></param>
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.ShowWindowAsync(System.Runtime.InteropServices.HandleRef,System.Int32)">
-            <summary> 
-            该函数设置由不同线程产生的窗口的显示状态。 
-            </summary> 
-            <param name="hWnd">窗口句柄</param> 
-            <param name="cmdShow">指定窗口如何显示。查看允许值列表，请查阅ShowWlndow函数的说明部分。</param> 
-            <returns>如果函数原来可见，返回值为非零；如果函数原来被隐藏，返回值为零。</returns> 
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.GetSystemSound(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="soundName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.PlaySound(System.String,System.IntPtr,SAF.Foundation.Interop.NativeMethods.PlaySoundFlags)">
-            <summary>
-            
-            </summary>
-            <param name="soundName"></param>
-            <param name="hmod"></param>
-            <param name="soundFlags"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.PlaySound(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="soundName"></param>
-        </member>
-        <member name="M:SAF.Foundation.Interop.NativeMethods.IntPtrToInt32(System.IntPtr)">
-            <summary>
-            
-            </summary>
-            <param name="intPtr"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowLongValue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.WndProc">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.HInstace">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.HwndParent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.Style">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.ExtendedStyle">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.UserData">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowLongValue.ID">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowStyles">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.SysMemu">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.MinimizeBox">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.MaximizeBox">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowStyles.ThickFrame">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowExStyles">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.WindowExStyles.DlgModalFrame">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods.WindowMessage">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.HwndOwner">
-            <summary>
-            Handle to the owner window for the dialog box.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Root">
-            <summary>
-            Pointer to an item identifier list (PIDL) specifying the 
-            location of the root folder from which to start browsing.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.DisplayName">
-            <summary>
-            Address of a buffer to receive the display name of the
-            folder selected by the user.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Title">
-            <summary>
-            Address of a null-terminated string that is displayed 
-            above the tree view control in the dialog box.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Flags">
-            <summary>
-            Flags specifying the options for the dialog box.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Callback">
-            <summary>
-            Address of an application-defined function that the
-            dialog box calls when an event occurs.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.LParam">
-            <summary>
-            Application-defined value that the dialog box passes to 
-            the callback function
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.BROWSEINFO.Image">
-            <summary>
-            Variable to receive the image associated with the selected folder.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.None">
-            <summary>
-            None.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.FolderOnly">
-            <summary>
-            For finding a folder to start document searching
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.FindComputer">
-            <summary>
-            For starting the Find Computer
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowStatusText">
-            <summary>
-            Top of the dialog has 2 lines of text for BROWSEINFO.lpszTitle and 
-            one line if this flag is set.  Passing the message 
-            BFFSETSTATUSTEXTA to the hwnd can set the rest of the text.  
-            This is not used with BIF_USENEWUI and BROWSEINFO.lpszTitle gets
-            all three lines of text.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowEditBox">
-            <summary>
-            Add an editbox to the dialog
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ValidateResult">
-            <summary>
-            insist on valid result (or CANCEL)
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.UseNewStyle">
-            <summary>
-            Use the new dialog layout with the ability to resize
-            Caller needs to call OleInitialize() before using this API
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.AllowUrls">
-            <summary>
-            Allow URLs to be displayed or entered. (Requires BIF_USENEWUI)
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.ShowUsageHint">
-            <summary>
-            Add a UA hint to the dialog, in place of the edit box. May not be
-            combined with BIF_EDITBOX.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.HideNewFolderButton">
-            <summary>
-            Do not add the "New Folder" button to the dialog.  Only applicable 
-            with BIF_NEWDIALOGSTYLE.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.GetShortcuts">
-            <summary>
-            don't traverse target as shortcut
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseComputers">
-            <summary>
-            Browsing for Computers.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowsePrinters">
-            <summary>
-            Browsing for Printers.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseFiles">
-            <summary>
-            Browsing for Everything
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.FolderBrowserOptions.BrowseShares">
-            <summary>
-            sharable resources displayed (remote shares, requires BIF_USENEWUI)
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Icon">
-            <summary>
-            The hIcon member is valid.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Message">
-            <summary>
-            The uCallbackMessage member is valid.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.ToolTip">
-            <summary>
-            The szTip member is valid.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.State">
-            <summary>
-            The dwState and dwStateMask members are valid.
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Interop.NativeMethods.NotifyIconFlags.Balloon">
-            <summary>
-            Use a balloon ToolTip instead of a standard ToolTip. The szInfo, uTimeout, szInfoTitle, and dwInfoFlags members are valid.
-            </summary>
-        </member>
-        <member name="T:SAF.Foundation.Interop.NativeMethods.WndProc">
-            <summary>
-            
-            </summary>
-            <param name="hWnd"></param>
-            <param name="msg"></param>
-            <param name="wParam"></param>
-            <param name="lParam"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.ObjectCloner">
-            <summary>
-            提供深复制功能
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.ObjectCloner.Clone(System.Object)">
-            <summary>
-            深复制一个对象.对象必须标记为 Serializable
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.PathHelper">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.PathHelper.GetRelativePath(System.String,System.String)">
-            <summary>
-            获取相对路径
-            </summary>
-            <param name="sToPath">带文件名的全路径</param>
-            <param name="sFromPath">带文件名的全路径</param>
-            <returns>相对路径</returns>
-        </member>
-        <member name="T:SAF.Foundation.ComponentModel.RandomString">
-            <summary>
-            生成指定位数随机字符串,字符仅包括[0-9]和[A-Z]
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.RandomString.Next">
-            <summary>
-            生成10位随机字符串
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.ComponentModel.RandomString.Next(System.Int32)">
-            <summary>
-            生成指定位数的随机字符串
-            </summary>
-            <param name="length"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Security.DESHelper">
-            <summary>
-            DES加密方法帮助类
-            </summary>
-        </member>
-        <member name="F:SAF.Foundation.Security.DESHelper._Key">
-            <summary>
-            默认的加密key
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Security.DESHelper.Encrypt(System.String,System.String)">
-            <summary>
-            用给定的Key进行加密
-            </summary>
-            <param name="key">密钥</param>
-            <param name="encryptString">要加密的字符串</param>
-            <returns>加密后的字符串</returns>
-        </member>
-        <member name="M:SAF.Foundation.Security.DESHelper.Decrypt(System.String,System.String)">
-            <summary>
-            用给定的Key进行解密
-            </summary>
-            <param name="key">密钥</param>
-            <param name="decryptString">要解密的字符串</param>
-            <returns>解密后的字符串</returns>
-        </member>
-        <member name="M:SAF.Foundation.Security.DESHelper.Encrypt(System.String)">
-            <summary>
-            用系统默认的Key加密
-            </summary>
-            <param name="encryptString"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SAF.Foundation.Security.DESHelper.Decrypt(System.String)">
-            <summary>
-            用系统默认的Key解密
-            </summary>
-            <param name="decryptString"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SAF.Foundation.Security.MD5Helper">
-            <summary>
-            MD5 Hash方法帮助类
-            </summary>
-        </member>
-        <member name="M:SAF.Foundation.Security.MD5Helper.Hash(System.String,System.Boolean)">
-            <summary>
-            Hash
-            </summary>
-            <param name="strSource"></param>
-            <returns></returns>
-        </member>
-        <!-- 对于成员“T:SAF.Foundation.ServiceModel.ThreadSafeServiceContainer”忽略有格式错误的 XML 注释 -->
     </members>
 </doc>
