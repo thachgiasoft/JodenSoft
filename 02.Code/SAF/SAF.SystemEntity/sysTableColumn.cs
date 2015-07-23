@@ -23,10 +23,10 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(P => P.Iden, value); }
         }
 
-        public string TableName
+        public string DbTableName
         {
-            get { return base.GetFieldValue<string>(P => P.TableName); }
-            set { base.SetFieldValue(P => P.TableName, value); }
+            get { return base.GetFieldValue<string>(P => P.DbTableName); }
+            set { base.SetFieldValue(P => P.DbTableName, value); }
         }
 
         public string ColumnName

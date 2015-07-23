@@ -12,7 +12,7 @@ public partial class UserDefinedFunctions
         if (input.IsNull)
             return input;
 
-        if (paddingChar == null)
+        if (paddingChar == (char)0)
             return input;
 
         if (totalWidth.IsNull || totalWidth < 0)
