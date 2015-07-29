@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using SAF.Foundation;
 
-namespace SAF.Framework.Controls.ViewConfig
+namespace SAF.Framework.Controls
 {
     public class QueryConfig
     {

@@ -135,105 +135,6 @@
     <Compile Include="BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Charts\Actions\CaretActions.cs" />
-    <Compile Include="Charts\Actions\IEditAction.cs" />
-    <Compile Include="Charts\Actions\MiscActions.cs" />
-    <Compile Include="Charts\Actions\SelectionActions.cs" />
-    <Compile Include="Charts\Actions\ZoomActions.cs" />
-    <Compile Include="Charts\DrawObjects\DrawMenu.cs" />
-    <Compile Include="Charts\IChartControl.cs" />
-    <Compile Include="Charts\MenuChartControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Charts\MenuChartControl.designer.cs">
-      <DependentUpon>MenuChartControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\ChartControlActions\IChartControlEditAction.cs" />
-    <Compile Include="Charts\Commands\Command.cs" />
-    <Compile Include="Charts\Commands\CommandAdd.cs" />
-    <Compile Include="Charts\Commands\CommandAddList.cs" />
-    <Compile Include="Charts\Commands\CommandChangeState.cs" />
-    <Compile Include="Charts\Commands\CommandDelete.cs" />
-    <Compile Include="Charts\DiagramCommon\Choice.cs" />
-    <Compile Include="Charts\DiagramCommon\Note.cs" />
-    <Compile Include="Charts\DiagramCommon\Objects.cs" />
-    <Compile Include="Charts\DiagramCommon\Swimlane.cs" />
-    <Compile Include="Charts\DiagramEntitySet\EntitySet.cs" />
-    <Compile Include="Charts\DiagramEntitySet\InheritLine.cs" />
-    <Compile Include="Charts\DiagramEntitySet\Reference.cs" />
-    <Compile Include="Charts\DiagramState\EntryPoint.cs" />
-    <Compile Include="Charts\DiagramState\ExitPoint.cs" />
-    <Compile Include="Charts\DiagramState\Final.cs" />
-    <Compile Include="Charts\DiagramState\Initial.cs" />
-    <Compile Include="Charts\DiagramState\State.cs" />
-    <Compile Include="Charts\DiagramState\Terminate.cs" />
-    <Compile Include="Charts\DiagramState\Transition.cs" />
-    <Compile Include="Charts\DiagramType.cs" />
-    <Compile Include="Charts\DiagramUserCase\Actor.cs" />
-    <Compile Include="Charts\DiagramUserCase\InvokesLine.cs" />
-    <Compile Include="Charts\DiagramUserCase\UseLine.cs" />
-    <Compile Include="Charts\DiagramUserCase\UserCase.cs" />
-    <Compile Include="Charts\DiagramWorkflow\FlowLine.cs" />
-    <Compile Include="Charts\DiagramWorkflow\FlowNode.cs" />
-    <Compile Include="Charts\DrawObjects\DrawEllipse.cs" />
-    <Compile Include="Charts\DrawObjects\DrawLine.cs" />
-    <Compile Include="Charts\DrawObjects\DrawObject.cs" />
-    <Compile Include="Charts\DrawObjects\DrawPolygon.cs" />
-    <Compile Include="Charts\DrawObjects\DrawRectangle.cs" />
-    <Compile Include="Charts\DrawObjects\DrawRhombus.cs" />
-    <Compile Include="Charts\EventArgs.cs" />
-    <Compile Include="Charts\Extensions\DrawObjectExtensions.cs" />
-    <Compile Include="Charts\Extensions\EnumExtensions.cs" />
-    <Compile Include="Charts\Extensions\ObjectExtensions.cs" />
-    <Compile Include="Charts\Extensions\PropertyExtensions.cs" />
-    <Compile Include="Charts\GraphicsCollection.cs" />
-    <Compile Include="Charts\GraphicsProperties.cs" />
-    <Compile Include="Charts\GraphicsType.cs" />
-    <Compile Include="Charts\LineHelper.cs" />
-    <Compile Include="Charts\MD5Helper.cs" />
-    <Compile Include="Charts\MouseWheelHandler.cs" />
-    <Compile Include="Charts\SearchDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Charts\SearchDialog.designer.cs">
-      <DependentUpon>SearchDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\Strings.cs" />
-    <Compile Include="Charts\Tools\Tool.cs" />
-    <Compile Include="Charts\Tools\ToolDiagramBase.cs" />
-    <Compile Include="Charts\Tools\ToolDrag.cs" />
-    <Compile Include="Charts\Tools\ToolEllipse.cs" />
-    <Compile Include="Charts\Tools\ToolLine.cs" />
-    <Compile Include="Charts\Tools\ToolObject.cs" />
-    <Compile Include="Charts\Tools\ToolPointer.cs" />
-    <Compile Include="Charts\Tools\ToolPolygon.cs" />
-    <Compile Include="Charts\Tools\ToolRectangle.cs" />
-    <Compile Include="Charts\Tools\ToolRhombus.cs" />
-    <Compile Include="Charts\UndoManager.cs" />
-    <Compile Include="Charts\UserControls\DescriptionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Charts\UserControls\DescriptionControl.Designer.cs">
-      <DependentUpon>DescriptionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\UserControls\DrawArea.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Charts\UserControls\DrawArea.Designer.cs">
-      <DependentUpon>DrawArea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\UserControls\PropertiesDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Charts\UserControls\PropertiesDialog.designer.cs">
-      <DependentUpon>PropertiesDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Charts\UserControls\XtraPropertyGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Charts\UserControls\XtraPropertyGrid.Designer.cs">
-      <DependentUpon>XtraPropertyGrid.cs</DependentUpon>
-    </Compile>
     <Compile Include="ConnectionStringDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,13 +200,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="QueryControl.cs">
+    <Compile Include="QueryControl\QueryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="QueryControl.Designer.cs">
+    <Compile Include="QueryControl\QueryControl.Designer.cs">
       <DependentUpon>QueryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="QueryControlHelper.cs" />
+    <Compile Include="QueryControl\QueryControlHelper.cs" />
     <Compile Include="SplashScreen\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,30 +348,11 @@
     <Compile Include="TextEditor\Util\TipSplitter.cs" />
     <Compile Include="TextEditor\Util\TipText.cs" />
     <Compile Include="TextEditor\Util\WeakCollection.cs" />
-    <Compile Include="ViewConfig\QueryConfig.cs" />
-    <Compile Include="ViewConfig\QueryField.cs" />
-    <Compile Include="ViewConfig\QuickQuery.cs" />
+    <Compile Include="QueryControl\QueryConfig.cs" />
+    <Compile Include="QueryControl\QueryField.cs" />
+    <Compile Include="QueryControl\QuickQuery.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Charts\MenuChartControl.resx">
-      <DependentUpon>MenuChartControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\SearchDialog.resx">
-      <DependentUpon>SearchDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\UserControls\DescriptionControl.resx">
-      <DependentUpon>DescriptionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\UserControls\DrawArea.resx">
-      <DependentUpon>DrawArea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\UserControls\PropertiesDialog.resx">
-      <DependentUpon>PropertiesDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Charts\UserControls\XtraPropertyGrid.resx">
-      <DependentUpon>XtraPropertyGrid.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ConnectionStringDialog.resx">
       <DependentUpon>ConnectionStringDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,7 +376,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="QueryControl.resx">
+    <EmbeddedResource Include="QueryControl\QueryControl.resx">
       <DependentUpon>QueryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen\SplashScreen.resx">
@@ -557,21 +439,6 @@
     <EmbeddedResource Include="TextEditor\Resources\RightArrow.cur" />
     <EmbeddedResource Include="TextEditor\Resources\SyntaxModes.xml" />
     <EmbeddedResource Include="TextEditor\Resources\TextEditorControl.bmp" />
-    <EmbeddedResource Include="Charts\Cursors\Actor.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Class.cur" />
-    <EmbeddedResource Include="Charts\Cursors\DotLine.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Ellipse.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Final.cur" />
-    <EmbeddedResource Include="Charts\Cursors\FlodLine.cur" />
-    <EmbeddedResource Include="Charts\Cursors\General.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Initial.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Line.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Pencil.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Polygon.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Rectangle.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Rhombus.cur" />
-    <EmbeddedResource Include="Charts\Cursors\RoundedRectangle.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Use.cur" />
     <None Include="Resources\zoom-out32x32.png" />
     <None Include="Resources\ZoomOut_16x16.png" />
     <None Include="Resources\zoom-in32x32.png" />
@@ -627,6 +494,9 @@
       <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
       <Name>SAF.Foundation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Charts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

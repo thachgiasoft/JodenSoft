@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using DevExpress.XtraBars;
 using SAF.Foundation.ServiceModel;

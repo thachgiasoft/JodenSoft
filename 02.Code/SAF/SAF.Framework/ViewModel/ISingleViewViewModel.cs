@@ -1,5 +1,5 @@
 ﻿using SAF.EntityFramework;
-using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Controls;
 using System;
 using System.Collections;
 using System.Collections.Generic;

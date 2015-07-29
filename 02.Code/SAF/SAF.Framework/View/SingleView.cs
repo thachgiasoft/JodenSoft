@@ -10,7 +10,6 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.ServiceModel;
-using SAF.Framework.Controls.ViewConfig;
 using SAF.Foundation;
 using SAF.Framework.Controls;
 using DevExpress.XtraBars;

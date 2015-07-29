@@ -215,10 +215,10 @@ namespace SAF.Framework
             {
                 //ListBoxControl 即只读
             }
-            else if (aControl is SAF.Framework.Controls.Charts.MenuChartControl)
-            {
-                (aControl as SAF.Framework.Controls.Charts.MenuChartControl).ReadOnly = !bEnabled;
-            }
+            //else if (aControl is SAF.Framework.Controls.Charts.MenuChartControl)
+            //{
+            //    (aControl as SAF.Framework.Controls.Charts.MenuChartControl).ReadOnly = !bEnabled;
+            //}
             else
             {
                 Color color = bEnabled ? colorTrue : colorFalse;

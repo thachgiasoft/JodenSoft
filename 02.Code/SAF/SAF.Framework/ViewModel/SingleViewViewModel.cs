@@ -1,7 +1,7 @@
 ﻿using SAF.EntityFramework;
 using SAF.Foundation;
 using SAF.Foundation.ServiceModel;
-using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
