@@ -221,11 +221,11 @@ WHERE b.[Name] in ({0})".FormatWith("'" + listFile.JoinText("','") + "'");
             }
         }
 
-        protected override void OnInitQueryConfig(Framework.Controls.ViewConfig.QueryConfig queryConfig)
+        protected override void OnInitQueryConfig(Framework.Controls.QueryConfig queryConfig)
         {
             base.OnInitQueryConfig(queryConfig);
 
-            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Name", "文件名称"));
+            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.QueryField("Name", "文件名称"));
         }
 
         protected override bool OnAllowDelete()

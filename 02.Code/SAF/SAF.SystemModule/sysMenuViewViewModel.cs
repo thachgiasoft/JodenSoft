@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using SAF.Foundation;
 using SAF.EntityFramework;
-using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Controls;
 using SAF.Framework.Entity;
 using SAF.Framework;
 

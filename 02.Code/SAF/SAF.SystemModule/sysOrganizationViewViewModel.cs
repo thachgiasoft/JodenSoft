@@ -87,12 +87,12 @@ ORDER BY a.[ParentId]".FormatWith(sCondition);
             this.IndexEntitySet.Query(sql, parameterValues);
         }
 
-        protected override void OnInitQueryConfig(Framework.Controls.ViewConfig.QueryConfig queryConfig)
+        protected override void OnInitQueryConfig(Framework.Controls.QueryConfig queryConfig)
         {
             base.OnInitQueryConfig(queryConfig);
 
-            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Name", "组织"));
-            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.ViewConfig.QueryField("Iden", "组织Id"));
+            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.QueryField("Name", "组织"));
+            queryConfig.QuickQuery.QueryFields.Add(new Framework.Controls.QueryField("Iden", "组织Id"));
         }
 
         protected override void OnQueryChild(object key)

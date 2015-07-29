@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SAF.Foundation;
-using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Controls;
 using SAF.Foundation.ServiceModel;
 using SAF.EntityFramework;
 using DevExpress.XtraTreeList.Nodes;

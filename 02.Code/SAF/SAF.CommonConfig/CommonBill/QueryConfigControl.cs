@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SAF.Framework.Controls;
-using SAF.Framework.Controls.ViewConfig;
+using SAF.Framework.Controls;
 using SAF.Foundation;
 
 namespace SAF.CommonConfig.CommonBill

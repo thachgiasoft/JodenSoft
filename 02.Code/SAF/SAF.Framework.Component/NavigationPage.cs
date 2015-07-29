@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using SAF.Framework.View;
 using SAF.Framework.ViewModel;
 using SAF.Foundation.MetaAttributes;
-using SAF.Framework.Controls.Charts;
 using SAF.Foundation.ServiceModel;
 using SAF.Framework;
 using SAF.EntityFramework;
@@ -53,19 +52,7 @@ namespace SAF.SystemModule
             //}
         }
 
-        void ActiveDrawArea_DoubleClick(object sender, DrawAreaDoubleClickEventArgs e)
-        {
-            if (e.Selection.Count() == 1)
-            {
-                var obj = e.Selection.First() as DrawMenu;
-
-                var shell = ApplicationService.Current.MainForm as IShell;
-                if (shell != null && obj != null)
-                    shell.ShowBusinessView(obj.iMenuId);
-
-                e.HasHandle = true;
-            }
-        }
+        
 
     }
 }

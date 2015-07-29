@@ -1,4 +1,4 @@
-﻿using SAF.Framework.Controls.ViewConfig;
+﻿using SAF.Framework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +22,7 @@ namespace SAF.CommonConfig.CommonBill
 
         public CommonBillConfig()
         {
-            QueryConfig = new Framework.Controls.ViewConfig.QueryConfig();
+            QueryConfig = new Framework.Controls.QueryConfig();
             IndexEntitySetConfig = new EntitySetConfig();
             MainEntitySetConfig = new EntitySetConfig();
             DetailEntitySetConfigs = new List<EntitySetConfig>();
