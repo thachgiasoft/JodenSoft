@@ -19,6 +19,7 @@ PRINT N'开启数据库SQLCLR支持...';
 --启用clr(1为启用，0为关闭)
 EXEC sp_configure 'clr enabled',1
 --执行以上语句会有提示:请运行RECONFIGURE语句进行安装
+PRINT N'执行RECONFIGURE...';
 RECONFIGURE WITH OVERRIDE
 --B.修改执行权限
 SET @sql='ALTER DATABASE '+@DatabaseName+' SET TRUSTWORTHY ON'
@@ -26,7 +27,7 @@ EXEC(@sql)
 GO
 
 --删除列绑定
-PRINT N'正在取消表 [dbo].[sysMenu] 中ConvertToPinyin的列绑定...';
+PRINT N'正在删除表 [dbo].[sysMenu] 中Pinyin列的绑定(ConvertToPinyin)...';
 GO
 ALTER TABLE [dbo].[sysMenu] DROP COLUMN [Pinyin];
 GO
@@ -225,7 +226,7 @@ AS
 GO
 
 --重新生成列绑定
-PRINT N'正在将表 [dbo].[sysMenu] 表中Pinyin列绑定到ConvertToPinyin...';
+PRINT N'正在将表 [dbo].[sysMenu] 表中Pinyin列重新绑定到ConvertToPinyin...';
 GO
 ALTER TABLE [dbo].[sysMenu]
     ADD [Pinyin] AS ([dbo].[ConvertToPinyin]([Name]));
