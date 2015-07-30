@@ -25,6 +25,12 @@ SET @sql='ALTER DATABASE '+@DatabaseName+' SET TRUSTWORTHY ON'
 EXEC(@sql)
 GO
 
+--删除列绑定
+PRINT N'正在取消表 [dbo].[sysMenu] 中ConvertToPinyin的列绑定...';
+GO
+ALTER TABLE [dbo].[sysMenu] DROP COLUMN [Pinyin];
+GO
+
 PRINT N'正在删除 [dbo].[CalcValue]...';
 GO
 IF EXISTS(SELECT TOP 1 1 FROM sys.sysobjects where name='CalcValue')
@@ -217,6 +223,12 @@ RETURNS
 AS
  EXTERNAL NAME [SAF.SqlClr].[UserDefinedFunctions].[Dual]
 GO
+
+--重新生成列绑定
+PRINT N'正在将表 [dbo].[sysMenu] 表中Pinyin列绑定到ConvertToPinyin...';
+GO
+ALTER TABLE [dbo].[sysMenu]
+    ADD [Pinyin] AS ([dbo].[ConvertToPinyin]([Name]));
 
 PRINT N'操作完成。';
 GO
