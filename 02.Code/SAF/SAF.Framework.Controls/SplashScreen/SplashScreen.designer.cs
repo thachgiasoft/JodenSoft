@@ -81,7 +81,7 @@
             this.lblCompany.Name = "lblCompany";
             this.lblCompany.Size = new System.Drawing.Size(408, 52);
             this.lblCompany.TabIndex = 10;
-            this.lblCompany.Text = "上海环思信息技术有限公司";
+            this.lblCompany.Text = "信息技术有限公司";
             // 
             // marqueeProgressBarControl1
             // 
@@ -98,7 +98,6 @@
             // picHS
             // 
             this.picHS.BackColor = System.Drawing.Color.Transparent;
-            this.picHS.Image = global::SAF.Framework.Controls.Properties.Resources.HSImage;
             this.picHS.Location = new System.Drawing.Point(16, 38);
             this.picHS.Name = "picHS";
             this.picHS.Size = new System.Drawing.Size(411, 100);

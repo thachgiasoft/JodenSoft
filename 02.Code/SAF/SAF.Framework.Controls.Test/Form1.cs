@@ -15,5 +15,10 @@ namespace SAF.Framework.Controls.Test
         {
             InitializeComponent();
         }
+
+        private void 新建ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.chartControl1.OpenFile();
+        }
     }
 }

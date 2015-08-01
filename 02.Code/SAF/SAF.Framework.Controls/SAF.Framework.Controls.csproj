@@ -135,6 +135,35 @@
     <Compile Include="BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Charts\ChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\ChartControl.Designer.cs">
+      <DependentUpon>ChartControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\Commands\Command.cs" />
+    <Compile Include="Charts\Commands\CommandAdd.cs" />
+    <Compile Include="Charts\Commands\CommandChangeState.cs" />
+    <Compile Include="Charts\Commands\CommandDelete.cs" />
+    <Compile Include="Charts\Commands\CommandDeleteAll.cs" />
+    <Compile Include="Charts\DrawArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\DrawArea.Designer.cs">
+      <DependentUpon>DrawArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\DrawObjects\DrawObject.cs" />
+    <Compile Include="Charts\DrawObjects\DrawRectangle.cs" />
+    <Compile Include="Charts\DrawToolType.cs" />
+    <Compile Include="Charts\GraphicsList.cs" />
+    <Compile Include="Charts\IGraphicsList.cs" />
+    <Compile Include="Charts\Tools\ToolEllipse.cs" />
+    <Compile Include="Charts\ToolKits\UndoManager.cs" />
+    <Compile Include="Charts\Tools\ToolLine.cs" />
+    <Compile Include="Charts\Tools\ToolObject.cs" />
+    <Compile Include="Charts\Tools\ToolRectangle.cs" />
+    <Compile Include="Charts\Tools\ToolPointer.cs" />
+    <Compile Include="Charts\Tools\Tool.cs" />
     <Compile Include="ConnectionStringDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +382,12 @@
     <Compile Include="QueryControl\QuickQuery.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Charts\ChartControl.resx">
+      <DependentUpon>ChartControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Charts\DrawArea.resx">
+      <DependentUpon>DrawArea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConnectionStringDialog.resx">
       <DependentUpon>ConnectionStringDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +406,7 @@
     <EmbeddedResource Include="ProgressService\fmProgress.resx">
       <DependentUpon>fmProgress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -495,9 +531,7 @@
       <Name>SAF.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Charts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
