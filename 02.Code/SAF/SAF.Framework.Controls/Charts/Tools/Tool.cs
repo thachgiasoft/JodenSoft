@@ -39,5 +39,6 @@ namespace SAF.Framework.Controls.Charts
         public virtual void OnMouseUp(DrawArea drawArea, MouseEventArgs e)
         {
         }
+
     }
 }

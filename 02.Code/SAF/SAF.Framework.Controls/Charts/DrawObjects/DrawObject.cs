@@ -34,6 +34,33 @@ namespace SAF.Framework.Controls.Charts
         /// </summary>
         public Guid ID { get; set; }
 
+        public string Caption { get; set; }
+
+        public string Text { get; set; }
+
+
+        private Font font = new Font("宋体", 9);
+        protected Font Font
+        {
+            get { return font; }
+        }
+
+        private StringFormat stringFormat = null;
+        protected StringFormat StringFormat
+        {
+            get
+            {
+                if (stringFormat == null)
+                {
+                    stringFormat = new StringFormat(StringFormatFlags.LineLimit);
+                    stringFormat.LineAlignment = StringAlignment.Center;
+                    stringFormat.Alignment = StringAlignment.Center;
+                    stringFormat.Trimming = StringTrimming.EllipsisWord;
+                }
+                return stringFormat;
+            }
+        }
+
         /// <summary>
         /// Selection flag
         /// </summary>
@@ -42,12 +69,17 @@ namespace SAF.Framework.Controls.Charts
         /// <summary>
         /// Color
         /// </summary>
-        public Color Color { get; set; }
+        public Color PenColor { get; set; }
 
         /// <summary>
         /// Pen width
         /// </summary>
         public int PenWidth { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Color BackColor { get; set; }
 
         /// <summary>
         /// Number of handles
@@ -73,8 +105,27 @@ namespace SAF.Framework.Controls.Charts
         /// Draw object
         /// </summary>
         /// <param name="g"></param>
-        public virtual void Draw(Graphics g)
+        public void Draw(Graphics g)
         {
+            DrawGraph(g);
+            DrawContent(g);
+        }
+
+        /// <summary>
+        /// 绘制图形
+        /// </summary>
+        /// <param name="g"></param>
+        protected virtual void DrawGraph(Graphics g)
+        {
+
+        }
+        /// <summary>
+        /// 绘制图形内容
+        /// </summary>
+        /// <param name="g"></param>
+        protected virtual void DrawContent(Graphics g)
+        {
+
         }
 
         /// <summary>
@@ -207,7 +258,7 @@ namespace SAF.Framework.Controls.Charts
         {
             info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryID, orderNumber), ID.ToString("D"));
 
-            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryColor, orderNumber), Color.ToArgb());
+            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryColor, orderNumber), PenColor.ToArgb());
 
             info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryPenWidth, orderNumber), PenWidth);
         }
@@ -223,7 +274,7 @@ namespace SAF.Framework.Controls.Charts
             ID = new Guid(id);
 
             int n = info.GetInt32(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryColor, orderNumber));
-            Color = Color.FromArgb(n);
+            PenColor = Color.FromArgb(n);
 
             PenWidth = info.GetInt32(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryPenWidth, orderNumber));
 
@@ -236,8 +287,9 @@ namespace SAF.Framework.Controls.Charts
         /// </summary>
         protected void Initialize()
         {
-            Color = Color.Black;
+            PenColor = Color.Black;
             PenWidth = 1;
+            BackColor = Color.Linen;
         }
 
         /// <summary>
@@ -247,7 +299,7 @@ namespace SAF.Framework.Controls.Charts
         protected void FillDrawObjectFields(DrawObject drawObject)
         {
             drawObject.Selected = this.Selected;
-            drawObject.Color = this.Color;
+            drawObject.PenColor = this.PenColor;
             drawObject.PenWidth = this.PenWidth;
             drawObject.ID = this.ID;
         }

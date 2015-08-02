@@ -73,12 +73,13 @@ namespace SAF.Framework.Controls.Charts
 
         }
 
-        public void OpenFile()
+        public DrawArea OpenFile()
         {
             var drawArea = new DrawArea(this);
             var doc = tabbedView.AddDocument(drawArea);
             doc.Caption = "测试";
             this.tabbedView.ActivateDocument(drawArea);
+            return drawArea;
         }
 
         private void bbiPointer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

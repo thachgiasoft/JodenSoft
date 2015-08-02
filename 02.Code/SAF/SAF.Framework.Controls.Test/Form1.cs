@@ -18,7 +18,13 @@ namespace SAF.Framework.Controls.Test
 
         private void 新建ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.chartControl1.OpenFile();
+            var area= this.chartControl1.OpenFile();
+            area.MouseDoubleClick += area_MouseDoubleClick;
+        }
+
+        void area_MouseDoubleClick(object sender, Charts.MouseDoubleClickEventArgs e)
+        {
+            MessageBox.Show(e.DrawObjects.Count().ToString());
         }
     }
 }

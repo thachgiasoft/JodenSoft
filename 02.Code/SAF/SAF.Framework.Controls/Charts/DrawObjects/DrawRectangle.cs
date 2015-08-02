@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
+using SAF.Foundation;
 
 namespace SAF.Framework.Controls.Charts
 {
@@ -25,15 +27,22 @@ namespace SAF.Framework.Controls.Charts
             set { rectangle = value; }
         }
 
+        private bool isRoundedRectangle = false;
+
         private DrawRectangle()
-            : this(0, 0, 1, 1)
+            : this(false, 0, 0, 1, 1)
         {
         }
 
 
-        public DrawRectangle(int x, int y, int width, int height)
+        public DrawRectangle(bool isRoundedRectangle, int x, int y, int width, int height)
             : base()
         {
+            this.Caption = string.Empty;
+            this.Text = "Rectangle";
+
+            this.isRoundedRectangle = isRoundedRectangle;
+
             rectangle.X = x;
             rectangle.Y = y;
             rectangle.Width = width;
@@ -58,13 +67,79 @@ namespace SAF.Framework.Controls.Charts
         /// Draw rectangle
         /// </summary>
         /// <param name="g"></param>
-        public override void Draw(Graphics g)
+        protected override void DrawGraph(Graphics g)
         {
-            using (Pen pen = new Pen(Color, PenWidth))
+            using (Pen pen = new Pen(PenColor, PenWidth))
             {
-                g.DrawRectangle(pen, DrawRectangle.GetNormalizedRectangle(Rectangle));
+                var rect = DrawRectangle.GetNormalizedRectangle(Rectangle);
+
+                this.rectangle.Width = Math.Max(5, rectangle.Width);
+                this.rectangle.Height = Math.Max(5, rectangle.Height);
+
+                using (var brush = DrawRectangle.GetBackgroundBrush(rect, this.BackColor))
+                {
+                    if (isRoundedRectangle)
+                    {
+                        var backRect = new Rectangle(rect.Left + 3, rect.Top + 3, rect.Width, rect.Height);
+
+                        using (GraphicsPath path = GetRoundedRectPath(backRect, Math.Min(rect.Width, rect.Height) / 10))
+                        {
+                            g.FillPath(Brushes.LightGray, path);
+                        }
+
+                        using (GraphicsPath path = GetRoundedRectPath(rect, Math.Min(rect.Width, rect.Height) / 10))
+                        {
+                            g.FillPath(brush, path);
+                            g.DrawPath(pen, path);
+                        }
+                    }
+                    else
+                    {
+                        g.FillRectangle(Brushes.LightGray, rect.Left + 3, rect.Top + 3, rect.Width, rect.Height);
+
+                        g.FillRectangle(brush, rect);
+                        g.DrawRectangle(pen, rect);
+                    }
+                }
             }
         }
+
+        protected override void DrawContent(Graphics g)
+        {
+            using (Pen pen = new Pen(PenColor, PenWidth))
+            {
+                var rect = DrawRectangle.GetNormalizedRectangle(Rectangle);
+                int Counter = 0;
+                if (!this.Caption.IsEmpty()) Counter++;
+                if (!this.Text.IsEmpty()) Counter++;
+ 
+                if (Counter > 0)
+                {
+                    var writeRect = new Rectangle(rect.Location, new Size(rect.Width, rect.Height / Counter));
+
+                    //写标题
+                    if (!this.Caption.IsEmpty())
+                    {
+                        if (writeRect.Width > 0 && writeRect.Height > 0)
+                        {
+                            g.DrawString("《" + this.Caption + "》", this.Font, Brushes.Black, writeRect, StringFormat);
+                            writeRect = new Rectangle(rect.Left, rect.Top + rect.Height / Counter, rect.Width, rect.Height / Counter);
+                        }
+                    }
+
+                    //写文本
+                    if (!this.Text.IsEmpty())
+                    {
+                        if (writeRect.Width > 0 && writeRect.Height > 0)
+                        {
+                            g.DrawString(this.Text, this.Font, Brushes.Black, writeRect, StringFormat);
+                            //writeRect = new Rectangle(rect.Left, rect.Top + rect.Height / Counter * (Counter - 1), rect.Width, rect.Height / Counter);
+                        }
+                    }
+                }
+            }
+        }
+
 
         protected void SetRectangle(int x, int y, int width, int height)
         {
@@ -74,6 +149,41 @@ namespace SAF.Framework.Controls.Charts
             rectangle.Height = height;
         }
 
+        public static Brush GetBackgroundBrush(Rectangle rect, Color endColor)
+        {
+            rect.Width = Math.Max(1, rect.Width);
+            rect.Height = Math.Max(1, rect.Height);
+            return new LinearGradientBrush(rect, Color.White, endColor, LinearGradientMode.Vertical);
+        }
+
+        private GraphicsPath GetRoundedRectPath(Rectangle rect, int radius)
+        {
+            int diameter = radius * 2;
+            diameter = diameter == 0 ? 1 : diameter;
+            Rectangle arcRect = new Rectangle(rect.Location, new Size(diameter, diameter));
+
+            arcRect = DrawRectangle.GetNormalizedRectangle(arcRect);
+
+            GraphicsPath path = new GraphicsPath();
+            //左上
+            path.AddArc(arcRect, 180, 90);
+
+            //右上
+            arcRect.X = rect.Right - diameter;
+            path.AddArc(arcRect, 270, 90);
+
+            //右下
+            arcRect.Y = rect.Bottom - diameter;
+            path.AddArc(arcRect, 0, 90);
+
+            //左下
+            arcRect.X = rect.Left;
+            path.AddArc(arcRect, 90, 90);
+
+            path.CloseFigure();
+            return path;
+
+        }
 
         /// <summary>
         /// Get number of handles

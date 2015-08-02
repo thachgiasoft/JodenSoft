@@ -46,6 +46,7 @@ namespace SAF.Framework.Controls.Charts
             this.MouseDown += DrawArea_MouseDown;
             this.MouseMove += DrawArea_MouseMove;
             this.MouseUp += DrawArea_MouseUp;
+            base.MouseDoubleClick += DrawArea_MouseDoubleClick;
 
             GraphicsList = new GraphicsList();
 
@@ -60,6 +61,28 @@ namespace SAF.Framework.Controls.Charts
             tools.Add(DrawToolType.Rectangle, new ToolRectangle());
             tools.Add(DrawToolType.Ellipse, new ToolEllipse());
             tools.Add(DrawToolType.Line, new ToolLine());
+        }
+
+        public static readonly object MouseDoubleEvent = new object();
+
+        public new event EventHandler<MouseDoubleClickEventArgs> MouseDoubleClick
+        {
+            add { this.Events.AddHandler(MouseDoubleEvent, value); }
+            remove { this.Events.RemoveHandler(MouseDoubleEvent, value); }
+        }
+
+        private void OnMouseDoubleClick()
+        {
+            var handler = this.Events[MouseDoubleEvent] as EventHandler<MouseDoubleClickEventArgs>;
+            if (handler != null)
+            {
+                handler(this, new MouseDoubleClickEventArgs(this.Selection));
+            }
+        }
+
+        void DrawArea_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            OnMouseDoubleClick();
         }
 
         void DrawArea_MouseUp(object sender, MouseEventArgs e)

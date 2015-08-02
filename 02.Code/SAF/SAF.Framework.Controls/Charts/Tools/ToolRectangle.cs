@@ -11,12 +11,12 @@ namespace SAF.Framework.Controls.Charts
     {
         public ToolRectangle()
         {
-            //Cursor = new Cursor(GetType(), "Rectangle.cur");
+            Cursor = new Cursor(GetType(), "Cursors.Rectangle.cur");
         }
 
         public override void OnMouseDown(DrawArea drawArea, MouseEventArgs e)
         {
-            AddNewObject(drawArea, new DrawRectangle(e.X, e.Y, 1, 1));
+            AddNewObject(drawArea, new DrawRectangle(true, e.X, e.Y, 1, 1));
         }
 
         public override void OnMouseMove(DrawArea drawArea, MouseEventArgs e)
