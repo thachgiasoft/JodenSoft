@@ -241,8 +241,7 @@ namespace SAF.Framework.Controls.Charts
                     FrameStyle.Dashed);
 
                 // Make group selection
-                drawArea.SelectInRectangle(
-                    DrawRectangle.GetNormalizedRectangle(startPoint, lastPoint));
+                drawArea.SelectInRectangle(DrawRectangle.GetNormalizedRectangle(startPoint, lastPoint));
 
                 selectMode = SelectionMode.None;
             }

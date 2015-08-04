@@ -29,24 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartControl));
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDrawTools = new DevExpress.XtraBars.Bar();
             this.bbiPointer = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRectangle = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEllipse = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRhombus = new DevExpress.XtraBars.BarButtonItem();
             this.bbiLine = new DevExpress.XtraBars.BarButtonItem();
             this.barActions = new DevExpress.XtraBars.Bar();
+            this.bbiUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRedo = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.bbiUndo = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiRedo = new DevExpress.XtraBars.BarButtonItem();
+            this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -59,14 +63,16 @@
             this.barManager.DockControls.Add(this.barDockControlLeft);
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
+            this.barManager.Images = this.imageCollection;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiPointer,
             this.bbiRectangle,
             this.bbiEllipse,
             this.bbiLine,
             this.bbiUndo,
-            this.bbiRedo});
-            this.barManager.MaxItemId = 8;
+            this.bbiRedo,
+            this.bbiRhombus});
+            this.barManager.MaxItemId = 9;
             // 
             // barDrawTools
             // 
@@ -78,6 +84,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPointer),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRectangle),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEllipse),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRhombus),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiLine)});
             this.barDrawTools.Text = "Tools";
             // 
@@ -96,9 +103,9 @@
             // 
             this.bbiRectangle.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.bbiRectangle.Caption = "正方形";
-            this.bbiRectangle.Glyph = global::SAF.Framework.Controls.Properties.Resources.DrawRectangle;
             this.bbiRectangle.GroupIndex = 1;
             this.bbiRectangle.Id = 3;
+            this.bbiRectangle.ImageIndex = 4;
             this.bbiRectangle.Name = "bbiRectangle";
             this.bbiRectangle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRectangle_ItemClick);
             // 
@@ -106,19 +113,28 @@
             // 
             this.bbiEllipse.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.bbiEllipse.Caption = "椭圆";
-            this.bbiEllipse.Glyph = global::SAF.Framework.Controls.Properties.Resources.DrawEllipse;
             this.bbiEllipse.GroupIndex = 1;
             this.bbiEllipse.Id = 4;
+            this.bbiEllipse.ImageIndex = 1;
             this.bbiEllipse.Name = "bbiEllipse";
             this.bbiEllipse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEllipse_ItemClick);
+            // 
+            // bbiRhombus
+            // 
+            this.bbiRhombus.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.bbiRhombus.Caption = "菱形";
+            this.bbiRhombus.GroupIndex = 1;
+            this.bbiRhombus.Id = 8;
+            this.bbiRhombus.ImageIndex = 2;
+            this.bbiRhombus.Name = "bbiRhombus";
             // 
             // bbiLine
             // 
             this.bbiLine.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.bbiLine.Caption = "直线";
-            this.bbiLine.Glyph = global::SAF.Framework.Controls.Properties.Resources.Connection;
             this.bbiLine.GroupIndex = 1;
             this.bbiLine.Id = 5;
+            this.bbiLine.ImageIndex = 10;
             this.bbiLine.Name = "bbiLine";
             this.bbiLine.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLine_ItemClick);
             // 
@@ -132,6 +148,22 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiUndo),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRedo)});
             this.barActions.Text = "Actions";
+            // 
+            // bbiUndo
+            // 
+            this.bbiUndo.Caption = "撤消";
+            this.bbiUndo.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Undo;
+            this.bbiUndo.Id = 6;
+            this.bbiUndo.Name = "bbiUndo";
+            this.bbiUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUndo_ItemClick);
+            // 
+            // bbiRedo
+            // 
+            this.bbiRedo.Caption = "重做";
+            this.bbiRedo.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Redo;
+            this.bbiRedo.Id = 7;
+            this.bbiRedo.Name = "bbiRedo";
+            this.bbiRedo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRedo_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -169,21 +201,28 @@
             this.documentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView});
             // 
-            // bbiUndo
+            // imageCollection
             // 
-            this.bbiUndo.Caption = "撤消";
-            this.bbiUndo.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Undo;
-            this.bbiUndo.Id = 6;
-            this.bbiUndo.Name = "bbiUndo";
-            this.bbiUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiUndo_ItemClick);
-            // 
-            // bbiRedo
-            // 
-            this.bbiRedo.Caption = "重做";
-            this.bbiRedo.Glyph = global::SAF.Framework.Controls.Properties.Resources.Action_Redo;
-            this.bbiRedo.Id = 7;
-            this.bbiRedo.Name = "bbiRedo";
-            this.bbiRedo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRedo_ItemClick);
+            this.imageCollection.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection.ImageStream")));
+            this.imageCollection.Images.SetKeyName(0, "Icon_DrawCircle.png");
+            this.imageCollection.Images.SetKeyName(1, "Icon_DrawElipse.png");
+            this.imageCollection.Images.SetKeyName(2, "Icon_DrawRhombus.png");
+            this.imageCollection.Images.SetKeyName(3, "Icon_DrawTriangle.png");
+            this.imageCollection.Images.SetKeyName(4, "Icon_DrawRectangle.png");
+            this.imageCollection.Images.SetKeyName(5, "Icon_DrawRoundedRectangle.png");
+            this.imageCollection.Images.SetKeyName(6, "Icon_DrawPentagon.png");
+            this.imageCollection.Images.SetKeyName(7, "Icon_DrawHexagon.png");
+            this.imageCollection.Images.SetKeyName(8, "Icon_DrawOctagon.png");
+            this.imageCollection.Images.SetKeyName(9, "Icon_DrawLane.png");
+            this.imageCollection.Images.SetKeyName(10, "Icon_DrawArrow.png");
+            this.imageCollection.Images.SetKeyName(11, "Icon_DrawComment.png");
+            this.imageCollection.Images.SetKeyName(12, "Icon_Document_32x32.png");
+            this.imageCollection.Images.SetKeyName(13, "Icon_DrawCancel.png");
+            this.imageCollection.Images.SetKeyName(14, "Icon_DrawFolder.png");
+            this.imageCollection.Images.SetKeyName(15, "Icon_DrawNote.png");
+            this.imageCollection.Images.SetKeyName(16, "Icon_DrawPause.png");
+            this.imageCollection.Images.SetKeyName(17, "Icon_DrawStop.png");
+            this.imageCollection.Images.SetKeyName(18, "Icon_Handtool_32x32.png");
             // 
             // ChartControl
             // 
@@ -198,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,6 +259,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiLine;
         private DevExpress.XtraBars.BarButtonItem bbiUndo;
         private DevExpress.XtraBars.BarButtonItem bbiRedo;
+        private DevExpress.XtraBars.BarButtonItem bbiRhombus;
+        private DevExpress.Utils.ImageCollection imageCollection;
 
     }
 }

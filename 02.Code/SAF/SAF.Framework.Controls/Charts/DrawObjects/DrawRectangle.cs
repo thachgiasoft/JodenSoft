@@ -19,21 +19,25 @@ namespace SAF.Framework.Controls.Charts
     {
         private const string entryRectangle = "Rectangle";
 
-        private Rectangle rectangle;
-
-        protected Rectangle Rectangle
-        {
-            get { return rectangle; }
-            set { rectangle = value; }
-        }
+        protected Rectangle Rectangle;
 
         private bool isRoundedRectangle = false;
 
-        private DrawRectangle()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Color BackColor { get; set; }
+
+        public DrawRectangle()
             : this(false, 0, 0, 1, 1)
         {
         }
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+            this.BackColor = Color.Linen;
+        }
 
         public DrawRectangle(bool isRoundedRectangle, int x, int y, int width, int height)
             : base()
@@ -43,10 +47,10 @@ namespace SAF.Framework.Controls.Charts
 
             this.isRoundedRectangle = isRoundedRectangle;
 
-            rectangle.X = x;
-            rectangle.Y = y;
-            rectangle.Width = width;
-            rectangle.Height = height;
+            Rectangle.X = x;
+            Rectangle.Y = y;
+            Rectangle.Width = width;
+            Rectangle.Height = height;
 
         }
 
@@ -56,12 +60,17 @@ namespace SAF.Framework.Controls.Charts
         public override DrawObject Clone()
         {
             DrawRectangle drawRectangle = new DrawRectangle();
-            drawRectangle.rectangle = this.rectangle;
-
             FillDrawObjectFields(drawRectangle);
             return drawRectangle;
         }
 
+        protected override void FillDrawObjectFields(DrawObject drawObject)
+        {
+            base.FillDrawObjectFields(drawObject);
+            var drawRectangle = drawObject as DrawRectangle;
+            drawRectangle.Rectangle = this.Rectangle;
+            drawRectangle.BackColor = this.BackColor;
+        }
 
         /// <summary>
         /// Draw rectangle
@@ -73,8 +82,8 @@ namespace SAF.Framework.Controls.Charts
             {
                 var rect = DrawRectangle.GetNormalizedRectangle(Rectangle);
 
-                this.rectangle.Width = Math.Max(5, rectangle.Width);
-                this.rectangle.Height = Math.Max(5, rectangle.Height);
+                this.Rectangle.Width = Math.Max(5, Rectangle.Width);
+                this.Rectangle.Height = Math.Max(5, Rectangle.Height);
 
                 using (var brush = DrawRectangle.GetBackgroundBrush(rect, this.BackColor))
                 {
@@ -112,7 +121,7 @@ namespace SAF.Framework.Controls.Charts
                 int Counter = 0;
                 if (!this.Caption.IsEmpty()) Counter++;
                 if (!this.Text.IsEmpty()) Counter++;
- 
+
                 if (Counter > 0)
                 {
                     var writeRect = new Rectangle(rect.Location, new Size(rect.Width, rect.Height / Counter));
@@ -143,10 +152,10 @@ namespace SAF.Framework.Controls.Charts
 
         protected void SetRectangle(int x, int y, int width, int height)
         {
-            rectangle.X = x;
-            rectangle.Y = y;
-            rectangle.Width = width;
-            rectangle.Height = height;
+            Rectangle.X = x;
+            Rectangle.Y = y;
+            Rectangle.Width = width;
+            Rectangle.Height = height;
         }
 
         public static Brush GetBackgroundBrush(Rectangle rect, Color endColor)
@@ -206,10 +215,10 @@ namespace SAF.Framework.Controls.Charts
         {
             int x, y, xCenter, yCenter;
 
-            xCenter = Rectangle.X + rectangle.Width / 2;
-            yCenter = Rectangle.Y + rectangle.Height / 2;
-            x = rectangle.X;
-            y = rectangle.Y;
+            xCenter = Rectangle.X + Rectangle.Width / 2;
+            yCenter = Rectangle.Y + Rectangle.Height / 2;
+            x = Rectangle.X;
+            y = Rectangle.Y;
 
             switch (handleNumber)
             {
@@ -364,7 +373,7 @@ namespace SAF.Framework.Controls.Charts
 
         public override bool IntersectsWith(Rectangle rectangle)
         {
-            return rectangle.IntersectsWith(rectangle);
+            return this.Rectangle.IntersectsWith(rectangle);
         }
 
         /// <summary>
@@ -374,8 +383,8 @@ namespace SAF.Framework.Controls.Charts
         /// <param name="deltaY"></param>
         public override void Move(int deltaX, int deltaY)
         {
-            rectangle.X += deltaX;
-            rectangle.Y += deltaY;
+            Rectangle.X += deltaX;
+            Rectangle.Y += deltaY;
         }
 
         public override void Dump()
@@ -393,7 +402,7 @@ namespace SAF.Framework.Controls.Charts
         /// </summary>
         public override void Normalize()
         {
-            rectangle = DrawRectangle.GetNormalizedRectangle(Rectangle);
+            Rectangle = DrawRectangle.GetNormalizedRectangle(Rectangle);
         }
 
         /// <summary>
@@ -415,7 +424,7 @@ namespace SAF.Framework.Controls.Charts
         /// <param name="orderNumber"></param>
         public override void LoadFromStream(SerializationInfo info, int orderNumber)
         {
-            rectangle = (Rectangle)info.GetValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryRectangle, orderNumber), typeof(Rectangle));
+            Rectangle = (Rectangle)info.GetValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryRectangle, orderNumber), typeof(Rectangle));
 
             base.LoadFromStream(info, orderNumber);
         }

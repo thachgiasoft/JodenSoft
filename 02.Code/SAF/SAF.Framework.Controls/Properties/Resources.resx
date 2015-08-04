@@ -178,12 +178,6 @@
   <data name="Description_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Description-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DrawEllipse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DrawEllipse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DrawRectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DrawRectangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Edit_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -264,5 +258,56 @@
   </data>
   <data name="BO_Report_32X32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BO_Report_32X32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawCancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawCancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawElipse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawElipse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawFolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawHexagon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawHexagon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawLane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawLane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawNote" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawNote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawOctagon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawOctagon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawPentagon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawPentagon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawRectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawRectangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawRhombus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawRhombus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawRoundedRectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawRoundedRectangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawStop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_DrawTriangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_DrawTriangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SAF.Framework.Controls.Charts
+namespace SAF.Framework.Controls.Charts.Tools
 {
-    class ToolEllipse : ToolRectangle
+    class ToolRhombus : ToolRectangle
     {
-        public ToolEllipse()
+        public ToolRhombus()
         {
-            Cursor = new Cursor(GetType(), "Cursors.Ellipse.cur");
+            Cursor = new Cursor(GetType(), "Cursors.Rhombus.cur");
         }
 
         public override void OnMouseDown(DrawArea drawArea, MouseEventArgs e)
         {
             AddNewObject(drawArea, new DrawEllipse(e.X, e.Y, 1, 1));
         }
+
     }
 }

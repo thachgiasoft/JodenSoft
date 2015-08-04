@@ -10,6 +10,7 @@ namespace SAF.Framework.Controls.Charts
         Pointer = 0,
         Rectangle = 1,
         Ellipse = 2,
-        Line = 3
+        Line = 3,
+        Rhombus = 4
     }
 }

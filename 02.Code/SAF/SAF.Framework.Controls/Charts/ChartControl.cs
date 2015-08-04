@@ -61,6 +61,9 @@ namespace SAF.Framework.Controls.Charts
             this.bbiEllipse.Enabled = isNotNull;
             this.bbiEllipse.Down = isNotNull && this.ActiveDrawArea.ActiveDrawTool == DrawToolType.Ellipse;
 
+            this.bbiRhombus.Enabled = isNotNull;
+            this.bbiRhombus.Down = isNotNull && this.ActiveDrawArea.ActiveDrawTool == DrawToolType.Rhombus;
+
             this.bbiLine.Enabled = isNotNull;
             this.bbiLine.Down = isNotNull && this.ActiveDrawArea.ActiveDrawTool == DrawToolType.Line;
 

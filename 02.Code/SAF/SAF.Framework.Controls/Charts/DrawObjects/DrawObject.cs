@@ -22,8 +22,6 @@ namespace SAF.Framework.Controls.Charts
 
         public DrawObject()
         {
-            ID = Guid.NewGuid();
-
             Initialize();
         }
 
@@ -75,11 +73,6 @@ namespace SAF.Framework.Controls.Charts
         /// Pen width
         /// </summary>
         public int PenWidth { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual Color BackColor { get; set; }
 
         /// <summary>
         /// Number of handles
@@ -285,23 +278,27 @@ namespace SAF.Framework.Controls.Charts
         /// <summary>
         /// Initialization
         /// </summary>
-        protected void Initialize()
+        protected virtual void Initialize()
         {
+            ID = Guid.NewGuid();
             PenColor = Color.Black;
             PenWidth = 1;
-            BackColor = Color.Linen;
+            this.Text = string.Empty;
+            this.Caption = string.Empty;
         }
 
         /// <summary>
         /// Copy fields from this instance to cloned instance drawObject.
         /// Called from Clone functions of derived classes.
         /// </summary>
-        protected void FillDrawObjectFields(DrawObject drawObject)
+        protected virtual void FillDrawObjectFields(DrawObject drawObject)
         {
             drawObject.Selected = this.Selected;
             drawObject.PenColor = this.PenColor;
             drawObject.PenWidth = this.PenWidth;
             drawObject.ID = this.ID;
+            drawObject.Text = this.Text;
+            drawObject.Caption = this.Caption;
         }
 
     }

@@ -152,8 +152,10 @@
     <Compile Include="Charts\DrawArea.Designer.cs">
       <DependentUpon>DrawArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="Charts\DrawObjects\DrawEllipse.cs" />
     <Compile Include="Charts\DrawObjects\DrawObject.cs" />
     <Compile Include="Charts\DrawObjects\DrawRectangle.cs" />
+    <Compile Include="Charts\DrawObjects\DrawRhombus.cs" />
     <Compile Include="Charts\ToolKits\DrawToolType.cs" />
     <Compile Include="Charts\ToolKits\GraphicsList.cs" />
     <Compile Include="Charts\ToolKits\IGraphicsList.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Charts\Tools\ToolRectangle.cs" />
     <Compile Include="Charts\Tools\ToolPointer.cs" />
     <Compile Include="Charts\Tools\Tool.cs" />
+    <Compile Include="Charts\Tools\ToolRhombus.cs" />
     <Compile Include="ConnectionStringDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -471,6 +474,23 @@
     <None Include="Resources\NewViaWizard_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon_DrawStop.png" />
+    <None Include="Resources\Icon_DrawRoundedRectangle.png" />
+    <None Include="Resources\Icon_DrawRhombus.png" />
+    <None Include="Resources\Icon_DrawRectangle.png" />
+    <None Include="Resources\Icon_DrawPentagon.png" />
+    <None Include="Resources\Icon_DrawPause.png" />
+    <None Include="Resources\Icon_DrawOctagon.png" />
+    <None Include="Resources\Icon_DrawNote.png" />
+    <None Include="Resources\Icon_DrawLane.png" />
+    <None Include="Resources\Icon_DrawHexagon.png" />
+    <None Include="Resources\Icon_DrawFolder.png" />
+    <None Include="Resources\Icon_DrawElipse.png" />
+    <None Include="Resources\Icon_DrawComment.png" />
+    <None Include="Resources\Icon_DrawCircle.png" />
+    <None Include="Resources\Icon_DrawCancel.png" />
+    <None Include="Resources\Icon_DrawArrow.png" />
+    <None Include="Resources\Icon_DrawTriangle.png" />
     <None Include="Resources\BO_Report_32X32.png" />
     <None Include="Resources\BO_Report.png" />
     <EmbeddedResource Include="TextEditor\Resources\RightArrow.cur" />
@@ -521,6 +541,7 @@
     <EmbeddedResource Include="Charts\Cursors\Ellipse.cur" />
     <EmbeddedResource Include="Charts\Cursors\Line.cur" />
     <EmbeddedResource Include="Charts\Cursors\Rectangle.cur" />
+    <EmbeddedResource Include="Charts\Cursors\Rhombus.cur" />
     <Content Include="Resources\Action_Tools_16x16.png" />
     <None Include="Resources\HSImage.png" />
     <None Include="Resources\JodenSoft.png" />
