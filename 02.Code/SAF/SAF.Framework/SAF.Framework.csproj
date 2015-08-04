@@ -313,6 +313,13 @@
     <None Include="Resources\Action_Preview_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon_Handtool_32x32.png" />
+    <None Include="Resources\Icon_FlagYellow_32x32.png" />
+    <None Include="Resources\Icon_FlagRed_32x32.png" />
+    <None Include="Resources\Icon_FlagGreen_32x32.png" />
+    <None Include="Resources\Icon_FlagBlue_32x32.png" />
+    <None Include="Resources\Icon_Document_32x32.png" />
+    <None Include="Resources\Icon_Database_32x32.png" />
     <None Include="Resources\Action_Sharing_32x32.png" />
     <None Include="Resources\Action_Sharing_16x16.png" />
     <None Include="Resources\Icon_Tools_16x16.png" />
