@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SAF.Framework.Controls.Test
 {
-    public partial class Form1 : Form
+    public partial class ChartForm : Form
     {
-        public Form1()
+        public ChartForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace SAF.Framework.Controls.Test
 {
-    partial class Form1
+    partial class ChartForm
     {
         /// <summary>
         /// Required designer variable.

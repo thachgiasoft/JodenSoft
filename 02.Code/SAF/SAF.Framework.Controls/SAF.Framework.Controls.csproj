@@ -183,6 +183,18 @@
     <Compile Include="fmFileUpgrade.Designer.cs">
       <DependentUpon>fmFileUpgrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="GanttChart\EventArgs.cs" />
+    <Compile Include="GanttChart\GanttControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GanttChart\GanttControlProperties.cs" />
+    <Compile Include="GanttChart\GanttView.cs" />
+    <Compile Include="GanttChart\Renderers\AbstractRenderer.cs" />
+    <Compile Include="GanttChart\Renderers\DefaultRenderer.cs" />
+    <Compile Include="GanttChart\Task\Task.cs" />
+    <Compile Include="GanttChart\Task\TaskCenter.cs" />
+    <Compile Include="GanttChart\Task\TaskCenterCollection.cs" />
+    <Compile Include="GanttChart\Task\TaskCollection.cs" />
     <Compile Include="GridSearchControl\GridSearchEdit.cs">
       <SubType>Component</SubType>
     </Compile>
