@@ -22,7 +22,7 @@ namespace SAF.Framework.Controls.Test
             area.MouseDoubleClick += area_MouseDoubleClick;
         }
 
-        void area_MouseDoubleClick(object sender, Charts.MouseDoubleClickEventArgs e)
+        void area_MouseDoubleClick(object sender, Chart.MouseDoubleClickEventArgs e)
         {
             MessageBox.Show(e.DrawObjects.Count().ToString());
         }

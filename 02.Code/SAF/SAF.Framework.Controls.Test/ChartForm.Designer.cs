@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.新建ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chartControl1 = new SAF.Framework.Controls.Charts.ChartControl();
+            this.chartControl1 = new SAF.Framework.Controls.Chart.ChartControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
 
         #endregion
 
-        private Charts.ChartControl chartControl1;
+        private Chart.ChartControl chartControl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 新建ToolStripMenuItem;
 
