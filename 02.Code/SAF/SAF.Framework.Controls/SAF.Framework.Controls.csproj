@@ -135,39 +135,41 @@
     <Compile Include="BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Charts\ChartControl.cs">
+    <Compile Include="Chart\ChartControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Charts\ChartControl.Designer.cs">
+    <Compile Include="Chart\ChartControl.Designer.cs">
       <DependentUpon>ChartControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Charts\Commands\Command.cs" />
-    <Compile Include="Charts\Commands\CommandAdd.cs" />
-    <Compile Include="Charts\Commands\CommandChangeState.cs" />
-    <Compile Include="Charts\Commands\CommandDelete.cs" />
-    <Compile Include="Charts\Commands\CommandDeleteAll.cs" />
-    <Compile Include="Charts\DrawArea.cs">
+    <Compile Include="Chart\Commands\Command.cs" />
+    <Compile Include="Chart\Commands\CommandAdd.cs" />
+    <Compile Include="Chart\Commands\CommandChangeState.cs" />
+    <Compile Include="Chart\Commands\CommandDelete.cs" />
+    <Compile Include="Chart\Commands\CommandDeleteAll.cs" />
+    <Compile Include="Chart\DrawArea.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Charts\DrawArea.Designer.cs">
+    <Compile Include="Chart\DrawArea.Designer.cs">
       <DependentUpon>DrawArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Charts\DrawObjects\DrawEllipse.cs" />
-    <Compile Include="Charts\DrawObjects\DrawObject.cs" />
-    <Compile Include="Charts\DrawObjects\DrawRectangle.cs" />
-    <Compile Include="Charts\DrawObjects\DrawRhombus.cs" />
-    <Compile Include="Charts\ToolKits\DrawToolType.cs" />
-    <Compile Include="Charts\ToolKits\GraphicsList.cs" />
-    <Compile Include="Charts\ToolKits\IGraphicsList.cs" />
-    <Compile Include="Charts\ToolKits\MouseDoubleClickEventArgs.cs" />
-    <Compile Include="Charts\Tools\ToolEllipse.cs" />
-    <Compile Include="Charts\ToolKits\UndoManager.cs" />
-    <Compile Include="Charts\Tools\ToolLine.cs" />
-    <Compile Include="Charts\Tools\ToolObject.cs" />
-    <Compile Include="Charts\Tools\ToolRectangle.cs" />
-    <Compile Include="Charts\Tools\ToolPointer.cs" />
-    <Compile Include="Charts\Tools\Tool.cs" />
-    <Compile Include="Charts\Tools\ToolRhombus.cs" />
+    <Compile Include="Chart\DrawObjects\DrawEllipse.cs" />
+    <Compile Include="Chart\DrawObjects\DrawLane.cs" />
+    <Compile Include="Chart\DrawObjects\DrawObject.cs" />
+    <Compile Include="Chart\DrawObjects\DrawRectangle.cs" />
+    <Compile Include="Chart\DrawObjects\DrawRhombus.cs" />
+    <Compile Include="Chart\ToolKits\DrawToolType.cs" />
+    <Compile Include="Chart\ToolKits\GraphicsList.cs" />
+    <Compile Include="Chart\ToolKits\IGraphicsList.cs" />
+    <Compile Include="Chart\ToolKits\MouseDoubleClickEventArgs.cs" />
+    <Compile Include="Chart\Tools\ToolEllipse.cs" />
+    <Compile Include="Chart\ToolKits\UndoManager.cs" />
+    <Compile Include="Chart\Tools\ToolLane.cs" />
+    <Compile Include="Chart\Tools\ToolLine.cs" />
+    <Compile Include="Chart\Tools\ToolObject.cs" />
+    <Compile Include="Chart\Tools\ToolRectangle.cs" />
+    <Compile Include="Chart\Tools\ToolPointer.cs" />
+    <Compile Include="Chart\Tools\Tool.cs" />
+    <Compile Include="Chart\Tools\ToolRhombus.cs" />
     <Compile Include="ConnectionStringDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,10 +400,10 @@
     <Compile Include="QueryControl\QuickQuery.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Charts\ChartControl.resx">
+    <EmbeddedResource Include="Chart\ChartControl.resx">
       <DependentUpon>ChartControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Charts\DrawArea.resx">
+    <EmbeddedResource Include="Chart\DrawArea.resx">
       <DependentUpon>DrawArea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectionStringDialog.resx">
@@ -550,10 +552,11 @@
     <None Include="Resources\Action_Preview_16x16.png" />
     <None Include="Resources\Action_Preview_32x32.png" />
     <None Include="Resources\Action_Print_16x16.png" />
-    <EmbeddedResource Include="Charts\Cursors\Ellipse.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Line.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Rectangle.cur" />
-    <EmbeddedResource Include="Charts\Cursors\Rhombus.cur" />
+    <EmbeddedResource Include="Chart\Cursors\Ellipse.cur" />
+    <EmbeddedResource Include="Chart\Cursors\Line.cur" />
+    <EmbeddedResource Include="Chart\Cursors\Rectangle.cur" />
+    <EmbeddedResource Include="Chart\Cursors\Rhombus.cur" />
+    <EmbeddedResource Include="Chart\Cursors\Lane.cur" />
     <Content Include="Resources\Action_Tools_16x16.png" />
     <None Include="Resources\HSImage.png" />
     <None Include="Resources\JodenSoft.png" />
