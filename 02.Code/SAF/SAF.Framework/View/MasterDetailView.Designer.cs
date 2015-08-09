@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcDtl = new DevExpress.XtraTab.XtraTabControl();
             this.pageDtl = new DevExpress.XtraTab.XtraTabPage();
             this.standaloneDtl = new DevExpress.XtraBars.StandaloneBarDockControl();
-            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu();
-            this.bsDetail = new System.Windows.Forms.BindingSource();
+            this.pmuImportDetail = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bsDetail = new System.Windows.Forms.BindingSource(this.components);
             this.barDtl = new DevExpress.XtraBars.Bar();
             this.btnDtlAddNew = new DevExpress.XtraBars.BarButtonItem();
             this.btnDtlCopy = new DevExpress.XtraBars.BarButtonItem();
@@ -138,7 +139,7 @@
             this.standaloneDtl.Dock = System.Windows.Forms.DockStyle.Top;
             this.standaloneDtl.Location = new System.Drawing.Point(0, 0);
             this.standaloneDtl.Name = "standaloneDtl";
-            this.standaloneDtl.Size = new System.Drawing.Size(526, 23);
+            this.standaloneDtl.Size = new System.Drawing.Size(526, 30);
             this.standaloneDtl.Text = "standaloneBarDockControl1";
             // 
             // pmuImportDetail
