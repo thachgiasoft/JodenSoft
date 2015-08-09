@@ -51,9 +51,9 @@
             this.lciFileName = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciParameter = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciDescription = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciIsAutoOpen = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -69,7 +69,6 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.standaloneDtlBar = new DevExpress.XtraBars.StandaloneBarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -85,6 +84,7 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
@@ -107,9 +107,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFileName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -133,7 +133,7 @@
             // splitMain
             // 
             this.splitMain.Panel1.Controls.Add(this.treeMenu);
-            this.splitMain.Size = new System.Drawing.Size(792, 321);
+            this.splitMain.Size = new System.Drawing.Size(792, 381);
             // 
             // bsIndex
             // 
@@ -149,7 +149,7 @@
             // 
             // pnlPageControl
             // 
-            this.pnlPageControl.Location = new System.Drawing.Point(1, 470);
+            this.pnlPageControl.Location = new System.Drawing.Point(1, 530);
             this.pnlPageControl.Size = new System.Drawing.Size(792, 31);
             // 
             // pcMain
@@ -160,18 +160,22 @@
             // 
             this.splitRight.Panel2.Controls.Add(this.tcParams);
             this.splitRight.PanelVisibility = DevExpress.XtraEditors.SplitPanelVisibility.Both;
-            this.splitRight.Size = new System.Drawing.Size(505, 317);
-            this.splitRight.SplitterPosition = 201;
+            this.splitRight.Size = new System.Drawing.Size(505, 377);
+            this.splitRight.SplitterPosition = 218;
             // 
             // tcMain
             // 
             this.tcMain.SelectedTabPage = this.pageMain;
-            this.tcMain.Size = new System.Drawing.Size(505, 201);
+            this.tcMain.Size = new System.Drawing.Size(505, 218);
             // 
             // pageMain
             // 
             this.pageMain.Controls.Add(this.lcMain);
-            this.pageMain.Size = new System.Drawing.Size(499, 195);
+            this.pageMain.Size = new System.Drawing.Size(499, 212);
+            // 
+            // bmMain
+            // 
+            this.bmMain.MaxItemId = 1;
             // 
             // lcMain
             // 
@@ -191,14 +195,14 @@
             this.lcMain.Location = new System.Drawing.Point(0, 0);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.lcgMain;
-            this.lcMain.Size = new System.Drawing.Size(499, 195);
+            this.lcMain.Size = new System.Drawing.Size(499, 212);
             this.lcMain.TabIndex = 0;
             this.lcMain.Text = "layoutControl1";
             // 
             // txtDescription
             // 
             this.txtDescription.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "BusinessViewDescription", true));
-            this.txtDescription.Location = new System.Drawing.Point(53, 98);
+            this.txtDescription.Location = new System.Drawing.Point(53, 74);
             this.txtDescription.MenuManager = this.ribbonMain;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(444, 20);
@@ -208,18 +212,18 @@
             // chkIsShowDialog
             // 
             this.chkIsShowDialog.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsShowDialog", true));
-            this.chkIsShowDialog.Location = new System.Drawing.Point(363, 26);
+            this.chkIsShowDialog.Location = new System.Drawing.Point(416, 2);
             this.chkIsShowDialog.MenuManager = this.ribbonMain;
             this.chkIsShowDialog.Name = "chkIsShowDialog";
             this.chkIsShowDialog.Properties.Caption = "模式显示";
-            this.chkIsShowDialog.Size = new System.Drawing.Size(133, 19);
+            this.chkIsShowDialog.Size = new System.Drawing.Size(81, 19);
             this.chkIsShowDialog.StyleController = this.lcMain;
             this.chkIsShowDialog.TabIndex = 15;
             // 
             // txtParameter
             // 
             this.txtParameter.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "FileParameter", true));
-            this.txtParameter.Location = new System.Drawing.Point(53, 146);
+            this.txtParameter.Location = new System.Drawing.Point(53, 122);
             this.txtParameter.MenuManager = this.ribbonMain;
             this.txtParameter.Name = "txtParameter";
             this.txtParameter.Size = new System.Drawing.Size(444, 20);
@@ -229,7 +233,7 @@
             // txtFileName
             // 
             this.txtFileName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "FileName", true));
-            this.txtFileName.Location = new System.Drawing.Point(53, 122);
+            this.txtFileName.Location = new System.Drawing.Point(53, 98);
             this.txtFileName.MenuManager = this.ribbonMain;
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -242,14 +246,14 @@
             // 
             this.gluMenuType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "MenuType", true));
             this.gluMenuType.EditValue = "";
-            this.gluMenuType.Location = new System.Drawing.Point(53, 26);
+            this.gluMenuType.Location = new System.Drawing.Point(244, 2);
             this.gluMenuType.MenuManager = this.ribbonMain;
             this.gluMenuType.Name = "gluMenuType";
             this.gluMenuType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.gluMenuType.Properties.NullText = "";
             this.gluMenuType.Properties.View = this.gridLookUpEdit1View;
-            this.gluMenuType.Size = new System.Drawing.Size(306, 20);
+            this.gluMenuType.Size = new System.Drawing.Size(83, 20);
             this.gluMenuType.StyleController = this.lcMain;
             this.gluMenuType.TabIndex = 12;
             this.gluMenuType.EditValueChanged += new System.EventHandler(this.gluMenuType_EditValueChanged);
@@ -264,28 +268,28 @@
             // chkIsAutoOpen
             // 
             this.chkIsAutoOpen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "IsAutoOpen", true));
-            this.chkIsAutoOpen.Location = new System.Drawing.Point(363, 2);
+            this.chkIsAutoOpen.Location = new System.Drawing.Point(331, 2);
             this.chkIsAutoOpen.MenuManager = this.ribbonMain;
             this.chkIsAutoOpen.Name = "chkIsAutoOpen";
             this.chkIsAutoOpen.Properties.Caption = "默认打开";
-            this.chkIsAutoOpen.Size = new System.Drawing.Size(133, 19);
+            this.chkIsAutoOpen.Size = new System.Drawing.Size(81, 19);
             this.chkIsAutoOpen.StyleController = this.lcMain;
             this.chkIsAutoOpen.TabIndex = 11;
             // 
             // txtName
             // 
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Name", true));
-            this.txtName.Location = new System.Drawing.Point(53, 50);
+            this.txtName.Location = new System.Drawing.Point(53, 26);
             this.txtName.MenuManager = this.ribbonMain;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(168, 20);
+            this.txtName.Size = new System.Drawing.Size(136, 20);
             this.txtName.StyleController = this.lcMain;
             this.txtName.TabIndex = 5;
             // 
             // txtMenuOrder
             // 
             this.txtMenuOrder.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "MenuOrder", true));
-            this.txtMenuOrder.Location = new System.Drawing.Point(276, 50);
+            this.txtMenuOrder.Location = new System.Drawing.Point(244, 26);
             this.txtMenuOrder.MenuManager = this.ribbonMain;
             this.txtMenuOrder.Name = "txtMenuOrder";
             this.txtMenuOrder.Size = new System.Drawing.Size(83, 20);
@@ -295,7 +299,7 @@
             // gseBusinessView
             // 
             this.gseBusinessView.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "BusinessView", true));
-            this.gseBusinessView.Location = new System.Drawing.Point(53, 74);
+            this.gseBusinessView.Location = new System.Drawing.Point(53, 50);
             this.gseBusinessView.MenuManager = this.ribbonMain;
             this.gseBusinessView.Name = "gseBusinessView";
             this.gseBusinessView.Properties.AutoClearSearchFiledsValue = true;
@@ -318,10 +322,10 @@
             // txtRemark
             // 
             this.txtRemark.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Remark", true));
-            this.txtRemark.Location = new System.Drawing.Point(53, 170);
+            this.txtRemark.Location = new System.Drawing.Point(53, 146);
             this.txtRemark.MenuManager = this.ribbonMain;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(444, 23);
+            this.txtRemark.Size = new System.Drawing.Size(444, 64);
             this.txtRemark.StyleController = this.lcMain;
             this.txtRemark.TabIndex = 9;
             // 
@@ -337,7 +341,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
             this.tluParent.Properties.NullText = "";
             this.tluParent.Properties.TreeList = this.treeListLookUpEdit1TreeList;
-            this.tluParent.Size = new System.Drawing.Size(306, 20);
+            this.tluParent.Size = new System.Drawing.Size(136, 20);
             this.tluParent.StyleController = this.lcMain;
             this.tluParent.TabIndex = 6;
             this.tluParent.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.treeListLookUpEdit1_ButtonClick);
@@ -354,10 +358,10 @@
             // txtIden
             // 
             this.txtIden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsMain, "Iden", true));
-            this.txtIden.Location = new System.Drawing.Point(414, 50);
+            this.txtIden.Location = new System.Drawing.Point(382, 26);
             this.txtIden.MenuManager = this.ribbonMain;
             this.txtIden.Name = "txtIden";
-            this.txtIden.Size = new System.Drawing.Size(83, 20);
+            this.txtIden.Size = new System.Drawing.Size(115, 20);
             this.txtIden.StyleController = this.lcMain;
             this.txtIden.TabIndex = 4;
             // 
@@ -372,9 +376,9 @@
             this.lciFileName,
             this.lciParameter,
             this.layoutControlItem3,
-            this.layoutControlItem8,
             this.lciDescription,
             this.lciIsAutoOpen,
+            this.layoutControlItem8,
             this.layoutControlItem4,
             this.layoutControlItem2,
             this.layoutControlItem5,
@@ -382,14 +386,14 @@
             this.lcgMain.Location = new System.Drawing.Point(0, 0);
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgMain.Size = new System.Drawing.Size(499, 195);
+            this.lcgMain.Size = new System.Drawing.Size(499, 212);
             this.lcgMain.TextVisible = false;
             // 
             // lciViewId
             // 
             this.lciViewId.Control = this.gseBusinessView;
             this.lciViewId.CustomizationFormText = "业务界面";
-            this.lciViewId.Location = new System.Drawing.Point(0, 72);
+            this.lciViewId.Location = new System.Drawing.Point(0, 48);
             this.lciViewId.Name = "lciViewId";
             this.lciViewId.Size = new System.Drawing.Size(499, 24);
             this.lciViewId.Text = "业务界面";
@@ -399,9 +403,9 @@
             // 
             this.layoutControlItem6.Control = this.txtRemark;
             this.layoutControlItem6.CustomizationFormText = "备注";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(499, 27);
+            this.layoutControlItem6.Size = new System.Drawing.Size(499, 68);
             this.layoutControlItem6.Text = "备注";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -409,7 +413,7 @@
             // 
             this.lciFileName.Control = this.txtFileName;
             this.lciFileName.CustomizationFormText = "文件名称";
-            this.lciFileName.Location = new System.Drawing.Point(0, 120);
+            this.lciFileName.Location = new System.Drawing.Point(0, 96);
             this.lciFileName.Name = "lciFileName";
             this.lciFileName.Size = new System.Drawing.Size(499, 24);
             this.lciFileName.Text = "文件名称";
@@ -419,7 +423,7 @@
             // 
             this.lciParameter.Control = this.txtParameter;
             this.lciParameter.CustomizationFormText = "参数";
-            this.lciParameter.Location = new System.Drawing.Point(0, 144);
+            this.lciParameter.Location = new System.Drawing.Point(0, 120);
             this.lciParameter.Name = "lciParameter";
             this.lciParameter.Size = new System.Drawing.Size(499, 24);
             this.lciParameter.Text = "参数";
@@ -431,25 +435,15 @@
             this.layoutControlItem3.CustomizationFormText = "上级菜单";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(361, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(191, 24);
             this.layoutControlItem3.Text = "上级菜单";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 14);
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.gluMenuType;
-            this.layoutControlItem8.CustomizationFormText = "菜单类型";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(361, 24);
-            this.layoutControlItem8.Text = "菜单类型";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
             // 
             // lciDescription
             // 
             this.lciDescription.Control = this.txtDescription;
             this.lciDescription.CustomizationFormText = "界面描述";
-            this.lciDescription.Location = new System.Drawing.Point(0, 96);
+            this.lciDescription.Location = new System.Drawing.Point(0, 72);
             this.lciDescription.Name = "lciDescription";
             this.lciDescription.Size = new System.Drawing.Size(499, 24);
             this.lciDescription.Text = "界面描述";
@@ -459,24 +453,33 @@
             // 
             this.lciIsAutoOpen.Control = this.chkIsAutoOpen;
             this.lciIsAutoOpen.CustomizationFormText = "lciIsAutoOpen";
-            this.lciIsAutoOpen.Location = new System.Drawing.Point(361, 0);
-            this.lciIsAutoOpen.MaxSize = new System.Drawing.Size(137, 23);
-            this.lciIsAutoOpen.MinSize = new System.Drawing.Size(137, 23);
+            this.lciIsAutoOpen.Location = new System.Drawing.Point(329, 0);
+            this.lciIsAutoOpen.MinSize = new System.Drawing.Size(85, 24);
             this.lciIsAutoOpen.Name = "lciIsAutoOpen";
-            this.lciIsAutoOpen.Size = new System.Drawing.Size(138, 24);
+            this.lciIsAutoOpen.Size = new System.Drawing.Size(85, 24);
             this.lciIsAutoOpen.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciIsAutoOpen.TextSize = new System.Drawing.Size(0, 0);
             this.lciIsAutoOpen.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.gluMenuType;
+            this.layoutControlItem8.CustomizationFormText = "菜单类型";
+            this.layoutControlItem8.Location = new System.Drawing.Point(191, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(138, 24);
+            this.layoutControlItem8.Text = "菜单类型";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.chkIsShowDialog;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(361, 24);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(137, 23);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(137, 23);
+            this.layoutControlItem4.Location = new System.Drawing.Point(414, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(137, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(85, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(138, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(85, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -485,9 +488,9 @@
             // 
             this.layoutControlItem2.Control = this.txtName;
             this.layoutControlItem2.CustomizationFormText = "菜单名称";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(223, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(191, 24);
             this.layoutControlItem2.Text = "菜单名称";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
@@ -495,7 +498,7 @@
             // 
             this.layoutControlItem5.Control = this.txtMenuOrder;
             this.layoutControlItem5.CustomizationFormText = "菜单序号";
-            this.layoutControlItem5.Location = new System.Drawing.Point(223, 48);
+            this.layoutControlItem5.Location = new System.Drawing.Point(191, 24);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(138, 24);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(138, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -508,11 +511,11 @@
             // 
             this.layoutControlItem1.Control = this.txtIden;
             this.layoutControlItem1.CustomizationFormText = "菜单ID";
-            this.layoutControlItem1.Location = new System.Drawing.Point(361, 48);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(138, 24);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(138, 24);
+            this.layoutControlItem1.Location = new System.Drawing.Point(329, 24);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 24);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(1, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(138, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(170, 24);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "菜单ID";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
@@ -543,7 +546,7 @@
             this.treeMenu.OptionsView.ShowIndicator = false;
             this.treeMenu.OptionsView.ShowVertLines = false;
             this.treeMenu.SelectImageList = this.imageCollectionTreeList;
-            this.treeMenu.Size = new System.Drawing.Size(282, 317);
+            this.treeMenu.Size = new System.Drawing.Size(282, 377);
             this.treeMenu.TabIndex = 1;
             this.treeMenu.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
             // 
@@ -571,7 +574,7 @@
             this.tcParams.Location = new System.Drawing.Point(0, 0);
             this.tcParams.Name = "tcParams";
             this.tcParams.SelectedTabPage = this.pageParams;
-            this.tcParams.Size = new System.Drawing.Size(505, 111);
+            this.tcParams.Size = new System.Drawing.Size(505, 154);
             this.tcParams.TabIndex = 0;
             this.tcParams.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageParams});
@@ -579,10 +582,9 @@
             // pageParams
             // 
             this.pageParams.Controls.Add(this.grdParams);
-            this.pageParams.Controls.Add(this.standaloneDtlBar);
             this.pageParams.Name = "pageParams";
             this.pageParams.Padding = new System.Windows.Forms.Padding(2);
-            this.pageParams.Size = new System.Drawing.Size(499, 82);
+            this.pageParams.Size = new System.Drawing.Size(499, 125);
             this.pageParams.Text = "菜单参数";
             // 
             // grdParams
@@ -590,11 +592,11 @@
             this.grdParams.Cursor = System.Windows.Forms.Cursors.Default;
             this.grdParams.DataSource = this.bsParams;
             this.grdParams.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdParams.Location = new System.Drawing.Point(2, 25);
+            this.grdParams.Location = new System.Drawing.Point(2, 2);
             this.grdParams.MainView = this.grvParams;
             this.grdParams.MenuManager = this.ribbonMain;
             this.grdParams.Name = "grdParams";
-            this.grdParams.Size = new System.Drawing.Size(495, 55);
+            this.grdParams.Size = new System.Drawing.Size(495, 121);
             this.grdParams.TabIndex = 0;
             this.grdParams.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvParams});
@@ -638,21 +640,12 @@
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 2;
             // 
-            // standaloneDtlBar
-            // 
-            this.standaloneDtlBar.CausesValidation = false;
-            this.standaloneDtlBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.standaloneDtlBar.Location = new System.Drawing.Point(2, 2);
-            this.standaloneDtlBar.Name = "standaloneDtlBar";
-            this.standaloneDtlBar.Size = new System.Drawing.Size(495, 23);
-            this.standaloneDtlBar.Text = "standaloneBarDockControl1";
-            // 
             // sysMenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "sysMenuView";
-            this.Size = new System.Drawing.Size(794, 502);
+            this.Size = new System.Drawing.Size(794, 562);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
@@ -668,6 +661,7 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -690,9 +684,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciFileName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciParameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciIsAutoOpen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
@@ -750,6 +744,5 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraLayout.LayoutControlItem lciDescription;
-        private DevExpress.XtraBars.StandaloneBarDockControl standaloneDtlBar;
     }
 }
