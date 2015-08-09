@@ -69,6 +69,7 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.standaloneDtlBar = new DevExpress.XtraBars.StandaloneBarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -84,7 +85,6 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
@@ -324,7 +324,6 @@
             this.txtRemark.Size = new System.Drawing.Size(444, 23);
             this.txtRemark.StyleController = this.lcMain;
             this.txtRemark.TabIndex = 9;
-            this.txtRemark.UseOptimizedRendering = true;
             // 
             // tluParent
             // 
@@ -384,7 +383,6 @@
             this.lcgMain.Name = "lcgMain";
             this.lcgMain.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.lcgMain.Size = new System.Drawing.Size(499, 195);
-            this.lcgMain.Text = "lcgMain";
             this.lcgMain.TextVisible = false;
             // 
             // lciViewId
@@ -467,9 +465,7 @@
             this.lciIsAutoOpen.Name = "lciIsAutoOpen";
             this.lciIsAutoOpen.Size = new System.Drawing.Size(138, 24);
             this.lciIsAutoOpen.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lciIsAutoOpen.Text = "lciIsAutoOpen";
             this.lciIsAutoOpen.TextSize = new System.Drawing.Size(0, 0);
-            this.lciIsAutoOpen.TextToControlDistance = 0;
             this.lciIsAutoOpen.TextVisible = false;
             // 
             // layoutControlItem4
@@ -482,9 +478,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(138, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem2
@@ -543,8 +537,8 @@
             this.treeMenu.OptionsPrint.PrintHorzLines = false;
             this.treeMenu.OptionsPrint.PrintVertLines = false;
             this.treeMenu.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.treeMenu.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
             this.treeMenu.OptionsView.ShowColumns = false;
-            this.treeMenu.OptionsView.ShowFocusedFrame = false;
             this.treeMenu.OptionsView.ShowHorzLines = false;
             this.treeMenu.OptionsView.ShowIndicator = false;
             this.treeMenu.OptionsView.ShowVertLines = false;
@@ -585,6 +579,7 @@
             // pageParams
             // 
             this.pageParams.Controls.Add(this.grdParams);
+            this.pageParams.Controls.Add(this.standaloneDtlBar);
             this.pageParams.Name = "pageParams";
             this.pageParams.Padding = new System.Windows.Forms.Padding(2);
             this.pageParams.Size = new System.Drawing.Size(499, 82);
@@ -595,11 +590,11 @@
             this.grdParams.Cursor = System.Windows.Forms.Cursors.Default;
             this.grdParams.DataSource = this.bsParams;
             this.grdParams.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdParams.Location = new System.Drawing.Point(2, 2);
+            this.grdParams.Location = new System.Drawing.Point(2, 25);
             this.grdParams.MainView = this.grvParams;
             this.grdParams.MenuManager = this.ribbonMain;
             this.grdParams.Name = "grdParams";
-            this.grdParams.Size = new System.Drawing.Size(495, 78);
+            this.grdParams.Size = new System.Drawing.Size(495, 55);
             this.grdParams.TabIndex = 0;
             this.grdParams.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvParams});
@@ -643,6 +638,15 @@
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 2;
             // 
+            // standaloneDtlBar
+            // 
+            this.standaloneDtlBar.CausesValidation = false;
+            this.standaloneDtlBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.standaloneDtlBar.Location = new System.Drawing.Point(2, 2);
+            this.standaloneDtlBar.Name = "standaloneDtlBar";
+            this.standaloneDtlBar.Size = new System.Drawing.Size(495, 23);
+            this.standaloneDtlBar.Text = "standaloneBarDockControl1";
+            // 
             // sysMenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -664,7 +668,6 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -747,5 +750,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraLayout.LayoutControlItem lciDescription;
+        private DevExpress.XtraBars.StandaloneBarDockControl standaloneDtlBar;
     }
 }

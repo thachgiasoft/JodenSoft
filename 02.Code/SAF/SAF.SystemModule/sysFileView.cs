@@ -56,8 +56,10 @@ namespace SAF.SystemModule
 
         void fileDragDropManager_FileDroppedEvent(object sender, FileDroppedEventArgs e)
         {
-            this.ViewModel.UpdateFiles(e.Files);
-            this.Save();
+            if (this.ViewModel.UpdateFiles(e.Files))
+                this.Save();
+            else
+                this.Cancel();
         }
 
         protected new sysFileViewViewModel ViewModel

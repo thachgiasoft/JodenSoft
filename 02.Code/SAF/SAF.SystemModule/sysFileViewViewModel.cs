@@ -58,7 +58,7 @@ namespace SAF.SystemModule
             this.MainEntitySet.Query("select Iden, Name, FileName, FileVersion, FileData=cast(null as image), FileSize, LastWriteTime, Remark, IsActive, IsSystem, CreatedBy, CreatedOn, ModifiedBy, ModifiedOn, VersionNumber from sysFile with(nolock) where Iden=:Iden", key);
         }
 
-        internal void UpdateFiles(List<string> list)
+        internal bool UpdateFiles(List<string> list)
         {
             ProgressService.Show("正在上传文件");
             try
@@ -99,13 +99,14 @@ namespace SAF.SystemModule
                 }
                 ParseBusinessView(list);
                 ProgressService.Close();
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
                 ProgressService.Abort();
-                throw;
+                MessageService.ShowException(ex);
+                return false;
             }
-
         }
 
         protected override void OnApplySave()
