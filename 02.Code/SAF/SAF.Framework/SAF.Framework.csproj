@@ -142,6 +142,7 @@
     <Compile Include="Extensions\EditExtensions.cs" />
     <Compile Include="Extensions\GridControlExtensions.cs" />
     <Compile Include="Extensions\BaseViewExtensions.cs" />
+    <Compile Include="Extensions\GridViewExtensions.cs" />
     <Compile Include="Extensions\LookUpEditExtensions.cs" />
     <Compile Include="Extensions\GridLookUpEditExtensions.cs" />
     <Compile Include="Extensions\SearchLookUpEditExtensions.cs" />
