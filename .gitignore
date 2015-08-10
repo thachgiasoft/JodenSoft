@@ -9,3 +9,5 @@
 /02.Code/SAF/SAF.SystemModule/obj/Debug
 /02.Code/SAF.Output/Client
 /02.Code/SAF/SAF.Test/obj/Debug
+*.cache
+*.suo
