@@ -98,7 +98,6 @@
     <Build Include="dbo\Tables\sysCommonBillConfig.sql" />
     <Build Include="dbo\Tables\sysReport.sql" />
     <Build Include="dbo\Tables\sysReportFormat.sql" />
-    <Build Include="dbo\Functions\Dual.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SAF.Database.refactorlog" />
@@ -115,7 +114,6 @@
   <ItemGroup>
     <Compile Include="SqlClr\Helper\MoneyConverter.cs" />
     <Compile Include="SqlClr\Helper\StringConverter.cs" />
-    <Compile Include="SqlClr\CalcValue.cs" />
     <Compile Include="SqlClr\ConcatString.cs" />
     <Compile Include="SqlClr\ConvertMoneyToCN.cs" />
     <Compile Include="SqlClr\ConvertMoneyToEN.cs" />
@@ -126,5 +124,6 @@
     <Compile Include="SqlClr\PadLeft.cs" />
     <Compile Include="SqlClr\PadRight.cs" />
     <Compile Include="SqlClr\SplitString.cs" />
+    <Compile Include="SqlClr\Dual.cs" />
   </ItemGroup>
 </Project>
