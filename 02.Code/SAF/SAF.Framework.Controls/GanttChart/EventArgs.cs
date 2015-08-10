@@ -11,7 +11,7 @@ namespace SAF.Framework.Controls.GanttChart
     public class TaskMovingEventArgs : EventArgs
     {
         public Task Task { get; private set; }
-        public bool Cancel { get; set; }
+        public bool Cancel { get; set; }  
 
         public bool IsTaskCenterChanged { get; private set; }
         public TaskCenter OriginalTaskCenter { get; private set; }
