@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/02.Code/SAF/SAF.Client/obj/Debug
+/02.Code/SAF/SAF.CommonConfig/obj/Debug
+/02.Code/SAF/SAF.Framework.Component/obj/Debug
+/02.Code/SAF/SAF.SystemEntity/obj/Debug
+/02.Code/SAF/SAF.SystemModule/obj/Debug
+/02.Code/SAF.Output/Client
+/02.Code/SAF/SAF.Test/obj/Debug
