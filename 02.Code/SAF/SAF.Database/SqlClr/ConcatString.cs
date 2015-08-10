@@ -7,7 +7,7 @@ using System.Text;
 
 [Serializable]
 [SqlUserDefinedAggregate(Format.UserDefined, IsInvariantToDuplicates = false,
-    IsInvariantToNulls = true, IsInvariantToOrder = false,
+    IsInvariantToNulls = true, IsInvariantToOrder = false,IsNullIfEmpty=true,
     MaxByteSize = -1)]
 public struct ConcatString : IBinarySerialize
 {

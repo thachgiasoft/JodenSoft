@@ -125,5 +125,7 @@
     <Compile Include="SqlClr\PadRight.cs" />
     <Compile Include="SqlClr\SplitString.cs" />
     <Compile Include="SqlClr\Dual.cs" />
+    <Compile Include="SqlClr\IsNullOrWhiteSpace.cs" />
+    <Compile Include="SqlClr\Trim.cs" />
   </ItemGroup>
 </Project>
