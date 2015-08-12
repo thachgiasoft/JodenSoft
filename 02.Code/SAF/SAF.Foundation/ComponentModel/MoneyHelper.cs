@@ -19,7 +19,7 @@ namespace SAF.Foundation.ComponentModel
 
         /// <summary>
         /// 货币金额中文大写转换方法
-        /// </summary>    
+        /// </summary>            
         /// <param name="MoneyString">转化金额
         /// <para>最大转化金额:9999999999999999.99（16位整数位，2位小数位）</para>
         /// </param>
