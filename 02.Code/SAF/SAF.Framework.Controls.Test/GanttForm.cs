@@ -14,7 +14,7 @@ namespace SAF.Framework.Controls.Test
     {
         public GanttForm()
         {
-            InitializeComponent();
+            InitializeComponent();    
             InitControl();
         }
 
