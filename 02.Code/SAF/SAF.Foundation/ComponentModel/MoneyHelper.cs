@@ -1,19 +1,4 @@
-﻿#region CopyRight (C) 2013 上海环思信息技术有限公司 版权所有。
-//
-// 文 件 名：MoneyHelper.cs
-// 功能描述：金额大写转换类
-// 
-// 创建标识：wanglj 2013/8/7 17:45:08
-// 
-// 修改标识：
-// 修改描述：
-//
-// 修改标识：
-// 修改描述：
-//
-#endregion
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
