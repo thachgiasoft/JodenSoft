@@ -256,7 +256,6 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.AllowCustomizationMenu = false;
             this.layoutControl2.Controls.Add(this.chkShowWorkSpace);
             this.layoutControl2.Controls.Add(this.chkShowNavigationPage);
             this.layoutControl2.Controls.Add(this.chkShowWelcomePage);
