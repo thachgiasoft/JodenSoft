@@ -11,3 +11,4 @@
 /02.Code/SAF/SAF.Test/obj/Debug
 *.cache
 *.suo
+/04.Release/SAF.Client
