@@ -158,11 +158,11 @@ namespace SAF.Framework.Controls.Chart
             Rectangle.Height = height;
         }
 
-        public static Brush GetBackgroundBrush(Rectangle rect, Color beginColor)
+        public static Brush GetBackgroundBrush(Rectangle rect, Color endColor)
         {
             rect.Width = Math.Max(1, rect.Width);
             rect.Height = Math.Max(1, rect.Height);
-            return new LinearGradientBrush(rect, beginColor, Color.White, LinearGradientMode.Vertical);
+            return new LinearGradientBrush(rect, Color.White, endColor, LinearGradientMode.Vertical);
         }
 
         protected GraphicsPath GetRoundedRectPath(Rectangle rect, int radius)

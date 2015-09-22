@@ -23,6 +23,21 @@ namespace SAF.Foundation
             }
             return message.ToString().Trim();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns></returns>
+        public static string GetAllInfomation(this Exception ex)
+        {
+            StringBuilder message = new StringBuilder();
+            Exception e = ex;
+            while (e != null)
+            {
+                message.AppendLine(e.ToString());
+                e = e.InnerException;
+            }
+            return message.ToString().Trim();
+        }
     }
 }

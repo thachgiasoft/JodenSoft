@@ -12,3 +12,11 @@
 *.cache
 *.suo
 /04.Release/SAF.Client
+/02.Code/SAF/SAF.EntityFramework/obj/Debug
+/02.Code/SAF/SAF.Foundation/obj/Debug
+/02.Code/SAF/SAF.Framework/obj/Debug
+/02.Code/SAF/SAF.Framework.Controls/obj/Debug
+/02.Code/SAF/SAF.Framework.Controls.Test/bin/Debug
+/02.Code/SAF/SAF.Framework.Controls.Test/obj/Debug
+/02.Code/SAF/SAF.Framework.Services/obj/Debug
+*.pdb

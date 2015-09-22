@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartControl));
-            this.barManager = new DevExpress.XtraBars.BarManager();
+            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDrawTools = new DevExpress.XtraBars.Bar();
             this.bbiPointer = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRectangle = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEllipse = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRhombus = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLane = new DevExpress.XtraBars.BarButtonItem();
             this.bbiLine = new DevExpress.XtraBars.BarButtonItem();
             this.bbiUndo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRedo = new DevExpress.XtraBars.BarButtonItem();
@@ -42,10 +44,9 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageCollection = new DevExpress.Utils.ImageCollection();
-            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.bbiLane = new DevExpress.XtraBars.BarButtonItem();
+            this.imageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -131,6 +132,14 @@
             this.bbiRhombus.Name = "bbiRhombus";
             this.bbiRhombus.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRhombus_ItemClick);
             // 
+            // bbiLane
+            // 
+            this.bbiLane.Caption = "泳道";
+            this.bbiLane.Id = 9;
+            this.bbiLane.ImageIndex = 9;
+            this.bbiLane.Name = "bbiLane";
+            this.bbiLane.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLane_ItemClick);
+            // 
             // bbiLine
             // 
             this.bbiLine.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
@@ -215,14 +224,6 @@
             this.documentManager.View = this.tabbedView;
             this.documentManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView});
-            // 
-            // bbiLane
-            // 
-            this.bbiLane.Caption = "泳道";
-            this.bbiLane.Id = 9;
-            this.bbiLane.ImageIndex = 9;
-            this.bbiLane.Name = "bbiLane";
-            this.bbiLane.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLane_ItemClick);
             // 
             // ChartControl
             // 

@@ -34,18 +34,11 @@ namespace SAF.Framework.Controls.Chart
             return obj;
         }
 
-        private Brush GetBrush1(Rectangle rect, Color endColor)
+        private Brush GetBrush(Rectangle rect)
         {
             rect.Width = Math.Max(1, rect.Width);
             rect.Height = Math.Max(1, rect.Height);
-            return new LinearGradientBrush(rect, Color.White, endColor, LinearGradientMode.Vertical);
-        }
-
-        private Brush GetBrush2(Rectangle rect, Color beginColor)
-        {
-            rect.Width = Math.Max(1, rect.Width);
-            rect.Height = Math.Max(1, rect.Height);
-            return new LinearGradientBrush(rect, beginColor, Color.White, LinearGradientMode.Vertical);
+            return new LinearGradientBrush(rect, Color.White,Color.White, LinearGradientMode.Vertical);
         }
 
         protected override void DrawGraph(System.Drawing.Graphics g)
@@ -59,15 +52,9 @@ namespace SAF.Framework.Controls.Chart
                 var backRect = new Rectangle(rect.Left + 3, rect.Top + 3, rect.Width, rect.Height);
                 g.FillRectangle(Brushes.LightGray, backRect);
 
-                using (var brush = GetBrush1(rect, this.BackColor))
+                using (var brush = GetBrush(rect))
                 {
-                    var fillRect = new Rectangle(rect.Left, rect.Top, rect.Width, 10);
-                    g.FillRectangle(brush, fillRect);
-                }
-
-                using (var brush = GetBrush2(rect, this.BackColor))
-                {
-                    var fillRect = new Rectangle(rect.Left, rect.Top + 10, rect.Width, 10);
+                    var fillRect = new Rectangle(rect.Left, rect.Top, rect.Width, 20);
                     g.FillRectangle(brush, fillRect);
                 }
 
