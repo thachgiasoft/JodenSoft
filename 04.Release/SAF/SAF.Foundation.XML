@@ -615,6 +615,13 @@
             <param name="ex"></param>
             <returns></returns>
         </member>
+        <member name="M:SAF.Foundation.ExceptionExtensions.GetAllInfomation(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
         <member name="F:SAF.Foundation.Security.AESHelper._Key">
             <summary>
             默认的加密key
@@ -1599,7 +1606,7 @@
         <member name="M:SAF.Foundation.ComponentModel.MoneyHelper.GetCnString(System.String)">
             <summary>
             货币金额中文大写转换方法
-            </summary>
+            </summary>            
             <param name="MoneyString">转化金额
             <para>最大转化金额:9999999999999999.99（16位整数位，2位小数位）</para>
             </param>

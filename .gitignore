@@ -22,3 +22,12 @@
 *.pdb
 /02.Code/SAF/SAF.Framework.Test/bin/Debug
 /02.Code/SAF/SAF.Framework.Test/obj/Debug
+/02.Code/SAF/SAF.EntityFramework/obj/Release
+/02.Code/SAF/SAF.Foundation/obj/Release
+/02.Code/SAF/SAF.Framework/obj/Release
+/02.Code/SAF/SAF.Framework.Controls/obj/Release
+/02.Code/SAF/SAF.Framework.Controls.Test/bin/Release
+/02.Code/SAF/SAF.Framework.Controls.Test/obj/Release
+/02.Code/SAF/SAF.Framework.Services/obj/Release
+/02.Code/SAF/SAF.Framework.Test/bin/Release
+/02.Code/SAF/SAF.Framework.Test/obj/Release

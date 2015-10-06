@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shell));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiMessage = new DevExpress.XtraBars.BarStaticItem();
@@ -56,10 +55,10 @@
             this.txtFind = new DevExpress.XtraEditors.TextEdit();
             this.btnRefreshMenu = new DevExpress.XtraEditors.SimpleButton();
             this.systemMenuGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollectionTreeList = new DevExpress.Utils.ImageCollection();
             this.splMenu = new DevExpress.XtraEditors.SplitterControl();
-            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navMainMenu)).BeginInit();
             this.navMainMenu.SuspendLayout();
@@ -176,7 +175,7 @@
             this.groupHelp.ItemLinks.Add(this.bbiHomepage, true);
             this.groupHelp.ItemLinks.Add(this.bbiAbout);
             this.groupHelp.ItemLinks.Add(this.bbiHelp);
-            this.groupHelp.MergeOrder = 9000;
+            this.groupHelp.MergeOrder = 5000;
             this.groupHelp.Name = "groupHelp";
             this.groupHelp.ShowCaptionButton = false;
             this.groupHelp.Text = "帮助";

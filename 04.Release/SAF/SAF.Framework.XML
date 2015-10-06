@@ -703,6 +703,16 @@
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
         </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_Database_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_Document_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
         <member name="P:SAF.Framework.Properties.Resources.Icon_EMail_16x16">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
@@ -723,6 +733,26 @@
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
         </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_FlagBlue_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_FlagGreen_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_FlagRed_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_FlagYellow_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
         <member name="P:SAF.Framework.Properties.Resources.Icon_FolderClosed_16x16">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
@@ -739,6 +769,11 @@
             </summary>
         </member>
         <member name="P:SAF.Framework.Properties.Resources.Icon_Form_32x32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SAF.Framework.Properties.Resources.Icon_Handtool_32x32">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
