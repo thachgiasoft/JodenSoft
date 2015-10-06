@@ -205,7 +205,7 @@
             this.groupData.ItemLinks.Add(this.bbiCancel);
             this.groupData.ItemLinks.Add(this.bbiDelete);
             this.groupData.ItemLinks.Add(this.bbiSave);
-            this.groupData.MergeOrder = 10;
+            this.groupData.MergeOrder = 100;
             this.groupData.Name = "groupData";
             this.groupData.ShowCaptionButton = false;
             this.groupData.Text = "数据";
@@ -214,7 +214,7 @@
             // 
             this.groupCooperation.AllowTextClipping = false;
             this.groupCooperation.ItemLinks.Add(this.bbiSend);
-            this.groupCooperation.MergeOrder = 20;
+            this.groupCooperation.MergeOrder = 200;
             this.groupCooperation.Name = "groupCooperation";
             this.groupCooperation.ShowCaptionButton = false;
             this.groupCooperation.Text = "协作";
@@ -223,7 +223,7 @@
             // 
             this.groupReport.AllowTextClipping = false;
             this.groupReport.ItemLinks.Add(this.bbiPreview);
-            this.groupReport.MergeOrder = 30;
+            this.groupReport.MergeOrder = 300;
             this.groupReport.Name = "groupReport";
             this.groupReport.ShowCaptionButton = false;
             this.groupReport.Text = "报表";
@@ -231,7 +231,7 @@
             // groupCustom
             // 
             this.groupCustom.AllowTextClipping = false;
-            this.groupCustom.MergeOrder = 70;
+            this.groupCustom.MergeOrder = 700;
             this.groupCustom.Name = "groupCustom";
             this.groupCustom.ShowCaptionButton = false;
             this.groupCustom.Text = "自定义";
@@ -241,7 +241,7 @@
             this.groupOperation.AllowTextClipping = false;
             this.groupOperation.ItemLinks.Add(this.bbiAddToFavorite);
             this.groupOperation.ItemLinks.Add(this.bbiExitView);
-            this.groupOperation.MergeOrder = 10000;
+            this.groupOperation.MergeOrder = 1000;
             this.groupOperation.Name = "groupOperation";
             this.groupOperation.ShowCaptionButton = false;
             this.groupOperation.Text = "操作";
@@ -309,6 +309,7 @@
             // qcMain
             // 
             this.qcMain.AdditionalCondition = null;
+            this.qcMain.Icon = null;
             this.qcMain.Location = new System.Drawing.Point(2, 3);
             this.qcMain.MaximumSize = new System.Drawing.Size(250, 22);
             this.qcMain.MinimumSize = new System.Drawing.Size(250, 22);
@@ -329,6 +330,7 @@
             // 
             this.pcMain.CurrentPageIndex = 1;
             this.pcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcMain.Icon = null;
             this.pcMain.IsSimpleMode = false;
             this.pcMain.Location = new System.Drawing.Point(2, 2);
             this.pcMain.MaximumSize = new System.Drawing.Size(0, 26);

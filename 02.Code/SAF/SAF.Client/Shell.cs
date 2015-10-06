@@ -131,11 +131,8 @@ namespace SAF.Client
             this.splMenu.Visible = false;
             this.navMainMenu.Visible = false;
 
-            this.bbiWelcomePage.Enabled = false;
-            this.bbiWelcomePage.Visibility = BarItemVisibility.Never;
-
-            this.bbiNavigation.Enabled = false;
-            this.bbiNavigation.Visibility = BarItemVisibility.Never;
+            this.groupSystem.Visible = false;
+            this.groupSystem.Enabled = false;
 
             InitLoginControl();
         }
@@ -297,11 +294,8 @@ namespace SAF.Client
             this.splMenu.Visible = true;
             this.navMainMenu.Visible = true;
 
-            this.bbiWelcomePage.Enabled = true;
-            this.bbiWelcomePage.Visibility = BarItemVisibility.Always;
-
-            this.bbiNavigation.Enabled = true;
-            this.bbiNavigation.Visibility = BarItemVisibility.Always;
+            this.groupSystem.Visible = true;
+            this.groupSystem.Enabled = true;
         }
 
         #region myMenuEntitySet

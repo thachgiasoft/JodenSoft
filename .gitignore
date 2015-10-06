@@ -20,3 +20,5 @@
 /02.Code/SAF/SAF.Framework.Controls.Test/obj/Debug
 /02.Code/SAF/SAF.Framework.Services/obj/Debug
 *.pdb
+/02.Code/SAF/SAF.Framework.Test/bin/Debug
+/02.Code/SAF/SAF.Framework.Test/obj/Debug
