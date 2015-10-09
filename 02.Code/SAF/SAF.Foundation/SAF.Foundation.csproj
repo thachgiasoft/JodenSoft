@@ -102,6 +102,7 @@
     <Compile Include="Security\AESHelper.cs" />
     <Compile Include="Security\SHA1Helper.cs" />
     <Compile Include="ServiceModel\FileDragDropManager.cs" />
+    <Compile Include="ServiceModel\LocalPrinter.cs" />
     <Compile Include="ServiceModel\ServiceManager.cs" />
     <Compile Include="Exceptions\FieldNotFoundException.cs" />
     <Compile Include="Exceptions\NoMarkedException.cs" />
