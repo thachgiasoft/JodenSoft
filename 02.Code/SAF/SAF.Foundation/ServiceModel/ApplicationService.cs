@@ -83,7 +83,12 @@ namespace SAF.Foundation.ServiceModel
         {
             get
             {
-                return Path.Combine(Application.StartupPath, "Config");
+                var path = Path.Combine(Application.StartupPath, "Config");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                return path;
             }
         }
     }

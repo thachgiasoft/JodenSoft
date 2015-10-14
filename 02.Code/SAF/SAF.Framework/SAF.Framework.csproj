@@ -161,6 +161,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReportService\QuickPrintManager.cs" />
     <Compile Include="ReportService\ReportService.cs" />
     <Compile Include="ReportService\TableReleation.cs" />
     <Compile Include="ServiceModel\FormMembershipProvider.cs" />

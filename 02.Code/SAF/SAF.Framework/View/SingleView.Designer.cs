@@ -191,8 +191,8 @@
             this.systemPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.groupData,
             this.groupCooperation,
-            this.groupReport,
             this.groupCustom,
+            this.groupReport,
             this.groupOperation});
             this.systemPage.Name = "systemPage";
             this.systemPage.Text = "系统";
@@ -223,7 +223,7 @@
             // 
             this.groupReport.AllowTextClipping = false;
             this.groupReport.ItemLinks.Add(this.bbiPreview);
-            this.groupReport.MergeOrder = 300;
+            this.groupReport.MergeOrder = 700;
             this.groupReport.Name = "groupReport";
             this.groupReport.ShowCaptionButton = false;
             this.groupReport.Text = "报表";
@@ -231,7 +231,7 @@
             // groupCustom
             // 
             this.groupCustom.AllowTextClipping = false;
-            this.groupCustom.MergeOrder = 700;
+            this.groupCustom.MergeOrder = 300;
             this.groupCustom.Name = "groupCustom";
             this.groupCustom.ShowCaptionButton = false;
             this.groupCustom.Text = "自定义";

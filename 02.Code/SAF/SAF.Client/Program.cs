@@ -68,9 +68,6 @@ namespace SAF.Client
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载组件");
             ComposeModules();
 
-            SAF.Framework.Controls.SplashScreen.ShowMessage("正在创建系统目录");
-            CreateSystemDirectory();
-
             SAF.Framework.Controls.SplashScreen.ShowMessage("正在加载系统配置信息");
             LoadSystemConfiguration();
 
@@ -99,24 +96,6 @@ namespace SAF.Client
         private static void ShowMessage(string message)
         {
             SAF.Framework.Controls.SplashScreen.ShowMessage(message);
-        }
-
-        /// <summary>
-        /// 创建系统保存配置信息的目录
-        /// </summary>
-        private static void CreateSystemDirectory()
-        {
-            try
-            {
-                if (!Directory.Exists(ApplicationService.Current.ConfigFilePath))
-                {
-                    Directory.CreateDirectory(ApplicationService.Current.ConfigFilePath);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new CoreException("创建系统文件保存目录时出现错误，请查看错误详细信息。", ex);
-            }
         }
 
         /// <summary>

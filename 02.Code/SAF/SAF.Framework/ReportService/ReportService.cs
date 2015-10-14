@@ -15,6 +15,8 @@ using DevExpress.XtraReports.Parameters;
 using System.Data;
 using SAF.Framework.View;
 using SAF.Framework.Entity;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraEditors.Controls;
 
 namespace SAF.Framework
 {
@@ -321,6 +323,116 @@ Order by a.OrderIndex";
             var reportService = new ReportService(view, bbiReport, reportIds);
             reportService.Initialize();
             return reportService;
+        }
+
+        private void GenerateQuickPrinterToRibbon(RibbonPageGroup quickPrinterRibbonGroup)
+        {
+            //if (quickPrinterRibbonGroup.ItemLinks.Count > 0)
+            //    return;
+            //var printButtons = new Dictionary<int, BarButtonItem>();
+            //var printLabel = new Dictionary<int, BarStaticItem>();
+
+            //var printerList = LocalPrinter.GetLocalPrinters();
+
+            //var reportIdList = this.reportIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            //foreach (var reportId in reportIdList)
+            //{
+            //    string reportName = this.GetDefaultFormatName(Convert.ToInt32(reportId));
+            //    BarEditItem bbiChoosePrinter = null;
+            //    if (!_sChoosePrinterReportIdList.m_IsEmpty() && _sChoosePrinterReportIdList.Contains(reportId))
+            //    {
+            //        //添加选择打印机
+            //        //label
+            //        var lblPrinter = new BarStaticItem();
+            //        lblPrinter.Caption = reportName + "打印机";
+            //        printLabel.Add(Convert.ToInt32(reportId), lblPrinter);
+            //        quickPrinterRibbonGroup.Ribbon.Items.Add(lblPrinter);
+            //        quickPrinterRibbonGroup.ItemLinks.Add(lblPrinter, true);
+
+            //        //combobox
+            //        var cbbChoosePrinter = new RepositoryItemComboBox();
+            //        cbbChoosePrinter.AutoHeight = false;
+            //        cbbChoosePrinter.Name = "cbbChoosePrinter_" + reportId;
+            //        cbbChoosePrinter.TextEditStyle = TextEditStyles.DisableTextEditor;
+            //        cbbChoosePrinter.Items.AddRange(printerList);
+            //        //item
+            //        bbiChoosePrinter = new BarEditItem();
+            //        bbiChoosePrinter.RibbonStyle = RibbonItemStyles.SmallWithoutText;
+            //        bbiChoosePrinter.Edit = cbbChoosePrinter;
+            //        bbiChoosePrinter.Name = "bbiChoosePrinter_" + reportId;
+            //        bbiChoosePrinter.Width = 100;
+            //        quickPrinterRibbonGroup.Ribbon.Items.Add(bbiChoosePrinter);
+            //        quickPrinterRibbonGroup.ItemLinks.Add(bbiChoosePrinter);
+
+            //        //设置为默认打印机
+            //        bbiChoosePrinter.EditValue = LocalPrinter.DefaultPrinter;
+            //        var config = QuickPrintConfigManager.Current.GetQuickPrintItem(this._iFormId, Convert.ToInt32(reportId));
+            //        if (config != null && !config.PrinterName.m_IsEmpty() && printerList.Contains(config.PrinterName))
+            //        {
+            //            bbiChoosePrinter.EditValue = config.PrinterName;
+            //        }
+
+            //        bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.m_ToStringEx();
+            //        bbiChoosePrinter.EditValueChanged += delegate
+            //        {
+            //            var item = new QuickPrintItem()
+            //            {
+            //                FormId = this._iFormId,
+            //                ReportId = Convert.ToInt32(reportId),
+            //                PrinterName = bbiChoosePrinter.EditValue.m_ToStringEx()
+            //            };
+            //            QuickPrintConfigManager.Current.AddConfig(item);
+            //            QuickPrintConfigManager.Current.SaveConfig();
+            //            bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.m_ToStringEx();
+            //        };
+            //    }
+            //    //添加快速打印按钮
+            //    //添加打印机按钮
+            //    var bbiQuickPrint = new HuanSi.XtraBars.BarButtonItem();
+
+            //    bbiQuickPrint.Caption = "打印";
+            //    bbiQuickPrint.Hint = reportName;
+            //    bbiQuickPrint.Name = "bbiQuickPrint_" + reportId;
+            //    bbiQuickPrint.Tag = reportId;
+            //    bbiQuickPrint.refreshMode = HuanSi.Data.RefreshMode.Disable;
+            //    bbiQuickPrint.LargeGlyph = _quickPrinterImage;
+
+            //    bbiQuickPrint.ItemClick += (sender, args) =>
+            //    {
+            //        if (bbiChoosePrinter != null)
+            //        {
+            //            var priterName = bbiChoosePrinter.EditValue.m_ToStringEx();
+            //            if (priterName.m_IsEmpty())
+            //            {
+            //                HSMessageService.m_ShowError("请选择打印机.");
+            //                return;
+            //            }
+            //            this.QuickPrint(Convert.ToInt32(reportId), priterName);
+            //        }
+            //        else
+            //        {
+            //            this.QuickPrint(Convert.ToInt32(reportId), LocalPrinter.DefaultPrinter);
+            //        }
+            //    };
+            //    printButtons.Add(Convert.ToInt32(reportId), bbiQuickPrint);
+            //    this._quickPrinterRibbonGroup.Ribbon.Items.Add(bbiQuickPrint);
+            //    this._quickPrinterRibbonGroup.ItemLinks.Add(bbiQuickPrint);
+
+            //    this.ReportFormatChanged += (sender, args) =>
+            //    {
+            //        if (printButtons.ContainsKey(args.m_ReportId))
+            //        {
+            //            var btn = printButtons[args.m_ReportId];
+            //            btn.Hint = args.m_ReportFormatName;
+            //        }
+            //        if (printLabel.ContainsKey(args.m_ReportId))
+            //        {
+            //            var lbl = printLabel[args.m_ReportId];
+            //            lbl.Caption = "{0}打印机".m_FormatEx(args.m_ReportFormatName);
+            //        }
+            //    };
+            //}
         }
 
     }
