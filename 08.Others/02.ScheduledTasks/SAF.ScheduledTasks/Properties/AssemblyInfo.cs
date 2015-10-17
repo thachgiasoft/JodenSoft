@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ScheduledTasks")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CRMicro")]
+[assembly: AssemblyCompany("苏州聚达")]
 [assembly: AssemblyProduct("ScheduledTasks")]
-[assembly: AssemblyCopyright("Copyright © CRMicro 2011")]
+[assembly: AssemblyCopyright("Copyright © 苏州聚达 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

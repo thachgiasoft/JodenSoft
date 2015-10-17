@@ -13,11 +13,11 @@ namespace ScheduleQueryPortal.Foundation
         /// <summary>
         /// The assembly copyright
         /// </summary>
-        public const string AssemblyCopyright = "Copyright © 2000-2013 上海环思软件.";
+        public const string AssemblyCopyright = "Copyright © 2000-2013 苏州聚达.";
         /// <summary>
         /// The assembly company
         /// </summary>
-        public const string AssemblyCompany = "上海环思软件";
+        public const string AssemblyCompany = "苏州聚达";
         /// <summary>
         /// The assembly version
         /// </summary>

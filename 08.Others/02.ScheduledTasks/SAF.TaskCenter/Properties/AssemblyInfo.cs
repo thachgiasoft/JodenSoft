@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TaskCenter")]
 [assembly: AssemblyDescription("任务调度中心")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Libra")]
+[assembly: AssemblyCompany("苏州聚达")]
 [assembly: AssemblyProduct("TaskCenter")]
-[assembly: AssemblyCopyright("Copyright © Libra 2014")]
+[assembly: AssemblyCopyright("Copyright © 苏州聚达 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
