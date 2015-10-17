@@ -43,3 +43,14 @@
 /08.Others/ScheduleQueryPortal/ScheduleQueryPortal.Foundation/bin
 /08.Others/ScheduleQueryPortal/ScheduleQueryPortal.Foundation/obj
 /08.Others/ScheduleQueryPortal/ScheduleQueryPortal.WebSetup/Release
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal/bin
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal.csproj_deploy
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal/obj
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal.Foundation/bin
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal.Foundation/obj
+/08.Others/01.ScheduleQueryPortal/ScheduleQueryPortal.WebSetup/Release
+/08.Others/02.ScheduledTasks/SAF.ScheduledTasks/bin
+/08.Others/02.ScheduledTasks/SAF.ScheduledTasks/obj
+/08.Others/02.ScheduledTasks/SAF.TaskCenter/bin
+/08.Others/02.ScheduledTasks/SAF.TestJob/bin/Release
+/08.Others/02.ScheduledTasks/SAF.TestJob/obj

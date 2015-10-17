@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.TaskCenter", "SAF.TaskCenter\SAF.TaskCenter.csproj", "{BD623909-E105-4CBF-9063-B26ACDD61A47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.ScheduledTasks", "SAF.ScheduledTasks\SAF.ScheduledTasks.csproj", "{9AC922DF-424A-482D-99FA-37AF929C8FE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.TestJob", "SAF.TestJob\SAF.TestJob.csproj", "{6579FEA4-3058-43DE-B907-832488820636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Debug|Any CPU.Build.0 = Debug|x86
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Debug|x86.ActiveCfg = Debug|x86
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Release|Any CPU.ActiveCfg = Release|x86
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Release|x86.ActiveCfg = Release|x86
+		{BD623909-E105-4CBF-9063-B26ACDD61A47}.Release|x86.Build.0 = Release|x86
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC922DF-424A-482D-99FA-37AF929C8FE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6579FEA4-3058-43DE-B907-832488820636}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
