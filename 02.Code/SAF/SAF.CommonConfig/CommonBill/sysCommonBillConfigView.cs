@@ -55,16 +55,16 @@ namespace SAF.CommonConfig
             this.DataBindings.Add("Config", this.bsMain, "Config");
         }
 
-        private CommonBillConfig _CommonBillConfig = new CommonBillConfig();
+        private SAF.CommonConfig.CommonBill.CommonBillConfig _CommonBillConfig = new SAF.CommonConfig.CommonBill.CommonBillConfig();
 
         public string Config
         {
-            get { return XmlSerializerHelper.Serialize<CommonBillConfig>(_CommonBillConfig); }
+            get { return XmlSerializerHelper.Serialize<SAF.CommonConfig.CommonBill.CommonBillConfig>(_CommonBillConfig); }
             set
             {
-                var obj = XmlSerializerHelper.Deserialize<CommonBillConfig>(value);
+                var obj = XmlSerializerHelper.Deserialize<SAF.CommonConfig.CommonBill.CommonBillConfig>(value);
                 if (obj == null)
-                    _CommonBillConfig = new CommonBillConfig();
+                    _CommonBillConfig = new SAF.CommonConfig.CommonBill.CommonBillConfig();
                 else
                     _CommonBillConfig = obj;
 

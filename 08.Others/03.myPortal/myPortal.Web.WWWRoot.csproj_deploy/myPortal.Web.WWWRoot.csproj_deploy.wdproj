@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  Microsoft Visual Studio 2010 Web Deployment Project 
+  http://go.microsoft.com/fwlink/?LinkID=104956
+
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B41AFE8-90B6-412A-A456-F9188B287BF4}</ProjectGuid>
+    <SourceWebPhysicalPath>..\myPortal.Web.WWWRoot</SourceWebPhysicalPath>
+    <SourceWebProject>{96DBAB31-2113-46D5-B687-4455C4AA2EBD}|myPortal.Web.WWWRoot\myPortal.Web.WWWRoot.csproj</SourceWebProject>
+    <SourceWebVirtualPath>/myPortal.Web.WWWRoot.csproj</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.\Debug</OutputPath>
+    <EnableUpdateable>true</EnableUpdateable>
+    <UseMerge>true</UseMerge>
+    <SingleAssemblyName>myPortal</SingleAssemblyName>
+    <AssemblyPrefixName>
+    </AssemblyPrefixName>
+    <UseFixedNames>false</UseFixedNames>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>.\Release</OutputPath>
+    <EnableUpdateable>true</EnableUpdateable>
+    <UseMerge>true</UseMerge>
+    <SingleAssemblyName>myPortal</SingleAssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\myPortal.Web.WWWRoot\myPortal.Web.WWWRoot.csproj">
+      <Project>{96DBAB31-2113-46D5-B687-4455C4AA2EBD}</Project>
+      <Name>myPortal.Web.WWWRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\myPortal.Web.WWWRoot\myPortal.Web.WWWRoot.csproj">
+      <Project>{96DBAB31-2113-46D5-B687-4455C4AA2EBD}</Project>
+      <Name>myPortal.Web.WWWRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\myPortal.Web.WWWRoot\myPortal.Web.WWWRoot.csproj">
+      <Project>{96DBAB31-2113-46D5-B687-4455C4AA2EBD}</Project>
+      <Name>myPortal.Web.WWWRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportPotal.Web.WWWRoot\ReportPotal.Web.WWWRoot.csproj">
+      <Project>{96DBAB31-2113-46D5-B687-4455C4AA2EBD}</Project>
+      <Name>ReportPotal.Web.WWWRoot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>2.9.26.1</Value>
+      <Value>2.9.26.1021</Value>
+      <Value>2.9.26.1031</Value>
+      <Value>2.10.16.0053</Value>
+      <Value>2.10.16.0101</Value>
+      <Value>2.10.16.105</Value>
+      <Value>2.10.16.1005</Value>
+      <Value>2.10.23.2307</Value>
+      <Value>2.11.1.2333</Value>
+      <Value>2.11.2.939</Value>
+      <Value>2.11.2.1002</Value>
+      <Value>2.11.8.239</Value>
+      <Value>2.11.8.1017</Value>
+      <Value>2.11.8.1600</Value>
+      <Value>2.11.9.300</Value>
+      <Value>2.11.9.942</Value>
+      <Value>2.11.9.1446</Value>
+      <Value>2.11.12.924</Value>
+      <Value>2.11.14.5</Value>
+      <Value>2.11.14.1627</Value>
+      <Value>2.11.16.112</Value>
+      <Value>2.11.16.1708</Value>
+      <Value>2.11.19.2318</Value>
+      <Value>2.11.20.2241</Value>
+      <Value>2.11.21.1331</Value>
+      <Value>2.11.21.1358</Value>
+      <Value>2.11.21.1445</Value>
+      <Value>2.11.27.1755</Value>
+      <Value>2.12.14.1650</Value>
+      <Value>2.12.14.1740</Value>
+      <Value>3.1.6.2324</Value>
+      <Value>3.1.7.1350</Value>
+      <Value>3.1.8.1058</Value>
+      <Value>3.1.17.1620</Value>
+      <Value>3.1.21.845</Value>
+      <Value>3.1.24.137</Value>
+      <Value>3.1.30.908</Value>
+      <Value>3.2.1.1646</Value>
+      <Value>3.2.4.1604</Value>
+      <Value>3.2.22.839</Value>
+      <Value>3.2.22.923</Value>
+      <Value>3.2.24.2358</Value>
+      <Value>3.3.12.1041</Value>
+      <Value>3.3.13.835</Value>
+      <Value>3.3.14.1421</Value>
+      <Value>3.3.15.1320</Value>
+      <Value>3.3.24.2239</Value>
+      <Value>3.3.26.34</Value>
+      <Value>3.3.26.913</Value>
+      <Value>3.3.26.1228</Value>
+      <Value>3.3.26.1404</Value>
+      <Value>3.4.1.1020</Value>
+      <Value>3.4.1.1518</Value>
+      <Value>3.4.1.2218</Value>
+      <Value>3.4.2.1004</Value>
+      <Value>3.4.2.2134</Value>
+      <Value>3.4.9.1948</Value>
+      <Value>3.4.9.2033</Value>
+      <Value>3.4.22.128</Value>
+      <Value>3.4.23.842</Value>
+      <Value>3.4.24.118</Value>
+      <Value>3.4.24.903</Value>
+      <Value>3.4.25.49</Value>
+      <Value>3.4.26.915</Value>
+      <Value>3.4.28.106</Value>
+      <Value>3.4.28.1001</Value>
+      <Value>3.5.2.1458</Value>
+      <Value>3.5.4.1055</Value>
+      <Value>3.5.7.907</Value>
+      <Value>3.5.7.2304</Value>
+      <Value>3.5.16.1</Value>
+      <Value>3.5.20.1</Value>
+      <Value>3.5.22.2338</Value>
+      <Value>3.5.23.5</Value>
+      <Value>3.5.23.846</Value>
+      <Value>3.5.24.1</Value>
+      <Value>3.5.24.2252</Value>
+      <Value>3.5.27.203</Value>
+      <Value>3.6.4.21</Value>
+      <Value>3.6.5.21</Value>
+      <Value>3.6.19.1439</Value>
+      <Value>3.7.15.1143</Value>
+      <Value>3.7.20.1421</Value>
+      <Value>3.8.6.109</Value>
+      <Value>3.8.7.106</Value>
+      <Value>3.8.10.1029</Value>
+      <Value>1.0.0.1</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>2.0.0.0</Value>
+      <Value>2.0.0.1</Value>
+      <Value>3.0.0.1</Value>
+      <Value>1.0.0.1</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>2.9.27.2350</Value>
+      <Value>2.10.22.2239</Value>
+      <Value>2.10.23.2313</Value>
+      <Value>2.10.25.132</Value>
+      <Value>2.10.25.1025</Value>
+      <Value>2.10.30.2319</Value>
+      <Value>2.11.1.2333</Value>
+      <Value>2.11.2.939</Value>
+      <Value>2.11.2.1002</Value>
+      <Value>2.11.8.239</Value>
+      <Value>2.11.8.1017</Value>
+      <Value>2.11.8.1600</Value>
+      <Value>2.11.9.300</Value>
+      <Value>2.11.9.942</Value>
+      <Value>2.11.9.1446</Value>
+      <Value>2.11.12.924</Value>
+      <Value>2.11.14.5</Value>
+      <Value>2.11.14.1627</Value>
+      <Value>2.11.16.112</Value>
+      <Value>2.11.16.1708</Value>
+      <Value>2.11.19.2318</Value>
+      <Value>2.11.20.2241</Value>
+      <Value>2.11.21.1331</Value>
+      <Value>2.11.21.1358</Value>
+      <Value>2.11.21.1445</Value>
+      <Value>2.11.27.1755</Value>
+      <Value>2.12.14.1650</Value>
+      <Value>2.12.14.1740</Value>
+      <Value>3.1.6.2324</Value>
+      <Value>3.1.7.1350</Value>
+      <Value>3.1.8.1058</Value>
+      <Value>3.1.17.1620</Value>
+      <Value>3.1.21.845</Value>
+      <Value>3.1.24.137</Value>
+      <Value>3.1.30.908</Value>
+      <Value>3.2.1.1646</Value>
+      <Value>3.2.4.1604</Value>
+      <Value>3.2.22.839</Value>
+      <Value>3.2.22.923</Value>
+      <Value>3.2.24.2358</Value>
+      <Value>3.3.12.1041</Value>
+      <Value>3.3.13.835</Value>
+      <Value>3.3.14.1421</Value>
+      <Value>3.3.15.1320</Value>
+      <Value>3.3.24.2239</Value>
+      <Value>3.3.26.34</Value>
+      <Value>3.3.26.913</Value>
+      <Value>3.3.26.1228</Value>
+      <Value>3.3.26.1404</Value>
+      <Value>3.4.1.1020</Value>
+      <Value>3.4.1.1518</Value>
+      <Value>3.4.1.2218</Value>
+      <Value>3.4.2.1004</Value>
+      <Value>3.4.2.2134</Value>
+      <Value>3.4.9.1948</Value>
+      <Value>3.4.9.2033</Value>
+      <Value>3.4.22.128</Value>
+      <Value>3.4.23.842</Value>
+      <Value>3.4.24.118</Value>
+      <Value>3.4.24.903</Value>
+      <Value>3.4.25.49</Value>
+      <Value>3.4.26.915</Value>
+      <Value>3.4.28.106</Value>
+      <Value>3.4.28.1001</Value>
+      <Value>3.5.2.1458</Value>
+      <Value>3.5.4.1055</Value>
+      <Value>3.5.7.907</Value>
+      <Value>3.5.7.2304</Value>
+      <Value>3.5.16.1</Value>
+      <Value>3.5.20.1</Value>
+      <Value>3.5.22.2338</Value>
+      <Value>3.5.23.5</Value>
+      <Value>3.5.23.846</Value>
+      <Value>3.5.24.1</Value>
+      <Value>3.5.24.2252</Value>
+      <Value>3.5.27.203</Value>
+      <Value>3.6.4.21</Value>
+      <Value>3.6.5.21</Value>
+      <Value>3.6.19.1439</Value>
+      <Value>3.7.15.1143</Value>
+      <Value>3.7.20.1421</Value>
+      <Value>3.8.6.109</Value>
+      <Value>3.8.7.106</Value>
+      <Value>3.8.10.1029</Value>
+      <Value>1.0.0.1</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>2.0.0.1</Value>
+      <Value>3.0.0.1</Value>
+      <Value>1.0.0.1</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WebDeployment\v10.0\Microsoft.WebDeployment.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.WebDeployment.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="BeforeMerge">
+  </Target>
+  <Target Name="AfterMerge">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

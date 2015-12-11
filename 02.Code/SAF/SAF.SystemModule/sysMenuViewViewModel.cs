@@ -117,7 +117,7 @@ ORDER BY [ParentId],[MenuOrder]".FormatWith(key ?? int.MinValue);
         public void QueryMenuParam()
         {
             string sql = @"
-SELECT A.Iden,A.MenuId,Name,A.ControlType,A.Description,ValueAlias=A.Value, A.CreatedBy,A.CreatedOn,A.ModifiedBy,A.ModifiedOn,A.VersionNumber
+SELECT A.Iden,A.MenuId,Name,A.ControlType,A.Description,ValueAlias=A.Value,A.Category, A.CreatedBy,A.CreatedOn,A.ModifiedBy,A.ModifiedOn,A.VersionNumber
 FROM dbo.sysMenuParam A WITH(NOLOCK)
 WHERE [MenuId]=:MenuId";
 
@@ -135,12 +135,12 @@ WHERE [MenuId]=:MenuId";
                         item.Value = bValue;
                         break;
                     case ViewParameterControlType.ComboboxEdit:
-                    case ViewParameterControlType.IntSpinEdit:
+                    case ViewParameterControlType.IntEdit:
                         int iValue;
                         int.TryParse(item.ValueAlias.ToStringEx(), out iValue);
                         item.Value = iValue;
                         break;
-                    case ViewParameterControlType.FloatSpinEdit:
+                    case ViewParameterControlType.FloatEdit:
                         decimal fValue;
                         decimal.TryParse(item.ValueAlias.ToStringEx(), out fValue);
                         item.Value = fValue;
@@ -183,14 +183,13 @@ WHERE [MenuId]=:MenuId";
         protected override void OnDelete()
         {
             this.ExecuteCache.Execute(0, "DELETE [sysRoleMenu] WHERE MenuId=:menuId", this.MainEntitySet.CurrentEntity.Iden);
-            this.MenuParamEntitySet.DeleteAll();
             base.OnDelete();
         }
 
-        protected override void OnApplySave()
+        protected override void OnInitConfig()
         {
-            base.OnApplySave();
-            this.MenuParamEntitySet.SaveChanges();
+            base.OnInitConfig();
+            this.MainEntitySet.ChildEntitySets.Add(this.MenuParamEntitySet);
         }
 
         protected override void OnEndEdit()

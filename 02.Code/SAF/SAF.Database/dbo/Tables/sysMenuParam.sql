@@ -1,9 +1,10 @@
 ﻿CREATE TABLE [dbo].[sysMenuParam] (
     [Iden]          INT            NOT NULL,
     [MenuId]        INT            NOT NULL,
-    [Name]          NVARCHAR (100) NOT NULL,
-	[ControlType]	INT NOT NULL CONSTRAINT [DF_sysMenupARAM_ControlType] DEFAULT 0,
-    [Value]         NVARCHAR(200) NULL,
+    [Name]          NVARCHAR (200) NOT NULL,
+	[Category]		NVARCHAR(200)  NOT NULL CONSTRAINT [DF_SysMenuParam_Category] DEFAULT '',
+	[ControlType]	INT NOT NULL CONSTRAINT [DF_sysMenuParam_ControlType] DEFAULT 0,
+    [Value]         NVARCHAR(MAX) NULL,
     [Description]   NVARCHAR (MAX) NULL,
     [CreatedBy]     INT            NULL,
     [CreatedOn]     DATETIME       NULL,

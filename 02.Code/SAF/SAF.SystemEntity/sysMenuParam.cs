@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SAF.Foundation;
 
 namespace SAF.SystemEntity
 {
@@ -35,6 +36,18 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(P => P.Name, value); }
         }
 
+        public string Category
+        {
+            get { return base.GetFieldValue<string>(P => P.Category); }
+            set
+            {
+                if (value.IsEmpty())
+                    base.SetFieldValue(p => p.Category, "通用配置");
+                else
+                    base.SetFieldValue(P => P.Category, value);
+            }
+        }
+
         public int ControlType
         {
             get { return base.GetFieldValue<int>(P => P.ControlType); }
@@ -47,11 +60,12 @@ namespace SAF.SystemEntity
             set { base.SetFieldValue(P => P.Value, value); }
         }
 
-        public object ValueAlias
+        public string ValueAlias
         {
-            get { return base.GetFieldValue<object>(P => P.ValueAlias); }
+            get { return base.GetFieldValue<string>(P => P.ValueAlias); }
             set { base.SetFieldValue(P => P.ValueAlias, value); }
         }
+
 
         public string Description
         {

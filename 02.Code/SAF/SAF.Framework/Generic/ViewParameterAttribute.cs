@@ -10,6 +10,7 @@ namespace SAF.Framework
     [AttributeUsage(AttributeTargets.Property, Inherited = true, AllowMultiple = false)]
     public class ViewParameterAttribute : Attribute
     {
+        public string Category { get; set; }
         public string Desctiption { get; private set; }
 
         public ViewParameterControlType ControlType { get; private set; }
@@ -23,6 +24,7 @@ namespace SAF.Framework
         {
             this.Desctiption = description;
             this.ControlType = controlType;
+            this.Category = "通用配置";
         }
     }
 
@@ -31,8 +33,10 @@ namespace SAF.Framework
         TextEdit = 0,
         RichTextEdit = 1,
         CheckEdit = 2,
-        IntSpinEdit = 3,
-        FloatSpinEdit = 4,
-        ComboboxEdit = 5
+        IntEdit = 3,
+        FloatEdit = 4,
+        ComboboxEdit = 5,
+        TreeLookupEdit = 6,
+        GridLookupEdit = 7
     }
 }

@@ -196,13 +196,9 @@
             this.treeIndex.KeyFieldName = "Iden";
             this.treeIndex.Location = new System.Drawing.Point(0, 2);
             this.treeIndex.Name = "treeIndex";
-            this.treeIndex.OptionsBehavior.AllowCopyToClipboard = false;
-            this.treeIndex.OptionsBehavior.AllowQuickHideColumns = false;
             this.treeIndex.OptionsBehavior.AutoPopulateColumns = false;
             this.treeIndex.OptionsBehavior.Editable = false;
-            this.treeIndex.OptionsBehavior.ExpandNodeOnDrag = false;
             this.treeIndex.OptionsBehavior.ImmediateEditor = false;
-            this.treeIndex.OptionsBehavior.MoveOnEdit = false;
             this.treeIndex.OptionsBehavior.ReadOnly = true;
             this.treeIndex.OptionsBehavior.ResizeNodes = false;
             this.treeIndex.OptionsSelection.InvertSelection = true;

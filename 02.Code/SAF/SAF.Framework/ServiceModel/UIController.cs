@@ -211,6 +211,10 @@ namespace SAF.Framework
             {
                 (aControl as TextEditorControl).IsReadOnly = !bEnabled;
             }
+            else if (aControl is Controls.PropertyGrid)
+            {
+                (aControl as Controls.PropertyGrid).Editable = bEnabled;
+            }
             else if (aControl is ListBoxControl)
             {
                 //ListBoxControl 即只读

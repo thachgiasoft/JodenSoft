@@ -69,6 +69,7 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCategory = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.SuspendLayout();
@@ -84,7 +85,6 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
@@ -172,10 +172,6 @@
             // 
             this.pageMain.Controls.Add(this.lcMain);
             this.pageMain.Size = new System.Drawing.Size(499, 212);
-            // 
-            // bmMain
-            // 
-            this.bmMain.MaxItemId = 1;
             // 
             // lcMain
             // 
@@ -610,11 +606,17 @@
             this.grvParams.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colName,
             this.colValue,
-            this.colDescription});
+            this.colDescription,
+            this.colCategory});
+            this.grvParams.CustomizationFormBounds = new System.Drawing.Rectangle(620, 375, 216, 190);
             this.grvParams.GridControl = this.grdParams;
+            this.grvParams.GroupCount = 1;
             this.grvParams.Name = "grvParams";
+            this.grvParams.OptionsBehavior.AutoExpandAllGroups = true;
             this.grvParams.OptionsView.ColumnAutoWidth = false;
             this.grvParams.OptionsView.ShowGroupPanel = false;
+            this.grvParams.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCategory, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colName
             // 
@@ -622,7 +624,7 @@
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
+            this.colName.VisibleIndex = 2;
             // 
             // colValue
             // 
@@ -638,7 +640,15 @@
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 2;
+            this.colDescription.VisibleIndex = 0;
+            // 
+            // colCategory
+            // 
+            this.colCategory.Caption = "分组";
+            this.colCategory.FieldName = "Category";
+            this.colCategory.Name = "colCategory";
+            this.colCategory.Visible = true;
+            this.colCategory.VisibleIndex = 3;
             // 
             // sysMenuView
             // 
@@ -661,7 +671,6 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -744,5 +753,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit txtDescription;
         private DevExpress.XtraLayout.LayoutControlItem lciDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colCategory;
     }
 }

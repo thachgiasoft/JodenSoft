@@ -21,7 +21,7 @@ namespace SAF.Framework.View
     public partial class SingleView : BusinessView, ISingleView
     {
         [Browsable(false)]
-        [ViewParameter("报表ID", ViewParameterControlType.TextEdit)]
+        [ViewParameter("报表ID列表", ViewParameterControlType.TextEdit, Category ="报表配置")]
         public string ReportIds
         {
             get
@@ -31,6 +31,20 @@ namespace SAF.Framework.View
             set
             {
                 ViewParameters["ReportIds"] = value;
+            }
+        }
+
+        [Browsable(false)]
+        [ViewParameter("快速打印报表ID列表", ViewParameterControlType.TextEdit, Category = "报表配置")]
+        public string QucikPrintReportIds
+        {
+            get
+            {
+                return ViewParameters["QucikPrintReportIds"].ToStringEx();
+            }
+            set
+            {
+                ViewParameters["QucikPrintReportIds"] = value;
             }
         }
 

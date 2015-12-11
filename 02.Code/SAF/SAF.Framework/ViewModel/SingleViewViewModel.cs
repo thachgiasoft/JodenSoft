@@ -288,17 +288,17 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnDelete()
         {
-            if (this.indexEntitySet.CurrentEntity != null && !this.IndexUseForGroup)
-                this.IndexEntitySet.DeleteCurrent();
-
-            if (this.mainEntitySet.CurrentEntity != null)
-                this.MainEntitySet.DeleteCurrent();
-
             foreach (var child in this.MainEntitySet.ChildEntitySets)
             {
                 if (!child.IsReadOnly)
                     child.DeleteCurrent();
             }
+
+            if (this.mainEntitySet.CurrentEntity != null)
+                this.MainEntitySet.DeleteCurrent();
+
+            if (this.indexEntitySet.CurrentEntity != null && !this.IndexUseForGroup)
+                this.IndexEntitySet.DeleteCurrent();
         }
 
         public void Cancel()

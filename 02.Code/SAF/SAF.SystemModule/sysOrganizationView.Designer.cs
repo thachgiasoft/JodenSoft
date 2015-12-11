@@ -263,7 +263,6 @@
             this.treeOrg.OptionsBehavior.AutoChangeParent = false;
             this.treeOrg.OptionsBehavior.AutoNodeHeight = false;
             this.treeOrg.OptionsBehavior.Editable = false;
-            this.treeOrg.OptionsBehavior.ExpandNodeOnDrag = false;
             this.treeOrg.OptionsBehavior.ResizeNodes = false;
             this.treeOrg.OptionsView.ShowColumns = false;
             this.treeOrg.OptionsView.ShowHorzLines = false;

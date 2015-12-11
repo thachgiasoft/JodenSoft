@@ -1,0 +1,55 @@
+﻿/*登录页面的样式*/
+BODY 
+{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: center;
+	vertical-align:middle;
+	margin: 0;
+	padding: 0; 
+}
+DIV 
+{
+	padding: 0px;	
+	text-align:center;
+	margin-top: 2px;
+	font-weight: bold;
+}
+.text /*用户名与密码两个文本框的样式*/
+{
+	width: 130px;
+	height: 16px;
+	line-height: 16px;
+	font-size: 12px;
+	border: 1px solid  lightdark;
+}
+.ddlDept /*服务单位的样式*/
+{
+	width: 134px;
+	font-size: 12px;
+    border: solid 1px lightdark;
+}
+.loginBtn
+{
+    background-image: url(../img/frame/btn_login.gif);
+    width: 65px;     
+    height: 26px; 
+    border-style:solid;
+    background-color: transparent;
+    margin-top: 5px;
+}
+.divMain
+{
+    width: 500px; 
+    height: 300px; 
+    /*background: url(../img/frame/login.gif);*/
+    margin: 10px auto 0;
+}
+.divInput
+{
+    position:relative; 
+    left:0px; 
+    top:10px; 
+    width:350px;
+    text-align: left;
+}

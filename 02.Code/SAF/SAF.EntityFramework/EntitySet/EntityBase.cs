@@ -92,7 +92,7 @@ namespace SAF.EntityFramework
                 {
                     this.DataRowView.Row.SetField(fieldName, value);
                 }
-                this.DataRowView.EndEdit();
+                this.DataRowView.Row.EndEdit();
                 NotifyPropertyChanged(fieldName);
             }
             else

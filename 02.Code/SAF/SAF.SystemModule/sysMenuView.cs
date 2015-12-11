@@ -54,8 +54,13 @@ namespace SAF.SystemModule
             InitMenuType();
 
             this.treeMenu.GetSelectImage += treeMenu_GetSelectImage;
-            this.gseBusinessView.EditValueChanged += gseBusinessView_EditValueChanged;
+            this.gseBusinessView.EditValueChanging += GseBusinessView_EditValueChanging;
 
+        }
+
+        private void GseBusinessView_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            ReCreateMenuParam();
         }
 
         protected override void OnAfterInit()
@@ -74,17 +79,23 @@ namespace SAF.SystemModule
             this.gluMenuType.Properties.SetDataSource(list, "Key", "Value", "Value|菜单类型");
         }
 
-        void gseBusinessView_EditValueChanged(object sender, EventArgs e)
-        {
-            ReCreateMenuParam();
-        }
-
         private void ReCreateMenuParam()
         {
-            var entity = this.gseBusinessView.Properties.GetSelectedEntity<QueryEntity>();
-            if (entity.IsEmpty()) return;
+            var sql = @"
+SELECT FileName=b.Name,a.ClassName
+FROM dbo.sysBusinessView a WITH(NOLOCK)
+LEFT JOIN dbo.sysFile b WITH(NOLOCK) ON a.FileId=b.Iden
+WHERE a.Iden=:Iden";
+
+            var viewId = this.ViewModel.MainEntitySet.CurrentEntity.BusinessViewId;
+            var esView = new EntitySet<QueryEntity>();
+            esView.Query(sql,viewId);
+            if (esView.IsEmpty()) return;
+
+            var entity = esView.First();
             var fileName = entity.GetFieldValue<string>("FileName");
             if (fileName.IsEmpty()) return;
+
             var typeName = entity.GetFieldValue<string>("ClassName");
             if (typeName.IsEmpty()) return;
 
@@ -128,10 +139,11 @@ namespace SAF.SystemModule
                     param.Name = item.Name;
                     param.ControlType = (int)attr.ControlType;
                     param.Description = attr.Desctiption;
+                    param.Category = attr.Category;
                 }
-
-
+                this.grvParams.RefreshData();
                 this.grvParams.BestFitColumns();
+
             }
             finally
             {
@@ -219,10 +231,10 @@ ORDER BY [Iden]";
                 case ViewParameterControlType.ComboboxEdit:
                     item = new RepositoryItemGridSearchEdit();
                     break;
-                case ViewParameterControlType.FloatSpinEdit:
+                case ViewParameterControlType.FloatEdit:
                     item = new RepositoryItemSpinEdit() { IsFloatValue = true };
                     break;
-                case ViewParameterControlType.IntSpinEdit:
+                case ViewParameterControlType.IntEdit:
                     item = new RepositoryItemSpinEdit() { IsFloatValue = false };
                     break;
                 case ViewParameterControlType.RichTextEdit:
@@ -256,7 +268,7 @@ ORDER BY [Iden]";
             UIController.RefreshControl(this.txtIden, false);
             UIController.RefreshControl(this.txtDescription, false);
 
-            this.grvParams.UnEditableAllColumns();
+            this.grvParams.ReadOnlyAllColumns("Value");
             if (this.IsAddNew || this.IsEdit)
             {
                 this.grvParams.EditableColumns("Value");
