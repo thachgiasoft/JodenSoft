@@ -60,7 +60,7 @@ namespace SAF.Framework
             }
         }
 
-        public ReportService(IBaseView view, BarButtonItem bbiReport, string reportIds)
+        private ReportService(IBaseView view, BarButtonItem bbiReport, string reportIds)
         {
             if (bbiReport == null)
                 throw new ArgumentNullException("bbiReport");
@@ -86,6 +86,8 @@ namespace SAF.Framework
 
             this.bbiReport.ButtonStyle = BarButtonStyle.DropDown;
             this.bbiReport.DropDownControl = reportPopupMenu;
+
+            GenerateQuickPrinterToRibbon();
         }
 
         private void QueryReport()
@@ -325,10 +327,16 @@ Order by a.OrderIndex";
             return reportService;
         }
 
-        private void GenerateQuickPrinterToRibbon(RibbonPageGroup quickPrinterRibbonGroup)
+        private void GenerateQuickPrinterToRibbon()
         {
-            //if (quickPrinterRibbonGroup.ItemLinks.Count > 0)
-            //    return;
+            //添加快速打印组
+            var group = new RibbonPageGroup();
+            group.Text = "快速打印";
+            group.ShowCaptionButton = false;
+            group.AllowTextClipping = false;
+
+            var page = this.mainRibbonControl.Pages.GetPageByName("");
+
             //var printButtons = new Dictionary<int, BarButtonItem>();
             //var printLabel = new Dictionary<int, BarStaticItem>();
 

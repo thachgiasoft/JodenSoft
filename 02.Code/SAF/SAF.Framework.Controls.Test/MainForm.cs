@@ -14,7 +14,7 @@ namespace SAF.Framework.Controls.Test
         public MainForm()
         {
             InitializeComponent();
-            this.propertyGrid1.SelectedObject = new ReportConfig();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)

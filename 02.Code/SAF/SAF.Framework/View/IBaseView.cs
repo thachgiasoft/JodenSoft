@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +68,13 @@ namespace SAF.Framework.View
         /// 
         /// </summary>
         RibbonControl Ribbon { get; }
-
+        /// <summary>
+        /// 界面参数
+        /// </summary>
         ParameterDictionary OutParameters { get; }
+        /// <summary>
+        /// 快速打印按钮
+        /// </summary>
+        IList<BarItem> QuickPrintBarItem { get; }
     }
 }

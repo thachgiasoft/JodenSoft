@@ -437,6 +437,15 @@ namespace SAF.Framework.View
             }
         }
 
+        private List<BarItem> _QuickPrintBarItem = new List<BarItem>();
+        public IList<BarItem> QuickPrintBarItem
+        {
+            get
+            {
+                return _QuickPrintBarItem;
+            }
+        }
+
         private RibbonMenuCommandCollection CustomRibbonMenuCommands = new RibbonMenuCommandCollection();
 
         private Dictionary<BarButtonItem, IRibbonMenuCommand> buttons = new Dictionary<BarButtonItem, IRibbonMenuCommand>();
