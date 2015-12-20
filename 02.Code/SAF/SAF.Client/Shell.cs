@@ -722,7 +722,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                         {
                             object obj = Assembly.LoadFrom(fileName).CreateInstance(className, true);
                             if (obj == null)
-                                throw new Exception("业务窗口'{0}'类型错误,无法创建.该类型在Dll文件中不存在.".FormatWith(className));
+                                throw new Exception("业务窗口'{0}'无法创建.{1}该类型在Dll文件中不存在.".FormatWith(className, Environment.NewLine));
 
                             var ctl = obj as SAF.Framework.View.BaseView;
                             if (ctl != null)
@@ -738,7 +738,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                                 frm.Show();
                             }
                             else
-                                throw new Exception("业务窗口'{0}'不是UserControl,无法加载显示.".FormatWith(className));
+                                throw new Exception("业务窗口'{0}'不是UserControl,无法创建.".FormatWith(className));
 
                             ProgressService.Close(ApplicationService.Current.MainForm);
                         }
