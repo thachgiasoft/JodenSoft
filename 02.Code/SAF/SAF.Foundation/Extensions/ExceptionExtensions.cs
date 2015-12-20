@@ -34,11 +34,11 @@ namespace SAF.Foundation
             Exception e = ex;
             while (e != null)
             {
-                message.AppendLine("Message:{0}".FormatWith(e.Message));
-                message.AppendLine("Source:{0}".FormatWith(e.Source));
-                message.AppendLine("StackTrace:{0}".FormatWith(e.StackTrace));
-                message.AppendLine("TargetSite:{0}".FormatWith(e.TargetSite.ToStringEx()));
-                message.AppendLine("====================================================");
+                message.AppendLine("Message: {0}".FormatWith(e.Message));
+                message.AppendLine("Source: {0}".FormatWith(e.Source));
+                message.AppendLine("StackTrace: {0}".FormatWith(e.StackTrace));
+                message.AppendLine("TargetSite: {0}".FormatWith(e.TargetSite.ToStringEx()));
+                message.AppendLine("===========================");
                 message.AppendLine("");
 
                 e = e.InnerException;
