@@ -14,6 +14,7 @@ using SAF.Foundation;
 using SAF.Framework.Controls;
 using DevExpress.XtraBars;
 using SAF.EntityFramework;
+using DevExpress.XtraBars.Ribbon.Internal;
 
 namespace SAF.Framework.View
 {
@@ -21,7 +22,7 @@ namespace SAF.Framework.View
     public partial class SingleView : BusinessView, ISingleView
     {
         [Browsable(false)]
-        [ViewParameter("报表ID列表", ViewParameterControlType.TextEdit, Category ="报表配置")]
+        [ViewParameter("报表ID列表", ViewParameterControlType.TextEdit, Category = "报表配置")]
         public string ReportIds
         {
             get
@@ -116,14 +117,6 @@ namespace SAF.Framework.View
             get
             {
                 return this.ribbonMain;
-            }
-        }
-
-        public override RibbonPageGroup GroupCustom
-        {
-            get
-            {
-                return this.groupCustom;
             }
         }
 
@@ -562,6 +555,13 @@ namespace SAF.Framework.View
             UIController.RefreshControl(this.bbiSend, IsBrowse && this.BillTypeId > 0 && curr != null && canSendToAudit && curr.BillState == BillState.Draft);
 
             UIController.RefreshControl(this.bbiPreview, IsBrowse && curr != null && canPreview);
+            //刷新快速打印分组
+            var group = this.systemPage.GetGroupByName("groupQuickPrint");
+            if (group != null)
+            {
+                UIController.RefreshControl(group, IsBrowse && curr != null && canPreview);
+            }
+
             UIController.RefreshControl(this.bbiAddToFavorite, AllowAddToFavorite);
             UIController.ShowBarItem(AllowAddToFavorite, bbiAddToFavorite);
 
@@ -644,8 +644,9 @@ namespace SAF.Framework.View
 
         private void bbiAddToFavorite_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!AllowAddToFavorite) return;
             this.OnAddMenuToFavorite();
         }
+
+
     }
 }

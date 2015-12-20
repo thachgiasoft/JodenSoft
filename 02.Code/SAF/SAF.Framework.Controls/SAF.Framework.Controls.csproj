@@ -94,9 +94,6 @@
     <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Printing.v15.2.Service, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
     <Reference Include="DevExpress.XtraReports.v15.2.Service, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>

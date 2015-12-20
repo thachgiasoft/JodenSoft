@@ -236,7 +236,23 @@ namespace SAF.Framework.View
         /// </summary>
         protected virtual void OnRefreshCustomRibbonMenu()
         {
-            if (this.GroupCustom != null)
+            if (this.Ribbon == null) return;
+
+            var systemPage = this.Ribbon.Pages.GetPageByName("systemPage");
+            if (systemPage == null)
+            {
+                LoggingService.Error("BaseView.OnRefreshCustomRibbonMenu处方法GetPageByName未找到systemPage");
+                return;
+            }
+
+            var GroupCustom = systemPage.GetGroupByName("groupCustom");
+            if (GroupCustom == null)
+            {
+                LoggingService.Error("BaseView.OnRefreshCustomRibbonMenu处方法GetGroupByName未找到groupCustom");
+                return;
+            }
+
+            if (GroupCustom != null)
             {
                 if (this.buttons != null && this.buttons.Count > 0)
                 {
@@ -425,27 +441,6 @@ namespace SAF.Framework.View
             }
         }
 
-        /// <summary>
-        /// 自定义菜单分组
-        /// </summary>
-        [Browsable(false)]
-        public virtual RibbonPageGroup GroupCustom
-        {
-            get
-            {
-                return null;
-            }
-        }
-
-        private List<BarItem> _QuickPrintBarItem = new List<BarItem>();
-        public IList<BarItem> QuickPrintBarItem
-        {
-            get
-            {
-                return _QuickPrintBarItem;
-            }
-        }
-
         private RibbonMenuCommandCollection CustomRibbonMenuCommands = new RibbonMenuCommandCollection();
 
         private Dictionary<BarButtonItem, IRibbonMenuCommand> buttons = new Dictionary<BarButtonItem, IRibbonMenuCommand>();
@@ -458,8 +453,13 @@ namespace SAF.Framework.View
         protected void OnGenarateCustomRibbonMenuButtons()
         {
             if (this.CustomRibbonMenuCommands == null || CustomRibbonMenuCommands.Count <= 0) return;
+            if (this.Ribbon == null) return;
 
-            if (this.Ribbon == null || this.GroupCustom == null) return;
+            var systemPage = this.Ribbon.Pages.GetPageByName("systemPage");
+            if (systemPage == null) return;
+
+            var GroupCustom = systemPage.GetGroupByName("groupCustom");
+            if (GroupCustom == null) return;
 
             foreach (var item in CustomRibbonMenuCommands)
             {
@@ -479,7 +479,7 @@ namespace SAF.Framework.View
                 };
 
                 this.Ribbon.Items.Add(btn);
-                this.GroupCustom.ItemLinks.Add(btn, item.BeginGroup);
+                GroupCustom.ItemLinks.Add(btn, item.BeginGroup);
 
                 buttons.Add(btn, item);
             }

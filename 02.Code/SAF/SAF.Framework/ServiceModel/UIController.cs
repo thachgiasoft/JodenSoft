@@ -140,6 +140,7 @@ namespace SAF.Framework
             //FakeFocusContainer 用于刷新Layout里加入Tab后无法切换的问题
             if (aComponent is SplitterControl || aComponent is FakeFocusContainer)
                 return;
+
             //GridView转为单个列刷新
             if (aComponent is GridView)
             {
@@ -150,22 +151,7 @@ namespace SAF.Framework
                 }
                 return;
             }
-            else if (aComponent is Bar)
-            {
-                var bar = aComponent as Bar;
-                foreach (BarItemLink item in bar.ItemLinks)
-                {
-                    item.Item.Enabled = bEnabled;
-                }
-                return;
-            }
-            else if (aComponent is StandaloneBarDockControl)
-            {
-                (aComponent as StandaloneBarDockControl).Enabled = true;
-                return;
-            }
-
-            if (aComponent is GridColumn)
+            else if (aComponent is GridColumn)
             {
                 GridColumn col = aComponent as GridColumn;
                 col.OptionsColumn.ReadOnly = !bEnabled;
@@ -179,13 +165,43 @@ namespace SAF.Framework
                 }
                 return;
             }
+            else if (aComponent is Bar)
+            {
+                var bar = aComponent as Bar;
+                foreach (BarItemLink item in bar.ItemLinks)
+                {
+                    item.Item.Enabled = bEnabled;
+                }
+                return;
+            }
             else if (aComponent is BarItem)
             {
                 BarItem item = aComponent as BarItem;
                 item.Enabled = bEnabled;
                 return;
             }
+            else if (aComponent is RibbonPage)
+            {
+                var item = aComponent as RibbonPage;
+                foreach (RibbonPageGroup group in item.Groups)
+                {
+                    group.Enabled = bEnabled;
+                }
+                return;
+            }
+            else if (aComponent is RibbonPageGroup)
+            {
+                var item = aComponent as RibbonPageGroup;
+                item.Enabled = bEnabled;
+                return;
+            }
+            else if (aComponent is StandaloneBarDockControl)
+            {
+                (aComponent as StandaloneBarDockControl).Enabled = true;
+                return;
+            }
 
+            //刷新Control
             Control aControl = aComponent as Control;
             if (aControl == null)
                 return;

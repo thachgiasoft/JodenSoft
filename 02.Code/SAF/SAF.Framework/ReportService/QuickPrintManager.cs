@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using SAF.Foundation.ComponentModel;
 using SAF.Foundation;
 using SAF.Foundation.ServiceModel;
+using System.Xml.Serialization;
 
 namespace SAF.Framework
 {
@@ -50,10 +51,9 @@ namespace SAF.Framework
                 var xml = File.ReadAllText(ConfigFileName);
                 this.QuickPrintConfig = XmlSerializerHelper.Deserialize<QuickPrintCollection>(xml);
             }
-            else
-            {
+
+            if (this.QuickPrintConfig == null)
                 this.QuickPrintConfig = new QuickPrintCollection();
-            }
         }
 
         public void SaveConfig()
@@ -68,9 +68,9 @@ namespace SAF.Framework
         {
         }
 
-        public QuickPrintItem GetQuickPrintItem(int formId, int reportId)
+        public QuickPrintItem GetQuickPrintItem(object UniqueId, int reportId)
         {
-            return this.QuickPrintConfig.FirstOrDefault(p => p.MenuId == formId && p.ReportId == reportId);
+            return this.QuickPrintConfig.FirstOrDefault(p => p.MenuId.ToString() == UniqueId.ToString() && p.ReportId == reportId);
         }
 
         public void AddConfig(QuickPrintItem item)
@@ -84,21 +84,23 @@ namespace SAF.Framework
                 this.QuickPrintConfig.Add(item);
         }
 
-        public void RemoveConfig(int formId, int reportId)
+        public void RemoveConfig(object menuId, int reportId)
         {
-            var config = this.QuickPrintConfig.FirstOrDefault(p => p.ReportId == reportId && p.MenuId == formId);
+            var config = this.QuickPrintConfig.FirstOrDefault(p => p.ReportId == reportId && p.MenuId == menuId);
             if (config != null)
                 this.QuickPrintConfig.Remove(config);
         }
     }
 
+    [XmlRoot("QuickPrintItem")]
     public class QuickPrintItem
     {
-        public int MenuId { get; set; }
+        public object MenuId { get; set; }
         public int ReportId { get; set; }
         public string PrinterName { get; set; }
     }
 
+    [XmlRoot("QuickPrintCollection")]
     public class QuickPrintCollection : Collection<QuickPrintItem>
     {
 

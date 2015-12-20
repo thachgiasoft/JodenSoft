@@ -43,8 +43,8 @@
             this.systemPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupCooperation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.groupReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupCustom = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.groupReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupOperation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.splitMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitRight = new DevExpress.XtraEditors.SplitContainerControl();
@@ -219,6 +219,14 @@
             this.groupCooperation.ShowCaptionButton = false;
             this.groupCooperation.Text = "协作";
             // 
+            // groupCustom
+            // 
+            this.groupCustom.AllowTextClipping = false;
+            this.groupCustom.MergeOrder = 300;
+            this.groupCustom.Name = "groupCustom";
+            this.groupCustom.ShowCaptionButton = false;
+            this.groupCustom.Text = "自定义";
+            // 
             // groupReport
             // 
             this.groupReport.AllowTextClipping = false;
@@ -227,14 +235,6 @@
             this.groupReport.Name = "groupReport";
             this.groupReport.ShowCaptionButton = false;
             this.groupReport.Text = "报表";
-            // 
-            // groupCustom
-            // 
-            this.groupCustom.AllowTextClipping = false;
-            this.groupCustom.MergeOrder = 300;
-            this.groupCustom.Name = "groupCustom";
-            this.groupCustom.ShowCaptionButton = false;
-            this.groupCustom.Text = "自定义";
             // 
             // groupOperation
             // 

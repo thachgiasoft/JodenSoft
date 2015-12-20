@@ -17,6 +17,7 @@ using SAF.Framework.View;
 using SAF.Framework.Entity;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.Controls;
+using System.ComponentModel;
 
 namespace SAF.Framework
 {
@@ -38,6 +39,8 @@ namespace SAF.Framework
 
         private List<BarSubItem> listReportBarItems = new List<BarSubItem>();
         private List<BarCheckItem> listReportFormatBarItems = new List<BarCheckItem>();
+
+        private EventHandlerList Events = new EventHandlerList();
 
         public sysReportFormat CurrReportFormat
         {
@@ -169,7 +172,10 @@ Order by a.OrderIndex";
         private void RefreshReportBarItemCaption()
         {
             bbiReport_Print.Caption = "打印 {0}".FormatWith(CurrReportFormat.Name);
-            bbiReport.Caption = "预览\n{0}".FormatWith(CurrReportFormat.Name);
+            bbiReport.Caption = "预览 {0}".FormatWith(CurrReportFormat.Name);
+
+            var args = new ReportFormatChangedEventArgs(CurrReportFormat.ReportId, CurrReportFormat.Name);
+            OnReportFormatChanged(args);
         }
 
         private XtraReport GetCurrentReportFormat()
@@ -177,8 +183,7 @@ Order by a.OrderIndex";
             XtraReport report = null;
             if (CurrReportFormat == null)
             {
-                report = new XtraReport();
-                return report;
+                return null;
             }
 
             if (CurrReportFormat.FormatData == null || CurrReportFormat.FormatData.Length < 1)
@@ -190,12 +195,15 @@ Order by a.OrderIndex";
             }
 
             if (CurrReportFormat.FormatData == null || CurrReportFormat.FormatData.Length < 1)
-                report = new XtraReport();
+                report = null;
             else
                 report = XtraReport.FromStream(new MemoryStream(CurrReportFormat.FormatData), true);
-            report.DisplayName = CurrReportFormat.Name;
 
-            report.DataSource = GetReportDataSource();
+            if (report != null)
+            {
+                report.DisplayName = CurrReportFormat.Name;
+                report.DataSource = GetReportDataSource();
+            }
             return report;
         }
 
@@ -273,6 +281,11 @@ Order by a.OrderIndex";
 
         void bbiReport_Priview_ItemClick(object sender, ItemClickEventArgs e)
         {
+            PriviewReportFormat();
+        }
+
+        private void PriviewReportFormat()
+        {
             var report = GetCurrentReportFormat();
             if (report != null)
             {
@@ -298,11 +311,16 @@ Order by a.OrderIndex";
             }
             else
             {
-                MessageService.ShowError("选中的报表为空，无法预览！");
+                MessageService.ShowError("选中的报表格式为空，无法预览！");
             }
         }
 
         void bbiReport_Print_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PrintReportFormat();
+        }
+
+        private void PrintReportFormat()
         {
             var report = GetCurrentReportFormat();
 
@@ -313,7 +331,7 @@ Order by a.OrderIndex";
             }
             else
             {
-                MessageService.ShowError("选中的报表为空，无法打印！");
+                MessageService.ShowError("选中的报表格式为空，无法打印！");
             }
         }
 
@@ -329,119 +347,184 @@ Order by a.OrderIndex";
 
         private void GenerateQuickPrinterToRibbon()
         {
+            if (this.view.Ribbon == null) return;
+
+            var systemPage = this.view.Ribbon.Pages.GetPageByName("systemPage");
+            if (systemPage == null)
+            {
+                LoggingService.Error("ReportService.GenerateQuickPrinterToRibbon处方法GetPageByName未找到systemPage");
+                return;
+            }
+
+            var groupReport = systemPage.GetGroupByName("groupReport");
+            if (groupReport == null)
+            {
+                LoggingService.Error("ReportService.GenerateQuickPrinterToRibbon处方法GetGroupByName未找到groupReport");
+                return;
+            }
+
             //添加快速打印组
-            var group = new RibbonPageGroup();
-            group.Text = "快速打印";
-            group.ShowCaptionButton = false;
-            group.AllowTextClipping = false;
+            var groupQuickPrint = new RibbonPageGroup();
+            groupQuickPrint.Name = "groupQuickPrint";
+            groupQuickPrint.Text = "快速打印";
+            groupQuickPrint.ShowCaptionButton = false;
+            groupQuickPrint.AllowTextClipping = false;
+            groupQuickPrint.MergeOrder = groupReport.MergeOrder + 1;
+            systemPage.Groups.Add(groupQuickPrint);
 
-            var page = this.mainRibbonControl.Pages.GetPageByName("");
+            var printButtons = new Dictionary<int, BarButtonItem>();
+            var printLabels = new Dictionary<int, BarStaticItem>();
 
-            //var printButtons = new Dictionary<int, BarButtonItem>();
-            //var printLabel = new Dictionary<int, BarStaticItem>();
+            var printerList = LocalPrinter.GetLocalPrinters();
+            var reportIdList = this.reportIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            //var printerList = LocalPrinter.GetLocalPrinters();
+            foreach (var reportId in reportIdList)
+            {
+                string reportName = this.GetReportDefaultFormatName(Convert.ToInt32(reportId));
 
-            //var reportIdList = this.reportIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (reportName.IsEmpty())
+                    continue;
 
-            //foreach (var reportId in reportIdList)
-            //{
-            //    string reportName = this.GetDefaultFormatName(Convert.ToInt32(reportId));
-            //    BarEditItem bbiChoosePrinter = null;
-            //    if (!_sChoosePrinterReportIdList.m_IsEmpty() && _sChoosePrinterReportIdList.Contains(reportId))
-            //    {
-            //        //添加选择打印机
-            //        //label
-            //        var lblPrinter = new BarStaticItem();
-            //        lblPrinter.Caption = reportName + "打印机";
-            //        printLabel.Add(Convert.ToInt32(reportId), lblPrinter);
-            //        quickPrinterRibbonGroup.Ribbon.Items.Add(lblPrinter);
-            //        quickPrinterRibbonGroup.ItemLinks.Add(lblPrinter, true);
+                //添加选择打印机
+                //label
+                var lblPrinter = new BarStaticItem();
+                lblPrinter.Caption = "{0}".FormatWith(reportName);
+                printLabels.Add(Convert.ToInt32(reportId), lblPrinter);
+                groupQuickPrint.Ribbon.Items.Add(lblPrinter);
+                groupQuickPrint.ItemLinks.Add(lblPrinter, true);
 
-            //        //combobox
-            //        var cbbChoosePrinter = new RepositoryItemComboBox();
-            //        cbbChoosePrinter.AutoHeight = false;
-            //        cbbChoosePrinter.Name = "cbbChoosePrinter_" + reportId;
-            //        cbbChoosePrinter.TextEditStyle = TextEditStyles.DisableTextEditor;
-            //        cbbChoosePrinter.Items.AddRange(printerList);
-            //        //item
-            //        bbiChoosePrinter = new BarEditItem();
-            //        bbiChoosePrinter.RibbonStyle = RibbonItemStyles.SmallWithoutText;
-            //        bbiChoosePrinter.Edit = cbbChoosePrinter;
-            //        bbiChoosePrinter.Name = "bbiChoosePrinter_" + reportId;
-            //        bbiChoosePrinter.Width = 100;
-            //        quickPrinterRibbonGroup.Ribbon.Items.Add(bbiChoosePrinter);
-            //        quickPrinterRibbonGroup.ItemLinks.Add(bbiChoosePrinter);
+                //combobox
+                var cbbChoosePrinter = new RepositoryItemComboBox();
+                cbbChoosePrinter.AutoHeight = false;
+                cbbChoosePrinter.Name = "cbbChoosePrinter_" + reportId;
+                cbbChoosePrinter.TextEditStyle = TextEditStyles.DisableTextEditor;
+                cbbChoosePrinter.Items.AddRange(printerList);
 
-            //        //设置为默认打印机
-            //        bbiChoosePrinter.EditValue = LocalPrinter.DefaultPrinter;
-            //        var config = QuickPrintConfigManager.Current.GetQuickPrintItem(this._iFormId, Convert.ToInt32(reportId));
-            //        if (config != null && !config.PrinterName.m_IsEmpty() && printerList.Contains(config.PrinterName))
-            //        {
-            //            bbiChoosePrinter.EditValue = config.PrinterName;
-            //        }
+                //item
+                var bbiChoosePrinter = new BarEditItem();
+                bbiChoosePrinter.RibbonStyle = RibbonItemStyles.SmallWithoutText;
+                bbiChoosePrinter.Edit = cbbChoosePrinter;
+                bbiChoosePrinter.Name = "bbiChoosePrinter_" + reportId;
+                bbiChoosePrinter.Width = 100;
+                groupQuickPrint.Ribbon.Items.Add(bbiChoosePrinter);
+                groupQuickPrint.ItemLinks.Add(bbiChoosePrinter);
 
-            //        bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.m_ToStringEx();
-            //        bbiChoosePrinter.EditValueChanged += delegate
-            //        {
-            //            var item = new QuickPrintItem()
-            //            {
-            //                FormId = this._iFormId,
-            //                ReportId = Convert.ToInt32(reportId),
-            //                PrinterName = bbiChoosePrinter.EditValue.m_ToStringEx()
-            //            };
-            //            QuickPrintConfigManager.Current.AddConfig(item);
-            //            QuickPrintConfigManager.Current.SaveConfig();
-            //            bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.m_ToStringEx();
-            //        };
-            //    }
-            //    //添加快速打印按钮
-            //    //添加打印机按钮
-            //    var bbiQuickPrint = new HuanSi.XtraBars.BarButtonItem();
 
-            //    bbiQuickPrint.Caption = "打印";
-            //    bbiQuickPrint.Hint = reportName;
-            //    bbiQuickPrint.Name = "bbiQuickPrint_" + reportId;
-            //    bbiQuickPrint.Tag = reportId;
-            //    bbiQuickPrint.refreshMode = HuanSi.Data.RefreshMode.Disable;
-            //    bbiQuickPrint.LargeGlyph = _quickPrinterImage;
+                //设置为默认打印机
+                bbiChoosePrinter.EditValue = LocalPrinter.DefaultPrinter;
+                var config = QuickPrintManager.Current.GetQuickPrintItem(this.view.UniqueId, Convert.ToInt32(reportId));
+                if (config != null && !config.PrinterName.IsEmpty() && printerList.Contains(config.PrinterName))
+                {
+                    bbiChoosePrinter.EditValue = config.PrinterName;
+                }
 
-            //    bbiQuickPrint.ItemClick += (sender, args) =>
-            //    {
-            //        if (bbiChoosePrinter != null)
-            //        {
-            //            var priterName = bbiChoosePrinter.EditValue.m_ToStringEx();
-            //            if (priterName.m_IsEmpty())
-            //            {
-            //                HSMessageService.m_ShowError("请选择打印机.");
-            //                return;
-            //            }
-            //            this.QuickPrint(Convert.ToInt32(reportId), priterName);
-            //        }
-            //        else
-            //        {
-            //            this.QuickPrint(Convert.ToInt32(reportId), LocalPrinter.DefaultPrinter);
-            //        }
-            //    };
-            //    printButtons.Add(Convert.ToInt32(reportId), bbiQuickPrint);
-            //    this._quickPrinterRibbonGroup.Ribbon.Items.Add(bbiQuickPrint);
-            //    this._quickPrinterRibbonGroup.ItemLinks.Add(bbiQuickPrint);
+                bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.ToStringEx();
+                bbiChoosePrinter.EditValueChanged += delegate
+                {
+                    var item = new QuickPrintItem()
+                    {
+                        MenuId = this.view.UniqueId,
+                        ReportId = Convert.ToInt32(reportId),
+                        PrinterName = bbiChoosePrinter.EditValue.ToStringEx()
+                    };
+                    QuickPrintManager.Current.AddConfig(item);
+                    QuickPrintManager.Current.SaveConfig();
+                    bbiChoosePrinter.Hint = bbiChoosePrinter.EditValue.ToStringEx();
+                };
 
-            //    this.ReportFormatChanged += (sender, args) =>
-            //    {
-            //        if (printButtons.ContainsKey(args.m_ReportId))
-            //        {
-            //            var btn = printButtons[args.m_ReportId];
-            //            btn.Hint = args.m_ReportFormatName;
-            //        }
-            //        if (printLabel.ContainsKey(args.m_ReportId))
-            //        {
-            //            var lbl = printLabel[args.m_ReportId];
-            //            lbl.Caption = "{0}打印机".m_FormatEx(args.m_ReportFormatName);
-            //        }
-            //    };
-            //}
+                //添加快速打印按钮
+                //添加打印机按钮
+                var bbiQuickPrint = new BarButtonItem();
+                bbiQuickPrint.Caption = "打印";
+                bbiQuickPrint.Hint = reportName;
+                bbiQuickPrint.Name = "bbiQuickPrint_" + reportId;
+                bbiQuickPrint.Tag = reportId;
+                bbiQuickPrint.LargeGlyph = Properties.Resources.Action_Print_32x32;
+
+                bbiQuickPrint.ItemClick += (sender, args) =>
+                {
+                    if (bbiChoosePrinter != null)
+                    {
+                        var priterName = bbiChoosePrinter.EditValue.ToStringEx();
+                        if (priterName.IsEmpty())
+                        {
+                            MessageService.ShowError("请选择打印机.");
+                            return;
+                        }
+                        this.QuickPrint(Convert.ToInt32(reportId), priterName);
+                    }
+                    else
+                    {
+                        this.QuickPrint(Convert.ToInt32(reportId), LocalPrinter.DefaultPrinter);
+                    }
+                };
+                printButtons.Add(Convert.ToInt32(reportId), bbiQuickPrint);
+                groupQuickPrint.Ribbon.Items.Add(bbiQuickPrint);
+                groupQuickPrint.ItemLinks.Add(bbiQuickPrint);
+
+                this.ReportFormatChanged += (sender, args) =>
+                {
+                    if (printButtons.ContainsKey(args.ReportId))
+                    {
+                        var btn = printButtons[args.ReportId];
+                        btn.Hint = args.ReportFormatName;
+                    }
+                    if (printLabels.ContainsKey(args.ReportId))
+                    {
+                        var lbl = printLabels[args.ReportId];
+                        lbl.Caption = "{0}".FormatWith(args.ReportFormatName);
+                    }
+                };
+            }
         }
 
+        private static readonly object EventReportFormatChanged = new object();
+
+        public event EventHandler<ReportFormatChangedEventArgs> ReportFormatChanged
+        {
+            add { this.Events.AddHandler(EventReportFormatChanged, value); }
+            remove { this.Events.RemoveHandler(EventReportFormatChanged, value); }
+        }
+
+        private void OnReportFormatChanged(ReportFormatChangedEventArgs args)
+        {
+            var handler = this.Events[EventReportFormatChanged] as EventHandler<ReportFormatChangedEventArgs>;
+            if (handler != null)
+            {
+                handler(this, args);
+            }
+        }
+
+        private void QuickPrint(int ReportId, string priterName)
+        {
+            var report = this.GetCurrentReportFormat();
+            if (report == null)
+            {
+                MessageService.ShowError("选中的报表格式为空，无法打印！");
+                return;
+            }
+
+            if (priterName.IsEmpty())
+                priterName = LocalPrinter.DefaultPrinter;
+
+            if (priterName.IsEmpty())
+                PriviewReportFormat();
+            else
+                report.Print(priterName);
+        }
+
+        private string GetReportDefaultFormatName(int reportId)
+        {
+            var format = this.reportFormatEntitySet.FirstOrDefault(p => p.ReportId == reportId && p.IsDefault == true);
+            if (format == null)
+                format = this.reportFormatEntitySet.FirstOrDefault(p => p.ReportId == reportId);
+
+            if (format == null)
+            {
+                LoggingService.Error("报表{0}的格式不存在。方法名：GetReportDefaultFormatName".FormatWith(reportId));
+                return string.Empty;
+            }
+            return format.Name;
+        }
     }
 }

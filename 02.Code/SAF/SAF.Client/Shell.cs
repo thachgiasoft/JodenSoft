@@ -76,7 +76,7 @@ namespace SAF.Client
             OnInitialize();
 
 #if DEBUG
-            this.Text = "DIP - DEBUG";
+            this.Text = "SAF - DEBUG";
 #else
             this.Text = "SAF";
 #endif
