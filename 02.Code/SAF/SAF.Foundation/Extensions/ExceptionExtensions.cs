@@ -28,13 +28,19 @@ namespace SAF.Foundation
         /// </summary>
         /// <param name="ex"></param>
         /// <returns></returns>
-        public static string GetAllInfomation(this Exception ex)
+        public static string GetAllException(this Exception ex)
         {
             StringBuilder message = new StringBuilder();
             Exception e = ex;
             while (e != null)
             {
-                message.AppendLine(e.ToString());
+                message.AppendLine("Message:{0}".FormatWith(e.Message));
+                message.AppendLine("Source:{0}".FormatWith(e.Source));
+                message.AppendLine("StackTrace:{0}".FormatWith(e.StackTrace));
+                message.AppendLine("TargetSite:{0}".FormatWith(e.TargetSite.ToStringEx()));
+                message.AppendLine("====================================================");
+                message.AppendLine("");
+
                 e = e.InnerException;
             }
             return message.ToString().Trim();

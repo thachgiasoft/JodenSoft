@@ -750,7 +750,7 @@ SELECT * FROM @result a ORDER BY a.[ParentId],a.[MenuOrder]
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("系统创建业务窗口时出现错误。", ex);
+                        throw ex;
                     }
                 }
             }

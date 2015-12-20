@@ -44,7 +44,7 @@ namespace SAF.Foundation.ServiceModel
         {
             LoggingService.Error(string.Format("ShowException{0}\tException Message:{1}", Environment.NewLine,
                 string.IsNullOrWhiteSpace(message) ? ex.Message : message), ex);
-            LoggingService.Warn("Stack trace of last exception log:" + Environment.NewLine + Environment.StackTrace);
+            LoggingService.Error("Stack trace of last exception log:" + Environment.NewLine + Environment.StackTrace);
             ServiceManager.Instance.MessageService.ShowException(ex, message);
         }
 

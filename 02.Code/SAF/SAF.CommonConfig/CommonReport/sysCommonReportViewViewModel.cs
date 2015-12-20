@@ -10,6 +10,7 @@ using SAF.Foundation;
 using SAF.Framework.Entity;
 using SAF.EntityFramework;
 using System.Text.RegularExpressions;
+using SAF.Foundation.ServiceModel;
 
 namespace SAF.CommonConfig
 {
@@ -106,6 +107,16 @@ namespace SAF.CommonConfig
             var result = base.OnPreHandle();
             ParaseParameters();
             return result;
+        }
+
+        protected override bool OnValidateData()
+        {
+            if (this.DetailEntitySet.Where(p => p.IsDefault).Count() != 1)
+            {
+                MessageService.ShowError("默认报表格式有且必须只能有一个，请检查。");
+                return false;
+            }
+            return base.OnValidateData();
         }
 
     }

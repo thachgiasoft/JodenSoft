@@ -19,7 +19,6 @@ namespace SAF.Framework.ServiceModel
         /// </summary>
         public IWin32Window DialogOwner { get; set; }
 
-
         /// <summary>
         /// 消息框的标题
         /// </summary>
@@ -31,9 +30,9 @@ namespace SAF.Framework.ServiceModel
         public virtual void ShowException(Exception ex, string message)
         {
             if (message.IsEmpty())
-                ShowError(ex.Message, ex.GetAllMessage());
+                ShowError(ex.Message, ex.GetAllException());
             else
-                ShowError(message, ex.GetAllMessage());
+                ShowError(message, ex.GetAllException());
         }
 
         public void ShowError(string message, string messageDtl = null)

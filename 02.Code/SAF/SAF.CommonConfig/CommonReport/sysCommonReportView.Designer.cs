@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysCommonReportView));
             this.treeIndex = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -61,7 +60,7 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciParamValues = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnDesignReport = new DevExpress.XtraBars.BarButtonItem();
-            this.ReportImages = new DevExpress.Utils.ImageCollection(this.components);
+            this.ReportImages = new DevExpress.Utils.ImageCollection();
             ((System.ComponentModel.ISupportInitialize)(this.tcDtl)).BeginInit();
             this.tcDtl.SuspendLayout();
             this.pageDtl.SuspendLayout();
@@ -82,7 +81,6 @@
             this.tcMain.SuspendLayout();
             this.pageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDtl)).BeginInit();
@@ -119,22 +117,11 @@
             // 
             this.pageDtl.Controls.Add(this.grdDtl);
             this.pageDtl.Size = new System.Drawing.Size(574, 170);
-            this.pageDtl.Controls.SetChildIndex(this.standaloneDtl, 0);
             this.pageDtl.Controls.SetChildIndex(this.grdDtl, 0);
             // 
             // bsDetail
             // 
             this.bsDetail.DataSource = typeof(SAF.Framework.Entity.sysReportFormat);
-            // 
-            // standaloneDtl
-            // 
-            this.standaloneDtl.Size = new System.Drawing.Size(574, 23);
-            // 
-            // barDtl
-            // 
-            this.barDtl.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDesignReport)});
-            this.barDtl.OptionsBar.AllowQuickCustomization = false;
             // 
             // ribbonMain
             // 
@@ -180,12 +167,6 @@
             this.pageMain.Controls.Add(this.lcMain);
             this.pageMain.Size = new System.Drawing.Size(574, 188);
             this.pageMain.Text = "报表配置";
-            // 
-            // bmMain
-            // 
-            this.bmMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnDesignReport});
-            this.bmMain.MaxItemId = 6;
             // 
             // treeIndex
             // 
@@ -234,11 +215,11 @@
             this.grdDtl.Cursor = System.Windows.Forms.Cursors.Default;
             this.grdDtl.DataSource = this.bsDetail;
             this.grdDtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDtl.Location = new System.Drawing.Point(0, 23);
+            this.grdDtl.Location = new System.Drawing.Point(0, 30);
             this.grdDtl.MainView = this.grvDtl;
             this.grdDtl.MenuManager = this.ribbonMain;
             this.grdDtl.Name = "grdDtl";
-            this.grdDtl.Size = new System.Drawing.Size(574, 147);
+            this.grdDtl.Size = new System.Drawing.Size(574, 140);
             this.grdDtl.TabIndex = 1;
             this.grdDtl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDtl});
@@ -443,7 +424,6 @@
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup1.Size = new System.Drawing.Size(574, 188);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -479,9 +459,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(111, 24);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // lciSqlScript
@@ -589,7 +567,6 @@
             this.tcMain.ResumeLayout(false);
             this.pageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pmuReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bmMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDtl)).EndInit();
