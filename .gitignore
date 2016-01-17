@@ -88,3 +88,6 @@
 /08.Others/03.myPortal/myPortal.Web.WWWRoot.csproj_deploy/AssemblyInfo
 /08.Others/03.myPortal/myPortal.Web.WWWRoot.csproj_deploy/obj/Release/TempBuildDir
 /08.Others/03.myPortal/myPortal.Web.WWWRoot.csproj_deploy/Release
+/02.Code/SAF/SAF.Hardware.Controls.Test/bin/Debug
+/02.Code/SAF/SAF.Hardware.Controls.Test/obj/Debug
+/02.Code/SAF/SAF.Hardware.Controls/obj/Debug

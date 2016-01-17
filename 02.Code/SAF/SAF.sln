@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework", "SAF.Framework\SAF.Framework.csproj", "{11E5DE77-ED0B-40CC-B646-4C3938B1C808}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -19,6 +19,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Services", "SAF.Framework.Services\SAF.Framework.Services.csproj", "{916492C7-4CA2-4D9E-BE81-895C126ED8C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Framework.Test", "SAF.Framework.Test\SAF.Framework.Test.csproj", "{CBD4F937-F669-486F-8DFE-1CEA2326D890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Hardware.Controls", "SAF.Hardware.Controls\SAF.Hardware.Controls.csproj", "{91EE8B13-C520-40FB-ACCC-44458FBB22B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAF.Hardware.Controls.Test", "SAF.Hardware.Controls.Test\SAF.Hardware.Controls.Test.csproj", "{119F2D74-F210-42EB-BC28-2648C2F4CFC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{CBD4F937-F669-486F-8DFE-1CEA2326D890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD4F937-F669-486F-8DFE-1CEA2326D890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD4F937-F669-486F-8DFE-1CEA2326D890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EE8B13-C520-40FB-ACCC-44458FBB22B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EE8B13-C520-40FB-ACCC-44458FBB22B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EE8B13-C520-40FB-ACCC-44458FBB22B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EE8B13-C520-40FB-ACCC-44458FBB22B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{119F2D74-F210-42EB-BC28-2648C2F4CFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119F2D74-F210-42EB-BC28-2648C2F4CFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119F2D74-F210-42EB-BC28-2648C2F4CFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119F2D74-F210-42EB-BC28-2648C2F4CFC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

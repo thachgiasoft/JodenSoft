@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91EE8B13-C520-40FB-ACCC-44458FBB22B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAF.Hardware.Controls</RootNamespace>
+    <AssemblyName>SAF.Hardware.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\04.Release\SAF\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ElectronicScales\Controller\DefaultController.cs" />
+    <Compile Include="ElectronicScales\Controller\IElectronicScalesController.cs" />
+    <Compile Include="ElectronicScales\Controller\ElectronicScalesControllerFactory.cs" />
+    <Compile Include="ElectronicScales\ElectronicScalesConfig.cs" />
+    <Compile Include="ElectronicScales\ElectronicScalesConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectronicScales\ElectronicScalesConfigDialog.designer.cs">
+      <DependentUpon>ElectronicScalesConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectronicScales\ElectronicScalesConfigManager.cs" />
+    <Compile Include="ElectronicScales\ElectronicScalesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElectronicScales\ElectronicScalesControl.Designer.cs">
+      <DependentUpon>ElectronicScalesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectronicScales\ElectronicScalesType.cs" />
+    <Compile Include="Input\HookEx\EventSet.cs" />
+    <Compile Include="Input\HookEx\UserActivityHook.cs" />
+    <Compile Include="Input\ImageProcessHelper.cs" />
+    <Compile Include="Input\KeyboardButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Input\KeyboardConstaint.cs" />
+    <Compile Include="Input\KeyboardLight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Input\NativeMethods.cs" />
+    <Compile Include="Input\ScreenKeyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Input\ScreenKeyboard.designer.cs">
+      <DependentUpon>ScreenKeyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LedControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Stopwatch\Controller\DefaultController.cs" />
+    <Compile Include="Stopwatch\Controller\IStopwatchController.cs" />
+    <Compile Include="Stopwatch\Controller\SHHSController.cs" />
+    <Compile Include="Stopwatch\Controller\StopwatchControllerFactory.cs" />
+    <Compile Include="Stopwatch\EventArgs.cs" />
+    <Compile Include="Stopwatch\StopwatchConfig.cs" />
+    <Compile Include="Stopwatch\StopwatchConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stopwatch\StopwatchConfigDialog.designer.cs">
+      <DependentUpon>StopwatchConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stopwatch\StopwatchConfigManager.cs" />
+    <Compile Include="Stopwatch\StopwatchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stopwatch\StopwatchControl.Designer.cs">
+      <DependentUpon>StopwatchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stopwatch\StopwatchType.cs" />
+    <Compile Include="Stopwatch\StopwatchUnit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ElectronicScales\ElectronicScalesConfigDialog.resx">
+      <DependentUpon>ElectronicScalesConfigDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectronicScales\ElectronicScalesControl.resx">
+      <DependentUpon>ElectronicScalesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Input\ScreenKeyboard.resx">
+      <DependentUpon>ScreenKeyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stopwatch\StopwatchConfigDialog.resx">
+      <DependentUpon>StopwatchConfigDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stopwatch\StopwatchControl.resx">
+      <DependentUpon>StopwatchControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAF.Foundation\SAF.Foundation.csproj">
+      <Project>{71bd2e40-afa5-4714-a291-77ddf32ced7a}</Project>
+      <Name>SAF.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAF.Framework.Services\SAF.Framework.Services.csproj">
+      <Project>{916492c7-4ca2-4d9e-be81-895c126ed8c9}</Project>
+      <Name>SAF.Framework.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
