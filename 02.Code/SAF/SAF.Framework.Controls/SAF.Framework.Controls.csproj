@@ -207,6 +207,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IBaseUserControl.cs" />
+    <Compile Include="MCIControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MessageBoxControl\AttachMessageBox.cs">
       <SubType>Component</SubType>
     </Compile>
