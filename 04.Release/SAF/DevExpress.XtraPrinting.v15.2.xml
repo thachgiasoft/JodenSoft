@@ -1377,53 +1377,6 @@
 
 
         </member>
-        <member name="T:DevExpress.XtraPrinting.Preview.RibbonImageCollection">
-
-            <summary>
-                <para>Represents the collection of images used in the Ribbon UI.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.#ctor">
-            <summary>
-                <para>Initializes a new instance of the RibbonImageCollection class.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.GetImage(System.String)">
-            <summary>
-                <para>Gets the specified image from the collection.
-</para>
-            </summary>
-            <param name="name">
-		A <see cref="T:System.String"/> value specifying the image name.
-
-            </param>
-            <returns>An <see cref="T:System.Drawing.Image"/> object.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.SetImage(System.String,System.Drawing.Image)">
-            <summary>
-                <para>Sets the specified image in the collection.
-</para>
-            </summary>
-            <param name="name">
-		A <see cref="T:System.String"/> value specifying the image name.
-
-            </param>
-            <param name="value">
-		An <see cref="T:System.Drawing.Image"/> object.
-
-            </param>
-
-
-        </member>
         <member name="T:DevExpress.XtraPrinting.PrintTool">
 
             <summary>
@@ -1782,6 +1735,53 @@
             </param>
             <param name="lookAndFeel">
 		A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object, specifying the look-and-feel settings applied to the Ribbon Print Preview form.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraPrinting.Preview.RibbonImageCollection">
+
+            <summary>
+                <para>Represents the collection of images used in the Ribbon UI.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonImageCollection class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.GetImage(System.String)">
+            <summary>
+                <para>Gets the specified image from the collection.
+</para>
+            </summary>
+            <param name="name">
+		A <see cref="T:System.String"/> value specifying the image name.
+
+            </param>
+            <returns>An <see cref="T:System.Drawing.Image"/> object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrinting.Preview.RibbonImageCollection.SetImage(System.String,System.Drawing.Image)">
+            <summary>
+                <para>Sets the specified image in the collection.
+</para>
+            </summary>
+            <param name="name">
+		A <see cref="T:System.String"/> value specifying the image name.
+
+            </param>
+            <param name="value">
+		An <see cref="T:System.Drawing.Image"/> object.
 
             </param>
 
@@ -2469,6 +2469,16 @@
                 <para>Initializes a new instance of the PageSetupEditorForm class with default settings.
 </para>
             </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrinting.Preview.PageSetupEditorForm.IsMetric">
+            <summary>
+                <para>Specifies whether the editor values in the <b>Page Setup</b> dialog use imperial or metric system of measurement.
+</para>
+            </summary>
+            <value><b>true</b> if the editor values are calculated in millimeters; <b>false</b> if the editor values are calculated in inches.
+</value>
 
 
         </member>
@@ -3280,10 +3290,12 @@
         </member>
         <member name="M:DevExpress.XtraPrinting.Control.PrintControl.SetThumbnailsVisibility(System.Boolean)">
             <summary>
-                <para> </para>
+                <para>Specifies whether or not to display the <b>Thumbnails</b> panel.
+</para>
             </summary>
             <param name="value">
-		 
+		<b>true</b> to display thumbnails; otherwise <b>false</b>.
+
             </param>
 
 
@@ -3320,16 +3332,19 @@
         </member>
         <member name="M:DevExpress.XtraPrinting.Control.PrintControl.ShowFindControl">
             <summary>
-                <para> </para>
+                <para>Displays the <b>Search</b> panel within the current PrintControl.
+</para>
             </summary>
 
 
         </member>
         <member name="P:DevExpress.XtraPrinting.Control.PrintControl.ThumbnailsVisible">
             <summary>
-                <para> </para>
+                <para>Indicates whether or not the <b>Thumbnails</b> panel is currently visible.
+</para>
             </summary>
-            <value> </value>
+            <value><b>true</b> if thumbnails are visible; otherwise <b>false</b>.
+</value>
 
 
         </member>
@@ -3739,18 +3754,23 @@
         </member>
         <member name="M:DevExpress.XtraPrinting.ExportOptionsTool.EditExportOptions(DevExpress.XtraPrinting.ExportOptionsBase,DevExpress.XtraPrinting.PrintingSystemBase,System.Collections.Generic.IDictionary`2)">
             <summary>
-                <para> </para>
+                <para>Invokes the <b>Export Options</b> dialog.
+</para>
             </summary>
             <param name="options">
-		 
+		An <see cref="T:DevExpress.XtraPrinting.ExportOptionsBase"/> descendant.
+
             </param>
             <param name="ps">
-		 
+		A <see cref="T:DevExpress.XtraPrinting.PrintingSystemBase"/> descendant.
+
             </param>
             <param name="disabledExportModes">
-		 
+		A dictionary, listing the disabled export modes.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Windows.Forms.DialogResult"/> enumeration value.
+</returns>
 
 
         </member>

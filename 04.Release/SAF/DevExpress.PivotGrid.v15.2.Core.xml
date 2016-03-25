@@ -5518,447 +5518,570 @@
         <member name="T:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3">
 
             <summary>
-                <para> </para>
+                <para>Provides data for events which are invoked for particular cells.
+</para>
             </summary>
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.ColumnCustomTotal">
             <summary>
-                <para> </para>
+                <para>Gets the column custom total which displays the current cell.
+</para>
             </summary>
-            <value> </value>
+            <value>A T object which represents the column custom total that contains the current cell. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.ColumnField">
             <summary>
-                <para> </para>
+                <para>Gets the innermost column field which corresponds to the processed cell.
+</para>
             </summary>
-            <value> </value>
+            <value>A T object that is the column field.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.ColumnFieldIndex">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
-            <value> </value>
+            <value> 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.ColumnIndex">
             <summary>
-                <para> </para>
+                <para>Gets the visual index of the column that contains the processed cell.
+</para>
             </summary>
-            <value> </value>
+            <value>An integer value that is the visual index of the column that contains the processed cell. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.ColumnValueType">
             <summary>
-                <para> </para>
+                <para>Gets the type of column which contains the processed cell.
+
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraPivotGrid.PivotGridValueType"/> enumeration value that specifies the type of column in which the processed cell resides. 
+
+</value>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateDrillDownDataSource(System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>Returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns to be returned.
+</para>
             </summary>
             <param name="customColumns">
-		 
+		A list of columns to be returned.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains the underlying data. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateDrillDownDataSource">
             <summary>
-                <para> </para>
+                <para>Returns a list of records used to calculate a summary value for the cell currently being processed.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains records used to calculate a summary value for the current cell. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateDrillDownDataSource(System.Int32,System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>Returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns and limit the number of records to be returned.
+</para>
             </summary>
             <param name="maxRowCount">
-		 
+		An integer value that specifies the maximum number of data rows to be returned. <b>-1</b> to retrieve all rows.
+
             </param>
             <param name="customColumns">
-		 
+		A list of columns to be returned. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="PivotDrillDownDataSource"/> object that contains records used to calculate a summary value for the current cell. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateOLAPDrillDownDataSource(System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>In OLAP mode, returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns to be returned.
+</para>
             </summary>
             <param name="customColumns">
-		 
+		A list of columns to be returned. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains the underlying data. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateOLAPDrillDownDataSource(System.Int32,System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>In OLAP mode, returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns and limit the number of records to be returned.
+</para>
             </summary>
             <param name="maxRowCount">
-		 
+		An integer value that specifies the maximum number of data rows to be returned. <b>-1</b> to retrieve all rows. 
+
             </param>
             <param name="customColumns">
-		 
+		A list of columns to be returned. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains the underlying data. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateServerModeDrillDownDataSource(System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>In server mode, returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns to be returned.
+</para>
             </summary>
             <param name="customColumns">
-		 
+		A list of columns to be returned. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains the underlying data. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateServerModeDrillDownDataSource(System.Int32,System.Collections.Generic.List`1)">
             <summary>
-                <para> </para>
+                <para>In server mode, returns a list of records used to calculate a summary value for the current cell. Allows you to specify the columns and limit the number of records to be returned.
+</para>
             </summary>
             <param name="maxRowCount">
-		 
+		An integer value that specifies the maximum number of data rows to be returned. <b>-1</b> to retrieve all rows. 
+
             </param>
             <param name="customColumns">
-		 
+		A list of columns to be returned. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotDrillDownDataSource"/> object that contains the underlying data. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.CreateSummaryDataSource">
             <summary>
-                <para> </para>
+                <para>Returns a <b>summary data source</b>.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraPivotGrid.PivotSummaryDataSource"/> object that represents the summary data source. 
+</returns>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.Data">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
-            <value> </value>
+            <value> 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.DataField">
             <summary>
-                <para> </para>
+                <para>Gets the data field which identifies the column where the processed cell resides.
+</para>
             </summary>
-            <value> </value>
+            <value>A T object which identifies the column where the processed cell resides. 
+</value>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetCellValue(System.Int32,System.Int32)">
             <summary>
-                <para> </para>
+                <para>Returns a cell value by the column and row indexes.
+</para>
             </summary>
             <param name="columnIndex">
-		 
+		A zero-based integer which identifies the visible index of the column. 
+
             </param>
             <param name="rowIndex">
-		 
+		A zero-based integer which identifies the visible index of the row. 
+
             </param>
-            <returns> </returns>
+            <returns>A value displayed in the specified cell. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetCellValue(System.Object[],System.Object[],DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a cell value calculated for the specified column and row field values, against the specified data field.
+</para>
             </summary>
             <param name="columnValues">
-		 
+		An array of column values. 
+
             </param>
             <param name="rowValues">
-		 
+		An array of row values. 
+
             </param>
             <param name="dataField">
-		 
+		A T object that specifies the data field, against which the required cell value is calculated. 
+
             </param>
-            <returns> </returns>
+            <returns>A summary value calculated for the specified column and row field values, against the specified data field. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetCellValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a cell value calculated against the specified data field.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object that specifies the data field. 
+
             </param>
-            <returns> </returns>
+            <returns>A summary value calculated against the specified data field.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetColumnFields">
             <summary>
-                <para> </para>
+                <para>Returns an array of column fields which correspond to the current cell.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>An array of column fields. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetColumnGrandTotal(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a Column Grand Total value calculated for the current row field values, against the specified data field.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object that specifies the data field, against which the required Column Grand Total is calculated. 
+
             </param>
-            <returns> </returns>
+            <returns>A Column Grand Total value.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetColumnGrandTotal(System.Object[],DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a Column Grand Total value calculated for the specified row field values, against the specified data field.
+</para>
             </summary>
             <param name="rowValues">
-		 
+		An array of row field values for which the required Column Grand Total is calculated. 
+
             </param>
             <param name="dataField">
-		 
+		A T object that specifies the data field, against which the required Column Grand Total is calculated. 
+
             </param>
-            <returns> </returns>
+            <returns>A Column Grand Total value.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetFieldValue(DevExpress.XtraPivotGrid.TField,System.Int32)">
             <summary>
-                <para> </para>
+                <para>Returns the specified column or row field's value for the cell, addressed by its zero-based index in the data area.
+</para>
             </summary>
             <param name="field">
-		 
+		A T object representing a column or row field, whose value is to be obtained. 
+
             </param>
             <param name="cellIndex">
-		 
+		A zero-based index of a cell in the Data Area that identifies the required field value. Indexes are numbered starting from the left edge for column fields, and from the top edge for row fields. 
+
             </param>
-            <returns> </returns>
+            <returns>An object representing the field's value. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetFieldValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns the value of the specified column or row field which identifies the column/row in which the processed cell resides.
+</para>
             </summary>
             <param name="field">
-		 
+		A T object which represents the field whose value is returned. 
+
             </param>
-            <returns> </returns>
+            <returns>An object representing the field's value. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetGrandTotal(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Gets the Grand Total value for the specified field.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object which represents the field whose Grand Total is returned. 
+
             </param>
-            <returns> </returns>
+            <returns>An object which represents the Grand Total value. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetNextColumnCellValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns the value of the cell in the same row but in the next column.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object which identifies the sub column in the next column. 
+
             </param>
-            <returns> </returns>
+            <returns>An object that is the value in the same row but in the next column. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetNextRowCellValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns the value of the cell in the next row.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object which identifies the sub column in the next row. 
+
             </param>
-            <returns> </returns>
+            <returns>An object that is the value of the cell in the next row. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetPrevColumnCellValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns the value of the cell in the same row but in the previous column.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object which identifies the sub column in the previous column. 
+
             </param>
-            <returns> </returns>
+            <returns>An object that is the value in the same row but in the previous column. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetPrevRowCellValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns the value of the cell in the previous row.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object which identifies the sub column in the previous row. 
+
             </param>
-            <returns> </returns>
+            <returns>An object that is the value of the cell in the previous row. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetRowFields">
             <summary>
-                <para> </para>
+                <para>Returns an array of the row fields which correspond to the current cell.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>An array of row fields. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetRowGrandTotal(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a Row Grand Total value calculated for the current column field values, against the specified data field.
+</para>
             </summary>
             <param name="dataField">
-		 
+		A T object that specifies the data field, against which the required Row Grand Total is calculated. 
+
             </param>
-            <returns> </returns>
+            <returns>The Row Grand Total value calculated for the current column field values, against the specified data field. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetRowGrandTotal(System.Object[],DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Returns a Row Grand Total value calculated for the specified column field values, against the specified data field.
+</para>
             </summary>
             <param name="columnValues">
-		 
+		An array of column field values for which the required Row Grand Total is calculated. 
+
             </param>
             <param name="dataField">
-		 
+		A T object that specifies the data field, against which the required Row Grand Total is calculated. 
+
             </param>
-            <returns> </returns>
+            <returns>The Row Grand Total value calculated for the specified column field values, against the specified data field. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.IsFieldValueExpanded(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Indicates whether the specified field's value that represents the row or column header of the processed cell is expanded.
+</para>
             </summary>
             <param name="field">
-		 
+		A T object that represents the field in a PivotGridControl. 
+
             </param>
-            <returns> </returns>
+            <returns><b>true</b>, if the field value is expanded; otherwise, <b>false</b>. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.IsFieldValueRetrievable(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Gets whether the value of the specified column or row field can be retrieved for the current cell by the <see cref="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetFieldValue"/> method.
+</para>
             </summary>
             <param name="field">
-		 
+		A T object which identifies the column or row field. 
+
             </param>
-            <returns> </returns>
+            <returns><b>true</b>, if the specified field's value can be retrieved via the <see cref="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.GetFieldValue"/> method; otherwise, <b>false</b>. 
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.IsOthersFieldValue(DevExpress.XtraPivotGrid.TField)">
             <summary>
-                <para> </para>
+                <para>Indicates whether the processed data cell resides within the "Others" row/column when the Top X Value feature is enabled.
+</para>
             </summary>
             <param name="field">
-		 
+		A T object that represents the field. 
+
             </param>
-            <returns> </returns>
+            <returns><b>true</b>, if the data cell resides within the "Others" row/column; otherwise, <b>false</b>. 
+</returns>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.Item">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
-            <value> </value>
+            <value> 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.RowCustomTotal">
             <summary>
-                <para> </para>
+                <para>Gets the row custom total which contains the current cell.
+</para>
             </summary>
-            <value> </value>
+            <value>A T object that is the row custom total containing the current cell. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.RowField">
             <summary>
-                <para> </para>
+                <para>Gets the innermost row field which corresponds to the processed cell.
+</para>
             </summary>
-            <value> </value>
+            <value>A T object that is the row field. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.RowFieldIndex">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
-            <value> </value>
+            <value> 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.RowIndex">
             <summary>
-                <para> </para>
+                <para>Gets the index of the row that contains the processed cell.
+</para>
             </summary>
-            <value> </value>
+            <value>An integer value that specifies the index of the row that contains the processed cell. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.RowValueType">
             <summary>
-                <para> </para>
+                <para>Gets the type of row which contains the processed cell.
+
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraPivotGrid.PivotGridValueType"/> enumeration value which specifies the type of row in which the processed cell resides. 
+
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.SummaryType">
             <summary>
-                <para> </para>
+                <para>Gets the summary type of the currently processed value.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.Data.PivotGrid.PivotSummaryType"/> object that is the summary type of the currently processed value.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.SummaryValue">
             <summary>
-                <para> </para>
+                <para>Gets the summary value currently being processed.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.Data.PivotGrid.PivotSummaryValue"/> object that is the summary value currently being processed. 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotCellEventArgsBase`3.Value">
             <summary>
-                <para> </para>
+                <para>Gets the processed cell's value.
+</para>
             </summary>
-            <value> </value>
+            <value>An object that is the processed cell's value. 
+</value>
 
 
         </member>
@@ -7596,37 +7719,177 @@
 
 
         </member>
+        <member name="T:DevExpress.XtraPivotGrid.PrefilterBase">
+
+            <summary>
+                <para>Represents the base class for Prefilters, that are editors allowing end-users to customize filter criteria at runtime.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.#ctor(DevExpress.XtraPivotGrid.IPrefilterOwnerBase)">
+            <summary>
+                <para>Initializes a new instance of the PrefilterBase class with the specified owner.
+</para>
+            </summary>
+            <param name="owner">
+		An IPrefilterOwnerBase object that will own the created object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Assign(DevExpress.XtraPivotGrid.PrefilterBase)">
+            <summary>
+                <para>Copies settings from the specified object to the current object.
+</para>
+            </summary>
+            <param name="prefilter">
+		An object whose settings are copied to the current object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Clear">
+            <summary>
+                <para>Clears the filter expression.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Contains(DevExpress.XtraPivotGrid.PivotGridFieldBase)">
+            <summary>
+                <para>Returns whether the specified field is contained in the Prefilter expression.
+</para>
+            </summary>
+            <param name="field">
+		A <see cref="T:DevExpress.XtraPivotGrid.PivotGridFieldBase"/> object that represents the field.
+
+            </param>
+            <returns><b>true</b> if the Prefilter expression contains the specified field; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.Criteria">
+            <summary>
+                <para>Gets or sets the filter expression.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Data.Filtering.CriteriaOperator"/> object that represents the filter expression.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.CriteriaString">
+            <summary>
+                <para>Gets or sets the filter expression, in the string form.
+</para>
+            </summary>
+            <value>A string value that specifies the filter expression.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Dispose">
+            <summary>
+                <para>Disposes of the resources allocated by the current object.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.Enabled">
+            <summary>
+                <para>Gets or sets whether the filter criteria, specified by the <see cref="P:DevExpress.XtraPivotGrid.PrefilterBase.Criteria"/> or <see cref="P:DevExpress.XtraPivotGrid.PrefilterBase.CriteriaString"/> property, are enabled.
+</para>
+            </summary>
+            <value><b>true</b> if the filter criteria are enabled; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.InvalidCriteriaDisplayText">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.IsEmpty">
+            <summary>
+                <para>Gets whether the Prefilter has no filter expression specified.
+
+</para>
+            </summary>
+            <value><b>true</b> if the Prefilter has no filter expression specified; otherwise, <b>false</b>.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.PrefilterColumnNames">
+            <summary>
+                <para>Gets the names of all fields contained in the Prefilter expression.
+
+</para>
+            </summary>
+            <value>A list of the <see cref="T:System.String"/> objects that represent the field names.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.State">
+            <summary>
+                <para>Gets the Prefilter state that indicates whether the Prefilter expression is valid.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraPivotGrid.PrefilterState"/> enumeration member that specifies the Prefilter state.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraPivotGrid.PivotExportArea">
 
             <summary>
-                <para> </para>
+                <para>Lists values that specify the cell location in the exported Excel document.
+</para>
             </summary>
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.PivotExportArea.Column">
             <summary>
-                <para> </para>
+                <para>A cell corresponds to the Pivot Grid's column area.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.PivotExportArea.Data">
             <summary>
-                <para> </para>
+                <para>A cell corresponds to the Pivot Grid's data area.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.PivotExportArea.None">
             <summary>
-                <para> </para>
+                <para>A cell does not correspond to any Pivot Grid's area.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.PivotExportArea.Row">
             <summary>
-                <para> </para>
+                <para>A cell corresponds to the Pivot Grid's row area.
+</para>
             </summary>
 
 
@@ -7634,27 +7897,31 @@
         <member name="T:DevExpress.XtraPivotGrid.ExportCellType">
 
             <summary>
-                <para> </para>
+                <para>Lists values that identify the type of the column or row containing a cell in the exported document.
+</para>
             </summary>
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.ExportCellType.GroupHeader">
             <summary>
-                <para> </para>
+                <para>A row or column that is a group header.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.ExportCellType.None">
             <summary>
-                <para> </para>
+                <para>A row or column does not correspond to any specific type.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraPivotGrid.ExportCellType.Value">
             <summary>
-                <para> </para>
+                <para>A row or column that is a group value.
+</para>
             </summary>
 
 
@@ -7937,6 +8204,14 @@ An end-user can move fields between areas by dragging their field headers within
 
 
         </member>
+        <member name="P:DevExpress.XtraPivotGrid.CustomServerModeSortEventArgsBase`1.IsFilterPopupSorting">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
         <member name="P:DevExpress.XtraPivotGrid.CustomServerModeSortEventArgsBase`1.OLAPMember1">
             <summary>
                 <para>Get the first member being compared.
@@ -7984,141 +8259,6 @@ An end-user can move fields between areas by dragging their field headers within
             </summary>
             <value>An object that represents second value being compared.
 
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraPivotGrid.PrefilterBase">
-
-            <summary>
-                <para>Represents the base class for Prefilters, that are editors allowing end-users to customize filter criteria at runtime.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.#ctor(DevExpress.XtraPivotGrid.IPrefilterOwnerBase)">
-            <summary>
-                <para>Initializes a new instance of the PrefilterBase class with the specified owner.
-</para>
-            </summary>
-            <param name="owner">
-		An IPrefilterOwnerBase object that will own the created object.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Assign(DevExpress.XtraPivotGrid.PrefilterBase)">
-            <summary>
-                <para>Copies settings from the specified object to the current object.
-</para>
-            </summary>
-            <param name="prefilter">
-		An object whose settings are copied to the current object.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Clear">
-            <summary>
-                <para>Clears the filter expression.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Contains(DevExpress.XtraPivotGrid.PivotGridFieldBase)">
-            <summary>
-                <para>Returns whether the specified field is contained in the Prefilter expression.
-</para>
-            </summary>
-            <param name="field">
-		A <see cref="T:DevExpress.XtraPivotGrid.PivotGridFieldBase"/> object that represents the field.
-
-            </param>
-            <returns><b>true</b> if the Prefilter expression contains the specified field; otherwise, <b>false</b>.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.Criteria">
-            <summary>
-                <para>Gets or sets the filter expression.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Data.Filtering.CriteriaOperator"/> object that represents the filter expression.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.CriteriaString">
-            <summary>
-                <para>Gets or sets the filter expression, in the string form.
-</para>
-            </summary>
-            <value>A string value that specifies the filter expression.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPivotGrid.PrefilterBase.Dispose">
-            <summary>
-                <para>Disposes of the resources allocated by the current object.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.Enabled">
-            <summary>
-                <para>Gets or sets whether the filter criteria, specified by the <see cref="P:DevExpress.XtraPivotGrid.PrefilterBase.Criteria"/> or <see cref="P:DevExpress.XtraPivotGrid.PrefilterBase.CriteriaString"/> property, are enabled.
-</para>
-            </summary>
-            <value><b>true</b> if the filter criteria are enabled; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.InvalidCriteriaDisplayText">
-            <summary>
-                <para>For internal use.
-</para>
-            </summary>
-            <value> 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.IsEmpty">
-            <summary>
-                <para>Gets whether the Prefilter has no filter expression specified.
-
-</para>
-            </summary>
-            <value><b>true</b> if the Prefilter has no filter expression specified; otherwise, <b>false</b>.
-
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.PrefilterColumnNames">
-            <summary>
-                <para>Gets the names of all fields contained in the Prefilter expression.
-
-</para>
-            </summary>
-            <value>A list of the <see cref="T:System.String"/> objects that represent the field names.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPivotGrid.PrefilterBase.State">
-            <summary>
-                <para>Gets the Prefilter state that indicates whether the Prefilter expression is valid.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.XtraPivotGrid.PrefilterState"/> enumeration member that specifies the Prefilter state.
 </value>
 
 
@@ -9126,12 +9266,15 @@ An end-user can move fields between areas by dragging their field headers within
         </member>
         <member name="M:DevExpress.XtraPivotGrid.PivotGridFieldCollectionBase.GetPrefilterFields(System.Collections.Generic.IList`1)">
             <summary>
-                <para> </para>
+                <para>Gets a list of field names that are shown in the Prefilter.
+</para>
             </summary>
             <param name="prefilterColumnNames">
 		 
+
             </param>
-            <returns> </returns>
+            <returns>A list of fields that are shown in the Prefilter.
+</returns>
 
 
         </member>
@@ -12288,7 +12431,7 @@ Field values are grouped by the number of full years that have elapsed till the 
                 <para>Specifies whether calculations should be performed manually, by handling the <b>CustomSummary</b> event. 
 
 <para>
-Not supported in OLAP mode.
+Not supported in OLAP and server mode.
 </para>
 </para>
             </summary>
@@ -12568,9 +12711,11 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotGridFieldOptions.ShowInExpressionEditor">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether the current field is available in the field list in the Expression Editor.
+</para>
             </summary>
-            <value> </value>
+            <value><b>true</b>, if the current field is available in the field list in the Expression Editor; otherwise, <b>false</b>. 
+</value>
 
 
         </member>
@@ -14244,7 +14389,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotGridFieldBase.UnboundExpressionMode">
             <summary>
-                <para>Gets or sets whether unbound expression for specified data field is calculated based on the data source records or summary values.
+                <para>Gets or sets how the unbound expression for specified data field is calculated.
 </para>
             </summary>
             <value>An <see cref="UnboundExpressionMode"/> object that specifies how the unbound expression for a specified data field is calculated.
@@ -14449,26 +14594,21 @@ Not supported in OLAP mode.
             </summary>
 
         </member>
-        <member name="M:DevExpress.PivotGrid.Printing.CustomExportHeaderEventArgsBase`1.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotFieldItemBase,DevExpress.XtraPivotGrid.PivotGridFieldBase,System.Drawing.Rectangle@)">
+        <member name="M:DevExpress.PivotGrid.Printing.CustomExportHeaderEventArgsBase`1.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotFieldItemBase,DevExpress.XtraPivotGrid.PivotGridFieldBase,System.Drawing.Rectangle)">
             <summary>
-                <para>For internal use.
-</para>
+                <para> </para>
             </summary>
             <param name="brick">
 		 
-
             </param>
             <param name="fieldItem">
 		 
-
             </param>
             <param name="field">
 		 
-
             </param>
             <param name="rect">
 		 
-
             </param>
 
 
@@ -14502,22 +14642,18 @@ Not supported in OLAP mode.
             </summary>
 
         </member>
-        <member name="M:DevExpress.PivotGrid.Printing.CustomExportFieldValueEventArgsBase`1.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotFieldValueItem,System.Drawing.Rectangle@)">
+        <member name="M:DevExpress.PivotGrid.Printing.CustomExportFieldValueEventArgsBase`1.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotFieldValueItem,System.Drawing.Rectangle)">
             <summary>
-                <para>For internal use.
-</para>
+                <para> </para>
             </summary>
             <param name="brick">
 		 
-
             </param>
             <param name="item">
 		 
-
             </param>
             <param name="rect">
 		 
-
             </param>
 
 
@@ -14685,34 +14821,27 @@ Not supported in OLAP mode.
             </summary>
 
         </member>
-        <member name="M:DevExpress.PivotGrid.Printing.CustomExportCellEventArgsBase.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotGridCellItem,System.Drawing.GraphicsUnit,DevExpress.PivotGrid.Printing.IPivotPrintAppearance,DevExpress.PivotGrid.Printing.PivotGridPrinterBase,System.Drawing.Rectangle@)">
+        <member name="M:DevExpress.PivotGrid.Printing.CustomExportCellEventArgsBase.#ctor(DevExpress.XtraPrinting.IVisualBrick,DevExpress.XtraPivotGrid.Data.PivotGridCellItem,System.Drawing.GraphicsUnit,DevExpress.PivotGrid.Printing.IPivotPrintAppearance,DevExpress.PivotGrid.Printing.PivotGridPrinterBase,System.Drawing.Rectangle)">
             <summary>
-                <para>For internal use.
-</para>
+                <para> </para>
             </summary>
             <param name="brick">
 		 
-
             </param>
             <param name="cellItem">
 		 
-
             </param>
             <param name="graphicsUnit">
 		 
-
             </param>
             <param name="appearance">
 		 
-
             </param>
             <param name="printer">
 		 
-
             </param>
             <param name="rect">
 		 
-
             </param>
 
 
@@ -15203,18 +15332,15 @@ Not supported in OLAP mode.
             </summary>
 
         </member>
-        <member name="M:DevExpress.PivotGrid.Printing.CustomPrintEventArgs.#ctor(DevExpress.XtraPrinting.IVisualBrick,System.Drawing.Rectangle@)">
+        <member name="M:DevExpress.PivotGrid.Printing.CustomPrintEventArgs.#ctor(DevExpress.XtraPrinting.IVisualBrick,System.Drawing.Rectangle)">
             <summary>
-                <para>For internal use.
-</para>
+                <para> </para>
             </summary>
             <param name="brick">
 		 
-
             </param>
             <param name="rect">
 		 
-
             </param>
 
 
@@ -15674,6 +15800,14 @@ Not supported in OLAP mode.
 		A <see cref="T:DevExpress.XtraPivotGrid.PivotSortOrder"/> enumeration value that specifies the sort order.
 
             </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.PivotGridCustomFieldSortEventArgsBase`1.SortLocation">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
 
 
         </member>
@@ -16406,7 +16540,8 @@ Not supported in OLAP mode.
         <member name="T:DevExpress.XtraPivotGrid.PivotXlsxExportOptionsBase">
 
             <summary>
-                <para> </para>
+                <para>Represents the base class for objects which define the PivotGrid's export options specific to XLSX format.
+</para>
             </summary>
 
         </member>
@@ -16424,7 +16559,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsxExportOptionsBase.ExportColumnAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the column field headers to the XLSX document output.
+                <para>Gets or sets whether to include the column field headers to the XLSX exported document.
 </para>
             </summary>
             <value><b>True</b>, to export column field headers; otherwise, <b>False</b>.
@@ -16434,7 +16569,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsxExportOptionsBase.ExportDataAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the data field headers to the XLSX document output.
+                <para>Gets or sets whether to include the data field headers to the XLSX exported document.
 </para>
             </summary>
             <value><b>True</b>, to export data field headers; otherwise, <b>False</b>.
@@ -16444,7 +16579,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsxExportOptionsBase.ExportFilterAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the filter field headers to the XLSX document output.
+                <para>Gets or sets whether to include the filter field headers to the XLSX exported document.
 </para>
             </summary>
             <value><b>True</b>, to export filter field headers; otherwise, <b>False</b>.
@@ -16454,7 +16589,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsxExportOptionsBase.ExportRowAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the row field headers to the XLSX document output.
+                <para>Gets or sets whether to include the row field headers to the XLSX exported document.
 </para>
             </summary>
             <value><b>True</b>, to export column field headers; otherwise, <b>False</b>.
@@ -17054,7 +17189,8 @@ Not supported in OLAP mode.
         <member name="T:DevExpress.XtraPivotGrid.PivotXlsExportOptionsBase">
 
             <summary>
-                <para> </para>
+                <para>Represents the base class for objects which define the PivotGrid's export options specific to XLS format.
+</para>
             </summary>
 
         </member>
@@ -17072,7 +17208,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsExportOptionsBase.ExportColumnAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the column field headers to the XLS document output.
+                <para>Gets or sets whether to include the column field headers to the XLS exported document.
 
 </para>
             </summary>
@@ -17084,7 +17220,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsExportOptionsBase.ExportDataAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the data field headers to the XLS document output.
+                <para>Gets or sets whether to include the data field headers to the XLS exported document.
 
 </para>
             </summary>
@@ -17096,7 +17232,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsExportOptionsBase.ExportFilterAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the filter field headers to the XLS document output.
+                <para>Gets or sets whether to include the filter field headers to the XLS exported document.
 </para>
             </summary>
             <value><b>True</b>, to export filter field headers; otherwise, <b>False</b>.
@@ -17106,7 +17242,7 @@ Not supported in OLAP mode.
         </member>
         <member name="P:DevExpress.XtraPivotGrid.PivotXlsExportOptionsBase.ExportRowAreaHeaders">
             <summary>
-                <para>Gets or sets whether to export the row field headers to the XLS document output.
+                <para>Gets or sets whether to include the row field headers to the XLS exported document.
 </para>
             </summary>
             <value><b>True</b>, to export row field headers; otherwise, <b>False</b>.

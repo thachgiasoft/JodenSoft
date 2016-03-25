@@ -562,6 +562,180 @@
 
 
         </member>
+        <member name="T:DevExpress.Pdf.PdfFitVerticallyDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitVerticallyDestination.#ctor(DevExpress.Pdf.PdfPage,System.Nullable`1)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="left">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfFitVerticallyDestination.Left">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitRectangleDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitRectangleDestination.#ctor(DevExpress.Pdf.PdfPage,DevExpress.Pdf.PdfRectangle)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="rectangle">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfFitRectangleDestination.Rectangle">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitHorizontallyDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitHorizontallyDestination.#ctor(DevExpress.Pdf.PdfPage,System.Nullable`1)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="top">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfFitHorizontallyDestination.Top">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitDestination.#ctor(DevExpress.Pdf.PdfPage)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitBBoxDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitBBoxDestination.#ctor(DevExpress.Pdf.PdfPage)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitBBoxVerticallyDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitBBoxVerticallyDestination.#ctor(DevExpress.Pdf.PdfPage,System.Nullable`1)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="left">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfFitBBoxVerticallyDestination.Left">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfFitBBoxHorizontallyDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfFitBBoxHorizontallyDestination.#ctor(DevExpress.Pdf.PdfPage,System.Nullable`1)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="top">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfFitBBoxHorizontallyDestination.Top">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
         <member name="T:DevExpress.Pdf.PdfOptionalContentUsage">
 
             <summary>
@@ -2086,6 +2260,24 @@
 
 
         </member>
+        <member name="T:DevExpress.Pdf.PdfAction">
+
+            <summary>
+                <para>An action that is performed with interactive elements (e.g., bookmarks, annotations) in the PDF document.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfAction.Next">
+            <summary>
+                <para>Gets the next action that is performed after the action from the list of  <see cref="T:DevExpress.Pdf.PdfAction"/> objects.
+</para>
+            </summary>
+            <value>A list of <see cref="T:DevExpress.Pdf.PdfAction"/> objects that is the sequence of actions that should be performed.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.Pdf.PdfTextSearchParameters">
 
             <summary>
@@ -3373,21 +3565,11 @@
 
 
         </member>
-        <member name="T:DevExpress.Pdf.PdfAction">
-
+        <member name="F:DevExpress.Pdf.PdfAssociatedFileRelationship.Unspecified">
             <summary>
-                <para>An action that is performed with interactive elements (e.g., bookmarks, annotations) in the PDF document.
+                <para>The relationship is unknown or does not match any relationship above.
 </para>
             </summary>
-
-        </member>
-        <member name="P:DevExpress.Pdf.PdfAction.Next">
-            <summary>
-                <para>Gets the next action that is performed after the action from the list of  <see cref="T:DevExpress.Pdf.PdfAction"/> objects.
-</para>
-            </summary>
-            <value>A list of <see cref="T:DevExpress.Pdf.PdfAction"/> objects that is the sequence of actions that should be performed.
-</value>
 
 
         </member>
@@ -6897,6 +7079,22 @@
 
 
         </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.FileSize">
+            <summary>
+                <para>"<b>{0:0.00} {1} ({2} Bytes)</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.FileSizeInBytes">
+            <summary>
+                <para>"<b>{0} Bytes</b>"
+</para>
+            </summary>
+
+
+        </member>
         <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.MsgAttachmentHintDescription">
             <summary>
                 <para><b>"\r\nDescription: {0}"</b>
@@ -7233,6 +7431,14 @@
 
 
         </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.MsgMissingPageNumbers">
+            <summary>
+                <para><b>"At least one page number should be specified."</b>
+</para>
+            </summary>
+
+
+        </member>
         <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.MsgShouldEmbedFonts">
             <summary>
                 <para><b>"All fonts should be embedded to a PDF/A document."</b>
@@ -7285,6 +7491,63 @@
         <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.MsgZeroColorComponentsCount">
             <summary>
                 <para>"<b>The color should have at least one component.</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitExaBytes">
+            <summary>
+                <para>"<b>EB</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitGigaBytes">
+            <summary>
+                <para>"<b>GB</b>"
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitKiloBytes">
+            <summary>
+                <para>"<b>KB</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitMegaBytes">
+            <summary>
+                <para>"<b>MB</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitPetaBytes">
+            <summary>
+                <para>"<b>PB</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitTeraBytes">
+            <summary>
+                <para>"<b>TB</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Pdf.Localization.PdfCoreStringId.UnitZettaBytes">
+            <summary>
+                <para>"<b>ZB</b>"
 </para>
             </summary>
 
@@ -7442,6 +7705,56 @@
                 <para>The PDF Viewer displays the pages two at a time, with odd-numbered pages on the right.
 </para>
             </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Pdf.PdfXYZDestination">
+
+            <summary>
+                <para> </para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Pdf.PdfXYZDestination.#ctor(DevExpress.Pdf.PdfPage,System.Nullable`1,System.Nullable`1,System.Nullable`1)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="page">
+		 
+            </param>
+            <param name="left">
+		 
+            </param>
+            <param name="top">
+		 
+            </param>
+            <param name="zoom">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfXYZDestination.Left">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfXYZDestination.Top">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
+        <member name="P:DevExpress.Pdf.PdfXYZDestination.Zoom">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
 
 
         </member>

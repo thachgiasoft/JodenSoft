@@ -23,12 +23,12 @@ namespace SAF.Framework.Controls.Chart
         {
             drawArea.Cursor = Cursor;
 
-            if (e.Button == MouseButtons.Left)
-            {
-                Point point = new Point(e.X, e.Y);
-                drawArea[0].MoveHandleTo(point, 5);
-                drawArea.Refresh();
-            }
+            //if (e.Button == MouseButtons.Left)
+            //{
+            //    Point point = new Point(e.X, e.Y);
+            //    drawArea[0].MoveHandleTo(point, 5);
+            //    drawArea.Refresh();
+            //}
         }
     }
 }

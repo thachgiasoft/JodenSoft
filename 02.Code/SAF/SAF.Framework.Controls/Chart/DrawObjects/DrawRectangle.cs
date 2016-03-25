@@ -405,31 +405,6 @@ namespace SAF.Framework.Controls.Chart
             Rectangle = DrawRectangle.GetNormalizedRectangle(Rectangle);
         }
 
-        /// <summary>
-        /// Save objevt to serialization stream
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="orderNumber"></param>
-        public override void SaveToStream(System.Runtime.Serialization.SerializationInfo info, int orderNumber)
-        {
-            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryRectangle, orderNumber), Rectangle);
-
-            base.SaveToStream(info, orderNumber);
-        }
-
-        /// <summary>
-        /// LOad object from serialization stream
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="orderNumber"></param>
-        public override void LoadFromStream(SerializationInfo info, int orderNumber)
-        {
-            Rectangle = (Rectangle)info.GetValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryRectangle, orderNumber), typeof(Rectangle));
-
-            base.LoadFromStream(info, orderNumber);
-        }
-
-
         #region Helper Functions
 
         public static Rectangle GetNormalizedRectangle(int x1, int y1, int x2, int y2)

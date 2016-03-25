@@ -100,6 +100,54 @@
 
 
         </member>
+        <member name="T:DevExpress.Office.Options.DataSourceTypes">
+
+            <summary>
+                <para>Lists values used to specify the data source types available in the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.All">
+            <summary>
+                <para>Specifies that all data source types are available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.EntityFramework">
+            <summary>
+                <para>Specifies that an Entity Framework data source is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Excel">
+            <summary>
+                <para>Specifies that a data source used to extract data from Microsoft Excel documents is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Object">
+            <summary>
+                <para>Specifies that an object data source is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Office.Options.DataSourceTypes.Sql">
+            <summary>
+                <para>Specifies that an SQL database is available for data binding from the <b>Data Source Wizard</b>.
+</para>
+            </summary>
+
+
+        </member>
         <member name="T:DevExpress.Office.Drawing.TileFlipType">
 
             <summary>
@@ -576,7 +624,7 @@
         </member>
         <member name="M:DevExpress.Office.Utils.OfficeImage.DiscardCachedData">
             <summary>
-                <para>Clears the current image stream.
+                <para>Closes the current image stream and releases any resources associated with the current stream.
 </para>
             </summary>
 

@@ -1291,9 +1291,11 @@
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Model.BaseGauge.GetColorScheme">
             <summary>
-                <para> </para>
+                <para>Gets the color scheme currently applied to this gauge.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>A <see cref="ColorScheme"/> object that specifies the color scheme currently applied to this gauge.
+</returns>
 
 
         </member>
@@ -3047,130 +3049,6 @@
 
 
         </member>
-        <member name="T:DevExpress.XtraGauges.Core.Model.LinearScaleLevel">
-
-            <summary>
-                <para>Represents the base class for level bars within linear gauges.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.#ctor(System.String)">
-            <summary>
-                <para>Initializes a new instance of the LinearScaleLevel class.
-</para>
-            </summary>
-            <param name="name">
-		A string that specifies the name of the created component.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.#ctor">
-            <summary>
-                <para>Initializes a new instance of the LinearScaleLevel class.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.Assign(DevExpress.XtraGauges.Core.Model.LinearScaleLevel)">
-            <summary>
-                <para>Copies settings of the specified object to the current object.
-</para>
-            </summary>
-            <param name="source">
-		A LinearScaleLevel object whose settings are copied to the current object.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarEmptyShape">
-            <summary>
-                <para>Gets the shape used to paint the level bar's empty section.
-</para>
-            </summary>
-            <value>A BaseShape object.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarEndShape">
-            <summary>
-                <para>Gets the shape used to paint the level bar's ending section.
-</para>
-            </summary>
-            <value>A BaseShape object.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarPackedShape">
-            <summary>
-                <para>Gets the shape object used to paint the level bar's packed section.
-</para>
-            </summary>
-            <value>A BaseShape object.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarStartShape">
-            <summary>
-                <para>Gets the shape of the level bar's starting section.
-</para>
-            </summary>
-            <value>A BaseShape object.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.IsDifferFrom(DevExpress.XtraGauges.Core.Model.LinearScaleLevel)">
-            <summary>
-                <para>Returns whether the current object has different settings than the specified one.
-</para>
-            </summary>
-            <param name="source">
-		An object to be compared with the current object.
-
-            </param>
-            <returns><b>true</b> if the current object has different settings than the specified one; otherwise, <b>false</b>.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.LinearScale">
-            <summary>
-                <para>Gets or sets the scale object to which the current LinearScaleLevel object is linked.
-</para>
-            </summary>
-            <value>An ILinearScale object that represents the scale to which the current object is linked.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.Scale">
-            <summary>
-                <para>Gets the scale object to which the current LinearScaleLevel object is linked.
-</para>
-            </summary>
-            <value>An IScale object that represents the scale to which the current object is linked.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.ShapeType">
-            <summary>
-                <para>Gets or sets the object's painting style.
-</para>
-            </summary>
-            <value>A LevelShapeSetType  value that represents the object's painting style.
-</value>
-
-
-        </member>
         <member name="T:DevExpress.XtraGauges.Core.Model.ArcScale">
 
             <summary>
@@ -3335,9 +3213,12 @@
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Model.ArcScale.GetLabelShemeColor">
             <summary>
-                <para> </para>
+                <para>Gets the color applied to this scale's labels.
+
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -3873,9 +3754,12 @@
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Model.LinearScale.GetLabelShemeColor">
             <summary>
-                <para> </para>
+                <para>Gets the color applied to this scale's labels.
+
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -4613,60 +4497,199 @@
         <member name="T:DevExpress.XtraGauges.Core.Base.ColorScheme">
 
             <summary>
-                <para> </para>
+                <para>An object that allows you to paint multiple gauge elements at once using the same color.
+</para>
             </summary>
 
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Base.ColorScheme.#ctor">
             <summary>
-                <para> </para>
+                <para>Initializes a new instance of the ColorScheme class with the default settings.
+</para>
             </summary>
 
 
         </member>
         <member name="P:DevExpress.XtraGauges.Core.Base.ColorScheme.Color">
             <summary>
-                <para> </para>
+                <para>Gets or sets the color that all target gauge elements should be painted.
+
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="Color"/> object that all target gauge elements should be painted.
+
+</value>
 
 
         </member>
         <member name="E:DevExpress.XtraGauges.Core.Base.ColorScheme.PropertyChanged">
             <summary>
-                <para> </para>
+                <para>Occurs whenever any of these ColorScheme's properties changes its value.
+
+</para>
             </summary>
 
 
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Base.ColorScheme.Reset">
             <summary>
-                <para> </para>
+                <para>Restores default values for all ColorScheme properties.
+</para>
             </summary>
 
 
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Base.ColorScheme.ShouldSerialize">
             <summary>
-                <para> </para>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
         <member name="P:DevExpress.XtraGauges.Core.Base.ColorScheme.TargetElements">
             <summary>
-                <para> </para>
+                <para>Gets or sets which gauge elements this ColorScheme affects.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="TargetElement"/> enumerator value that specifies which gauge elements this ColorScheme affects.
+</value>
 
 
         </member>
         <member name="M:DevExpress.XtraGauges.Core.Base.ColorScheme.ToString">
             <summary>
-                <para> </para>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.XtraGauges.Core.Model.LinearScaleLevel">
+
+            <summary>
+                <para>Represents the base class for level bars within linear gauges.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.#ctor(System.String)">
+            <summary>
+                <para>Initializes a new instance of the LinearScaleLevel class.
+</para>
+            </summary>
+            <param name="name">
+		A string that specifies the name of the created component.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.#ctor">
+            <summary>
+                <para>Initializes a new instance of the LinearScaleLevel class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.Assign(DevExpress.XtraGauges.Core.Model.LinearScaleLevel)">
+            <summary>
+                <para>Copies settings of the specified object to the current object.
+</para>
+            </summary>
+            <param name="source">
+		A LinearScaleLevel object whose settings are copied to the current object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarEmptyShape">
+            <summary>
+                <para>Gets the shape used to paint the level bar's empty section.
+</para>
+            </summary>
+            <value>A BaseShape object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarEndShape">
+            <summary>
+                <para>Gets the shape used to paint the level bar's ending section.
+</para>
+            </summary>
+            <value>A BaseShape object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarPackedShape">
+            <summary>
+                <para>Gets the shape object used to paint the level bar's packed section.
+</para>
+            </summary>
+            <value>A BaseShape object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.BarStartShape">
+            <summary>
+                <para>Gets the shape of the level bar's starting section.
+</para>
+            </summary>
+            <value>A BaseShape object.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.IsDifferFrom(DevExpress.XtraGauges.Core.Model.LinearScaleLevel)">
+            <summary>
+                <para>Returns whether the current object has different settings than the specified one.
+</para>
+            </summary>
+            <param name="source">
+		An object to be compared with the current object.
+
+            </param>
+            <returns><b>true</b> if the current object has different settings than the specified one; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.LinearScale">
+            <summary>
+                <para>Gets or sets the scale object to which the current LinearScaleLevel object is linked.
+</para>
+            </summary>
+            <value>An ILinearScale object that represents the scale to which the current object is linked.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.Scale">
+            <summary>
+                <para>Gets the scale object to which the current LinearScaleLevel object is linked.
+</para>
+            </summary>
+            <value>An IScale object that represents the scale to which the current object is linked.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGauges.Core.Model.LinearScaleLevel.ShapeType">
+            <summary>
+                <para>Gets or sets the object's painting style.
+</para>
+            </summary>
+            <value>A LevelShapeSetType  value that represents the object's painting style.
+</value>
 
 
         </member>
@@ -5043,34 +5066,42 @@
         <member name="T:DevExpress.XtraGauges.Core.Base.TargetElement">
 
             <summary>
-                <para> </para>
+                <para>Provides members that specify which gauge elements should be painted using a custom color scheme.
+</para>
             </summary>
 
         </member>
         <member name="F:DevExpress.XtraGauges.Core.Base.TargetElement.Empty">
             <summary>
-                <para> </para>
+                <para>The current color scheme will not be applied.
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraGauges.Core.Base.TargetElement.ImageIndicator">
             <summary>
-                <para> </para>
+                <para>The current color scheme will be applied to all image indicator elements in the target gauge.
+
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraGauges.Core.Base.TargetElement.Label">
             <summary>
-                <para> </para>
+                <para>The current color scheme will be applied to all labels in the target gauge.
+
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraGauges.Core.Base.TargetElement.RangeBar">
             <summary>
-                <para> </para>
+                <para>The current color scheme will be applied to all range bar elements in the target gauge.
+
+</para>
             </summary>
 
 

@@ -2911,6 +2911,13 @@ This property is only in effect for the <see cref="T:DevExpress.XtraVerticalGrid
 
 
         </member>
+        <member name="M:DevExpress.XtraVerticalGrid.VGridControlBase.RefreshEditor">
+            <summary>
+                <para> </para>
+            </summary>
+
+
+        </member>
         <member name="M:DevExpress.XtraVerticalGrid.VGridControlBase.RestoreDefaultStyles">
             <summary>
                 <para>Resets the appearance settings to their default values.

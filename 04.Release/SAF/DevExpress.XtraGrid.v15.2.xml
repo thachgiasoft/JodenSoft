@@ -1282,7 +1282,8 @@
         </member>
         <member name="M:DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView.ClearImageLoader">
             <summary>
-                <para> </para>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
             </summary>
 
 
@@ -6170,9 +6171,11 @@ Manual searching is enabled in the following cases: 1) a control functions in re
         </member>
         <member name="M:DevExpress.XtraGrid.Views.Layout.LayoutViewCard.CalcDefaultMinSize">
             <summary>
-                <para> </para>
+                <para>Returns the default value of the <see cref="P:DevExpress.XtraGrid.Views.Layout.LayoutViewCard.MinSize"/> property.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>A Size structure that is the automatically calculated minimal size of this card.
+</returns>
 
 
         </member>
@@ -6286,7 +6289,8 @@ Manual searching is enabled in the following cases: 1) a control functions in re
         </member>
         <member name="M:DevExpress.XtraGrid.Views.Layout.LayoutViewCard.ResetDefaultMinSize">
             <summary>
-                <para> </para>
+                <para>Resets the minimum size of this LayoutViewCard to its default value.
+</para>
             </summary>
 
 
@@ -6552,9 +6556,11 @@ Manual searching is enabled in the following cases: 1) a control functions in re
         </member>
         <member name="P:DevExpress.XtraGrid.Views.Layout.LayoutViewOptionsBehavior.AllowMouseWheelSmoothScrolling">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether or not this Layout View supports pixel scrolling.
+</para>
             </summary>
-            <value> </value>
+            <value><b>true</b>, if this Layout View supports pixel scrolling; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -13640,6 +13646,16 @@ It specifies whether selecting a date or date range via the embedded calendar fi
 
 
         </member>
+        <member name="P:DevExpress.XtraGrid.Views.Tile.TileViewItemElement.Editor">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraGrid.WinExplorer.WinExplorerViewOptionsImageLoad">
 
             <summary>
@@ -13716,9 +13732,11 @@ It specifies whether selecting a date or date range via the embedded calendar fi
         </member>
         <member name="P:DevExpress.XtraGrid.WinExplorer.WinExplorerViewOptionsImageLoad.ClearCacheOnDataSourceUpdate">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether or not the image cache should be cleared when the data source is updated.
+</para>
             </summary>
-            <value> </value>
+            <value><b>true</b>, if the image cache should be cleared when the data source is updated; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -15383,7 +15401,8 @@ If the data source is empty or if all values in the date-time column are set to 
         </member>
         <member name="F:DevExpress.XtraGrid.Views.BandedGrid.ViewInfo.BandedGridHitTest.GroupRowCell">
             <summary>
-                <para> </para>
+                <para>The test point belongs to the group row cell.
+</para>
             </summary>
 
 
@@ -17981,10 +18000,10 @@ This option is in effect when the <see cref="P:DevExpress.XtraGrid.Views.Grid.Gr
         </member>
         <member name="P:DevExpress.XtraGrid.Views.Grid.GridOptionsBehavior.AlignGroupSummaryInGroupRow">
             <summary>
-                <para>Gets or sets whether to forcibly display group summaries in group rows under corresponding column headers and to hide group footers.
+                <para>Gets or sets whether to forcibly move group footer summaries (which reside in group footers) to positions in group rows under corresponding column headers. Group footers will be hidden as a result.
 </para>
             </summary>
-            <value>A value that specifies whether to display group summaries in group rows under corresponding column headers. 
+            <value>A value that specifies whether to display group footer summaries in group rows under corresponding column headers. 
 </value>
 
 
@@ -20903,10 +20922,10 @@ In server mode, this option is not in effect.
         </member>
         <member name="P:DevExpress.XtraGrid.Views.Tile.TileView.AppearancePrint">
             <summary>
-                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+                <para>Provides access to appearance settings, applied when this View is printed or exported.
 </para>
             </summary>
-            <value> 
+            <value>A <see cref="TileViewPrintAppearances"/> object that stores appearance settings, applied when this View is printed or exported.
 </value>
 
 
@@ -20924,6 +20943,13 @@ In server mode, this option is not in effect.
 		<b>true</b>, if the <b>Assign</b> method should also copy the target view's event handlers; otherwise, <b>false</b>.
 
             </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraGrid.Views.Tile.TileView.BeginInit">
+            <summary>
+                <para> </para>
+            </summary>
 
 
         </member>
@@ -20952,6 +20978,13 @@ In server mode, this option is not in effect.
             </param>
             <returns>Always <b>true</b>.
 </returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraGrid.Views.Tile.TileView.ClearImageLoader">
+            <summary>
+                <para> </para>
+            </summary>
 
 
         </member>
@@ -21007,9 +21040,20 @@ In server mode, this option is not in effect.
         </member>
         <member name="M:DevExpress.XtraGrid.Views.Tile.TileView.CreateItem">
             <summary>
-                <para> </para>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="E:DevExpress.XtraGrid.Views.Tile.TileView.CustomContextButtonToolTip">
+            <summary>
+                <para>Allows you to dynamically customize tooltips of context buttons, displayed by this TileView.
+
+</para>
+            </summary>
 
 
         </member>
@@ -21159,6 +21203,19 @@ In server mode, this option is not in effect.
 
 
         </member>
+        <member name="M:DevExpress.XtraGrid.Views.Tile.TileView.MakeRowVisible(System.Int32)">
+            <summary>
+                <para>Scrolls this TileView, making the tile associated with the target row visible on screen.
+
+</para>
+            </summary>
+            <param name="rowHandle">
+		An Int32 value that is the row handle.
+
+            </param>
+
+
+        </member>
         <member name="M:DevExpress.XtraGrid.Views.Tile.TileView.MoveBy(System.Int32)">
             <summary>
                 <para>Moves the selection of certain items forward or backward from the currently selected tile.
@@ -21213,6 +21270,18 @@ In server mode, this option is not in effect.
 
 
         </member>
+        <member name="P:DevExpress.XtraGrid.Views.Tile.TileView.OptionsBehavior">
+            <summary>
+                <para>Provides access to settings that manage typical TileView behavior.
+
+</para>
+            </summary>
+            <value>A <see cref="TileViewOptionsBehavior"/> object that stores settings which manage typical TileView behavior.
+
+</value>
+
+
+        </member>
         <member name="P:DevExpress.XtraGrid.Views.Tile.TileView.OptionsFilter">
             <summary>
                 <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
@@ -21232,6 +21301,16 @@ In server mode, this option is not in effect.
             <value>A <see cref="TileViewOptionsImageLoad"/> object that stores properties that manage tile background image loading.
 
 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraGrid.Views.Tile.TileView.OptionsPrint">
+            <summary>
+                <para>Provides access to settings that control how this TileView is printed and exported.
+</para>
+            </summary>
+            <value>A <see cref="TileViewOptionsPrint"/> object that stores settings, which control how this TileView is printed and exported.
 </value>
 
 
@@ -24216,7 +24295,8 @@ The <see cref="F:DevExpress.XtraGrid.GridControl.InvalidRowHandle"/> value if th
         </member>
         <member name="F:DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitTest.RowGroupCell">
             <summary>
-                <para> </para>
+                <para>The test point belongs to a row group cell.
+</para>
             </summary>
 
 
@@ -24828,7 +24908,9 @@ The <see cref="F:DevExpress.XtraGrid.GridControl.InvalidRowHandle"/> value if th
         </member>
         <member name="M:DevExpress.XtraGrid.Views.Grid.GridView.CopyToClipboard">
             <summary>
-                <para> </para>
+                <para>Copies the currently selected data to the clipboard.
+
+</para>
             </summary>
 
 
@@ -24906,7 +24988,8 @@ The <see cref="F:DevExpress.XtraGrid.GridControl.InvalidRowHandle"/> value if th
         </member>
         <member name="E:DevExpress.XtraGrid.Views.Grid.GridView.CustomDrawGroupRowCell">
             <summary>
-                <para> </para>
+                <para>Allows you to manually paint group row cells for this GridView.
+</para>
             </summary>
 
 
@@ -30208,10 +30291,10 @@ to the specified file in XLSX (MS Excel 2007) format.
         </member>
         <member name="P:DevExpress.XtraGrid.Views.Card.CardView.CardCaptionFormat">
             <summary>
-                <para>Gets or sets card caption text patterns.
+                <para>Gets or sets the card caption text pattern.
 </para>
             </summary>
-            <value>A string value specifying the card caption's text pattern.
+            <value>A string value specifying the card caption text pattern.
 </value>
 
 
@@ -32775,13 +32858,16 @@ The <see cref="F:DevExpress.XtraGrid.GridControl.InvalidRowHandle"/> value, if n
         </member>
         <member name="M:DevExpress.XtraGrid.Views.Base.ColumnView.PopulateColumns(System.Type,DevExpress.XtraGrid.Extensions.PopulateColumnsParameters)">
             <summary>
-                <para> </para>
+                <para>Generates columns for the custom code-first data source.
+</para>
             </summary>
             <param name="elementType">
-		 
+		A Type of the code-first data source for which columns should be generated.
+
             </param>
             <param name="populateColumnsParameters">
-		 
+		A PopulateColumnsParameters object that stores advanced column generation parameters.
+
             </param>
 
 
@@ -34672,7 +34758,7 @@ The <see cref="F:DevExpress.XtraGrid.GridControl.InvalidRowHandle"/> value, if n
                 <para>Returns the object which contains the internal information used to render the View.
 </para>
             </summary>
-            <returns>A <see cref="T:DevExpress.XtraGrid.Views.Base.ViewInfo.BaseViewInfo "/> descendant which contains the internal information used to render the View.
+            <returns>A DevExpress.XtraGrid.Views.Base.ViewInfo.BaseViewInfo descendant which contains the internal information used to render the View.
 </returns>
 
 

@@ -15,11 +15,6 @@ namespace SAF.Framework.Controls.Chart
     /// </summary>
     public abstract class DrawObject
     {
-        // Entry names for serialization
-        private const string entryID = "ID";
-        private const string entryColor = "Color";
-        private const string entryPenWidth = "PenWidth";
-
         public DrawObject()
         {
             Initialize();
@@ -239,38 +234,6 @@ namespace SAF.Framework.Controls.Chart
         /// </summary>
         public virtual void Normalize()
         {
-        }
-
-
-        /// <summary>
-        /// Save object to serialization stream
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="orderNumber"></param>
-        public virtual void SaveToStream(SerializationInfo info, int orderNumber)
-        {
-            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryID, orderNumber), ID.ToString("D"));
-
-            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryColor, orderNumber), PenColor.ToArgb());
-
-            info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryPenWidth, orderNumber), PenWidth);
-        }
-
-        /// <summary>
-        /// Load object from serialization stream
-        /// </summary>
-        /// <param name="info"></param>
-        /// <param name="orderNumber"></param>
-        public virtual void LoadFromStream(SerializationInfo info, int orderNumber)
-        {
-            string id = info.GetString(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryID, orderNumber));
-            ID = new Guid(id);
-
-            int n = info.GetInt32(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryColor, orderNumber));
-            PenColor = Color.FromArgb(n);
-
-            PenWidth = info.GetInt32(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryPenWidth, orderNumber));
-
         }
 
         #endregion

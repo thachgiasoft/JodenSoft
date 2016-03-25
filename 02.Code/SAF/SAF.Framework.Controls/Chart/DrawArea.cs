@@ -14,13 +14,18 @@ using System.Drawing.Drawing2D;
 
 namespace SAF.Framework.Controls.Chart
 {
-    public partial class DrawArea : XtraUserControl, IEnumerable<DrawObject>, ISerializable, IGraphicsList
+    public partial class DrawArea : XtraUserControl, IEnumerable<DrawObject>, IGraphicsList
     {
         private UndoManager undoManager;
 
         private GraphicsList GraphicsList { get; set; }
 
-        public DrawToolType ActiveDrawTool { get; set; }
+        private DrawToolType _ActiveDrawTool = DrawToolType.Pointer;
+        public DrawToolType ActiveDrawTool
+        {
+            get { return _ActiveDrawTool; }
+            set { _ActiveDrawTool = value;}
+        }
 
         public ChartControl Owner { get; private set; }
 
@@ -54,9 +59,6 @@ namespace SAF.Framework.Controls.Chart
             // Create undo manager
             undoManager = new UndoManager(this);
 
-            // set default tool
-            this.ActiveDrawTool = DrawToolType.Pointer;
-
             // create array of drawing tools
             tools.Add(DrawToolType.Pointer, new ToolPointer());
             tools.Add(DrawToolType.Rectangle, new ToolRectangle());
@@ -64,6 +66,9 @@ namespace SAF.Framework.Controls.Chart
             tools.Add(DrawToolType.Rhombus, new ToolRhombus());
             tools.Add(DrawToolType.Lane, new ToolLane());
             tools.Add(DrawToolType.Line, new ToolLine());
+
+            // set default tool
+            this.ActiveDrawTool = DrawToolType.Pointer;
         }
 
         public static readonly object MouseDoubleEvent = new object();
@@ -106,8 +111,13 @@ namespace SAF.Framework.Controls.Chart
         {
             if (e.Button == MouseButtons.Left)
                 tools[ActiveDrawTool].OnMouseDown(this, e);
-            //else if (e.Button == MouseButtons.Right)
-            //    OnContextMenu(e);
+            else if (e.Button == MouseButtons.Right)
+                OnContextMenu(e);
+        }
+
+        private void OnContextMenu(MouseEventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -129,7 +139,7 @@ namespace SAF.Framework.Controls.Chart
             }
         }
 
-        //private Size oldAutoScrollMinSize;
+        private Size oldAutoScrollMinSize;
         void DrawArea_Paint(object sender, PaintEventArgs e)
         {
             using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 255, 255)))
@@ -137,16 +147,16 @@ namespace SAF.Framework.Controls.Chart
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 e.Graphics.PageUnit = GraphicsUnit.Pixel; //GraphicsUnit.Pixel才支持缩放与偏移绘制。
 
-                //if (MouseButtons != MouseButtons.Left)
-                //{
-                //    Rectangle b = Rectangle.Round(SumRectangles());
-                //    AutoScrollMinSize = new Size((int)((b.Size.Width + 50) * this.Zoom), (int)((b.Size.Height + 50) * this.Zoom));
-                //    oldAutoScrollMinSize = AutoScrollMinSize;
-                //}
-                //else
-                //{
-                //    AutoScrollMinSize = oldAutoScrollMinSize;
-                //}
+                if (MouseButtons != MouseButtons.Left)
+                {
+                    Rectangle b = Rectangle.Round(SumRectangles());
+                    AutoScrollMinSize = new Size((int)((b.Size.Width + 50) * this.Zoom), (int)((b.Size.Height + 50) * this.Zoom));
+                    oldAutoScrollMinSize = AutoScrollMinSize;
+                }
+                else
+                {
+                    AutoScrollMinSize = oldAutoScrollMinSize;
+                }
 
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
 
@@ -164,8 +174,6 @@ namespace SAF.Framework.Controls.Chart
                     if (o.Selected == true)
                         o.DrawTracker(e.Graphics);
                 }
-
-
             }
         }
 
@@ -241,30 +249,6 @@ namespace SAF.Framework.Controls.Chart
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return this.GetEnumerator();
-        }
-
-        #endregion
-
-        #region ISerializable 成员
-
-        private const string entryCount = "Count";
-        private const string entryType = "Type";
-
-        [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue(entryCount, GraphicsList.Count);
-
-            int i = 0;
-
-            foreach (DrawObject o in GraphicsList)
-            {
-                info.AddValue(String.Format(CultureInfo.InvariantCulture, "{0}{1}", entryType, i), o.GetType().FullName);
-
-                o.SaveToStream(info, i);
-
-                i++;
-            }
         }
 
         #endregion

@@ -1359,6 +1359,14 @@ For the root group, its parent is the LayoutControl itself (the LayoutControl's 
 
 
         </member>
+        <member name="P:DevExpress.XtraLayout.OptionsView.AllowLockSizeIndicators">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
         <member name="P:DevExpress.XtraLayout.OptionsView.AllowScaleControlsToDisplayResolution">
             <summary>
                 <para>This property is now obsolete. Use the <see cref="P:DevExpress.XtraLayout.OptionsView.UseParentAutoScaleFactor"/> property instead.
@@ -1564,10 +1572,10 @@ For the root group, its parent is the LayoutControl itself (the LayoutControl's 
         </member>
         <member name="P:DevExpress.XtraLayout.OptionsView.RightToLeftMirroringApplied">
             <summary>
-                <para>For internal use.
+                <para>Gets or sets whether the <b>RightToLeft</b> setting has been changed. 
 </para>
             </summary>
-            <value> 
+            <value><b>true</b>, if the <b>RightToLeft</b> setting has been changed; otherwise, <b>false</b>.
 </value>
 
 

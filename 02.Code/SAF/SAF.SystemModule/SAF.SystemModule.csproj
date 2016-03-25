@@ -37,37 +37,37 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.v15.2, Version=15.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
     <Reference Include="SAF.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eaf4b5488f8e375b, processorArchitecture=MSIL">
@@ -99,30 +99,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileHelper.cs" />
-    <Compile Include="sysBillNoFormulaView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysBillNoFormulaView.cs" />
     <Compile Include="sysBillNoFormulaView.designer.cs">
       <DependentUpon>sysBillNoFormulaView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysBillNoFormulaViewViewModel.cs" />
-    <Compile Include="sysBillTypeView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysBillTypeView.cs" />
     <Compile Include="sysBillTypeView.Designer.cs">
       <DependentUpon>sysBillTypeView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysBillTypeViewViewModel.cs" />
-    <Compile Include="sysDataRoleView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysDataRoleView.cs" />
     <Compile Include="sysDataRoleView.Designer.cs">
       <DependentUpon>sysDataRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysDataRoleViewViewModel.cs" />
-    <Compile Include="sysFileView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysFileView.cs" />
     <Compile Include="sysFileView.Designer.cs">
       <DependentUpon>sysFileView.cs</DependentUpon>
     </Compile>
@@ -133,45 +125,33 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="sysFileViewViewModel.cs" />
-    <Compile Include="sysMenuView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysMenuView.cs" />
     <Compile Include="sysMenuView.Designer.cs">
       <DependentUpon>sysMenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysMenuViewViewModel.cs" />
-    <Compile Include="sysRoleView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysRoleView.cs" />
     <Compile Include="sysRoleView.Designer.cs">
       <DependentUpon>sysRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysRoleViewViewModel.cs" />
-    <Compile Include="sysTableColumnView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysTableColumnView.cs" />
     <Compile Include="sysTableColumnView.Designer.cs">
       <DependentUpon>sysTableColumnView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysTableColumnViewViewModel.cs" />
     <Compile Include="SystemModuleInfo.cs" />
-    <Compile Include="sysOrganizationView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysOrganizationView.cs" />
     <Compile Include="sysOrganizationView.Designer.cs">
       <DependentUpon>sysOrganizationView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysOrganizationViewViewModel.cs" />
-    <Compile Include="sysUserDataRoleView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysUserDataRoleView.cs" />
     <Compile Include="sysUserDataRoleView.Designer.cs">
       <DependentUpon>sysUserDataRoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="sysUserDataRoleViewModel.cs" />
-    <Compile Include="sysUserView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="sysUserView.cs" />
     <Compile Include="sysUserView.Designer.cs">
       <DependentUpon>sysUserView.cs</DependentUpon>
     </Compile>

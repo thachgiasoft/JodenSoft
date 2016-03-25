@@ -1362,17 +1362,22 @@
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRPivotGrid.ActualHeight">
             <summary>
-                <para> </para>
+                <para>Gets the XRPivotGrid's rendered height (measured in report units).
+</para>
             </summary>
-            <value> </value>
+            <value>A value that specifies the control's actual height.
+
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRPivotGrid.ActualWidth">
             <summary>
-                <para> </para>
+                <para>Gets the XRPivotGrid's rendered width (measured in report units).
+</para>
             </summary>
-            <value> </value>
+            <value>A value that specifies the control's actual width.
+</value>
 
 
         </member>
@@ -1520,14 +1525,16 @@
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomChartDataSourceData">
             <summary>
-                <para> </para>
+                <para>Occurs when a XRPivotGrid control prepares data to be displayed in a <see cref="T:DevExpress.XtraReports.UI.XRChart"/> control.
+</para>
             </summary>
 
 
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomChartDataSourceRows">
             <summary>
-                <para> </para>
+                <para>Occurs before the XRPivotGrid control passes its data to a bound <see cref="T:DevExpress.XtraReports.UI.XRChart"/> control.
+</para>
             </summary>
 
 
@@ -1577,7 +1584,9 @@
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomServerModeSort">
             <summary>
-                <para> </para>
+                <para>Provides the capability to sort data using custom rules in OLAP and server mode.
+
+</para>
             </summary>
 
 
@@ -3053,7 +3062,7 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRChart.IndicatorsPaletteName">
             <summary>
-                <para>Specifies the palette that is used to paint all  that exist in a chart control.
+                <para>Specifies the palette that is used to paint all indicators that exist in a chart control.
 
 </para>
             </summary>
@@ -3171,21 +3180,24 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRChart.PivotChartingCustomizeLegend">
             <summary>
-                <para> </para>
+                <para>Occurs before automatic settings are applied to the legend's layout properties.
+</para>
             </summary>
 
 
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRChart.PivotChartingCustomizeResolveOverlappingMode">
             <summary>
-                <para> </para>
+                <para>Occurs before an automatic setting is applied to the overlap resolving mode of series labels.
+</para>
             </summary>
 
 
         </member>
         <member name="E:DevExpress.XtraReports.UI.XRChart.PivotChartingCustomizeXAxisLabels">
             <summary>
-                <para> </para>
+                <para>Occurs after automatic layout settings are applied to the X-axis' labels.
+</para>
             </summary>
 
 
@@ -4834,17 +4846,21 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRPivotGridScripts.OnCustomChartDataSourceData">
             <summary>
-                <para> </para>
+                <para>Gets or sets the name of the script used to handle the <see cref="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomChartDataSourceData"/> event.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:System.String"/> value, specifying the name of the script for this event.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRPivotGridScripts.OnCustomChartDataSourceRows">
             <summary>
-                <para> </para>
+                <para>Gets or sets the name of the script used to handle the <see cref="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomChartDataSourceRows"/> event.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:System.String"/> value, specifying the name of the script for this event.
+</value>
 
 
         </member>
@@ -4900,9 +4916,11 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRPivotGridScripts.OnCustomServerModeSort">
             <summary>
-                <para> </para>
+                <para>Gets or sets the name of the script used to handle the <see cref="E:DevExpress.XtraReports.UI.XRPivotGrid.CustomServerModeSort"/> event.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:System.String"/> value, specifying the name of the script for this event.
+</value>
 
 
         </member>
@@ -5433,6 +5451,22 @@ However, if the height of the entire group is more than the page height, this gr
 
 
         </member>
+        <member name="F:DevExpress.XtraReports.Localization.ReportStringId.Cmd_CloneFormattingRule">
+            <summary>
+                <para>"<b>Clone Formatting Rule</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraReports.Localization.ReportStringId.Cmd_CloneStyle">
+            <summary>
+                <para>"<b>Clone Style</b>"
+</para>
+            </summary>
+
+
+        </member>
         <member name="F:DevExpress.XtraReports.Localization.ReportStringId.Cmd_Commands">
             <summary>
                 <para>"<b>Commands</b>"
@@ -5844,6 +5878,14 @@ However, if the height of the entire group is more than the page height, this gr
         <member name="F:DevExpress.XtraReports.Localization.ReportStringId.FRSForm_TTip_ClearRules">
             <summary>
                 <para>"<b>Clear formatting rules</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraReports.Localization.ReportStringId.FRSForm_TTip_CloneRule">
+            <summary>
+                <para>"<b>Clone a formatting rule</b>"
 </para>
             </summary>
 
@@ -8333,6 +8375,14 @@ However, if the height of the entire group is more than the page height, this gr
 
 
         </member>
+        <member name="F:DevExpress.XtraReports.Localization.ReportStringId.SSForm_TTip_CloneStyle">
+            <summary>
+                <para>"<b>Clone a style</b>"
+</para>
+            </summary>
+
+
+        </member>
         <member name="F:DevExpress.XtraReports.Localization.ReportStringId.SSForm_TTip_LoadStyles">
             <summary>
                 <para>"<b>Load styles from a file</b>"
@@ -8479,7 +8529,8 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="F:DevExpress.XtraReports.Localization.ReportStringId.SubreportDesigner_EditParameterBindings">
             <summary>
-                <para> </para>
+                <para>"<b>Edit Parameter Bindings...</b>"
+</para>
             </summary>
 
 
@@ -9511,6 +9562,14 @@ However, if the height of the entire group is more than the page height, this gr
         <member name="F:DevExpress.XtraReports.Localization.ReportStringId.UD_Msg_ReportChanged">
             <summary>
                 <para>"<b>Report has been changed. Do you want to save changes ?</b>"
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraReports.Localization.ReportStringId.UD_Msg_ReportSourceUrlNotFound">
+            <summary>
+                <para>"<b>No report with the specified URL has been found. Do you want to create a new report?</b>"
 </para>
             </summary>
 
@@ -11338,9 +11397,11 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XtraReportBase.OrderedBands">
             <summary>
-                <para> </para>
+                <para>Gets the ordered collection of bands contained in a report.
+</para>
             </summary>
-            <value> </value>
+            <value>An object that specifies the ordered collection of bands contained in the report.
+</value>
 
 
         </member>
@@ -12012,57 +12073,73 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="M:DevExpress.XtraReports.UI.XtraReport.ExportToMail(DevExpress.XtraPrinting.MailMessageExportOptions,System.String,System.String,System.String)">
             <summary>
-                <para> </para>
+                <para>Exports a document to HTML and then inserts it into a specified e-mail.
+</para>
             </summary>
             <param name="options">
-		 
+		A <see cref="T:DevExpress.XtraPrinting.MailMessageExportOptions"/> object.
+
             </param>
             <param name="from">
-		 
+		A <see cref="T:System.String"/> value, specifying the sender.
+
             </param>
             <param name="to">
-		 
+		A <see cref="T:System.String"/> value, specifying the recipient.
+
             </param>
             <param name="subject">
-		 
+		A <see cref="T:System.String"/> value, specifying the e-mail subject.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> object.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraReports.UI.XtraReport.ExportToMail(DevExpress.XtraPrinting.MailMessageExportOptions)">
             <summary>
-                <para> </para>
+                <para>Exports a document to HTML and then inserts it into a specified e-mail.
+</para>
             </summary>
             <param name="options">
-		 
+		A <see cref="T:DevExpress.XtraPrinting.MailMessageExportOptions"/> object.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Net.Mail.AlternateView"/> object.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraReports.UI.XtraReport.ExportToMail(System.String,System.String,System.String)">
             <summary>
-                <para> </para>
+                <para>Exports a document to HTML and then inserts it into a specified e-mail.
+</para>
             </summary>
             <param name="from">
-		 
+		A <see cref="T:System.String"/> value, specifying the sender.
+
             </param>
             <param name="to">
-		 
+		A <see cref="T:System.String"/> value, specifying the recipient.
+
             </param>
             <param name="subject">
-		 
+		A <see cref="T:System.String"/> value, specifying the e-mail subject.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Net.Mail.MailMessage"/> object.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraReports.UI.XtraReport.ExportToMail">
             <summary>
-                <para> </para>
+                <para>Exports a document to HTML and then inserts it into a specified e-mail.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Net.Mail.AlternateView"/> object.
+</returns>
 
 
         </member>
@@ -15095,12 +15172,15 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="M:DevExpress.XtraReports.UI.GetValueEventArgs.GetColumnValue(System.String)">
             <summary>
-                <para> </para>
+                <para>Returns the value of a specified column.
+</para>
             </summary>
             <param name="columnName">
-		 
+		A <see cref="T:System.String"/> value, specifying the column name.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Object"/> value.
+</returns>
 
 
         </member>
@@ -15900,6 +15980,16 @@ However, if the height of the entire group is more than the page height, this gr
 
 
             </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraReports.UI.Formatting.Clone">
+            <summary>
+                <para>Creates a new Formatting instance, which is a copy of the current instance. 
+</para>
+            </summary>
+            <returns>A new Formatting instance, which is a copy of the current instance. 
+</returns>
 
 
         </member>
@@ -16818,6 +16908,30 @@ However, if the height of the entire group is more than the page height, this gr
             </summary>
             <value>A DevExpress.XtraPivotGrid.Data.PivotGridData object.
 </value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraReports.UI.GaugeImageType">
+
+            <summary>
+                <para>Enumerates values that specify how the GaugeImageType control should be internally rendered in a report.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraReports.UI.GaugeImageType.Bitmap">
+            <summary>
+                <para>The control is rendered as a bitmap. In this case, the quality of the rendered image is sometimes poor, but it allows a control to be drawn more precisely. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraReports.UI.GaugeImageType.Metafile">
+            <summary>
+                <para>The control is rendered as a metafile. In this case, the quality of the rendered image is always good, but in some cases some details of the control may be lost. 
+</para>
+            </summary>
 
 
         </member>
@@ -20821,10 +20935,12 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="M:DevExpress.XtraReports.UI.XRControlEvents.#ctor(DevExpress.XtraReports.UI.XRControl)">
             <summary>
-                <para> </para>
+                <para>Initializes a new instance of a XRControlEvents class with the specified control.
+</para>
             </summary>
             <param name="control">
-		 
+		An <see cref="T:DevExpress.XtraReports.UI.XRControl"/> object.
+
             </param>
 
 
@@ -21263,9 +21379,11 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRShape.LineStyle">
             <summary>
-                <para> </para>
+                <para>Gets or sets the paint style of the line which is used to draw the shape image. 
+</para>
             </summary>
-            <value> </value>
+            <value>A value that specifies the paint style of the line.
+</value>
 
 
         </member>
@@ -22667,7 +22785,8 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="E:DevExpress.XtraReports.UI.Band.HeightChanged">
             <summary>
-                <para> </para>
+                <para>Occurs when the band height is changed.
+</para>
             </summary>
 
 
@@ -22752,9 +22871,11 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.Band.OrderedBands">
             <summary>
-                <para> </para>
+                <para>Gets the ordered collection of sub-bands belonging to the band.
+</para>
             </summary>
-            <value> </value>
+            <value>An object that specifies the ordered collection of sub-bands contained in the report.
+</value>
 
 
         </member>
@@ -22935,12 +23056,15 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="M:DevExpress.XtraReports.UI.Band.ToImage(System.Drawing.Text.TextRenderingHint)">
             <summary>
-                <para> </para>
+                <para>Replaces the <see cref="M:DevExpress.XtraReports.UI.XRControl.ToImage"/> method.
+</para>
             </summary>
             <param name="textRenderingHint">
-		 
+		One of the <see cref="T:System.Drawing.Text.TextRenderingHint"/> values that specifies the text rendering mode.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Drawing.Image"/> object.
+</returns>
 
 
         </member>
@@ -25836,12 +25960,15 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="M:DevExpress.XtraReports.UI.XRControl.ToImage(System.Drawing.Text.TextRenderingHint)">
             <summary>
-                <para> </para>
+                <para>Returns a control's graphical representation created using the specified text rendering mode.
+</para>
             </summary>
             <param name="textRenderingHint">
-		 
+		One of the <see cref="T:System.Drawing.Text.TextRenderingHint"/> values that specifies the text rendering mode.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Drawing.Image"/> object which represents a graphical representation of a control.
+</returns>
 
 
         </member>
@@ -26976,17 +27103,22 @@ However, if the height of the entire group is more than the page height, this gr
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRGauge.Gauge">
             <summary>
-                <para> </para>
+                <para>For internal use.
+</para>
             </summary>
-            <value> </value>
+            <value> 
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraReports.UI.XRGauge.ImageType">
             <summary>
-                <para> </para>
+                <para>Gets or sets a value that indicates how XRGauge contents are rendered.
+
+</para>
             </summary>
-            <value> </value>
+            <value> <see cref="T:DevExpress.XtraReports.UI.GaugeImageType"/> enumeration value which specifies how a gauge is rendered in a report.
+</value>
 
 
         </member>

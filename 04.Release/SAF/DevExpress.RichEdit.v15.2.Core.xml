@@ -179,7 +179,8 @@
         </member>
         <member name="E:DevExpress.XtraRichEdit.RichEditDocumentServer.BeforePagePaint">
             <summary>
-                <para> </para>
+                <para>Enables you to specify a custom <see cref="T:DevExpress.XtraRichEdit.API.Layout.PagePainter"/> descendant to alter the way the layout elements are drawn.
+</para>
             </summary>
 
 
@@ -374,16 +375,21 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.ExportToPdf(System.IO.Stream,DevExpress.Pdf.PdfCreationOptions,DevExpress.Pdf.PdfSaveOptions)">
             <summary>
-                <para> </para>
+                <para>Exports the content of the RichEditControl to the specified stream in PDF format, applying options for creating and saving.
+
+</para>
             </summary>
             <param name="stream">
-		 
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
             </param>
             <param name="creationOptions">
-		 
+		A <see cref="T:DevExpress.Pdf.PdfCreationOptions"/> object.
+
             </param>
             <param name="saveOptions">
-		 
+		A <see cref="T:DevExpress.Pdf.PdfSaveOptions"/> object.
+
             </param>
 
 
@@ -2852,9 +2858,11 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.AutoCorrectReplaceInfoCollection.CaseSensitive">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether to perform a case-sensitive string comparison when searching for table entries.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, for case-sensitive comparison; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -7566,84 +7574,6 @@
             </summary>
 
         </member>
-        <member name="T:DevExpress.XtraRichEdit.Utils.SymbolProperties">
-
-            <summary>
-                <para>Provides settings for individual symbols in a document.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.#ctor">
-            <summary>
-                <para>Initializes a new instance of the SymbolProperties class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.#ctor(System.Char,System.String)">
-            <summary>
-                <para>Initializes a new instance of the SymbolProperties class with the specified settings.
-</para>
-            </summary>
-            <param name="unicodeChar">
-		A <see cref="T:System.Char"/> structure.
-
-            </param>
-            <param name="fontName">
-		A <see cref="T:System.String"/> value, specifying the font name.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.Equals(System.Object)">
-            <summary>
-                <para>Determines whether or not the specified object is equal to the current SymbolProperties instance.
-
-</para>
-            </summary>
-            <param name="obj">
-		The object to compare with the current object.
-
-            </param>
-            <returns><b>true</b> if the specified object is equal to the current SymbolProperties instance; otherwise <b>false</b>.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.XtraRichEdit.Utils.SymbolProperties.FontName">
-            <summary>
-                <para>Specifies the font name.
-</para>
-            </summary>
-            <value>A <see cref="T:System.String"/> value, specifying the font name.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.GetHashCode">
-            <summary>
-                <para>Serves as the default hash function.
-</para>
-            </summary>
-            <returns>An integer value, specifying the hash code for the current object.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.XtraRichEdit.Utils.SymbolProperties.UnicodeChar">
-            <summary>
-                <para>Specifies the Unicode character.
-</para>
-            </summary>
-            <value>A <see cref="T:System.Char"/> structure, specifying a character as a <b>UTF-16</b> code int.
-</value>
-
-
-        </member>
         <member name="T:DevExpress.XtraRichEdit.Commands.ToggleHiddenTextCommand">
 
             <summary>
@@ -11014,6 +10944,272 @@
 
 
         </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand">
+
+            <summary>
+                <para>Toggles the <b>Locked</b> attribute of the selected field.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the ToggleFieldLockedCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object exposing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface specifying the owner of the command (usually the RichEditControl).
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl,DevExpress.XtraRichEdit.Model.Field)">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <param name="control">
+		 
+
+            </param>
+            <param name="field">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.DescriptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a command description.
+</para>
+            </summary>
+            <value>An <b>MenuCmd_ToggleFieldLockedDescription</b> enumeration value, identifying the resource string. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.Id">
+            <summary>
+                <para>Gets the ID of the <see cref="T:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand"/>.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.ImageName">
+            <summary>
+                <para>Gets the name of the resource image corresponding to the <see cref="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand"/>.
+
+</para>
+            </summary>
+            <value>A string value, specifying the name of an image contained in resources. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand.MenuCaptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a menu caption corresponding to a <see cref="T:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand"/>.
+
+
+</para>
+            </summary>
+            <value>A <b>MenuCmd_ToggleFieldLocked</b> enumeration value, identifying the resource string. 
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand">
+
+            <summary>
+                <para>This command supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the ResizeInlinePictureCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object exposing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface specifying the owner of the command (usually the RichEditControl).
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.DescriptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a command description.
+
+</para>
+            </summary>
+            <value>An <b>XtraRichEditStringId.MenuCmd_ResizeInlinePicture</b> enumeration value, identifying the resource string. 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.ForceExecute(DevExpress.Utils.Commands.ICommandUIState)">
+            <summary>
+                <para>Executes the command specifying the UI state explicitly.
+</para>
+            </summary>
+            <param name="state">
+		An object which implements the <see cref="T:DevExpress.Utils.Commands.ICommandUIState"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.Id">
+            <summary>
+                <para>Gets the ID of the <see cref="T:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand"/>.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.MenuCaptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a menu caption corresponding to the <see cref="T:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand"/>.
+
+</para>
+            </summary>
+            <value>A <b>MenuCmd_ResizeInlinePicture</b> enumeration value, identifying the resource string. 
+
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.ObjectActualBounds">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand.RectangularObject">
+            <summary>
+                <para>This member supports the internal infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Import.DocDocumentImporterOptions">
+
+            <summary>
+                <para>Contains options used for loading (importing) documents in DOC binary format.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Import.DocDocumentImporterOptions.#ctor">
+            <summary>
+                <para> </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Import.DocDocumentImporterOptions.CopyFrom(DevExpress.Office.Import.IImporterOptions)">
+            <summary>
+                <para> </para>
+            </summary>
+            <param name="value">
+		 
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Import.DocDocumentImporterOptions.IgnoreDeletedText">
+            <summary>
+                <para>Specifies whether the text deleted using the MS Word Track Changes feature is ignored when the Rich Text Editor loads a document in MS Word 97-2007 binary file format (.doc).
+</para>
+            </summary>
+            <value><b>True</b> to not load the text marked as deleted with the Track Changes feature; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.UpdateDocVariablesBeforePrint">
+
+            <summary>
+                <para>Lists modes that determine whether DOCVARIABLE fields are recalculated before printing.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.UpdateDocVariablesBeforePrint.Always">
+            <summary>
+                <para>DOCVARIABLE fields are always recalculated before printing.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.UpdateDocVariablesBeforePrint.Auto">
+            <summary>
+                <para>Default value.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.UpdateDocVariablesBeforePrint.Never">
+            <summary>
+                <para>DOCVARIABLE fields are never recalculated before printing.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.DocumentProtectionType">
+
+            <summary>
+                <para>Lists the types of protection that can be applied to the current document.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.DocumentProtectionType.AllowComments">
+            <summary>
+                <para>Allows to add comments to the document.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.DocumentProtectionType.None">
+            <summary>
+                <para>Allows free access to the document.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.DocumentProtectionType.ReadOnly">
+            <summary>
+                <para>Allows read-only access to the document.
+</para>
+            </summary>
+
+
+        </member>
         <member name="T:DevExpress.XtraRichEdit.RichEditBaseValueSource">
 
             <summary>
@@ -11043,112 +11239,6 @@
                 <para>The property value is obtained from the corresponding property of the control.
 </para>
             </summary>
-
-
-        </member>
-        <member name="T:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase">
-
-            <summary>
-                <para>The base class for the <see cref="T:DevExpress.XtraPrintingLinks.RichTextBoxLink"/> class.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.#ctor">
-            <summary>
-                <para>Initializes a new instance of the RichTextBoxLinkBase class with default settings. 
-
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.#ctor(DevExpress.XtraPrinting.PrintingSystemBase)">
-            <summary>
-                <para>Initializes a new instance of the RichTextBoxLinkBase class with the specified printing system. 
-
-
-</para>
-            </summary>
-            <param name="ps">
-		A <see cref="T:DevExpress.XtraPrinting.PrintingSystemBase"/> object which specifies the printing system used to draw the current link. This value is assigned to the <see cref="P:DevExpress.XtraPrintingLinks.RichTextBoxLink.PrintingSystem"/> property. 
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.AddSubreport(System.Drawing.PointF)">
-            <summary>
-                <para>Adds a subreport to the current report. 
-</para>
-            </summary>
-            <param name="offset">
-		A <see cref="T:System.Drawing.PointF"/> object which specifies the vertical offset of the subreport within the current report. 
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.CustomFormatSize">
-            <summary>
-                <para>Gets or sets the custom size with which a System.Windows.Forms.RichTextBox control should be printed. 
-</para>
-            </summary>
-            <value>A <see cref="T:System.Drawing.Size"/> value. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.InfiniteFormatHeight">
-            <summary>
-                <para>Gets or sets a value indicating whether the <see cref="T:System.Windows.Forms.RichTextBox"/> should be printed with unlimited height. 
-</para>
-            </summary>
-            <value><b>true</b> if a RichTextBox should be printed with unlimited height; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.PrintableObjectType">
-            <summary>
-                <para>Gets the type of the object to be printed by the link. 
-</para>
-            </summary>
-            <value>A <see cref="T:System.Type"/> class descendant representing the <see cref="T:System.Windows.Forms.RichTextBox"/> type. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.PrintFormat">
-            <summary>
-                <para>Gets or sets a value indicating what size a <see cref="T:System.Windows.Forms.RichTextBox"/> is printed. 
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.XtraPrintingLinks.RichTextPrintFormat"/> enumeration value. The default is <b>ClientPageSize</b>. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.RichTextBox">
-            <summary>
-                <para>Gets or sets a <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed via the current link. 
-</para>
-            </summary>
-            <value>A <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed. The default is <b>null</b>. 
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.SetDataObject(System.Object)">
-            <summary>
-                <para>Sets the object to be printed by this link.
-</para>
-            </summary>
-            <param name="data">
-		A <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed by this link.
-
-            </param>
 
 
         </member>
@@ -11285,68 +11375,6 @@
             </summary>
 
         </member>
-        <member name="T:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand">
-
-            <summary>
-                <para>A command to insert a row in a table below the currently selected row.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
-            <summary>
-                <para>Initializes a new instance of the InsertTableRowBelowCommand class with the specified owner.
-</para>
-            </summary>
-            <param name="control">
-		An object implementing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface, specifying the command owner.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand.Id">
-            <summary>
-                <para>Gets the ID of the InsertTableRowBelowCommand.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command.
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand">
-
-            <summary>
-                <para>A command to insert a row in a table above the currently selected row.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
-            <summary>
-                <para>Initializes a new instance of the InsertTableRowAboveCommand class with the specified owner.
-</para>
-            </summary>
-            <param name="control">
-		An object implementing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface, specifying the command owner.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand.Id">
-            <summary>
-                <para>Gets the ID of the InsertTableRowAboveCommand.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command.
-</value>
-
-
-        </member>
         <member name="T:DevExpress.XtraRichEdit.Commands.InsertTableElementMenuCommand">
 
             <summary>
@@ -11384,6 +11412,169 @@
 </para>
             </summary>
             <value>A <b>XtraRichEditStringId</b> enumeration value, identifying the resource string.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand">
+
+            <summary>
+                <para>A command to unlock the field and enable editing.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the UnlockFieldCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object exposing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface specifying the owner of the command (usually the RichEditControl).
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl,DevExpress.XtraRichEdit.Model.Field)">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <param name="control">
+		 
+
+            </param>
+            <param name="field">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.DescriptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a command description.
+</para>
+            </summary>
+            <value>An <b>MenuCmd_UnlockFieldDescription</b> enumeration value, identifying the resource string. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.Id">
+            <summary>
+                <para>Gets the ID of the <see cref="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand"/>.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.ImageName">
+            <summary>
+                <para>Gets the name of the resource image corresponding to the <see cref="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand"/>.
+
+</para>
+            </summary>
+            <value>A string value, specifying the name of an image contained in resources. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand.MenuCaptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a menu caption corresponding to an <see cref="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand"/>.
+
+</para>
+            </summary>
+            <value>A <b>MenuCmd_UnlockField</b> enumeration value, identifying the resource string. 
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.LockFieldCommand">
+
+            <summary>
+                <para>A command to lock the field and disable editing.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.LockFieldCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the LockFieldCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object exposing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface specifying the owner of the command (usually the RichEditControl).
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.LockFieldCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl,DevExpress.XtraRichEdit.Model.Field)">
+            <summary>
+                <para>For internal use only.
+</para>
+            </summary>
+            <param name="control">
+		 
+
+            </param>
+            <param name="field">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.LockFieldCommand.DescriptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a command description.
+
+</para>
+            </summary>
+            <value>An <b>XtraRichEditStringId.MenuCmd_LockFieldDescription</b> enumeration value, identifying the resource string. 
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.LockFieldCommand.Id">
+            <summary>
+                <para>Gets the ID of the <see cref="T:DevExpress.XtraRichEdit.Commands.LockFieldCommand"/>.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.LockFieldCommand.ImageName">
+            <summary>
+                <para>Gets the name of the resource image corresponding to the <see cref="T:DevExpress.XtraRichEdit.Commands.LockFieldCommand"/>.
+
+
+</para>
+            </summary>
+            <value>A string value, specifying the name of an image contained in resources. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.LockFieldCommand.MenuCaptionStringId">
+            <summary>
+                <para>Gets a string resource identifier of a menu caption corresponding to the <see cref="T:DevExpress.XtraRichEdit.Commands.LockFieldCommand"/>.
+
+</para>
+            </summary>
+            <value>A <b>MenuCmd_LockField</b> enumeration value, identifying the resource string. 
 </value>
 
 
@@ -14460,6 +14651,14 @@
 
 
         </member>
+        <member name="P:DevExpress.XtraRichEdit.BookmarkOptions.DisplayBookmarksInPdfNavigationPane">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
+
+
+        </member>
         <member name="P:DevExpress.XtraRichEdit.BookmarkOptions.Visibility">
             <summary>
                 <para>Gets or sets whether bookmarks are displayed in the document.
@@ -14720,7 +14919,8 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.IRichEditControl.ScrollToCaret">
             <summary>
-                <para> </para>
+                <para>Scrolls the document to the caret position.
+</para>
             </summary>
 
 
@@ -14803,25 +15003,25 @@
 
 
         </member>
-        <member name="M:DevExpress.XtraRichEdit.IRichEditControl.ShowDocumentProtectionQueryNewPasswordForm(DevExpress.XtraRichEdit.Commands.PasswordInfo,DevExpress.XtraRichEdit.PasswordFormCallback)">
+        <member name="M:DevExpress.XtraRichEdit.IRichEditControl.ShowDocumentProtectionQueryNewPasswordForm(DevExpress.XtraRichEdit.Commands.ProtectionInfo,DevExpress.XtraRichEdit.PasswordFormCallback)">
             <summary>
-                <para>For internal use.
+                <para>Invokes the <b>Document Protection</b> form.
 </para>
             </summary>
             <param name="passwordInfo">
-		  
+		 
 
             </param>
             <param name="callback">
-		  
+		 
 
             </param>
 
 
         </member>
-        <member name="M:DevExpress.XtraRichEdit.IRichEditControl.ShowDocumentProtectionQueryPasswordForm(DevExpress.XtraRichEdit.Commands.PasswordInfo,DevExpress.XtraRichEdit.PasswordFormCallback)">
+        <member name="M:DevExpress.XtraRichEdit.IRichEditControl.ShowDocumentProtectionQueryPasswordForm(DevExpress.XtraRichEdit.Commands.ProtectionInfo,DevExpress.XtraRichEdit.PasswordFormCallback)">
             <summary>
-                <para>For internal use.
+                <para>Invokes The <b>Unprotect Document</b> form.
 </para>
             </summary>
             <param name="passwordInfo">
@@ -15453,35 +15653,46 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.RichEditDashStyle.Dash">
             <summary>
-                <para> </para>
+                <para><para>Specifies a dashed line.</para>
+<para></para>
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraRichEdit.RichEditDashStyle.DashDot">
             <summary>
-                <para> </para>
+                <para><para>Specifies a dash-dot line.</para>
+<para></para>
+
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraRichEdit.RichEditDashStyle.DashDotDot">
             <summary>
-                <para> </para>
+                <para><para>Specifies a line with a repeating dash-dot-dot pattern.</para>
+<para></para>
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraRichEdit.RichEditDashStyle.Dot">
             <summary>
-                <para> </para>
+                <para><para>Specifies a dotted line.</para>
+<para></para>
+</para>
             </summary>
 
 
         </member>
         <member name="F:DevExpress.XtraRichEdit.RichEditDashStyle.Solid">
             <summary>
-                <para> </para>
+                <para><para>Specifies a solid line.</para>
+<para></para>
+</para>
             </summary>
 
 
@@ -15496,17 +15707,22 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.RichEditPenBase.DashStyle">
             <summary>
-                <para> </para>
+                <para>Gets or sets a line style of the <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> object.
+</para>
             </summary>
-            <value> </value>
+            <value>One of the <see cref="T:DevExpress.XtraRichEdit.RichEditDashStyle"/> enumeration values.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.RichEditPenBase.Thickness">
             <summary>
-                <para> </para>
+                <para>Gets or sets the line thickness of the <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> object.
+
+</para>
             </summary>
-            <value> </value>
+            <value>An Int32 value that is the line thickness.
+</value>
 
 
         </member>
@@ -15536,19 +15752,23 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.CharacterBox.Accept(DevExpress.XtraRichEdit.API.Layout.LayoutVisitor)">
             <summary>
-                <para> </para>
+                <para>Required for <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutElement"/>  interface implementation.
+</para>
             </summary>
             <param name="visitor">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutVisitor"/> implementation that is the instance of the visitor class defined in the <b>Visitor</b> pattern.
+
             </param>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.API.Layout.CharacterBox.Text">
             <summary>
-                <para> </para>
+                <para>Returns the text displayed in the current <see cref="T:DevExpress.XtraRichEdit.API.Layout.CharacterBox"/> element.
+</para>
             </summary>
-            <value> </value>
+            <value>A string contained in the CharacterBox element.
+</value>
 
 
         </member>
@@ -15798,14 +16018,16 @@
         <member name="T:DevExpress.XtraRichEdit.DocVariableValue">
 
             <summary>
-                <para>A class which specifies a value of a DOCVARIABLE field in the <see cref="E:DevExpress.XtraRichEdit.API.Native.Document.CalculateDocumentVariable"/> event handler.
+                <para>A class which allows you to specify the current value of a DOCVARIABLE field in the <see cref="E:DevExpress.XtraRichEdit.API.Native.Document.CalculateDocumentVariable"/> event handler.
+
 </para>
             </summary>
 
         </member>
         <member name="F:DevExpress.XtraRichEdit.DocVariableValue.Current">
             <summary>
-                <para> </para>
+                <para>Specifies the current value of the <b>DOCVARIABLE</b> field.
+</para>
             </summary>
             <returns> </returns>
 
@@ -16002,17 +16224,21 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.Import.OpenXmlDocumentImporterOptions.IgnoreDeletedText">
             <summary>
-                <para> </para>
+                <para>Specifies whether the text deleted using the MS Word Track Changes feature is ignored when the Rich Text Editor loads a document in OpenXML format.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, to not load the text marked as deleted with the Track Changes feature; otherwise, <b>false</b>.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.Import.OpenXmlDocumentImporterOptions.IgnoreInsertedText">
             <summary>
-                <para> </para>
+                <para>Specifies whether the text inserted using the MS Word Track Changes feature is ignored when the Rich Text Editor loads a document in OpenXML format.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b> to not load the text marked as inserted with the Track Changes feature; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -17187,7 +17413,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawColumn(DevExpress.XtraRichEdit.API.Layout.LayoutColumn)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutColumn"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutColumn"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="column">
@@ -17199,7 +17425,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawColumnBreakBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="columnBreakBox">
@@ -17211,7 +17437,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawComment(DevExpress.XtraRichEdit.API.Layout.LayoutComment)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutComment"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutComment"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="comment">
@@ -17223,7 +17449,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawCommentHighlightAreaBox(DevExpress.XtraRichEdit.API.Layout.CommentHighlightAreaBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.CommentHighlightAreaBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.CommentHighlightAreaBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="commentHighlightAreaBox">
@@ -17235,7 +17461,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawFieldHighlightAreaBox(DevExpress.XtraRichEdit.API.Layout.FieldHighlightAreaBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.FieldHighlightAreaBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.FieldHighlightAreaBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="fieldHighlightAreaBox">
@@ -17247,7 +17473,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawFloatingObjectAnchorBox(DevExpress.XtraRichEdit.API.Layout.FloatingObjectAnchorBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.FloatingObjectAnchorBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.FloatingObjectAnchorBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="floatingObjectAnchorBox">
@@ -17259,7 +17485,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawFloatingPicture(DevExpress.XtraRichEdit.API.Layout.LayoutFloatingPicture)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutFloatingPicture"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutFloatingPicture"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="floatingPicture">
@@ -17271,7 +17497,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawFooter(DevExpress.XtraRichEdit.API.Layout.LayoutFooter)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutFooter"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutFooter"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="footer">
@@ -17283,7 +17509,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawHeader(DevExpress.XtraRichEdit.API.Layout.LayoutHeader)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutHeader"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutHeader"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="header">
@@ -17295,7 +17521,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawHighlightAreaBox(DevExpress.XtraRichEdit.API.Layout.HighlightAreaBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.HighlightAreaBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.HighlightAreaBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="highlightAreaBox">
@@ -17307,7 +17533,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawHyphenBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.HyphenBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.HyphenBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="hyphen">
@@ -17319,7 +17545,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawInlinePictureBox(DevExpress.XtraRichEdit.API.Layout.InlinePictureBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.InlinePictureBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.InlinePictureBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="inlinePictureBox">
@@ -17331,7 +17557,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawLineBreakBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.LineBreakBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.LineBreakBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="lineBreakBox">
@@ -17343,7 +17569,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawLineNumberBox(DevExpress.XtraRichEdit.API.Layout.LineNumberBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LineNumberBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LineNumberBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="lineNumberBox">
@@ -17355,7 +17581,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawNumberingListMarkBox(DevExpress.XtraRichEdit.API.Layout.NumberingListMarkBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.NumberingListMarkBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.NumberingListMarkBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="numberingListMarkBox">
@@ -17367,7 +17593,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawNumberingListWithSeparatorBox(DevExpress.XtraRichEdit.API.Layout.NumberingListWithSeparatorBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.NumberingListWithSeparatorBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.NumberingListWithSeparatorBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="numberingListWithSeparatorBox">
@@ -17379,7 +17605,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawPage(DevExpress.XtraRichEdit.API.Layout.LayoutPage)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutPage"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutPage"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="page">
@@ -17391,7 +17617,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawPageArea(DevExpress.XtraRichEdit.API.Layout.LayoutPageArea)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutPageArea"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutPageArea"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="pageArea">
@@ -17403,7 +17629,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawPageBreakBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.PageBreakBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.PageBreakBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="pageBreakBox">
@@ -17415,7 +17641,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawPageNumberBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.PageNumberBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.PageNumberBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="pageNumberBox">
@@ -17427,7 +17653,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawParagraphMarkBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.ParagraphMarkBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.ParagraphMarkBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="paragraphMarkBox">
@@ -17439,7 +17665,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawPlainTextBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="plainTextBox">
@@ -17451,7 +17677,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawRangePermissionHighlightAreaBox(DevExpress.XtraRichEdit.API.Layout.RangePermissionHighlightAreaBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.RangePermissionHighlightAreaBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.RangePermissionHighlightAreaBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="rangePermissionHighlightAreaBox">
@@ -17463,7 +17689,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawRow(DevExpress.XtraRichEdit.API.Layout.LayoutRow)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutRow"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutRow"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="row">
@@ -17475,7 +17701,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawSectionBreakBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SectionBreakBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SectionBreakBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="sectionBreakBox">
@@ -17487,7 +17713,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawSpaceBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SpaceBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SpaceBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="spaceBox">
@@ -17499,7 +17725,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawSpecialTextBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SpecialTextBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.SpecialTextBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="specialTextBox">
@@ -17511,7 +17737,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawStrikeoutBox(DevExpress.XtraRichEdit.API.Layout.StrikeoutBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.StrikeoutBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.StrikeoutBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="strikeoutBox">
@@ -17523,7 +17749,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawTable(DevExpress.XtraRichEdit.API.Layout.LayoutTable)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTable"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTable"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="table">
@@ -17535,7 +17761,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawTableCell(DevExpress.XtraRichEdit.API.Layout.LayoutTableCell)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTableCell"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTableCell"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="tableCell">
@@ -17547,7 +17773,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawTableRow(DevExpress.XtraRichEdit.API.Layout.LayoutTableRow)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTableRow"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTableRow"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="tableRow">
@@ -17559,7 +17785,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawTabSpaceBox(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.TabSpaceBox"/> type. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element of the <see cref="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.TabSpaceBox"/> type. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="tabSpaceBox">
@@ -17571,7 +17797,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawTextBox(DevExpress.XtraRichEdit.API.Layout.LayoutTextBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTextBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutTextBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="textBox">
@@ -17583,7 +17809,7 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PagePainter.DrawUnderlineBox(DevExpress.XtraRichEdit.API.Layout.UnderlineBox)">
             <summary>
-                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.UnderlineBox"/> element. Override it in class descendant to customize the element appearance.
+                <para>Draws the <see cref="T:DevExpress.XtraRichEdit.API.Layout.UnderlineBox"/> element. Override it in a class descendant to customize the element appearance.
 </para>
             </summary>
             <param name="underlineBox">
@@ -17637,33 +17863,43 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.BeforePagePaintEventArgs.Canvas">
             <summary>
-                <para> </para>
+                <para>Provides access to layout drawing surface.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Layout.PageCanvas"/> object which encapsulates the layout drawing surface.
+
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.BeforePagePaintEventArgs.CanvasOwnerType">
             <summary>
-                <para> </para>
+                <para>Determines the type of device to which the document layout is rendered.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Layout.CanvasOwnerType"/> enumeration that specifies the type of device.
+
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.BeforePagePaintEventArgs.Page">
             <summary>
-                <para> </para>
+                <para>Provides access to the current page being rendered.
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Layout.LayoutPage"/> element.
+</value>
 
 
         </member>
         <member name="P:DevExpress.XtraRichEdit.BeforePagePaintEventArgs.Painter">
             <summary>
-                <para> </para>
+                <para>Gets or sets the painter object which implements methods for drawing layout elements. 
+</para>
             </summary>
-            <value> </value>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Layout.PagePainter"/> class or its descendant.
+</value>
 
 
         </member>
@@ -18702,9 +18938,11 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.FieldOptions.ClearUnhandledDocVariableField">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether the <b>DOCVARIABLE</b> field value is cleared when it cannot be calculated.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, to clear the value of the <b>DOCVARIABLE</b> field when it either cannot be retrieved from the <b>Document.Variables</b> dictionary or the <b>CalculateDocumentVariable</b> event is not handled; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -18761,9 +18999,12 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.FieldOptions.UpdateFieldsInTextBoxes">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether the <see cref="M:DevExpress.XtraRichEdit.API.Native.FieldCollection.Update"/> method updates fields contained in text boxes.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, to update fields contained in text boxes; otherwise, <b>false</b>.
+
+</value>
 
 
         </member>
@@ -19923,9 +20164,11 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.RichEditControlCompatibility.CompatibleRtfImportForRotatedImages">
             <summary>
-                <para> </para>
+                <para>Fixes incorrectly displayed rotated images in loaded RTF files.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, to turn the compatibility option on; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -19945,6 +20188,16 @@
 </para>
             </summary>
             <value>A <see cref="T:System.Single"/> value that specifies the font size in points.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControlCompatibility.UsePrintingSystemPdfExport">
+            <summary>
+                <para>Allows you to use an obsolete PDF export implemented in earlier versions.
+</para>
+            </summary>
+            <value><b>True</b>, to use PDF export based on the Printing System functionality; otherwise, <b>false</b>.
 </value>
 
 
@@ -20370,10 +20623,12 @@
 </para>
             </summary>
             <param name="pageIndex">
-		 
+		An integer that is the index of a page.
+
             </param>
             <param name="position">
-		 
+		A <see cref="T:System.Drawing.Point"/> that specifies a position on a page.
+
             </param>
 
 
@@ -20851,100 +21106,131 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(DevExpress.XtraRichEdit.API.Native.DocumentRange,System.String)">
             <summary>
-                <para> </para>
+                <para>Creates a new <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> with the specified settings.
+</para>
             </summary>
             <param name="range">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> for which a comment is being created.
+
             </param>
             <param name="author">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(System.String,DevExpress.XtraRichEdit.API.Native.Comment)">
             <summary>
-                <para> </para>
+                <para>Creates a nested comment.
+</para>
             </summary>
             <param name="author">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+
             </param>
             <param name="parentComment">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object that is the parent comment.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object that is the nested comment
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(DevExpress.XtraRichEdit.API.Native.DocumentPosition,System.Int32,System.String)">
             <summary>
-                <para> </para>
+                <para>Creates a new <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> with the specified settings.
+</para>
             </summary>
             <param name="start">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> value that specifies the start of the  <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> for which a comment is being created.
+
             </param>
             <param name="length">
-		 
+		An integer value that specifies the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Length"/> of the range.
+
             </param>
             <param name="author">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(DevExpress.XtraRichEdit.API.Native.DocumentRange,System.String,System.DateTime)">
             <summary>
-                <para> </para>
+                <para>Creates a comment for the specified range and assigns the author's name and creation date.
+</para>
             </summary>
             <param name="range">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> that specifies the start of the range being commented.
+
             </param>
             <param name="author">
-		 
+		A string that specifies the comment's author.
+
             </param>
             <param name="date">
-		 
+		A <see cref="T:System.DateTime"/> object that specifies the comment creation date.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object successfully created.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(System.String,System.DateTime,DevExpress.XtraRichEdit.API.Native.Comment)">
             <summary>
-                <para> </para>
+                <para>Creates a nested comment with the specified author's name and creation date.
+</para>
             </summary>
             <param name="author">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+
             </param>
             <param name="date">
-		 
+		A <see cref="T:System.DateTime"/> object that is the comment creation date.
+
             </param>
             <param name="parentComment">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object that is the parent comment.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object that is the nested comment.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Native.CommentCollection.Create(DevExpress.XtraRichEdit.API.Native.DocumentPosition,System.Int32,System.String,System.DateTime)">
             <summary>
-                <para> </para>
+                <para>Creates a comment for the specified range and assigns the comment's author and creation date.
+</para>
             </summary>
             <param name="start">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> that specifies the start of the range being commented.
+
             </param>
             <param name="length">
-		 
+		An integer that specifies the number of positions by which a document range extends.
+
             </param>
             <param name="author">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+
             </param>
             <param name="date">
-		 
+		A <see cref="T:System.String"/> value that sets the <see cref="P:DevExpress.Spreadsheet.Comment.Author"/> property. 
+A <see cref="T:System.DateTime"/> object that is the comment creation date.
+
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Comment"/> object successfully created.
+</returns>
 
 
         </member>
@@ -21062,9 +21348,11 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.Comment.ParentComment">
             <summary>
-                <para> </para>
+                <para>Specifies the parent comment of the current comment.
+</para>
             </summary>
-            <value> </value>
+            <value>The <see cref="T:DevExpress.XtraRichEdit.API.Native.CommentCollection"/> object that is the parent comment.
+</value>
 
 
         </member>
@@ -25205,9 +25493,11 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.Commands.RichEditCommandId.LockFieldCommand">
             <summary>
-                <para> </para>
+                <para><see cref="T:DevExpress.XtraRichEdit.Commands.LockFieldCommand"/> ID
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -25573,9 +25863,11 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.Commands.RichEditCommandId.ResizeInlinePicture">
             <summary>
-                <para> </para>
+                <para><see cref="T:DevExpress.XtraRichEdit.Commands.ResizeInlinePictureCommand"/> ID.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -26455,9 +26747,11 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.Commands.RichEditCommandId.ToggleFieldLockedCommand">
             <summary>
-                <para> </para>
+                <para><see cref="T:DevExpress.XtraRichEdit.Commands.ToggleFieldLockedCommand"/> ID.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -26995,9 +27289,11 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.Commands.RichEditCommandId.UnlockFieldCommand">
             <summary>
-                <para> </para>
+                <para><see cref="T:DevExpress.XtraRichEdit.Commands.UnlockFieldCommand"/> ID.
+</para>
             </summary>
-            <returns> </returns>
+            <returns> 
+</returns>
 
 
         </member>
@@ -29529,10 +29825,12 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.LayoutIterator.Reset(DevExpress.XtraRichEdit.API.Layout.InitialState)">
             <summary>
-                <para> </para>
+                <para>Sets the iterator to specified initial position.
+</para>
             </summary>
             <param name="initialState">
-		 
+		One of the <see cref="T:DevExpress.XtraRichEdit.API.Layout.InitialState"/> enumeration values.
+
             </param>
 
 
@@ -33314,7 +33612,8 @@
         </member>
         <member name="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.CharacterBox">
             <summary>
-                <para> </para>
+                <para>The type of layout element of the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> class related to a single character.
+</para>
             </summary>
 
 
@@ -33676,6 +33975,20 @@
             </summary>
 
         </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.BeginUpdateDocument(DevExpress.XtraRichEdit.API.Layout.RangedLayoutElement)">
+            <summary>
+                <para>Starts modifying the document obtained via layout element.
+</para>
+            </summary>
+            <param name="element">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Layout.RangedLayoutElement"/> object that is the layout element which has related <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/>. 
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.SubDocument"/> instance allowing you to safely modify the document.
+</returns>
+
+
+        </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.Dispose">
             <summary>
                 <para>Disposes of the DocumentLayout object.
@@ -33697,6 +34010,18 @@
                 <para>Fires after any document modification which makes the current layout outdated.
 </para>
             </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.EndUpdateDocument(DevExpress.XtraRichEdit.API.Native.SubDocument)">
+            <summary>
+                <para>Finalizes modifications of the document obtained via the layout element.
+</para>
+            </summary>
+            <param name="document">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.SubDocument"/> instance obtained via the previously called <see cref="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.BeginUpdateDocument"/> method.
+
+            </param>
 
 
         </member>
@@ -33799,9 +34124,11 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.GetPageCount">
             <summary>
-                <para> </para>
+                <para>Get a number of pages in the document.
+</para>
             </summary>
-            <returns> </returns>
+            <returns>The Int32 value that is the page count.
+</returns>
 
 
         </member>
@@ -33855,12 +34182,16 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.DocumentLayout.Split(DevExpress.XtraRichEdit.API.Layout.PlainTextBox)">
             <summary>
-                <para> </para>
+                <para>Splits the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> object into <see cref="T:DevExpress.XtraRichEdit.API.Layout.CharacterBox"/> elements contained in the <see cref="T:DevExpress.XtraRichEdit.API.Layout.CharacterBoxCollection"/> object instance.
+</para>
             </summary>
             <param name="box">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> element that will be split.
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Layout.CharacterBoxCollection"/> object containing <see cref="T:DevExpress.XtraRichEdit.API.Layout.CharacterBox"/> elements extracted from the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> object.
+
+</returns>
 
 
         </member>
@@ -35520,6 +35851,32 @@
 
 
         </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Protect(System.String,DevExpress.XtraRichEdit.API.Native.DocumentProtectionType)">
+            <summary>
+                <para>Enforces document protection and sets the specified password.
+</para>
+            </summary>
+            <param name="password">
+		A password string.
+
+            </param>
+            <param name="protectionType">
+		One of the DocumentProtectionType enumeration values.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.ProtectionType">
+            <summary>
+                <para>Gets the protection type for the document.
+</para>
+            </summary>
+            <value>One of the DocumentProtectionType enumeration values.
+</value>
+
+
+        </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.Document.RequiredExportCapabilities">
             <summary>
                 <para>Obtains information on the formatting capabilities required to export the current document correctly.
@@ -35649,9 +36006,11 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.Document.UpdateDocVariablesBeforePrint">
             <summary>
-                <para> </para>
+                <para>Gets or sets whether DOCVARIABLE fields are automatically updated before a document is printed. 
+</para>
             </summary>
-            <value> </value>
+            <value>An <see cref="T:DevExpress.XtraRichEdit.UpdateDocVariablesBeforePrint"/> enumeration value.
+</value>
 
 
         </member>
@@ -38070,12 +38429,17 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.RichEditView.PageLayoutPositionToPoint(DevExpress.XtraRichEdit.PageLayoutPosition)">
             <summary>
-                <para> </para>
+                <para>Gets the position relative to the document and returns the position relative to the control.
+
+</para>
             </summary>
             <param name="position">
-		 
+		A <see cref="T:DevExpress.XtraRichEdit.PageLayoutPosition"/> instance that specifies the layout position on a specific page of the document.
+
+
             </param>
-            <returns> </returns>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure or <b>null</b>.
+</returns>
 
 
         </member>
@@ -38480,6 +38844,16 @@
 
 
         </member>
+        <member name="P:DevExpress.XtraPrinting.RichTextBrick.CanShrinkAndGrow">
+            <summary>
+                <para>For internal use. Supports the serialization of the RichTextBrick class.
+</para>
+            </summary>
+            <value>A Boolean value.
+</value>
+
+
+        </member>
         <member name="M:DevExpress.XtraPrinting.RichTextBrick.Clone">
             <summary>
                 <para>Creates a new RichTextBrick instance, which is a copy of the current instance. 
@@ -38763,6 +39137,112 @@
             </summary>
             <value>A <b>XtraRichEditStringId</b> enumeration value, identifying the resource string.
 </value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase">
+
+            <summary>
+                <para>The base class for the <see cref="T:DevExpress.XtraPrintingLinks.RichTextBoxLink"/> class.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RichTextBoxLinkBase class with default settings. 
+
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.#ctor(DevExpress.XtraPrinting.PrintingSystemBase)">
+            <summary>
+                <para>Initializes a new instance of the RichTextBoxLinkBase class with the specified printing system. 
+
+
+</para>
+            </summary>
+            <param name="ps">
+		A <see cref="T:DevExpress.XtraPrinting.PrintingSystemBase"/> object which specifies the printing system used to draw the current link. This value is assigned to the <see cref="P:DevExpress.XtraPrintingLinks.RichTextBoxLink.PrintingSystem"/> property. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.AddSubreport(System.Drawing.PointF)">
+            <summary>
+                <para>Adds a subreport to the current report. 
+</para>
+            </summary>
+            <param name="offset">
+		A <see cref="T:System.Drawing.PointF"/> object which specifies the vertical offset of the subreport within the current report. 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.CustomFormatSize">
+            <summary>
+                <para>Gets or sets the custom size with which a System.Windows.Forms.RichTextBox control should be printed. 
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Size"/> value. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.InfiniteFormatHeight">
+            <summary>
+                <para>Gets or sets a value indicating whether the <see cref="T:System.Windows.Forms.RichTextBox"/> should be printed with unlimited height. 
+</para>
+            </summary>
+            <value><b>true</b> if a RichTextBox should be printed with unlimited height; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.PrintableObjectType">
+            <summary>
+                <para>Gets the type of the object to be printed by the link. 
+</para>
+            </summary>
+            <value>A <see cref="T:System.Type"/> class descendant representing the <see cref="T:System.Windows.Forms.RichTextBox"/> type. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.PrintFormat">
+            <summary>
+                <para>Gets or sets a value indicating what size a <see cref="T:System.Windows.Forms.RichTextBox"/> is printed. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraPrintingLinks.RichTextPrintFormat"/> enumeration value. The default is <b>ClientPageSize</b>. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.RichTextBox">
+            <summary>
+                <para>Gets or sets a <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed via the current link. 
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed. The default is <b>null</b>. 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPrintingLinks.RichTextBoxLinkBase.SetDataObject(System.Object)">
+            <summary>
+                <para>Sets the object to be printed by this link.
+</para>
+            </summary>
+            <param name="data">
+		A <see cref="T:System.Windows.Forms.RichTextBox"/> object to be printed by this link.
+
+            </param>
 
 
         </member>
@@ -40077,6 +40557,84 @@
 
 
         </member>
+        <member name="T:DevExpress.XtraRichEdit.Utils.SymbolProperties">
+
+            <summary>
+                <para>Provides settings for individual symbols in a document.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.#ctor">
+            <summary>
+                <para>Initializes a new instance of the SymbolProperties class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.#ctor(System.Char,System.String)">
+            <summary>
+                <para>Initializes a new instance of the SymbolProperties class with the specified settings.
+</para>
+            </summary>
+            <param name="unicodeChar">
+		A <see cref="T:System.Char"/> structure.
+
+            </param>
+            <param name="fontName">
+		A <see cref="T:System.String"/> value, specifying the font name.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.Equals(System.Object)">
+            <summary>
+                <para>Determines whether or not the specified object is equal to the current SymbolProperties instance.
+
+</para>
+            </summary>
+            <param name="obj">
+		The object to compare with the current object.
+
+            </param>
+            <returns><b>true</b> if the specified object is equal to the current SymbolProperties instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Utils.SymbolProperties.FontName">
+            <summary>
+                <para>Specifies the font name.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value, specifying the font name.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.SymbolProperties.GetHashCode">
+            <summary>
+                <para>Serves as the default hash function.
+</para>
+            </summary>
+            <returns>An integer value, specifying the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Utils.SymbolProperties.UnicodeChar">
+            <summary>
+                <para>Specifies the Unicode character.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Char"/> structure, specifying a character as a <b>UTF-16</b> code int.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraRichEdit.API.Layout.BookmarkBoxCollection">
 
             <summary>
@@ -40418,462 +40976,616 @@
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.ConvertToDrawingLayoutUnits(System.Drawing.Point,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Converts an object's measurement units to the specified ones.
+</para>
             </summary>
             <param name="point">
-		 
+		The point whose coordinates will be converted to the specified measurement unit.
+
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for conversion.
+
             </param>
-            <returns> </returns>
+            <returns>The point whose coordinates have been converted to the specified measurement units.
+
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.ConvertToDrawingLayoutUnits(System.Int32,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Converts an object's measurement units to the specified ones.
+</para>
             </summary>
             <param name="value">
-		 
+		The Int32 value that will be converted to the specified measurement unit.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for conversion.
+
+
             </param>
-            <returns> </returns>
+            <returns>The Int32 value that is original integer value converted to the specified measurement unit.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.ConvertToDrawingLayoutUnits(System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Converts an object's measurement units to the specified ones.
+</para>
             </summary>
             <param name="rect">
-		 
+		A Rectangle structure that will be measured in the specified unit.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for structure parameters.
+
             </param>
-            <returns> </returns>
+            <returns>A Rectangle structure that is the original rectangle, converted to specific document layout units.
+</returns>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawEllipse(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom ellipse.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the outline color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the shape's location and size.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for shape parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawEllipse(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Rectangle)">
             <summary>
-                <para> </para>
+                <para>Draws a custom ellipse.
+
+</para>
             </summary>
             <param name="pen">
-		 
+		<see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the outline color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the shape's location and size.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawImage(DevExpress.Office.Utils.OfficeImage,System.Drawing.Rectangle,DevExpress.XtraPrinting.ImageSizeMode)">
             <summary>
-                <para> </para>
+                <para>Draws a custom image.
+
+</para>
             </summary>
             <param name="image">
-		 
+		The <see cref="T:DevExpress.Office.Utils.OfficeImage"/> object that will be placed at the selected position.
+
+
             </param>
             <param name="bounds">
-		 
+		Sets the location and size of the image.
+
             </param>
             <param name="sizeMode">
-		 
+		Specifies the image position within the stated bounds.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawImage(DevExpress.Office.Utils.OfficeImage,System.Drawing.Rectangle,DevExpress.XtraPrinting.ImageSizeMode,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom image.
+</para>
             </summary>
             <param name="image">
-		 
+		The <see cref="T:DevExpress.Office.Utils.OfficeImage"/> descendant that will be placed at the selected position.
+
+
             </param>
             <param name="bounds">
-		 
+		Sets the image's location and size.
+
             </param>
             <param name="sizeMode">
-		 
+		Specifies the object position within the stated bounds.
+
+
             </param>
             <param name="unit">
-		 
+		Specifies the measurement for the image parameters.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawImage(DevExpress.Office.Utils.OfficeImage,System.Drawing.Point,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom image.
+
+</para>
             </summary>
             <param name="image">
-		 
+		The <see cref="T:DevExpress.Office.Utils.OfficeImage"/> descendnant that will be placed at the selected position.
+
+
             </param>
             <param name="point">
-		 
+		Sets the coordinates to locate the object.
+
+
             </param>
             <param name="unit">
-		 
+		Specifies the measurement for image parameters.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawImage(DevExpress.Office.Utils.OfficeImage,System.Drawing.Point)">
             <summary>
-                <para> </para>
+                <para>Draws a custom image.
+</para>
             </summary>
             <param name="image">
-		 
+		The <see cref="T:DevExpress.Office.Utils.OfficeImage"/> descendant that will be drawn.
+
+
             </param>
             <param name="point">
-		 
+		Sets the coordinates to place the object.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLine(DevExpress.XtraRichEdit.RichEditPenBase,System.Int32,System.Int32,System.Int32,System.Int32,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom line.
+
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/>descendant that sets the line's color and thickness.
+
             </param>
             <param name="x1">
-		 
+		Sets the line's start point x-coordinate.
+
             </param>
             <param name="y1">
-		 
+		Sets the line's start point y-coordinate.
+
             </param>
             <param name="x2">
-		 
+		Sets the x-position of the line's end point
+
             </param>
             <param name="y2">
-		 
+		Sets the y-position of the line's end point
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for the line parameters
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLine(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Point,System.Drawing.Point,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom line.
+
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the line's color and thickness.
+
             </param>
             <param name="point1">
-		 
+		Sets the line's start point coordinates.
+
             </param>
             <param name="point2">
-		 
+		Sets the line's end point coordinates.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for line parameters
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLine(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Point,System.Drawing.Point)">
             <summary>
-                <para> </para>
+                <para>Draws a custom line.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/>descendant that sets the line's color and thickness.
+
             </param>
             <param name="point1">
-		 
+		Sets the line's start point coordinates.
+
             </param>
             <param name="point2">
-		 
+		Sets the line's end point coordinates.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLine(DevExpress.XtraRichEdit.RichEditPenBase,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
-                <para> </para>
+                <para>Draws a custom line.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the line's color and thickness.
+
             </param>
             <param name="x1">
-		 
+		Sets the x-coordinate of the line's start point.
+
             </param>
             <param name="y1">
-		 
+		Sets the y-coordinate of the line's start point.
+
             </param>
             <param name="x2">
-		 
+		Sets the x-coordinate of the line's end point
+
             </param>
             <param name="y2">
-		 
+		Sets the y-coordinate of the line's end point
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLines(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Point[],DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom set of lines.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the lines' color and thickness.
+
             </param>
             <param name="points">
-		 
+		The array of points locating the lines.
+
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for line parameters.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawLines(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Point[])">
             <summary>
-                <para> </para>
+                <para>Draws a custom set of lines.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the lines' color and thickness.
+
             </param>
             <param name="points">
-		 
+		The array of points locating the lines.
+
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawRectangle(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom rectangle.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the border color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the rectangle's location and size.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for shape parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawRectangle(DevExpress.XtraRichEdit.RichEditPenBase,System.Drawing.Rectangle)">
             <summary>
-                <para> </para>
+                <para>Draws a custom rectangle.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the outline color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the rectangle's location and size.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawRectangle(DevExpress.XtraRichEdit.RichEditPenBase,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
-                <para> </para>
+                <para>Draws a custom rectangle.
+</para>
             </summary>
             <param name="pen">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the outline color and thickness.
+
             </param>
             <param name="x">
-		 
+		Sets the x-coordinate of the shape's upper-left corner.
+
             </param>
             <param name="y">
-		 
+		Sets the y-coordinate of the shape's upper-left corner.
+
             </param>
             <param name="width">
-		 
+		Sets the shape's width.
+
             </param>
             <param name="height">
-		 
+		Sets the shape's height.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawRectangle(DevExpress.XtraRichEdit.RichEditPenBase,System.Int32,System.Int32,System.Int32,System.Int32,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom rectangle.
+</para>
             </summary>
             <param name="pen">
-		 
+		<see cref="T:DevExpress.XtraRichEdit.RichEditPenBase"/> descendant that sets the outline color and thickness.
+
             </param>
             <param name="x">
-		 
+		Sets the x-coordinate of the shape's upper-left corner.
+
             </param>
             <param name="y">
-		 
+		Sets the y-coordinate of the shape's upper-left corner.
+
             </param>
             <param name="width">
-		 
+		Sets the shape's width.
+
             </param>
             <param name="height">
-		 
+		Sets the shape's height. 
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for shape parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawString(System.String,System.Drawing.Font,DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle)">
             <summary>
-                <para> </para>
+                <para>Places a custom string at the selected position.
+
+</para>
             </summary>
             <param name="str">
-		 
+		A ?ustom string that will be placed at the selected position.
+
+
             </param>
             <param name="font">
-		 
+		Sets font parameters for the custom string.
+
             </param>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> object that sets the color and thickness of the string characters.
+
+
             </param>
             <param name="bounds">
-		 
+		Sets the string's location and size. 
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawString(System.String,System.Drawing.Font,DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Point)">
             <summary>
-                <para> </para>
+                <para>Places a custom string.
+</para>
             </summary>
             <param name="str">
-		 
+		A custom string to be drawn.
+
+
+
             </param>
             <param name="font">
-		 
+		Sets the custom string's font parameters.
+
             </param>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> object that sets the color and thickness of the string characters.
+
+
             </param>
             <param name="point">
-		 
+		Sets the string's start point coordinates.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawString(System.String,System.Drawing.Font,DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom string.
+</para>
             </summary>
             <param name="str">
-		 
+		A custom string to be drawn.
+
+
+
             </param>
             <param name="font">
-		 
+		Sets the string's font parameters.
+
             </param>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> descendant that sets the string characters' color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Gets the location and size of the string.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for the string parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.DrawString(System.String,System.Drawing.Font,DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Point,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a custom string.
+</para>
             </summary>
             <param name="str">
-		 
+		A custom string to be drawn.
+
+
             </param>
             <param name="font">
-		 
+		Sets the string's font parameters.
+
             </param>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> descendant that sets the string characters' color and thickness.
+
             </param>
             <param name="point">
-		 
+		Sets the string's start point coordinates.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for string parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.FillEllipse(DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle)">
             <summary>
-                <para> </para>
+                <para>Draws a filled custom ellipse.
+</para>
             </summary>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> descendant that sets the shape color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the location and size of the shape. 
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.FillEllipse(DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a filled custom ellipse.
+
+</para>
             </summary>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/>descendant that sets the ellipse's color and thickness.
+
             </param>
             <param name="bounds">
-		 
+		Sets the shape's location and size.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for shape parameters.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.FillRectangle(DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle)">
             <summary>
-                <para> </para>
+                <para>Draws a filled custom rectangle.
+</para>
             </summary>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/>descendant that sets the shape's color and thickness.
+
+
             </param>
             <param name="bounds">
-		 
+		Sets the shape's location and size.
+
             </param>
 
 
         </member>
         <member name="M:DevExpress.XtraRichEdit.API.Layout.PageCanvas.FillRectangle(DevExpress.XtraRichEdit.RichEditBrushBase,System.Drawing.Rectangle,DevExpress.XtraRichEdit.DocumentLayoutUnit)">
             <summary>
-                <para> </para>
+                <para>Draws a filled custom rectangle.
+</para>
             </summary>
             <param name="brush">
-		 
+		The <see cref="T:DevExpress.XtraRichEdit.RichEditBrushBase"/> descendant that sets the rectangle's fill color.
+
+
             </param>
             <param name="bounds">
-		 
+		Gets the shape's location and size.
+
             </param>
             <param name="unit">
-		 
+		Specifies measurement units for the shape parameters.
+
+
             </param>
 
 
@@ -41939,6 +42651,37 @@
 
 
         </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand">
+
+            <summary>
+                <para>A command to insert a row in a table below the currently selected row.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the InsertTableRowBelowCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object implementing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface, specifying the command owner.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.InsertTableRowBelowCommand.Id">
+            <summary>
+                <para>Gets the ID of the InsertTableRowBelowCommand.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.XtraRichEdit.EditStyleFormShowingEventHandler">
 
             <summary>
@@ -42274,7 +43017,7 @@
         </member>
         <member name="P:DevExpress.XtraRichEdit.PrintingOptions.DocVariableFieldsUpdateBeforePrint">
             <summary>
-                <para>Gets or sets whether fields are automatically updated before a document is printed.
+                <para>Gets or sets whether DOCVARIABLE fields are automatically updated before a document is printed.
 </para>
             </summary>
             <value><b>true</b>, to update fields before a document is printed; otherwise, <b>false</b>.
@@ -42349,6 +43092,37 @@
 </para>
             </summary>
             <value><b>true</b>, to update fields before a document is printed; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand">
+
+            <summary>
+                <para>A command to insert a row in a table above the currently selected row.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand.#ctor(DevExpress.XtraRichEdit.IRichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the InsertTableRowAboveCommand class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		An object implementing the <b>DevExpress.XtraRichEdit.IRichEditControl</b> interface, specifying the command owner.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.Commands.InsertTableRowAboveCommand.Id">
+            <summary>
+                <para>Gets the ID of the InsertTableRowAboveCommand.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> member, identifying the command.
 </value>
 
 
@@ -45603,6 +46377,26 @@ Currently not supported.
             </summary>
 
         </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPageNumbering.ContinueNumbering">
+            <summary>
+                <para>Gets whether the numbering should be continued from the previous section or should start from the beginning.
+</para>
+            </summary>
+            <value><b>True</b>, to continue numbering; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPageNumbering.FirstPageNumber">
+            <summary>
+                <para>Gets or sets an initial number from which the numbering starts.
+</para>
+            </summary>
+            <value>An Int value that is the first page number.
+</value>
+
+
+        </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPageNumbering.NumberingFormat">
             <summary>
                 <para>Gets or sets the format used to display page numbers.
@@ -46932,6 +47726,28 @@ Currently not supported.
 
 
         </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.TableRow.GridAfter">
+            <summary>
+                <para>Gets the number of columns which shall be left after the last cell of this table row.
+</para>
+            </summary>
+            <value>An integer that is the remaining number of columns.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.TableRow.GridBefore">
+            <summary>
+                <para>Gets the number of columns which must be skipped before the first cell.
+</para>
+            </summary>
+            <value>An integer that is the number of columns which must be skipped.
+
+</value>
+
+
+        </member>
         <member name="P:DevExpress.XtraRichEdit.API.Native.TableRow.Height">
             <summary>
                 <para>Gets or sets the height of the current row.
@@ -47489,6 +48305,16 @@ Currently not supported.
 </para>
             </summary>
             <value>A <see cref="T:System.Single"/> value that is the distance in points.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.TableCell.ColumnSpan">
+            <summary>
+                <para>Gets the number of columns that the cell spans.
+</para>
+            </summary>
+            <value>An integer that is the number of columns.
 </value>
 
 
@@ -49708,9 +50534,11 @@ Currently not supported.
         </member>
         <member name="P:DevExpress.XtraRichEdit.CalculateDocumentVariableEventArgs.FieldLocked">
             <summary>
-                <para> </para>
+                <para>Gets or sets a <i>locked</i> attribute to the field for which the event occurs.
+</para>
             </summary>
-            <value> </value>
+            <value><b>True</b>, if the <see cref="P:DevExpress.XtraRichEdit.API.Native.Field.Locked"/> property of the field that triggers an event, is <b>true</b>; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -49732,6 +50560,14 @@ Currently not supported.
             </summary>
             <value><b>true</b> to retain the last paragraph of the inserted document; otherwise, <b>false</b>.
 </value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.CalculateDocumentVariableEventArgs.PreserveInsertedContentFormatting">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
 
 
         </member>
@@ -49959,9 +50795,11 @@ Currently not supported.
         </member>
         <member name="P:DevExpress.XtraRichEdit.Commands.UpdateFieldsCommand.ImageName">
             <summary>
-                <para> </para>
+                <para>Gets the name of the resource image corresponding to <see cref="T:DevExpress.XtraRichEdit.Commands.UpdateFieldCommand"/>.
+</para>
             </summary>
-            <value> </value>
+            <value>A string value, specifying the name of an image contained in resources. 
+</value>
 
 
         </member>

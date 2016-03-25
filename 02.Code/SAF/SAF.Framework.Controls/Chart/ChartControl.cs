@@ -67,6 +67,8 @@ namespace SAF.Framework.Controls.Chart
             this.bbiPointer.Enabled = isNotNull;
             this.bbiPointer.Down = isNotNull && this.ActiveDrawArea.ActiveDrawTool == DrawToolType.Pointer;
 
+            this.bbiLane.Enabled = isNotNull;
+            this.bbiLane.Down = isNotNull && this.ActiveDrawArea.ActiveDrawTool == DrawToolType.Lane;
 
             this.bbiUndo.Enabled = isNotNull && this.ActiveDrawArea.CanUndo;
             this.bbiRedo.Enabled = isNotNull && this.ActiveDrawArea.CanRedo;
