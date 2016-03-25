@@ -638,10 +638,10 @@
     <value>0, 0</value>
   </data>
   <data name="picLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 70</value>
+    <value>230, 70</value>
   </data>
   <data name="picLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
+    <value>Zoom</value>
   </data>
   <data name="picLogo.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -792,18 +792,6 @@
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>920, 395</value>
-  </data>
-  <data name="&gt;&gt;galleryControlGallery1.Name" xml:space="preserve">
-    <value>galleryControlGallery1</value>
-  </data>
-  <data name="&gt;&gt;galleryControlGallery1.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.Gallery.GalleryControlGallery, DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;galleryControlGallery2.Name" xml:space="preserve">
-    <value>galleryControlGallery2</value>
-  </data>
-  <data name="&gt;&gt;galleryControlGallery2.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.Gallery.GalleryControlGallery, DevExpress.XtraBars.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>HelpControl</value>

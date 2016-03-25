@@ -36,7 +36,7 @@ namespace SAF.Framework.Component
 
             this.cbxSkins.Properties.Items.AddRange(
                 new string[] {
-                    "Office 2013",    
+                    "Office 2013",
                     "Office 2013 Light Gray",
                     "Office 2013 Dark Gray"
                 });
@@ -113,12 +113,11 @@ namespace SAF.Framework.Component
 
         private void lblChangeUser_Click(object sender, EventArgs e)
         {
-            var shell = (ApplicationService.Current.MainForm as IShell);
-            shell.RibbonControl.HideApplicationButtonContentControl();
-
+            if (!MessageService.AskQuestionFormatted("确定要切换用户账户吗?{0}注:切换用户账户时系统会关闭所有已打开的界面.", Environment.NewLine)) return;
             Application.DoEvents();
 
-            if (!MessageService.AskQuestionFormatted("确定要切换用户账户吗?{0}注:切换用户账户时系统会关闭所有已打开的界面.", Environment.NewLine)) return;
+            var shell = (ApplicationService.Current.MainForm as IShell);
+            shell.RibbonControl.HideApplicationButtonContentControl();
 
             Application.DoEvents();
             shell.Relogin();

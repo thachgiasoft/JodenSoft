@@ -38,6 +38,17 @@ namespace SAF.Foundation
         public const string FileVersion = "1.0.0.0";
 
         /// <summary>
+        /// 公司图片
+        /// </summary>
+        public static Image CompanyImage
+        {
+            get
+            {
+                return SAF.Foundation.Properties.Resources.CompanyImage;
+            }
+        }
+
+        /// <summary>
         /// 应用程序图片
         /// </summary>
         public static Image ApplicationImage

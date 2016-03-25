@@ -94,7 +94,7 @@ namespace SAF.Framework.Component
             this.galleryControl2.DesignGalleryItemIndex = 0;
             resources.ApplyResources(this.galleryControl2, "galleryControl2");
             // 
-            // galleryControlGallery1
+            // 
             // 
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font")));
             this.galleryControl2.Gallery.Appearance.ItemCaptionAppearance.Disabled.Options.UseFont = true;
@@ -157,7 +157,7 @@ namespace SAF.Framework.Component
             this.galleryControl1.DesignGalleryItemIndex = 0;
             resources.ApplyResources(this.galleryControl1, "galleryControl1");
             // 
-            // galleryControlGallery2
+            // 
             // 
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font = ((System.Drawing.Font)(resources.GetObject("galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Font")));
             this.galleryControl1.Gallery.Appearance.ItemCaptionAppearance.Disabled.Options.UseFont = true;

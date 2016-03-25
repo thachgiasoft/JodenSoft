@@ -63,14 +63,14 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(440, 188);
+            this.layoutControl1.Size = new System.Drawing.Size(620, 462);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(368, 144);
+            this.btnCancel.Location = new System.Drawing.Point(548, 418);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(60, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -80,7 +80,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(304, 144);
+            this.btnOK.Location = new System.Drawing.Point(484, 418);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(60, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -90,19 +90,19 @@
             // 
             // picSign
             // 
-            this.picSign.Location = new System.Drawing.Point(249, 12);
+            this.picSign.Location = new System.Drawing.Point(63, 220);
             this.picSign.Name = "picSign";
             this.picSign.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picSign.Size = new System.Drawing.Size(179, 128);
+            this.picSign.Size = new System.Drawing.Size(545, 194);
             this.picSign.StyleController = this.layoutControl1;
             this.picSign.TabIndex = 5;
             // 
             // picUser
             // 
-            this.picUser.Location = new System.Drawing.Point(39, 12);
+            this.picUser.Location = new System.Drawing.Point(63, 12);
             this.picUser.Name = "picUser";
             this.picUser.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picUser.Size = new System.Drawing.Size(179, 128);
+            this.picUser.Size = new System.Drawing.Size(545, 204);
             this.picUser.StyleController = this.layoutControl1;
             this.picUser.TabIndex = 4;
             // 
@@ -113,15 +113,14 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2,
             this.layoutControlItem4,
             this.emptySpaceItem1,
             this.layoutControlItem3,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(440, 188);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(620, 462);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -130,71 +129,67 @@
             this.layoutControlItem1.CustomizationFormText = "照片";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(210, 132);
-            this.layoutControlItem1.Text = "照片";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(24, 14);
+            this.layoutControlItem1.Size = new System.Drawing.Size(600, 208);
+            this.layoutControlItem1.Text = "用户照片";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.picSign;
             this.layoutControlItem2.CustomizationFormText = "签名";
-            this.layoutControlItem2.Location = new System.Drawing.Point(210, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 208);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(210, 132);
-            this.layoutControlItem2.Text = "签名";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(24, 14);
+            this.layoutControlItem2.Size = new System.Drawing.Size(600, 198);
+            this.layoutControlItem2.Text = "用户签名";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnCancel;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(356, 132);
+            this.layoutControlItem4.Location = new System.Drawing.Point(536, 406);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(64, 26);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 132);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 406);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(292, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(472, 26);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnOK;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(292, 132);
+            this.layoutControlItem3.Location = new System.Drawing.Point(472, 406);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(64, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(64, 26);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 158);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 432);
             this.emptySpaceItem2.MaxSize = new System.Drawing.Size(0, 10);
             this.emptySpaceItem2.MinSize = new System.Drawing.Size(10, 10);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(420, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(600, 10);
             this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ChangePicture
@@ -203,7 +198,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(440, 188);
+            this.ClientSize = new System.Drawing.Size(620, 462);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

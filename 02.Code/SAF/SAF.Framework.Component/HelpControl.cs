@@ -31,7 +31,8 @@ namespace SAF.Framework.Component
 
         protected override void OnInit()
         {
-            this.picLogo.Image = AssemblyInfoHelper.ApplicationImage;
+            this.picLogo.Image = AssemblyInfoHelper.CompanyImage;
+            this.picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             InitVersionInfo();
         }
 
@@ -77,7 +78,7 @@ namespace SAF.Framework.Component
 
         private void galleryControlGallery1_ItemClick_1(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
         {
-            fmFileUpgrade.ShowForm();
+           //Éý¼¶
         }
 
         private void lblProductKey_Click(object sender, EventArgs e)

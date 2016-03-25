@@ -59,7 +59,7 @@
             this.tableLayoutPanel.Controls.Add(this.txtWarningMessage, 0, 6);
             this.tableLayoutPanel.Controls.Add(this.btnEnter, 1, 6);
             this.tableLayoutPanel.Controls.Add(this.btnCopyVersionInfo, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.picLogo, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.picLogo, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -121,7 +121,6 @@
             this.txtProductDetailInfo.Properties.ReadOnly = true;
             this.txtProductDetailInfo.Size = new System.Drawing.Size(503, 152);
             this.txtProductDetailInfo.TabIndex = 5;
-            this.txtProductDetailInfo.UseOptimizedRendering = true;
             // 
             // txtWarningMessage
             // 
@@ -155,11 +154,12 @@
             // picLogo
             // 
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
-            this.picLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picLogo.Location = new System.Drawing.Point(512, 3);
+            this.tableLayoutPanel.SetColumnSpan(this.picLogo, 2);
+            this.picLogo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picLogo.Location = new System.Drawing.Point(373, 3);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(91, 67);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLogo.Size = new System.Drawing.Size(230, 67);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogo.TabIndex = 9;
             this.picLogo.TabStop = false;
             // 

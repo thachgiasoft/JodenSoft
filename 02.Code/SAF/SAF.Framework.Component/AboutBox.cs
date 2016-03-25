@@ -36,7 +36,8 @@ namespace SAF.Framework.Component
 
             this.txtWarningMessage.Text = AssemblyInfoHelper.WarningMessage;
 
-            this.picLogo.Image = AssemblyInfoHelper.ApplicationImage;
+            this.picLogo.Image = AssemblyInfoHelper.CompanyImage;
+            this.picLogo.SizeMode = PictureBoxSizeMode.Zoom;
 
             if (subSystemInfos != null)
                 SubSystemInfos.AddRange(subSystemInfos.OrderBy(p => p.OrderIndex));
