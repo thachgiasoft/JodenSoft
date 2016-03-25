@@ -54,15 +54,12 @@ ORDER BY [ParentId],[MenuOrder] ";
 
         protected override void OnQuery(string condition, object[] parameterValues)
         {
-            base.OnQuery(condition, parameterValues);
-
             const string sql = @"SELECT Iden,[Name], [IsSystem], [IsAdministrator] FROM [dbo].[sysRole] WITH(nolock) WHERE [IsDeleted]=0 AND {0}";
             this.IndexEntitySet.Query(sql.FormatWith(condition));
         }
 
         protected override void OnQueryChild(object key)
         {
-            base.OnQueryChild(key);
             const string sql = "SELECT * FROM [dbo].[sysRole] WITH(nolock) WHERE Iden=:Iden";
             this.MainEntitySet.Query(sql, key);
 

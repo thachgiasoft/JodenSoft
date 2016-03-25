@@ -66,7 +66,12 @@ namespace SAF.SystemModule
             this.treeMenu.Enabled = true;
             this.treeMenu.OptionsBehavior.Editable = false;
 
-            this.grvIndex.BestFitColumns();
+            try
+            {
+                this.grvIndex.BestFitColumns();
+            }
+            catch
+            { }
         }
 
         protected override void OnInitBinding()
