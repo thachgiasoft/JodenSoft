@@ -57,6 +57,7 @@ namespace SAF.Framework.ViewModel
                 OnEditStateChanged();
             }
         }
+        public bool IsBusy { get; set; }
         /// <summary>
         /// 
         /// </summary>

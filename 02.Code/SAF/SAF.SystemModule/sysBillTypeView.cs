@@ -90,7 +90,11 @@ namespace SAF.SystemModule
                     item.OptionsColumn.AllowEdit = true;
                 }
             }
+        }
 
+        protected override void OnAfterQuery()
+        {
+            base.OnAfterQuery();
             this.grvIndex.BestFitColumns();
             this.grvOperateRight.BestFitColumns();
             this.grvDataRight.BestFitColumns();

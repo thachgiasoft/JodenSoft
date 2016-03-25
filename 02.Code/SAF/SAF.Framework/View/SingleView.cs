@@ -174,8 +174,17 @@ namespace SAF.Framework.View
         /// </summary>
         public void AddNew()
         {
-            OnAddNew();
-            RefreshUI();
+            this.ViewModel.IsBusy = true;
+            try
+            {
+                OnAddNew();
+            }
+            finally
+            {
+                this.ViewModel.IsBusy = false;
+
+                RefreshUI();
+            }
         }
 
         /// <summary>
@@ -389,19 +398,20 @@ namespace SAF.Framework.View
         {
             if (ViewModel == null) return;
 
-            OnIndexRowChange();
-            RefreshUI();
+            if (!ViewModel.IsBusy)
+            {
+                OnIndexRowChange();
+                RefreshUI();
+            }
         }
 
         protected virtual void OnIndexRowChange()
         {
             if (ViewModel == null) return;
 
-            if (!ViewModel.IndexEntitySet.IsBusy)
-            {
-                var key = ViewModel.IndexEntitySet.CurrentKey;
-                ViewModel.QueryChild(key);
-            }
+            var key = ViewModel.IndexEntitySet.CurrentKey;
+            ViewModel.QueryChild(key);
+
         }
         /// <summary>
         /// 送审
@@ -626,19 +636,26 @@ namespace SAF.Framework.View
         {
             if (ViewModel != null)
             {
-                this.ViewModel.IndexEntitySet.CurrentPageIndex = this.pcMain.CurrentPageIndex;
+                this.ViewModel.IsBusy = true;
+                try
+                {
+                    this.ViewModel.IndexEntitySet.CurrentPageIndex = this.pcMain.CurrentPageIndex;
 
-                this.pcMain.ClearQueryArgs();
-                this.pcMain.SaveQueryArgs(QueryArgs_Condition, condition);
-                this.pcMain.SaveQueryArgs(QueryArgs_Args, args);
+                    this.pcMain.ClearQueryArgs();
+                    this.pcMain.SaveQueryArgs(QueryArgs_Condition, condition);
+                    this.pcMain.SaveQueryArgs(QueryArgs_Args, args);
 
-                condition = CalcCondition(condition);
-                ViewModel.Query(condition, args);
+                    condition = CalcCondition(condition);
+                    ViewModel.Query(condition, args);
+                    this.ViewModel.IsBusy = false;
+                }
+                finally
+                {
+                    OnAfterQuery();
 
-                OnAfterQuery();
-
-                RefreshPageControl();
-                RefreshUI();
+                    RefreshPageControl();
+                    RefreshUI();
+                }
             }
         }
 

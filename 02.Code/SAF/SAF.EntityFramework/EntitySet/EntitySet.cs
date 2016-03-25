@@ -219,17 +219,9 @@ namespace SAF.EntityFramework
         /// </summary>
         public override void DeleteCurrent()
         {
-            this.IsBusy = true;
-            try
+            if (this.CurrentEntity != null)
             {
-                if (this.CurrentEntity != null)
-                {
-                    DeleteEntity(this.CurrentEntity);
-                }
-            }
-            finally
-            {
-                this.IsBusy = false;
+                DeleteEntity(this.CurrentEntity);
             }
         }
 

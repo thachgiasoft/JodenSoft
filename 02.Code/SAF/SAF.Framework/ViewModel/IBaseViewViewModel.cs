@@ -25,6 +25,10 @@ namespace SAF.Framework.ViewModel
         /// <summary>
         /// 
         /// </summary>
+        bool IsBusy { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         event EventHandler EditStatusChanged;
     }
 }

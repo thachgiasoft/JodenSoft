@@ -150,10 +150,6 @@ namespace SAF.EntityFramework
         /// <summary>
         /// 
         /// </summary>
-        bool IsBusy { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
         /// <returns></returns>
         IEntitySetBase GetChanges();
         /// <summary>

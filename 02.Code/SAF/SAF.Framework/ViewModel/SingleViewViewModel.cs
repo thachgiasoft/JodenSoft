@@ -236,32 +236,24 @@ namespace SAF.Framework.ViewModel
 
         protected virtual void OnAddNew()
         {
-            this.IndexEntitySet.IsBusy = true;
-            try
+            if (!this.IndexUseForGroup)
+                this.IndexEntitySet.AddNew();
+
+            this.MainEntitySet.AddNew();
+
+            foreach (var child in this.MainEntitySet.ChildEntitySets)
             {
-                if (!this.IndexUseForGroup)
-                    this.IndexEntitySet.AddNew();
-
-                this.MainEntitySet.AddNew();
-
-                foreach (var child in this.MainEntitySet.ChildEntitySets)
-                {
-                    if (!child.IsReadOnly)
-                        child.Clear();
-                }
-
-                this.SyncIndexEntitySet();
+                if (!child.IsReadOnly)
+                    child.Clear();
             }
-            finally
-            {
-                this.IndexEntitySet.IsBusy = false;
-            }
+
+            this.SyncIndexEntitySet();
         }
 
         public void Edit()
         {
             this.EditState = EditState.Edit;
-            OnEdit();       
+            OnEdit();
         }
 
         protected virtual void OnEdit()
@@ -271,19 +263,9 @@ namespace SAF.Framework.ViewModel
 
         public void Delete()
         {
-            this.IndexEntitySet.IsBusy = true;
-            this.MainEntitySet.IsBusy = true;
-            try
-            {
-                this.EditState = EditState.Browse;
-                OnDelete();
-                Save();
-            }
-            finally
-            {
-                this.IndexEntitySet.IsBusy = false;
-                this.MainEntitySet.IsBusy = false;
-            }
+            this.EditState = EditState.Browse;
+            OnDelete();
+            Save();
         }
 
         protected virtual void OnDelete()
@@ -304,7 +286,7 @@ namespace SAF.Framework.ViewModel
         public void Cancel()
         {
             this.EditState = EditState.Browse;
-            OnCancel();         
+            OnCancel();
         }
 
         protected virtual void OnCancel()

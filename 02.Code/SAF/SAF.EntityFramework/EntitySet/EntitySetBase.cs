@@ -204,16 +204,9 @@ namespace SAF.EntityFramework
                 throw new ArgumentNullException("bindingSource");
             }
 
-            this.IsBusy = true;
-            try
-            {
-                this._bindingSource = bindingSource;
-                SetupBindingSource();
-            }
-            finally
-            {
-                this.IsBusy = false;
-            }
+            this._bindingSource = bindingSource;
+            SetupBindingSource();
+
         }
         /// <summary>
         /// 设置内部的CollectionViewSource
@@ -235,8 +228,6 @@ namespace SAF.EntityFramework
         /// <param name="parameterValues">脚本参数</param>
         public void Query(string commandText, params object[] parameterValues)
         {
-            if (this.IsBusy) return;
-
             DataSet ds;
 
             if (this.PageSize <= 0)
@@ -439,11 +430,6 @@ namespace SAF.EntityFramework
         {
             RejectChanges();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsBusy { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -468,7 +454,6 @@ namespace SAF.EntityFramework
 
             this._table.ImportRow(entity.DataRowView.Row);
         }
-
 
         /// <summary>
         /// 
@@ -671,7 +656,7 @@ namespace SAF.EntityFramework
         {
             get;
         }
-        
+
         public virtual bool TableIsExists()
         {
             return DataPortal.TableIsExists(this.ConnectionName, this.TableName);
